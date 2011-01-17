@@ -20,13 +20,13 @@
 	xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1"
 	xmlns:s="ddi:studyunit:3_1"
 	xmlns:pr="ddi:profile:3_1"
-	xmlns:ns1="ddi:instance:3_1"
+	xmlns:ddi="ddi:instance:3_1"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
 	<xsl:variable name="lang">sv</xsl:variable>
 	
-	<xsl:template match="/DDIInstance">
+	<xsl:template match="/ddi:DDIInstance">
 		<html>
 			<head>
 				<title><xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/></title>
@@ -38,9 +38,16 @@
 				
 				<h3>Abstract</h3>
 				<p><xsl:value-of select="s:StudyUnit/s:Abstract/r:Content[@xml:lang=$lang]"/></p>
+
+				<h3>Coverage</h3>
+				<xsl:for-each select="s:StudyUnit/r:Coverage/r:TemporalCoverage">
+					<p><xsl:value-of select="r:ReferenceDate/r:StartDate"/> - <xsl:value-of select="r:ReferenceDate/r:EndDate"/></p>
+			    </xsl:for-each>
 				
 				<h3>Universe</h3>
-				<p><xsl:value-of select="s:StudyUnit/c:ConceptualComponent/c:UniverseScheme/c:Universe/c:HumanReadable[@xml:lang=$lang]"/></p>
+				<xsl:for-each select="s:StudyUnit/c:ConceptualComponent/c:UniverseScheme/c:Universe">
+					<p><xsl:value-of select="c:HumanReadable[@xml:lang=$lang]"/></p>
+			    </xsl:for-each>
 			    
 			    <h3>Questions</h3>
 			    <xsl:for-each select="s:StudyUnit/d:DataCollection/d:QuestionScheme/d:QuestionItem">
