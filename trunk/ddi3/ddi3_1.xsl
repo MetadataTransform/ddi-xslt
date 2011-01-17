@@ -34,10 +34,17 @@
 			</head>
 			<body>
 				<h1><xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/></h1>
+				<strong><xsl:value-of select="s:StudyUnit/r:Citation/r:AlternateTitle[@xml:lang=$lang]"/></strong>
+				
 				<h2><xsl:value-of select="s:StudyUnit/@id"/></h2>
 				
 				<h3>Abstract</h3>
 				<p><xsl:value-of select="s:StudyUnit/s:Abstract/r:Content[@xml:lang=$lang]"/></p>
+
+				<h3>Creator</h3>
+				<xsl:for-each select="s:StudyUnit/r:Citation/r:Creator[@xml:lang=$lang]">
+					<p><xsl:value-of select="."/>, <em><xsl:value-of select="@affiliation"/></em></p>
+			    </xsl:for-each>
 
 				<h3>Coverage</h3>
 				<xsl:for-each select="s:StudyUnit/r:Coverage/r:TemporalCoverage">
