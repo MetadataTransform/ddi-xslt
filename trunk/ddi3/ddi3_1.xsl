@@ -56,6 +56,10 @@
 					<p><xsl:value-of select="c:HumanReadable[@xml:lang=$lang]"/></p>
 			    </xsl:for-each>
 			    
+			    <xsl:apply-templates select="s:StudyUnit/r:SeriesStatement" />
+			    
+			    <hr />
+			    
 			    <h3>Questions</h3>
 			    <xsl:for-each select="s:StudyUnit/d:DataCollection/d:QuestionScheme/d:QuestionItem">
 			    	<div class="question">
@@ -68,4 +72,12 @@
 			</body>
 		</html>	
 	</xsl:template>
+	
+	<xsl:template match="r:SeriesStatement">
+		<h3>Series</h3>
+		<strong>Name: </strong><xsl:value-of select="r:SeriesName[@xml:lang=$lang]"/><br />
+		<xsl:value-of select="r:SeriesDescription[@xml:lang=$lang]"/>
+		
+	</xsl:template>
+	
 </xsl:stylesheet>
