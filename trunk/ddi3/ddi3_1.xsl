@@ -61,14 +61,8 @@
 			    <hr />
 			    
 			    <h3>Questions</h3>
-			    <xsl:for-each select="s:StudyUnit/d:DataCollection/d:QuestionScheme/d:QuestionItem">
-			    	<div class="question">
-			    	<strong class="questionName" style="width:50px"><xsl:value-of select="d:QuestionItemName[@xml:lang=$lang]"/></strong>
-			    	<p class="questionText">
-			    		<xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
-			    	</p>
-			    	</div>
-			    </xsl:for-each>
+			    <xsl:apply-templates select="s:StudyUnit/d:DataCollection/d:QuestionScheme" />
+
 			</body>
 		</html>	
 	</xsl:template>
@@ -77,7 +71,35 @@
 		<h3>Series</h3>
 		<strong>Name: </strong><xsl:value-of select="r:SeriesName[@xml:lang=$lang]"/><br />
 		<xsl:value-of select="r:SeriesDescription[@xml:lang=$lang]"/>
-		
 	</xsl:template>
-	
+
+	<xsl:template match="d:QuestionScheme">
+    	<ul class="questions">
+	    	<xsl:for-each select="child::*">
+		    	<li><xsl:apply-templates select="." /></li>
+	    	</xsl:for-each>
+    	</ul>
+	</xsl:template>
+
+	<xsl:template match="d:QuestionItem">
+    	<li class="question">
+	    	<strong class="questionName" style="width:50px"><xsl:value-of select="d:QuestionItemName[@xml:lang=$lang]"/></strong>
+	    	<xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
+    	</li>
+	</xsl:template>
+
+	<xsl:template match="d:MultipleQuestionItem">
+    	<li class="question">
+	    	<strong class="questionName" style="width:50px"><xsl:value-of select="d:MultipleQuestionItemName[@xml:lang=$lang]"/></strong>
+	    	<xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
+	    	<ul>
+			    	<xsl:apply-templates select="d:SubQuestions" />
+	    	</ul>
+    	</li>
+	</xsl:template>	
+
+	<xsl:template match="d:SubQuestions">
+    	<xsl:apply-templates select="d:QuestionItem" />
+    	<xsl:apply-templates select="d:SubQuestions" />
+	</xsl:template>		
 </xsl:stylesheet>
