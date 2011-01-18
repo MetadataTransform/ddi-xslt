@@ -40,7 +40,7 @@ National SOM
 
 Första mätningen skedde genom samverkan mellan ett par forskningsprojekt vid Göteborgs universitet, men intresset för resultaten blev stort och SOM-institutet etablerades med ansvar att göra en ny undersökning varje höst. Idag är tidsserien unik i sitt slag.
 
-Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och består sedan 2009 av tre parallella delundersökningar. Ett stort antal frågor om politik, samhälle och medier samt social bakgrund finns med i alla undersökningar, men frågeformulären har något olika inriktningar. </r:SeriesDescription>
+Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och består sedan 2009 av tre parallella delundersökningar. Ett stort antal frågor om politik, samhälle och medier samt social bakgrund finns med i alla undersökningar, men frågeformulären har något olika inriktningar.</r:SeriesDescription>
         </r:SeriesStatement>
         <s:Purpose id="purpose1">
             <r:Content xml:lang="sv">Ej tillgänglig</r:Content>
@@ -90,11 +90,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Nyheter i lokalradion</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>News in local radio</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5042" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">659</r:UserID>
@@ -103,11 +98,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Aktuellt i TV</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>"Aktuellt" (Swedish TV, SVT)</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -157,7 +147,7 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     </d:QuestionText>
                     <d:QuestionText translatable="true" translated="true" xml:lang="en">
                         <d:LiteralText>
-                            <d:Text>How often do you usually read the following evening papers?</d:Text>
+                            <d:Text>How often do you usually read the following evening newspapers?</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -245,11 +235,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Prenumererar du eller någon annan i ditt hushåll på denna tidning?</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Do you or somebody else in your household subscribe to this newspaper?</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5549" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1460</r:UserID>
@@ -275,11 +260,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Läser hos bekant</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Read in friends' home</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5219" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">931</r:UserID>
@@ -288,11 +268,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Lånar av bekant</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Borrow from friends</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -305,11 +280,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Läser på arbetet/skolan</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Read at work/school</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5221" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">933</r:UserID>
@@ -318,11 +288,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Läser på bibliotek</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Read at library</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -335,11 +300,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Köper lösnummer</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Buy single issues</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5223" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">4804</r:UserID>
@@ -350,11 +310,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Annat sätt (ange vilket):</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Other way (state which):</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5550" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1455</r:UserID>
@@ -363,11 +318,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Ungefär hur lång tid brukar du ägna åt din lokala morgontidning en genomsnittlig vardag? </d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Roughly how much time do you usually spend reading your local morning newspaper on a typical weekday?</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -467,7 +417,7 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     </d:QuestionText>
                     <d:QuestionText translatable="true" translated="true" xml:lang="en">
                         <d:LiteralText>
-                            <d:Text>Generally</d:Text>
+                            <d:Text>General</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -720,11 +670,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Känt folk på orten</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Well known local people</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5245" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">972</r:UserID>
@@ -853,6 +798,11 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Samlevnadsfrågor</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
+                        <d:LiteralText>
+                            <d:Text>Human relations</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -1495,11 +1445,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Polisen</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Police</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5301" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1002</r:UserID>
@@ -1512,7 +1457,7 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     </d:QuestionText>
                     <d:QuestionText translatable="true" translated="true" xml:lang="en">
                         <d:LiteralText>
-                            <d:Text>Health care</d:Text>
+                            <d:Text>The health care</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -1527,7 +1472,7 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     </d:QuestionText>
                     <d:QuestionText translatable="true" translated="true" xml:lang="en">
                         <d:LiteralText>
-                            <d:Text>Defence</d:Text>
+                            <d:Text>The defence</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -1542,7 +1487,7 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     </d:QuestionText>
                     <d:QuestionText translatable="true" translated="true" xml:lang="en">
                         <d:LiteralText>
-                            <d:Text>Parliament</d:Text>
+                            <d:Text>The Parliament</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -1557,7 +1502,7 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     </d:QuestionText>
                     <d:QuestionText translatable="true" translated="true" xml:lang="en">
                         <d:LiteralText>
-                            <d:Text>Banks</d:Text>
+                            <d:Text>The banks</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -1590,11 +1535,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>De fackliga organisationerna</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Trade unions</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5308" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1009</r:UserID>
@@ -1620,11 +1560,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Storföretagen</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Major companies</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5310" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1014</r:UserID>
@@ -1633,11 +1568,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Hur pass intresserad är du i allmänhet av politik?</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Generally speaking, how interested are you in politics?</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -1663,11 +1593,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Nedanstående lista omfattar ett antal förslag som förekommit i den politiska debatten. Vilken är din åsikt om vart och ett av dem?</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>The following list contains a number of proposals which have been made in the political debate. What is your opinion about each of them?</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -1835,11 +1760,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Moderata samlingspartiet</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Moderate Party</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5325" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">719</r:UserID>
@@ -1848,11 +1768,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Vänsterpartiet kommunisterna</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Left Party Communists</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -1893,11 +1808,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Miljöpartiet - de gröna</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Green Party</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -2285,11 +2195,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Vänsterpartiet kommunisterna</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Left Party Communists</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5351" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">730</r:UserID>
@@ -2355,11 +2260,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Moderata samlingspartiet</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Moderate Party</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5356" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">722</r:UserID>
@@ -2368,11 +2268,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Miljöpartiet - de gröna</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Green Party</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -2395,11 +2290,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Anser du dig vara en övertygad anhängare av detta parti?</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Do you consider yourself to be a convinced supporter of this party?</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5571" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1517</r:UserID>
@@ -2420,11 +2310,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Sträva efter en hög ekonomisk tillväxttakt</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Strive for a high rate of economic growth</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5360" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">739</r:UserID>
@@ -2433,11 +2318,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Satsa på ett starkt militärt försvar</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Invest in a strong military defense</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -2458,11 +2338,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Satsa mer resurser på att bevara den svenska landskapsmiljön</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Invest more resources to preserve the Swedish landscape environment</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -2493,11 +2368,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Bekämpa prisstegringarna</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Fight price increases</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -2535,11 +2405,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Utveckla ett samhälle som är mindre opersonligt och mer mänskligt</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Develop a society that is less impersonal and more humane</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5369" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">748</r:UserID>
@@ -2563,11 +2428,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Utveckla ett samhälle där våra idéer och tankar betyder mer än pengar</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Develop a society where our ideas and thoughts mean more than money</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -2635,11 +2495,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Överföra banker och försäkringsbolag i samhällets ägo</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Transferring banks and insurance companies into public ownership</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5375" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1027</r:UserID>
@@ -2693,11 +2548,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>I dagens samhälle måste staten ingripa och reglera för att skapa trygghet för individerna</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>In today's society, the state must intervene and regulate to provide security for individuals</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -2765,11 +2615,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Stoppa kärnkraften omedelbart</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Stop nuclear power immediately</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5384" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">3212</r:UserID>
@@ -2820,11 +2665,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Har ingen bestämd åsikt i frågan</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Has no definite opinion on the matter</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5389" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1146</r:UserID>
@@ -2833,11 +2673,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Har du en bestämd uppfattning i denna fråga eller är du mera tveksam?</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Is your opinion on this issue definite or do you feel a bit uncertain?</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -2878,11 +2713,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Fler cancerfall och andra sjukdomar om vi använder kärnkraften</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>More cases of cancer and other diseases if we use nuclear power</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -2993,11 +2823,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Miljögrupper</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Environmental groups</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -3225,11 +3050,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Enligt din åsikt, hur stor är risken att Sverige kommer att bli indraget i ett krig före år 2000?</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>In your opinion, how big is the risk that Sweden will be drawn into a war before the year 2000?</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5579" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">3411</r:UserID>
@@ -3267,7 +3087,7 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     </d:QuestionText>
                     <d:QuestionText translatable="true" translated="true" xml:lang="en">
                         <d:LiteralText>
-                            <d:Text>United States</d:Text>
+                            <d:Text>The United States</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -3307,7 +3127,7 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     </d:QuestionText>
                     <d:QuestionText translatable="true" translated="true" xml:lang="en">
                         <d:LiteralText>
-                            <d:Text>United States</d:Text>
+                            <d:Text>The United States</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -3333,11 +3153,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Sverige bör satsa ökade resurser på att stärka det militära försvaret</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Sweden should invest more resources on strengthening the military defense</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -3395,11 +3210,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Sverige bör minska biståndet till U-länderna</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Sweden should reduce aid to developing countries</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5425" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">3416</r:UserID>
@@ -3448,11 +3258,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Sverige bör satsa på att skapa en kärnvapenfri zon i Norden i såväl krig som fred</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Sweden should focus on creating a nuclear-free zone in the Nordic countries in both war and peace</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -3530,11 +3335,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>De fackliga organisationerna</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Trade unions</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5434" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">774</r:UserID>
@@ -3610,11 +3410,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>De fackliga organisationerna</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Trade unions</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5439" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">774</r:UserID>
@@ -3636,11 +3431,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionItemName xml:lang="sv">37_6</d:QuestionItemName>
                     <d:QuestionItemName xml:lang="en">37_6</d:QuestionItemName>
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
-                        <d:LiteralText>
-                            <d:Text>VPK</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
                         <d:LiteralText>
                             <d:Text>VPK</d:Text>
                         </d:LiteralText>
@@ -3673,11 +3463,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Reagan i USA</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Reagan in the USA</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -3810,11 +3595,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Det är ett bra sällskap när man är ensam</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>It is a good company when you are alone</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5454" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">3439</r:UserID>
@@ -3823,11 +3603,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Jag får praktiskt användbara råd och upplysningar</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>I get practical advice and information</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -3880,11 +3655,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Jag får nya kunskaper och ideer</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>I gain new knowledge and ideas</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5460" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">3445</r:UserID>
@@ -3893,11 +3663,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Jag får bra och trevlig underhållning</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>I get good and nice entertainment</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -3950,11 +3715,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Jag kan syssla med annat samtidigt</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>I can work with other things at the same time</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5466" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1386</r:UserID>
@@ -4000,11 +3760,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Hur bor du för närvarande?</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>In what type of house do you live at the moment?</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5470" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">812</r:UserID>
@@ -4022,7 +3777,7 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionItemName xml:lang="en">45</d:QuestionItemName>
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
-                            <d:Text>Ange nedan i vilken/vilka föreningar du är medlem samt hur aktiv du är i dessa föreningar</d:Text>
+                            <d:Text>Ange nedan i vilken/vilka föreningar du är medlem samt hur aktiv du är i dessa föreningar.</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -4095,11 +3850,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Politiskt parti (även kvinno- eller ungdomsförbund)</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Political party (also women's or youth organisation)</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5477" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1328</r:UserID>
@@ -4108,11 +3858,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Annan förening</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Other organisation</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -4153,11 +3898,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Sysslat med trädgårdsarbete</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Gardening</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -4267,7 +4007,7 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     </d:QuestionText>
                     <d:QuestionText translatable="true" translated="true" xml:lang="en">
                         <d:LiteralText>
-                            <d:Text>Attended church service</d:Text>
+                            <d:Text>Attended Church service</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -4278,11 +4018,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Gått på idrottsevenemang</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Attended a sports event</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -4360,11 +4095,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Spelat teater eller musikinstrument</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Played theater or musical instruments</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5497" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">3465</r:UserID>
@@ -4400,11 +4130,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Arbetat övertid</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Worked overtime</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5500" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1308</r:UserID>
@@ -4430,11 +4155,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Vilken av de här grupperna tillhör du för närvarande?</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>To which of these groups do you currently belong?</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5502" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1396</r:UserID>
@@ -4443,11 +4163,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Vilket yrke har/hade du?</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>What is/was your occupation?</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -4525,11 +4240,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Hur väl stämmer följande påståenden in på dig och ditt arbete?</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>How well does the following statements applies to you and your work?</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5508" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">3469</r:UserID>
@@ -4550,11 +4260,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Jag har ett intressant arbete</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>I have an interesting job</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5510" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">3471</r:UserID>
@@ -4565,11 +4270,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Jag har ett arbete med hög lön</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>I have a job with high salary</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5511" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">3472</r:UserID>
@@ -4578,11 +4278,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Jag har ett arbete utan för mycket brådska och stress</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>I have a job without too much haste and stress</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -4690,11 +4385,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Extra TV-apparat</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Extra TV set</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5519" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">1415</r:UserID>
@@ -4703,11 +4393,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Text-TV</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Teletext TV</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -4735,11 +4420,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                             <d:Text>Centralantenn</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Central antenna</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
                 </d:QuestionItem>
                 <d:QuestionItem id="5522" isVersionable="true" version="1.0.0" versionDate="2011-01-17">
                     <r:UserID type="question_id">902</r:UserID>
@@ -4748,11 +4428,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Kabel-TV med satellitsändningar</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Cable TV with satellite broadcasting</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -4803,11 +4478,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Bil: märke och modell, årsmodell</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Car: brand and year produced</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
@@ -4908,11 +4578,6 @@ Riks-SOM fokuserar på tre teman - samhälle, opinion och massmedier - och best�
                     <d:QuestionText translatable="true" translated="false" xml:lang="sv">
                         <d:LiteralText>
                             <d:Text>Dansbandsmusik</d:Text>
-                        </d:LiteralText>
-                    </d:QuestionText>
-                    <d:QuestionText translatable="true" translated="true" xml:lang="en">
-                        <d:LiteralText>
-                            <d:Text>Dance band music</d:Text>
                         </d:LiteralText>
                     </d:QuestionText>
                 </d:QuestionItem>
