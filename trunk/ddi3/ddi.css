@@ -9,12 +9,24 @@ ul.questions{
 	padding-left: 30px;
 }
 
+div.questionScheme{
+	border: 1px solid #DDDDDD;
+	padding:5px;
+	margin-top:5px;	
+}
+
 .questionName{
 	font-size:0.8em;
 	font-face:monospace;
 	color:#BBBBBB;
 	margin-right:5px;
 	border: 1px solid #DDDDDD;
-	padding:1px;	
+	padding:1px;		
+}
+
+.refNr{
 	
 }
+
+li.pdf{list-style-image: url(img/pdf.png);}
+li.html{list-style-image: url(img/html.png);}

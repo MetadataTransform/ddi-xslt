@@ -37,7 +37,9 @@
 				<h1><xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/></h1>
 				<strong><xsl:value-of select="s:StudyUnit/r:Citation/r:AlternateTitle[@xml:lang=$lang]"/></strong>
 				
-				<h2><xsl:value-of select="s:StudyUnit/@id"/></h2>
+				<p class="refNr">
+				Ref. nr: <strong><xsl:value-of select="s:StudyUnit/@id"/></strong>
+				</p>
 				
 				<h3>Abstract</h3>
 				<p><xsl:value-of select="s:StudyUnit/s:Abstract/r:Content[@xml:lang=$lang]"/></p>
@@ -58,11 +60,19 @@
 			    
 			    <hr />
 			    
-			    <h3>Questions</h3>
-			    <xsl:apply-templates select="s:StudyUnit/d:DataCollection/d:QuestionScheme" />
-
+			    <xsl:apply-templates select="s:StudyUnit/d:DataCollection" />
 			</body>
 		</html>	
+	</xsl:template>
+	
+	
+	<xsl:template match="d:DataCollection">
+		<div class="dataCollection">
+			<ul class="otherMaterial">
+				<xsl:apply-templates select="r:OtherMaterial" />
+			</ul>
+			<xsl:apply-templates select="d:QuestionScheme" />
+		</div>
 	</xsl:template>
 	
 	<xsl:template match="r:Citation">
@@ -79,7 +89,7 @@
 	</xsl:template>
 
 	<xsl:template match="d:QuestionScheme">
-    	<div class="question-scheme">
+    	<div class="questionScheme">
 	    	<ul class="questions">
 		    	<xsl:for-each select="child::*">
 			    	<li><xsl:apply-templates select="." /></li>
@@ -87,6 +97,22 @@
 	    	</ul>
     	</div>
 	</xsl:template>
+
+	<xsl:template match="r:OtherMaterial">
+		<li>
+			<xsl:attribute name="class">
+				<xsl:value-of select="substring-after(r:MIMEType,'/')"/>
+			</xsl:attribute> 
+			<a>
+				<xsl:attribute name="href">
+					<xsl:value-of select="r:ExternalURLReference"/>
+				</xsl:attribute> 
+
+				<xsl:value-of select="r:Citation/r:Title[@xml:lang=$lang]"/> 
+			</a>
+		</li>	
+	</xsl:template>
+
 
 	<xsl:template match="d:QuestionItem">
     	<li class="question">
