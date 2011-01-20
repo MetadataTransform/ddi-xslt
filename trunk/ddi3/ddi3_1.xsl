@@ -31,6 +31,7 @@
 			<head>
 				<title><xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/></title>
 				<meta charset="utf-8" />
+				<link type="text/css" rel="stylesheet" media="all" href="ddi.css" />
 			</head>
 			<body>
 				<h1><xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/></h1>
@@ -41,10 +42,7 @@
 				<h3>Abstract</h3>
 				<p><xsl:value-of select="s:StudyUnit/s:Abstract/r:Content[@xml:lang=$lang]"/></p>
 
-				<h3>Creator</h3>
-				<xsl:for-each select="s:StudyUnit/r:Citation/r:Creator[@xml:lang=$lang]">
-					<p><xsl:value-of select="."/>, <em><xsl:value-of select="@affiliation"/></em></p>
-			    </xsl:for-each>
+				<xsl:apply-templates select="s:StudyUnit/r:Citation" />
 
 				<h3>Coverage</h3>
 				<xsl:for-each select="s:StudyUnit/r:Coverage/r:TemporalCoverage">
@@ -67,6 +65,13 @@
 		</html>	
 	</xsl:template>
 	
+	<xsl:template match="r:Citation">
+		<h3>Creator</h3>
+		<xsl:for-each select="r:Creator[@xml:lang=$lang]">
+			<p><xsl:value-of select="."/>, <em><xsl:value-of select="@affiliation"/></em></p>
+	    </xsl:for-each>
+	</xsl:template>
+	
 	<xsl:template match="r:SeriesStatement">
 		<h3>Series</h3>
 		<strong>Name: </strong><xsl:value-of select="r:SeriesName[@xml:lang=$lang]"/><br />
@@ -74,11 +79,13 @@
 	</xsl:template>
 
 	<xsl:template match="d:QuestionScheme">
-    	<ul class="questions">
-	    	<xsl:for-each select="child::*">
-		    	<li><xsl:apply-templates select="." /></li>
-	    	</xsl:for-each>
-    	</ul>
+    	<div class="question-scheme">
+	    	<ul class="questions">
+		    	<xsl:for-each select="child::*">
+			    	<li><xsl:apply-templates select="." /></li>
+		    	</xsl:for-each>
+	    	</ul>
+    	</div>
 	</xsl:template>
 
 	<xsl:template match="d:QuestionItem">
@@ -92,14 +99,17 @@
     	<li class="question">
 	    	<strong class="questionName" style="width:50px"><xsl:value-of select="d:MultipleQuestionItemName[@xml:lang=$lang]"/></strong>
 	    	<xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
-	    	<ul>
+	    	<ul class="questions">
 			    	<xsl:apply-templates select="d:SubQuestions" />
 	    	</ul>
     	</li>
 	</xsl:template>	
 
 	<xsl:template match="d:SubQuestions">
-    	<xsl:apply-templates select="d:QuestionItem" />
-    	<xsl:apply-templates select="d:SubQuestions" />
+    	<ul class="questions">
+	    	<xsl:for-each select="child::*">
+		    	<li><xsl:apply-templates select="." /></li>
+	    	</xsl:for-each>
+    	</ul>
 	</xsl:template>		
 </xsl:stylesheet>

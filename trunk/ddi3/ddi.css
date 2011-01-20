@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+body{
+	font-face:verdana;	
+}
+
+ul.questions{
+	list-style-image: url(img/question.png);
+	padding-left: 30px;
+}
+
+.questionName{
+	font-size:0.8em;
+	font-face:monospace;
+	color:#BBBBBB;
+	margin-right:5px;
+	border: 1px solid #DDDDDD;
+	padding:1px;	
+	
+}
