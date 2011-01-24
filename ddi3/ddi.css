@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 body{
-	font-face:verdana;	
+	font-family: Verdana, Arial, Helvetica, sans-serif ;
 }
 
 ul.questions{
