@@ -90,7 +90,9 @@
 
 	<xsl:template match="d:QuestionScheme">
     	<div class="questionScheme">
-	    	<ul class="questions">
+			<xsl:attribute name="id">questionScheme-<xsl:value-of select="@id"/></xsl:attribute> 
+	    	<h3 class="questionSchemeName"><xsl:value-of select="d:QuestionSchemeName[@xml:lang=$lang]"/></h3>
+			<ul class="questions">
 		    	<xsl:for-each select="child::*">
 			    	<li><xsl:apply-templates select="." /></li>
 		    	</xsl:for-each>

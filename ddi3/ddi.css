@@ -6,7 +6,8 @@ body{
 
 ul.questions{
 	list-style-image: url(img/question.png);
-	padding-left: 30px;
+	padding-left: 15px;
+	margin-left: 15px;
 }
 
 div.questionScheme{
@@ -22,6 +23,10 @@ div.questionScheme{
 	margin-right:5px;
 	border: 1px solid #DDDDDD;
 	padding:1px;		
+}
+
+h3.questionSchemeName{
+	margin-top: 5px;
 }
 
 .refNr{
