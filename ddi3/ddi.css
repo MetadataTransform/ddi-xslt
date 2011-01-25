@@ -41,5 +41,5 @@ h3.questionSchemeName{
 	float:right;
 }
 
-li.pdf{list-style-image: url(img/pdf.png);}
+li.pdf, li.stream{list-style-image: url(img/pdf.png);}
 li.html{list-style-image: url(img/html.png);}
