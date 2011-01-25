@@ -4,10 +4,18 @@ body{
 	font-family: Verdana, Arial, Helvetica, sans-serif ;
 }
 
+a{
+	color:#015497;	
+}
+
 ul.questions{
 	list-style-image: url(img/question.png);
 	padding-left: 15px;
 	margin-left: 15px;
+}
+
+ul.creator{
+	list-style:none;
 }
 
 div.questionScheme{
@@ -30,7 +38,7 @@ h3.questionSchemeName{
 }
 
 .refNr{
-	
+	float:right;
 }
 
 li.pdf{list-style-image: url(img/pdf.png);}
