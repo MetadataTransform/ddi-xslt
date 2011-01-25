@@ -25,6 +25,7 @@
 	xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
 	<xsl:variable name="lang">sv</xsl:variable>
+	<xsl:variable name="render-as-document">true</xsl:variable>
 	
 	<xsl:template match="/ddi:DDIInstance">
 		<html>
@@ -58,8 +59,6 @@
 			    
 			    <xsl:apply-templates select="s:StudyUnit/r:SeriesStatement" />
 			    
-			    <hr />
-			    
 			    <xsl:apply-templates select="s:StudyUnit/d:DataCollection" />
 			</body>
 		</html>	
@@ -71,15 +70,19 @@
 			<ul class="otherMaterial">
 				<xsl:apply-templates select="r:OtherMaterial" />
 			</ul>
-			<xsl:apply-templates select="d:QuestionScheme" />
+			<div class="questionSchemes">
+				<xsl:apply-templates select="d:QuestionScheme" />
+			</div>
 		</div>
 	</xsl:template>
 	
 	<xsl:template match="r:Citation">
 		<h3>Creator</h3>
+		<ul class="creator">
 		<xsl:for-each select="r:Creator[@xml:lang=$lang]">
-			<p><xsl:value-of select="."/>, <em><xsl:value-of select="@affiliation"/></em></p>
+			<li><xsl:value-of select="."/>, <em><xsl:value-of select="@affiliation"/></em></li>
 	    </xsl:for-each>
+	    </ul>
 	</xsl:template>
 	
 	<xsl:template match="r:SeriesStatement">
@@ -91,6 +94,7 @@
 	<xsl:template match="d:QuestionScheme">
     	<div class="questionScheme">
 			<xsl:attribute name="id">questionScheme-<xsl:value-of select="@id"/></xsl:attribute> 
+	    	<a><xsl:attribute name="name">questionScheme-<xsl:value-of select="@id"/></xsl:attribute></a>
 	    	<h3 class="questionSchemeName"><xsl:value-of select="d:QuestionSchemeName[@xml:lang=$lang]"/></h3>
 			<ul class="questions">
 		    	<xsl:for-each select="child::*">
@@ -102,9 +106,8 @@
 
 	<xsl:template match="r:OtherMaterial">
 		<li>
-			<xsl:attribute name="class">
-				<xsl:value-of select="substring-after(r:MIMEType,'/')"/>
-			</xsl:attribute> 
+			<!-- used for setting class for icon for the filetype-->
+			<xsl:attribute name="class"><xsl:value-of select="substring-after(r:MIMEType,'/')"/></xsl:attribute> 
 			<a>
 				<xsl:attribute name="href">
 					<xsl:value-of select="r:ExternalURLReference"/>
@@ -115,17 +118,21 @@
 		</li>	
 	</xsl:template>
 
-
 	<xsl:template match="d:QuestionItem">
     	<li class="question">
-	    	<strong class="questionName" style="width:50px"><xsl:value-of select="d:QuestionItemName[@xml:lang=$lang]"/></strong>
+    		<!-- use optional external question-id as id to the li-element -->
+	    	<xsl:attribute name="id">question-<xsl:value-of select="r:UserID[@type='question_id']"/></xsl:attribute> 
+	    	<a><xsl:attribute name="name">question-<xsl:value-of select="r:UserID[@type='question_id']"/></xsl:attribute></a>
+	    	<strong class="questionName"><xsl:value-of select="d:QuestionItemName[@xml:lang=$lang]"/></strong>
 	    	<xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
     	</li>
 	</xsl:template>
 
 	<xsl:template match="d:MultipleQuestionItem">
     	<li class="question">
-	    	<strong class="questionName" style="width:50px"><xsl:value-of select="d:MultipleQuestionItemName[@xml:lang=$lang]"/></strong>
+    		<!-- use optional external question-id as id to the li-element -->
+	    	<xsl:attribute name="id">question-<xsl:value-of select="r:UserID[@type='question_id']"/></xsl:attribute>     	
+	    	<strong class="questionName"><xsl:value-of select="d:MultipleQuestionItemName[@xml:lang=$lang]"/></strong>
 	    	<xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
 	    	<ul class="questions">
 			    	<xsl:apply-templates select="d:SubQuestions" />
