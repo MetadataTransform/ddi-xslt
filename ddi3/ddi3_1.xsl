@@ -1,12 +1,14 @@
 <xsl:stylesheet xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:g="ddi:group:3_1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:d="ddi:datacollection:3_1" xmlns:dce="ddi:dcelements:3_1" xmlns:c="ddi:conceptualcomponent:3_1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:a="ddi:archive:3_1" xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_1" xmlns:ddi="ddi:instance:3_1" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_1" xmlns:o="ddi:organizations:3_1" xmlns:l="ddi:logicalproduct:3_1" xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1" xmlns:pd="ddi:physicaldataproduct:3_1" xmlns:cm="ddi:comparative:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:r="ddi:reusable:3_1" xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
-    <xsl:variable name="lang">sv</xsl:variable>
-    <xsl:variable name="render-as-document">true</xsl:variable>
-    <xsl:template match="/ddi:DDIInstance">
+    <xsl:param name="lang">en</xsl:param>
+    <xsl:param name="falback-lang">sv</xsl:param>
+    <xsl:param name="render-as-document">true</xsl:param>
+    <xsl:template match="/ddi:DDIInstance"> 
         <html>
             <head>
                 <title>
                     <xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/>
                 </title>
+                <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"/>
                 <meta charset="utf-8"/>
                 <link type="text/css" rel="stylesheet" media="all" href="ddi.css"/>
             </head>
@@ -18,7 +20,7 @@
                     <xsl:value-of select="s:StudyUnit/r:Citation/r:AlternateTitle[@xml:lang=$lang]"/>
                 </strong>
                 <p class="refNr">
-				Ref. nr: <strong>
+                Ref. nr: <strong>
                         <xsl:value-of select="s:StudyUnit/@id"/>
                     </strong>
                 </p>
@@ -93,7 +95,7 @@
     </xsl:template>
     <xsl:template match="r:OtherMaterial">
         <li>
-			<!-- used for setting class for icon for the filetype-->
+            <!-- used for setting class for icon for the filetype-->
             <xsl:attribute name="class">
                 <xsl:value-of select="substring-after(r:MIMEType,'/')"/>
             </xsl:attribute>
@@ -107,7 +109,7 @@
     </xsl:template>
     <xsl:template match="d:QuestionItem">
         <li class="question">
-    		<!-- use optional external question-id as id to the li-element -->
+            <!-- use optional external question-id as id to the li-element -->
             <xsl:attribute name="id">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
             </xsl:attribute>
             <a>
@@ -117,18 +119,36 @@
             <strong class="questionName">
                 <xsl:value-of select="d:QuestionItemName[@xml:lang=$lang]"/>
             </strong>
-            <xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
+            <xsl:choose>
+                <xsl:when test="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text">
+                    <xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <em>
+                        <xsl:value-of select="d:QuestionText[@xml:lang=$falback-lang]/d:LiteralText/d:Text"/>
+                    </em>
+                </xsl:otherwise>
+            </xsl:choose>
         </li>
     </xsl:template>
     <xsl:template match="d:MultipleQuestionItem">
         <li class="question">
-    		<!-- use optional external question-id as id to the li-element -->
+            <!-- use optional external question-id as id to the li-element -->
             <xsl:attribute name="id">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
             </xsl:attribute>
             <strong class="questionName">
                 <xsl:value-of select="d:MultipleQuestionItemName[@xml:lang=$lang]"/>
             </strong>
-            <xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
+            <xsl:choose>
+                <xsl:when test="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text">
+                    <xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <em>
+                        <xsl:value-of select="d:QuestionText[@xml:lang=$falback-lang]/d:LiteralText/d:Text"/>
+                    </em>
+                </xsl:otherwise>
+            </xsl:choose>
             <ul class="questions">
                 <xsl:apply-templates select="d:SubQuestions"/>
             </ul>
