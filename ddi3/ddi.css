@@ -1,12 +1,8 @@
 @CHARSET "UTF-8";
 
-body{
-	font-family: Verdana, Arial, Helvetica, sans-serif ;
-}
+body{font-family: Verdana, Arial, Helvetica, sans-serif ;}
 
-a{
-	color:#015497;	
-}
+a{color:#015497;}
 
 ul.questions{
 	list-style-image: url(img/question.png);
@@ -14,9 +10,7 @@ ul.questions{
 	margin-left: 15px;
 }
 
-ul.creator{
-	list-style:none;
-}
+ul.creator{list-style:none;}
 
 div.questionScheme{
 	border: 1px solid #DDDDDD;
@@ -37,9 +31,7 @@ h3.questionSchemeName{
 	margin-top: 5px;
 }
 
-.refNr{
-	float:right;
-}
+.refNr{float:right;}
 
 li.pdf, li.stream{list-style-image: url(img/pdf.png);}
 li.html{list-style-image: url(img/html.png);}
