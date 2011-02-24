@@ -1,6 +1,6 @@
 <xsl:stylesheet xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:g="ddi:group:3_1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:d="ddi:datacollection:3_1" xmlns:dce="ddi:dcelements:3_1" xmlns:c="ddi:conceptualcomponent:3_1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:a="ddi:archive:3_1" xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_1" xmlns:ddi="ddi:instance:3_1" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_1" xmlns:o="ddi:organizations:3_1" xmlns:l="ddi:logicalproduct:3_1" xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1" xmlns:pd="ddi:physicaldataproduct:3_1" xmlns:cm="ddi:comparative:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:r="ddi:reusable:3_1" xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
     <xsl:param name="lang">da</xsl:param>
-    <xsl:param name="falback-lang">sv</xsl:param>
+    <xsl:param name="fallback-lang">en</xsl:param>
     <xsl:param name="render-as-document">true</xsl:param>
     <xsl:template match="/ddi:DDIInstance"> 
         <html>
@@ -134,10 +134,10 @@
     </xsl:template>
 
     <xsl:template match="r:CodeDomain">
-          <xsl:apply-templates select="//CodeScheme[]"
+          <xsl:apply-templates select="//CodeScheme[@id = ddi:CodeSchemeReference/ddi:ID]" />
     </xsl:template>
 
-    <xsl:template match="l:CodeScheme">
+    <xsl:template match="CodeScheme">
         <xhtml:span><xsl:value-of select="r:Label" /></xhtml:span>
         <xsl:apply-templates select="l:Code"></xsl:apply-templates>
     </xsl:template>
