@@ -28,7 +28,14 @@
         <html>
             <head>
                 <title>
-                    <xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/>
+                    <xsl:choose>
+                        <xsl:when test="s:StudyUnit/r:Citation/r:Title/@xml:lang">
+                            <xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="s:StudyUnit/r:Citation/r:Title"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </title>
                 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"/>
                 <meta charset="utf-8"/>
@@ -36,38 +43,60 @@
             </head>
             <body>
                 <h1>
-                    <xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/>
+                    <xsl:choose>
+                        <xsl:when test="s:StudyUnit/r:Citation/r:Title/@xml:lang">
+                            <xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="s:StudyUnit/r:Citation/r:Title"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </h1>
+
                 <strong>
                     <xsl:value-of select="s:StudyUnit/r:Citation/r:AlternateTitle[@xml:lang=$lang]"/>
                 </strong>
+
                 <p class="refNr">
-                Ref. nr: <strong>
-                        <xsl:value-of select="s:StudyUnit/@id"/>
-                    </strong>
+                 Ref. nr: <strong><xsl:value-of select="s:StudyUnit/@id"/></strong>
                 </p>
-                <h3>Abstract</h3>
-                <p>
-                    <xsl:value-of select="s:StudyUnit/s:Abstract/r:Content[@xml:lang=$lang]"/>
-                </p>
+
+                <xsl:apply-templates select="s:StudyUnit/s:Abstract"/>
+                
                 <xsl:apply-templates select="s:StudyUnit/r:Citation"/>
-                <h3>Coverage</h3>
-                <xsl:for-each select="s:StudyUnit/r:Coverage/r:TemporalCoverage">
-                    <p>
-                        <xsl:value-of select="r:ReferenceDate/r:StartDate"/> - <xsl:value-of select="r:ReferenceDate/r:EndDate"/>
-                    </p>
-                </xsl:for-each>
-                <h3>Universe</h3>
-                <xsl:for-each select="s:StudyUnit/c:ConceptualComponent/c:UniverseScheme/c:Universe">
-                    <p>
-                        <xsl:value-of select="c:HumanReadable[@xml:lang=$lang]"/>
-                    </p>
-                </xsl:for-each>
+
+                <xsl:apply-templates select="s:StudyUnit/r:Coverage"/>
+
+                <xsl:apply-templates select="s:StudyUnit/c:ConceptualComponent/c:UniverseScheme"/>
+
                 <xsl:apply-templates select="s:StudyUnit/r:SeriesStatement"/>
                 <xsl:apply-templates select="s:StudyUnit/d:DataCollection"/>
             </body>
         </html>
     </xsl:template>
+    <xsl:template match="s:Abstract">
+        <h3>Abstract</h3>
+        <p><xsl:value-of select="r:Content[@xml:lang=$lang]"/></p>
+    </xsl:template>
+
+    <xsl:template match="s:Coverage">
+        <h3>Coverage</h3>
+        <xsl:for-each select="r:TemporalCoverage">
+            <p>
+                <xsl:value-of select="r:ReferenceDate/r:StartDate"/> - <xsl:value-of select="r:ReferenceDate/r:EndDate"/>
+            </p>
+        </xsl:for-each>
+    </xsl:template>
+
+    <xsl:template match="c:UniverseScheme">
+        <h3>Universe</h3>
+        <xsl:for-each select="c:Universe">
+            <p>
+                <xsl:value-of select="c:HumanReadable[@xml:lang=$lang]"/>
+            </p>
+        </xsl:for-each>
+    </xsl:template>
+
     <xsl:template match="d:DataCollection">
         <div class="dataCollection">
             <ul class="otherMaterial">
@@ -89,6 +118,15 @@
                 </li>
             </xsl:for-each>
         </ul>
+        <h3>Creator</h3>
+        <ul class="publisher">
+            <xsl:for-each select="r:Publisher[@xml:lang=$lang]">
+                <li>
+                    <xsl:value-of select="."/>
+                </li>
+            </xsl:for-each>
+        </ul>
+
     </xsl:template>
     <xsl:template match="r:SeriesStatement">
         <h3>Series</h3>
