@@ -166,9 +166,9 @@
             </LiteralText>
           </QuestionText>
           <CodeDomain>
-            <ddi:CodeSchemeReference xmlns:ddi="ddi:reusable:3_1">
-              <ddi:ID>cods-f4b7192e-e692-4e71-aaf2-c5e7fce29941</ddi:ID>
-            </ddi:CodeSchemeReference>
+            <r:CodeSchemeReference xmlns:r="ddi:reusable:3_1">
+              <r:ID>cods-f4b7192e-e692-4e71-aaf2-c5e7fce29941</r:ID>
+            </r:CodeSchemeReference>
           </CodeDomain>
           <ConceptReference>
             <ddi:ID xmlns:ddi="ddi:reusable:3_1"/>
@@ -244,9 +244,9 @@
             </LiteralText>
           </QuestionText>
           <CodeDomain>
-            <ddi:CodeSchemeReference xmlns:ddi="ddi:reusable:3_1">
-              <ddi:ID>cods-9906a15b-1062-403b-af31-8e0ea27bfbf5</ddi:ID>
-            </ddi:CodeSchemeReference>
+            <r:CodeSchemeReference xmlns:r="ddi:reusable:3_1">
+              <r:ID>cods-9906a15b-1062-403b-af31-8e0ea27bfbf5</r:ID>
+            </r:CodeSchemeReference>
           </CodeDomain>
           <ConceptReference>
             <ddi:ID xmlns:ddi="ddi:reusable:3_1"/>
@@ -24020,7 +24020,7 @@
           <VariableName>V8</VariableName>
           <Label xmlns="ddi:reusable:3_1" maxLength="120" type="label">KNYTTET TIL PARTI</Label>
           <QuestionReference>
-            <ddi:ID xmlns:ddi="ddi:reusable:3_1">quei-97499b9d-c830-41e3-8f99-afd40817638d</ddi:ID>
+            <r:ID xmlns:r="ddi:reusable:3_1">quei-97499b9d-c830-41e3-8f99-afd40817638d</r:ID>
           </QuestionReference>
           <Representation>
             <CodeRepresentation>
