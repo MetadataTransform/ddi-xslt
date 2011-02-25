@@ -197,11 +197,19 @@
     </xsl:template>
 
     <xsl:template match="d:CodeDomain">
-        <xsl:apply-templates select="//l:CodeScheme[@id = d:CodeSchemeReference/r:ID]" />
+        <ul>
+        <li>
+            CodeDomain
+        </li>
+        </ul>
+
+        <xsl:apply-templates select="//l:CodeScheme[@id = r:CodeSchemeReference/r:ID]" />
     </xsl:template>
 
     <xsl:template match="d:NumericDomain">
-        <span class="numreric type"><xsl:value-of select="@type" /></span>
+        <ul>
+            <li><xsl:value-of select="@type" /></li>
+        </ul>
     </xsl:template>
 
     <xsl:template match="l:CodeScheme">
