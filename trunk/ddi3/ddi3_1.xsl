@@ -71,6 +71,8 @@
 
                 <xsl:apply-templates select="s:StudyUnit/r:SeriesStatement"/>
                 <xsl:apply-templates select="s:StudyUnit/d:DataCollection"/>
+                <xsl:apply-templates select="s:StudyUnit/l:LogicalProduct"/>
+
             </body>
         </html>
     </xsl:template>
@@ -97,6 +99,12 @@
         </xsl:for-each>
     </xsl:template>
 
+    <xsl:template match="l:LogicalProduct">
+        <div class="variableSchemes">
+             <xsl:apply-templates select="l:DataRelationship/l:LogicalRecord/l:VariablesInRecord/l:VariableSchemeReference"/>
+        </div>
+    </xsl:template>
+
     <xsl:template match="d:DataCollection">
         <div class="dataCollection">
             <ul class="otherMaterial">
@@ -105,6 +113,8 @@
             <div class="questionSchemes">
                 <xsl:apply-templates select="d:QuestionScheme"/>
             </div>
+
+
         </div>
     </xsl:template>
     <xsl:template match="r:Citation">
@@ -273,4 +283,24 @@
             </xsl:for-each>
         </ul>
     </xsl:template>
+
+    <xsl:template match="l:VariableScheme">
+        <ul class="variables"> 
+        <xsl:apply-templates select="l:Variable" />
+        </ul>
+    </xsl:template>
+
+    <xsl:template match="l:Variable">
+          <li>
+              <strong><xsl:value-of select="l:VariableName"/></strong> <xsl:value-of select="r:Label"/>
+              
+          </li>
+    </xsl:template>
+
+    <xsl:template match="l:VariableSchemeReference">
+        <xsl:variable name="vsID" select="r:ID" />
+        <xsl:apply-templates select="//l:VariableScheme[@id = $vsID]" />
+    </xsl:template>
+
+
 </xsl:stylesheet>

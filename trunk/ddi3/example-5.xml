@@ -91,7 +91,8 @@
           spørgsmålene.</HumanReadable>
         </Universe>
       </UniverseScheme>
-    </ConceptualComponent><DataCollection xmlns="ddi:datacollection:3_1" id="daco-dc4aceb6-abca-4369-a481-b87fada278b0"
+    </ConceptualComponent>
+    <DataCollection xmlns="ddi:datacollection:3_1" id="daco-dc4aceb6-abca-4369-a481-b87fada278b0"
       agency="dk.dda" version="1.0.0" versionDate="2011-02-11T10:16:07.028+01:00">
       <Note xmlns="ddi:reusable:3_1" id="note-ece10592-a7a2-46d8-a849-117e22ae274b"
         type="Processing">
