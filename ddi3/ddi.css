@@ -22,7 +22,7 @@ table.codeScheme{
 
 ul.creator{list-style:none;}
 
-div.questionScheme{
+div.questionScheme, div.variableScheme{
 	border: 1px solid #DDDDDD;
 	padding:5px;
 	margin-top:5px;	

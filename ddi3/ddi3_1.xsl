@@ -285,9 +285,11 @@
     </xsl:template>
 
     <xsl:template match="l:VariableScheme">
-        <ul class="variables"> 
-        <xsl:apply-templates select="l:Variable" />
-        </ul>
+        <div class="variableScheme">
+            <ul class="variables">
+            <xsl:apply-templates select="l:Variable" />
+            </ul>
+        </div>
     </xsl:template>
 
     <xsl:template match="l:Variable">
