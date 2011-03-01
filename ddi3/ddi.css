@@ -10,6 +10,10 @@ ul.questions{
 	margin-left: 15px;
 }
 
+table.codeScheme{
+    font-size:0.8em;
+}
+
 ul.creator{list-style:none;}
 
 div.questionScheme{
@@ -35,3 +39,5 @@ h3.questionSchemeName{
 
 li.pdf, li.stream{list-style-image: url(img/pdf.png);}
 li.html{list-style-image: url(img/html.png);}
+li.numreric{list-style-image: url(img/input.png);}
+li.codeDomain{list-style-image: url(img/code-scheme.png);}

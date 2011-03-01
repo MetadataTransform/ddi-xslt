@@ -198,31 +198,50 @@
 
     <xsl:template match="d:CodeDomain">
         <ul>
-        <li>
-            CodeDomain
-        </li>
+            <li class="codeDomain">
+                <xsl:variable name="csID" select="r:CodeSchemeReference/r:ID" />
+
+                <xsl:apply-templates select="//l:CodeScheme[@id = $csID]" />
+            </li>
         </ul>
 
-        <xsl:apply-templates select="//l:CodeScheme[@id = r:CodeSchemeReference/r:ID]" />
     </xsl:template>
 
     <xsl:template match="d:NumericDomain">
-        <ul>
-            <li><xsl:value-of select="@type" /></li>
-        </ul>
+        <ul><li class="numreric"><xsl:value-of select="@type" /></li></ul>
     </xsl:template>
 
     <xsl:template match="l:CodeScheme">
-        <span><xsl:value-of select="r:Label" /></span>
-        <xsl:apply-templates select="l:Code"></xsl:apply-templates>
+        <table class="codeScheme">
+            <tbody>
+                <xsl:apply-templates select="l:Code"></xsl:apply-templates> 
+            </tbody>
+        </table>
     </xsl:template>
 
 
     <xsl:template match="l:Code">
-        <xsl:value-of select="Value" />
-        <xsl:apply-templates select ="CategoryReference" />
+        <tr>
+            <td><xsl:value-of select="l:Value" /></td>
+            <xsl:apply-templates select ="l:CategoryReference" />
+        </tr>
     </xsl:template>
 
+    <xsl:template match="l:CategoryReference">
+        <xsl:variable name="csID" select="r:ID" />
+        <xsl:apply-templates select="//l:Category[@id = $csID]" />
+    </xsl:template>
+
+    <xsl:template match="l:Category">
+            <xsl:choose>
+                <xsl:when test="@missing">
+                    <td><em><xsl:value-of select="r:Label" /></em></td>
+                </xsl:when>
+                <xsl:otherwise>
+                    <td><xsl:value-of select="r:Label" /></td>
+                </xsl:otherwise>
+            </xsl:choose>
+    </xsl:template>
 
     <xsl:template match="d:MultipleQuestionItem">
         <li class="question">
