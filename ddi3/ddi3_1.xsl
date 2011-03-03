@@ -166,6 +166,7 @@
             </ul>
         </div>
     </xsl:template>
+
     <xsl:template match="r:OtherMaterial">
         <li>
             <!-- used for setting class for icon for the filetype-->
@@ -180,6 +181,7 @@
             </a>
         </li>
     </xsl:template>
+
     <xsl:template match="d:QuestionItem">
         <li class="question">
             <!-- use optional external question-id as id to the li-element -->
@@ -202,11 +204,11 @@
                     </em>
                 </xsl:otherwise>
             </xsl:choose>
-            <!--
-            <xsl:value-of select="r:VersionRationale"/> -->
+
             <xsl:apply-templates select="d:CodeDomain" />
             <xsl:apply-templates select="d:NumericDomain" />
 
+            <!-- generate variable-links-->
             <xsl:variable name="qiID" select="@id" />
             <ul class="variables">
                 <li>
@@ -229,15 +231,23 @@
     </xsl:template>
 
     <xsl:template match="d:NumericDomain">
-        <ul><li class="numreric"><xsl:value-of select="@type" /></li></ul>
+        <ul><li class="numeric"><xsl:value-of select="@type" /></li></ul>
     </xsl:template>
 
     <xsl:template match="l:CodeScheme">
         <table class="codeScheme">
             <tbody>
-                <xsl:apply-templates select="l:Code"></xsl:apply-templates> 
+                <xsl:apply-templates select="l:Code" />
             </tbody>
         </table>
+    </xsl:template>
+
+    <xsl:template match="l:VariableScheme">
+        <div class="variableScheme">
+            <ul class="variables">
+            <xsl:apply-templates select="l:Variable" />
+            </ul>
+        </div>
     </xsl:template>
 
     <xsl:template match="l:Code">
@@ -245,16 +255,6 @@
             <td><xsl:value-of select="l:Value" /></td>
             <xsl:apply-templates select ="l:CategoryReference" />
         </tr>
-    </xsl:template>
-
-    <xsl:template match="r:CodeSchemeReference">
-        <xsl:variable name="csID" select="r:ID" />
-        <xsl:apply-templates select="//l:CodeScheme[@id = $csID]" />
-    </xsl:template>
-
-    <xsl:template match="l:CategoryReference">
-        <xsl:variable name="csID" select="r:ID" />
-        <xsl:apply-templates select="//l:Category[@id = $csID]" />
     </xsl:template>
 
     <xsl:template match="l:Category">
@@ -291,20 +291,13 @@
             </ul>
         </li>
     </xsl:template>
+
     <xsl:template match="d:SubQuestions">
         <ul class="questions">
             <xsl:for-each select="child::*">
                 <xsl:apply-templates select="."/>
             </xsl:for-each>
         </ul>
-    </xsl:template>
-
-    <xsl:template match="l:VariableScheme">
-        <div class="variableScheme">
-            <ul class="variables">
-            <xsl:apply-templates select="l:Variable" />
-            </ul>
-        </div>
     </xsl:template>
 
     <xsl:template match="l:Variable">
@@ -334,7 +327,7 @@
         </ul>
     </xsl:template>
 
-
+    <!-- Resolve references -->
     <xsl:template match="l:NumericRepresentation">
         <ul><li class="numreric"><xsl:value-of select="@type" /></li></ul>
     </xsl:template>
@@ -342,5 +335,15 @@
     <xsl:template match="l:VariableSchemeReference">
         <xsl:variable name="vsID" select="r:ID" />
         <xsl:apply-templates select="//l:VariableScheme[@id = $vsID]" />
+    </xsl:template>
+
+    <xsl:template match="r:CodeSchemeReference">
+        <xsl:variable name="csID" select="r:ID" />
+        <xsl:apply-templates select="//l:CodeScheme[@id = $csID]" />
+    </xsl:template>
+
+    <xsl:template match="l:CategoryReference">
+        <xsl:variable name="csID" select="r:ID" />
+        <xsl:apply-templates select="//l:Category[@id = $csID]" />
     </xsl:template>
 </xsl:stylesheet>
