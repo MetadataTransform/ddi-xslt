@@ -4,6 +4,10 @@ body{font-family: Verdana, Arial, Helvetica, sans-serif ;font-size:0.8em;}
 
 a{color:#015497;}
 
+ul{
+    padding-left: 15px;
+}
+
 ul.questions{
 	list-style-image: url(img/question.png);
 	padding-left: 15px;
@@ -47,5 +51,5 @@ h3.questionSchemeName{
 
 li.pdf, li.stream{list-style-image: url(img/pdf.png);}
 li.html{list-style-image: url(img/html.png);}
-li.numreric{list-style-image: url(img/input.png);}
+li.numreric, li.textRepresentation{list-style-image: url(img/input.png);}
 li.codeDomain{list-style-image: url(img/code-scheme.png);}

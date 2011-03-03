@@ -21,9 +21,11 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
+
     <xsl:param name="lang">da</xsl:param>
     <xsl:param name="fallback-lang">en</xsl:param>
     <xsl:param name="render-as-document">true</xsl:param>
+    
     <xsl:template match="/ddi:DDIInstance"> 
         <html>
             <head>
@@ -76,6 +78,7 @@
             </body>
         </html>
     </xsl:template>
+
     <xsl:template match="s:Abstract">
         <h3>Abstract</h3>
         <p><xsl:value-of select="r:Content[@xml:lang=$lang]"/></p>
@@ -113,14 +116,13 @@
             <div class="questionSchemes">
                 <xsl:apply-templates select="d:QuestionScheme"/>
             </div>
-
-
         </div>
     </xsl:template>
+
     <xsl:template match="r:Citation">
         <h3>Creator</h3>
         <ul class="creator">
-            <xsl:for-each select="r:Creator[@xml:lang=$lang]">
+            <xsl:for-each select="r:Creator">
                 <li>
                     <xsl:value-of select="."/>, <em>
                         <xsl:value-of select="@affiliation"/>
@@ -128,7 +130,7 @@
                 </li>
             </xsl:for-each>
         </ul>
-        <h3>Creator</h3>
+        <h3>Publisher</h3>
         <ul class="publisher">
             <xsl:for-each select="r:Publisher[@xml:lang=$lang]">
                 <li>
@@ -136,8 +138,8 @@
                 </li>
             </xsl:for-each>
         </ul>
-
     </xsl:template>
+
     <xsl:template match="r:SeriesStatement">
         <h3>Series</h3>
         <strong>Name: </strong>
@@ -145,6 +147,7 @@
         <br/>
         <xsl:value-of select="r:SeriesDescription[@xml:lang=$lang]"/>
     </xsl:template>
+
     <xsl:template match="d:QuestionScheme">
         <div class="questionScheme">
             <xsl:attribute name="id">questionScheme-<xsl:value-of select="@id"/>
@@ -311,6 +314,7 @@
 
                <xsl:apply-templates select="l:Representation/l:CodeRepresentation" />
                <xsl:apply-templates select="l:Representation/l:NumericRepresentation" />
+               <xsl:apply-templates select="l:Representation/l:TextRepresentation" />
           </li>
     </xsl:template>
 
@@ -322,11 +326,18 @@
         </ul>
     </xsl:template>
 
-    <xsl:template match="l:NumericRepresentation">
-        <ul><li class="numreric"><xsl:value-of select="@type" /></li></ul>
+    <xsl:template match="l:TextRepresentation">
+        <ul>
+            <li class="textRepresentation">
+                Text (max length: <xsl:value-of select="@maxLength" />)
+            </li>
+        </ul>
     </xsl:template>
 
 
+    <xsl:template match="l:NumericRepresentation">
+        <ul><li class="numreric"><xsl:value-of select="@type" /></li></ul>
+    </xsl:template>
 
     <xsl:template match="l:VariableSchemeReference">
         <xsl:variable name="vsID" select="r:ID" />
