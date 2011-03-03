@@ -203,18 +203,26 @@
             <xsl:value-of select="r:VersionRationale"/> -->
             <xsl:apply-templates select="d:CodeDomain" />
             <xsl:apply-templates select="d:NumericDomain" />
+
+            <xsl:variable name="qiID" select="@id" />
+            <ul class="variables">
+                <li>
+                    <strong class="variableName"><xsl:value-of select="//l:Variable[l:QuestionReference/r:ID = $qiID]/l:VariableName"/></strong>
+                    <a>
+                       <xsl:attribute name="href">#<xsl:value-of select="//l:Variable[l:QuestionReference/r:ID = $qiID]/@id"/></xsl:attribute>
+                       <xsl:value-of select="//l:Variable[l:QuestionReference/r:ID = $qiID]/r:Label"/>
+                    </a>
+                </li>
+            </ul>
         </li>
     </xsl:template>
 
     <xsl:template match="d:CodeDomain">
         <ul>
             <li class="codeDomain">
-                <xsl:variable name="csID" select="r:CodeSchemeReference/r:ID" />
-
-                <xsl:apply-templates select="//l:CodeScheme[@id = $csID]" />
+                <xsl:apply-templates select="r:CodeSchemeReference" />
             </li>
         </ul>
-
     </xsl:template>
 
     <xsl:template match="d:NumericDomain">
@@ -229,12 +237,16 @@
         </table>
     </xsl:template>
 
-
     <xsl:template match="l:Code">
         <tr>
             <td><xsl:value-of select="l:Value" /></td>
             <xsl:apply-templates select ="l:CategoryReference" />
         </tr>
+    </xsl:template>
+
+    <xsl:template match="r:CodeSchemeReference">
+        <xsl:variable name="csID" select="r:ID" />
+        <xsl:apply-templates select="//l:CodeScheme[@id = $csID]" />
     </xsl:template>
 
     <xsl:template match="l:CategoryReference">
@@ -294,15 +306,30 @@
 
     <xsl:template match="l:Variable">
           <li>
-              <strong><xsl:value-of select="l:VariableName"/></strong> <xsl:value-of select="r:Label"/>
-              
+              <a><xsl:attribute name="name"><xsl:value-of select="@id"/></xsl:attribute></a>
+              <strong class="variableName"><xsl:value-of select="l:VariableName"/></strong><xsl:value-of select="r:Label"/>
+
+               <xsl:apply-templates select="l:Representation/l:CodeRepresentation" />
+               <xsl:apply-templates select="l:Representation/l:NumericRepresentation" />
           </li>
     </xsl:template>
+
+    <xsl:template match="l:CodeRepresentation">
+        <ul>
+            <li class="codeDomain">
+                <xsl:apply-templates select="r:CodeSchemeReference" />
+            </li>
+        </ul>
+    </xsl:template>
+
+    <xsl:template match="l:NumericRepresentation">
+        <ul><li class="numreric"><xsl:value-of select="@type" /></li></ul>
+    </xsl:template>
+
+
 
     <xsl:template match="l:VariableSchemeReference">
         <xsl:variable name="vsID" select="r:ID" />
         <xsl:apply-templates select="//l:VariableScheme[@id = $vsID]" />
     </xsl:template>
-
-
 </xsl:stylesheet>
