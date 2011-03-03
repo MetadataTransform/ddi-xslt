@@ -28,6 +28,8 @@ div.questionScheme, div.variableScheme{
 	margin-top:5px;	
 }
 
+.variableName{padding-right:5px;}
+
 .questionName{
 	font-size:0.8em;
 	font-face:monospace;
