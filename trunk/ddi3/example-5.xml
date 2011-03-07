@@ -27558,7 +27558,8 @@
           </Representation>
         </Variable>
       </VariableScheme>
-    </LogicalProduct><Archive xmlns="ddi:archive:3_1" id="2982b72e-3424-4f59-8088-a3feb1e092a3" agency="dk.dda"
+    </LogicalProduct>
+    <Archive xmlns="ddi:archive:3_1" id="2982b72e-3424-4f59-8088-a3feb1e092a3" agency="dk.dda"
       version="1.0.0" versionDate="2011-02-11T09:46:22.968+01:00">
       <VersionResponsibility xmlns="ddi:reusable:3_1">dak</VersionResponsibility>
       <VersionRationale xmlns="ddi:reusable:3_1" translated="false" translatable="true"
