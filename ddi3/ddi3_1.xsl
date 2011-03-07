@@ -22,7 +22,7 @@
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
-    <xsl:param name="lang">da</xsl:param>
+    <xsl:param name="lang">sv</xsl:param>
     <xsl:param name="fallback-lang">en</xsl:param>
     <xsl:param name="render-as-document">true</xsl:param>
     
@@ -107,6 +107,13 @@
              <xsl:apply-templates select="l:DataRelationship/l:LogicalRecord/l:VariablesInRecord/l:VariableSchemeReference"/>
         </div>
     </xsl:template>
+
+    <xsl:template match="a:Archive">
+        <div class="archive">
+
+        </div>
+    </xsl:template>
+
 
     <xsl:template match="d:DataCollection">
         <div class="dataCollection">
@@ -329,7 +336,8 @@
 
     <!-- Resolve references -->
     <xsl:template match="l:NumericRepresentation">
-        <ul><li class="numreric"><xsl:value-of select="@type" /></li></ul>
+        <ul><li class="numeric"><xsl:value-of select="@type" /> (decimal positions <xsl:value-of select="@decimalPositions" />)</li></ul>
+
     </xsl:template>
 
     <xsl:template match="l:VariableSchemeReference">
