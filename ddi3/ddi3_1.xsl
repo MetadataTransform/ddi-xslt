@@ -60,7 +60,7 @@
                 </strong>
 
                 <p class="refNr">
-                 Ref. nr: <strong><xsl:value-of select="s:StudyUnit/@id"/></strong>
+                	Ref. nr: <strong><xsl:value-of select="s:StudyUnit/@id"/></strong>
                 </p>
 
                 <xsl:apply-templates select="s:StudyUnit/s:Abstract"/>
