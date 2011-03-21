@@ -114,7 +114,6 @@
         </div>
     </xsl:template>
 
-
     <xsl:template match="d:DataCollection">
         <div class="dataCollection">
             <ul class="otherMaterial">
@@ -312,9 +311,9 @@
               <a><xsl:attribute name="name"><xsl:value-of select="@id"/></xsl:attribute></a>
               <strong class="variableName"><xsl:value-of select="l:VariableName"/></strong><xsl:value-of select="r:Label"/>
 
-               <xsl:apply-templates select="l:Representation/l:CodeRepresentation" />
-               <xsl:apply-templates select="l:Representation/l:NumericRepresentation" />
-               <xsl:apply-templates select="l:Representation/l:TextRepresentation" />
+              <xsl:apply-templates select="l:Representation/l:CodeRepresentation" />
+              <xsl:apply-templates select="l:Representation/l:NumericRepresentation" />
+              <xsl:apply-templates select="l:Representation/l:TextRepresentation" />
           </li>
     </xsl:template>
 
