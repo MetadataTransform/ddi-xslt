@@ -22,7 +22,7 @@
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
-    <xsl:param name="lang">sv</xsl:param>
+    <xsl:param name="lang">en</xsl:param>
     <xsl:param name="fallback-lang">en</xsl:param>
     <xsl:param name="render-as-document">true</xsl:param>
     
