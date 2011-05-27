@@ -1,4 +1,6 @@
-<xsl:stylesheet xmlns:dc="http://purl.org/dc/elements/1.1/"
+<xsl:stylesheet 
+				xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:g="ddi:group:3_1"
                 xmlns:d="ddi:datacollection:3_1"
                 xmlns:dce="ddi:dcelements:3_1"
@@ -27,6 +29,11 @@
     <xsl:param name="render-as-document">true</xsl:param>
     <xsl:param name="include-js">true</xsl:param>
     
+	<xsl:output method="xml" 
+	  doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" 
+	  doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	  indent="yes"/>
+    
     <xsl:template match="/ddi:DDIInstance"> 
         <html>
             <head>
@@ -47,7 +54,7 @@
                     </xsl:when>
                 </xsl:choose>
                 
-                <meta charset="utf-8"></meta>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
                 <link type="text/css" rel="stylesheet" media="all" href="ddi.css"></link>
             </head>
             <body>
@@ -61,10 +68,11 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </h1>
-
-                <strong>
-                    <xsl:value-of select="s:StudyUnit/r:Citation/r:AlternateTitle[@xml:lang=$lang]"/>
-                </strong>
+				<p>
+                	<strong>
+                    	<xsl:value-of select="s:StudyUnit/r:Citation/r:AlternateTitle[@xml:lang=$lang]"/>
+                	</strong>
+                </p>
 
                 <p class="refNr">
                 	Ref. nr: <strong><xsl:value-of select="s:StudyUnit/@id"/></strong>
@@ -133,32 +141,39 @@
     </xsl:template>
 
     <xsl:template match="r:Citation">
-        <h3>Creator</h3>
-        <ul class="creator">
-            <xsl:for-each select="r:Creator">
-                <li>
-                    <xsl:value-of select="."/>, <em>
-                        <xsl:value-of select="@affiliation"/>
-                    </em>
-                </li>
-            </xsl:for-each>
-        </ul>
-        <h3>Publisher</h3>
-        <ul class="publisher">
-            <xsl:for-each select="r:Publisher[@xml:lang=$lang]">
-                <li>
-                    <xsl:value-of select="."/>
-                </li>
-            </xsl:for-each>
-        </ul>
+        <xsl:if test="count(r:Creator) > 0">
+	        <h3>Creator</h3>
+	        <ul class="creator">
+	            <xsl:for-each select="r:Creator">
+	                <li>
+	                    <xsl:value-of select="."/>, <em>
+	                        <xsl:value-of select="@affiliation"/>
+	                    </em>
+	                </li>
+	            </xsl:for-each>
+	        </ul>
+        </xsl:if>
+        <xsl:if test="count(r:Publisher[@xml:lang=$lang]) > 0">
+	        <h3>Publisher</h3>
+	        <ul class="publisher">
+	            <xsl:for-each select="r:Publisher[@xml:lang=$lang]">
+	                <li>
+	                    <xsl:value-of select="."/>
+	                </li>
+	            </xsl:for-each>
+	        </ul>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="r:SeriesStatement">
         <h3>Series</h3>
-        <strong>Name: </strong>
-        <xsl:value-of select="r:SeriesName[@xml:lang=$lang]"/>
-        <br/>
-        <xsl:value-of select="r:SeriesDescription[@xml:lang=$lang]"/>
+        <p>
+        	<strong>Name: </strong>
+        	<xsl:value-of select="r:SeriesName[@xml:lang=$lang]"/>
+        </p>
+        <p>
+        	<xsl:value-of select="r:SeriesDescription[@xml:lang=$lang]"/>
+        </p>
     </xsl:template>
 
     <xsl:template match="d:QuestionScheme">
@@ -170,7 +185,7 @@
                 </xsl:attribute>
             </a>
             <h3 class="questionSchemeName">
-                <xsl:value-of select="d:QuestionSchemeName[@xml:lang=$lang]"/>
+                <xsl:value-of select="d:QuestionSchemeName[@xml:lang=$lang]" />
             </h3>
             <ul class="questions">
                 <xsl:for-each select="child::*">
@@ -222,7 +237,10 @@
             <xsl:apply-templates select="d:NumericDomain" />
 
             <!-- generate variable-links-->
+            
+            
             <xsl:variable name="qiID" select="@id" />
+            <xsl:if test="count(//l:Variable[l:QuestionReference/r:ID = $qiID]) > 0">
             <ul class="variables">
                 <li>
                     <strong class="variableName"><xsl:value-of select="//l:Variable[l:QuestionReference/r:ID = $qiID]/l:VariableName"/></strong>
@@ -232,6 +250,7 @@
                     </a>
                 </li>
             </ul>
+            </xsl:if>
         </li>
     </xsl:template>
 
@@ -282,9 +301,9 @@
     </xsl:template>
 
     <xsl:template match="d:MultipleQuestionItem">
-        <li class="question">
+        <li>
             <!-- use optional external question-id as id to the li-element -->
-            <xsl:attribute name="id">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
+            <xsl:attribute name="class">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
             </xsl:attribute>
             <strong class="questionName">
                 <xsl:value-of select="d:MultipleQuestionItemName[@xml:lang=$lang]"/>
@@ -300,17 +319,19 @@
                 </xsl:otherwise>
             </xsl:choose>
             <ul class="questions">
-                <xsl:apply-templates select="d:SubQuestions"/>
+                <xsl:apply-templates select="d:SubQuestions" />
             </ul>
         </li>
     </xsl:template>
 
     <xsl:template match="d:SubQuestions">
+        <xsl:if test="count(child::*) > 0">
         <ul class="questions">
             <xsl:for-each select="child::*">
                 <xsl:apply-templates select="."/>
             </xsl:for-each>
         </ul>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="l:Variable">
