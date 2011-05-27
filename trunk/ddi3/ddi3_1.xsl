@@ -1,4 +1,4 @@
-<xsl:stylesheet 
+<xsl:stylesheet
 				xmlns="http://www.w3.org/1999/xhtml"
 				xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:g="ddi:group:3_1"
@@ -21,7 +21,7 @@
                 xmlns:ds="ddi:dataset:3_1"
                 xmlns:pr="ddi:profile:3_1"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
     <xsl:param name="lang">en</xsl:param>
@@ -29,10 +29,11 @@
     <xsl:param name="render-as-document">true</xsl:param>
     <xsl:param name="include-js">true</xsl:param>
     
-	<xsl:output method="xml" 
+	<xsl:output method="xhtml" 
 	  doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" 
 	  doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" 
-	  indent="yes"/>
+	  indent="yes"
+	  />
     
     <xsl:template match="/ddi:DDIInstance"> 
         <html>
@@ -187,11 +188,13 @@
             <h3 class="questionSchemeName">
                 <xsl:value-of select="d:QuestionSchemeName[@xml:lang=$lang]" />
             </h3>
+            <xsl:if test="count(child::*) > 0">
             <ul class="questions">
                 <xsl:for-each select="child::*">
                     <xsl:apply-templates select="."/>
                 </xsl:for-each>
             </ul>
+            </xsl:if>
         </div>
     </xsl:template>
 
@@ -211,9 +214,9 @@
     </xsl:template>
 
     <xsl:template match="d:QuestionItem">
-        <li class="question">
+        <li>
             <!-- use optional external question-id as id to the li-element -->
-            <xsl:attribute name="id">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
+            <xsl:attribute name="class">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
             </xsl:attribute>
             <a>
                 <xsl:attribute name="name">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
@@ -267,11 +270,13 @@
     </xsl:template>
 
     <xsl:template match="l:CodeScheme">
+        <xsl:if test="count(l:Code) > 0">
         <table class="codeScheme">
             <tbody>
                 <xsl:apply-templates select="l:Code" />
             </tbody>
         </table>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="l:VariableScheme">
@@ -318,9 +323,11 @@
                     </em>
                 </xsl:otherwise>
             </xsl:choose>
+            <xsl:if test="count(d:SubQuestions) > 0">
             <ul class="questions">
                 <xsl:apply-templates select="d:SubQuestions" />
             </ul>
+            </xsl:if>
         </li>
     </xsl:template>
 
