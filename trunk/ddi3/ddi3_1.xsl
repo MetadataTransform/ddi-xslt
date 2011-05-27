@@ -25,9 +25,9 @@
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
     <xsl:param name="lang">en</xsl:param>
-    <xsl:param name="fallback-lang">en</xsl:param>
+    <xsl:param name="fallback-lang">sv</xsl:param>
     <xsl:param name="render-as-document">true</xsl:param>
-    <xsl:param name="include-js">true</xsl:param>
+    <xsl:param name="include-js">false</xsl:param>
     
 	<xsl:output method="xhtml" 
 	  doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" 
@@ -178,19 +178,31 @@
     </xsl:template>
 
     <xsl:template match="d:QuestionScheme">
-        <div class="questionScheme">
+        <div>
+            <xsl:attribute name="class">questionScheme</xsl:attribute>
             <xsl:attribute name="id">questionScheme-<xsl:value-of select="@id"/>
             </xsl:attribute>
             <a>
                 <xsl:attribute name="name">questionScheme-<xsl:value-of select="@id"/>
                 </xsl:attribute>
             </a>
-            <h3 class="questionSchemeName">
-                <xsl:value-of select="d:QuestionSchemeName[@xml:lang=$lang]" />
-            </h3>
-            <xsl:if test="count(child::*) > 0">
+            <xsl:if test="d:QuestionSchemeName">
+	            <h3 class="questionSchemeName">               
+		            <xsl:choose>
+		                <xsl:when test="d:QuestionSchemeName[@xml:lang=$lang]">
+		                    <xsl:value-of select="d:QuestionSchemeName[@xml:lang=$lang]"/>
+		                </xsl:when>
+		                <xsl:otherwise>
+		                    <em>
+		                        <xsl:value-of select="d:QuestionSchemeName[@xml:lang=$fallback-lang]"/>
+		                    </em>
+		                </xsl:otherwise>
+		            </xsl:choose>               
+	            </h3>
+            </xsl:if>
+            <xsl:if test="count(./*[name(.) ='d:QuestionItem' or name(.) ='d:MultipleQuestionItem']) > 0">
             <ul class="questions">
-                <xsl:for-each select="child::*">
+                <xsl:for-each select="./*[name(.) ='d:QuestionItem' or name(.) ='d:MultipleQuestionItem']">
                     <xsl:apply-templates select="."/>
                 </xsl:for-each>
             </ul>
@@ -295,21 +307,20 @@
     </xsl:template>
 
     <xsl:template match="l:Category">
-            <xsl:choose>
-                <xsl:when test="@missing">
-                    <td><em><xsl:value-of select="r:Label" /></em></td>
-                </xsl:when>
-                <xsl:otherwise>
-                    <td><xsl:value-of select="r:Label" /></td>
-                </xsl:otherwise>
-            </xsl:choose>
+       <xsl:choose>
+           <xsl:when test="@missing">
+               <td><em><xsl:value-of select="r:Label" /></em></td>
+           </xsl:when>
+           <xsl:otherwise>
+               <td><xsl:value-of select="r:Label" /></td>
+           </xsl:otherwise>
+       </xsl:choose>
     </xsl:template>
 
     <xsl:template match="d:MultipleQuestionItem">
         <li>
             <!-- use optional external question-id as id to the li-element -->
-            <xsl:attribute name="class">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
-            </xsl:attribute>
+            <xsl:attribute name="class">question-<xsl:value-of select="r:UserID[@type='question_id']"/></xsl:attribute>
             <strong class="questionName">
                 <xsl:value-of select="d:MultipleQuestionItemName[@xml:lang=$lang]"/>
             </strong>
@@ -333,11 +344,9 @@
 
     <xsl:template match="d:SubQuestions">
         <xsl:if test="count(child::*) > 0">
-        <ul class="questions">
             <xsl:for-each select="child::*">
                 <xsl:apply-templates select="."/>
             </xsl:for-each>
-        </ul>
         </xsl:if>
     </xsl:template>
 
