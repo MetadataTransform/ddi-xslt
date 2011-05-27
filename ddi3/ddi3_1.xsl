@@ -25,6 +25,7 @@
     <xsl:param name="lang">en</xsl:param>
     <xsl:param name="fallback-lang">en</xsl:param>
     <xsl:param name="render-as-document">true</xsl:param>
+    <xsl:param name="include-js">true</xsl:param>
     
     <xsl:template match="/ddi:DDIInstance"> 
         <html>
@@ -39,9 +40,15 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </title>
-                <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"/>
-                <meta charset="utf-8"/>
-                <link type="text/css" rel="stylesheet" media="all" href="ddi.css"/>
+                <xsl:choose>
+                    <xsl:when test="$include-js">
+                        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+                        <script type="text/javascript" src="study.js"></script>
+                    </xsl:when>
+                </xsl:choose>
+                
+                <meta charset="utf-8"></meta>
+                <link type="text/css" rel="stylesheet" media="all" href="ddi.css"></link>
             </head>
             <body>
                 <h1>
