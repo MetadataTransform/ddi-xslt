@@ -24,10 +24,18 @@
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
+	<!-- render text-elements of this language-->
     <xsl:param name="lang">en</xsl:param>
+    <!-- if the requested language is not found for e.g. questionText, use fallback language-->
     <xsl:param name="fallback-lang">sv</xsl:param>
+    <!-- render all elements or just the body--> 
     <xsl:param name="render-as-document">true</xsl:param>
-    <xsl:param name="include-js">false</xsl:param>
+    <!-- include interactive js and jquery for navigation (external links to eXist)-->
+    <xsl:param name="include-js">false</xsl:param> 
+    <!-- if include-js is true this is the backend for ajax-requests -->
+    <xsl:param name="exist-backend">http://bull.ssd.gu.se:8080/rest/ddi</xsl:param>
+    <!-- print anchors for eg QuestionItems-->
+    <xsl:param name="print-anchor">false</xsl:param>
     
 	<xsl:output method="xhtml" 
 	  doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" 
@@ -180,7 +188,7 @@
     <xsl:template match="d:QuestionScheme">
         <div>
             <xsl:attribute name="class">questionScheme</xsl:attribute>
-            <xsl:attribute name="id">questionScheme-<xsl:value-of select="@id"/>
+            <xsl:attribute name="id">questionScheme-id-<xsl:value-of select="@id"/>
             </xsl:attribute>
             <a>
                 <xsl:attribute name="name">questionScheme-<xsl:value-of select="@id"/>
@@ -230,10 +238,12 @@
             <!-- use optional external question-id as id to the li-element -->
             <xsl:attribute name="class">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
             </xsl:attribute>
+            <xsl:if test="$print-anchor">
             <a>
                 <xsl:attribute name="name">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
                 </xsl:attribute>
             </a>
+           </xsl:if>
             <strong class="questionName">
                 <xsl:value-of select="d:QuestionItemName[@xml:lang=$lang]"/>
             </strong>
