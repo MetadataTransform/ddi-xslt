@@ -4,9 +4,7 @@ body{font-family: Verdana, Arial, Helvetica, sans-serif ;font-size:0.8em;}
 
 a{color:#015497;}
 
-ul{
-    padding-left: 15px;
-}
+ul{padding-left: 15px;}
 
 ul.questions{
 	list-style-image: url(img/question.png);
