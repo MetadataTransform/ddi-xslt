@@ -1,6 +1,6 @@
 <xsl:stylesheet
-				xmlns="http://www.w3.org/1999/xhtml"
-				xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:g="ddi:group:3_1"
                 xmlns:d="ddi:datacollection:3_1"
                 xmlns:dce="ddi:dcelements:3_1"
@@ -24,24 +24,32 @@
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
-	<!-- render text-elements of this language-->
+    <!-- render text-elements of this language-->
     <xsl:param name="lang">en</xsl:param>
     <!-- if the requested language is not found for e.g. questionText, use fallback language-->
     <xsl:param name="fallback-lang">sv</xsl:param>
-    <!-- render all elements or just the body--> 
+    <!-- render all html-elements or just the content of body--> 
     <xsl:param name="render-as-document">true</xsl:param>
     <!-- include interactive js and jquery for navigation (external links to eXist)-->
     <xsl:param name="include-js">false</xsl:param> 
     <!-- if include-js is true this is the backend for ajax-requests -->
     <xsl:param name="exist-backend">http://bull.ssd.gu.se:8080/rest/ddi</xsl:param>
     <!-- print anchors for eg QuestionItems-->
-    <xsl:param name="print-anchor">false</xsl:param>
+    <xsl:param name="print-anchor">1</xsl:param>
+    <!-- show the title (and subtitle) of the study-->
+    <xsl:param name="show-study-title">0</xsl:param>
+    <!-- show the questions as a separate flow from the variables-->
+    <xsl:param name="show-questionnaires">1</xsl:param>
+    <!-- show variable navigation-bar-->
+    <xsl:param name="show-variable-navigration-bar">1</xsl:param>
+    <!-- show study-information-->
+    <xsl:param name="show-study-information">0</xsl:param>    
     
-	<xsl:output method="xhtml" 
-	  doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" 
-	  doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" 
-	  indent="yes"
-	  />
+    <xsl:output method="xhtml" 
+      doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" 
+      doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" 
+      indent="yes"
+      />
     
     <xsl:template match="/ddi:DDIInstance"> 
         <html>
@@ -59,7 +67,13 @@
                 <xsl:choose>
                     <xsl:when test="$include-js">
                         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-                        <script type="text/javascript" src="study.js"></script>
+                        <script type="text/javascript" src="js/config.js"></script>
+                        <script type="text/javascript" src="js/exist-requests.js"></script>
+                        <xsl:choose>
+                            <xsl:when test="$show-variable-navigration-bar">
+                                <script type="text/javascript" src="js/varaible-navaigation-bar.js"></script>
+                            </xsl:when>
+                        </xsl:choose>
                     </xsl:when>
                 </xsl:choose>
                 
@@ -67,38 +81,43 @@
                 <link type="text/css" rel="stylesheet" media="all" href="ddi.css"></link>
             </head>
             <body>
-                <h1>
-                    <xsl:choose>
-                        <xsl:when test="s:StudyUnit/r:Citation/r:Title/@xml:lang">
-                            <xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:value-of select="s:StudyUnit/r:Citation/r:Title"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </h1>
-				<p>
-                	<strong>
-                    	<xsl:value-of select="s:StudyUnit/r:Citation/r:AlternateTitle[@xml:lang=$lang]"/>
-                	</strong>
-                </p>
+                <div id="study">
+                    <xsl:if test="$show-study-title = 1">
+                    <h1>
+                        <xsl:choose>
+                            <xsl:when test="s:StudyUnit/r:Citation/r:Title/@xml:lang">
+                                <xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="s:StudyUnit/r:Citation/r:Title"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </h1>
+                    <p>
+                            <strong>
+                            <xsl:value-of select="s:StudyUnit/r:Citation/r:AlternateTitle[@xml:lang=$lang]"/>
+                            </strong>
+                    </p>
+                    </xsl:if>
 
-                <p class="refNr">
-                	Ref. nr: <strong><xsl:value-of select="s:StudyUnit/@id"/></strong>
-                </p>
+                    <xsl:if test="$show-study-information = 1">
+                                <p class="refNr">
+                                    Ref. nr: <strong><xsl:value-of select="s:StudyUnit/@id"/></strong>
+                                </p>
+                                <xsl:apply-templates select="s:StudyUnit/s:Abstract"/>
 
-                <xsl:apply-templates select="s:StudyUnit/s:Abstract"/>
-                
-                <xsl:apply-templates select="s:StudyUnit/r:Citation"/>
+                                <xsl:apply-templates select="s:StudyUnit/r:Citation"/>
 
-                <xsl:apply-templates select="s:StudyUnit/r:Coverage"/>
+                                <xsl:apply-templates select="s:StudyUnit/r:Coverage"/>
 
-                <xsl:apply-templates select="s:StudyUnit/c:ConceptualComponent/c:UniverseScheme"/>
+                                <xsl:apply-templates select="s:StudyUnit/c:ConceptualComponent/c:UniverseScheme"/>
 
-                <xsl:apply-templates select="s:StudyUnit/r:SeriesStatement"/>
-                <xsl:apply-templates select="s:StudyUnit/d:DataCollection"/>
-                <xsl:apply-templates select="s:StudyUnit/l:LogicalProduct"/>
+                                <xsl:apply-templates select="s:StudyUnit/r:SeriesStatement"/>                           
+                    </xsl:if>
 
+                    <xsl:apply-templates select="s:StudyUnit/d:DataCollection"/>
+                    <xsl:apply-templates select="s:StudyUnit/l:LogicalProduct"/>
+                </div>
             </body>
         </html>
     </xsl:template>
@@ -362,6 +381,10 @@
 
     <xsl:template match="l:Variable">
           <li>
+              <a>
+                <xsl:attribute name="name">varaible-<xsl:value-of select="@id"/>
+                </xsl:attribute>
+              </a>              
               <a><xsl:attribute name="name"><xsl:value-of select="@id"/></xsl:attribute></a>
               <strong class="variableName"><xsl:value-of select="l:VariableName"/></strong><xsl:value-of select="r:Label"/>
 
