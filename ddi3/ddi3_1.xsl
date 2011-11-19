@@ -37,15 +37,17 @@
     <!-- print anchors for eg QuestionItems-->
     <xsl:param name="print-anchor">1</xsl:param>
     <!-- show the title (and subtitle) of the study-->
-    <xsl:param name="show-study-title">0</xsl:param>
+    <xsl:param name="show-study-title">1</xsl:param>
     <!-- show the questions as a separate flow from the variables-->
     <xsl:param name="show-questionnaires">1</xsl:param>
     <!-- show variable navigation-bar-->
     <xsl:param name="show-variable-navigration-bar">1</xsl:param>
     <!-- show study-information-->
-    <xsl:param name="show-study-information">0</xsl:param>    
+    <xsl:param name="show-study-information">1</xsl:param>    
+    <!-- path prefix to the css-files-->
+    <xsl:param name="style-path">http://localhost/ddixslt/</xsl:param> 
     
-    <xsl:output method="xhtml" 
+    <xsl:output method="html" 
       doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" 
       doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" 
       indent="yes"
@@ -78,33 +80,41 @@
                 </xsl:choose>
                 
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
-                <link type="text/css" rel="stylesheet" media="all" href="ddi.css"></link>
+                <link type="text/css" rel="stylesheet" media="all" href="http://localhost/ddixslt/ddi.css"></link>
             </head>
             <body>
                 <div id="study">
                     <xsl:if test="$show-study-title = 1">
-                    <h1>
-                        <xsl:choose>
-                            <xsl:when test="s:StudyUnit/r:Citation/r:Title/@xml:lang">
-                                <xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="s:StudyUnit/r:Citation/r:Title"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </h1>
-                    <p>
-                            <strong>
-                            <xsl:value-of select="s:StudyUnit/r:Citation/r:AlternateTitle[@xml:lang=$lang]"/>
-                            </strong>
-                    </p>
+                        <h1>
+                            <xsl:choose>
+                                <xsl:when test="s:StudyUnit/r:Citation/r:Title/@xml:lang">
+                                    <xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="s:StudyUnit/r:Citation/r:Title"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </h1>
+                        <p>
+                                <strong>
+                                <xsl:value-of select="s:StudyUnit/r:Citation/r:AlternateTitle[@xml:lang=$lang]"/>
+                                </strong>
+                        </p>
                     </xsl:if>
 
                     <xsl:if test="$show-study-information = 1">
                                 <p class="refNr">
                                     Ref. nr: <strong><xsl:value-of select="s:StudyUnit/@id"/></strong>
                                 </p>
-                                <xsl:apply-templates select="s:StudyUnit/s:Abstract"/>
+                                <h3>Abstract</h3>
+                                <xsl:choose>
+                                    <xsl:when test="s:StudyUnit/s:Abstract/@xml:lang">
+                                        <xsl:value-of select="s:StudyUnit/s:Abstract[@xml:lang=$lang]"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="s:StudyUnit/s:Abstract"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
 
                                 <xsl:apply-templates select="s:StudyUnit/r:Citation"/>
 
@@ -120,11 +130,6 @@
                 </div>
             </body>
         </html>
-    </xsl:template>
-
-    <xsl:template match="s:Abstract">
-        <h3>Abstract</h3>
-        <p><xsl:value-of select="r:Content[@xml:lang=$lang]"/></p>
     </xsl:template>
 
     <xsl:template match="s:Coverage">
