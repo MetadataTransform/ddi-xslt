@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-body{font-family: Verdana, Arial, Helvetica, sans-serif ;font-size:0.8em;}
+body{font-family: Verdana, Arial, Helvetica, sans-serif ;font-size:0.8em; padding:1em;}
 
 a{color:#015497;}
 
@@ -43,6 +43,10 @@ div.questionScheme, div.variableScheme{
 
 h3.questionSchemeName{
 	margin-top: 5px;
+}
+
+.otherMaterial{
+    margin-left: 10px;
 }
 
 .refNr{float:right;}

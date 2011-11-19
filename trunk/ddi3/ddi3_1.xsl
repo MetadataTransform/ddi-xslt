@@ -25,9 +25,9 @@
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
     <!-- render text-elements of this language-->
-    <xsl:param name="lang">en</xsl:param>
+    <xsl:param name="lang">da</xsl:param>
     <!-- if the requested language is not found for e.g. questionText, use fallback language-->
-    <xsl:param name="fallback-lang">sv</xsl:param>
+    <xsl:param name="fallback-lang">en</xsl:param>
     <!-- render all html-elements or just the content of body--> 
     <xsl:param name="render-as-document">true</xsl:param>
     <!-- include interactive js and jquery for navigation (external links to eXist)-->
@@ -46,6 +46,9 @@
     <xsl:param name="show-study-information">1</xsl:param>    
     <!-- path prefix to the css-files-->
     <xsl:param name="style-path">http://localhost/ddixslt/</xsl:param> 
+    
+    <xsl:param name="translations">i18n/messages_sv.properties.xml</xsl:param>
+    <xsl:variable name="msg" select="document($translations)"/>	
     
     <xsl:output method="html" 
       doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" 
@@ -106,7 +109,7 @@
                                 <p class="refNr">
                                     Ref. nr: <strong><xsl:value-of select="s:StudyUnit/@id"/></strong>
                                 </p>
-                                <h3>Abstract</h3>
+                                <h3><xsl:value-of select="$msg/*/entry[@key='Abstract']"/></h3>
                                 <xsl:choose>
                                     <xsl:when test="s:StudyUnit/s:Abstract/@xml:lang">
                                         <xsl:value-of select="s:StudyUnit/s:Abstract[@xml:lang=$lang]"/>
@@ -142,7 +145,7 @@
     </xsl:template>
 
     <xsl:template match="c:UniverseScheme">
-        <h3>Universe</h3>
+        <h3><xsl:value-of select="$msg/*/entry[@key='Universe']"/></h3>
         <xsl:for-each select="c:Universe">
             <p>
                 <xsl:value-of select="c:HumanReadable[@xml:lang=$lang]"/>
@@ -162,11 +165,14 @@
         </div>
     </xsl:template>
 
-    <xsl:template match="d:DataCollection">
+    <xsl:template match="d:DataCollection">  
         <div class="dataCollection">
-            <ul class="otherMaterial">
-                <xsl:apply-templates select="r:OtherMaterial"/>
-            </ul>
+            <xsl:if test="r:OtherMaterial">
+                <h3><xsl:value-of select="$msg/*/entry[@key='Other_resources']"/></h3>
+                <ul class="otherMaterial">
+                    <xsl:apply-templates select="r:OtherMaterial"/>
+                </ul>
+            </xsl:if>
             <div class="questionSchemes">
                 <xsl:apply-templates select="d:QuestionScheme"/>
             </div>
@@ -175,9 +181,9 @@
 
     <xsl:template match="r:Citation">
         <xsl:if test="count(r:Creator) > 0">
-	        <h3>Creator</h3>
+	        <h3><xsl:value-of select="$msg/*/entry[@key='Primary_Investigators']"/></h3>
 	        <ul class="creator">
-	            <xsl:for-each select="r:Creator">
+	            <xsl:for-each select="r:Creator[@xml:lang=$lang]">
 	                <li>
 	                    <xsl:value-of select="."/>, <em>
 	                        <xsl:value-of select="@affiliation"/>
@@ -187,7 +193,7 @@
 	        </ul>
         </xsl:if>
         <xsl:if test="count(r:Publisher[@xml:lang=$lang]) > 0">
-	        <h3>Publisher</h3>
+	        <h3><xsl:value-of select="$msg/*/entry[@key='Publishers']"/></h3>
 	        <ul class="publisher">
 	            <xsl:for-each select="r:Publisher[@xml:lang=$lang]">
 	                <li>
@@ -199,9 +205,9 @@
     </xsl:template>
 
     <xsl:template match="r:SeriesStatement">
-        <h3>Series</h3>
+        <h3><xsl:value-of select="$msg/*/entry[@key='Series']"/></h3>
         <p>
-        	<strong>Name: </strong>
+        	<strong><xsl:value-of select="$msg/*/entry[@key='Name']"/>: </strong>
         	<xsl:value-of select="r:SeriesName[@xml:lang=$lang]"/>
         </p>
         <p>
@@ -417,7 +423,7 @@
 
     <!-- Resolve references -->
     <xsl:template match="l:NumericRepresentation">
-        <ul><li class="numeric"><xsl:value-of select="@type" /> (decimal positions <xsl:value-of select="@decimalPositions" />)</li></ul>
+        <ul><li class="numeric"><xsl:value-of select="@type" /> (<xsl:value-of select="@decimalPositions" /> <xsl:value-of select="$msg/*/entry[@key='Decimals']"/>)</li></ul>
 
     </xsl:template>
 
