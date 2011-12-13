@@ -28,26 +28,29 @@
     <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
 
     <!--
-    Document   : ddi-datacite.xsl
+    Document   : ddi_3_1-datacite_2_2.xsl
+    Version    : development
     Created on : den 11 december 2011, 22:29
     Description: extract metadata from DDI 3.1 to DataCite metadata
     
     DOC: http://schema.datacite.org/meta/kernel-2.2/doc/DataCite-MetadataKernel_v2.2.pdf
+    
     progress:
-    id      datacite                ddi3
+    id     |datacite              | ddi3
+    =======================================
     1       +Identifier
     2       +Creator
     2.1     creatorName
     2.2     nameIdentifier
     2.2.1   nameIdentifierScheme
     3       +Title
-    
+    4       Publisher               r:Publisher
     ?       description             s:Abstract, s:purpose
     -->
 
     <!-- If no DOI is present in the DDI-instace provide this as a paramater-->
     <xsl:param name="doi"></xsl:param>
-    <xsl:param name="lang">en</xsl:param>
+    <xsl:param name="lang">eng</xsl:param>
     
     <xsl:template match="//s:StudyUnit">
         <resource>
@@ -64,6 +67,7 @@
                 </xsl:choose>
             </titles>
             
+            <!-- Creator -->
             <creators>
                 <xsl:choose>
                     <xsl:when test="r:Citation/r:Creator/@xml:lang">
@@ -79,7 +83,19 @@
                 </xsl:choose>
             </creators>
             
-            <!-- s:Abstract -->
+            <!-- Publisher -->
+            <xsl:if test="r:Citation/r:Publisher">
+                <xsl:choose>
+                    <xsl:when test="r:Citation/r:Publisher/@xml:lang">
+                            <publisher><xsl:value-of select="r:Citation/r:Publisher[@xml:lang = $lang]"/></publisher>
+                    </xsl:when>
+                    <xsl:otherwise>
+                            <publisher><xsl:value-of select="r:Citation/r:Publisher"/></publisher>                      
+                    </xsl:otherwise>
+                </xsl:choose>                
+            </xsl:if>
+            
+            <!-- s:Abstract, s:Purpose-->
             <xsl:if test="s:Abstract | s:Purpose">
                 <descriptions>
                     <xsl:if test="s:Abstract">
