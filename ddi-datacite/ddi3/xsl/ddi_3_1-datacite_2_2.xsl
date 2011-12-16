@@ -111,10 +111,10 @@
                     <xsl:if test="s:Purpose">
                         <xsl:choose>
                             <xsl:when test="s:Purpose/r:Content[@xml:lang = $lang]">
-                                <description descriptionType="Purpose"><xsl:value-of select="s:Purpose/r:Content[@xml:lang = $lang]"/></description>
+                                <description descriptionType="Other"><xsl:value-of select="s:Purpose/r:Content[@xml:lang = $lang]"/></description>
                             </xsl:when>
                             <xsl:otherwise>
-                                <description descriptionType="Purpose"><xsl:value-of select="s:Purpose/r:Content"/></description>
+                                <description descriptionType="Other"><xsl:value-of select="s:Purpose/r:Content"/></description>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:if>
