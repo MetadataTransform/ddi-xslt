@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+
+body{font-family: Verdana, Arial, Helvetica, sans-serif ;font-size:0.8em; padding:1em;}
+
+a{color:#015497;}
+
+ul{padding-left: 15px;}
+
+ul.questions{
+	list-style-image: url(img/question.png);
+	padding-left: 15px;
+	margin-left: 15px;
+}
+
+ul.variables{
+	list-style-image: url(img/variable.png);
+	padding-left: 15px;
+	margin-left: 15px;
+}
+
+table.codeScheme{
+    font-size:0.8em;
+}
+
+ul.creator{list-style:none;}
+
+div.questionScheme, div.variableScheme{
+	border: 1px solid #DDDDDD;
+	padding:5px;
+	margin-top:5px;	
+}
+
+.variableName{padding-right:5px;}
+
+.questionName{
+	font-size:0.8em;
+	font-face:monospace;
+	color:#BBBBBB;
+	margin-right:5px;
+	border: 1px solid #DDDDDD;
+	padding:1px;		
+}
+
+h3.questionSchemeName{
+	margin-top: 5px;
+}
+
+.otherMaterial{
+    margin-left: 10px;
+}
+
+.refNr{float:right;}
+
+li.pdf, li.stream{list-style-image: url(img/pdf.png);}
+li.html{list-style-image: url(img/html.png);}
+li.numeric, li.textRepresentation{list-style-image: url(img/input.png);}
+li.codeDomain{list-style-image: url(img/code-scheme.png);}
