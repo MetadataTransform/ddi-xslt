@@ -24,6 +24,9 @@
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
+    
+    <xsl:import href="ddi3_1_logicalproduct.xsl"/>
+
     <!-- render text-elements of this language-->
     <xsl:param name="lang">da</xsl:param>
     <!-- if the requested language is not found for e.g. questionText, use fallback language-->
@@ -32,7 +35,7 @@
     <xsl:param name="render-as-document">true</xsl:param>
     <!-- include interactive js and jquery for navigation (external links to eXist)-->
     <xsl:param name="include-js">false</xsl:param> 
-    <!-- if include-js is true this is the backend for ajax-requests -->
+    <!-- [optional] if include-js is true this is the backend for ajax-requests -->
     <xsl:param name="exist-backend">http://bull.ssd.gu.se:8080/rest/ddi</xsl:param>
     <!-- print anchors for eg QuestionItems-->
     <xsl:param name="print-anchor">1</xsl:param>
@@ -45,14 +48,14 @@
     <!-- show study-information-->
     <xsl:param name="show-study-information">1</xsl:param>    
     <!-- path prefix to the theme css-files-->
-    <xsl:param name="theme-path">../ddi-html/theme/default</xsl:param> 
+    <xsl:param name="theme-path">theme/default</xsl:param> 
     
 
     <!-- path prefix (used for css, js when rendered on the web)-->
-    <xsl:param name="path-prefix">0</xsl:param>    
+    <xsl:param name="path-prefix">../ddi-html</xsl:param>    
     
 
-    <xsl:param name="translations">i18n/messages_sv.properties.xml</xsl:param>
+    <xsl:param name="translations">i18n/messages_en.properties.xml</xsl:param>
     <xsl:variable name="msg" select="document($translations)"/>	
     
     <xsl:output method="html" 
@@ -76,17 +79,22 @@
                 </title>
                 <xsl:choose>
                     <xsl:when test="$include-js">
-                        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+                        <script type="text/javascript">
+                            <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery-1.7.1.min.js</xsl:attribute>
+                        </script>
                         
                         <script type="text/javascript">
                             <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/config.js</xsl:attribute>
                         </script>
                         
-                        <script type="text/javascript" src="js/config.js"></script>
-                        <script type="text/javascript" src="js/exist-requests.js"></script>
+                        <script type="text/javascript" src="js/exist-requests.js">
+                            
+                        </script>
                         <xsl:choose>
                             <xsl:when test="$show-variable-navigration-bar">
-                                <script type="text/javascript" src="js/varaible-navaigation-bar.js"></script>
+                                <script type="text/javascript">
+                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/varaible-navaigation-bar.js</xsl:attribute>
+                                </script>
                             </xsl:when>
                         </xsl:choose>
                     </xsl:when>
@@ -94,7 +102,7 @@
                 
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
                 <link type="text/css" rel="stylesheet" media="all">
-                     <xsl:attribute name="href"><xsl:value-of select="$theme-path"/>/ddi.css</xsl:attribute>
+                     <xsl:attribute name="href"><xsl:value-of select="$path-prefix"/>/<xsl:value-of select="$theme-path"/>/ddi.css</xsl:attribute>
                 </link>
             </head>
             <body>
@@ -163,12 +171,6 @@
                 <xsl:value-of select="c:HumanReadable[@xml:lang=$lang]"/>
             </p>
         </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template match="l:LogicalProduct">
-        <div class="variableSchemes">
-             <xsl:apply-templates select="l:DataRelationship/l:LogicalRecord/l:VariablesInRecord/l:VariableSchemeReference"/>
-        </div>
     </xsl:template>
 
     <xsl:template match="a:Archive">
@@ -333,42 +335,6 @@
         <ul><li class="numeric"><xsl:value-of select="@type" /></li></ul>
     </xsl:template>
 
-    <xsl:template match="l:CodeScheme">
-        <xsl:if test="count(l:Code) > 0">
-        <table class="codeScheme">
-            <tbody>
-                <xsl:apply-templates select="l:Code" />
-            </tbody>
-        </table>
-        </xsl:if>
-    </xsl:template>
-
-    <xsl:template match="l:VariableScheme">
-        <div class="variableScheme">
-            <ul class="variables">
-            <xsl:apply-templates select="l:Variable" />
-            </ul>
-        </div>
-    </xsl:template>
-
-    <xsl:template match="l:Code">
-        <tr>
-            <td><xsl:value-of select="l:Value" /></td>
-            <xsl:apply-templates select ="l:CategoryReference" />
-        </tr>
-    </xsl:template>
-
-    <xsl:template match="l:Category">
-       <xsl:choose>
-           <xsl:when test="@missing">
-               <td><em><xsl:value-of select="r:Label" /></em></td>
-           </xsl:when>
-           <xsl:otherwise>
-               <td><xsl:value-of select="r:Label" /></td>
-           </xsl:otherwise>
-       </xsl:choose>
-    </xsl:template>
-
     <xsl:template match="d:MultipleQuestionItem">
         <li>
             <!-- use optional external question-id as id to the li-element -->
@@ -400,57 +366,5 @@
                 <xsl:apply-templates select="."/>
             </xsl:for-each>
         </xsl:if>
-    </xsl:template>
-
-    <xsl:template match="l:Variable">
-          <li>
-              <a>
-                <xsl:attribute name="name">varaible-<xsl:value-of select="@id"/>
-                </xsl:attribute>
-              </a>              
-              <a><xsl:attribute name="name"><xsl:value-of select="@id"/></xsl:attribute></a>
-              <strong class="variableName"><xsl:value-of select="l:VariableName"/></strong><xsl:value-of select="r:Label"/>
-
-              <xsl:apply-templates select="l:Representation/l:CodeRepresentation" />
-              <xsl:apply-templates select="l:Representation/l:NumericRepresentation" />
-              <xsl:apply-templates select="l:Representation/l:TextRepresentation" />
-          </li>
-    </xsl:template>
-
-    <xsl:template match="l:CodeRepresentation">
-        <ul>
-            <li class="codeDomain">
-                <xsl:apply-templates select="r:CodeSchemeReference" />
-            </li>
-        </ul>
-    </xsl:template>
-
-    <xsl:template match="l:TextRepresentation">
-        <ul>
-            <li class="textRepresentation">
-                Text (max length: <xsl:value-of select="@maxLength" />)
-            </li>
-        </ul>
-    </xsl:template>
-
-    <!-- Resolve references -->
-    <xsl:template match="l:NumericRepresentation">
-        <ul><li class="numeric"><xsl:value-of select="@type" /> (<xsl:value-of select="@decimalPositions" /> <xsl:value-of select="$msg/*/entry[@key='Decimals']"/>)</li></ul>
-
-    </xsl:template>
-
-    <xsl:template match="l:VariableSchemeReference">
-        <xsl:variable name="vsID" select="r:ID" />
-        <xsl:apply-templates select="//l:VariableScheme[@id = $vsID]" />
-    </xsl:template>
-
-    <xsl:template match="r:CodeSchemeReference">
-        <xsl:variable name="csID" select="r:ID" />
-        <xsl:apply-templates select="//l:CodeScheme[@id = $csID]" />
-    </xsl:template>
-
-    <xsl:template match="l:CategoryReference">
-        <xsl:variable name="csID" select="r:ID" />
-        <xsl:apply-templates select="//l:Category[@id = $csID]" />
     </xsl:template>
 </xsl:stylesheet>
