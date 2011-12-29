@@ -78,7 +78,7 @@
     </xsl:template>
 
     <xsl:template match="l:NumericRepresentation">
-        <ul><li class="numeric"><xsl:value-of select="@type" /> (<xsl:value-of select="@decimalPositions" /> <xsl:value-of select="$msg/*/entry[@key='Decimals']"/>)</li></ul>
+        <ul><li class="numeric"><xsl:value-of select="@type" /> (<xsl:value-of select="@decimalPositions" /><xsl:text> </xsl:text><xsl:value-of select="$msg/*/entry[@key='Decimals']"/>)</li></ul>
 
     </xsl:template>
 

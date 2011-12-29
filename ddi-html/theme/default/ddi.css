@@ -60,8 +60,13 @@ li.codeDomain{list-style-image: url(img/code-scheme.png);}
     float:left;
 }
 
-.document-navigration{
+#variable-navigration{
+    position: fixed;
     border: 1px solid;
     float:left;
     height: 100%;
+    overflow:scroll;
+    overflow-x:auto;
+    left: 0px;
+    top: 0px; bottom: 0px;  margin-left: 0px; padding-left: 5px;
 }
