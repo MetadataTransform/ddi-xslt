@@ -25,6 +25,7 @@
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
     
+    <xsl:import href="ddi3_1_datacollection.xsl"/>
     <xsl:import href="ddi3_1_logicalproduct.xsl"/>
 
     <!-- render text-elements of this language-->
@@ -126,26 +127,26 @@
                     </xsl:if>
 
                     <xsl:if test="$show-study-information = 1">
-                                <p class="refNr">
-                                    Ref. nr: <strong><xsl:value-of select="s:StudyUnit/@id"/></strong>
-                                </p>
-                                <h3><xsl:value-of select="$msg/*/entry[@key='Abstract']"/></h3>
-                                <xsl:choose>
-                                    <xsl:when test="s:StudyUnit/s:Abstract/@xml:lang">
-                                        <xsl:value-of select="s:StudyUnit/s:Abstract[@xml:lang=$lang]"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:value-of select="s:StudyUnit/s:Abstract"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
+                        <p class="refNr">
+                            Ref. nr: <strong><xsl:value-of select="s:StudyUnit/@id"/></strong>
+                        </p>
+                        <h3><xsl:value-of select="$msg/*/entry[@key='Abstract']"/></h3>
+                        <xsl:choose>
+                            <xsl:when test="s:StudyUnit/s:Abstract/@xml:lang">
+                                <xsl:value-of select="s:StudyUnit/s:Abstract[@xml:lang=$lang]"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="s:StudyUnit/s:Abstract"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
 
-                                <xsl:apply-templates select="s:StudyUnit/r:Citation"/>
+                        <xsl:apply-templates select="s:StudyUnit/r:Citation"/>
 
-                                <xsl:apply-templates select="s:StudyUnit/r:Coverage"/>
+                        <xsl:apply-templates select="s:StudyUnit/r:Coverage"/>
 
-                                <xsl:apply-templates select="s:StudyUnit/c:ConceptualComponent/c:UniverseScheme"/>
+                        <xsl:apply-templates select="s:StudyUnit/c:ConceptualComponent/c:UniverseScheme"/>
 
-                                <xsl:apply-templates select="s:StudyUnit/r:SeriesStatement"/>                           
+                        <xsl:apply-templates select="s:StudyUnit/r:SeriesStatement"/>                           
                     </xsl:if>
 
                     <xsl:apply-templates select="s:StudyUnit/d:DataCollection"/>
@@ -176,20 +177,6 @@
     <xsl:template match="a:Archive">
         <div class="archive">
 
-        </div>
-    </xsl:template>
-
-    <xsl:template match="d:DataCollection">  
-        <div class="dataCollection">
-            <xsl:if test="r:OtherMaterial">
-                <h3><xsl:value-of select="$msg/*/entry[@key='Other_resources']"/></h3>
-                <ul class="otherMaterial">
-                    <xsl:apply-templates select="r:OtherMaterial"/>
-                </ul>
-            </xsl:if>
-            <div class="questionSchemes">
-                <xsl:apply-templates select="d:QuestionScheme"/>
-            </div>
         </div>
     </xsl:template>
 
@@ -229,39 +216,6 @@
         </p>
     </xsl:template>
 
-    <xsl:template match="d:QuestionScheme">
-        <div>
-            <xsl:attribute name="class">questionScheme</xsl:attribute>
-            <xsl:attribute name="id">questionScheme-id-<xsl:value-of select="@id"/>
-            </xsl:attribute>
-            <a>
-                <xsl:attribute name="name">questionScheme-<xsl:value-of select="@id"/>
-                </xsl:attribute>
-            </a>
-            <xsl:if test="d:QuestionSchemeName">
-	            <h3 class="questionSchemeName">               
-		            <xsl:choose>
-		                <xsl:when test="d:QuestionSchemeName[@xml:lang=$lang]">
-		                    <xsl:value-of select="d:QuestionSchemeName[@xml:lang=$lang]"/>
-		                </xsl:when>
-		                <xsl:otherwise>
-		                    <em>
-		                        <xsl:value-of select="d:QuestionSchemeName[@xml:lang=$fallback-lang]"/>
-		                    </em>
-		                </xsl:otherwise>
-		            </xsl:choose>               
-	            </h3>
-            </xsl:if>
-            <xsl:if test="count(./*[name(.) ='d:QuestionItem' or name(.) ='d:MultipleQuestionItem']) > 0">
-            <ul class="questions">
-                <xsl:for-each select="./*[name(.) ='d:QuestionItem' or name(.) ='d:MultipleQuestionItem']">
-                    <xsl:apply-templates select="."/>
-                </xsl:for-each>
-            </ul>
-            </xsl:if>
-        </div>
-    </xsl:template>
-
     <xsl:template match="r:OtherMaterial">
         <li>
             <!-- used for setting class for icon for the filetype-->
@@ -275,96 +229,5 @@
                 <xsl:value-of select="r:Citation/r:Title[@xml:lang=$lang]"/>
             </a>
         </li>
-    </xsl:template>
-
-    <xsl:template match="d:QuestionItem">
-        <li>
-            <!-- use optional external question-id as id to the li-element -->
-            <xsl:attribute name="class">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
-            </xsl:attribute>
-            <xsl:if test="$print-anchor">
-            <a>
-                <xsl:attribute name="name">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
-                </xsl:attribute>
-            </a>
-           </xsl:if>
-            <strong class="questionName">
-                <xsl:value-of select="d:QuestionItemName[@xml:lang=$lang]"/>
-            </strong>
-            <xsl:choose>
-                <xsl:when test="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text">
-                    <xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <em>
-                        <xsl:value-of select="d:QuestionText[@xml:lang=$fallback-lang]/d:LiteralText/d:Text"/>
-                    </em>
-                </xsl:otherwise>
-            </xsl:choose>
-
-            <xsl:apply-templates select="d:CodeDomain" />
-            <xsl:apply-templates select="d:NumericDomain" />
-
-            <!-- generate variable-links-->
-            
-            
-            <xsl:variable name="qiID" select="@id" />
-            <xsl:if test="count(//l:Variable[l:QuestionReference/r:ID = $qiID]) > 0">
-            <ul class="variables">
-                <li>
-                    <strong class="variableName"><xsl:value-of select="//l:Variable[l:QuestionReference/r:ID = $qiID]/l:VariableName"/></strong>
-                    <a>
-                       <xsl:attribute name="href">#<xsl:value-of select="//l:Variable[l:QuestionReference/r:ID = $qiID]/@id"/></xsl:attribute>
-                       <xsl:value-of select="//l:Variable[l:QuestionReference/r:ID = $qiID]/r:Label"/>
-                    </a>
-                </li>
-            </ul>
-            </xsl:if>
-        </li>
-    </xsl:template>
-
-    <xsl:template match="d:CodeDomain">
-        <ul>
-            <li class="codeDomain">
-                <xsl:apply-templates select="r:CodeSchemeReference" />
-            </li>
-        </ul>
-    </xsl:template>
-
-    <xsl:template match="d:NumericDomain">
-        <ul><li class="numeric"><xsl:value-of select="@type" /></li></ul>
-    </xsl:template>
-
-    <xsl:template match="d:MultipleQuestionItem">
-        <li>
-            <!-- use optional external question-id as id to the li-element -->
-            <xsl:attribute name="class">question-<xsl:value-of select="r:UserID[@type='question_id']"/></xsl:attribute>
-            <strong class="questionName">
-                <xsl:value-of select="d:MultipleQuestionItemName[@xml:lang=$lang]"/>
-            </strong>
-            <xsl:choose>
-                <xsl:when test="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text">
-                    <xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <em>
-                        <xsl:value-of select="d:QuestionText[@xml:lang=$fallback-lang]/d:LiteralText/d:Text"/>
-                    </em>
-                </xsl:otherwise>
-            </xsl:choose>
-            <xsl:if test="count(d:SubQuestions) > 0">
-            <ul class="questions">
-                <xsl:apply-templates select="d:SubQuestions" />
-            </ul>
-            </xsl:if>
-        </li>
-    </xsl:template>
-
-    <xsl:template match="d:SubQuestions">
-        <xsl:if test="count(child::*) > 0">
-            <xsl:for-each select="child::*">
-                <xsl:apply-templates select="."/>
-            </xsl:for-each>
-        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
