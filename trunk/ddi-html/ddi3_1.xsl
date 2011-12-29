@@ -107,53 +107,57 @@
                 </link>
             </head>
             <body>
-                <div id="study">
-                    <xsl:if test="$show-study-title = 1">
-                        <h1>
-                            <xsl:choose>
-                                <xsl:when test="s:StudyUnit/r:Citation/r:Title/@xml:lang">
-                                    <xsl:value-of select="s:StudyUnit/r:Citation/r:Title[@xml:lang=$lang]"/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:value-of select="s:StudyUnit/r:Citation/r:Title"/>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </h1>
-                        <p>
-                                <strong>
-                                <xsl:value-of select="s:StudyUnit/r:Citation/r:AlternateTitle[@xml:lang=$lang]"/>
-                                </strong>
-                        </p>
-                    </xsl:if>
-
-                    <xsl:if test="$show-study-information = 1">
-                        <p class="refNr">
-                            Ref. nr: <strong><xsl:value-of select="s:StudyUnit/@id"/></strong>
-                        </p>
-                        <h3><xsl:value-of select="$msg/*/entry[@key='Abstract']"/></h3>
-                        <xsl:choose>
-                            <xsl:when test="s:StudyUnit/s:Abstract/@xml:lang">
-                                <xsl:value-of select="s:StudyUnit/s:Abstract[@xml:lang=$lang]"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="s:StudyUnit/s:Abstract"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-
-                        <xsl:apply-templates select="s:StudyUnit/r:Citation"/>
-
-                        <xsl:apply-templates select="s:StudyUnit/r:Coverage"/>
-
-                        <xsl:apply-templates select="s:StudyUnit/c:ConceptualComponent/c:UniverseScheme"/>
-
-                        <xsl:apply-templates select="s:StudyUnit/r:SeriesStatement"/>                           
-                    </xsl:if>
-
-                    <xsl:apply-templates select="s:StudyUnit/d:DataCollection"/>
-                    <xsl:apply-templates select="s:StudyUnit/l:LogicalProduct"/>
-                </div>
+                <xsl:apply-templates select="s:StudyUnit"/>   
             </body>
         </html>
+    </xsl:template>
+    
+    <xsl:template match="s:StudyUnit">
+        <div id="study">
+            <xsl:if test="$show-study-title = 1">
+                <h1>
+                    <xsl:choose>
+                        <xsl:when test="r:Citation/r:Title/@xml:lang">
+                            <xsl:value-of select="r:Citation/r:Title[@xml:lang=$lang]"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="r:Citation/r:Title"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </h1>
+                <p>
+                    <strong>
+                    <xsl:value-of select="r:Citation/r:AlternateTitle[@xml:lang=$lang]"/>
+                    </strong>
+                </p>
+            </xsl:if>
+
+            <xsl:if test="$show-study-information = 1">
+                <p class="refNr">
+                    Ref. nr: <strong><xsl:value-of select="@id"/></strong>
+                </p>
+                <h3><xsl:value-of select="$msg/*/entry[@key='Abstract']"/></h3>
+                <xsl:choose>
+                    <xsl:when test="s:Abstract/@xml:lang">
+                        <xsl:value-of select="s:Abstract[@xml:lang=$lang]"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="s:Abstract"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+
+                <xsl:apply-templates select="r:Citation"/>
+
+                <xsl:apply-templates select="r:Coverage"/>
+
+                <xsl:apply-templates select="c:ConceptualComponent/c:UniverseScheme"/>
+
+                <xsl:apply-templates select="r:SeriesStatement"/>                           
+            </xsl:if>
+
+            <xsl:apply-templates select="d:DataCollection"/>
+            <xsl:apply-templates select="l:LogicalProduct"/>
+        </div>        
     </xsl:template>
 
     <xsl:template match="s:Coverage">

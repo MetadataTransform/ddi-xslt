@@ -30,6 +30,13 @@
     <xsl:param name="translations">i18n/messages_en.properties.xml</xsl:param>
     <xsl:variable name="msg" select="document($translations)"/>	
 
+    <!-- render text-elements of this language-->
+    <xsl:param name="lang">da</xsl:param>
+    <!-- if the requested language is not found for e.g. questionText, use fallback language-->
+    <xsl:param name="fallback-lang">en</xsl:param>
+    <!-- print anchors for eg QuestionItems-->
+    <xsl:param name="print-anchor">1</xsl:param>
+
     <xsl:template match="d:DataCollection">  
         <div class="dataCollection">
             <xsl:if test="r:OtherMaterial">
@@ -54,26 +61,26 @@
                 </xsl:attribute>
             </a>
             <xsl:if test="d:QuestionSchemeName">
-	            <h3 class="questionSchemeName">               
-		            <xsl:choose>
-		                <xsl:when test="d:QuestionSchemeName[@xml:lang=$lang]">
-		                    <xsl:value-of select="d:QuestionSchemeName[@xml:lang=$lang]"/>
-		                </xsl:when>
-		                <xsl:otherwise>
-		                    <em>
-		                        <xsl:value-of select="d:QuestionSchemeName[@xml:lang=$fallback-lang]"/>
-		                    </em>
-		                </xsl:otherwise>
-		            </xsl:choose>               
-	            </h3>
+                <h3 class="questionSchemeName">               
+                    <xsl:choose>
+                        <xsl:when test="d:QuestionSchemeName[@xml:lang=$lang]">
+                            <xsl:value-of select="d:QuestionSchemeName[@xml:lang=$lang]"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <em>
+                                <xsl:value-of select="d:QuestionSchemeName[@xml:lang=$fallback-lang]"/>
+                            </em>
+                        </xsl:otherwise>
+                    </xsl:choose>               
+                </h3>
             </xsl:if>
-            <xsl:if test="count(./*[name(.) ='d:QuestionItem' or name(.) ='d:MultipleQuestionItem']) > 0">
+            <!-- <xsl:if test="count(./*[name(.) ='d:QuestionItem' or name(.) ='d:MultipleQuestionItem']) > 0"> -->
             <ul class="questions">
-                <xsl:for-each select="./*[name(.) ='d:QuestionItem' or name(.) ='d:MultipleQuestionItem']">
+                <xsl:for-each select="d:QuestionItem | d:MultipleQuestionItem">
                     <xsl:apply-templates select="."/>
                 </xsl:for-each>
             </ul>
-            </xsl:if>
+            <!--</xsl:if>-->
         </div>
     </xsl:template>
     
@@ -167,5 +174,17 @@
     <xsl:template match="d:NumericDomain">
         <ul><li class="numeric"><xsl:value-of select="@type" /></li></ul>
     </xsl:template>    
-    
+ 
+    <xsl:template match="d:TextDomain">
+        <ul>
+            <li class="text">
+                <xsl:if test="@minLength">
+                    <xsl:value-of select="$msg/*/entry[@key='Minimum']"/>: <xsl:value-of select="@minLength" />
+                </xsl:if>
+                <xsl:if test="@maxLength">
+                    <xsl:value-of select="$msg/*/entry[@key='Maximum']"/>: <xsl:value-of select="@maxLength" />
+                </xsl:if>
+            </li>
+        </ul>
+    </xsl:template>
 </xsl:stylesheet>
