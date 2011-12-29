@@ -139,10 +139,10 @@
                 <h3><xsl:value-of select="$msg/*/entry[@key='Abstract']"/></h3>
                 <xsl:choose>
                     <xsl:when test="s:Abstract/@xml:lang">
-                        <xsl:value-of select="s:Abstract[@xml:lang=$lang]"/>
+                        <xsl:copy-of select="s:Abstract[@xml:lang=$lang]"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:value-of select="s:Abstract"/>
+                        <xsl:copy-of select="s:Abstract"/>
                     </xsl:otherwise>
                 </xsl:choose>
 
@@ -150,8 +150,19 @@
 
                 <xsl:apply-templates select="r:Coverage"/>
 
-                <xsl:apply-templates select="c:ConceptualComponent/c:UniverseScheme"/>
+                <xsl:if test="s:KindOfData">
+                    <h3><xsl:value-of select="$msg/*/entry[@key='Kind_of_Data']"/></h3>
+                    <xsl:for-each select="s:KindOfData">
+                        <p>
+                            <xsl:value-of select="."/>
+                        </p>
+                    </xsl:for-each>
+                </xsl:if>
 
+                <xsl:if test="c:ConceptualComponent/c:UniverseScheme">           
+                    <h3><xsl:value-of select="$msg/*/entry[@key='Universe']"/></h3>
+                    <xsl:apply-templates select="c:ConceptualComponent/c:UniverseScheme"/>
+                </xsl:if>
                 <xsl:apply-templates select="r:SeriesStatement"/>                           
             </xsl:if>
 
@@ -159,7 +170,7 @@
             <xsl:apply-templates select="l:LogicalProduct"/>
         </div>        
     </xsl:template>
-
+    
     <xsl:template match="s:Coverage">
         <h3><xsl:value-of select="$msg/*/entry[@key='Scope_and_Coverage']"/></h3>
         <xsl:for-each select="r:TemporalCoverage">
@@ -170,7 +181,6 @@
     </xsl:template>
 
     <xsl:template match="c:UniverseScheme">
-        <h3><xsl:value-of select="$msg/*/entry[@key='Universe']"/></h3>
         <xsl:for-each select="c:Universe">
             <p>
                 <xsl:value-of select="c:HumanReadable[@xml:lang=$lang]"/>
