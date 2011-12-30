@@ -44,8 +44,8 @@
     <xsl:param name="show-study-title">1</xsl:param>
     <!-- show the questions as a separate flow from the variables-->
     <xsl:param name="show-questionnaires">1</xsl:param>
-    <!-- show variable navigation-bar-->
-    <xsl:param name="show-variable-navigration-bar">1</xsl:param>
+    <!-- show navigation-bar-->
+    <xsl:param name="show-navigration-bar">1</xsl:param>
     <!-- show study-information-->
     <xsl:param name="show-study-information">1</xsl:param>    
     <!-- path prefix to the theme css-files-->
@@ -92,9 +92,9 @@
                             
                         </script>
                         <xsl:choose>
-                            <xsl:when test="$show-variable-navigration-bar">
+                            <xsl:when test="$show-navigration-bar">
                                 <script type="text/javascript">
-                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/varaible-navaigation-bar.js</xsl:attribute>
+                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/navaigation-bar.js</xsl:attribute>
                                 </script>
                             </xsl:when>
                         </xsl:choose>
