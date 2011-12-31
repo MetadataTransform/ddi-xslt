@@ -1,6 +1,14 @@
 $(document).ready(function(){
 
-    $('<div id="variable-navigration"><input class="filter" name="livefilter" type="text" placeholder="filter" /><div id="variable-list-wrapper"><ul id="variable-list"></ul></div></div>').insertBefore('#study');
+    $('<div id="navigration">\n\
+        <input class="filter" name="livefilter" type="text" placeholder="filter" />\n\
+        <div id="question-list-wrapper">\n\
+            <ul id="question-list"></ul>\n\
+        </div>\n\
+        <div id="variable-list-wrapper">\n\
+            <ul id="variable-list"></ul>\n\
+        </div>\n\
+       </div>').insertBefore('#study');
     pupulateVariableList();
 });
 
@@ -19,7 +27,7 @@ function pupulateVariableList(){
         });
     });
     
-    $('#study').css('margin-left', $('#variable-navigration').width());
+    $('#study').css('margin-left', $('#navigration').width());
     $('#variable-list-wrapper').liveFilter('ul');
 }
 
