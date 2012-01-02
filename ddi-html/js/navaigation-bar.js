@@ -66,9 +66,7 @@ function menuTabs(){
 function pupulateVariableList(){
     var container = $("#variable-list");
     $('.variableScheme .variables').each(function(index, variableScheme) {
-        console.log('variableScheme '+variableScheme);
         $(variableScheme).children().each(function(i, variable){
-            console.log('variable '+$(variable).children('.label').text());
             var name  = $(variable).children('.variableName').text();
             var label =  $(variable).children('.label').text();
             var href = $(variable).children('a').attr('name')
@@ -87,9 +85,7 @@ function pupulateVariableList(){
 function pupulateQuestionList(){
     var container = $("#question-list");
     $('.questionScheme .questions').each(function(index, questionScheme) {
-        console.log('questionScheme '+questionScheme);
         $(questionScheme).children().each(function(i, question){
-            console.log('question '+$(question).children('.questionText').text());
             var name            = $(question).children('.questionName').text();
             var questionText    =  $(question).children('.questionText').text();
             var href            = $(question).children('a').attr('name')

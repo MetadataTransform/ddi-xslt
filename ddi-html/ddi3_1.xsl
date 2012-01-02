@@ -35,9 +35,7 @@
     <!-- render all html-elements or just the content of body--> 
     <xsl:param name="render-as-document">true</xsl:param>
     <!-- include interactive js and jquery for navigation (external links to eXist)-->
-    <xsl:param name="include-js">false</xsl:param> 
-    <!-- [optional] if include-js is true this is the backend for ajax-requests -->
-    <xsl:param name="exist-backend">http://bull.ssd.gu.se:8080/rest/ddi</xsl:param>
+    <xsl:param name="include-js">1</xsl:param> 
     <!-- print anchors for eg QuestionItems-->
     <xsl:param name="print-anchor">1</xsl:param>
     <!-- show the title (and subtitle) of the study-->
@@ -45,6 +43,7 @@
     <!-- show the questions as a separate flow from the variables-->
     <xsl:param name="show-questionnaires">1</xsl:param>
     <!-- show navigation-bar-->
+    
     <xsl:param name="show-navigration-bar">1</xsl:param>
     <!-- show study-information-->
     <xsl:param name="show-study-information">1</xsl:param>    
