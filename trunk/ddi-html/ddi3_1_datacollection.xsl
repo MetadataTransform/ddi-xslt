@@ -91,7 +91,7 @@
             </xsl:attribute>
             <xsl:if test="$print-anchor">
             <a>
-                <xsl:attribute name="name">question-<xsl:value-of select="r:UserID[@type='question_id']"/>
+                <xsl:attribute name="name">question-<xsl:value-of select="@id"/>
                 </xsl:attribute>
             </a>
            </xsl:if>
@@ -113,10 +113,9 @@
 
             <xsl:apply-templates select="d:CodeDomain" />
             <xsl:apply-templates select="d:NumericDomain" />
-
+            <xsl:apply-templates select="d:TextDomain" />
+            
             <!-- generate variable-links-->
-            
-            
             <xsl:variable name="qiID" select="@id" />
             <xsl:if test="count(//l:Variable[l:QuestionReference/r:ID = $qiID]) > 0">
             <ul class="variables">
