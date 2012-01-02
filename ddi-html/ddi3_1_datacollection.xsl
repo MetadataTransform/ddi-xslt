@@ -98,16 +98,18 @@
             <strong class="questionName">
                 <xsl:value-of select="d:QuestionItemName[@xml:lang=$lang]"/>
             </strong>
-            <xsl:choose>
-                <xsl:when test="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text">
-                    <xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <em>
-                        <xsl:value-of select="d:QuestionText[@xml:lang=$fallback-lang]/d:LiteralText/d:Text"/>
-                    </em>
-                </xsl:otherwise>
-            </xsl:choose>
+            <span class="questionText">
+                <xsl:choose>
+                    <xsl:when test="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text">
+                        <xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <em>
+                            <xsl:value-of select="d:QuestionText[@xml:lang=$fallback-lang]/d:LiteralText/d:Text"/>
+                        </em>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </span>
 
             <xsl:apply-templates select="d:CodeDomain" />
             <xsl:apply-templates select="d:NumericDomain" />

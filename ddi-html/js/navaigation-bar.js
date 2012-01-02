@@ -2,15 +2,66 @@ $(document).ready(function(){
 
     $('<div id="navigration">\n\
         <input class="filter" name="livefilter" type="text" placeholder="filter" />\n\
-        <div id="question-list-wrapper">\n\
-            <ul id="question-list"></ul>\n\
+        <div class="tabs">\n\
+            <ul class="tabNavigation">\n\
+                <li class="option active variables" id="tab1" tab="#variable-list-wrapper">Variables</li>\n\
+                <li class="option questions" id="tab2" tab="#question-list-wrapper">Questions</li>\n\
+            </ul>\n\
         </div>\n\
-        <div id="variable-list-wrapper">\n\
+        <div id="variable-list-wrapper" class="tab-content">\n\
+            <span class="count"></span>\n\
             <ul id="variable-list"></ul>\n\
         </div>\n\
+        <div id="question-list-wrapper" class="tab-content hide">\n\
+            <span class="count"></span>\n\
+            <ul id="question-list"></ul>\n\
+        </div>\n\
        </div>').insertBefore('#study');
+    
+    menuTabs();
     pupulateVariableList();
+    pupulateQuestionList();
+    
+    $('.filter').keyup(function(e){
+        var total   = $('#variable-list li').length;
+        var hidden  = $('#variable-list li:hidden').length;
+        $('#variable-list-wrapper .count').html((total-hidden)+'/'+total+' '+'variables');        
+        
+        total   = $('#question-list li').length;
+        hidden  = $('#question-list li:hidden').length;
+        $('#question-list-wrapper .count').html((total-hidden)+'/'+total+' '+'questions');
+    });    
+    
+    $('#navigration').css('width', '15%');
+    $('#study').css('margin-left', $('#navigration').width());
+    
 });
+
+function menuTabs(){
+	/* Default active tab */
+	activeTab = "#tab1"
+	activeTabContent = "#variable-list-wrapper";
+
+	$(".option").click(function(){	
+            deactivatedTab = "#" + $(this).attr('id');
+            deactivatedTabContent = $(deactivatedTab).attr('tab');
+		
+	    id= $(this).attr('tab');
+		
+            /* Deactivate current tab using css */
+            $(activeTab).removeClass('active');
+            $(activeTabContent).addClass('hide');
+
+            /* Activate tab that was clicked on */
+            $(deactivatedTab).addClass('active');
+            $(deactivatedTabContent).removeClass('hide');
+
+
+            /* Set the new activated tab */
+            activeTab = deactivatedTab;
+            activeTabContent = deactivatedTabContent;
+	});
+};
 
 function pupulateVariableList(){
     var container = $("#variable-list");
@@ -27,11 +78,36 @@ function pupulateVariableList(){
         });
     });
     
-    $('#study').css('margin-left', $('#navigration').width());
     $('#variable-list-wrapper').liveFilter('ul');
+    
+    $('#variable-list-wrapper .count').html($('#variable-list li').length+' '+'variables');
 }
 
-/***** [plugins] ****/
+
+function pupulateQuestionList(){
+    var container = $("#question-list");
+    $('.questionScheme .questions').each(function(index, questionScheme) {
+        console.log('questionScheme '+questionScheme);
+        $(questionScheme).children().each(function(i, question){
+            console.log('question '+$(question).children('.questionText').text());
+            var name            = $(question).children('.questionName').text();
+            var questionText    =  $(question).children('.questionText').text();
+            var href            = $(question).children('a').attr('name')
+            
+            $(container).append('<li><a href="#'+href+'"><span class="questionText">'+questionText+'</span></a></li>');
+            
+        });
+    });
+    
+    $('#question-list-wrapper').liveFilter('ul');
+    
+    $('#question-list-wrapper .count').html($('#question-list li').length+' '+'questions');
+}
+
+
+
+
+/*********************** [plugins] ********************************************/
 
 /***********************************************************/
 /*                    LiveFilter Plugin                    */
@@ -75,3 +151,5 @@ function pupulateVariableList(){
 	}
 
 })(jQuery);
+
+
