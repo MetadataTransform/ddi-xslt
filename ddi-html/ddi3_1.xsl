@@ -40,11 +40,14 @@
     <xsl:param name="print-anchor">1</xsl:param>
     <!-- show the title (and subtitle) of the study-->
     <xsl:param name="show-study-title">1</xsl:param>
+    <!-- show the abstract as part of study-information -->
+    <xsl:param name="show-abstract">1</xsl:param>
     <!-- show the questions as a separate flow from the variables-->
     <xsl:param name="show-questionnaires">1</xsl:param>
     <!-- show navigation-bar-->
-    
     <xsl:param name="show-navigration-bar">1</xsl:param>
+    <!-- show inline variable toc-->
+    <xsl:param name="show-inline-toc">0</xsl:param>
     <!-- show study-information-->
     <xsl:param name="show-study-information">1</xsl:param>    
     <!-- path prefix to the theme css-files-->
@@ -78,7 +81,7 @@
                     </xsl:choose>
                 </title>
                 <xsl:choose>
-                    <xsl:when test="$include-js">
+                    <xsl:when test="$include-js = 1">
                         <script type="text/javascript">
                             <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery-1.7.1.min.js</xsl:attribute>
                         </script>
@@ -135,20 +138,39 @@
                 <p class="refNr">
                     Ref. nr: <strong><xsl:value-of select="@id"/></strong>
                 </p>
-                <h3><xsl:value-of select="$msg/*/entry[@key='Abstract']"/></h3>
-                <xsl:choose>
-                    <xsl:when test="s:Abstract/@xml:lang">
-                        <xsl:copy-of select="s:Abstract[@xml:lang=$lang]"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:copy-of select="s:Abstract"/>
-                    </xsl:otherwise>
-                </xsl:choose>
+                
+                <xsl:if test="$show-abstract = 1">
+                    <h3><xsl:value-of select="$msg/*/entry[@key='Abstract']"/></h3>
+                    <xsl:choose>
+                        <xsl:when test="s:Abstract/@xml:lang">
+                            <xsl:copy-of select="s:Abstract[@xml:lang=$lang]"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:copy-of select="s:Abstract"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:if>
 
                 <xsl:apply-templates select="r:Citation"/>
 
                 <xsl:apply-templates select="r:Coverage"/>
 
+                <xsl:if test="$show-inline-toc = 1">
+                    <h3><xsl:value-of select="$msg/*/entry[@key='TOC']"/></h3>
+                    <dl>
+                        <xsl:for-each select="l:LogicalProduct/l:VariableScheme/l:Variable">
+                            <dt>
+                                <a>
+                                    <!--xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/></xsl:attribute-->
+                                    <xsl:attribute name="href">#<xsl:value-of select="@id"/></xsl:attribute>
+                                    <xsl:value-of select="l:VariableName"/><xsl:text> </xsl:text>
+                                    <xsl:value-of select="r:Label"/>
+                                </a>
+                            </dt>
+                        </xsl:for-each>
+                    </dl>
+                </xsl:if>
+                
                 <xsl:if test="s:KindOfData">
                     <h3><xsl:value-of select="$msg/*/entry[@key='Kind_of_Data']"/></h3>
                     <xsl:for-each select="s:KindOfData">
@@ -164,8 +186,10 @@
                 </xsl:if>
                 <xsl:apply-templates select="r:SeriesStatement"/>                           
             </xsl:if>
-
-            <xsl:apply-templates select="d:DataCollection"/>
+            
+            <xsl:if test="$show-questionnaires = 1">
+                <xsl:apply-templates select="d:DataCollection"/>
+            </xsl:if>
             <xsl:apply-templates select="l:LogicalProduct"/>
         </div>        
     </xsl:template>
