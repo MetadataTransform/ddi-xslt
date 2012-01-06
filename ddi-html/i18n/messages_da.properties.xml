@@ -14,7 +14,7 @@
 <entry key="Value">Value</entry>
 <entry key="Percentage">Percentage</entry>
 <entry key="Weighting">Weighting</entry>
-<entry key="Primary_Investigators">Primary Investigator(s)</entry>
+<entry key="Primary_Investigators">Primærforsker</entry>
 <entry key="Toolkit_Blurb_PreText">This document was generated using the </entry>
 <entry key="Sampling">Sampling</entry>
 <entry key="Cases">Cases</entry>
@@ -48,12 +48,12 @@
 <entry key="Contacts">Contact(s)</entry>
 <entry key="Label">Label</entry>
 <entry key="Technical_documents">Technical documents</entry>
-<entry key="Decimals">Decimal(s)</entry>
+<entry key="Decimals">decimaler</entry>
 <entry key="Type">Type</entry>
 <entry key="Literal_question">Literal question</entry>
 <entry key="Concepts">Concepts</entry>
 <entry key="Range">Range</entry>
-<entry key="Abstract">Abstract</entry>
+<entry key="Abstract">Resume</entry>
 <entry key="June">June</entry>
 <entry key="Supervision">Supervision</entry>
 <entry key="Other_Forms_of_Data_Appraisal">Other Forms of Data Appraisal</entry>
@@ -67,7 +67,7 @@
 <entry key="Copyright">Copyright</entry>
 <entry key="Documentation">Documentation</entry>
 <entry key="Deviations_from_Sample_Design">Deviations from Sample Design</entry>
-<entry key="Publishers">Publisher(s)</entry>
+<entry key="Publishers">Udgiver</entry>
 <entry key="February">February</entry>
 <entry key="Dataset_contains">Dataset contains</entry>
 <entry key="Acknowledgments">Acknowledgment(s)</entry>
@@ -105,7 +105,7 @@
 <entry key="continuous">continuous</entry>
 <entry key="Disclaimer">Disclaimer</entry>
 <entry key="Content">Content</entry>
-<entry key="variables">variable(s)</entry>
+<entry key="variables">Variable</entry>
 <entry key="Other_Producers">Other Producer(s)</entry>
 <entry key="Producers_and_Sponsors">Producers &amp; Sponsors</entry>
 <entry key="Data_Cleaning_Notes">Data Cleaning Notes</entry>
@@ -170,4 +170,5 @@
 <entry key="March">March</entry>
 <entry key="ShowingSubset"> total - showing a subset of </entry>
 <entry key="Countries">Countries</entry>
+<entry key="TOC">Indholdsfortegnelse</entry>
 </properties>
