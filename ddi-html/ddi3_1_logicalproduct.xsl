@@ -100,6 +100,7 @@
 
     <!-- Variables -->
     <xsl:template match="l:VariableScheme">
+        <h3><xsl:value-of select="$msg/*/entry[@key='Variables']"/></h3>
         <div class="variableScheme">
             <a><xsl:attribute name="name"><xsl:value-of select="@id"/></xsl:attribute></a>
             <ul class="variables">
