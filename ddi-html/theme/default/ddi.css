@@ -153,6 +153,11 @@ li.codeDomain{list-style-image: url(img/code-scheme.png);}
 	display: none !important;
 }
 
+
+.concepts{
+	list-style-image: url(img/concept.png);
+}
+
 .questions{
 	list-style-image: url(img/question.png);
 }
