@@ -51,6 +51,12 @@
         <xsl:text> </xsl:text>
         <xsl:value-of select="r:Label"/>
       </strong>
+      <xsl:if test="count(l:ConceptReference) > 0">
+        <xsl:variable name="cID" select="l:ConceptReference/r:ID"/>
+        <li class="concepts">
+          <xsl:value-of select="../../../c:ConceptualComponent/c:ConceptScheme/c:Concept[@id = $cID]/r:Label"/>
+        </li>
+      </xsl:if>
       <li class="questions">
           <xsl:variable name="qiID" select="l:QuestionReference/r:ID"/>
           <xsl:value-of select="../../../d:DataCollection/d:QuestionScheme/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text"/>
