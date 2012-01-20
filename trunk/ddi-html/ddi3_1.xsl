@@ -161,8 +161,9 @@
                         <xsl:for-each select="l:LogicalProduct/l:VariableScheme/l:Variable">
                             <dt>
                                 <a>
-                                    <!--xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/></xsl:attribute-->
-                                    <xsl:attribute name="href">#<xsl:value-of select="@id"/></xsl:attribute>
+                                    <!-- Note: JS Navigation Bar - does not support not supported anchors with version -->
+                                    <!-- <xsl:attribute name="href">#<xsl:value-of select="@id"/></xsl:attribute> -->
+                                    <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/></xsl:attribute>
                                     <xsl:value-of select="l:VariableName"/><xsl:text> </xsl:text>
                                     <xsl:value-of select="r:Label"/>
                                 </a>
