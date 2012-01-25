@@ -31,7 +31,7 @@
   <xsl:param name="theme-path">theme/default</xsl:param> 
   
   <!-- path prefix (used for css, js when rendered on the web)-->
-  <xsl:param name="path-prefix">../ddi-html</xsl:param>    
+  <xsl:param name="path-prefix">.</xsl:param>    
   
   <xsl:param name="translations">i18n/messages_da.properties.xml</xsl:param>
   <xsl:variable name="msg" select="document($translations)"/>
