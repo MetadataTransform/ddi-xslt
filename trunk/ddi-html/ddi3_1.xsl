@@ -28,6 +28,8 @@
     <xsl:import href="ddi3_1_datacollection.xsl"/>
     <xsl:import href="ddi3_1_logicalproduct.xsl"/>
 
+    <!--  SVN version -->
+    <xsl:param name="svn-revision">$Revision 101 $</xsl:param>
     <!-- render text-elements of this language-->
     <xsl:param name="lang">da</xsl:param>
     <!-- if the requested language is not found for e.g. questionText, use fallback language-->
@@ -109,6 +111,9 @@
                 </link>
             </head>
             <body>
+                <p class="version">
+                   <xsl:value-of select="$svn-revision"/>
+                </p>
                 <xsl:apply-templates select="s:StudyUnit"/>   
             </body>
         </html>
