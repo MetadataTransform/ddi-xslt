@@ -1,27 +1,6 @@
-<xsl:stylesheet 
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:dc="http://purl.org/dc/elements/1.1/"
-  xmlns:g="ddi:group:3_1"
-  xmlns:d="ddi:datacollection:3_1"
-  xmlns:dce="ddi:dcelements:3_1"
-  xmlns:c="ddi:conceptualcomponent:3_1"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml"
-  xmlns:a="ddi:archive:3_1"
-  xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_1"
-  xmlns:ddi="ddi:instance:3_1"
-  xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_1"
-  xmlns:o="ddi:organizations:3_1"
-  xmlns:l="ddi:logicalproduct:3_1"
-  xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1"
-  xmlns:pd="ddi:physicaldataproduct:3_1"
-  xmlns:cm="ddi:comparative:3_1"
-  xmlns:s="ddi:studyunit:3_1"
-  xmlns:r="ddi:reusable:3_1"
-  xmlns:pi="ddi:physicalinstance:3_1"
-  xmlns:ds="ddi:dataset:3_1"
-  xmlns:pr="ddi:profile:3_1"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:g="ddi:group:3_1" xmlns:d="ddi:datacollection:3_1" xmlns:dce="ddi:dcelements:3_1" xmlns:c="ddi:conceptualcomponent:3_1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:a="ddi:archive:3_1"
+  xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_1" xmlns:ddi="ddi:instance:3_1" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_1" xmlns:o="ddi:organizations:3_1" xmlns:l="ddi:logicalproduct:3_1" xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1" xmlns:pd="ddi:physicaldataproduct:3_1"
+  xmlns:cm="ddi:comparative:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:r="ddi:reusable:3_1" xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
   xsi:schemaLocation="ddi:instance:3_1 file:///home/dak/ddi/DDI_3_1_2009-10-18_Documentation_XMLSchema/XMLSchema/instance.xsd">
 
   <xsl:import href="ddi3_1.xsl"/>
@@ -64,7 +43,7 @@
   <!--  Variables -->
   <xsl:template match="l:Variable">
     <xsl:variable name="varID" select="@id"/>
-    <li>
+    <li class="variableName">
       <a>
         <xsl:attribute name="name"><xsl:value-of select="@id"/>.<xsl:value-of select="@version"/>
         </xsl:attribute>
@@ -86,7 +65,13 @@
           <xsl:value-of select="../../../d:DataCollection/d:QuestionScheme/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text"/>
         </xsl:if>
         <xsl:if test="count(../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text) > 0">
-          <xsl:value-of select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text"/>
+          <i>
+            <xsl:value-of select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/../../d:QuestionText/d:LiteralText/d:Text"/>
+            <xsl:text>: </xsl:text>
+          </i>
+          <div class="question">
+            <xsl:value-of select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text"/>
+          </div>
         </xsl:if>
       </li>
       <a>
@@ -98,22 +83,22 @@
       </a>
       <xsl:variable name="csID" select="l:Representation/l:CodeRepresentation/r:CodeSchemeReference/r:ID"/>
       <xsl:if test="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics/pi:VariableReference/r:ID = $varID">
-      <li class="codeDomain">
-        <xsl:for-each select="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics">
-          <!-- find statistics for current variable -->
-          <xsl:if test="pi:VariableReference/r:ID = $varID">
-            <!-- display statistics -->
-            <xsl:call-template name="displayVariableStatistics">
-              <xsl:with-param name="varId">
-                <xsl:value-of select="$varID"/>
-              </xsl:with-param>
-              <xsl:with-param name="csId">
-                <xsl:value-of select="$csID"/>
-              </xsl:with-param>
-            </xsl:call-template>
-          </xsl:if>
-        </xsl:for-each>
-      </li>  
+        <li class="codeDomain">
+          <xsl:for-each select="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics">
+            <!-- find statistics for current variable -->
+            <xsl:if test="pi:VariableReference/r:ID = $varID">
+              <!-- display statistics -->
+              <xsl:call-template name="displayVariableStatistics">
+                <xsl:with-param name="varId">
+                  <xsl:value-of select="$varID"/>
+                </xsl:with-param>
+                <xsl:with-param name="csId">
+                  <xsl:value-of select="$csID"/>
+                </xsl:with-param>
+              </xsl:call-template>
+            </xsl:if>
+          </xsl:for-each>
+        </li>
       </xsl:if>
       <xsl:apply-templates select="l:Representation/l:NumericRepresentation"/>
       <xsl:apply-templates select="l:Representation/l:TextRepresentation"/>
@@ -145,7 +130,7 @@
                 </xsl:with-param>
               </xsl:call-template>
             </xsl:for-each>
-            
+
             <!-- Summary: -->
             <xsl:call-template name="displaySummary"/>
           </table>
@@ -175,9 +160,13 @@
     <!-- Total response rate: -->
     <xsl:for-each select="pi:SummaryStatistic">
       <xsl:if test="pi:SummaryStatisticTypeCoded[@otherValue = 'ValidPercent'] = 'UseOther'">
-        <strong><xsl:value-of select="$msg/*/entry[@key='ValidPercent']"/><xsl:text>: </xsl:text></strong><xsl:value-of select="pi:Value"/>
+        <strong>
+          <xsl:value-of select="$msg/*/entry[@key='ValidPercent']"/>
+          <xsl:text>: </xsl:text>
+        </strong>
+        <xsl:value-of select="pi:Value"/>
       </xsl:if>
-      </xsl:for-each>
+    </xsl:for-each>
 
   </xsl:template>
 
@@ -198,17 +187,18 @@
               <strong>%</strong>
             </td>
             <td align="right">
-              <strong><xsl:value-of select="$msg/*/entry[@key='MD%']"/></strong>
+              <strong>
+                <xsl:value-of select="$msg/*/entry[@key='MD%']"/>
+              </strong>
             </td>
             <td align="right">
-              <strong><xsl:value-of select="$msg/*/entry[@key='Number']"/></strong>
+              <strong>
+                <xsl:value-of select="$msg/*/entry[@key='Number']"/>
+              </strong>
             </td>
           </tr>
         </xsl:if>
         <tr>
-<!--          <xsl:for-each select="pi:CategoryStatistic">
-            <xsl:apply-templates select="."/>
-            </xsl:for-each>-->
           <xsl:call-template name="displayCategoryStatistic">
             <xsl:with-param name="type" select="'Percent'"/>
           </xsl:call-template>
@@ -226,10 +216,14 @@
           <!-- table header - code / category table -->
           <tr>
             <td align="right">
-              <strong><xsl:value-of select="$msg/*/entry[@key='Code']"/></strong>
+              <strong>
+                <xsl:value-of select="$msg/*/entry[@key='Code']"/>
+              </strong>
             </td>
             <td align="left">
-              <strong><xsl:value-of select="$msg/*/entry[@key='Category']"/></strong>
+              <strong>
+                <xsl:value-of select="$msg/*/entry[@key='Category']"/>
+              </strong>
             </td>
           </tr>
         </xsl:if>
@@ -254,59 +248,67 @@
   <!-- Parameter: type -->
   <!-- Context:  CategoryStatistics-->
   <xsl:template name="displayCategoryStatistic">
-      <xsl:param name="type"/>
+    <xsl:param name="type"/>
 
-     <xsl:choose>
-        <xsl:when test="$type = 'ValidPercent'">
-          <xsl:if test="count(pi:CategoryStatistic/pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) = 0">
-            <td>
+    <xsl:choose>
+      <xsl:when test="$type = 'ValidPercent'">
+        <xsl:if test="count(pi:CategoryStatistic/pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) = 0">
+          <td>
             <xsl:text> </xsl:text>
-            </td>
-          </xsl:if>  
-        </xsl:when>
-     </xsl:choose>
-      
+          </td>
+        </xsl:if>
+      </xsl:when>
+    </xsl:choose>
+
     <xsl:for-each select="pi:CategoryStatistic">
-    <xsl:if test="$type = 'Percent' and pi:CategoryStatisticTypeCoded = 'Percent'">
-      <td align="right">
-        <xsl:value-of select="pi:Value"/>
-      </td>
-    </xsl:if>
-    <xsl:if test="$type = 'ValidPercent' and count(pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) > 0">
-      <td align="right">
-        <xsl:value-of select="pi:Value"/>
-      </td>
-    </xsl:if>
-    <xsl:if test="$type = 'Frequency' and pi:CategoryStatisticTypeCoded = 'Frequency'">
-      <td align="right">
-        <xsl:value-of select="pi:Value"/>
-      </td>
-    </xsl:if>    
+      <xsl:if test="$type = 'Percent' and pi:CategoryStatisticTypeCoded = 'Percent'">
+        <td align="right">
+          <xsl:value-of select="pi:Value"/>
+        </td>
+      </xsl:if>
+      <xsl:if test="$type = 'ValidPercent' and count(pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) > 0">
+        <td align="right">
+          <xsl:value-of select="pi:Value"/>
+        </td>
+      </xsl:if>
+      <xsl:if test="$type = 'Frequency' and pi:CategoryStatisticTypeCoded = 'Frequency'">
+        <td align="right">
+          <xsl:value-of select="pi:Value"/>
+        </td>
+      </xsl:if>
     </xsl:for-each>
-        
+
   </xsl:template>
 
   <!-- Display Summary i.e. Sum Percent, Sum Valid Percent and Total Response  -->
   <!-- Concext: VariableStatistics -->
   <xsl:template name="displaySummary">
-    <tr>
-    <xsl:for-each select="pi:SummaryStatistic">
-      <xsl:if test="pi:SummaryStatisticTypeCoded[@otherValue = 'Percent'] = 'UseOther'">
-        <td align="right">
-          <xsl:if test="string-length(pi:Value) = 0"><xsl:text>?</xsl:text></xsl:if>
-          <xsl:if test="string-length(pi:Value) > 0"><xsl:value-of select="pi:Value"/></xsl:if>
-        </td>
-      </xsl:if>
-      <xsl:if test="pi:SummaryStatisticTypeCoded[@otherValue = 'ValidTotalPercent'] = 'UseOther'">
-        <td align="right">
-          <xsl:if test="string-length(pi:Value) = 0"><xsl:text>?</xsl:text></xsl:if>
-          <xsl:if test="string-length(pi:Value) > 0"><xsl:value-of select="pi:Value"/></xsl:if>
-        </td>
-      </xsl:if>
-    </xsl:for-each>
-    <td align="right">
+    <tr bgcolor="#C0C0C0">
+      <xsl:for-each select="pi:SummaryStatistic">
+        <xsl:if test="pi:SummaryStatisticTypeCoded[@otherValue = 'Percent'] = 'UseOther'">
+          <td align="right">
+            <xsl:if test="string-length(pi:Value) = 0">
+              <xsl:text>?</xsl:text>
+            </xsl:if>
+            <xsl:if test="string-length(pi:Value) > 0">
+              <xsl:value-of select="pi:Value"/>
+            </xsl:if>
+          </td>
+        </xsl:if>
+        <xsl:if test="pi:SummaryStatisticTypeCoded[@otherValue = 'ValidTotalPercent'] = 'UseOther'">
+          <td align="right">
+            <xsl:if test="string-length(pi:Value) = 0">
+              <xsl:text>?</xsl:text>
+            </xsl:if>
+            <xsl:if test="string-length(pi:Value) > 0">
+              <xsl:value-of select="pi:Value"/>
+            </xsl:if>
+          </td>
+        </xsl:if>
+      </xsl:for-each>
+      <td align="right">
         <xsl:value-of select="pi:TotalResponses"/>
-    </td>
+      </td>
     </tr>
   </xsl:template>
 
@@ -326,7 +328,11 @@
               <xsl:for-each select="../../d:IfThenElse[@id=$ifthID]/d:IfCondition">
                 <xsl:variable name="code" select="r:Code"/>
                 <xsl:if test="contains($code, $variableName)">
-                  <p><xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/><xsl:text>: </xsl:text><xsl:value-of select="$code"/></p>
+                  <p>
+                    <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
+                    <xsl:text>: </xsl:text>
+                    <xsl:value-of select="$code"/>
+                  </p>
                 </xsl:if>
               </xsl:for-each>
             </xsl:if>
