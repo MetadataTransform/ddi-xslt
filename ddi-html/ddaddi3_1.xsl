@@ -252,14 +252,16 @@
 
   <!-- Display Category Statistic of a given type -->
   <!-- Parameter: type -->
-  <!-- Context:  -->
+  <!-- Context:  CategoryStatistics-->
   <xsl:template name="displayCategoryStatistic">
       <xsl:param name="type"/>
 
      <xsl:choose>
         <xsl:when test="$type = 'ValidPercent'">
           <xsl:if test="count(pi:CategoryStatistic/pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) = 0">
-            <xsl:text> </xsl:text>  
+            <td>
+            <xsl:text> </xsl:text>
+            </td>
           </xsl:if>  
         </xsl:when>
      </xsl:choose>
