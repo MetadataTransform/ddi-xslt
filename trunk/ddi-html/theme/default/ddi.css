@@ -7,6 +7,12 @@ body {
 a {
     color:#015497;
 }
+i {
+    font-style:italic;
+}
+div.question {
+    margin-top:5px;
+}
 ul {
     padding-left: 15px;
 }
