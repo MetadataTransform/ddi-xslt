@@ -228,7 +228,7 @@
             <td align="right">
               <strong><xsl:value-of select="$msg/*/entry[@key='Code']"/></strong>
             </td>
-            <td align="right">
+            <td align="left">
               <strong><xsl:value-of select="$msg/*/entry[@key='Category']"/></strong>
             </td>
           </tr>
@@ -237,7 +237,7 @@
           <td align="right">
             <xsl:value-of select="$codeValue"/>
           </td>
-          <td align="right">
+          <td align="left">
             <xsl:for-each select="../../../../l:LogicalProduct/l:CodeScheme[@id = $csID]/l:Code">
               <xsl:if test="normalize-space(l:Value) = normalize-space($codeValue)">
                 <xsl:variable name="categoryID" select="l:CategoryReference/r:ID"/>
@@ -258,7 +258,7 @@
 
      <xsl:choose>
         <xsl:when test="$type = 'ValidPercent'">
-          <xsl:if test="not(pi:CategoryStatisticTypeCoded = 'UseOther')">
+          <xsl:if test="count(pi:CategoryStatistic/pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) = 0">
             <xsl:text> </xsl:text>  
           </xsl:if>  
         </xsl:when>
