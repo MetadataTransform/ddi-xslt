@@ -1,66 +1,113 @@
 @CHARSET "UTF-8";
-
-body{font-family: Verdana, Arial, Helvetica, sans-serif ;font-size:0.8em; padding:1em;}
-
-a{color:#015497;}
-
-ul{padding-left: 15px;}
-
-ul.questions{
-	list-style-image: url(img/question.png);
-	padding-left: 15px;
-	margin-left: 15px;
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size:0.8em;
+    padding:1em;
 }
-
-ul.variables{
-	list-style-image: url(img/variable.png);
-	padding-left: 15px;
-	margin-left: 15px;
+a {
+    color:#015497;
 }
-
-table.codeScheme{
+ul {
+    padding-left: 15px;
+}
+ul.questions {
+    list-style-image: url(img/question.png);
+    padding-left: 15px;
+    margin-left: 15px;
+}
+ul.variables {
+    list-style-image: url(img/variable.png);
+    padding-left: 15px;
+    margin-left: 15px;
+}
+table.codeScheme {
     font-size:0.8em;
 }
-
-ul.creator{list-style:none;}
-
-div.questionScheme, div.variableScheme{
-	border: 1px solid #DDDDDD;
-	padding:5px;
-	margin-top:5px;	
+ul.creator {
+    list-style:none;
 }
-
-.variableName{padding-right:5px;}
-
-.questionName{
-	font-size:0.8em;
-	font-face:monospace;
-	color:#BBBBBB;
-	margin-right:5px;
-	border: 1px solid #DDDDDD;
-	padding:1px;		
+div.questionScheme, div.variableScheme {
+    border: 1px solid #DDDDDD;
+    padding:5px;
+    margin-bottom:@CHARSET "UTF-8";
 }
-
-h3.questionSchemeName{
-	margin-top: 5px;
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size:0.8em;
+    padding:1em;
 }
-
-.otherMaterial{
+a {
+    color:#015497;
+}
+ul {
+    padding-left: 15px;
+}
+ul.questions {
+    list-style-image: url(img/question.png);
+    padding-left: 15px;
+    margin-left: 15px;
+}
+ul.variables {
+    list-style-image: url(img/variable.png);
+    padding-left: 15px;
+    margin-left: 15px;
+}
+table.categoryStatistics, th.categoryStatistics, td.categoryStatistics {
+    font-size:0.8em;
+    border:5px solid black;
+}
+table.codeScheme {
+    font-size:0.8em;
+}
+ul.creator {
+    list-style:none;
+}
+div.questionScheme, div.variableScheme {
+    border: 1px solid #DDDDDD;
+    padding:5px;
+    margin-top:5px;
+}
+.variableName {
+    padding-right:5px;
+}
+.questionName {
+    font-size:0.8em;
+    font-face:monospace;
+    color:#BBBBBB;
+    margin-right:5px;
+    border: 1px solid #DDDDDD;
+    padding:1px;
+}
+h3.questionSchemeName {
+    margin-top: 5px;
+}
+.otherMaterial {
     margin-left: 10px;
 }
-
-.refNr{float:right;}
-
-li.pdf, li.stream{list-style-image: url(img/pdf.png);}
-li.html{list-style-image: url(img/html.png);}
-li.numeric, li.textRepresentation{list-style-image: url(img/input.png);}
-li.codeDomain{list-style-image: url(img/code-scheme.png);}
-
-.study{
+.refNr {
+    float:right;
+}
+.version {
+    font-size:0.1em;
+    float:left;
+    margin-bottom:2cm;
+}
+li.pdf, li.stream {
+    list-style-image: url(img/pdf.png);
+}
+li.html {
+    list-style-image: url(img/html.png);
+}
+li.numeric, li.textRepresentation {
+    list-style-image: url(img/input.png);
+}
+li.codeDomain {
+    list-style-image: url(img/code-scheme.png);
+}
+.study {
     float:left;
 }
-
-#navigration{
+#navigration {
     position: fixed;
     border: 1px solid;
     float:left;
@@ -68,100 +115,84 @@ li.codeDomain{list-style-image: url(img/code-scheme.png);}
     overflow:scroll;
     overflow-x:auto;
     left: 0px;
-    top: 0px; bottom: 0px;  margin-left: 0px; padding-left: 5px;
+    top: 0px;
+    bottom: 0px;
+    margin-left: 0px;
+    padding-left: 5px;
 }
-
-.filter{
+.filter {
     width: 80%;
 }
-
-/** tabs navigation**/
-.tab-container
-{
-	width:400px; /* feel free to change the width */
-	height:300px;
-	font-family: Arial,  Verdana, Helvetica, sans-serif;
-	font-size: 14px;
-	color: #21007F;
-	/* center tab-container */
-	margin-left: auto;
-	margin-right: auto;
+/* * tabs navigation* */
+.tab-container {
+    width:400px;
+/* feel free to change the width */    
+    height:300px;
+    font-family: Arial,  Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #21007F;
+/* center tab-container */
+    margin-left: auto;
+    margin-right: auto;
 }
-.tab-content
-{
-	padding: 3px 10px 3px 10px;
-	clear: both;
+.tab-content {
+    padding: 3px 10px 3px 10px;
+    clear: both;
 }
-.tabs ul
-{
-	list-style: none;
-	display: block;
-	position: relative;
-	padding:0pt;
-	list-style-position: outside;
-	/*position: absolute;
-	z-index: 3;*/
-	
+.tabs ul {
+    list-style: none;
+    display: block;
+    position: relative;
+    padding:0pt;
+    list-style-position: outside;
+/*
+  position: absolute;
+  z-index: 3;
+ */
 }
-.clear{
-	clear: both;
+.clear {
+    clear: both;
 }
-.tabs ul li
-{
-	display: block;
-	
-	position: relative;
-	float: left;
-	padding: 5px 10px 5px 10px;
-	margin-right:5px;
-	cursor: pointer;
-	margin-bottom: -1px;
-	font-weight: 700;
-	
-
+.tabs ul li {
+    display: block;
+    position: relative;
+    float: left;
+    padding: 5px 10px 5px 10px;
+    margin-right:5px;
+    cursor: pointer;
+    margin-bottom: -1px;
+    font-weight: 700;
 }
-
 /* Border and background-color for tabs and tab content */
-.tab-content, .tabs ul li
-{
-	border: solid;
-	border-width: 1px;
-	border-color: #d0ccc9;
-	background-color: #fff;
-	color: #898989;
+.tab-content, .tabs ul li {
+    border: solid;
+    border-width: 1px;
+    border-color: #d0ccc9;
+    background-color: #fff;
+    color: #898989;
 }
-.tabs ul li
-{
-	background-color: #efefef;
+.tabs ul li {
+    background-color: #efefef;
 }
-.tab-content
-{
+.tab-content {
 }
-
-.tabs .active 
-{
-	margin-bottom: -1px;
-	background-color: #fff;
-	border-bottom: 0 !important;
-	border-bottom: none !important;
-	top: 1px !important;
-	color: #5f95ef;
-
+.tabs .active {
+    margin-bottom: -1px;
+    background-color: #fff;
+    border-bottom: 0 !important;
+    border-bottom: none !important;
+    top: 1px !important;
+    color: #5f95ef;
 }
-.hide
-{
-	display: none !important;
+.hide {
+    display: none !important;
 }
-
-
-.concepts{
-	list-style-image: url(img/concept.png);
+.concepts {
+    list-style-image: url(img/concept.png);
 }
-
-.questions{
-	list-style-image: url(img/question.png);
+.questions {
+    list-style-image: url(img/question.png);
 }
-
-.variables{
-	list-style-image: url(img/variable.png);
+.variables {
+    list-style-image: url(img/variable.png);
 }
