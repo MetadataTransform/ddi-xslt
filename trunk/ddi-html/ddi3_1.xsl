@@ -29,7 +29,7 @@
     <xsl:import href="ddi3_1_logicalproduct.xsl"/>
 
     <!--  SVN version -->
-    <xsl:param name="svn-revision">$Revision: 101 $</xsl:param>
+    <xsl:param name="svn-revision">$Revision: 103 $</xsl:param>
     <!-- render text-elements of this language-->
     <xsl:param name="lang">da</xsl:param>
     <!-- if the requested language is not found for e.g. questionText, use fallback language-->
