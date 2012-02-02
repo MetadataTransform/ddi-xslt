@@ -68,6 +68,7 @@ div.questionScheme, div.variableScheme {
     margin-top:5px;
 }
 .variableName {
+    margin-top: 25px;
     padding-right:5px;
 }
 .questionName {
