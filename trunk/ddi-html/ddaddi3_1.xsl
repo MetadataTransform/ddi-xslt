@@ -1,7 +1,7 @@
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:g="ddi:group:3_1" xmlns:d="ddi:datacollection:3_1" xmlns:dce="ddi:dcelements:3_1" xmlns:c="ddi:conceptualcomponent:3_1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:a="ddi:archive:3_1"
   xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_1" xmlns:ddi="ddi:instance:3_1" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_1" xmlns:o="ddi:organizations:3_1" xmlns:l="ddi:logicalproduct:3_1" xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1" xmlns:pd="ddi:physicaldataproduct:3_1"
   xmlns:cm="ddi:comparative:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:r="ddi:reusable:3_1" xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
-  xsi:schemaLocation="ddi:instance:3_1 file:///home/dak/ddi/DDI_3_1_2009-10-18_Documentation_XMLSchema/XMLSchema/instance.xsd">
+  xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
   <xsl:import href="ddi3_1.xsl"/>
 
@@ -40,6 +40,26 @@
 
   <xsl:output method="html" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes"/>
 
+  <!-- DisplayLabel -->
+  <!-- Context:  Variable, Concept, Category-->
+  <xsl:template name="DisplayLabel">
+    <xsl:choose>
+      <xsl:when test="r:Label/@xml:lang">
+        <xsl:choose>
+          <xsl:when test="r:Label[@xml:lang=$lang]">
+            <xsl:value-of select="r:Label[@xml:lang=$lang]"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="r:Label[@xml:lang=$fallback-lang]"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="r:Label"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
   <!--  Variables -->
   <xsl:template match="l:Variable">
     <xsl:variable name="varID" select="@id"/>
@@ -51,12 +71,14 @@
       <strong class="variableName">
         <xsl:value-of select="l:VariableName"/>
         <xsl:text> </xsl:text>
-        <xsl:value-of select="r:Label"/>
+        <xsl:call-template name="DisplayLabel"/>
       </strong>
       <xsl:if test="count(l:ConceptReference) > 0">
         <xsl:variable name="cID" select="l:ConceptReference/r:ID"/>
         <li class="concepts">
-          <xsl:value-of select="../../../c:ConceptualComponent/c:ConceptScheme/c:Concept[@id = $cID]/r:Label"/>
+          <xsl:for-each select="../../../c:ConceptualComponent/c:ConceptScheme/c:Concept[@id = $cID]">
+            <xsl:call-template name="DisplayLabel"/>
+          </xsl:for-each>
         </li>
       </xsl:if>
       <li class="questions">
@@ -171,7 +193,8 @@
   </xsl:template>
 
   <!-- Display Category Statistics: 
-    Parameters: varID -->
+  Parameters: varID
+  Context: CategoryStatistics -->
   <xsl:template name="displayCategoryStatistics">
     <xsl:param name="varID"/>
     <xsl:param name="csID"/>
@@ -235,7 +258,9 @@
             <xsl:for-each select="../../../../l:LogicalProduct/l:CodeScheme[@id = $csID]/l:Code">
               <xsl:if test="normalize-space(l:Value) = normalize-space($codeValue)">
                 <xsl:variable name="categoryID" select="l:CategoryReference/r:ID"/>
-                <xsl:value-of select="../../l:CategoryScheme/l:Category[@id=$categoryID]/r:Label"/>
+                <xsl:for-each select="../../l:CategoryScheme/l:Category[@id=$categoryID]">
+                  <xsl:call-template name="DisplayLabel"/>
+                </xsl:for-each>
               </xsl:if>
             </xsl:for-each>
           </td>
@@ -313,7 +338,8 @@
   </xsl:template>
 
   <!-- Display Filter: 
-    Parameters: variableName -->
+    Parameters: variableName 
+    Context: Variable -->
   <xsl:template name="showFilter">
     <xsl:param name="variableName"/>
 
