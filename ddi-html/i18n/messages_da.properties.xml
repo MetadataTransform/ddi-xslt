@@ -174,5 +174,9 @@
     <entry key="Number">Antal</entry>
     <entry key="Code">Kode</entry>
     <entry key="ValidPercent">Svarprocent</entry>
-    <entry key="FilteredBy">Variabel filtrerer med</entry>
+    <entry key="Filtering">Variablen filtrerer</entry>
+    <entry key="FilteredBy">Variablen er filtreret af</entry>
+    <entry key="Interval">Variablen er kodet i intervallet </entry>
+    <entry key="To"> til </entry>
+    <entry key="MissingValue">Uoplyst/irrelevant/deltager ikke - er </entry>
 </properties>
