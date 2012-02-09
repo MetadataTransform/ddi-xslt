@@ -81,6 +81,7 @@
           </xsl:for-each>
         </li>
       </xsl:if>
+      <!-- Question Text: -->
       <li class="questions">
         <xsl:variable name="qiID" select="l:QuestionReference/r:ID"/>
         <xsl:if test="count(../../../d:DataCollection/d:QuestionScheme/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text) > 0">
@@ -97,12 +98,33 @@
         </xsl:if>
       </li>
       <a>
+        <!-- Filter: -->
         <xsl:call-template name="showFilter">
           <xsl:with-param name="variableName">
             <xsl:value-of select="l:VariableName"/>
           </xsl:with-param>
         </xsl:call-template>
       </a>
+      <!-- Measures: -->
+      <xsl:for-each select="l:Representation/l:NumericRepresentation">
+        <p>
+          <xsl:if test="@classificationLevel = 'Interval'">
+            <xsl:value-of select="$msg/*/entry[@key='Interval']"/>
+            <xsl:value-of select="r:NumberRange/r:Low"/>
+            <xsl:value-of select="$msg/*/entry[@key='To']"/>
+            <xsl:value-of select="r:NumberRange/r:High"/>
+          </xsl:if>
+          <br/>
+          <xsl:if test="@missingValue">
+            <xsl:value-of select="$msg/*/entry[@key='MissingValue']"/>
+            <xsl:call-template name="splitAtComma">
+              <xsl:with-param name="in-string" select="@missingValue"/>
+            </xsl:call-template>
+          </xsl:if>
+        </p>
+      </xsl:for-each>
+
+      <!-- Statistics: -->
       <xsl:variable name="csID" select="l:Representation/l:CodeRepresentation/r:CodeSchemeReference/r:ID"/>
       <xsl:if test="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics/pi:VariableReference/r:ID = $varID">
         <li class="codeDomain">
@@ -190,6 +212,25 @@
       </xsl:if>
     </xsl:for-each>
 
+  </xsl:template>
+  
+  <!-- Split comma separated string -->
+  <!-- Paremeters: in-string -->
+  <!-- Context: -->
+  <xsl:template name="splitAtComma">
+    <xsl:param name="in-string"/>
+    <xsl:choose>
+      <xsl:when test="contains($in-string, ',')">
+        <xsl:value-of select="substring-before($in-string, ',')"/><xsl:text>, </xsl:text>
+        <xsl:call-template name="splitAtComma">
+          <xsl:with-param name="in-string" 
+            select="substring-after($in-string, ',')"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$in-string"/><xsl:text>.</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <!-- Display Category Statistics: 
@@ -355,7 +396,7 @@
                 <xsl:variable name="code" select="r:Code"/>
                 <xsl:if test="contains($code, $variableName)">
                   <p>
-                    <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
+                    <xsl:value-of select="$msg/*/entry[@key='Filtering']"/>
                     <xsl:text>: </xsl:text>
                     <xsl:value-of select="$code"/>
                   </p>
@@ -384,7 +425,11 @@
                           <xsl:for-each select="../../d:IfThenElse[@id=$ifthId]">
                             <xsl:if test="d:ThenConstructReference/r:ID = $seqID">
                               <!-- this IfThenElse is has a ref. to current sequence  -->
-                              <p>Variable filtreret af; <xsl:value-of select="d:IfCondition/r:Code"/></p>
+                              <p>
+                                <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
+                                <xsl:text>: </xsl:text>
+                                <xsl:value-of select="d:IfCondition/r:Code"/>
+                              </p>
                             </xsl:if>
                           </xsl:for-each>
                         </xsl:if>
