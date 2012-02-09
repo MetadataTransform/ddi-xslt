@@ -58,6 +58,11 @@ ul.variables {
     padding-left: 15px;
     margin-left: 15px;
 }
+measure {
+    list-style-image:none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 table.categoryStatistics, th.categoryStatistics, td.categoryStatistics {
     font-size:0.8em;
     border:5px solid black;
