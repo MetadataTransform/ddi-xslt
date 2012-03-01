@@ -106,21 +106,16 @@
             <xsl:value-of select="translate(l:VariableName, $lowercase, $uppercase)"/>
           </xsl:with-param>
         </xsl:call-template>
-<!--        <xsl:call-template name="showFilter">
-          <xsl:with-param name="variableName">
-          <xsl:value-of select="translate(l:VariableName, $lowercase, $uppercase)"/>
-          </xsl:with-param>
-        </xsl:call-template>-->
       </a>
       <!-- Measures: -->
       <xsl:for-each select="l:Representation/l:NumericRepresentation">
         <p>
-          <xsl:if test="@classificationLevel = 'Interval'">
+          <xsl:for-each select="r:NumberRange">
             <xsl:value-of select="$msg/*/entry[@key='Interval']"/>
-            <xsl:value-of select="r:NumberRange/r:Low"/>
+            <xsl:value-of select="r:Low"/>
             <xsl:value-of select="$msg/*/entry[@key='To']"/>
-            <xsl:value-of select="r:NumberRange/r:High"/>
-          </xsl:if>
+            <xsl:value-of select="r:High"/>
+          </xsl:for-each>
           <br/>
           <xsl:if test="@missingValue">
             <xsl:value-of select="$msg/*/entry[@key='MissingValue']"/>
