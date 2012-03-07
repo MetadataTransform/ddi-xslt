@@ -37,8 +37,8 @@
 
   <xsl:param name="translations">i18n/messages_da.properties.xml</xsl:param>
   <xsl:variable name="msg" select="document($translations)"/>
-  <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyzæøå'" />
-  <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'" />
+  <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyzæøå'"/>
+  <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'"/>
 
   <xsl:output method="html" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes"/>
 
@@ -215,7 +215,7 @@
     </xsl:for-each>
 
   </xsl:template>
-  
+
   <!-- Split comma separated string -->
   <!-- Parameters: in-string -->
   <!-- Context: any -->
@@ -223,18 +223,19 @@
     <xsl:param name="in-string"/>
     <xsl:choose>
       <xsl:when test="contains($in-string, ',')">
-        <xsl:value-of select="substring-before($in-string, ',')"/><xsl:text>, </xsl:text>
+        <xsl:value-of select="substring-before($in-string, ',')"/>
+        <xsl:text>, </xsl:text>
         <xsl:call-template name="splitAtComma">
-          <xsl:with-param name="in-string" 
-            select="substring-after($in-string, ',')"/>
+          <xsl:with-param name="in-string" select="substring-after($in-string, ',')"/>
         </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="$in-string"/><xsl:text>.</xsl:text>
+        <xsl:value-of select="$in-string"/>
+        <xsl:text>.</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
+
   <!-- Display Category Statistics: 
   Parameters: varID
   Context: CategoryStatistics -->
@@ -379,7 +380,7 @@
       </td>
     </tr>
   </xsl:template>
-  
+
   <!-- Get higher level ItThenElse - if any exists
   Parameters: ifth - id of low level IfThenElse
   Context: IfThenElse -->
@@ -391,32 +392,30 @@
       <xsl:variable name="seqc" select="@id"/>
       <xsl:for-each select="./d:ControlConstructReference">
         <xsl:if test="r:ID=$ifth">
-            <!-- Sequence found - get higher IfThenElse referring to this Sequence -->
-            <xsl:for-each select="../../d:IfThenElse">
-              <xsl:variable name="h-ifth" select="@id"/>
-             <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
-               <p>
-                 <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
-                 <xsl:text>: </xsl:text>
-                 <xsl:value-of select="d:IfCondition/r:Code"/>
-               </p>
-                <xsl:if test="$seqLabel!='Main sequence'">
-                  <xsl:call-template name="getHigherIfThenElse">
-                    <xsl:with-param name="ifth" select="$h-ifth"/>
-                  </xsl:call-template>
-                </xsl:if>
-              </xsl:if>
-            </xsl:for-each>
-          </xsl:if>
+          <!-- Sequence found - get higher IfThenElse referring to this Sequence -->
+          <xsl:for-each select="../../d:IfThenElse">
+            <xsl:variable name="h-ifth" select="@id"/>
+            <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
+              <p>
+                <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
+                <xsl:text>: </xsl:text>
+                <xsl:value-of select="d:IfCondition/r:Code"/>
+              </p>
+              <xsl:call-template name="getHigherIfThenElse">
+                <xsl:with-param name="ifth" select="$h-ifth"/>
+              </xsl:call-template>
+            </xsl:if>
+          </xsl:for-each>
+        </xsl:if>
       </xsl:for-each>
     </xsl:for-each>
   </xsl:template>
-  
+
   <!-- Traverse Filters:
   Parameters: variableName
   Context: Variable -->
   <xsl:template name="travershFilters">
-    <xsl:param name="variableName"/>
+    <xsl:param name="variableName"/> varName: <xsl:value-of select="$variableName"/>
     <!-- get Question Item of current variable name -->
     <xsl:for-each select="../../../d:DataCollection/d:QuestionScheme/d:QuestionItem">
       <xsl:if test="r:UserID=$variableName">
@@ -448,74 +447,7 @@
           </xsl:if>
         </xsl:for-each>
       </xsl:if>
-      </xsl:for-each>
-  </xsl:template>
-
-  <!-- Show Filter: 
-    Parameters: variableName 
-    Context: Variable -->
-  <xsl:template name="showFilter">
-    <xsl:param name="variableName"/>
-
-    <xsl:for-each select="../../../d:DataCollection/d:ControlConstructScheme/d:Sequence">
-      <xsl:choose>
-        <xsl:when test="r:Label='Main sequence'">
-          <!-- Look in the Main Sequence for IfThenElse-->
-          <xsl:for-each select="d:ControlConstructReference">
-            <xsl:if test="substring(r:ID, 1, 4)='ifth'">
-              <!-- - see if current variable is part of condition - if so the variable is filtering -->
-              <xsl:variable name="ifthID" select="r:ID"/>
-              <xsl:for-each select="../../d:IfThenElse[@id=$ifthID]/d:IfCondition">
-                <xsl:variable name="code" select="translate(r:Code, $lowercase, $uppercase)"/>
-                <xsl:if test="contains($code, $variableName)">
-                  <p>
-                    <xsl:value-of select="$msg/*/entry[@key='Filtering']"/>
-                    <xsl:text>: </xsl:text>
-                    <xsl:value-of select="$code"/>
-                  </p>
-                </xsl:if>
-              </xsl:for-each>
-            </xsl:if>
-          </xsl:for-each>
-        </xsl:when>
-        <xsl:otherwise>
-          <!-- Look in the Sub-sequence(s) for Questioin Item of current variable -->
-          <xsl:variable name="seqID" select="@id"/>
-          <xsl:for-each select="d:ControlConstructReference">
-            <xsl:if test="substring(r:ID, 1, 4)='quec'">
-              <!-- this is a Question Construct reference -->
-              <xsl:variable name="qcID" select="r:ID"/>
-              <xsl:for-each select="../../d:QuestionConstruct[@id=$qcID]/d:QuestionReference">
-                <xsl:variable name="qiID" select="r:ID"/>
-                <xsl:for-each select="../../../d:QuestionScheme/d:QuestionItem[@id=$qiID]">
-                  <xsl:if test="r:UserID=$variableName">
-                    <!-- this is the Question Item releated to the current variable => the variable has been filteret -->
-                    <!-- look for the IfThenElse which refers to the current Sequence -->
-                    <xsl:for-each select="../../d:ControlConstructScheme/d:Sequence">
-                      <xsl:for-each select="d:ControlConstructReference">
-                        <xsl:if test="substring(r:ID, 1, 4)='ifth'">
-                          <xsl:variable name="ifthId" select="r:ID"/>
-                          <xsl:for-each select="../../d:IfThenElse[@id=$ifthId]">
-                            <xsl:if test="d:ThenConstructReference/r:ID = $seqID">
-                              <!-- this IfThenElse is has a ref. to current sequence  -->
-                              <p>
-                                <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
-                                <xsl:text>: </xsl:text>
-                                <xsl:value-of select="d:IfCondition/r:Code"/>
-                              </p>
-                            </xsl:if>
-                          </xsl:for-each>
-                        </xsl:if>
-                      </xsl:for-each>
-                    </xsl:for-each>
-                  </xsl:if>
-                </xsl:for-each>
-              </xsl:for-each>
-            </xsl:if>
-          </xsl:for-each>
-        </xsl:otherwise>
-      </xsl:choose>
     </xsl:for-each>
   </xsl:template>
-
+  
 </xsl:stylesheet>
