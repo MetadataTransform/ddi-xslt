@@ -415,7 +415,6 @@
   Parameters: variableName
   Context: Variable -->
   <xsl:template name="travershFilters">
-    <xsl:param name="variableName"/> varName: <xsl:value-of select="$variableName"/>
     <!-- get Question Item of current variable name -->
     <xsl:for-each select="../../../d:DataCollection/d:QuestionScheme/d:QuestionItem">
       <xsl:if test="r:UserID=$variableName">
