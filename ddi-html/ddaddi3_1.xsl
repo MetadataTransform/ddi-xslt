@@ -101,7 +101,7 @@
       </li>
       <a>
         <!-- Filter: -->
-        <xsl:call-template name="travershFilters">
+        <xsl:call-template name="traverseFilters">
           <xsl:with-param name="variableName">
             <xsl:value-of select="translate(l:VariableName, $lowercase, $uppercase)"/>
           </xsl:with-param>
@@ -410,44 +410,64 @@
       </xsl:for-each>
     </xsl:for-each>
   </xsl:template>
+  
+  <!-- Traverse QuestionItems:
+    Parameters: 
+    variableName - pseudo variable ID
+    mquei - ID of parent Multiple Question Item - if any
+    Context: QuestionItem -->
+  <xsl:template name="traverseQuestionItem">
+    <xsl:param name="variableName"/>
+    <xsl:param name="mquei"/>
+    <xsl:if test="r:UserID=$variableName">
+      <xsl:variable name="quei" select="@id"/>
+      <!-- get Question Construct -->
+      <xsl:for-each select="../../d:ControlConstructScheme/d:QuestionConstruct | ../../../../d:ControlConstructScheme/d:QuestionConstruct">
+        <xsl:if test="d:QuestionReference/r:ID=$quei or d:QuestionReference/r:ID=$mquei">
+          <xsl:variable name="quec" select="@id"/>
+          <!-- get Sequence pointing to Question Construct via Control Constuct Reference -->
+          <xsl:for-each select="../d:Sequence">
+            <xsl:variable name="seqc" select="@id"/>
+            <xsl:for-each select="d:ControlConstructReference[r:ID=$quec]">
+              <!-- get IfThenElse pointing to this Sequence -->
+              <xsl:for-each select="../../d:IfThenElse">
+                <xsl:variable name="ifth" select="@id"/>
+                <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
+                  <p>
+                    <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
+                    <xsl:text>: </xsl:text>
+                    <xsl:value-of select="d:IfCondition/r:Code"/>
+                  </p>
+                  <xsl:call-template name="getHigherIfThenElse">
+                    <xsl:with-param name="ifth" select="$ifth"/>
+                  </xsl:call-template>
+                </xsl:if>
+              </xsl:for-each>
+            </xsl:for-each>
+          </xsl:for-each>
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:if>
+  </xsl:template>
 
   <!-- Traverse Filters:
   Parameters: variableName
   Context: Variable -->
-  <xsl:template name="travershFilters">
+  <xsl:template name="traverseFilters">
     <xsl:param name="variableName"/>
     <!-- get Question Item of current variable name -->
     <xsl:for-each select="../../../d:DataCollection/d:QuestionScheme/d:QuestionItem">
-      <xsl:if test="r:UserID=$variableName">
-        <xsl:variable name="quei" select="@id"/>
-        <!-- get Question Construct -->
-        <xsl:for-each select="../../d:ControlConstructScheme/d:QuestionConstruct">
-          <xsl:if test="d:QuestionReference/r:ID=$quei">
-            <xsl:variable name="quec" select="@id"/>
-            <!-- get Sequence pointing to Question Construct via Control Constuct Reference -->
-            <xsl:for-each select="../d:Sequence">
-              <xsl:variable name="seqc" select="@id"/>
-              <xsl:for-each select="d:ControlConstructReference[r:ID=$quec]">
-                <!-- get IfThenElse pointing to this Sequence -->
-                <xsl:for-each select="../../d:IfThenElse">
-                  <xsl:variable name="ifth" select="@id"/>
-                  <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
-                    <p>
-                      <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
-                      <xsl:text>: </xsl:text>
-                      <xsl:value-of select="d:IfCondition/r:Code"/>
-                    </p>
-                    <xsl:call-template name="getHigherIfThenElse">
-                      <xsl:with-param name="ifth" select="$ifth"/>
-                    </xsl:call-template>
-                  </xsl:if>
-                </xsl:for-each>
-              </xsl:for-each>
-            </xsl:for-each>
-          </xsl:if>
-        </xsl:for-each>
-      </xsl:if>
+      <xsl:call-template name="traverseQuestionItem">
+        <xsl:with-param name="variableName" select="$variableName"/>
+        <xsl:with-param name="mquei"/>
+      </xsl:call-template>
+    </xsl:for-each>
+    <xsl:for-each select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem">
+      <xsl:call-template name="traverseQuestionItem">
+        <xsl:with-param name="variableName" select="$variableName"/>
+        <xsl:with-param name="mquei" select="../../@id"/>
+      </xsl:call-template>
     </xsl:for-each>
   </xsl:template>
-  
+
 </xsl:stylesheet>
