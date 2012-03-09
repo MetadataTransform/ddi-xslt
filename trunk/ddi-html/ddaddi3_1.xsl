@@ -107,7 +107,7 @@
           </xsl:with-param>
         </xsl:call-template>
       </a>
-      <!-- Measures: -->
+      <!-- Representation: -->
       <xsl:for-each select="l:Representation/l:NumericRepresentation">
         <p>
           <xsl:for-each select="r:NumberRange">
@@ -123,6 +123,12 @@
               <xsl:with-param name="in-string" select="@missingValue"/>
             </xsl:call-template>
           </xsl:if>
+        </p>
+      </xsl:for-each>
+      <xsl:for-each select="l:Representation/l:CodeRepresentation">
+        <p>
+          <xsl:value-of select="$msg/*/entry[@key='Messure']"/><xsl:text>: </xsl:text>
+          <xsl:value-of select="@classificationLevel"/>
         </p>
       </xsl:for-each>
 
