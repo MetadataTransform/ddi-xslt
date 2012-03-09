@@ -455,7 +455,7 @@
   Context: Variable -->
   <xsl:template name="traverseFilters">
     <xsl:param name="variableName"/>
-    <!-- get Question Item of current variable name -->
+    <!-- get Question Item of current variable name  -->
     <xsl:for-each select="../../../d:DataCollection/d:QuestionScheme/d:QuestionItem">
       <xsl:call-template name="traverseQuestionItem">
         <xsl:with-param name="variableName" select="$variableName"/>
