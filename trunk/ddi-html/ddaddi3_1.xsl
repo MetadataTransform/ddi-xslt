@@ -126,10 +126,12 @@
         </p>
       </xsl:for-each>
       <xsl:for-each select="l:Representation/l:CodeRepresentation">
-        <p>
-          <xsl:value-of select="$msg/*/entry[@key='Messure']"/><xsl:text>: </xsl:text>
-          <xsl:value-of select="@classificationLevel"/>
-        </p>
+        <xsl:if test="@classificationLevel">
+          <p>
+            <xsl:value-of select="$msg/*/entry[@key='Messure']"/><xsl:text>: </xsl:text>
+            <xsl:value-of select="@classificationLevel"/>
+          </p>
+        </xsl:if>
       </xsl:for-each>
 
       <!-- Statistics: -->
