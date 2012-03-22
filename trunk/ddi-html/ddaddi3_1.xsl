@@ -31,7 +31,7 @@
   <xsl:param name="show-study-information">1</xsl:param>
   <!-- path prefix to the css-files-->
   <xsl:param name="theme-path">theme/default</xsl:param>
-
+  
   <!-- path prefix (used for css, js when rendered on the web)-->
   <xsl:param name="path-prefix">.</xsl:param>
 
@@ -108,6 +108,26 @@
         </xsl:call-template>
       </a>
       <!-- Representation: -->
+      <!-- Missing Value  -->
+      <xsl:variable name="missingValue">
+        <xsl:for-each select="l:Representation/l:NumericRepresentation"><xsl:value-of select="@missingValue"/></xsl:for-each>
+        <xsl:for-each select="l:Representation/l:CodeRepresentation"><xsl:value-of select="@missingValue"/></xsl:for-each>
+        <xsl:for-each select="l:Representation/l:CategoryRepresentation"><xsl:value-of select="@missingValue"/></xsl:for-each>
+        <xsl:for-each select="l:Representation/l:GeographicRepresentation"><xsl:value-of select="@missingValue"/></xsl:for-each>
+        <xsl:for-each select="l:Representation/l:DateTimeRepresentation"><xsl:value-of select="@missingValue"/></xsl:for-each>
+        <xsl:for-each select="l:Representation/l:TextRepresentation"><xsl:value-of select="@missingValue"/></xsl:for-each>
+      </xsl:variable>
+      <xsl:variable name="uoplyst">
+        <xsl:call-template name="splitMissingValue"><xsl:with-param name="in-string" select="$missingValue"/><xsl:with-param name="lastChar" select="'9'"/></xsl:call-template>
+      </xsl:variable>
+      <xsl:variable name="irrelevant">        
+        <xsl:call-template name="splitMissingValue"><xsl:with-param name="in-string" select="$missingValue"/><xsl:with-param name="lastChar" select="'0'"/></xsl:call-template>
+      </xsl:variable>
+      <xsl:variable name="deltagerIkke">
+        <xsl:call-template name="splitMissingValue"><xsl:with-param name="in-string" select="$missingValue"/><xsl:with-param name="lastChar" select="'1'"/></xsl:call-template>
+      </xsl:variable>
+      
+      <!-- - Numeric -->
       <xsl:for-each select="l:Representation/l:NumericRepresentation">
         <p>
           <xsl:for-each select="r:NumberRange">
@@ -116,15 +136,10 @@
             <xsl:value-of select="$msg/*/entry[@key='To']"/>
             <xsl:value-of select="r:High"/>
           </xsl:for-each>
-          <br/>
-          <xsl:if test="@missingValue">
-            <xsl:value-of select="$msg/*/entry[@key='MissingValue']"/>
-            <xsl:call-template name="splitAtComma">
-              <xsl:with-param name="in-string" select="@missingValue"/>
-            </xsl:call-template>
-          </xsl:if>
+          <xsl:call-template name="displayMissingValue"/>
         </p>
       </xsl:for-each>
+      <!-- Code -->
       <xsl:for-each select="l:Representation/l:CodeRepresentation">
         <xsl:if test="@classificationLevel">
           <p>
@@ -133,7 +148,14 @@
           </p>
         </xsl:if>
       </xsl:for-each>
-
+      <!-- Other -->
+      <xsl:for-each select="l:Representation/l:CategoryRepresentation | 
+        l:Representation/l:GeographicRepresentation | 
+        l:Representation/l:DateTimeRepresentation | 
+        l:Representation/l:TextRepresentation">
+        <xsl:call-template name="displayMissingValue"/>
+      </xsl:for-each>
+      
       <!-- Statistics: -->
       <xsl:variable name="csID" select="l:Representation/l:CodeRepresentation/r:CodeSchemeReference/r:ID"/>
       <xsl:if test="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics/pi:VariableReference/r:ID = $varID">
@@ -148,6 +170,15 @@
                 </xsl:with-param>
                 <xsl:with-param name="csId">
                   <xsl:value-of select="$csID"/>
+                </xsl:with-param>
+                <xsl:with-param name="uoplyst">
+                  <xsl:value-of select="$uoplyst"/>
+                </xsl:with-param>
+                <xsl:with-param name="irrelevant">
+                  <xsl:value-of select="$irrelevant"/>
+                </xsl:with-param>
+                <xsl:with-param name="deltagerIkke">
+                  <xsl:value-of select="$deltagerIkke"/>
                 </xsl:with-param>
               </xsl:call-template>
             </xsl:if>
@@ -164,7 +195,9 @@
   <xsl:template name="displayVariableStatistics">
     <xsl:param name="varId"/>
     <xsl:param name="csId"/>
-
+    <xsl:param name="uoplyst"/>
+    <xsl:param name="irrelevant"/>
+    <xsl:param name="deltagerIkke"/>
     <!-- Main Statistic table - includes two tables -->
     <table class="table.categoryStatistics">
       <tr>
@@ -203,6 +236,15 @@
                 </xsl:with-param>
                 <xsl:with-param name="codeCat">
                   <xsl:value-of select="'true'"/>
+                </xsl:with-param>
+                <xsl:with-param name="uoplyst">
+                  <xsl:value-of select="$uoplyst"/>
+                </xsl:with-param>
+                <xsl:with-param name="irrelevant">
+                  <xsl:value-of select="$irrelevant"/>
+                </xsl:with-param>
+                <xsl:with-param name="deltagerIkke">
+                  <xsl:value-of select="$deltagerIkke"/>
                 </xsl:with-param>
               </xsl:call-template>
             </xsl:for-each>
@@ -244,13 +286,63 @@
     </xsl:choose>
   </xsl:template>
 
+  <!-- Split comma separated Missing Value string -->
+  <!-- Parameters: lastChar -->
+  <!-- Context: any -->
+  <xsl:template name="splitMissingValue">
+    <xsl:param name="in-string"/>
+    <xsl:param name="lastChar"/>
+    <xsl:choose>
+      <xsl:when test="contains($in-string, ',')">
+        <xsl:variable name="integer">
+          <xsl:choose>
+            <xsl:when test="contains(substring-before($in-string, ','),'.')">
+              <xsl:value-of select="substring-before(substring-before($in-string, ','),'.')"/>              
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="substring-before($in-string, ',')"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:choose>
+          <xsl:when test="substring($integer, string-length($integer)) = $lastChar">
+            <xsl:value-of select="$integer"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:call-template name="splitMissingValue">
+              <xsl:with-param name="in-string" select="substring-after($in-string, ',')"/>
+              <xsl:with-param name="lastChar" select="$lastChar"/>
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <!-- return string if lastChar is last char -->
+        <xsl:choose>
+          <xsl:when test="contains($in-string, '.')">
+            <xsl:if test="substring(substring-before($in-string,'.'), string-length(substring-before($in-string,'.'))) = $lastChar">
+              <xsl:value-of select="substring-before($in-string,'.')"/>
+            </xsl:if>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:if test="substring($in-string, string-length($in-string)) = $lastChar">
+              <xsl:value-of select="$in-string"/>
+            </xsl:if>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
   <!-- Display Category Statistics: 
-  Parameters: varID
   Context: CategoryStatistics -->
   <xsl:template name="displayCategoryStatistics">
     <xsl:param name="varID"/>
     <xsl:param name="csID"/>
     <xsl:param name="codeCat"/>
+    <xsl:param name="uoplyst"/>
+    <xsl:param name="irrelevant"/>
+    <xsl:param name="deltagerIkke"/>
     <xsl:if test="count(pi:CategoryStatistic) > 0">
       <xsl:variable name="codeValue" select="pi:CategoryValue"/>
 
@@ -307,6 +399,7 @@
             <xsl:value-of select="$codeValue"/>
           </td>
           <td align="left">
+            <!-- test for Categories -->
             <xsl:for-each select="../../../../l:LogicalProduct/l:CodeScheme[@id = $csID]/l:Code">
               <xsl:if test="normalize-space(l:Value) = normalize-space($codeValue)">
                 <xsl:variable name="categoryID" select="l:CategoryReference/r:ID"/>
@@ -315,6 +408,17 @@
                 </xsl:for-each>
               </xsl:if>
             </xsl:for-each>
+            
+            <!-- test for Missing Values --> 
+            <xsl:if test="normalize-space($codeValue) = $uoplyst">
+              <xsl:value-of select="$msg/*/entry[@key='Unknown']"/>
+            </xsl:if>
+            <xsl:if test="normalize-space($codeValue) = $irrelevant">
+              <xsl:value-of select="$msg/*/entry[@key='Irrelevant']"/>
+            </xsl:if>
+            <xsl:if test="normalize-space($codeValue) = $deltagerIkke">
+              <xsl:value-of select="$msg/*/entry[@key='NotParticiparing']"/>
+            </xsl:if>
           </td>
         </tr>
       </xsl:if>
@@ -387,6 +491,18 @@
         <xsl:value-of select="pi:TotalResponses"/>
       </td>
     </tr>
+  </xsl:template>
+  
+  <!-- Display MissingValue attribute -->
+  <!-- Context: Code/Numeric/Text Representation -->
+  <xsl:template name="displayMissingValue">
+    <br/>
+    <xsl:if test="@missingValue">
+      <xsl:value-of select="$msg/*/entry[@key='MissingValue']"/>
+      <xsl:call-template name="splitAtComma">
+        <xsl:with-param name="in-string" select="@missingValue"/>
+      </xsl:call-template>
+    </xsl:if>
   </xsl:template>
 
   <!-- Get higher level ItThenElse - if any exists
