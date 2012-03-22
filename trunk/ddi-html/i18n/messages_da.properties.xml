@@ -180,4 +180,7 @@
     <entry key="To"> til </entry>
     <entry key="MissingValue">Uoplyst/irrelevant/deltager ikke - er </entry>
     <entry key="Messure">Skala</entry>
+    <entry key="Unknown">Uoplyst</entry>
+    <entry key="Irrelevant">Irrelevant</entry>
+    <entry key="NotParticipating">Deltager ikke</entry>
 </properties>
