@@ -266,17 +266,17 @@
 
   </xsl:template>
 
-  <!-- Split comma separated string -->
+  <!-- Split whitespace separated string -->
   <!-- Parameters: in-string -->
   <!-- Context: any -->
-  <xsl:template name="splitAtComma">
+  <xsl:template name="splitAtWhitespace">
     <xsl:param name="in-string"/>
     <xsl:choose>
-      <xsl:when test="contains($in-string, ',')">
-        <xsl:value-of select="substring-before($in-string, ',')"/>
+      <xsl:when test="contains($in-string, ' ')">
+        <xsl:value-of select="substring-before($in-string, ' ')"/>
         <xsl:text>, </xsl:text>
-        <xsl:call-template name="splitAtComma">
-          <xsl:with-param name="in-string" select="substring-after($in-string, ',')"/>
+        <xsl:call-template name="splitAtWhitespace">
+          <xsl:with-param name="in-string" select="substring-after($in-string, ' ')"/>
         </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
@@ -286,21 +286,21 @@
     </xsl:choose>
   </xsl:template>
 
-  <!-- Split comma separated Missing Value string -->
+  <!-- Split whitespace separated Missing Value string -->
   <!-- Parameters: lastChar -->
   <!-- Context: any -->
   <xsl:template name="splitMissingValue">
     <xsl:param name="in-string"/>
     <xsl:param name="lastChar"/>
     <xsl:choose>
-      <xsl:when test="contains($in-string, ',')">
+      <xsl:when test="contains($in-string, ' ')">
         <xsl:variable name="integer">
           <xsl:choose>
-            <xsl:when test="contains(substring-before($in-string, ','),'.')">
-              <xsl:value-of select="substring-before(substring-before($in-string, ','),'.')"/>              
+            <xsl:when test="contains(substring-before($in-string, ' '),'.')">
+              <xsl:value-of select="substring-before(substring-before($in-string, ' '),'.')"/>              
             </xsl:when>
             <xsl:otherwise>
-              <xsl:value-of select="substring-before($in-string, ',')"/>
+              <xsl:value-of select="substring-before($in-string, ' ')"/>
             </xsl:otherwise>
           </xsl:choose>
         </xsl:variable>
@@ -310,7 +310,7 @@
           </xsl:when>
           <xsl:otherwise>
             <xsl:call-template name="splitMissingValue">
-              <xsl:with-param name="in-string" select="substring-after($in-string, ',')"/>
+              <xsl:with-param name="in-string" select="substring-after($in-string, ' ')"/>
               <xsl:with-param name="lastChar" select="$lastChar"/>
             </xsl:call-template>
           </xsl:otherwise>
@@ -499,7 +499,7 @@
     <br/>
     <xsl:if test="@missingValue">
       <xsl:value-of select="$msg/*/entry[@key='MissingValue']"/>
-      <xsl:call-template name="splitAtComma">
+      <xsl:call-template name="splitAtWhitespace">
         <xsl:with-param name="in-string" select="@missingValue"/>
       </xsl:call-template>
     </xsl:if>
