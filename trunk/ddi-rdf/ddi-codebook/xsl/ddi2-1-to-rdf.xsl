@@ -70,7 +70,8 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
     </xsl:template>
 
     <xsl:template match="ddicb:citation">
-        <dc:title xml:lang="$lang">
+        <dc:title>
+            <xsl:attribute name="xml:lang"><xsl:value-of select="$lang"/></xsl:attribute>
             <xsl:value-of select="ddicb:titlStmt/ddicb:titl" />
         </dc:title>
 
@@ -81,8 +82,18 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
             <xsl:value-of select="ddicb:abstract" />
         </dc:abstract>
         <xsl:for-each select="ddicb:subject/ddicb:topcClas">
+            <xsl:attribute name="xml:lang">
+                <xsl:choose test="@xml-lang">
+                    <xsl:when test="@xml-lang"><xsl:value-of select="$lang"/></xsl:when>
+                    <xsl:otherwise><xsl:value-of select="$lang"/></xsl:otherwise>
+                </xsl:choose>
+            </xsl:attribute>
+            <xsl:attribute name="xml:lang"><xsl:value-of select="$lang"/></xsl:attribute>
             <dc:subject><xsl:value-of select="." /></dc:subject>
-        </xsl:for-each>        
+        </xsl:for-each>    
+        <xsl:for-each select="ddicb:subject/ddicb:keyword">
+            <dc:subject><xsl:value-of select="." /></dc:subject>
+        </xsl:for-each>    
         <xsl:apply-templates select="ddicb:sumDscr" />
 
     </xsl:template>
