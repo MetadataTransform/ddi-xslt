@@ -202,7 +202,7 @@
     <table class="table.categoryStatistics">
       <tr>
         <td valign="top">
-          <!-- Statistics table -->
+          <!-- Statistics / Code / Category table -->
           <table class="table.categoryStatistics">
             <xsl:for-each select="pi:CategoryStatistics">
               <xsl:call-template name="displayCategoryStatistics">
@@ -211,31 +211,6 @@
                 </xsl:with-param>
                 <xsl:with-param name="csID">
                   <xsl:value-of select="$csId"/>
-                </xsl:with-param>
-                <xsl:with-param name="codeCat">
-                  <xsl:value-of select="'false'"/>
-                </xsl:with-param>
-              </xsl:call-template>
-            </xsl:for-each>
-
-            <!-- Summary: -->
-            <xsl:call-template name="displaySummary"/>
-          </table>
-        </td>
-
-        <!-- Code / Category table -->
-        <td valign="top">
-          <table class="table.categoryStatistics">
-            <xsl:for-each select="pi:CategoryStatistics">
-              <xsl:call-template name="displayCategoryStatistics">
-                <xsl:with-param name="varID">
-                  <xsl:value-of select="$varId"/>
-                </xsl:with-param>
-                <xsl:with-param name="csID">
-                  <xsl:value-of select="$csId"/>
-                </xsl:with-param>
-                <xsl:with-param name="codeCat">
-                  <xsl:value-of select="'true'"/>
                 </xsl:with-param>
                 <xsl:with-param name="uoplyst">
                   <xsl:value-of select="$uoplyst"/>
@@ -248,6 +223,9 @@
                 </xsl:with-param>
               </xsl:call-template>
             </xsl:for-each>
+
+            <!-- Summary: -->
+            <xsl:call-template name="displaySummary"/>
           </table>
         </td>
       </tr>
@@ -339,28 +317,37 @@
   <xsl:template name="displayCategoryStatistics">
     <xsl:param name="varID"/>
     <xsl:param name="csID"/>
-    <xsl:param name="codeCat"/>
     <xsl:param name="uoplyst"/>
     <xsl:param name="irrelevant"/>
     <xsl:param name="deltagerIkke"/>
     <xsl:if test="count(pi:CategoryStatistic) > 0">
       <xsl:variable name="codeValue" select="pi:CategoryValue"/>
-
-      <xsl:if test="$codeCat = 'false'">
+      <xsl:variable name="categoryRef" select="../../../../l:LogicalProduct/l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
+      
         <xsl:if test="(position() = 1)">
           <!-- table header - statistics table -->
           <tr>
-            <td align="right">
+            <td>
               <strong>%</strong>
             </td>
-            <td align="right">
+            <td>
               <strong>
                 <xsl:value-of select="$msg/*/entry[@key='MD%']"/>
               </strong>
             </td>
-            <td align="right">
+            <td>
               <strong>
                 <xsl:value-of select="$msg/*/entry[@key='Number']"/>
+              </strong>
+            </td>
+            <td>
+              <strong>
+                <xsl:value-of select="$msg/*/entry[@key='Code']"/>
+              </strong>
+            </td>
+            <td  class="left">
+              <strong>
+                <xsl:value-of select="$msg/*/entry[@key='Category']"/>
               </strong>
             </td>
           </tr>
@@ -375,38 +362,12 @@
           <xsl:call-template name="displayCategoryStatistic">
             <xsl:with-param name="type" select="'Frequency'"/>
           </xsl:call-template>
-        </tr>
-      </xsl:if>
-
-      <xsl:if test="$codeCat = 'true'">
-        <xsl:if test="position() = 1">
-          <!-- table header - code / category table -->
-          <tr>
-            <td align="right">
-              <strong>
-                <xsl:value-of select="$msg/*/entry[@key='Code']"/>
-              </strong>
-            </td>
-            <td align="left">
-              <strong>
-                <xsl:value-of select="$msg/*/entry[@key='Category']"/>
-              </strong>
-            </td>
-          </tr>
-        </xsl:if>
-        <tr>
-          <td align="right">
+          <td>
             <xsl:value-of select="$codeValue"/>
           </td>
-          <td align="left">
-            <!-- test for Categories -->
-            <xsl:for-each select="../../../../l:LogicalProduct/l:CodeScheme[@id = $csID]/l:Code">
-              <xsl:if test="normalize-space(l:Value) = normalize-space($codeValue)">
-                <xsl:variable name="categoryID" select="l:CategoryReference/r:ID"/>
-                <xsl:for-each select="../../l:CategoryScheme/l:Category[@id=$categoryID]">
-                  <xsl:call-template name="DisplayLabel"/>
-                </xsl:for-each>
-              </xsl:if>
+          <td class="left">
+            <xsl:for-each select="../../../../l:LogicalProduct/l:CategoryScheme/l:Category[@id=$categoryRef]">
+                <xsl:call-template name="DisplayLabel"/>
             </xsl:for-each>
             
             <!-- test for Missing Values --> 
@@ -422,7 +383,6 @@
           </td>
         </tr>
       </xsl:if>
-    </xsl:if>
   </xsl:template>
 
   <!-- Display Category Statistic of a given type -->
@@ -443,17 +403,17 @@
 
     <xsl:for-each select="pi:CategoryStatistic">
       <xsl:if test="$type = 'Percent' and pi:CategoryStatisticTypeCoded = 'Percent'">
-        <td align="right">
+        <td align="right" valign="top">
           <xsl:value-of select="pi:Value"/>
         </td>
       </xsl:if>
       <xsl:if test="$type = 'ValidPercent' and count(pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) > 0">
-        <td align="right">
+        <td align="right" valign="top">
           <xsl:value-of select="pi:Value"/>
         </td>
       </xsl:if>
       <xsl:if test="$type = 'Frequency' and pi:CategoryStatisticTypeCoded = 'Frequency'">
-        <td align="right">
+        <td align="right" valign="top">
           <xsl:value-of select="pi:Value"/>
         </td>
       </xsl:if>
