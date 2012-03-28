@@ -27,10 +27,10 @@
   			<fileset dir="${basedir}"
            			includes="**/i18n/*" />
 		</copy>
-                <echo>Copy css/icons files to ddieditor-ui: ${basedir}/theme</echo>
+                <echo>Copy css/icons files to ddieditor-ui: ${basedir}</echo>
 		<copy todir="${ddixslt.dir}">
   			<fileset dir="${basedir}"
-           			includes="**/theme/*" />
+           			includes="**/theme/**" />
 		</copy>
         </target>
 
