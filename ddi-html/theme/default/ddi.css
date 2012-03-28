@@ -70,6 +70,14 @@ table.categoryStatistics, th.categoryStatistics, td.categoryStatistics {
 table.codeScheme {
     font-size:0.8em;
 }
+table {
+text-align:right;
+vertical-align: top;
+}
+td.left {
+text-align:left;
+vertical-align: top;
+}
 ul.creator {
     list-style:none;
 }
