@@ -72,11 +72,15 @@ table.codeScheme {
 }
 table {
 text-align:right;
-vertical-align: top;
+vertical-align:top;
 }
 td.left {
 text-align:left;
-vertical-align: top;
+vertical-align:top;
+}
+td.right {
+text-align:right;
+vertical-align:top;
 }
 ul.creator {
     list-style:none;
