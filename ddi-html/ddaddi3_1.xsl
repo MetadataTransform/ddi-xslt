@@ -340,7 +340,7 @@
                 <xsl:value-of select="$msg/*/entry[@key='Number']"/>
               </strong>
             </td>
-            <td>
+            <td class="right">
               <strong>
                 <xsl:value-of select="$msg/*/entry[@key='Code']"/>
               </strong>
@@ -362,7 +362,7 @@
           <xsl:call-template name="displayCategoryStatistic">
             <xsl:with-param name="type" select="'Frequency'"/>
           </xsl:call-template>
-          <td>
+          <td class="right">
             <xsl:value-of select="$codeValue"/>
           </td>
           <td class="left">
