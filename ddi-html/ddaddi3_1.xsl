@@ -200,37 +200,57 @@
     <xsl:param name="deltagerIkke"/>
     <!-- Main Statistic table - includes two tables -->
     <table class="table.categoryStatistics">
+      <!-- table header - statistics table -->
       <tr>
-        <td valign="top">
-          <!-- Statistics / Code / Category table -->
-          <table class="table.categoryStatistics">
-            <xsl:for-each select="pi:CategoryStatistics">
-              <xsl:call-template name="displayCategoryStatistics">
-                <xsl:with-param name="varID">
-                  <xsl:value-of select="$varId"/>
-                </xsl:with-param>
-                <xsl:with-param name="csID">
-                  <xsl:value-of select="$csId"/>
-                </xsl:with-param>
-                <xsl:with-param name="uoplyst">
-                  <xsl:value-of select="$uoplyst"/>
-                </xsl:with-param>
-                <xsl:with-param name="irrelevant">
-                  <xsl:value-of select="$irrelevant"/>
-                </xsl:with-param>
-                <xsl:with-param name="deltagerIkke">
-                  <xsl:value-of select="$deltagerIkke"/>
-                </xsl:with-param>
-              </xsl:call-template>
-            </xsl:for-each>
-
-            <!-- Summary: -->
-            <xsl:call-template name="displaySummary"/>
-          </table>
+        <td>
+          <strong>%</strong>
+        </td>
+        <td>
+          <strong>
+            <xsl:value-of select="$msg/*/entry[@key='MD%']"/>
+          </strong>
+        </td>
+        <td>
+          <strong>
+            <xsl:value-of select="$msg/*/entry[@key='Number']"/>
+          </strong>
+        </td>
+        <td class="right">
+          <strong>
+            <xsl:value-of select="$msg/*/entry[@key='Code']"/>
+          </strong>
+        </td>
+        <td  class="left">
+          <strong>
+            <xsl:value-of select="$msg/*/entry[@key='Category']"/>
+          </strong>
         </td>
       </tr>
+      <!-- Statistics / Code / Category table -->
+      <xsl:for-each select="pi:CategoryStatistics">
+        <xsl:call-template name="displayCategoryStatistics">
+          <xsl:with-param name="varID">
+            <xsl:value-of select="$varId"/>
+          </xsl:with-param>
+          <xsl:with-param name="csID">
+            <xsl:value-of select="$csId"/>
+          </xsl:with-param>
+          <xsl:with-param name="uoplyst">
+            <xsl:value-of select="$uoplyst"/>
+          </xsl:with-param>
+          <xsl:with-param name="irrelevant">
+            <xsl:value-of select="$irrelevant"/>
+          </xsl:with-param>
+          <xsl:with-param name="deltagerIkke">
+            <xsl:value-of select="$deltagerIkke"/>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:for-each>
+      
+      <!-- Summary: -->
+      <xsl:call-template name="displaySummary"/>
     </table>
-
+    
     <!-- Total response rate: -->
     <xsl:for-each select="pi:SummaryStatistic">
       <xsl:if test="pi:SummaryStatisticTypeCoded[@otherValue = 'ValidPercent'] = 'UseOther'">
@@ -324,73 +344,45 @@
       <xsl:variable name="codeValue" select="pi:CategoryValue"/>
       <xsl:variable name="categoryRef" select="../../../../l:LogicalProduct/l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
       
-        <xsl:if test="(position() = 1)">
-          <!-- table header - statistics table -->
-          <tr>
-            <td>
-              <strong>%</strong>
-            </td>
-            <td>
-              <strong>
-                <xsl:value-of select="$msg/*/entry[@key='MD%']"/>
-              </strong>
-            </td>
-            <td>
-              <strong>
-                <xsl:value-of select="$msg/*/entry[@key='Number']"/>
-              </strong>
-            </td>
-            <td class="right">
-              <strong>
-                <xsl:value-of select="$msg/*/entry[@key='Code']"/>
-              </strong>
-            </td>
-            <td  class="left">
-              <strong>
-                <xsl:value-of select="$msg/*/entry[@key='Category']"/>
-              </strong>
-            </td>
-          </tr>
-        </xsl:if>
-        <tr>
-          <xsl:call-template name="displayCategoryStatistic">
-            <xsl:with-param name="type" select="'Percent'"/>
-          </xsl:call-template>
-          <xsl:call-template name="displayCategoryStatistic">
-            <xsl:with-param name="type" select="'ValidPercent'"/>
-          </xsl:call-template>
-          <xsl:call-template name="displayCategoryStatistic">
-            <xsl:with-param name="type" select="'Frequency'"/>
-          </xsl:call-template>
-          <td class="right">
-            <xsl:value-of select="$codeValue"/>
-          </td>
-          <td class="left">
-            <xsl:for-each select="../../../../l:LogicalProduct/l:CategoryScheme/l:Category[@id=$categoryRef]">
-                <xsl:call-template name="DisplayLabel"/>
-            </xsl:for-each>
-            
-            <!-- test for Missing Values --> 
-            <xsl:if test="normalize-space($codeValue) = $uoplyst">
-              <xsl:value-of select="$msg/*/entry[@key='Unknown']"/>
-            </xsl:if>
-            <xsl:if test="normalize-space($codeValue) = $irrelevant">
-              <xsl:value-of select="$msg/*/entry[@key='Irrelevant']"/>
-            </xsl:if>
-            <xsl:if test="normalize-space($codeValue) = $deltagerIkke">
-              <xsl:value-of select="$msg/*/entry[@key='NotParticiparing']"/>
-            </xsl:if>
-          </td>
-        </tr>
-      </xsl:if>
+      <tr>
+        <xsl:call-template name="displayCategoryStatistic">
+          <xsl:with-param name="type" select="'Percent'"/>
+        </xsl:call-template>
+        <xsl:call-template name="displayCategoryStatistic">
+          <xsl:with-param name="type" select="'ValidPercent'"/>
+        </xsl:call-template>
+        <xsl:call-template name="displayCategoryStatistic">
+          <xsl:with-param name="type" select="'Frequency'"/>
+        </xsl:call-template>
+        <td class="right">
+          <xsl:value-of select="$codeValue"/>
+        </td>
+        <td class="left">
+          <xsl:for-each select="../../../../l:LogicalProduct/l:CategoryScheme/l:Category[@id=$categoryRef]">
+            <xsl:call-template name="DisplayLabel"/>
+          </xsl:for-each>
+          
+          <!-- test for Missing Values --> 
+          <xsl:if test="normalize-space($codeValue) = $uoplyst">
+            <xsl:value-of select="$msg/*/entry[@key='Unknown']"/>
+          </xsl:if>
+          <xsl:if test="normalize-space($codeValue) = $irrelevant">
+            <xsl:value-of select="$msg/*/entry[@key='Irrelevant']"/>
+          </xsl:if>
+          <xsl:if test="normalize-space($codeValue) = $deltagerIkke">
+            <xsl:value-of select="$msg/*/entry[@key='NotParticiparing']"/>
+          </xsl:if>
+        </td>
+      </tr>
+    </xsl:if>
   </xsl:template>
-
+  
   <!-- Display Category Statistic of a given type -->
   <!-- Parameter: type -->
   <!-- Context:  CategoryStatistics-->
   <xsl:template name="displayCategoryStatistic">
     <xsl:param name="type"/>
-
+    
     <xsl:choose>
       <xsl:when test="$type = 'ValidPercent'">
         <xsl:if test="count(pi:CategoryStatistic/pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) = 0">
@@ -400,7 +392,7 @@
         </xsl:if>
       </xsl:when>
     </xsl:choose>
-
+    
     <xsl:for-each select="pi:CategoryStatistic">
       <xsl:if test="$type = 'Percent' and pi:CategoryStatisticTypeCoded = 'Percent'">
         <td align="right" valign="top">
@@ -418,9 +410,9 @@
         </td>
       </xsl:if>
     </xsl:for-each>
-
+    
   </xsl:template>
-
+  
   <!-- Display Summary i.e. Sum Percent, Sum Valid Percent and Total Response  -->
   <!-- Concext: VariableStatistics -->
   <xsl:template name="displaySummary">
@@ -464,10 +456,10 @@
       </xsl:call-template>
     </xsl:if>
   </xsl:template>
-
+  
   <!-- Get higher level ItThenElse - if any exists
-  Parameters: ifth - id of low level IfThenElse
-  Context: IfThenElse -->
+    Parameters: ifth - id of low level IfThenElse
+    Context: IfThenElse -->
   <xsl:template name="getHigherIfThenElse">
     <xsl:param name="ifth"/>
     <!-- get Sequence pointing to this IfThenElse via Control Constuct Reference -->
@@ -533,7 +525,7 @@
       </xsl:for-each>
     </xsl:if>
   </xsl:template>
-
+  
   <!-- Traverse Filters:
   Parameters: variableName
   Context: Variable -->
