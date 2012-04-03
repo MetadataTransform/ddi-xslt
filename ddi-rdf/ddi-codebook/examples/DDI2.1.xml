@@ -17,6 +17,10 @@
 				<topcClas>subject 3</topcClas>
 			</subject>
 			<sumDscr>
+				<timePrd date="2012-01-01" event="start"/>
+				<timePrd date="2012-12-31" event="end"/>
+				<!--<timePrd date="2012-03-03" event="single"/>-->
+				<!--<timePrd date="2012-06-06"/>-->
 				<nation>location</nation>
 			</sumDscr>
 		</stdyInfo>
