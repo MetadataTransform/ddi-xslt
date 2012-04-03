@@ -45,49 +45,69 @@
     </xsl:template>
     
 	<!-- ............... -->
-	<!-- Instrument -->
-    <xsl:template name="Instrument">
-		
-		<!--<xsl:element name="rdf:Description">-->
-		<xsl:text disable-output-escaping="yes"><![CDATA[
+	<!-- Instrument: -->
+		<!-- [no instrument in DDI 2.1] -->
+		<xsl:template name="Instrument">
+			
+			<!-- ............... -->
+			<!-- only if at least 1 question -->
+			<xsl:if test="count(//ddicb:qstn) > 0">
+			
+				<!--<xsl:element name="rdf:Description">-->
+				<xsl:text disable-output-escaping="yes"><![CDATA[
 	<rdf:Description]]></xsl:text>
-			<!-- ............... -->
-			<!-- URI -->
-            <!--<xsl:attribute name="rdf:about">
-				<xsl:text>http://ddialliance.org/data/</xsl:text>
-				<xsl:text>Instrument</xsl:text>
-			</xsl:attribute>-->
-			<xsl:text disable-output-escaping="yes"><![CDATA[ rdf:about="Instrument>"]]></xsl:text>
-			<!-- ..... -->
-			<!-- ............... -->
-			<!-- type -->
-			<!--<xsl:element name="rdf:type">
-				<xsl:attribute name="rdf:resource">
-					<xsl:text>http://ddialliance.org/def#Instrument</xsl:text>
-				</xsl:attribute>
-			</xsl:element>-->
-			<xsl:text disable-output-escaping="yes"><![CDATA[ 
-		<rdf:type rdf:about="http://ddialliance.org/def#Instrument>"/>]]></xsl:text>
-            <!-- ..... -->
-            <!-- ............... -->
-			<!-- usesQuestion -->
-			<xsl:for-each select="//ddicb:qstn">
-				<!--<xsl:element name="ddionto:usesQuestion">
-					<xsl:attribute name="rdf:resource">
-						<xsl:value-of select="./@ID"/>
-					</xsl:attribute>
-				</xsl:element>-->
-				<xsl:text disable-output-escaping="yes"><![CDATA[ 
+	
+					<!-- ............... -->
+					<!-- URI: -->
+						<!-- instrument-<study URI> [study-dependent instrument] -->
+						<!--<xsl:attribute name="rdf:about">
+							<xsl:text>http://ddialliance.org/data/</xsl:text>
+							<xsl:text>Instrument</xsl:text>
+						</xsl:attribute>-->
+						<xsl:text disable-output-escaping="yes"><![CDATA[ rdf:about="instrument-]]></xsl:text>
+						<xsl:choose>
+								<xsl:when test="ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo!=''">
+									<xsl:value-of select="ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo" />
+								</xsl:when>
+								<xsl:otherwise><xsl:value-of select="../ID" /></xsl:otherwise>
+							</xsl:choose>
+						<xsl:text disable-output-escaping="yes"><![CDATA[">]]></xsl:text>
+					<!-- ..... -->
+					
+					<!-- ............... -->
+					<!-- type: -->
+						<!--<xsl:element name="rdf:type">
+							<xsl:attribute name="rdf:resource">
+								<xsl:text>http://ddialliance.org/def#Instrument</xsl:text>
+							</xsl:attribute>
+						</xsl:element>-->
+						<xsl:text disable-output-escaping="yes"><![CDATA[ 
+		<rdf:type rdf:about="http://ddialliance.org/def#Instrument"/>]]></xsl:text>
+					<!-- ..... -->
+					
+					<!-- ............... -->
+					<!-- usesQuestion: -->
+						<xsl:for-each select="//ddicb:qstn">
+							<!--<xsl:element name="ddionto:usesQuestion">
+								<xsl:attribute name="rdf:resource">
+									<xsl:value-of select="./@ID"/>
+								</xsl:attribute>
+							</xsl:element>-->
+							<xsl:text disable-output-escaping="yes"><![CDATA[ 
 		<ddionto:usesQuestion rdf:resource="]]></xsl:text>
-				<xsl:value-of select="./@ID"/>
-				<xsl:text disable-output-escaping="yes"><![CDATA["/>]]></xsl:text>
-			</xsl:for-each>
-			<!-- ..... -->
-		<!--</xsl:element>-->
-		<xsl:text disable-output-escaping="yes"><![CDATA[
+							<xsl:value-of select="./@ID"/>
+							<xsl:text disable-output-escaping="yes"><![CDATA["/>]]></xsl:text>
+						</xsl:for-each>
+					<!-- ..... -->
+					
+				<!--</xsl:element>-->
+				<xsl:text disable-output-escaping="yes"><![CDATA[
 	</rdf:Description>]]></xsl:text>
-		
-    </xsl:template>
+	
+			</xsl:if>
+			<!-- ..... -->
+			
+		</xsl:template>
 	<!-- ..... -->    
     
     <xsl:template match="ddicb:qstn">
