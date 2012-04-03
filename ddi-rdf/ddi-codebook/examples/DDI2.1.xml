@@ -10,6 +10,16 @@
 				<IDNo>study1</IDNo>
 			</titlStmt>
 		</citation>
+		<stdyInfo>
+			<subject>
+				<topcClas>subject 1</topcClas>
+				<topcClas>subject 2</topcClas>
+				<topcClas>subject 3</topcClas>
+			</subject>
+			<sumDscr>
+				<nation>location</nation>
+			</sumDscr>
+		</stdyInfo>
 	</stdyDscr>
 	<dataDscr>
 		<var name="var1">
