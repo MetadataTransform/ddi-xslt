@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codeBook 
+	xmlns="http://www.icpsr.umich.edu/DDI" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.ddialliance.org/Specification/DDI-Codebook/2.1/XMLSchema/Version2-1.xsd">
+	<stdyDscr>
+		<citation>
+			<titlStmt>
+				<titl></titl>
+				<IDNo>study1</IDNo>
+			</titlStmt>
+		</citation>
+	</stdyDscr>
+	<dataDscr>
+		<var name="var1">
+			<qstn ID="qstn-var1">
+				<qstnLit>qstn-var1?</qstnLit>
+			</qstn>
+		</var>
+		<var name="var2">
+			<qstn ID="qstn-var2">
+				<qstnLit>qstn-var2?</qstnLit>
+			</qstn>
+		</var>
+	</dataDscr>
+</codeBook>
