@@ -208,12 +208,27 @@
 					</dcterms:temporal>-->
 					<xsl:text disable-output-escaping="yes"><![CDATA[ 
 		<dcterms:temporal>]]></xsl:text>
-						
+					<xsl:choose>
+						<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:timePrd/@event = 'start' and
+                                                 //ddicb:codeBook/ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:timePrd/@event = 'end'">
+                            <xsl:text>from </xsl:text>
+							<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:timePrd[@event = 'start']/@date"/>
+							<xsl:text> to </xsl:text>
+							<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:timePrd[@event = 'end']/@date"/>
+						</xsl:when>
+						<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:timePrd/@event = 'single'">
+						    <xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:timePrd[@event = 'single']/@date"/>
+						</xsl:when>
+						<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:timePrd">
+						    <xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:timePrd/@date"/>
+						</xsl:when>
+					</xsl:choose>
 					<xsl:text disable-output-escaping="yes"><![CDATA[</dcterms:temporal>]]></xsl:text>
 				<!-- ..... -->
 				
 				<!-- ............... -->
 				<!-- dcterms:spatial -->
+					<!-- location-<study URI> [study-dependent location] -->
 					<xsl:text disable-output-escaping="yes"><![CDATA[ 
 		<dcterms:spatial rdf:resource="location-]]></xsl:text>
 					<xsl:choose>
@@ -242,6 +257,7 @@
 	
 				<!-- ............... -->
 				<!-- URI: -->
+					<!-- location-<study URI> [study-dependent location] -->
 					<xsl:text disable-output-escaping="yes"><![CDATA[ rdf:about="location-]]></xsl:text>
 					<xsl:choose>
 							<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo != ''">
@@ -261,6 +277,7 @@
 				
 				<!-- ............... -->
 				<!-- rdfs:label -->
+					<!-- /codeBook/stdyDscr/stdyInfo/sumDscr/nation -->
 					<xsl:text disable-output-escaping="yes"><![CDATA[ 
 		<rdfs:label>]]></xsl:text>
 					<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:nation"/>
