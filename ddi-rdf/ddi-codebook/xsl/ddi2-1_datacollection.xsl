@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	version="1.0" 
+	version="2.0" 
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:si="http://www.w3schools.com/rdf/" 
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -37,6 +37,8 @@
         <xsl:apply-templates select="//ddicb:qstn"/>
         
 		<xsl:call-template name="Coverage"/>
+		
+		<xsl:call-template name="Location"/>
         
 		<xsl:call-template name="rdfDocumentEnd"/>
 		
@@ -66,8 +68,8 @@
 						</xsl:attribute>-->
 						<xsl:text disable-output-escaping="yes"><![CDATA[ rdf:about="instrument-]]></xsl:text>
 						<xsl:choose>
-								<xsl:when test="ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo!=''">
-									<xsl:value-of select="ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo" />
+								<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo != ''">
+									<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo" />
 								</xsl:when>
 								<xsl:otherwise><xsl:value-of select="../ID" /></xsl:otherwise>
 							</xsl:choose>
@@ -155,50 +157,121 @@
 
 	<!-- ............... -->
 	<!-- dcterms:Coverage -->
-    <xsl:template name="Coverage">
-		
-		<!--<rdf:Description>-->
-		<xsl:text disable-output-escaping="yes"><![CDATA[
+		<xsl:template name="Coverage">
+			
+			<!--<rdf:Description>-->
+			<xsl:text disable-output-escaping="yes"><![CDATA[
 	<rdf:Description]]></xsl:text>
-			<!-- ............... -->
-			<!-- URI -->
-            <!--<xsl:attribute name="rdf:about">
-				<xsl:text>http://ddialliance.org/data/</xsl:text>
-				<xsl:text>Coverage</xsl:text>
-			</xsl:attribute>-->
-			<xsl:text disable-output-escaping="yes"><![CDATA[ rdf:about="Coverage>"]]></xsl:text>
-			<!-- ..... -->
-			<!-- ............... -->
-			<!-- type -->
-            <!--<rdf:type rdf:resource="http://purl.org/dc/terms/#Coverage" />-->
-            <xsl:text disable-output-escaping="yes"><![CDATA[ 
-		<rdf:type rdf:about="http://ddialliance.org/def#Coverage>"/>]]></xsl:text>
-            <!-- ..... -->
-            <!-- ............... -->
-			<!-- dcterms:subject -->
-			<!--<dcterms:subject>
+	
+				<!-- ............... -->
+				<!-- URI: -->
+					<!-- coverage-<study URI> [study-dependent coverage] -->
+					<!--<xsl:attribute name="rdf:about">
+						<xsl:text>http://ddialliance.org/data/</xsl:text>
+						<xsl:text>Coverage</xsl:text>
+					</xsl:attribute>-->
+					<xsl:text disable-output-escaping="yes"><![CDATA[ rdf:about="coverage-]]></xsl:text>
+					<xsl:choose>
+							<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo != ''">
+								<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo" />
+							</xsl:when>
+							<xsl:otherwise><xsl:value-of select="../ID" /></xsl:otherwise>
+						</xsl:choose>
+					<xsl:text disable-output-escaping="yes"><![CDATA[">]]></xsl:text>
+				<!-- ..... -->
 				
-			</dcterms:subject>-->
-			<xsl:text disable-output-escaping="yes"><![CDATA[ 
+				<!-- ............... -->
+				<!-- type -->
+					<!--<rdf:type rdf:resource="http://purl.org/dc/terms/#Coverage" />-->
+					<xsl:text disable-output-escaping="yes"><![CDATA[ 
+		<rdf:type rdf:about="http://purl.org/dc/terms/#Coverage"/>]]></xsl:text>
+				<!-- ..... -->
+				
+				<!-- ............... -->
+				<!-- dcterms:subject -->
+					<xsl:text disable-output-escaping="yes"><![CDATA[ 
 		<dcterms:subject>]]></xsl:text>
+					<!-- [n subjects; separated by ‘;’] -->
+					<xsl:for-each select="//ddicb:codeBook/ddicb:stdyDscr/ddicb:stdyInfo/ddicb:subject/ddicb:topcClas">
+						<xsl:value-of select="."/>
+						<xsl:if test="not (position() = count(//ddicb:codeBook/ddicb:stdyDscr/ddicb:stdyInfo/ddicb:subject/ddicb:topcClas))">
+							<xsl:text>; </xsl:text>
+						</xsl:if>
+					</xsl:for-each>
+					<xsl:text disable-output-escaping="yes"><![CDATA[</dcterms:subject>]]></xsl:text>
+				<!-- ..... -->
 				
-				<xsl:text disable-output-escaping="yes"><![CDATA[</dcterms:subject>]]></xsl:text>
-			<!-- ..... -->
-			<!-- ............... -->
-			<!-- dcterms:temporal -->
-			<!--<dcterms:temporal>
-				
-			</dcterms:temporal>-->
-			<xsl:text disable-output-escaping="yes"><![CDATA[ 
+				<!-- ............... -->
+				<!-- dcterms:temporal -->
+					<!--<dcterms:temporal>
+						
+					</dcterms:temporal>-->
+					<xsl:text disable-output-escaping="yes"><![CDATA[ 
 		<dcterms:temporal>]]></xsl:text>
+						
+					<xsl:text disable-output-escaping="yes"><![CDATA[</dcterms:temporal>]]></xsl:text>
+				<!-- ..... -->
 				
-				<xsl:text disable-output-escaping="yes"><![CDATA[</dcterms:temporal>]]></xsl:text>
-			<!-- ..... -->
-		<!--</rdf:Description>-->
-		<xsl:text disable-output-escaping="yes"><![CDATA[
+				<!-- ............... -->
+				<!-- dcterms:spatial -->
+					<xsl:text disable-output-escaping="yes"><![CDATA[ 
+		<dcterms:spatial rdf:resource="location-]]></xsl:text>
+					<xsl:choose>
+							<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo != ''">
+								<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo" />
+							</xsl:when>
+							<xsl:otherwise><xsl:value-of select="../ID" /></xsl:otherwise>
+						</xsl:choose>
+					<xsl:text disable-output-escaping="yes"><![CDATA["/>]]></xsl:text>
+				<!-- ..... -->
+				
+			<!--</rdf:Description>-->
+			<xsl:text disable-output-escaping="yes"><![CDATA[
 	</rdf:Description>]]></xsl:text>
-		
-    </xsl:template>
+			
+		</xsl:template>
+	<!-- ..... -->
+	
+	<!-- ............... -->
+	<!-- dcterms:Location -->
+		<xsl:template name="Location">
+			
+			<!--<rdf:Description>-->
+			<xsl:text disable-output-escaping="yes"><![CDATA[
+	<rdf:Description]]></xsl:text>
+	
+				<!-- ............... -->
+				<!-- URI: -->
+					<xsl:text disable-output-escaping="yes"><![CDATA[ rdf:about="location-]]></xsl:text>
+					<xsl:choose>
+							<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo != ''">
+								<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/ddicb:citation/ddicb:titlStmt/ddicb:IDNo" />
+							</xsl:when>
+							<xsl:otherwise><xsl:value-of select="../ID" /></xsl:otherwise>
+						</xsl:choose>
+					<xsl:text disable-output-escaping="yes"><![CDATA[">]]></xsl:text>
+				<!-- ..... -->
+				
+				<!-- ............... -->
+				<!-- type -->
+					<!--<rdf:type rdf:resource="http://purl.org/dc/terms/#Location" />-->
+					<xsl:text disable-output-escaping="yes"><![CDATA[ 
+		<rdf:type rdf:about="http://purl.org/dc/terms/#Location>"/>]]></xsl:text>
+				<!-- ..... -->
+				
+				<!-- ............... -->
+				<!-- rdfs:label -->
+					<xsl:text disable-output-escaping="yes"><![CDATA[ 
+		<rdfs:label>]]></xsl:text>
+					<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:nation"/>
+					<xsl:text disable-output-escaping="yes"><![CDATA[</rdfs:label>]]></xsl:text>
+				<!-- ..... -->
+				
+			<!--</rdf:Description>-->
+			<xsl:text disable-output-escaping="yes"><![CDATA[
+	</rdf:Description>]]></xsl:text>
+			
+		</xsl:template>
 	<!-- ..... -->
 	
 	<xsl:template name="documentTypeDeclaration">
