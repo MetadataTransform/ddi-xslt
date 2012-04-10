@@ -7,7 +7,7 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
     xmlns:xsl       = "http://www.w3.org/1999/XSL/Transform"
     xmlns:rdf       = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:si        = "http://www.w3schools.com/rdf/" 
-    xmlns:owl       = "http://www.w3.org/2002/07/owl#"
+    xmlns:owl       = "http://www.w3.org/2002/07/owl#" 
     xmlns:skosclass = "http://ddialliance.org/ontologies/skosclass"
     xmlns:xml       = "http://www.w3.org/XML/1998/namespace" 
     xmlns:rdfs      = "http://www.w3.org/2000/01/rdf-schema#"
@@ -59,7 +59,7 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
                         <xsl:value-of select="ddicb:citation/ddicb:titlStmt/ddicb:IDNo" />
                     </xsl:when>
                     <xsl:otherwise><xsl:value-of select="../ID" /></xsl:otherwise>
-                </xsl:choose>			
+                </xsl:choose>
             </dc:identifier>
 
             <xsl:apply-templates select="ddicb:citation" />
@@ -115,11 +115,13 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
             </dc:coverage>
         </xsl:if>
         
+        <!--
         <xsl:if test="ddicb:nation/@abbr">
             <dcterms:coverage xsi:type="dcterms:ISO639-3">
                 <xsl:value-of select="ddicb:nation/@abbr" />
             </dcterms:coverage>            
         </xsl:if>
+        -->
         
         <xsl:if test="ddicb:dataKind">
             <dcterms:type><xsl:value-of select="ddicb:dataKind" /></dcterms:type>
