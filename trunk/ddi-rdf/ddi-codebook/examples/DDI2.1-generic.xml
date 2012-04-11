@@ -31,36 +31,81 @@
 			</sumDscr>
 		</stdyInfo>
 	</stdyDscr>
+	<fileDscr>
+		<fileTxt>
+			<fileName>file1-fileName</fileName>
+			<fileCont>file1-description</fileCont>
+			<dimensns>
+				<caseQnty>1000000</caseQnty>
+				<caseQnty>2000000</caseQnty>
+			</dimensns>
+			<fileType>file1-fileType</fileType>
+			<filePlac>file1-provenance</filePlac>
+			<verStmt>
+				<version date="file1-version-date">file1-version</version>
+			</verStmt>
+		</fileTxt>
+	</fileDscr>
 	<dataDscr>
 		<var ID="var1" name="var1">
-			<qstn ID="qstn-var1">
-				<qstnLit>qstn-var1?</qstnLit>
+			<qstn ID="qstn1-var1">
+				<qstnLit>qstn1-var1?</qstnLit>
 			</qstn>
-			<universe ID="universe-var1">universe-var1</universe>
+			<qstn ID="qstn2-var1">
+				<qstnLit>qstn2-var1?</qstnLit>
+			</qstn>
+			<universe ID="universe1-var1">universe-var1</universe>
+			<universe ID="universe2-var1">universe-var1</universe>
 			<catgry>
 				<catValu>1</catValu>
 				<labl>one</labl>
+				<labl>uno</labl>
+				<catStat type="freq" wgt-var="var1" weight="var1">1000</catStat>
+				<catStat type="freq">1000</catStat>
+				<catStat type="percent">50</catStat>
+				<catStat type="percent">50</catStat>
 			</catgry>
 			<catgry>
 				<catValu>2</catValu>
 				<labl>two</labl>
+				<labl>dos</labl>
+				<catStat type="freq" wgt-var="var1">1000</catStat>
+				<catStat type="freq">1000</catStat>
+				<catStat type="percent">50</catStat>
+				<catStat type="percent">50</catStat>
 			</catgry>
-			<concept ID="concept-var1">concept-var1</concept>
+			<concept ID="concept1-var1">concept-var1</concept>
+			<concept ID="concept2-var1">concept-var1</concept>
 		</var>
 		<var ID="var2" name="var2">
-			<qstn ID="qstn-var2">
-				<qstnLit>qstn-var2?</qstnLit>
+			<qstn ID="qstn1-var2">
+				<qstnLit>qstn1-var2?</qstnLit>
 			</qstn>
-			<universe ID="universe-var2">universe-var2</universe>
+			<qstn ID="qstn2-var2">
+				<qstnLit>qstn2-var2?</qstnLit>
+			</qstn>
+			<universe ID="universe1-var2">universe-var2</universe>
+			<universe ID="universe2-var2">universe-var2</universe>
 			<catgry>
 				<catValu>1</catValu>
 				<labl>one</labl>
+				<labl>uno</labl>
+				<catStat type="freq" weight="var2">1000</catStat>
+				<catStat type="freq">1000</catStat>
+				<catStat type="percent">50</catStat>
+				<catStat type="percent">50</catStat>
 			</catgry>
 			<catgry>
 				<catValu>2</catValu>
 				<labl>two</labl>
+				<labl>dos</labl>
+				<catStat type="freq">1000</catStat>
+				<catStat type="freq">1000</catStat>
+				<catStat type="percent">50</catStat>
+				<catStat type="percent">50</catStat>
 			</catgry>
-			<concept ID="concept-var2">concept-var2</concept>
+			<concept ID="concept1-var2">concept-var2</concept>
+			<concept ID="concept2-var2">concept-var2</concept>
 		</var>
 	</dataDscr>
 </codeBook>
