@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	version="2.0" 
+	version="1.0" 
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:si="http://www.w3schools.com/rdf/" 
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -17,6 +17,17 @@
 	xmlns:qb="http://purl.org/linked-data/cube#">
 	
 	<xsl:output version="1.0" encoding="ISO-8859-1" indent="yes"/>
+	
+	<xsl:variable name="studyURI">
+		<xsl:choose>
+			<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/@ID">
+				<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/@ID"/>
+			</xsl:when>
+			<xsl:when test="//ddicb:codeBook/@ID">
+				<xsl:value-of select="//ddicb:codeBook/@ID"/>
+			</xsl:when>
+		</xsl:choose>
+	</xsl:variable>
 	
 	<xsl:template match="ddicb:codeBook">
 	
@@ -396,16 +407,6 @@
 				<xsl:for-each select="//ddicb:codeBook/ddicb:dataDscr/ddicb:var">
 					<xsl:text disable-output-escaping="yes"><![CDATA[ 
 		<ddionto:containsVariable rdf:resource="]]></xsl:text>
-					<xsl:variable name="studyURI">
-						<xsl:choose>
-							<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/@ID">
-								<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/@ID"/>
-							</xsl:when>
-							<xsl:when test="//ddicb:codeBook/@ID">
-								<xsl:value-of select="//ddicb:codeBook/@ID"/>
-							</xsl:when>
-						</xsl:choose>
-					</xsl:variable>
 					<xsl:choose>
 						<xsl:when test="./@name">
 							<xsl:value-of select="$studyURI"/>
@@ -427,16 +428,6 @@
 				<xsl:for-each select="//ddicb:codeBook/ddicb:fileDscr/ddicb:fileTxt">
 					<xsl:text disable-output-escaping="yes"><![CDATA[ 
 		<ddionto:hasDataFile rdf:resource="]]></xsl:text>
-					<xsl:variable name="studyURI">
-						<xsl:choose>
-							<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/@ID">
-								<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/@ID"/>
-							</xsl:when>
-							<xsl:when test="//ddicb:codeBook/@ID">
-								<xsl:value-of select="//ddicb:codeBook/@ID"/>
-							</xsl:when>
-						</xsl:choose>
-					</xsl:variable>
 					<xsl:value-of select="$studyURI"/>
 					<xsl:text>-</xsl:text>
 					<xsl:value-of select="./ddicb:fileName"/>
@@ -448,16 +439,6 @@
 			<!-- hasCoverage (→ Coverage): -->
 				<xsl:text disable-output-escaping="yes"><![CDATA[ 
 		<ddionto:hasCoverage rdf:resource="]]></xsl:text>
-				<xsl:variable name="studyURI">
-					<xsl:choose>
-						<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/@ID">
-							<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/@ID"/>
-						</xsl:when>
-						<xsl:when test="//ddicb:codeBook/@ID">
-							<xsl:value-of select="//ddicb:codeBook/@ID"/>
-						</xsl:when>
-					</xsl:choose>
-				</xsl:variable>
 				<xsl:text>coverage-</xsl:text>
 				<xsl:value-of select="$studyURI"/>
 				<xsl:text disable-output-escaping="yes"><![CDATA["/>]]></xsl:text>
@@ -467,16 +448,6 @@
 			<!-- hasInstrument (→ Instrument): -->
 				<xsl:text disable-output-escaping="yes"><![CDATA[ 
 		<ddionto:hasInstrument rdf:resource="]]></xsl:text>
-				<xsl:variable name="studyURI">
-					<xsl:choose>
-						<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/@ID">
-							<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/@ID"/>
-						</xsl:when>
-						<xsl:when test="//ddicb:codeBook/@ID">
-							<xsl:value-of select="//ddicb:codeBook/@ID"/>
-						</xsl:when>
-					</xsl:choose>
-				</xsl:variable>
 				<xsl:text>instrument-</xsl:text>
 				<xsl:value-of select="$studyURI"/>
 				<xsl:text disable-output-escaping="yes"><![CDATA["/>]]></xsl:text>
