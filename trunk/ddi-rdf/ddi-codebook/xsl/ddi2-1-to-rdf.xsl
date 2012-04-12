@@ -20,16 +20,19 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
     xmlns:ddicb     = "http://www.icpsr.umich.edu/DDI">
     <xsl:output method="xml" indent="yes"/>
 
+    
+    <xsl:include href="ddi2-1_datacollection.xsl"/>
+    
+    <xsl:include href="ddi2-1_logicalproduct.xsl"/>
+
     <!-- render text-elements of this language-->
     <xsl:param name="lang">en</xsl:param>
-    <xsl:if test="@xml-lang">
-        <xsl:param name="lang" select="@xml-lang"/>
-    </xsl:if>
-
-    <xsl:import href="ddi2-1_datacollection.xsl"/>
-    <xsl:import href="ddi2-1_logicalproduct.xsl"/>
 
     <xsl:template match="ddicb:codeBook">
+        <xsl:if test="@xml-lang">
+            <xsl:param name="lang" select="@xml-lang"/>
+        </xsl:if>
+        
         <rdf:RDF>
             <xsl:apply-templates select="ddicb:stdyDscr" />
 
@@ -82,14 +85,16 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
             <xsl:value-of select="ddicb:abstract" />
         </dc:abstract>
         <xsl:for-each select="ddicb:subject/ddicb:topcClas">
-            <xsl:attribute name="xml:lang">
-                <xsl:choose test="@xml-lang">
-                    <xsl:when test="@xml-lang"><xsl:value-of select="$lang"/></xsl:when>
-                    <xsl:otherwise><xsl:value-of select="$lang"/></xsl:otherwise>
-                </xsl:choose>
-            </xsl:attribute>
-            <xsl:attribute name="xml:lang"><xsl:value-of select="$lang"/></xsl:attribute>
-            <dc:subject><xsl:value-of select="." /></dc:subject>
+            <dc:subject>
+                <xsl:attribute name="xml:lang">
+                    <xsl:choose>
+                        <xsl:when test="@xml-lang"><xsl:value-of select="$lang"/></xsl:when>
+                        <xsl:otherwise><xsl:value-of select="$lang"/></xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+                <xsl:attribute name="xml:lang"><xsl:value-of select="$lang"/></xsl:attribute>
+                <xsl:value-of select="." />
+            </dc:subject>
         </xsl:for-each>    
         <xsl:for-each select="ddicb:subject/ddicb:keyword">
             <dc:subject><xsl:value-of select="." /></dc:subject>
