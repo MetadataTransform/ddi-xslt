@@ -45,15 +45,22 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
         </xsl:if>
         
         <rdf:RDF>
+            <!-- Study -->
             <xsl:apply-templates select="ddicb:stdyDscr" />
 
+            <!-- Universe -->
+            <xsl:apply-templates select="ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:universe" />
+            
             <!-- Including Variables  -->
             <xsl:apply-templates select="ddicb:dataDscr" mode="complete"/>
         </rdf:RDF>
     </xsl:template>
-    <xsl:template match="ddicb:stdyDscr">
-        <!--     <ddionto:Study> -->
+    <xsl:template match="ddicb:stdyDscr">        
         <rdf:Description>
+            <rdf:type rdf:resource="http://ddialliance.org/def#Study" />
+            <!--
+            <rdf:type rdf:resource="http://ddialliance.org/def#LogicalDataset" />
+            -->
             <xsl:attribute name="rdf:about">
                 <xsl:text>http://ddialliance.org/data/</xsl:text>
                 <xsl:choose>
@@ -64,8 +71,15 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
                 </xsl:choose>
             </xsl:attribute>
 
-            <rdf:type rdf:resource="http://ddialliance.org/def#Study" />
-            <rdf:type rdf:resource="http://ddialliance.org/def#LogicalDataset" />
+            
+
+            <!-- ddionto:isMeasureOf -->
+            <xsl:for-each select="ddicb:stdyInfo/ddicb:sumDscr/ddicb:universe">
+                <xsl:element name="ddionto:isMeasureOf">
+                    <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-universe-<xsl:value-of select="." /></xsl:attribute>
+                </xsl:element>
+            </xsl:for-each>
+
             <dc:identifier>
                 <xsl:text>http://ddialliance.org/data/</xsl:text>
                 <xsl:choose>
@@ -148,6 +162,21 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
                 <xsl:value-of select="ddicb:universe" />
             </dcterms:coverage>
         </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="ddicb:universe">
+        <rdf:Description>
+            <!-- URI -->
+            <xsl:attribute name="rdf:about">http://ddialliance.org/data/<xsl:value-of select="$studyURI" />-universe-<xsl:value-of select="." /></xsl:attribute>
+            <!-- rdf:type -->
+            <rdf:type>
+                <xsl:attribute name="rdf:resource">http://ddialliance.org/def#Universe</xsl:attribute>
+            </rdf:type>
+
+            <skos:definition>
+                <xsl:value-of select="." />
+            </skos:definition>
+        </rdf:Description>
     </xsl:template>
     <!--
     <xsl:template match="ddicb:"> <ddionto:isMeasureOf> <xsl:value-of
