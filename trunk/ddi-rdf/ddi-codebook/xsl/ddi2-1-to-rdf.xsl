@@ -22,11 +22,22 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
 
     
     <xsl:include href="ddi2-1_datacollection.xsl"/>
-    
     <xsl:include href="ddi2-1_logicalproduct.xsl"/>
-
+    
     <!-- render text-elements of this language-->
     <xsl:param name="lang">en</xsl:param>
+
+    <xsl:variable name="studyURI">
+            <xsl:choose>
+                    <xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/@ID">
+                            <xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/@ID"/>
+                    </xsl:when>
+                    <xsl:when test="//ddicb:codeBook/@ID">
+                            <xsl:value-of select="//ddicb:codeBook/@ID"/>
+                    </xsl:when>
+            </xsl:choose>
+    </xsl:variable>
+
 
     <xsl:template match="ddicb:codeBook">
         <xsl:if test="@xml-lang">
