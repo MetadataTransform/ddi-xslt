@@ -18,16 +18,7 @@
 	
 	<xsl:output version="1.0" encoding="ISO-8859-1" indent="yes"/>
 	
-	<xsl:variable name="studyURI">
-		<xsl:choose>
-			<xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/@ID">
-				<xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/@ID"/>
-			</xsl:when>
-			<xsl:when test="//ddicb:codeBook/@ID">
-				<xsl:value-of select="//ddicb:codeBook/@ID"/>
-			</xsl:when>
-		</xsl:choose>
-	</xsl:variable>
+
 	
 	<xsl:template match="ddicb:codeBook">
 	
