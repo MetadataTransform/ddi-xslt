@@ -57,10 +57,6 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
     </xsl:template>
     <xsl:template match="ddicb:stdyDscr">        
         <rdf:Description>
-            <rdf:type rdf:resource="http://ddialliance.org/def#Study" />
-            <!--
-            <rdf:type rdf:resource="http://ddialliance.org/def#LogicalDataset" />
-            -->
             <xsl:attribute name="rdf:about">
                 <xsl:text>http://ddialliance.org/data/</xsl:text>
                 <xsl:choose>
@@ -70,8 +66,9 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
                     <xsl:otherwise><xsl:value-of select="../ID" /></xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
+            <rdf:type rdf:resource="http://ddialliance.org/def#Study" />
 
-            
+
 
             <!-- ddionto:isMeasureOf -->
             <xsl:for-each select="ddicb:stdyInfo/ddicb:sumDscr/ddicb:universe">
@@ -79,6 +76,16 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
                     <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-universe-<xsl:value-of select="." /></xsl:attribute>
                 </xsl:element>
             </xsl:for-each>
+            
+            <!-- ddionto:HasInstrument -->
+            <xsl:element name="ddionto:HasInstrument">
+                <xsl:attribute name="rdf:resource">instrument-<xsl:value-of select="$studyURI"/></xsl:attribute>
+            </xsl:element>
+            
+            <!-- dc:hasPart -->
+            <xsl:element name="dc:hasPart">
+                <xsl:attribute name="rdf:resource">logicalDataSet-<xsl:value-of select="$studyURI"/></xsl:attribute>
+            </xsl:element>
 
             <dc:identifier>
                 <xsl:text>http://ddialliance.org/data/</xsl:text>
@@ -102,7 +109,6 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
             <xsl:attribute name="xml:lang"><xsl:value-of select="$lang"/></xsl:attribute>
             <xsl:value-of select="ddicb:titlStmt/ddicb:titl" />
         </dc:title>
-
     </xsl:template>
 
     <xsl:template match="ddicb:stdyInfo">
