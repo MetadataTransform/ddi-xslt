@@ -6,7 +6,7 @@
   <xsl:import href="ddi3_1.xsl"/>
 
   <!--  SVN version -->
-  <xsl:param name="svn-revision">0.1.1</xsl:param>
+  <xsl:param name="svn-revision">1.1.0</xsl:param>
   <!-- render text-elements of this language-->
   <xsl:param name="lang">da</xsl:param>
   <!-- if the requested language is not found for e.g. questionText, use fallback language-->
@@ -29,6 +29,8 @@
   <xsl:param name="show-inline-toc">1</xsl:param>
   <!-- show study-information-->
   <xsl:param name="show-study-information">1</xsl:param>
+  <!-- show frequence on numeric variable with missing values -->
+  <xsl:param name="show-numeric-var-frequence">0</xsl:param>
   <!-- path prefix to the css-files-->
   <xsl:param name="theme-path">theme/default</xsl:param>
   
@@ -99,13 +101,18 @@
           </div>
         </xsl:if>
       </li>
+        <!-- Filter: -->        
+        <xsl:variable name="filterInfo">
+          <xsl:call-template name="traverseFilters">
+            <xsl:with-param name="variableName">
+              <xsl:value-of select="translate(l:VariableName, $lowercase, $uppercase)"/>
+            </xsl:with-param>
+          </xsl:call-template>
+        </xsl:variable>
       <a>
-        <!-- Filter: -->
-        <xsl:call-template name="traverseFilters">
-          <xsl:with-param name="variableName">
-            <xsl:value-of select="translate(l:VariableName, $lowercase, $uppercase)"/>
-          </xsl:with-param>
-        </xsl:call-template>
+        <xsl:for-each select="$filterInfo">
+          <xsl:copy-of select="."/>
+        </xsl:for-each>
       </a>
       <!-- Representation: -->
       <!-- Missing Value  -->
@@ -157,6 +164,7 @@
       </xsl:for-each>
       
       <!-- Statistics: -->
+      <xsl:if test="$show-numeric-var-frequence = 1 and $missingValue != '' and $filterInfo != ''"> 
       <xsl:variable name="csID" select="l:Representation/l:CodeRepresentation/r:CodeSchemeReference/r:ID"/>
       <xsl:if test="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics/pi:VariableReference/r:ID = $varID">
         <li class="codeDomain">
@@ -184,6 +192,7 @@
             </xsl:if>
           </xsl:for-each>
         </li>
+      </xsl:if>
       </xsl:if>
       <xsl:apply-templates select="l:Representation/l:NumericRepresentation"/>
       <xsl:apply-templates select="l:Representation/l:TextRepresentation"/>
@@ -472,11 +481,11 @@
           <xsl:for-each select="../../d:IfThenElse">
             <xsl:variable name="h-ifth" select="@id"/>
             <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
-              <p>
+              <p/>
                 <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
                 <xsl:text>: </xsl:text>
                 <xsl:value-of select="d:IfCondition/r:Code"/>
-              </p>
+              <p/>
               <xsl:call-template name="getHigherIfThenElse">
                 <xsl:with-param name="ifth" select="$h-ifth"/>
               </xsl:call-template>
