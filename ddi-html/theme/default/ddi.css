@@ -112,9 +112,9 @@ h3.questionSchemeName {
     float:right;
 }
 .version {
-    font-size:0.1em;
+    font-size:8px;
     float:left;
-    margin-bottom:2cm;
+    margin-bottom:3cm;
 }
 li.pdf, li.stream {
     list-style-image: url(img/pdf.png);
