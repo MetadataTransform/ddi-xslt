@@ -164,7 +164,8 @@
       </xsl:for-each>
       
       <!-- Statistics: -->
-      <xsl:if test="$show-numeric-var-frequence = 1 and $missingValue != '' and $filterInfo != ''"> 
+      <xsl:if test="l:Representation/l:CodeRepresentation or 
+        (l:Representation/l:NumericRepresentation and $show-numeric-var-frequence = 1 and $missingValue != '' and $filterInfo != '')"> 
       <xsl:variable name="csID" select="l:Representation/l:CodeRepresentation/r:CodeSchemeReference/r:ID"/>
       <xsl:if test="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics/pi:VariableReference/r:ID = $varID">
         <li class="codeDomain">
