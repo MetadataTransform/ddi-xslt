@@ -18,12 +18,12 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
     xmlns:ddionto   = "http://ddialliance.org/def#"
     xmlns:ddi       = "http://ddialliance.org/data/" 
     xmlns:ddicb     = "http://www.icpsr.umich.edu/DDI">
-    <xsl:output method="xml" indent="yes"/>
-
     
     <xsl:import href="ddi2-1_datacollection.xsl"/>
     <xsl:import href="ddi2-1_logicalproduct.xsl"/>
     
+    <xsl:output method="xml" indent="yes"/>
+
     <!-- render text-elements of this language-->
     <xsl:param name="lang">en</xsl:param>
 
@@ -46,6 +46,10 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
         </xsl:if>
         -->
         <rdf:RDF>
+            <owl:Ontology rdf:about="">
+                <owl:versionIRI rdf:resource=""/>
+            </owl:Ontology>
+            
             <!-- Study -->
             <xsl:apply-templates select="ddicb:stdyDscr" />
 
@@ -53,7 +57,30 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
             <xsl:apply-templates select="ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:universe" />
             
             <!-- Including Variables  -->
-            <xsl:apply-templates select="ddicb:dataDscr" mode="complete"/>
+            <!--<xsl:apply-templates select="ddicb:dataDscr" mode="complete"/>-->
+            
+        
+            <!-- including DataFile -->
+            <xsl:apply-templates select="//ddicb:fileDscr/ddicb:fileTxt"/>
+
+            <!-- including DescriptiveStatistics -->
+            <xsl:apply-templates select="//ddicb:dataDscr/ddicb:var/ddicb:catgry"/>
+
+            <!-- including Variables -->
+            <xsl:apply-templates select="//ddicb:dataDscr/ddicb:var"/>            
+                
+            
+            
+            <xsl:call-template name="Instrument"/>
+	
+            <xsl:apply-templates select="//ddicb:qstn"/>
+        
+            <xsl:call-template name="Coverage"/>
+		
+            <xsl:call-template name="Location"/> 
+            
+            <xsl:call-template name="LogicalDataSet"/>           
+            
         </rdf:RDF>
     </xsl:template>
     
@@ -108,7 +135,7 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
             <xsl:apply-templates select="ddicb:citation" />
 
             <xsl:apply-templates select="ddicb:stdyInfo" />
-            <xsl:apply-templates select="../ddicb:dataDscr" mode="reference"/>
+            <!--<xsl:apply-templates select="../ddicb:dataDscr" mode="reference"/>-->
         </rdf:Description>
     </xsl:template>
 

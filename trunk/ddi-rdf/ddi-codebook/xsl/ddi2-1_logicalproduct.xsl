@@ -22,20 +22,20 @@
             </xsl:choose>
     </xsl:variable>-->
 
-    <xsl:template match="ddicb:codeBook">
+    <!--<xsl:template match="ddicb:codeBook">-->
         <!-- including DataFile -->
-        <xsl:apply-templates select="//ddicb:fileDscr/ddicb:fileTxt"/>
+        <!--<xsl:apply-templates select="//ddicb:fileDscr/ddicb:fileTxt"/>-->
 
         <!-- including DescriptiveStatistics -->
-        <xsl:apply-templates select="//ddicb:dataDscr/ddicb:var/ddicb:catgry"/>
+        <!--<xsl:apply-templates select="//ddicb:dataDscr/ddicb:var/ddicb:catgry"/>-->
         
         <!-- including Variables -->
-        <xsl:apply-templates select="//ddicb:dataDscr/ddicb:var"/>
+        <!--<xsl:apply-templates select="//ddicb:dataDscr/ddicb:var"/>-->
         
         <!-- including DataElements -->
         <!-- no DataElement in DDI2.1 -->
 
-    </xsl:template>
+    <!--</xsl:template>-->
 
 
 
