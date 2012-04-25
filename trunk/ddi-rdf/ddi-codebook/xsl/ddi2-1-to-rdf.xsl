@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
 Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
 -->
@@ -23,10 +22,12 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
     <xsl:import href="ddi2-1_logicalproduct.xsl"/>
     
     <xsl:output method="xml" indent="yes"/>
+    <xsl:strip-space elements="*"/>
 
-    <!-- render text-elements of this language-->
+    <!-- render text-elements with this lang attribute -->
     <xsl:param name="lang">en</xsl:param>
 
+    <!-- used as a prefix for elements -->
     <xsl:variable name="studyURI">
             <xsl:choose>
                     <xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/@ID">
@@ -38,14 +39,17 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
             </xsl:choose>
     </xsl:variable>
 
-
     <xsl:template match="ddicb:codeBook">
-        <!--
-        <xsl:if test="@xml-lang">
-            <xsl:param name="lang" select="@xml-lang"/>
-        </xsl:if>
-        -->
-        <rdf:RDF>
+        <!-- output of doctype -->
+        <xsl:text disable-output-escaping="yes"><![CDATA[
+<!DOCTYPE rdf:RDF [
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>            
+        ]]></xsl:text>
+        <rdf:RDF xsi:schemaLocation="http://www.w3.org/1999/02/22-rdf-syntax-ns# http://www.openarchives.org/OAI/2.0/rdf.xsd">
             <owl:Ontology rdf:about="">
                 <owl:versionIRI rdf:resource=""/>
             </owl:Ontology>
@@ -55,30 +59,29 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
 
             <!-- Universe -->
             <xsl:apply-templates select="ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:universe" />
-            
-            <!-- Including Variables  -->
-            <!--<xsl:apply-templates select="ddicb:dataDscr" mode="complete"/>-->
-            
-        
-            <!-- including DataFile -->
+                    
+            <!-- DataFile -->
             <xsl:apply-templates select="//ddicb:fileDscr/ddicb:fileTxt"/>
 
-            <!-- including DescriptiveStatistics -->
+            <!-- DescriptiveStatistics -->
             <xsl:apply-templates select="//ddicb:dataDscr/ddicb:var/ddicb:catgry"/>
 
-            <!-- including Variables -->
+            <!-- Variables -->
             <xsl:apply-templates select="//ddicb:dataDscr/ddicb:var"/>            
-                
-            
-            
+        
+            <!-- Intrument -->
             <xsl:call-template name="Instrument"/>
 	
+            <!--Question -->
             <xsl:apply-templates select="//ddicb:qstn"/>
         
+            <!-- Coverage -->
             <xsl:call-template name="Coverage"/>
-		
+	
+            <!-- Location -->	
             <xsl:call-template name="Location"/> 
             
+            <!-- LogicalDataSet -->
             <xsl:call-template name="LogicalDataSet"/>           
             
         </rdf:RDF>
