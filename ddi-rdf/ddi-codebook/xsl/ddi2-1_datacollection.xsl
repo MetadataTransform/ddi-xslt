@@ -20,24 +20,26 @@
 	
 
 	
-	<xsl:template match="ddicb:codeBook">
+	<!--<xsl:template match="ddicb:codeBook">-->
 	
 		<!-- ............... -->
 		<!-- RDF document header information: -->
 			<!-- xml declaration -->
+                        <!--
 			<xsl:call-template name="documentTypeDeclaration"/>
 			<xsl:call-template name="rdfDocumentHeader"/>
 			<xsl:call-template name="owlDocumentHeader"/>
+                        -->
 		<!-- ..... -->
 	
 		<!--<xsl:element name="rdf:RDF">-->
 			<!--<xsl:attribute name="xmlns:rdf">
 				<xsl:text>http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:text>
 			</xsl:attribute>-->
-	
+                 <!--           
 		<xsl:call-template name="Instrument"/>
 	
-        <xsl:apply-templates select="//ddicb:qstn"/>
+                <xsl:apply-templates select="//ddicb:qstn"/>
         
 		<xsl:call-template name="Coverage"/>
 		
@@ -46,10 +48,10 @@
 		<xsl:call-template name="LogicalDataSet"/>
         
 		<xsl:call-template name="rdfDocumentEnd"/>
-		
+		-->
 		<!--</xsl:element>-->
         
-    </xsl:template>
+    <!--</xsl:template>-->
     
 	<!-- ............... -->
 	<!-- Instrument: -->
