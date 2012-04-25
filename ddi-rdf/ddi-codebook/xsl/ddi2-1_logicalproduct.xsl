@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:si="http://www.w3schools.com/rdf/"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:skosclass="http://ddialliance.org/ontologies/skosclass"
@@ -11,8 +11,16 @@
     xmlns:ddi="http://ddialliance.org/data/" xmlns:ddicb="http://www.icpsr.umich.edu/DDI">
     <xsl:output method="xml" indent="yes"/>
 
-
-
+	<!--<xsl:variable name="studyURI">
+            <xsl:choose>
+                    <xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/@ID">
+                            <xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/@ID"/>
+                    </xsl:when>
+                    <xsl:when test="//ddicb:codeBook/@ID">
+                            <xsl:value-of select="//ddicb:codeBook/@ID"/>
+                    </xsl:when>
+            </xsl:choose>
+    </xsl:variable>-->
 
     <xsl:template match="ddicb:codeBook">
         <!-- including DataFile -->
@@ -156,38 +164,98 @@
             </xsl:for-each>
 
             <!-- ddionto:frequency -->
-            <xsl:for-each select="ddicb:catStat[@type='freq'!='']">
-                <xsl:element name="ddionto:frequency">
-                    <xsl:value-of select="."/>
-                </xsl:element>
+            <!--<xsl:for-each select="ddicb:catStat[@type='freq'!='']">-->
+            <!-- Thomas, 24.04.2012: -->
+            <xsl:for-each select="ddicb:catStat[@type='freq']">
+				<!-- Thomas, 24.04.2012: -->
+				<xsl:if test=". != ''">
+					<xsl:element name="ddionto:frequency">
+						<xsl:value-of select="."/>
+					</xsl:element>
+				<!-- Thomas, 24.04.2012: -->
+                </xsl:if>
             </xsl:for-each>
 
             <!-- ddionto:percentage -->
-            <xsl:for-each select="ddicb:catStat[@type='percent'!='']">
-                <xsl:element name="ddionto:percentage">
-                    <xsl:value-of select="."/>
-                </xsl:element>
+            <!--<xsl:for-each select="ddicb:catStat[@type='percent'!='']">-->
+            <!-- Thomas, 24.04.2012: -->
+            <xsl:for-each select="ddicb:catStat[@type='percent']">
+				<!-- Thomas, 24.04.2012: -->
+				<xsl:if test=". != ''">
+					<xsl:element name="ddionto:percentage">
+						<xsl:value-of select="."/>
+					</xsl:element>
+                <!-- Thomas, 24.04.2012: -->
+                </xsl:if>
             </xsl:for-each>
 
             <!-- ddionto:weightedFrequency -->
-            <xsl:for-each select="ddicb:catStat[@type='freq'!='']">
-                <xsl:if test="@wgt-var!=''">
-                    <xsl:element name="ddionto:weightedFrequency">
-                        <xsl:value-of select="."/>-<xsl:value-of select="@wgt-var"/>
-                    </xsl:element>
+            <!--<xsl:for-each select="ddicb:catStat[@type='freq'!='']">-->
+            <!--<xsl:for-each select="ddicb:catStat[@type='freq'] !=''">-->
+            <!-- Thomas, 24.04.2012: -->
+            <xsl:for-each select="ddicb:catStat[@type='freq']">
+				<!-- Thomas, 24.04.2012: -->
+				<xsl:if test=". != ''">
+					<!-- Thomas, 24.04.2012: -->
+					<xsl:choose>
+						<xsl:when test="@wgt-var != ''">
+					<!--<xsl:if test="@wgt-var != ''">-->
+							<xsl:element name="ddionto:weightedFrequency">
+								<xsl:value-of select="."/>-<xsl:value-of select="@wgt-var"/>
+							</xsl:element>
+					<!--</xsl:if>-->
+						</xsl:when>
+						<xsl:when test="@weight!=''">
+							<xsl:element name="ddionto:weightedFrequency">
+								<xsl:value-of select="."/>-<xsl:value-of select="@weight"/>
+							</xsl:element>
+						</xsl:when>
+					</xsl:choose>
+				<!-- Thomas, 24.04.2012: -->
                 </xsl:if>
-                <xsl:if test="@weight!=''">
+                <!--<xsl:if test="@weight!=''">
                     <xsl:element name="ddionto:weightedFrequency">
                         <xsl:value-of select="."/>-<xsl:value-of select="@weight"/>
                     </xsl:element>
-                </xsl:if>
+                </xsl:if>-->
             </xsl:for-each>
 
             <!-- ddionto:weightedBy -->
             <xsl:for-each select="ddicb:catStat[@type='freq']">
-                <xsl:if test="@wgt-var!=''">
+				<!-- Thomas, 24.04.2012: -->
+				<xsl:choose>
+					<xsl:when test="../../@name">
+						<xsl:choose>
+							<xsl:when test="@wgt-var!=''">
+								<xsl:element name="ddionto:weightedBy">
+									<xsl:value-of select="$studyURI"/>-<xsl:value-of select="../../@name"/>-<xsl:value-of select="@wgt-var"/>
+								</xsl:element>
+							</xsl:when>
+							<xsl:when test="@weight!=''">
+								<xsl:element name="ddionto:weightedBy">
+									<xsl:value-of select="$studyURI"/>-<xsl:value-of select="../../@name"/>-<xsl:value-of select="@weight"/>
+								</xsl:element>
+							</xsl:when>
+						</xsl:choose>
+					</xsl:when>
+					<xsl:when test="../../@ID">
+						<xsl:choose>
+							<xsl:when test="@wgt-var!=''">
+								<xsl:element name="ddionto:weightedBy">
+									<xsl:value-of select="$studyURI"/>-<xsl:value-of select="../../@ID"/>-<xsl:value-of select="@wgt-var"/>
+								</xsl:element>
+							</xsl:when>
+							<xsl:when test="@weight!=''">
+								<xsl:element name="ddionto:weightedBy">
+									<xsl:value-of select="$studyURI"/>-<xsl:value-of select="../../@ID"/>-<xsl:value-of select="@weight"/>
+								</xsl:element>
+							</xsl:when>
+						</xsl:choose>
+					</xsl:when>
+				</xsl:choose>
+                <!--<xsl:if test="@wgt-var!=''">
                     <xsl:element name="ddionto:weightedBy">
-                        <!-- Caution: Variable does not always have an ID, should be used name instead? -->
+                        --><!-- Caution: Variable does not always have an ID, should be used name instead? --><!--
                         <xsl:value-of select="$studyURI"/>-<xsl:value-of select="../../@ID"
                             />-<xsl:value-of select="@wgt-var"/>
                     </xsl:element>
@@ -197,7 +265,7 @@
                         <xsl:value-of select="$studyURI"/>-<xsl:value-of select="../../@ID"
                             />-<xsl:value-of select="@weight"/>
                     </xsl:element>
-                </xsl:if>
+                </xsl:if>-->
             </xsl:for-each>
 
         </rdf:Description>
