@@ -21,8 +21,8 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
     <xsl:output method="xml" indent="yes"/>
 
     
-    <xsl:include href="ddi2-1_datacollection.xsl"/>
-    <xsl:include href="ddi2-1_logicalproduct.xsl"/>
+    <xsl:import href="ddi2-1_datacollection.xsl"/>
+    <xsl:import href="ddi2-1_logicalproduct.xsl"/>
     
     <!-- render text-elements of this language-->
     <xsl:param name="lang">en</xsl:param>
