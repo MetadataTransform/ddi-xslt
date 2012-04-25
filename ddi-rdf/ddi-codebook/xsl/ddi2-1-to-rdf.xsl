@@ -40,10 +40,11 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
 
 
     <xsl:template match="ddicb:codeBook">
+        <!--
         <xsl:if test="@xml-lang">
             <xsl:param name="lang" select="@xml-lang"/>
         </xsl:if>
-        
+        -->
         <rdf:RDF>
             <!-- Study -->
             <xsl:apply-templates select="ddicb:stdyDscr" />
