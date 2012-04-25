@@ -55,6 +55,8 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
             <xsl:apply-templates select="ddicb:dataDscr" mode="complete"/>
         </rdf:RDF>
     </xsl:template>
+    
+    <!-- Study -->
     <xsl:template match="ddicb:stdyDscr">        
         <rdf:Description>
             <xsl:attribute name="rdf:about">
@@ -67,8 +69,6 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
                 </xsl:choose>
             </xsl:attribute>
             <rdf:type rdf:resource="http://ddialliance.org/def#Study" />
-
-
 
             <!-- ddionto:isMeasureOf -->
             <xsl:for-each select="ddicb:stdyInfo/ddicb:sumDscr/ddicb:universe">
@@ -86,6 +86,13 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
             <xsl:element name="dc:hasPart">
                 <xsl:attribute name="rdf:resource">logicalDataSet-<xsl:value-of select="$studyURI"/></xsl:attribute>
             </xsl:element>
+            
+            <!-- ddionto:HasDataFile -->
+            <xsl:for-each select="//ddicb:codeBook/ddicb:fileDscr/ddicb:fileTxt">
+                <xsl:element name="ddionto:HasInstrument">
+                    <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-<xsl:value-of select="./ddicb:fileName"/></xsl:attribute>
+                </xsl:element>
+            </xsl:for-each>
 
             <dc:identifier>
                 <xsl:text>http://ddialliance.org/data/</xsl:text>
