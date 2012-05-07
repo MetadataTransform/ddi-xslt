@@ -64,6 +64,26 @@
     </xsl:choose>
   </xsl:template>
 
+  <!-- DisplayDescription -->
+  <!-- Context:  Variable, Concept, Category-->
+  <xsl:template name="DisplayDescription">
+    <xsl:choose>
+      <xsl:when test="r:Description/@xml:lang">
+        <xsl:choose>
+          <xsl:when test="r:Description[@xml:lang=$lang]">
+            <xsl:value-of select="r:Description[@xml:lang=$lang]"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="r:Description[@xml:lang=$fallback-lang]"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="r:Description"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
   <!--  Variables -->
   <xsl:template match="l:Variable">
     <xsl:variable name="varID" select="@id"/>
@@ -82,6 +102,9 @@
         <li class="concepts">
           <xsl:for-each select="../../../c:ConceptualComponent/c:ConceptScheme/c:Concept[@id = $cID]">
             <xsl:call-template name="DisplayLabel"/>
+            <div>
+               <xsl:call-template name="DisplayDescription"/>
+            </div>
           </xsl:for-each>
         </li>
       </xsl:if>
