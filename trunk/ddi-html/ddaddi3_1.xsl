@@ -160,12 +160,6 @@
       <!-- - Numeric -->
       <xsl:for-each select="l:Representation/l:NumericRepresentation">
         <p>
-<!--          <xsl:for-each select="r:NumberRange">
-            <xsl:value-of select="$msg/*/entry[@key='Interval']"/>
-            <xsl:value-of select="r:Low"/>
-            <xsl:value-of select="$msg/*/entry[@key='To']"/>
-            <xsl:value-of select="r:High"/>
-          </xsl:for-each>-->
           <xsl:call-template name="displayMissingValue"/>
         </p>
       </xsl:for-each>
@@ -380,7 +374,6 @@
     <xsl:param name="deltagerIkke"/>
     <xsl:if test="count(pi:CategoryStatistic) > 0">
       <xsl:variable name="codeValue" select="pi:CategoryValue"/>
-<!--      <xsl:variable name="categoryRef" select="../../../../l:LogicalProduct/l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>-->
       <xsl:variable name="categoryRef">
         <xsl:value-of select="../../../../l:LogicalProduct/l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
         <xsl:for-each select="../../../../../g:ResourcePackage">
