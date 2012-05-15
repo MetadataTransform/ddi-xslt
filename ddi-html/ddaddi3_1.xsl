@@ -160,12 +160,12 @@
       <!-- - Numeric -->
       <xsl:for-each select="l:Representation/l:NumericRepresentation">
         <p>
-          <xsl:for-each select="r:NumberRange">
+<!--          <xsl:for-each select="r:NumberRange">
             <xsl:value-of select="$msg/*/entry[@key='Interval']"/>
             <xsl:value-of select="r:Low"/>
             <xsl:value-of select="$msg/*/entry[@key='To']"/>
             <xsl:value-of select="r:High"/>
-          </xsl:for-each>
+          </xsl:for-each>-->
           <xsl:call-template name="displayMissingValue"/>
         </p>
       </xsl:for-each>
@@ -218,6 +218,12 @@
         </li>
       </xsl:if>
       </xsl:if>
+      <xsl:for-each select="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics">
+        <!-- find statistics for current variable -->
+        <xsl:if test="pi:VariableReference/r:ID = $varID">
+          <xsl:call-template name="displayMiminumMaximum"/>
+        </xsl:if>
+      </xsl:for-each>
       <xsl:apply-templates select="l:Representation/l:NumericRepresentation"/>
       <xsl:apply-templates select="l:Representation/l:TextRepresentation"/>
     </li>
@@ -294,7 +300,6 @@
         <xsl:value-of select="pi:Value"/>
       </xsl:if>
     </xsl:for-each>
-
   </xsl:template>
 
   <!-- Split whitespace separated string -->
@@ -375,8 +380,13 @@
     <xsl:param name="deltagerIkke"/>
     <xsl:if test="count(pi:CategoryStatistic) > 0">
       <xsl:variable name="codeValue" select="pi:CategoryValue"/>
-      <xsl:variable name="categoryRef" select="../../../../l:LogicalProduct/l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
-      
+<!--      <xsl:variable name="categoryRef" select="../../../../l:LogicalProduct/l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>-->
+      <xsl:variable name="categoryRef">
+        <xsl:value-of select="../../../../l:LogicalProduct/l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
+        <xsl:for-each select="../../../../../g:ResourcePackage">
+          <xsl:value-of select="l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
+        </xsl:for-each>
+      </xsl:variable>
       <tr>
         <xsl:call-template name="displayCategoryStatistic">
           <xsl:with-param name="type" select="'Percent'"/>
@@ -392,6 +402,9 @@
         </td>
         <td class="left">
           <xsl:for-each select="../../../../l:LogicalProduct/l:CategoryScheme/l:Category[@id=$categoryRef]">
+            <xsl:call-template name="DisplayLabel"/>
+          </xsl:for-each>
+          <xsl:for-each select="../../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$categoryRef]">
             <xsl:call-template name="DisplayLabel"/>
           </xsl:for-each>
           
@@ -476,6 +489,33 @@
         <xsl:value-of select="pi:TotalResponses"/>
       </td>
     </tr>
+  </xsl:template>
+  
+  <!-- Display minimum and maximum of SummaryStatistic -->
+  <!-- Concext: VariableStatistics -->
+  <xsl:template name="displayMiminumMaximum">
+    <p>
+      <xsl:for-each select="pi:SummaryStatistic">
+        <xsl:if test="pi:SummaryStatisticTypeCoded = 'Minimum'">
+            <xsl:if test="string-length(pi:Value) = 0">
+              <xsl:text>?</xsl:text>
+            </xsl:if>
+            <xsl:if test="string-length(pi:Value) > 0">
+              <xsl:value-of select="$msg/*/entry[@key='Interval']"/>
+              <xsl:value-of select="pi:Value"/>
+            </xsl:if>
+        </xsl:if>
+        <xsl:if test="pi:SummaryStatisticTypeCoded = 'Maximum'">
+            <xsl:if test="string-length(pi:Value) = 0">
+              <xsl:text>?</xsl:text>
+            </xsl:if>
+            <xsl:if test="string-length(pi:Value) > 0">
+              <xsl:value-of select="$msg/*/entry[@key='To']"/>
+              <xsl:value-of select="pi:Value"/>
+            </xsl:if>
+        </xsl:if>
+      </xsl:for-each>
+    </p>
   </xsl:template>
   
   <!-- Display MissingValue attribute -->
