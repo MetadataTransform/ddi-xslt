@@ -88,11 +88,11 @@
 							<xsl:text disable-output-escaping="yes"><![CDATA[ 
 		<ddionto:usesQuestion rdf:resource="]]></xsl:text>
 							<xsl:choose>
-								<xsl:when test="./@ID">
-									<xsl:value-of select="./@ID"/>
+								<xsl:when test="../@ID">
+									question-<xsl:value-of select="../@ID"/>
 								</xsl:when>
 								<xsl:when test="./ddicb:qstnLit">
-									<xsl:value-of select="./ddicb:qstnLit"/>
+									<xsl:value-of select="./ddicb:qstnLit/text()"/>
 								</xsl:when>
 							</xsl:choose>
 							<xsl:text disable-output-escaping="yes"><![CDATA["/>]]></xsl:text>
@@ -121,6 +121,9 @@
 				<xsl:when test="./@ID">
 					<xsl:value-of select="./@ID"/>
 				</xsl:when>
+				<xsl:when test="../@ID">
+					question-<xsl:value-of select="../@ID"/>
+				</xsl:when>                                
 				<xsl:when test="./ddicb:qstnLit">
 					<xsl:value-of select="./ddicb:qstnLit"/>
 				</xsl:when>

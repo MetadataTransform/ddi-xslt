@@ -342,6 +342,10 @@
                         <xsl:element name="ddionto:hasQuestion"><xsl:attribute name="rdf:resource"><xsl:value-of select="@ID"/></xsl:attribute>
                         </xsl:element>
                     </xsl:when>
+                    <xsl:when test="../@ID!=''">                        
+                        <xsl:element name="ddionto:hasQuestion"><xsl:attribute name="rdf:resource">question-<xsl:value-of select="../@ID"/></xsl:attribute>
+                        </xsl:element>
+                    </xsl:when>                    
                     <xsl:otherwise>
                         <xsl:element name="ddionto:hasQuestion"><xsl:attribute name="rdf:resource"><xsl:value-of select="ddicb:qstnLit"/></xsl:attribute>
                         </xsl:element>
