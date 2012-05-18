@@ -49,7 +49,7 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>            
         ]]></xsl:text>
-        <rdf:RDF xsi:schemaLocation="http://www.w3.org/1999/02/22-rdf-syntax-ns# http://www.openarchives.org/OAI/2.0/rdf.xsd">
+        <rdf:RDF>
             <owl:Ontology rdf:about="">
                 <owl:versionIRI rdf:resource=""/>
             </owl:Ontology>
@@ -154,7 +154,7 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
             <xsl:value-of select="ddicb:abstract" />
         </dc:abstract>
         <xsl:for-each select="ddicb:subject/ddicb:topcClas">
-            <dc:subject>
+            <dcterms:subject>
                 <xsl:attribute name="xml:lang">
                     <xsl:choose>
                         <xsl:when test="@xml-lang"><xsl:value-of select="$lang"/></xsl:when>
@@ -163,7 +163,7 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
                 </xsl:attribute>
                 <xsl:attribute name="xml:lang"><xsl:value-of select="$lang"/></xsl:attribute>
                 <xsl:value-of select="." />
-            </dc:subject>
+            </dcterms:subject>
         </xsl:for-each>    
         <xsl:for-each select="ddicb:subject/ddicb:keyword">
             <dc:subject><xsl:value-of select="." /></dc:subject>

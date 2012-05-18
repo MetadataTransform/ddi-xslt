@@ -16,7 +16,7 @@
 	xmlns:ddicb="http://www.icpsr.umich.edu/DDI"
 	xmlns:qb="http://purl.org/linked-data/cube#">
 	
-	<xsl:output version="1.0" encoding="ISO-8859-1" indent="yes"/>
+	<xsl:output version="1.0" indent="yes"/>
 	
 
 	
@@ -79,7 +79,7 @@
 					<!-- ............... -->
 					<!-- type: -->
 						<xsl:text disable-output-escaping="yes"><![CDATA[ 
-		<rdf:type rdf:about="http://ddialliance.org/def#Instrument"/>]]></xsl:text>
+		<rdf:type rdf:resource="http://ddialliance.org/def#Instrument"/>]]></xsl:text>
 					<!-- ..... -->
 					
 					<!-- ............... -->
@@ -125,12 +125,12 @@
 					<xsl:value-of select="./ddicb:qstnLit"/>
 				</xsl:when>
 			</xsl:choose>
-			<xsl:text disable-output-escaping="yes"><![CDATA[">"]]></xsl:text>
+			<xsl:text disable-output-escaping="yes"><![CDATA[">]]></xsl:text>
 			<!-- ..... -->
 			<!-- ............... -->
 			<!-- type -->
             <xsl:text disable-output-escaping="yes"><![CDATA[ 
-		<rdf:type rdf:about="http://ddialliance.org/def#Question>"/>]]></xsl:text>
+		<rdf:type rdf:resource="http://ddialliance.org/def#Question>"/>]]></xsl:text>
             <!-- ..... -->
             <!-- ............... -->
 			<!-- literalText -->
@@ -223,7 +223,7 @@
 				<!-- type -->
 					<!--<rdf:type rdf:resource="http://purl.org/dc/terms/#Coverage" />-->
 					<xsl:text disable-output-escaping="yes"><![CDATA[ 
-		<rdf:type rdf:about="http://purl.org/dc/terms/#Coverage"/>]]></xsl:text>
+		<rdf:type rdf:resource="http://purl.org/dc/terms/#Coverage"/>]]></xsl:text>
 				<!-- ..... -->
 				
 				<!-- ............... -->
@@ -332,7 +332,7 @@
 				<!-- type -->
 					<!--<rdf:type rdf:resource="http://purl.org/dc/terms/#Location" />-->
 					<xsl:text disable-output-escaping="yes"><![CDATA[ 
-		<rdf:type rdf:about="http://purl.org/dc/terms/#Location>"/>]]></xsl:text>
+		<rdf:type rdf:resource="http://purl.org/dc/terms/#Location>"/>]]></xsl:text>
 				<!-- ..... -->
 				
 				<!-- ............... -->
@@ -380,7 +380,7 @@
 				<!-- ............... -->
 				<!-- type -->
 					<xsl:text disable-output-escaping="yes"><![CDATA[ 
-		<rdf:type rdf:about="http://ddialliance.org/def#LogicalDataSet>"/>]]></xsl:text>
+		<rdf:type rdf:resource="http://ddialliance.org/def#LogicalDataSet>"/>]]></xsl:text>
 				<!-- ..... -->
 				
 				<!-- ............... -->
