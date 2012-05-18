@@ -289,12 +289,11 @@
         
         <rdf:Description>
             <!-- URI -->
-            <xsl:attribute name="rdf:about"><xsl:value-of select="$variableBaseURI"/></xsl:attribute>
+            <xsl:attribute name="rdf:about"><xsl:value-of select="$studyURI"/>-<xsl:value-of select="$variableBaseURI"/></xsl:attribute>
             
             <!-- rdf:type -->
             <xsl:element name="rdf:type">
-                <xsl:attribute name="rdf:resource"
-                    >http://ddialliance.org/def#Variable</xsl:attribute>
+                <xsl:attribute name="rdf:resource">http://ddialliance.org/def#Variable</xsl:attribute>
             </xsl:element>
 
             <!-- ddionto:hasConcept -->
