@@ -5,12 +5,16 @@
 	xmlns:qb="http://purl.org/linked-data/cube#"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.ddialliance.org/Specification/DDI-Codebook/2.1/XMLSchema/Version2-1.xsd">
-	<stdyDscr ID="study1-2">
+	<stdyDscr ID="study1">
 		<citation>
 			<titlStmt>
 				<titl>title-study1</titl>
 				<IDNo>study1</IDNo>
 			</titlStmt>
+			<prodStmt>
+				<producer abbr="XYZ" affiliation="affil org">producer1</producer> 
+				<fundAg abbr="ABC" role="infrastructure">fund org1</fundAg> 
+			</prodStmt>
 		</citation>
 		<stdyInfo>
 			<subject>
