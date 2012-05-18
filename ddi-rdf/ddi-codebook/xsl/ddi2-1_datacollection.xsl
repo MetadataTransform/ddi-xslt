@@ -130,7 +130,7 @@
 			<!-- ............... -->
 			<!-- type -->
             <xsl:text disable-output-escaping="yes"><![CDATA[ 
-		<rdf:type rdf:resource="http://ddialliance.org/def#Question>"/>]]></xsl:text>
+		<rdf:type rdf:resource="http://ddialliance.org/def#Question"/>]]></xsl:text>
             <!-- ..... -->
             <!-- ............... -->
 			<!-- literalText -->
@@ -332,7 +332,7 @@
 				<!-- type -->
 					<!--<rdf:type rdf:resource="http://purl.org/dc/terms/#Location" />-->
 					<xsl:text disable-output-escaping="yes"><![CDATA[ 
-		<rdf:type rdf:resource="http://purl.org/dc/terms/#Location>"/>]]></xsl:text>
+		<rdf:type rdf:resource="http://purl.org/dc/terms/#Location"/>]]></xsl:text>
 				<!-- ..... -->
 				
 				<!-- ............... -->
@@ -380,7 +380,7 @@
 				<!-- ............... -->
 				<!-- type -->
 					<xsl:text disable-output-escaping="yes"><![CDATA[ 
-		<rdf:type rdf:resource="http://ddialliance.org/def#LogicalDataSet>"/>]]></xsl:text>
+		<rdf:type rdf:resource="http://ddialliance.org/def#LogicalDataSet"/>]]></xsl:text>
 				<!-- ..... -->
 				
 				<!-- ............... -->
