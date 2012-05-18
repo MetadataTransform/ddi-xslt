@@ -120,10 +120,15 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
             
             <!-- ddionto:HasDataFile -->
             <xsl:for-each select="//ddicb:codeBook/ddicb:fileDscr/ddicb:fileTxt">
-                <xsl:element name="ddionto:HasInstrument">
+                <xsl:element name="ddionto:HasDataFile">
                     <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-<xsl:value-of select="./ddicb:fileName"/></xsl:attribute>
                 </xsl:element>
             </xsl:for-each>
+
+            <!-- ddionto:HasCoverage -->
+            <xsl:element name="ddionto:HasCoverage">
+                <xsl:attribute name="rdf:resource">coverage-<xsl:value-of select="$studyURI"/></xsl:attribute>
+            </xsl:element>
 
             <dc:identifier>
                 <xsl:text>http://ddialliance.org/data/</xsl:text>
