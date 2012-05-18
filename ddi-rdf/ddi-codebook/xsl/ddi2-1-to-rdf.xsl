@@ -124,6 +124,27 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
                     <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-<xsl:value-of select="./ddicb:fileName"/></xsl:attribute>
                 </xsl:element>
             </xsl:for-each>
+      
+            
+             <!-- ddionto:ContainsVariable -->
+            <xsl:for-each select="//ddicb:codeBook/ddicb:dataDscr/ddicb:var">
+                <xsl:element name="ddionto:ContainsVariable">
+                    <xsl:attribute name="rdf:resource">
+                        <xsl:choose>
+                            <xsl:when test="./@name">
+                                    <xsl:value-of select="$studyURI"/>
+                                    <xsl:text>-</xsl:text>
+                                    <xsl:value-of select="./@name"/>
+                            </xsl:when>
+                            <xsl:when test="./@ID">
+                                    <xsl:value-of select="$studyURI"/>
+                                    <xsl:text>-</xsl:text>
+                                    <xsl:value-of select="./@ID"/>
+                            </xsl:when>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </xsl:element>
+            </xsl:for-each>                       
 
             <!-- ddionto:HasCoverage -->
             <xsl:element name="ddionto:HasCoverage">
@@ -216,7 +237,7 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
     <xsl:template match="ddicb:universe">
         <rdf:Description>
             <!-- URI -->
-            <xsl:attribute name="rdf:about">http://ddialliance.org/data/<xsl:value-of select="$studyURI" />-universe-<xsl:value-of select="." /></xsl:attribute>
+            <xsl:attribute name="rdf:about"><xsl:value-of select="$studyURI" />-universe-<xsl:value-of select="." /></xsl:attribute>
             <!-- rdf:type -->
             <rdf:type>
                 <xsl:attribute name="rdf:resource">http://ddialliance.org/def#Universe</xsl:attribute>
