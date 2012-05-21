@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
+
+to validate output:
+http://www.w3.org/RDF/Validator/
+
+developed by:
+Bosch, Thomas <Thomas.Bosch at gesis.org>
+Olsson, Olof <olof.olsson at snd.gu.se>
+Zapilko, Benjamin <Benjamin.Zapilko at gesis.org>
 -->
 <xsl:stylesheet version="1.0" 
     xmlns:xsl       = "http://www.w3.org/1999/XSL/Transform"
@@ -41,6 +49,7 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
 
     <xsl:template match="ddicb:codeBook">
         <!-- output of doctype -->
+        <!--
         <xsl:text disable-output-escaping="yes"><![CDATA[
 <!DOCTYPE rdf:RDF [
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
@@ -49,6 +58,7 @@ Document : ddi2-1-to-rdf.xsl Description: converts a DDI 2.1 intance to RDF
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>            
         ]]></xsl:text>
+        -->
         <rdf:RDF>
             <owl:Ontology rdf:about="">
                 <owl:versionIRI rdf:resource=""/>
