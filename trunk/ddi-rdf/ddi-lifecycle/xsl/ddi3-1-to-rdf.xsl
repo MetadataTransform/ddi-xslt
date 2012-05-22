@@ -38,6 +38,12 @@ Document : ddi3-1-to-rdf.xsl Description: converts a DDI 3.1 intance to RDF
     <xsl:output method="xml" indent="yes"/>
     <xsl:strip-space elements="*"/>
 
+    <!-- used as a prefix for elements -->
+    <xsl:variable name="studyURI">
+           <xsl:value-of select="/ddilc:DDIInstance/s:StudyUnit/@id"/>
+    </xsl:variable>
+    
+    
     <xsl:template match="/ddilc:DDIInstance ">
         <rdf:RDF>
             <!-- Study -->
@@ -79,8 +85,31 @@ Document : ddi3-1-to-rdf.xsl Description: converts a DDI 3.1 intance to RDF
                 <xsl:text>http://ddialliance.org/data/URI</xsl:text>
             </xsl:attribute>
             <rdf:type rdf:resource="http://ddialliance.org/def#Study" />
-                        
+            
+            <xsl:apply-templates select="r:Citation" />
+            
+            <!-- ddionto:ContainsVariable -->
+            <xsl:for-each match="//l:Variable">
+                <xsl:element name="ddionto:ContainsVariable">
+                    <xsl:attribute name="rdf:resource">
+                        <xsl:value-of select="$studyURI"/>
+                        <xsl:text>-</xsl:text>
+                        <xsl:value-of select="./@id"/>                        
+                    </xsl:attribute>
+                </xsl:element>
+            </xsl:for-each>
+            
         </rdf:Description>
+    </xsl:template>
+
+
+    <xsl:template match="r:Citation">
+        <xsl:for-each match="r:Title">
+            <dc:title>
+                <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                <xsl:value-of select="." />
+            </dc:title>
+        </xsl:for-each>
     </xsl:template>
 
 </xsl:stylesheet>
