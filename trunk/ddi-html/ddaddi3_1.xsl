@@ -33,7 +33,7 @@
   <xsl:param name="show-numeric-var-frequence">0</xsl:param>
   <!-- path prefix to the css-files-->
   <xsl:param name="theme-path">theme/default</xsl:param>
-  
+
   <!-- path prefix (used for css, js when rendered on the web)-->
   <xsl:param name="path-prefix">.</xsl:param>
 
@@ -83,7 +83,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
+
   <!--  Variables -->
   <xsl:template match="l:Variable">
     <xsl:variable name="varID" select="@id"/>
@@ -103,7 +103,7 @@
           <xsl:for-each select="../../../c:ConceptualComponent/c:ConceptScheme/c:Concept[@id = $cID]">
             <xsl:call-template name="DisplayLabel"/>
             <div>
-               <xsl:call-template name="DisplayDescription"/>
+              <xsl:call-template name="DisplayDescription"/>
             </div>
           </xsl:for-each>
         </li>
@@ -124,14 +124,14 @@
           </div>
         </xsl:if>
       </li>
-        <!-- Filter: -->        
-        <xsl:variable name="filterInfo">
-          <xsl:call-template name="traverseFilters">
-            <xsl:with-param name="variableName">
-              <xsl:value-of select="translate(l:VariableName, $lowercase, $uppercase)"/>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:variable>
+      <!-- Filter: -->
+      <xsl:variable name="filterInfo">
+        <xsl:call-template name="traverseFilters">
+          <xsl:with-param name="variableName">
+            <xsl:value-of select="translate(l:VariableName, $lowercase, $uppercase)"/>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:variable>
       <a>
         <xsl:for-each select="$filterInfo">
           <xsl:copy-of select="."/>
@@ -140,23 +140,44 @@
       <!-- Representation: -->
       <!-- Missing Value  -->
       <xsl:variable name="missingValue">
-        <xsl:for-each select="l:Representation/l:NumericRepresentation"><xsl:value-of select="@missingValue"/></xsl:for-each>
-        <xsl:for-each select="l:Representation/l:CodeRepresentation"><xsl:value-of select="@missingValue"/></xsl:for-each>
-        <xsl:for-each select="l:Representation/l:CategoryRepresentation"><xsl:value-of select="@missingValue"/></xsl:for-each>
-        <xsl:for-each select="l:Representation/l:GeographicRepresentation"><xsl:value-of select="@missingValue"/></xsl:for-each>
-        <xsl:for-each select="l:Representation/l:DateTimeRepresentation"><xsl:value-of select="@missingValue"/></xsl:for-each>
-        <xsl:for-each select="l:Representation/l:TextRepresentation"><xsl:value-of select="@missingValue"/></xsl:for-each>
+        <xsl:for-each select="l:Representation/l:NumericRepresentation">
+          <xsl:value-of select="@missingValue"/>
+        </xsl:for-each>
+        <xsl:for-each select="l:Representation/l:CodeRepresentation">
+          <xsl:value-of select="@missingValue"/>
+        </xsl:for-each>
+        <xsl:for-each select="l:Representation/l:CategoryRepresentation">
+          <xsl:value-of select="@missingValue"/>
+        </xsl:for-each>
+        <xsl:for-each select="l:Representation/l:GeographicRepresentation">
+          <xsl:value-of select="@missingValue"/>
+        </xsl:for-each>
+        <xsl:for-each select="l:Representation/l:DateTimeRepresentation">
+          <xsl:value-of select="@missingValue"/>
+        </xsl:for-each>
+        <xsl:for-each select="l:Representation/l:TextRepresentation">
+          <xsl:value-of select="@missingValue"/>
+        </xsl:for-each>
       </xsl:variable>
       <xsl:variable name="uoplyst">
-        <xsl:call-template name="splitMissingValue"><xsl:with-param name="in-string" select="$missingValue"/><xsl:with-param name="lastChar" select="'9'"/></xsl:call-template>
+        <xsl:call-template name="splitMissingValue">
+          <xsl:with-param name="in-string" select="$missingValue"/>
+          <xsl:with-param name="lastChar" select="'9'"/>
+        </xsl:call-template>
       </xsl:variable>
-      <xsl:variable name="irrelevant">        
-        <xsl:call-template name="splitMissingValue"><xsl:with-param name="in-string" select="$missingValue"/><xsl:with-param name="lastChar" select="'0'"/></xsl:call-template>
+      <xsl:variable name="irrelevant">
+        <xsl:call-template name="splitMissingValue">
+          <xsl:with-param name="in-string" select="$missingValue"/>
+          <xsl:with-param name="lastChar" select="'0'"/>
+        </xsl:call-template>
       </xsl:variable>
       <xsl:variable name="deltagerIkke">
-        <xsl:call-template name="splitMissingValue"><xsl:with-param name="in-string" select="$missingValue"/><xsl:with-param name="lastChar" select="'1'"/></xsl:call-template>
+        <xsl:call-template name="splitMissingValue">
+          <xsl:with-param name="in-string" select="$missingValue"/>
+          <xsl:with-param name="lastChar" select="'1'"/>
+        </xsl:call-template>
       </xsl:variable>
-      
+
       <!-- - Numeric -->
       <xsl:for-each select="l:Representation/l:NumericRepresentation">
         <p>
@@ -167,7 +188,8 @@
       <xsl:for-each select="l:Representation/l:CodeRepresentation">
         <xsl:if test="@classificationLevel">
           <p>
-            <xsl:value-of select="$msg/*/entry[@key='Messure']"/><xsl:text>: </xsl:text>
+            <xsl:value-of select="$msg/*/entry[@key='Messure']"/>
+            <xsl:text>: </xsl:text>
             <xsl:value-of select="@classificationLevel"/>
           </p>
         </xsl:if>
@@ -179,38 +201,38 @@
         l:Representation/l:TextRepresentation">
         <xsl:call-template name="displayMissingValue"/>
       </xsl:for-each>
-      
+
       <!-- Statistics: -->
       <xsl:if test="l:Representation/l:CodeRepresentation or 
-        (l:Representation/l:NumericRepresentation and $show-numeric-var-frequence = 1 and $missingValue != '' and $filterInfo != '')"> 
-      <xsl:variable name="csID" select="l:Representation/l:CodeRepresentation/r:CodeSchemeReference/r:ID"/>
-      <xsl:if test="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics/pi:VariableReference/r:ID = $varID">
-        <li class="codeDomain">
-          <xsl:for-each select="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics">
-            <!-- find statistics for current variable -->
-            <xsl:if test="pi:VariableReference/r:ID = $varID">
-              <!-- display statistics -->
-              <xsl:call-template name="displayVariableStatistics">
-                <xsl:with-param name="varId">
-                  <xsl:value-of select="$varID"/>
-                </xsl:with-param>
-                <xsl:with-param name="csId">
-                  <xsl:value-of select="$csID"/>
-                </xsl:with-param>
-                <xsl:with-param name="uoplyst">
-                  <xsl:value-of select="$uoplyst"/>
-                </xsl:with-param>
-                <xsl:with-param name="irrelevant">
-                  <xsl:value-of select="$irrelevant"/>
-                </xsl:with-param>
-                <xsl:with-param name="deltagerIkke">
-                  <xsl:value-of select="$deltagerIkke"/>
-                </xsl:with-param>
-              </xsl:call-template>
-            </xsl:if>
-          </xsl:for-each>
-        </li>
-      </xsl:if>
+        (l:Representation/l:NumericRepresentation and $show-numeric-var-frequence = 1 and $missingValue != '' and $filterInfo != '')">
+        <xsl:variable name="csID" select="l:Representation/l:CodeRepresentation/r:CodeSchemeReference/r:ID"/>
+        <xsl:if test="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics/pi:VariableReference/r:ID = $varID">
+          <li class="codeDomain">
+            <xsl:for-each select="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics">
+              <!-- find statistics for current variable -->
+              <xsl:if test="pi:VariableReference/r:ID = $varID">
+                <!-- display statistics -->
+                <xsl:call-template name="displayVariableStatistics">
+                  <xsl:with-param name="varId">
+                    <xsl:value-of select="$varID"/>
+                  </xsl:with-param>
+                  <xsl:with-param name="csId">
+                    <xsl:value-of select="$csID"/>
+                  </xsl:with-param>
+                  <xsl:with-param name="uoplyst">
+                    <xsl:value-of select="$uoplyst"/>
+                  </xsl:with-param>
+                  <xsl:with-param name="irrelevant">
+                    <xsl:value-of select="$irrelevant"/>
+                  </xsl:with-param>
+                  <xsl:with-param name="deltagerIkke">
+                    <xsl:value-of select="$deltagerIkke"/>
+                  </xsl:with-param>
+                </xsl:call-template>
+              </xsl:if>
+            </xsl:for-each>
+          </li>
+        </xsl:if>
       </xsl:if>
       <xsl:for-each select="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics">
         <!-- find statistics for current variable -->
@@ -253,7 +275,7 @@
             <xsl:value-of select="$msg/*/entry[@key='Code']"/>
           </strong>
         </td>
-        <td  class="left">
+        <td class="left">
           <strong>
             <xsl:value-of select="$msg/*/entry[@key='Category']"/>
           </strong>
@@ -279,11 +301,11 @@
           </xsl:with-param>
         </xsl:call-template>
       </xsl:for-each>
-      
+
       <!-- Summary: -->
       <xsl:call-template name="displaySummary"/>
     </table>
-    
+
     <!-- Total response rate: -->
     <xsl:for-each select="pi:SummaryStatistic">
       <xsl:if test="pi:SummaryStatisticTypeCoded[@otherValue = 'ValidPercent'] = 'UseOther'">
@@ -327,7 +349,7 @@
         <xsl:variable name="integer">
           <xsl:choose>
             <xsl:when test="contains(substring-before($in-string, ' '),'.')">
-              <xsl:value-of select="substring-before(substring-before($in-string, ' '),'.')"/>              
+              <xsl:value-of select="substring-before(substring-before($in-string, ' '),'.')"/>
             </xsl:when>
             <xsl:otherwise>
               <xsl:value-of select="substring-before($in-string, ' ')"/>
@@ -363,7 +385,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
+
   <!-- Display Category Statistics: 
   Context: CategoryStatistics -->
   <xsl:template name="displayCategoryStatistics">
@@ -400,8 +422,8 @@
           <xsl:for-each select="../../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$categoryRef]">
             <xsl:call-template name="DisplayLabel"/>
           </xsl:for-each>
-          
-          <!-- test for Missing Values --> 
+
+          <!-- test for Missing Values -->
           <xsl:if test="normalize-space($codeValue) = $uoplyst">
             <xsl:value-of select="$msg/*/entry[@key='Unknown']"/>
           </xsl:if>
@@ -415,13 +437,13 @@
       </tr>
     </xsl:if>
   </xsl:template>
-  
+
   <!-- Display Category Statistic of a given type -->
   <!-- Parameter: type -->
   <!-- Context:  CategoryStatistics-->
   <xsl:template name="displayCategoryStatistic">
     <xsl:param name="type"/>
-    
+
     <xsl:choose>
       <xsl:when test="$type = 'ValidPercent'">
         <xsl:if test="count(pi:CategoryStatistic/pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) = 0">
@@ -431,7 +453,7 @@
         </xsl:if>
       </xsl:when>
     </xsl:choose>
-    
+
     <xsl:for-each select="pi:CategoryStatistic">
       <xsl:if test="$type = 'Percent' and pi:CategoryStatisticTypeCoded = 'Percent'">
         <td align="right" valign="top">
@@ -449,9 +471,9 @@
         </td>
       </xsl:if>
     </xsl:for-each>
-    
+
   </xsl:template>
-  
+
   <!-- Display Summary i.e. Sum Percent, Sum Valid Percent and Total Response  -->
   <!-- Concext: VariableStatistics -->
   <xsl:template name="displaySummary">
@@ -483,34 +505,34 @@
       </td>
     </tr>
   </xsl:template>
-  
+
   <!-- Display minimum and maximum of SummaryStatistic -->
   <!-- Concext: VariableStatistics -->
   <xsl:template name="displayMiminumMaximum">
     <p>
       <xsl:for-each select="pi:SummaryStatistic">
         <xsl:if test="pi:SummaryStatisticTypeCoded = 'Minimum'">
-            <xsl:if test="string-length(pi:Value) = 0">
-              <xsl:text>?</xsl:text>
-            </xsl:if>
-            <xsl:if test="string-length(pi:Value) > 0">
-              <xsl:value-of select="$msg/*/entry[@key='Interval']"/>
-              <xsl:value-of select="pi:Value"/>
-            </xsl:if>
+          <xsl:if test="string-length(pi:Value) = 0">
+            <xsl:text>?</xsl:text>
+          </xsl:if>
+          <xsl:if test="string-length(pi:Value) > 0">
+            <xsl:value-of select="$msg/*/entry[@key='Interval']"/>
+            <xsl:value-of select="pi:Value"/>
+          </xsl:if>
         </xsl:if>
         <xsl:if test="pi:SummaryStatisticTypeCoded = 'Maximum'">
-            <xsl:if test="string-length(pi:Value) = 0">
-              <xsl:text>?</xsl:text>
-            </xsl:if>
-            <xsl:if test="string-length(pi:Value) > 0">
-              <xsl:value-of select="$msg/*/entry[@key='To']"/>
-              <xsl:value-of select="pi:Value"/>
-            </xsl:if>
+          <xsl:if test="string-length(pi:Value) = 0">
+            <xsl:text>?</xsl:text>
+          </xsl:if>
+          <xsl:if test="string-length(pi:Value) > 0">
+            <xsl:value-of select="$msg/*/entry[@key='To']"/>
+            <xsl:value-of select="pi:Value"/>
+          </xsl:if>
         </xsl:if>
       </xsl:for-each>
     </p>
   </xsl:template>
-  
+
   <!-- Display MissingValue attribute -->
   <!-- Context: Code/Numeric/Text Representation -->
   <xsl:template name="displayMissingValue">
@@ -522,7 +544,7 @@
       </xsl:call-template>
     </xsl:if>
   </xsl:template>
-  
+
   <!-- Get higher level ItThenElse - if any exists
     Parameters: ifth - id of low level IfThenElse
     Context: IfThenElse -->
@@ -539,9 +561,9 @@
             <xsl:variable name="h-ifth" select="@id"/>
             <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
               <p/>
-                <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
-                <xsl:text>: </xsl:text>
-                <xsl:value-of select="d:IfCondition/r:Code"/>
+              <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
+              <xsl:text>: </xsl:text>
+              <xsl:value-of select="d:IfCondition/r:Code"/>
               <p/>
               <xsl:call-template name="getHigherIfThenElse">
                 <xsl:with-param name="ifth" select="$h-ifth"/>
@@ -552,7 +574,7 @@
       </xsl:for-each>
     </xsl:for-each>
   </xsl:template>
-  
+
   <!-- Traverse QuestionItems:
     Parameters: 
     variableName - pseudo variable ID
@@ -591,7 +613,7 @@
       </xsl:for-each>
     </xsl:if>
   </xsl:template>
-  
+
   <!-- Traverse Filters:
   Parameters: variableName
   Context: Variable -->
@@ -610,6 +632,88 @@
         <xsl:with-param name="mquei" select="../../@id"/>
       </xsl:call-template>
     </xsl:for-each>
+  </xsl:template>
+
+  <xsl:template match="l:LogicalProduct">
+    <div class="variableSchemes">
+      <xsl:apply-templates select="l:VariableScheme"/>
+    </div>
+    <div class="ControlConstructScheme">
+      <xsl:apply-templates select="../d:DataCollection/d:ControlConstructScheme"/>
+    </div>
+  </xsl:template>
+
+  <xsl:template match="d:ControlConstructScheme">
+    <div>
+      <h3>
+        <xsl:value-of select="$msg/*/entry[@key='Instrumentation']"/>
+      </h3>
+      <!-- Sequnces -->
+      <ul class="sequences">
+        <xsl:for-each select="d:Sequence">
+          <li class="sequences">
+            <a>
+              <xsl:attribute name="name"><xsl:value-of select="@id"/>.<xsl:value-of select="@version"/>
+              </xsl:attribute>
+            </a>
+            <strong>
+              <xsl:value-of select="r:Label"/>
+            </strong>
+          </li>
+          <ul>
+            <xsl:for-each select="d:ControlConstructReference">
+              <xsl:variable name="qcId" select="r:ID"/>
+              <!-- look for question items -->
+              <xsl:for-each select="../../d:QuestionConstruct[@id=$qcId]">
+                <xsl:variable name="qrId" select="d:QuestionReference/r:ID"/>
+                <xsl:for-each select="../../d:QuestionScheme/d:QuestionItem[@id=$qrId] |
+                      ../../d:QuestionScheme/d:MultipleQuestionItem[@id=$qrId]/d:SubQuestions/d:QuestionItem">
+                  <xsl:variable name="userId" select="r:UserID"/>
+                  <xsl:variable name="qId" select="@id"/>
+                  
+                  <li class="questions">
+                    <!-- get anchor of variable referencing this question item -->
+                    <xsl:for-each select="../../../../../l:LogicalProduct/l:VariableScheme/l:Variable |
+                      ../../../l:LogicalProduct/l:VariableScheme/l:Variable">
+                      <xsl:if test="l:QuestionReference/r:ID = $qId">
+                        <a>
+                          <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/></xsl:attribute>
+                          <xsl:value-of select="$userId"/>
+                        </a>
+                      </xsl:if>
+                    </xsl:for-each>
+                    <xsl:text>: </xsl:text>
+                    <xsl:value-of select="d:QuestionText"/>
+                  </li>
+                </xsl:for-each>
+              </xsl:for-each>
+              <!-- look for statement items -->
+              <xsl:if test="../../d:StatementItem[@id=$qcId]">
+                <li class="statements">
+                  <xsl:value-of select="../../d:StatementItem[@id=$qcId]/r:Label"/>
+                </li>
+              </xsl:if>
+              <!-- look for ifthenelse -->
+              <xsl:for-each select="../../d:IfThenElse[@id=$qcId]">
+                <li class="ifthenelses">
+                  <xsl:text>Filter: if </xsl:text>
+                  <xsl:value-of select="d:IfCondition/r:Code"/>
+                  <xsl:variable name="tid" select="d:ThenConstructReference/r:ID"/>
+                  <xsl:text> then </xsl:text>
+                  <a>
+                    <xsl:attribute name="href">#<xsl:value-of select="$tid"/><xsl:text>.1.0.0</xsl:text></xsl:attribute>
+                    <xsl:value-of select="../d:Sequence[@id=$tid]/r:Label"/>
+                  </a>
+                  <xsl:if test="string-length(d:ElseConstructReference/r:ID) > 0">
+                    <xsl:variable name="eid" select="d:ThenConstructReference/r:ID"/> else <xsl:value-of select="../d:Sequence[@id=$eid]/r:Label"/>
+                  </xsl:if>
+                </li>
+              </xsl:for-each>
+            </xsl:for-each>
+          </ul>
+        </xsl:for-each>
+      </ul>
+    </div>
   </xsl:template>
 
 </xsl:stylesheet>

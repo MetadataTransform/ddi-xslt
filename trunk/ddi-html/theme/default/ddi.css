@@ -26,6 +26,9 @@ ul.variables {
     padding-left: 15px;
     margin-left: 15px;
 }
+ul.sequences {
+    list-style:none;
+}
 table.codeScheme {
     font-size:0.8em;
 }
@@ -127,6 +130,18 @@ li.numeric, li.textRepresentation {
 }
 li.codeDomain {
     list-style-image: url(img/code-scheme.png);
+}
+li.sequences {
+    margin-top: 15px;
+}
+li.questions {
+    list-style-image: url(img/question.png);
+}
+li.statements {
+    list-style-image: url(img/Activity.gif);
+}
+li.ifthenelses {
+    list-style-image: url(img/decision_palette.gif);
 }
 .study {
     float:left;
