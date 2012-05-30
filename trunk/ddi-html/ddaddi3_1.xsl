@@ -665,7 +665,19 @@
               <xsl:variable name="qcId" select="r:ID"/>
               <!-- look for question items -->
               <xsl:for-each select="../../d:QuestionConstruct[@id=$qcId]">
+                <!--  Interview Instruction(s) -->
+                <xsl:for-each select="d:InterviewerInstructionReference">
+                  <xsl:variable name="iiId" select="r:ID"/>
+ <!--                 <ul>
+-->                  <xsl:for-each select="../../../d:InterviewerInstructionScheme/d:Instruction[@id=$iiId]">
+                    <li class="instructions">
+                    <xsl:value-of select="r:Label"/>: <xsl:value-of select="d:InstructionText"/>
+                    </li>
+                  </xsl:for-each>
+<!--                  </ul>-->
+                </xsl:for-each>
                 <xsl:variable name="qrId" select="d:QuestionReference/r:ID"/>
+                <!--  Question Item -->
                 <xsl:for-each select="../../d:QuestionScheme/d:QuestionItem[@id=$qrId] |
                       ../../d:QuestionScheme/d:MultipleQuestionItem[@id=$qrId]/d:SubQuestions/d:QuestionItem">
                   <xsl:variable name="userId" select="r:UserID"/>
@@ -696,7 +708,7 @@
               <!-- look for ifthenelse -->
               <xsl:for-each select="../../d:IfThenElse[@id=$qcId]">
                 <li class="ifthenelses">
-                  <xsl:text>Filter: if </xsl:text>
+                  <xsl:text>If </xsl:text>
                   <xsl:value-of select="d:IfCondition/r:Code"/>
                   <xsl:variable name="tid" select="d:ThenConstructReference/r:ID"/>
                   <xsl:text> then </xsl:text>
