@@ -670,7 +670,7 @@
                   <xsl:variable name="iiId" select="r:ID"/>
                   <xsl:for-each select="../../../d:InterviewerInstructionScheme/d:Instruction[@id=$iiId]">
                     <li class="instructions">
-                    <xsl:value-of select="r:Label"/>: <xsl:value-of select="d:InstructionText"/>
+                    <xsl:call-template name="DisplayLabel"/>: <xsl:value-of select="d:InstructionText"/>
                     </li>
                   </xsl:for-each>
                 </xsl:for-each>
