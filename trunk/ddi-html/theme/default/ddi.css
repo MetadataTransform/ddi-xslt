@@ -138,7 +138,10 @@ li.questions {
     list-style-image: url(img/question.png);
 }
 li.statements {
-    list-style-image: url(img/Activity.gif);
+    list-style-image: url(img/statement.gif);
+}
+li.instructions {
+    list-style-image: url(img/instruction.png);
 }
 li.ifthenelses {
     list-style-image: url(img/decision_palette.gif);
