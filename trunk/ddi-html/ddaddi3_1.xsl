@@ -668,13 +668,11 @@
                 <!--  Interview Instruction(s) -->
                 <xsl:for-each select="d:InterviewerInstructionReference">
                   <xsl:variable name="iiId" select="r:ID"/>
- <!--                 <ul>
--->                  <xsl:for-each select="../../../d:InterviewerInstructionScheme/d:Instruction[@id=$iiId]">
+                  <xsl:for-each select="../../../d:InterviewerInstructionScheme/d:Instruction[@id=$iiId]">
                     <li class="instructions">
                     <xsl:value-of select="r:Label"/>: <xsl:value-of select="d:InstructionText"/>
                     </li>
                   </xsl:for-each>
-<!--                  </ul>-->
                 </xsl:for-each>
                 <xsl:variable name="qrId" select="d:QuestionReference/r:ID"/>
                 <!--  Question Item -->
