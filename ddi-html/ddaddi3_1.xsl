@@ -670,7 +670,13 @@
                   <xsl:variable name="iiId" select="r:ID"/>
                   <xsl:for-each select="../../../d:InterviewerInstructionScheme/d:Instruction[@id=$iiId]">
                     <li class="instructions">
-                    <xsl:call-template name="DisplayLabel"/>: <xsl:value-of select="d:InstructionText"/>
+                      <xsl:call-template name="DisplayLabel"/>: <xsl:value-of select="d:InstructionText/d:LiteralText"/>
+                      <xsl:if test="string-length(d:InstructionText/d:ConditionalText) > 0">
+                        <xsl:text> </xsl:text>
+                        <xsl:value-of select="$msg/*/entry[@key='If']"/>
+                        <xsl:text> </xsl:text>
+                        <xsl:value-of select="d:InstructionText/d:ConditionalText/d:Expression/r:Code"/>
+                      </xsl:if>
                     </li>
                   </xsl:for-each>
                 </xsl:for-each>
@@ -680,7 +686,7 @@
                       ../../d:QuestionScheme/d:MultipleQuestionItem[@id=$qrId]/d:SubQuestions/d:QuestionItem">
                   <xsl:variable name="userId" select="r:UserID"/>
                   <xsl:variable name="qId" select="@id"/>
-                  
+
                   <li class="questions">
                     <!-- get anchor of variable referencing this question item -->
                     <xsl:for-each select="../../../../../l:LogicalProduct/l:VariableScheme/l:Variable |
