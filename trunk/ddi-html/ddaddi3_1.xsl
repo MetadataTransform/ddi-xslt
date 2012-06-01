@@ -10,7 +10,7 @@
   <!-- render text-elements of this language-->
   <xsl:param name="lang">da</xsl:param>
   <!-- if the requested language is not found for e.g. questionText, use fallback language-->
-  <xsl:param name="fallback-lang">en</xsl:param>
+  <xsl:param name="fallback-lang">da</xsl:param>
   <!-- render all html-elements or just the content of body-->
   <xsl:param name="render-as-document">true</xsl:param>
   <!-- include interactive js and jquery for navigation (external links to eXist)-->
@@ -420,7 +420,7 @@
             <xsl:call-template name="DisplayLabel"/>
           </xsl:for-each>
           <xsl:for-each select="../../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$categoryRef]">
-            <xsl:call-template name="DisplayLabel"/>
+            <rp><xsl:call-template name="DisplayLabel"/></rp>
           </xsl:for-each>
 
           <!-- test for Missing Values -->
