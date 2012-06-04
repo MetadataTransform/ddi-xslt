@@ -663,25 +663,10 @@
           <ul>
             <xsl:for-each select="d:ControlConstructReference">
               <xsl:variable name="qcId" select="r:ID"/>
-              <!-- look for question items -->
+              <!-- look for Question Constructs -->
               <xsl:for-each select="../../d:QuestionConstruct[@id=$qcId]">
-                <!--  Interview Instruction(s) -->
-                <xsl:for-each select="d:InterviewerInstructionReference">
-                  <xsl:variable name="iiId" select="r:ID"/>
-                  <xsl:for-each select="../../../d:InterviewerInstructionScheme/d:Instruction[@id=$iiId]">
-                    <li class="instructions">
-                      <xsl:call-template name="DisplayLabel"/>: <xsl:value-of select="d:InstructionText/d:LiteralText"/>
-                      <xsl:if test="string-length(d:InstructionText/d:ConditionalText) > 0">
-                        <xsl:text> </xsl:text>
-                        <xsl:value-of select="$msg/*/entry[@key='If']"/>
-                        <xsl:text> </xsl:text>
-                        <xsl:value-of select="d:InstructionText/d:ConditionalText/d:Expression/r:Code"/>
-                      </xsl:if>
-                    </li>
-                  </xsl:for-each>
-                </xsl:for-each>
-                <xsl:variable name="qrId" select="d:QuestionReference/r:ID"/>
                 <!--  Question Item -->
+                <xsl:variable name="qrId" select="d:QuestionReference/r:ID"/>
                 <xsl:for-each select="../../d:QuestionScheme/d:QuestionItem[@id=$qrId] |
                       ../../d:QuestionScheme/d:MultipleQuestionItem[@id=$qrId]/d:SubQuestions/d:QuestionItem">
                   <xsl:variable name="userId" select="r:UserID"/>
@@ -702,7 +687,24 @@
                     <xsl:value-of select="d:QuestionText"/>
                   </li>
                 </xsl:for-each>
+
+                <!--  Interview Instructions -->
+                <xsl:for-each select="d:InterviewerInstructionReference">
+                  <xsl:variable name="iiId" select="r:ID"/>
+                  <xsl:for-each select="../../../d:InterviewerInstructionScheme/d:Instruction[@id=$iiId]">
+                    <li class="instructions">
+                      <xsl:call-template name="DisplayLabel"/>: <xsl:value-of select="d:InstructionText/d:LiteralText"/>
+                      <xsl:if test="string-length(d:InstructionText/d:ConditionalText) > 0">
+                        <xsl:text> </xsl:text>
+                        <xsl:value-of select="$msg/*/entry[@key='If']"/>
+                        <xsl:text> </xsl:text>
+                        <xsl:value-of select="d:InstructionText/d:ConditionalText/d:Expression/r:Code"/>
+                      </xsl:if>
+                    </li>
+                  </xsl:for-each>
+                </xsl:for-each>
               </xsl:for-each>
+              
               <!-- look for statement items -->
               <xsl:if test="../../d:StatementItem[@id=$qcId]">
                 <li class="statements">
