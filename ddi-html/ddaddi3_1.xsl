@@ -44,6 +44,8 @@
 
   <xsl:output method="html" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes"/>
 
+  <xsl:decimal-format name="euro" decimal-separator="," grouping-separator="."/>
+ 
   <!-- DisplayLabel -->
   <!-- Context:  Variable, Concept, Category-->
   <xsl:template name="DisplayLabel">
@@ -117,7 +119,6 @@
         <xsl:if test="count(../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text) > 0">
           <i>
             <xsl:value-of select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/../../d:QuestionText/d:LiteralText/d:Text"/>
-            <xsl:text>: </xsl:text>
           </i>
           <div class="question">
             <xsl:value-of select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text"/>
@@ -203,6 +204,7 @@
       </xsl:for-each>
 
       <!-- Statistics: -->
+      <xsl:variable name="decimalPosition" select="l:Representation/l:NumericRepresentation/@decimalPositions"/>
       <xsl:if test="l:Representation/l:CodeRepresentation or 
         (l:Representation/l:NumericRepresentation and $show-numeric-var-frequence = 1 and $missingValue != '' and $filterInfo != '')">
         <xsl:variable name="csID" select="l:Representation/l:CodeRepresentation/r:CodeSchemeReference/r:ID"/>
@@ -227,6 +229,9 @@
                   </xsl:with-param>
                   <xsl:with-param name="deltagerIkke">
                     <xsl:value-of select="$deltagerIkke"/>
+                  </xsl:with-param>
+                  <xsl:with-param name="decimalPosition">
+                    <xsl:value-of select="$decimalPosition"/>
                   </xsl:with-param>
                 </xsl:call-template>
               </xsl:if>
@@ -253,6 +258,7 @@
     <xsl:param name="uoplyst"/>
     <xsl:param name="irrelevant"/>
     <xsl:param name="deltagerIkke"/>
+    <xsl:param name="decimalPosition"/>
     <!-- Main Statistic table - includes two tables -->
     <table class="table.categoryStatistics">
       <!-- table header - statistics table -->
@@ -299,6 +305,9 @@
           <xsl:with-param name="deltagerIkke">
             <xsl:value-of select="$deltagerIkke"/>
           </xsl:with-param>
+          <xsl:with-param name="decimalPosition">
+            <xsl:value-of select="$decimalPosition"/>
+          </xsl:with-param>
         </xsl:call-template>
       </xsl:for-each>
 
@@ -313,7 +322,7 @@
           <xsl:value-of select="$msg/*/entry[@key='ValidPercent']"/>
           <xsl:text>: </xsl:text>
         </strong>
-        <xsl:value-of select="pi:Value"/>
+        <xsl:value-of select="format-number(pi:Value, '0', 'euro')"/>
       </xsl:if>
     </xsl:for-each>
   </xsl:template>
@@ -394,6 +403,7 @@
     <xsl:param name="uoplyst"/>
     <xsl:param name="irrelevant"/>
     <xsl:param name="deltagerIkke"/>
+    <xsl:param name="decimalPosition"/>
     <xsl:if test="count(pi:CategoryStatistic) > 0">
       <xsl:variable name="codeValue" select="pi:CategoryValue"/>
       <xsl:variable name="categoryRef">
@@ -413,7 +423,20 @@
           <xsl:with-param name="type" select="'Frequency'"/>
         </xsl:call-template>
         <td class="right">
-          <xsl:value-of select="$codeValue"/>
+          <xsl:choose>
+            <xsl:when test="$decimalPosition = '0'">
+              <xsl:value-of select="format-number($codeValue, '0', 'euro')"/> 
+            </xsl:when>
+            <xsl:when test="$decimalPosition = '1'">
+              <xsl:value-of select="format-number($codeValue, '0,0', 'euro')"/> 
+            </xsl:when>
+            <xsl:when test="$decimalPosition = '2'">
+              <xsl:value-of select="format-number($codeValue, '0,00', 'euro')"/> 
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$codeValue"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </td>
         <td class="left">
           <xsl:for-each select="../../../../l:LogicalProduct/l:CategoryScheme/l:Category[@id=$categoryRef]">
@@ -457,17 +480,17 @@
     <xsl:for-each select="pi:CategoryStatistic">
       <xsl:if test="$type = 'Percent' and pi:CategoryStatisticTypeCoded = 'Percent'">
         <td align="right" valign="top">
-          <xsl:value-of select="pi:Value"/>
+          <xsl:value-of select='format-number(pi:Value, "0")'/>
         </td>
       </xsl:if>
       <xsl:if test="$type = 'ValidPercent' and count(pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) > 0">
         <td align="right" valign="top">
-          <xsl:value-of select="pi:Value"/>
+          <xsl:value-of select='format-number(pi:Value, "0")'/>          
         </td>
       </xsl:if>
       <xsl:if test="$type = 'Frequency' and pi:CategoryStatisticTypeCoded = 'Frequency'">
         <td align="right" valign="top">
-          <xsl:value-of select="pi:Value"/>
+          <xsl:value-of select='format-number(pi:Value, "0")'/>          
         </td>
       </xsl:if>
     </xsl:for-each>

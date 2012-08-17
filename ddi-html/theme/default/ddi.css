@@ -14,12 +14,14 @@ rp {
     color:green;
 }
 div.question {
+    font-style:italic;
     margin-top:5px;
 }
 ul {
     padding-left: 15px;
 }
 ul.questions {
+    font-style:italic;
     list-style-image: url(img/question.png);
     padding-left: 15px;
     margin-left: 15px;
@@ -53,16 +55,6 @@ a {
 }
 ul {
     padding-left: 15px;
-}
-ul.questions {
-    list-style-image: url(img/question.png);
-    padding-left: 15px;
-    margin-left: 15px;
-}
-ul.variables {
-    list-style-image: url(img/variable.png);
-    padding-left: 15px;
-    margin-left: 15px;
 }
 measure {
     list-style-image:none;
@@ -236,6 +228,7 @@ li.ifthenelses {
     list-style-image: url(img/concept.png);
 }
 .questions {
+    font-style:italic;
     list-style-image: url(img/question.png);
 }
 .variables {
