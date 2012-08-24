@@ -443,7 +443,7 @@
             <xsl:call-template name="DisplayLabel"/>
           </xsl:for-each>
           <xsl:for-each select="../../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$categoryRef]">
-            <rp><xsl:call-template name="DisplayLabel"/></rp>
+            <resource><xsl:call-template name="DisplayLabel"/></resource>
           </xsl:for-each>
 
           <!-- test for Missing Values -->
