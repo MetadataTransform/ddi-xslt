@@ -35,6 +35,10 @@ Document : ddi3-1-to-rdf.xsl Description: converts a DDI 3.1 intance to RDF
     xmlns:pi="ddi:physicalinstance:3_1"
     xmlns:ds="ddi:dataset:3_1"
     xmlns:pr="ddi:profile:3_1">
+    
+    <xsl:import href="ddi3-1_datacollection.xsl"/>
+    <xsl:import href="ddi3-1_logicalproduct.xsl"/>
+    
     <xsl:output method="xml" indent="yes"/>
     <xsl:strip-space elements="*"/>
 
@@ -89,7 +93,7 @@ Document : ddi3-1-to-rdf.xsl Description: converts a DDI 3.1 intance to RDF
             <xsl:apply-templates select="r:Citation" />
             
             <!-- ddionto:ContainsVariable -->
-            <xsl:for-each match="//l:Variable">
+            <xsl:for-each select="//l:Variable">
                 <xsl:element name="ddionto:ContainsVariable">
                     <xsl:attribute name="rdf:resource">
                         <xsl:value-of select="$studyURI"/>
@@ -104,7 +108,7 @@ Document : ddi3-1-to-rdf.xsl Description: converts a DDI 3.1 intance to RDF
 
 
     <xsl:template match="r:Citation">
-        <xsl:for-each match="r:Title">
+        <xsl:for-each select="r:Title">
             <dc:title>
                 <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
                 <xsl:value-of select="." />
