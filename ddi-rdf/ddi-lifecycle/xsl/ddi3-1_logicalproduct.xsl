@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 Document : ddi3-1-to-rdf.xsl Description: converts a DDI 3.1 intance to RDF
+Assigned : Thomas Bosch
 -->
 <xsl:stylesheet version="1.0" 
     xmlns:xsl       = "http://www.w3.org/1999/XSL/Transform"
