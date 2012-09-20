@@ -92,6 +92,11 @@ Document : ddi3-1-to-rdf.xsl Description: converts a DDI 3.1 intance to RDF
             
             <xsl:apply-templates select="r:Citation" />
             
+            <!-- ddionto:isMeasureOf -->
+            <!-- ddionto:HasInstrument -->
+            <!-- dc:hasPart -->
+            <!-- ddionto:HasDataFile -->
+            
             <!-- ddionto:ContainsVariable -->
             <xsl:for-each select="//l:Variable">
                 <xsl:element name="ddionto:ContainsVariable">
@@ -103,9 +108,10 @@ Document : ddi3-1-to-rdf.xsl Description: converts a DDI 3.1 intance to RDF
                 </xsl:element>
             </xsl:for-each>
             
+            <!-- ddionto:HasCoverage -->
+            
         </rdf:Description>
     </xsl:template>
-
 
     <xsl:template match="r:Citation">
         <xsl:for-each select="r:Title">
@@ -115,5 +121,4 @@ Document : ddi3-1-to-rdf.xsl Description: converts a DDI 3.1 intance to RDF
             </dc:title>
         </xsl:for-each>
     </xsl:template>
-
 </xsl:stylesheet>
