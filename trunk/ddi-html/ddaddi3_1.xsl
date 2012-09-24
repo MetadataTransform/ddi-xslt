@@ -33,6 +33,10 @@
   <xsl:param name="show-study-information">1</xsl:param>
   <!-- show frequence on numeric variable with missing values -->
   <xsl:param name="show-numeric-var-frequence">0</xsl:param>
+
+  <!-- show universe on variable -->
+  <xsl:param name="show-universe">0</xsl:param>
+
   <!-- path prefix to the css-files-->
   <xsl:param name="theme-path">theme/default</xsl:param>
 
@@ -47,7 +51,7 @@
   <xsl:output method="html" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes"/>
 
   <xsl:decimal-format name="euro" decimal-separator="," grouping-separator="."/>
- 
+
   <!-- DisplayLabel -->
   <!-- Context:  Variable, Concept, Category-->
   <xsl:template name="DisplayLabel">
@@ -107,7 +111,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
+
   <!--  Variables -->
   <xsl:template match="l:Variable">
     <xsl:variable name="varID" select="@id"/>
@@ -121,6 +125,7 @@
         <xsl:text> </xsl:text>
         <xsl:call-template name="DisplayLabel"/>
       </strong>
+      <!-- Concept -->
       <xsl:if test="count(l:ConceptReference) > 0">
         <xsl:variable name="cID" select="l:ConceptReference/r:ID"/>
         <li class="concepts">
@@ -131,6 +136,20 @@
             </div>
           </xsl:for-each>
         </li>
+      </xsl:if>
+      <!-- Universe -->
+      <xsl:if test="$show-universe>0">
+        <xsl:if test="count(r:UniverseReference) > 0">
+          <xsl:variable name="uID" select="r:UniverseReference/r:ID"/>
+          <li class="universes">
+            <xsl:for-each select="../../../c:ConceptualComponent/c:UniverseScheme/c:Universe[@id = $uID]">
+              <xsl:call-template name="DisplayLabel"/>
+              <div>
+                <xsl:call-template name="DisplayDescription"/>
+              </div>
+            </xsl:for-each>
+          </li>
+        </xsl:if>
       </xsl:if>
       <!-- Question Text: -->
       <li class="questions">
@@ -447,13 +466,13 @@
         <td class="right">
           <xsl:choose>
             <xsl:when test="$decimalPosition = '0'">
-              <xsl:value-of select="format-number($codeValue, '0', 'euro')"/> 
+              <xsl:value-of select="format-number($codeValue, '0', 'euro')"/>
             </xsl:when>
             <xsl:when test="$decimalPosition = '1'">
-              <xsl:value-of select="format-number($codeValue, '0,0', 'euro')"/> 
+              <xsl:value-of select="format-number($codeValue, '0,0', 'euro')"/>
             </xsl:when>
             <xsl:when test="$decimalPosition = '2'">
-              <xsl:value-of select="format-number($codeValue, '0,00', 'euro')"/> 
+              <xsl:value-of select="format-number($codeValue, '0,00', 'euro')"/>
             </xsl:when>
             <xsl:otherwise>
               <xsl:value-of select="$codeValue"/>
@@ -465,7 +484,9 @@
             <xsl:call-template name="DisplayLabel"/>
           </xsl:for-each>
           <xsl:for-each select="../../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$categoryRef]">
-            <resource><xsl:call-template name="DisplayLabel"/></resource>
+            <resource>
+              <xsl:call-template name="DisplayLabel"/>
+            </resource>
           </xsl:for-each>
 
           <!-- test for Missing Values -->
@@ -502,17 +523,17 @@
     <xsl:for-each select="pi:CategoryStatistic">
       <xsl:if test="$type = 'Percent' and pi:CategoryStatisticTypeCoded = 'Percent'">
         <td align="right" valign="top">
-          <xsl:value-of select='format-number(pi:Value, "0")'/>
+          <xsl:value-of select="format-number(pi:Value, &quot;0&quot;)"/>
         </td>
       </xsl:if>
       <xsl:if test="$type = 'ValidPercent' and count(pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) > 0">
         <td align="right" valign="top">
-          <xsl:value-of select='format-number(pi:Value, "0")'/>          
+          <xsl:value-of select="format-number(pi:Value, &quot;0&quot;)"/>
         </td>
       </xsl:if>
       <xsl:if test="$type = 'Frequency' and pi:CategoryStatisticTypeCoded = 'Frequency'">
         <td align="right" valign="top">
-          <xsl:value-of select='format-number(pi:Value, "0")'/>          
+          <xsl:value-of select="format-number(pi:Value, &quot;0&quot;)"/>
         </td>
       </xsl:if>
     </xsl:for-each>
@@ -712,13 +733,13 @@
               <xsl:for-each select="../../d:QuestionConstruct[@id=$qcId]">
                 <!--  Question Item -->
                 <xsl:variable name="qrId" select="d:QuestionReference/r:ID"/>
- 
+
                 <!--  Interview Instructions -->
                 <xsl:for-each select="d:InterviewerInstructionReference">
                   <xsl:variable name="iiId" select="r:ID"/>
                   <xsl:for-each select="../../../d:InterviewerInstructionScheme/d:Instruction[@id=$iiId]">
                     <li class="instructions">
-                      <!-- <xsl:xsl:call-template name="DisplayLabel"/><xsl:text>: </xsl:text> --> 
+                      <!-- <xsl:xsl:call-template name="DisplayLabel"/><xsl:text>: </xsl:text> -->
                       <xsl:call-template name="DisplayInstructionText"/>
                       <xsl:if test="string-length(d:InstructionText/d:ConditionalText) > 0">
                         <xsl:text> </xsl:text>
@@ -729,7 +750,7 @@
                     </li>
                   </xsl:for-each>
                 </xsl:for-each>
-                
+
                 <xsl:for-each select="../../d:QuestionScheme/d:QuestionItem[@id=$qrId] |
                       ../../d:QuestionScheme/d:MultipleQuestionItem[@id=$qrId]/d:SubQuestions/d:QuestionItem">
                   <xsl:variable name="userId" select="r:UserID"/>
@@ -751,7 +772,7 @@
                   </li>
                 </xsl:for-each>
               </xsl:for-each>
-              
+
               <!-- look for statement items -->
               <xsl:if test="../../d:StatementItem[@id=$qcId]">
                 <li class="statements">

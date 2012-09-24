@@ -227,6 +227,9 @@ li.ifthenelses {
 .concepts {
     list-style-image: url(img/concept.png);
 }
+.universes {
+    list-style-image: url(img/universe.png);
+}
 .questions {
     font-style:italic;
     list-style-image: url(img/question.png);
