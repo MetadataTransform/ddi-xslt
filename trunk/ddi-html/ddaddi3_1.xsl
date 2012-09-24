@@ -86,6 +86,26 @@
     </xsl:choose>
   </xsl:template>
 
+  <!-- DisplayInstructionText -->
+  <!-- Context:  Instruction-->
+  <xsl:template name="DisplayInstructionText">
+    <xsl:choose>
+      <xsl:when test="d:InstructionText/@xml:lang">
+        <xsl:choose>
+          <xsl:when test="d:InstructionText[@xml:lang=$lang]">
+            <xsl:value-of select="d:InstructionText[@xml:lang=$lang]/d:LiteralText"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="d:InstructionText[@xml:lang=$fallback-lang]/d:LiteralText"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="d:InstructionText/d:LiteralText"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
   <!--  Variables -->
   <xsl:template match="l:Variable">
     <xsl:variable name="varID" select="@id"/>
@@ -696,7 +716,8 @@
                   <xsl:variable name="iiId" select="r:ID"/>
                   <xsl:for-each select="../../../d:InterviewerInstructionScheme/d:Instruction[@id=$iiId]">
                     <li class="instructions">
-                      <xsl:call-template name="DisplayLabel"/>: <xsl:value-of select="d:InstructionText/d:LiteralText"/>
+                      <!-- <xsl:xsl:call-template name="DisplayLabel"/><xsl:text>: </xsl:text> --> 
+                      <xsl:call-template name="DisplayInstructionText"/>
                       <xsl:if test="string-length(d:InstructionText/d:ConditionalText) > 0">
                         <xsl:text> </xsl:text>
                         <xsl:value-of select="$msg/*/entry[@key='If']"/>
