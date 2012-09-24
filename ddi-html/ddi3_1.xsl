@@ -42,6 +42,8 @@
     <xsl:param name="print-anchor">1</xsl:param>
     <!-- show the title (and subtitle) of the study-->
     <xsl:param name="show-study-title">1</xsl:param>
+    <!-- show the coverage as part of study-information -->
+    <xsl:param name="show-coverage">1</xsl:param>
     <!-- show the abstract as part of study-information -->
     <xsl:param name="show-abstract">1</xsl:param>
     <!-- show the questions as a separate flow from the variables-->
@@ -158,7 +160,9 @@
 
                 <xsl:apply-templates select="r:Citation"/>
 
-                <xsl:apply-templates select="r:Coverage"/>
+                <xsl:if test="$show-coverage = 1">
+                    <xsl:apply-templates select="r:Coverage"/>
+                </xsl:if>
 
                 <xsl:if test="$show-inline-toc = 1">
                     <h3><xsl:value-of select="$msg/*/entry[@key='TOC']"/></h3>
