@@ -21,6 +21,8 @@
   <xsl:param name="show-study-title">1</xsl:param>
   <!-- show the abstract as part of study-information-->
   <xsl:param name="show-abstract">0</xsl:param>
+  <!-- show the coverage as part of study-information -->
+  <xsl:param name="show-coverage">0</xsl:param>
   <!-- show the questions as a separate flow from the variables-->
   <xsl:param name="show-questionnaires">0</xsl:param>
   <!-- show variable navigation-bar-->
