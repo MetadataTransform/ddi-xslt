@@ -1,0 +1,1882 @@
+<ddi:DDIInstance xmlns:dc="ddi:dcelements:3_1" xmlns:g="ddi:group:3_1" xmlns:d="ddi:datacollection:3_1" xmlns:c="ddi:conceptualcomponent:3_1" xmlns:a="ddi:archive:3_1" xmlns:ddi="ddi:instance:3_1" xmlns:l="ddi:logicalproduct:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:dc2="http://purl.org/dc/elements/1.1/" xmlns:r="ddi:reusable:3_1" xmlns:p="ddi:physicaldataproduct:3_1" xmlns:pi="ddi:physicalinstance:3_1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/Specification/DDI-Lifecycle/3.1/XMLSchema/instance.xsd" id="9595faca-d2dc-4e28-9988-89316134985d" isMaintainable="true" version="1.0.0" versionDate="2012-08-25" agency="se.snd">
+    <s:StudyUnit id="f75aa52a-3faf-4948-9f03-8d6774cc2ec0" version="1.0.0" versionDate="2012-08-25" agency="se.snd">
+        <r:UserID type="study_id">350</r:UserID>
+        <r:UserID type="dataset_id">178</r:UserID>
+        <r:Citation>
+            <r:Title xml:lang="sv">Trafiksäkerhetsundersökningen 1997</r:Title>
+            <r:Title xml:lang="en">Road safety survey 1997</r:Title>
+            <r:AlternateTitle>TS-enkäten 1997</r:AlternateTitle>
+            <r:Creator xml:lang="sv">Vägverket</r:Creator>
+            <r:Creator xml:lang="en">Swedish Road Administration</r:Creator>
+            <r:Publisher xml:lang="sv">Vägverket</r:Publisher>
+            <r:Publisher xml:lang="en">Swedish Road Administration</r:Publisher>
+            <dc:DCElements>
+                <dc2:title xml:lang="sv">Trafiksäkerhetsundersökningen 1997</dc2:title>
+                <dc2:title xml:lang="en">Road safety survey 1997</dc2:title>
+                <dc2:creator xml:lang="sv">Vägverket</dc2:creator>
+                <dc2:creator xml:lang="en">Swedish Road Administration</dc2:creator>
+                <dc2:description xml:lang="sv">This is the seventeenth survey in a series of annual road safety surveys, starting in 1981. The surveys are carried out by Statistics Sweden, previously at the request of the National Road Safety Office, and since 1993 at the request of the Swedish National Road Administration. The questionnaire used is mainly a replication of earlier Road Safety Surveys, including questions on traffic behaviour, driving habits; how to safeguard oneself in the traffic, by for example using safety belt, bicycle helmet, bicycle lights, and reflexes; traffic rules and regulations; good traffic sense; and concentration on road safety. A number of new questions in the 1997 survey dealt mainly with environmental issues and traffic accidents.</dc2:description>
+                <dc2:description xml:lang="en">This is the seventeenth survey in a series of annual road safety surveys, starting in 1981. The surveys are carried out by Statistics Sweden, previously at the request of the National Road Safety Office, and since 1993 at the request of the Swedish National Road Administration. The questionnaire used is mainly a replication of earlier Road Safety Surveys, including questions on traffic behaviour, driving habits; how to safeguard oneself in the traffic, by for example using safety belt, bicycle helmet, bicycle lights, and reflexes; traffic rules and regulations; good traffic sense; concentration on road safety; and children in traffic. A number of new questions in the 1997 survey dealt mainly with environmental issues and traffic accidents.</dc2:description>
+                <dc2:type>Dataset</dc2:type>
+                <dc2:identifier>SND 0624</dc2:identifier>
+            </dc:DCElements>
+        </r:Citation>
+        <s:Abstract id="e4ae6766-f085-4b37-b85e-4586fde7e2e2">
+            <r:Content xml:lang="sv">This is the seventeenth survey in a series of annual road safety surveys, starting in 1981. The surveys are carried out by Statistics Sweden, previously at the request of the National Road Safety Office, and since 1993 at the request of the Swedish National Road Administration. The questionnaire used is mainly a replication of earlier Road Safety Surveys, including questions on traffic behaviour, driving habits; how to safeguard oneself in the traffic, by for example using safety belt, bicycle helmet, bicycle lights, and reflexes; traffic rules and regulations; good traffic sense; and concentration on road safety. A number of new questions in the 1997 survey dealt mainly with environmental issues and traffic accidents.</r:Content>
+        </s:Abstract>
+        <s:Abstract id="b79964ca-66ec-407a-9975-d0af53ceca0a">
+            <r:Content xml:lang="en">This is the seventeenth survey in a series of annual road safety surveys, starting in 1981. The surveys are carried out by Statistics Sweden, previously at the request of the National Road Safety Office, and since 1993 at the request of the Swedish National Road Administration. The questionnaire used is mainly a replication of earlier Road Safety Surveys, including questions on traffic behaviour, driving habits; how to safeguard oneself in the traffic, by for example using safety belt, bicycle helmet, bicycle lights, and reflexes; traffic rules and regulations; good traffic sense; concentration on road safety; and children in traffic. A number of new questions in the 1997 survey dealt mainly with environmental issues and traffic accidents.</r:Content>
+        </s:Abstract>
+        <r:UniverseReference>
+            <r:Scheme>
+                <r:ID>3d03ad7a-eba0-46bd-a8dd-5434e3401871</r:ID>
+                <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                <r:Version>1.0.0</r:Version>
+            </r:Scheme>
+            <r:ID>41038ed5-ba8b-42aa-8788-8239a813ed5f</r:ID>
+            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+            <r:Version>1.0.0</r:Version>
+        </r:UniverseReference>
+        <r:SeriesStatement>
+            <r:SeriesName xml:lang="sv">Trafiksäkerhetsundersökningen</r:SeriesName>
+            <r:SeriesName xml:lang="en">Road safety survey</r:SeriesName>
+            <r:Abbreviation>TSU</r:Abbreviation>
+            <r:SeriesDescription xml:lang="sv">Vägverket har sedan 1993 det övergripande ansvaret för vägtrafiken i Sverige. Verket samarbetar med polisen och kommunerna, vilket 1994 resulterade i ett nationellt trafiksäkerhetsprogram som innehåller tio trafiksäkerhetsreformer.
+
+Att ta fram och analysera trafiksäkerhetsstatistik ingår som en del i ansvaret. En av de äldsta löpande undersökningarna inom detta område - där ungefär 5 000 personer årligen får svara på frågor om trafik och trafiksäkerhet - är den s.k. trafiksäkerhetsenkäten. Undersökningen har genomförts av Statistiska centralbyrån sedan 1981, tidigare på uppdrag av Trafiksäkerhetsverket, från 1993 på uppdrag av Vägverket.
+
+Frågorna i undersökningen behandlar bl.a.
+- beteende i trafiken, hur mycket och med vad man färdats
+- hur man skyddar sig med t.ex. bilbälte, cykelhjälm, belysning och reflexer
+- regler och bestämmelser
+- den allmänna trafikmoralen
+- satsningar på trafiksäkerhet
+- barn i trafiken</r:SeriesDescription>
+        </r:SeriesStatement>
+        <s:Purpose id="761bb179-9bcd-4bca-956f-d20dbb3293af">
+            <r:Content xml:lang="sv">Ej tillgänglig</r:Content>
+        </s:Purpose>
+        <s:Purpose id="3f7ba075-b8a6-4a3c-ab86-a241799be553">
+            <r:Content xml:lang="en">Unavailable</r:Content>
+        </s:Purpose>
+        <r:Coverage>
+            <r:TopicalCoverage id="82a5fbe9-a3a9-4230-bf94-c51ab7132e95">
+                <r:Subject codeListID="CESSDA topical classification" xml:lang="sv">TRANSPORT, RESOR OCH MOBILITET</r:Subject>
+                <r:Subject codeListID="CESSDA topical classification" xml:lang="en">TRANSPORT, TRAVEL AND MOBILITY</r:Subject>
+                <r:Subject codeListID="CESSDA topical classification" xml:lang="sv">lagstiftning</r:Subject>
+                <r:Subject codeListID="CESSDA topical classification" xml:lang="en">legislation</r:Subject>
+                <r:Subject codeListID="CESSDA topical classification" xml:lang="sv">olyckor och skador</r:Subject>
+                <r:Subject codeListID="CESSDA topical classification" xml:lang="en">accidents and injuries</r:Subject>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">cyklist</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">cyclists</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">alkoholvanor</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">drinking behaviour</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">trafikförseelse</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">driving offences</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">hälsorisk</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">health risks</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">motorfordon</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">motor vehicles</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">skyddshjälm</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">protective headwear</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">trafikolycka</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">road accidents</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">trafiksäkerhet</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">road safety</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">vägtrafik</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">road traffic</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">säkerhets- och trygghetsåtgärd</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">safety and security measures</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">säkerhetsbälte</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">safety belts</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">fartgräns</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">speed limits</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">trafikbestämmelse</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">traffic regulations</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">bilens inre säkerhet</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">vehicle restraint system</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="sv">fordonssäkerhet</r:Keyword>
+                <r:Keyword codeListID="ELSST" xml:lang="en">vehicle safety</r:Keyword>
+            </r:TopicalCoverage>
+            <r:SpatialCoverage id="3818d34c-4cc8-470b-83f1-0044e3402984">
+                <r:TopLevelReference>
+                    <r:LevelName>Sweden, Sweden</r:LevelName>
+                </r:TopLevelReference>
+                <r:LowestLevelReference>
+                    <r:LevelName>Not available</r:LevelName>
+                </r:LowestLevelReference>
+            </r:SpatialCoverage>
+            <r:TemporalCoverage id="62c98d1e-7488-456c-9a19-4f2c28a9dc14">
+                <r:ReferenceDate>
+                    <r:StartDate>1997-10-01</r:StartDate>
+                    <r:EndDate>1998-01-01</r:EndDate>
+                </r:ReferenceDate>
+            </r:TemporalCoverage>
+        </r:Coverage>
+        <r:AnalysisUnit>Individual</r:AnalysisUnit>
+        <s:KindOfData>Survey data: Independent surveys</s:KindOfData>
+        <r:OtherMaterial id="1ca04b5b-6400-4f68-b2f9-4a58bb8467e8" type="file" xml:lang="sv">
+            <r:Citation>
+                <r:Title xml:lang="sv">Frågeformulär</r:Title>
+                <r:Title xml:lang="en">Questionnaire</r:Title>
+                <r:Language>sv</r:Language>
+                <dc:DCElements>
+                    <dc2:title xml:lang="sv">Frågeformulär</dc2:title>
+                    <dc2:title xml:lang="en">Questionnaire</dc2:title>
+                    <dc2:type>Dataset</dc2:type>
+                </dc:DCElements>
+            </r:Citation>
+            <r:ExternalURLReference>http://www.snd.gu.se/catalogue/file/282</r:ExternalURLReference>
+            <r:MIMEType>application/stream</r:MIMEType>
+        </r:OtherMaterial>
+        <r:OtherMaterial id="a634f557-79f3-4bc5-8ff1-39812c17bfd1" type="file" xml:lang="sv">
+            <r:Citation>
+                <r:Title xml:lang="sv">Kodbok</r:Title>
+                <r:Title xml:lang="en">Codebook</r:Title>
+                <r:Language>sv</r:Language>
+                <dc:DCElements>
+                    <dc2:title xml:lang="sv">Kodbok</dc2:title>
+                    <dc2:title xml:lang="en">Codebook</dc2:title>
+                    <dc2:type>Dataset</dc2:type>
+                </dc:DCElements>
+            </r:Citation>
+            <r:ExternalURLReference>http://www.snd.gu.se/catalogue/file/283</r:ExternalURLReference>
+            <r:MIMEType>text/html</r:MIMEType>
+        </r:OtherMaterial>
+        <c:ConceptualComponent id="a023b83a-d594-425e-8c7c-560ef2bdfe00" version="1.0.0" versionDate="2012-08-25" agency="se.snd">
+            <c:ConceptScheme id="e641d6e2-a483-4ea9-b6cb-3f28d2a7ceb7" version="1.0.0" versionDate="2012-08-25" agency="se.snd"/>
+            <c:UniverseScheme id="3d03ad7a-eba0-46bd-a8dd-5434e3401871" version="1.0.0" versionDate="2012-08-25" agency="se.snd">
+                <c:Universe id="41038ed5-ba8b-42aa-8788-8239a813ed5f" version="1.0.0" versionDate="2012-08-25">
+                    <c:UniverseName xml:lang="sv">Personer i åldrarna 15-84 år och bosatta i Sverige.</c:UniverseName>
+                    <c:UniverseName xml:lang="en">Individuals aged 15-84 years and residing in Sweden.</c:UniverseName>
+                    <r:Label xml:lang="sv">Personer i åldrarna 15-84 år och bosatta i Sverige.</r:Label>
+                    <r:Label xml:lang="en">Individuals aged 15-84 years and residing in Sweden.</r:Label>
+                    <c:HumanReadable xml:lang="sv">Personer i åldrarna 15-84 år och bosatta i Sverige.</c:HumanReadable>
+                    <c:HumanReadable xml:lang="en">Individuals aged 15-84 years and residing in Sweden.</c:HumanReadable>
+                </c:Universe>
+            </c:UniverseScheme>
+        </c:ConceptualComponent>
+        <d:DataCollection id="9554684f-b366-4c13-9b1d-230851fb4438" version="1.0.0" versionDate="2012-08-25" agency="se.snd">
+            <d:Methodology id="4cd63d2e-5f59-4510-bdfc-fc1bb441734d" version="1.0.0" versionDate="2012-08-25">
+                <d:TimeMethod id="dae9b41e-4b04-422f-b0e8-deb81c4665e6">
+                    <r:Content xml:lang="sv">Longitudinell: Trend/Upprepat tvärsnitt</r:Content>
+                </d:TimeMethod>
+                <d:TimeMethod id="e2d37bf2-d02e-4484-b31f-6a07b1d6325c">
+                    <r:Content xml:lang="en">Longitudinal: Trend/Repeated cross-section</r:Content>
+                </d:TimeMethod>
+            </d:Methodology>
+            <d:QuestionScheme id="4ec2a597-844d-44b8-b0c7-570e61e547bb" version="1.0.0" versionDate="2012-08-25" agency="se.snd">
+                <r:UserID type="questionnaire_file_sv_id">282</r:UserID>
+                <d:QuestionSchemeName xml:lang="sv">Frågeformulär</d:QuestionSchemeName>
+                <r:Label xml:lang="sv">Frågeformulär</r:Label>
+                <d:QuestionItem id="44d0917d-592a-49cc-a9e5-92a0431486ef" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">1391</r:UserID>
+                    <r:UserID type="qinstrument_id">17644</r:UserID>
+                    <d:QuestionItemName>1a</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Är du man eller kvinna?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:QuestionText xml:lang="en">
+                        <d:LiteralText>
+                            <d:Text>Are you a man or a woman?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="d04a797c-073b-47c2-80d4-86c15d989f4b" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">332</r:UserID>
+                    <r:UserID type="qinstrument_id">17645</r:UserID>
+                    <d:QuestionItemName>1b</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Hur gammal är du?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:QuestionText xml:lang="en">
+                        <d:LiteralText>
+                            <d:Text>How old are you?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="e2b143ea-e4c3-49a2-bab7-f1f9b0121f4f" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11690</r:UserID>
+                    <r:UserID type="qinstrument_id">17646</r:UserID>
+                    <d:QuestionItemName>1c</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Vilken är din högsta avslutade utbildning?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:QuestionText xml:lang="en">
+                        <d:LiteralText>
+                            <d:Text>What is your highest level of completed education?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="7990b5c3-a094-4713-be70-911971914a67" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11691</r:UserID>
+                    <r:UserID type="qinstrument_id">17647</r:UserID>
+                    <d:QuestionItemName>1d</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Hur många barn i åldern 0-14 år bor i ditt hushåll?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:QuestionText xml:lang="en">
+                        <d:LiteralText>
+                            <d:Text>How many children aged 0-14 years live in your household?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="34ac6e60-b7de-4d74-8d94-b7f339b94236" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">9037</r:UserID>
+                    <r:UserID type="qinstrument_id">17648</r:UserID>
+                    <d:QuestionItemName>2a</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Var i Sverige bor du?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:QuestionText xml:lang="en">
+                        <d:LiteralText>
+                            <d:Text>Where in Sweden do you live?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="335f8f6d-0ca4-4a05-9a9d-9564c60244ad" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11832</r:UserID>
+                    <r:UserID type="qinstrument_id">18325</r:UserID>
+                    <d:QuestionItemName>2b</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Vilken kommun är det?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="a7a9a5db-68f8-4108-97cb-ed85b2b80fb9" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">9038</r:UserID>
+                    <r:UserID type="qinstrument_id">17649</r:UserID>
+                    <d:QuestionItemName>3a</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Har du körkort för bil?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:QuestionText xml:lang="en">
+                        <d:LiteralText>
+                            <d:Text>Have you got a driving licence for a car?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="7bb8eb62-9f4a-432e-9197-e1aee5baa022" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11692</r:UserID>
+                    <r:UserID type="qinstrument_id">17650</r:UserID>
+                    <d:QuestionItemName>3b</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Arbetar du som yrkesförare?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:MultipleQuestionItem id="cd9ce36d-0041-41d9-813e-40a4b307aff5" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">9039</r:UserID>
+                    <r:UserID type="qinstrument_id">17651</r:UserID>
+                    <d:MultipleQuestionItemName>4</d:MultipleQuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Hur ofta har du kört olika fordon de senaste 12 månaderna?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:SubQuestions>
+                        <d:QuestionItem id="911fd9f6-1932-47a6-abdc-f0ab229ddb95" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">8705</r:UserID>
+                            <r:UserID type="qinstrument_id">18326</r:UserID>
+                            <d:QuestionItemName>4_1</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Cykel</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>Bike</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="698cd56e-e571-4d0b-8d84-f28c6ea4af06" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">8706</r:UserID>
+                            <r:UserID type="qinstrument_id">17652</r:UserID>
+                            <d:QuestionItemName>4_2</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Moped</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="6bc7ff8e-8d82-4720-a7c2-a69c12d913cb" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">9040</r:UserID>
+                            <r:UserID type="qinstrument_id">17653</r:UserID>
+                            <d:QuestionItemName>4_3</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Motorcykel</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>Motor cycle</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="61ec4aa3-aa22-4870-a824-f995410ae5b3" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">9041</r:UserID>
+                            <r:UserID type="qinstrument_id">17654</r:UserID>
+                            <d:QuestionItemName>4_4</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Personbil</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="553bc5ea-67b6-4597-8590-19bfce012113" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">9042</r:UserID>
+                            <r:UserID type="qinstrument_id">17655</r:UserID>
+                            <d:QuestionItemName>4_5</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Lastbil/buss</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                    </d:SubQuestions>
+                </d:MultipleQuestionItem>
+                <d:QuestionItem id="00a888d2-a598-4698-a453-b2cbd67638e7" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11249</r:UserID>
+                    <r:UserID type="qinstrument_id">17656</r:UserID>
+                    <d:QuestionItemName>5</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Ungefär hur många mil har du själv kört personbil de senaste 12 månaderna?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="21209e28-6b22-49aa-8178-cfc34dcccd38" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11360</r:UserID>
+                    <r:UserID type="qinstrument_id">17657</r:UserID>
+                    <d:QuestionItemName>6</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Ungefär hur många mil har du själv kört motorcykel de senaste 12 månaderna?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="f7153680-8358-47b3-95fd-84954c49fecc" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11477</r:UserID>
+                    <r:UserID type="qinstrument_id">17658</r:UserID>
+                    <d:QuestionItemName>7</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Ungefär hur många mil har du själv kört moped de senaste 12 månaderna?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="335294bb-8ad4-4bf6-95db-36a0dc0c7c55" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11662</r:UserID>
+                    <r:UserID type="qinstrument_id">17659</r:UserID>
+                    <d:QuestionItemName>8</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Ungefär hur många mil har du själv cyklat under de senaste 12 månaderna?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:MultipleQuestionItem id="a70b647a-4347-4bc6-8dd7-a72b2588eeeb" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">9058</r:UserID>
+                    <r:UserID type="qinstrument_id">17660</r:UserID>
+                    <d:MultipleQuestionItemName>9</d:MultipleQuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Hur ofta använder du bilbälte då du åker personbil och sitter i framsätet? Svara med ett kryss för tätortstrafik och ett för landsvägstrafik.</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:SubQuestions>
+                        <d:QuestionItem id="cac59740-0724-4f2f-ad95-d9cab8531a6b" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">9059</r:UserID>
+                            <r:UserID type="qinstrument_id">19453</r:UserID>
+                            <d:QuestionItemName>9_1</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>I tätortstrafik</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="332a6568-3486-4475-bcf7-d810bf2ffd11" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">9060</r:UserID>
+                            <r:UserID type="qinstrument_id">17661</r:UserID>
+                            <d:QuestionItemName>9_2</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>I landsvägstrafik</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                    </d:SubQuestions>
+                </d:MultipleQuestionItem>
+                <d:MultipleQuestionItem id="458cfd82-a7df-4449-b3d9-be31ccf2f767" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">9061</r:UserID>
+                    <r:UserID type="qinstrument_id">17662</r:UserID>
+                    <d:MultipleQuestionItemName>10</d:MultipleQuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Hur ofta använder du bilbälte då du åker personbil och sitter i baksätet? Svara med ett kryss för tätortstrafik och ett för landsvägstrafik.</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:SubQuestions>
+                        <d:QuestionItem id="4e60a412-9306-4097-9eec-9060840607c9" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">9059</r:UserID>
+                            <r:UserID type="qinstrument_id">19454</r:UserID>
+                            <d:QuestionItemName>10_1</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>I tätortstrafik</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="4da1455c-2b9a-434e-b9da-c713f3ed56ef" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">9060</r:UserID>
+                            <r:UserID type="qinstrument_id">17663</r:UserID>
+                            <d:QuestionItemName>10_2</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>I landsvägstrafik</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                    </d:SubQuestions>
+                </d:MultipleQuestionItem>
+                <d:QuestionItem id="87a8df2b-2551-43ff-b9cc-26a109290149" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">9073</r:UserID>
+                    <r:UserID type="qinstrument_id">17664</r:UserID>
+                    <d:QuestionItemName>11</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Hur ofta använder du hjälm då du cyklar?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:QuestionText xml:lang="en">
+                        <d:LiteralText>
+                            <d:Text>How often do you use a helmet when you ride a bike?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="87eef9bd-b58f-499d-b6f7-9a099dae4002" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11609</r:UserID>
+                    <r:UserID type="qinstrument_id">17665</r:UserID>
+                    <d:QuestionItemName>12a</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Hur ofta använder du cykelbelysning då du cyklar i mörker?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="cb025aae-fad6-4f59-a765-270092f9ebb6" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11693</r:UserID>
+                    <r:UserID type="qinstrument_id">17666</r:UserID>
+                    <d:QuestionItemName>12b</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>En cykel kan vara försedd med följande tre reflexer: sido/ekerreflexer (orange), fram (vit) och bak (röd). Hur många av dem finns på din (ordinarie) cykel?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:MultipleQuestionItem id="05996dd0-ce2d-444d-8292-fb1800c5c71e" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">9075</r:UserID>
+                    <r:UserID type="qinstrument_id">17667</r:UserID>
+                    <d:MultipleQuestionItemName>13a</d:MultipleQuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Hur ofta använder du reflexer då du är ute och går i mörker där biltrafik förekommer? Svara med ett kryss för hur det är när det finns belysning och ett när belysning saknas.</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:SubQuestions>
+                        <d:QuestionItem id="2cafe438-76a2-48bc-85be-a22bc7635ce2" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">9076</r:UserID>
+                            <r:UserID type="qinstrument_id">19455</r:UserID>
+                            <d:QuestionItemName>13a_1</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Belyst gata/väg/trottoar</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="2a2d05cf-6a2e-4828-a574-79a25ba1b94e" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">9077</r:UserID>
+                            <r:UserID type="qinstrument_id">17668</r:UserID>
+                            <d:QuestionItemName>13a_2</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Ej belyst gata/väg/trottoar</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                    </d:SubQuestions>
+                </d:MultipleQuestionItem>
+                <d:QuestionItem id="fecf4127-56c8-4c89-ae38-5513d629dd80" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">12468</r:UserID>
+                    <r:UserID type="qinstrument_id">17669</r:UserID>
+                    <d:QuestionItemName>13b</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Äger du någon fotgängarreflex?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:MultipleQuestionItem id="02416e5e-e094-4be0-8664-6030a982c61c" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11610</r:UserID>
+                    <r:UserID type="qinstrument_id">17670</r:UserID>
+                    <d:MultipleQuestionItemName>14</d:MultipleQuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Har du under de senaste 12 månaderna blivit stoppad av polisen?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:SubQuestions>
+                        <d:QuestionItem id="e2937160-9a18-4994-a076-adba5473c610" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11851</r:UserID>
+                            <r:UserID type="qinstrument_id">19456</r:UserID>
+                            <d:QuestionItemName>14_1</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Ja, nykterhetskontroll</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="dbf6500e-0b3e-4a58-9bf4-ff85a7ab2885" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11643</r:UserID>
+                            <r:UserID type="qinstrument_id">17671</r:UserID>
+                            <d:QuestionItemName>14_2</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Ja, fordonskontroll</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="96b30428-f4f5-4f2f-99dc-0523a3348ea8" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11695</r:UserID>
+                            <r:UserID type="qinstrument_id">17672</r:UserID>
+                            <d:QuestionItemName>14_3</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Ja, hastighetskontroll</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>Yes, speed control</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="fb28ed8a-8263-4826-9321-3c2b2ce4c6c2" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11696</r:UserID>
+                            <r:UserID type="qinstrument_id">17673</r:UserID>
+                            <d:QuestionItemName>14_4</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Ja, annan kontroll</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>Yes, other control</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="701d2073-fa4c-4102-9ce4-6c61547c2fe9" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11645</r:UserID>
+                            <r:UserID type="qinstrument_id">17674</r:UserID>
+                            <d:QuestionItemName>14_5</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Nej, ingen gång</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                    </d:SubQuestions>
+                </d:MultipleQuestionItem>
+                <d:MultipleQuestionItem id="867a0375-5b47-4648-85da-deb5e35e6d47" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11737</r:UserID>
+                    <r:UserID type="qinstrument_id">17675</r:UserID>
+                    <d:MultipleQuestionItemName>15</d:MultipleQuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Hur stort hälsoproblem anser du följande är:</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:SubQuestions>
+                        <d:QuestionItem id="4833d478-9d57-425f-a162-e004f4501c86" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">1345</r:UserID>
+                            <r:UserID type="qinstrument_id">18327</r:UserID>
+                            <d:QuestionItemName>15_1</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Rökning</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>Smoking</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="c91db349-69d8-437e-ad7b-6a788ba02ca7" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">1346</r:UserID>
+                            <r:UserID type="qinstrument_id">17676</r:UserID>
+                            <d:QuestionItemName>15_2</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Alkohol</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>Alcohol</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="fe83a533-6a6c-4a40-915c-cddb26d7547f" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11564</r:UserID>
+                            <r:UserID type="qinstrument_id">17677</r:UserID>
+                            <d:QuestionItemName>15_3</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Trafikbuller</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>Traffic noise</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="3e685abe-3e8e-44c5-9192-9dcecad376f3" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11565</r:UserID>
+                            <r:UserID type="qinstrument_id">17678</r:UserID>
+                            <d:QuestionItemName>15_4</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Trafikskador</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="06776421-f61e-4dbe-afe0-4c5b6a14cdea" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">8753</r:UserID>
+                            <r:UserID type="qinstrument_id">17679</r:UserID>
+                            <d:QuestionItemName>15_5</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Luftföroreningar</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>Air pollution</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="18e2e968-2a25-42e4-a6e8-6e9301b591d3" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11567</r:UserID>
+                            <r:UserID type="qinstrument_id">17680</r:UserID>
+                            <d:QuestionItemName>15_6</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Arbetsskador</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>Work injuries</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="ad5d0f71-7982-405b-b1ed-d06903d25e07" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11568</r:UserID>
+                            <r:UserID type="qinstrument_id">17681</r:UserID>
+                            <d:QuestionItemName>15_7</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Idrottsskador</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>Sport injuries</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                    </d:SubQuestions>
+                </d:MultipleQuestionItem>
+                <d:MultipleQuestionItem id="787ea952-05b6-4015-b57e-32158f2ac599" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11455</r:UserID>
+                    <r:UserID type="qinstrument_id">17682</r:UserID>
+                    <d:MultipleQuestionItemName>16</d:MultipleQuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Här nedan följer några påståenden. Vi ber dig att för vart och ett av dessa markera med ett kryss om du instämmer eller inte.</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:SubQuestions>
+                        <d:QuestionItem id="d52ab681-4d3f-40d8-b2e4-3d5f1c8c99ef" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11833</r:UserID>
+                            <r:UserID type="qinstrument_id">18328</r:UserID>
+                            <d:QuestionItemName>16_1</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Det är oftast vårdslösa förare som råkar ut för trafikolyckor</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="a2d3354d-0c42-4c3e-9fc1-0dec3ed2a6c1" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11578</r:UserID>
+                            <r:UserID type="qinstrument_id">17683</r:UserID>
+                            <d:QuestionItemName>16_2</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Politikers och beslutsfattares vilja att satsa på trafiksäkerhet har ökat den senaste tiden.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="8776aacd-ffc7-42d1-a04a-90dc0eb9280a" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11699</r:UserID>
+                            <r:UserID type="qinstrument_id">17684</r:UserID>
+                            <d:QuestionItemName>16_3</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Vägverket bör värna mer om svensk industri än om trafiksäkerhet och miljö.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="03915524-cb7c-4448-8de7-bbc46e6b823d" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11459</r:UserID>
+                            <r:UserID type="qinstrument_id">17685</r:UserID>
+                            <d:QuestionItemName>16_4</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Körkortsutbildningen borde ske i gymnasieskolan</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="60e512ee-e0f4-4f74-a5ac-77374dc68efc" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11701</r:UserID>
+                            <r:UserID type="qinstrument_id">17686</r:UserID>
+                            <d:QuestionItemName>16_5</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Läkare bör alltid anmäla till körkortsmyndigheten om en patient har trafikfarlig sjukdom</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="e1d40493-3022-4a12-8844-865084d1d6b7" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11612</r:UserID>
+                            <r:UserID type="qinstrument_id">17687</r:UserID>
+                            <d:QuestionItemName>16_6</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Det är rimligt att sänka hastighetsgränserna för att öka trafiksäkerheten.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="d151f6e7-5951-4a04-be29-ba0766bfeae9" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11572</r:UserID>
+                            <r:UserID type="qinstrument_id">17688</r:UserID>
+                            <d:QuestionItemName>16_7</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Det borde vara obligatoriskt att använda hjälm vid cykling.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="c9b633e6-cf46-4730-86c8-d4240d84931e" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11486</r:UserID>
+                            <r:UserID type="qinstrument_id">17689</r:UserID>
+                            <d:QuestionItemName>16_8</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Körkortsåldern för lätt motorcykel borde höjas från 16 till 18 år</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="5f39f5e1-5c3b-44ca-8c49-23ddaaa3ea3d" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11667</r:UserID>
+                            <r:UserID type="qinstrument_id">17690</r:UserID>
+                            <d:QuestionItemName>16_9</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Nya bilar borde inte gå att köra fortare än 130 km/h</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="540533bc-cafa-4e92-a89b-9a43789e2a87" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11575</r:UserID>
+                            <r:UserID type="qinstrument_id">17691</r:UserID>
+                            <d:QuestionItemName>16_10</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Jag tycker att trafiken blivit mer riskfylld under senare år</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="5c4fb381-4ba9-4073-851a-136ea0f1e30d" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11651</r:UserID>
+                            <r:UserID type="qinstrument_id">17692</r:UserID>
+                            <d:QuestionItemName>16_11</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Ett tekniskt system, som tvingar bilförare och passagerare att sätta på sig bilbälte, är onödigt.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="353780d7-adf0-41e6-8c22-0abbc3461e81" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11579</r:UserID>
+                            <r:UserID type="qinstrument_id">17693</r:UserID>
+                            <d:QuestionItemName>16_12</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Jag betalar gärna mer för bensinen om pengarna går till trafiksäkerhetsåtgärder</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="3659b06c-3821-490f-b669-9abc7844272c" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11580</r:UserID>
+                            <r:UserID type="qinstrument_id">17694</r:UserID>
+                            <d:QuestionItemName>16_13</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Mitt intresse för trafiksäkerhetsfrågor har ökat den senaste tiden</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="101a6787-ed6c-41bf-9a8e-1e1d9eb0a1e7" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11581</r:UserID>
+                            <r:UserID type="qinstrument_id">17695</r:UserID>
+                            <d:QuestionItemName>16_17</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Jag tycker att trafikanterna i allmänhet visar större hänsyn i trafiken nu än tidigare.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="7fb97ff3-880d-4b1d-ad36-8ea1b3ceef65" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11669</r:UserID>
+                            <r:UserID type="qinstrument_id">17696</r:UserID>
+                            <d:QuestionItemName>16_18</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Trafikanterna måste ta ett större ansvar för att ingen ska skadas i trafiken</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="9f04c979-21b5-4dce-91d9-62ddd2ca7fa8" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11712</r:UserID>
+                            <r:UserID type="qinstrument_id">17697</r:UserID>
+                            <d:QuestionItemName>16_19</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Alla företag borde ha regler för tjänsteresor där man ställer krav på säkerhet och miljö.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="00433b54-dea5-446b-a711-350617bed600" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11713</r:UserID>
+                            <r:UserID type="qinstrument_id">17698</r:UserID>
+                            <d:QuestionItemName>16_20</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Vem som helst kan råka ut för en trafikolycka</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>Anyone can be involved in a traffic accident</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                    </d:SubQuestions>
+                </d:MultipleQuestionItem>
+                <d:QuestionItem id="137e42da-9d32-4629-a12a-c133fb12a815" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">9085</r:UserID>
+                    <r:UserID type="qinstrument_id">17699</r:UserID>
+                    <d:QuestionItemName>17</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Har det hänt någon gång under de senaste 12 månaderna att du kört bil efter att ha druckit alkohol utöver lättöl?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="2fb8ba19-607b-4b2a-a74f-f11caa9a77e3" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">9086</r:UserID>
+                    <r:UserID type="qinstrument_id">17700</r:UserID>
+                    <d:QuestionItemName>18</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Har det hänt någon gång under de senaste 12 månaderna att du druckit mycket alkohol en kväll och kört bil förmiddagen därpå?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="c430e818-7446-42a6-97ac-1dbaecd84520" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11613</r:UserID>
+                    <r:UserID type="qinstrument_id">17701</r:UserID>
+                    <d:QuestionItemName>19</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Har du under de senaste 12 månaderna åkt med någon som varit påverkad av alkohol?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:MultipleQuestionItem id="64a96729-fc76-4c2e-b86f-1c1f8e8d9f2a" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11839</r:UserID>
+                    <r:UserID type="qinstrument_id">19457</r:UserID>
+                    <d:MultipleQuestionItemName>20</d:MultipleQuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Här nedan följer några påståenden om alkohol och trafik. Vi ber dig för vart och ett av dessa att markera med ett kryss om du instämmer eller inte.</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:SubQuestions>
+                        <d:QuestionItem id="02468812-39b6-46ba-86c2-21306e8a4cf0" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11530</r:UserID>
+                            <r:UserID type="qinstrument_id">17702</r:UserID>
+                            <d:QuestionItemName>20_1</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Straffet för rattfylleri borde vara hårdare</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>The penalty for drunk driving should be tougher</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="c0eaed68-15ff-4246-8d5c-405212c03eb9" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11467</r:UserID>
+                            <r:UserID type="qinstrument_id">17703</r:UserID>
+                            <d:QuestionItemName>20_2</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>För att minska onykterhet i trafiken måste den totala alkoholkonsumtionen i samhället minskas.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="11ad2f77-5238-4096-b30a-6dc0164ffc49" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11653</r:UserID>
+                            <r:UserID type="qinstrument_id">17704</r:UserID>
+                            <d:QuestionItemName>20_3</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Alla bilar borde utrustas med ett alkolås, där ett utandningsprov krävs varje gång bilen skall startas.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="55b525af-8544-40c5-87ec-97b781bd2bd5" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11532</r:UserID>
+                            <r:UserID type="qinstrument_id">17705</r:UserID>
+                            <d:QuestionItemName>20_4</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Gränsen för rattfylleri borde gå vid 0 promille och inte som nu vid 0,2</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                    </d:SubQuestions>
+                </d:MultipleQuestionItem>
+                <d:MultipleQuestionItem id="fd6eb79c-ef73-442e-994f-60242eaa33d6" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">9062</r:UserID>
+                    <r:UserID type="qinstrument_id">17706</r:UserID>
+                    <d:MultipleQuestionItemName>21</d:MultipleQuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Här nedan följer några påståenden. Vi ber dig för vart och ett av dessa att markera med ett kryss om du instämmer eller inte.</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:SubQuestions>
+                        <d:QuestionItem id="e87489c1-7bac-4fe0-b4af-40f07b6b691d" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11834</r:UserID>
+                            <r:UserID type="qinstrument_id">18329</r:UserID>
+                            <d:QuestionItemName>21_1</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Trafikolyckor går att undvika om man är en bra förare.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="49c99d17-bc2c-4967-ae4e-b4bfc84d124b" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">9107</r:UserID>
+                            <r:UserID type="qinstrument_id">17707</r:UserID>
+                            <d:QuestionItemName>21_2</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Det är viktigare att följa trafikrytmen än hastighetsgränserna</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>It is more important to follow the flow of traffic than the speed limit</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="65aacbc7-8a26-4cbe-945b-164d5ece07e3" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">9110</r:UserID>
+                            <r:UserID type="qinstrument_id">17708</r:UserID>
+                            <d:QuestionItemName>21_3</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Det är inte så allvarligt om en rutinerad förare överskrider en hastighetsgräns</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="493509f1-9a45-4434-8e97-9258cbebfa16" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11598</r:UserID>
+                            <r:UserID type="qinstrument_id">17709</r:UserID>
+                            <d:QuestionItemName>21_4</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Bilarna stannar sällan när jag ska gå över gatan på övergångsställe</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="338f33fd-5a26-4aa7-b485-6756d43c189c" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">9113</r:UserID>
+                            <r:UserID type="qinstrument_id">17710</r:UserID>
+                            <d:QuestionItemName>21_5</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>De nuvarande hastighetsgränserna är så låga att man måste ha förståelse för att de överskrids.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="c63db9e8-521a-4f45-8dba-ddd49e5175cc" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11720</r:UserID>
+                            <r:UserID type="qinstrument_id">17711</r:UserID>
+                            <d:QuestionItemName>21_6</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Det är rimligt att sänka hastigheten till 30 km/tim på gator där det finns mycket fotgängare och cyklister.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="cce0a665-c8f9-41db-b047-f18b52388f4c" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11494</r:UserID>
+                            <r:UserID type="qinstrument_id">17712</r:UserID>
+                            <d:QuestionItemName>21_7</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Det är rimligt att sänka hastighetsgränserna för att rädda miljön</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>It is reasonable to reduce speed limits to save the environment</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="bf7a702e-c0cb-41cb-97af-ebae3dfb1331" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11544</r:UserID>
+                            <r:UserID type="qinstrument_id">17713</r:UserID>
+                            <d:QuestionItemName>21_8</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Straffet för fortkörning borde vara hårdare</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>The penalty for speeding should be harder</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="7e37eef6-a432-4acd-a38a-ad9ec2ed3459" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11723</r:UserID>
+                            <r:UserID type="qinstrument_id">17714</r:UserID>
+                            <d:QuestionItemName>21_9</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Jag får tillräckligt med information om nya trafikregler.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="37d0abde-20d0-4919-a846-4a41605cdf3b" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11724</r:UserID>
+                            <r:UserID type="qinstrument_id">17715</r:UserID>
+                            <d:QuestionItemName>21_10</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Det långsiktiga målet för samhällets trafiksäkerhetsarbete bör vara noll döda och noll allvarligt skadade (Nollvisionen).</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="8be8993d-8e7e-4079-b48c-40aad1bdcbc7" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11602</r:UserID>
+                            <r:UserID type="qinstrument_id">17716</r:UserID>
+                            <d:QuestionItemName>21_11</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Yrkesförarna visar större hänsyn i trafiken än andra.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="8c50596d-dacf-4716-96f9-6bd6e5f995d1" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11603</r:UserID>
+                            <r:UserID type="qinstrument_id">17717</r:UserID>
+                            <d:QuestionItemName>21_12</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Hastighetsgränsen på motorvägar borde höjas till 130 km/tim.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="34b01059-8a85-43b1-b93b-a9f2e70ff5bf" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11727</r:UserID>
+                            <r:UserID type="qinstrument_id">17718</r:UserID>
+                            <d:QuestionItemName>21_13</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Jag känner mig orolig för att bli påkörd av cyklister som kör på trottoarer och gågator</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                    </d:SubQuestions>
+                </d:MultipleQuestionItem>
+                <d:QuestionItem id="18b72f32-52e4-4354-9f9a-69575f88afa3" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11615</r:UserID>
+                    <r:UserID type="qinstrument_id">17719</r:UserID>
+                    <d:QuestionItemName>22a</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Har du genomgått någon kurs i första hjälpen de senaste fem åren?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="f5c632b9-0482-42a1-92b8-0828363e137b" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11654</r:UserID>
+                    <r:UserID type="qinstrument_id">17720</r:UserID>
+                    <d:QuestionItemName>22b</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Vem anordnade den senaste kursen du gick igenom?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:QuestionItem id="e192a502-73fd-401a-979d-fde90d39a553" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11655</r:UserID>
+                    <r:UserID type="qinstrument_id">17721</r:UserID>
+                    <d:QuestionItemName>22c</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Hur lång var kursen?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+                <d:MultipleQuestionItem id="8302f1a8-f8fd-4dee-8369-aedf2c242458" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11728</r:UserID>
+                    <r:UserID type="qinstrument_id">17722</r:UserID>
+                    <d:MultipleQuestionItemName>23</d:MultipleQuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Slutligen följer några påståenden om olyckor i trafiken. Markera med ett kryss om du instämmer eller inte.</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:SubQuestions>
+                        <d:QuestionItem id="d2a6085d-3b1d-494d-b6f5-0db3d412948b" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11765</r:UserID>
+                            <r:UserID type="qinstrument_id">18330</r:UserID>
+                            <d:QuestionItemName>23_1</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Vägverket måste ta ett större ansvar för att ingen ska dödas eller skadas allvarligt i trafiken.</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="8370a023-6e6a-45f1-8cc9-fcc60f6bbfc3" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11729</r:UserID>
+                            <r:UserID type="qinstrument_id">17723</r:UserID>
+                            <d:QuestionItemName>23_2</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>Det är realistiskt med noll dödade i trafiken</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>It is realistic with zero killed in traffic</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                        <d:QuestionItem id="3343da48-0c12-40a2-9b59-8fe9a4d13584" version="1.0.0" versionDate="2012-08-25">
+                            <r:UserID type="question_id">11730</r:UserID>
+                            <r:UserID type="qinstrument_id">17724</r:UserID>
+                            <d:QuestionItemName>23_3</d:QuestionItemName>
+                            <d:QuestionText xml:lang="sv">
+                                <d:LiteralText>
+                                    <d:Text>För att ingen ska dödas eller skadas allvarligt i trafiken är jag beredd att acceptera lägre hastighetsgränser</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:QuestionText xml:lang="en">
+                                <d:LiteralText>
+                                    <d:Text>Because nobody should be killed or seriously injured in traffic, I am prepared to accept lower speed limits</d:Text>
+                                </d:LiteralText>
+                            </d:QuestionText>
+                            <d:CodeDomain>
+                                <r:CodeSchemeReference>
+                                    <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                                    <r:Version>1.0.0</r:Version>
+                                </r:CodeSchemeReference>
+                            </d:CodeDomain>
+                        </d:QuestionItem>
+                    </d:SubQuestions>
+                </d:MultipleQuestionItem>
+                <d:QuestionItem id="8f5c7c9c-5f51-4906-ae09-65e2c3ff4a7c" version="1.0.0" versionDate="2012-08-25">
+                    <r:UserID type="question_id">11752</r:UserID>
+                    <r:UserID type="qinstrument_id">17725</r:UserID>
+                    <d:QuestionItemName>24</d:QuestionItemName>
+                    <d:QuestionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Hur många dödsfall i trafiken anser du vara acceptabelt per år?</d:Text>
+                        </d:LiteralText>
+                    </d:QuestionText>
+                    <d:CodeDomain>
+                        <r:CodeSchemeReference>
+                            <r:ID>13107679-0e5b-4964-a5be-f39f6deb5807</r:ID>
+                            <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                            <r:Version>1.0.0</r:Version>
+                        </r:CodeSchemeReference>
+                    </d:CodeDomain>
+                </d:QuestionItem>
+            </d:QuestionScheme>
+            <d:InterviewerInstructionScheme id="582e8a1a-16d4-4203-861e-57d15bcf66f9" version="1.0.0" versionDate="2012-08-25" agency="se.snd">
+                <d:Instruction id="21d8f7ae-4dcc-4a9c-8796-70fb2119f269" version="1.0.0" versionDate="2012-08-25">
+                    <d:InstructionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text>Obs! Det är Din allmänna bedömning av trafiken som efterfrågas - oavsett om Du kör något själv eller inte.</d:Text>
+                        </d:LiteralText>
+                    </d:InstructionText>
+                </d:Instruction>
+                <d:Instruction id="c947b140-bde8-4006-ae68-1db34f7e3b58" version="1.0.0" versionDate="2012-08-25">
+                    <d:InstructionText xml:lang="sv">
+                        <d:LiteralText>
+                            <d:Text> (1996 omkom 537 personer i Sverige i trafikolyckor)</d:Text>
+                        </d:LiteralText>
+                    </d:InstructionText>
+                </d:Instruction>
+            </d:InterviewerInstructionScheme>
+        </d:DataCollection>
+        <l:LogicalProduct id="2743eca2-a0fa-49b3-bd82-624c9f040c50" version="1.0.0" versionDate="2012-08-25" agency="se.snd">
+            <l:CategoryScheme id="0a0844d2-3ab0-4499-bc94-82a4c5768417" version="1.0.0" versionDate="2012-08-25" agency="se.snd"/>
+            <l:CodeScheme id="13107679-0e5b-4964-a5be-f39f6deb5807" version="1.0.0" versionDate="2012-08-25" agency="se.snd">
+                <l:CategorySchemeReference>
+                    <r:ID>0a0844d2-3ab0-4499-bc94-82a4c5768417</r:ID>
+                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                    <r:Version>1.0.0</r:Version>
+                </l:CategorySchemeReference>
+            </l:CodeScheme>
+        </l:LogicalProduct>
+        <a:Archive id="91c204ad-fad3-49fc-be26-b2d280c074b9" version="1.0.0" versionDate="2012-08-25" agency="se.snd">
+            <a:ArchiveSpecific>
+                <a:ArchiveOrganizationReference>
+                    <r:ID>07acb206-fc78-499a-bb13-0641e57e64b1</r:ID>
+                    <r:IdentifyingAgency>se.snd</r:IdentifyingAgency>
+                    <r:Version>1.0.0</r:Version>
+                </a:ArchiveOrganizationReference>
+                <a:Collection>
+                    <a:CallNumber>SND 0624</a:CallNumber>
+                    <a:StudyClass>
+                        <a:ClassDescription xml:lang="sv">SND-studie, bearbetad till nivå 4</a:ClassDescription>
+                        <a:ClassDescription xml:lang="en">SND study, processed to level 4</a:ClassDescription>
+                    </a:StudyClass>
+                    <a:AvailabilityStatus xml:lang="sv">2b - Kräver alltid primärforskarens tillstånd</a:AvailabilityStatus>
+                    <a:AvailabilityStatus xml:lang="en">2b - Always requires permission from the principal investigator</a:AvailabilityStatus>
+                </a:Collection>
+            </a:ArchiveSpecific>
+            <a:OrganizationScheme agency="se.snd" id="fd9b9cde-2c1d-41a1-a7c3-6bcfde3a6183" version="1.0.0" versionDate="2012-08-25">
+                <a:Organization id="07acb206-fc78-499a-bb13-0641e57e64b1" version="1.0.0" versionDate="2012-08-25">
+                    <a:OrganizationName xml:lang="sv">Svensk nationell datatjänst</a:OrganizationName>
+                    <a:OrganizationName xml:lang="en">Swedish National Data service</a:OrganizationName>
+                </a:Organization>
+                <a:Organization id="6d687bb6-9ebf-4265-bd72-376defa9d465" version="1.0.0" versionDate="2012-08-25">
+                    <a:OrganizationName xml:lang="sv">Vägverket</a:OrganizationName>
+                    <a:OrganizationName xml:lang="en">Swedish Road Administration</a:OrganizationName>
+                    <a:Keyword xml:lang="sv">Producent</a:Keyword>
+                    <a:Keyword xml:lang="en">Producer</a:Keyword>
+                </a:Organization>
+            </a:OrganizationScheme>
+        </a:Archive>
+    </s:StudyUnit>
+</ddi:DDIInstance>
