@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ns1:DDIInstance xmlns:ns1="ddi:instance:3_1" xmlns:a="ddi:archive:3_1" xmlns:c="ddi:concept:3_1" xmlns:cm="ddi:comparative:3_1" xmlns:d="ddi:datacollection:3_1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dce="ddi:dcelements:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:g="ddi:group:3_1" xmlns:l="ddi:logicalproduct:3_1" xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_1" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_1" xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1" xmlns:o="ddi:organizations:3_1" xmlns:pd="ddi:physicaldataproduct:3_1" xmlns:pi="ddi:physicalinstance:3_1" xmlns:pr="ddi:profile:3_1" xmlns:r="ddi:reusable:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="" xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
+<ns1:DDIInstance xmlns:ns1="ddi:instance:3_1" xmlns:a="ddi:archive:3_1" xmlns:c="ddi:conceptualcomponent:3_1" xmlns:cm="ddi:comparative:3_1" xmlns:d="ddi:datacollection:3_1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dce="ddi:dcelements:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:g="ddi:group:3_1" xmlns:l="ddi:logicalproduct:3_1" xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_1" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_1" xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1" xmlns:o="ddi:organizations:3_1" xmlns:pd="ddi:physicaldataproduct:3_1" xmlns:pi="ddi:physicalinstance:3_1" xmlns:pr="ddi:profile:3_1" xmlns:r="ddi:reusable:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="" xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
     <s:StudyUnit id="study1">
         <r:Citation>
             <r:Title xml:lang="en">title-study1</r:Title>
@@ -8,7 +8,10 @@
             <r:Content xml:lang="en">abstract-study1</r:Content>
         </s:Abstract>
         <r:UniverseReference>
-            <r:URN></r:URN>
+            <r:ID>universe1-id</r:ID>
+        </r:UniverseReference>
+        <r:UniverseReference>
+            <r:ID>universe2-id</r:ID>
         </r:UniverseReference>
         <s:Purpose id="">
             <r:Content></r:Content>
@@ -24,6 +27,17 @@
                 <r:Keyword codeListID="vocab">keyword3</r:Keyword>
             </r:TopicalCoverage>
         </r:Coverage>
+        <c:ConceptualComponent id="conceptualcomponent-1">
+            <c:UniverseScheme id="universesceme-1">
+                <c:Universe id="universe1">
+                    <r:Label>universe1-id</r:Label>
+                </c:Universe>
+                <c:Universe id="universe2">
+                    <r:Label>universe2-id</r:Label>
+                </c:Universe>
+            </c:UniverseScheme>
+        </c:ConceptualComponent>
+        
         <d:DataCollection id="">
             <d:QuestionScheme id="">
                 <d:QuestionItem id="qstn1">
@@ -45,13 +59,13 @@
             </d:QuestionScheme>
         </d:DataCollection>
         <l:LogicalProduct id="">
-            <l:CategoryScheme>
-                <l:Category>
+            <l:CategoryScheme id="cat-scehme-1">
+                <l:Category id="cat-1">
                     <r:Label xml:lang="en">one</r:Label>
                     <r:Label xml:lang="fr">uno</r:Label>
                 </l:Category>
             </l:CategoryScheme>
-            <l:CodeScheme>
+            <l:CodeScheme id="codescheme-1">
                 
             </l:CodeScheme>
             <l:VariableScheme id="">
