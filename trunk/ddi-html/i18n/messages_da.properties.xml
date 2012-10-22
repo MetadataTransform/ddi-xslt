@@ -31,13 +31,13 @@
     <entry key="Data_Collection">Data Collection</entry>
     <entry key="Missing_Data">Missing Data</entry>
     <entry key="Scripts_and_programs">Scripts and programs</entry>
-    <entry key="Variables">Variable(s)</entry>
+    <entry key="Variables">Variabler</entry>
     <entry key="Interviewer_instructions">Interviewer instructions</entry>
     <entry key="Funding_Agencies">Funding Agency/ies</entry>
     <entry key="November">November</entry>
     <entry key="Missing">Missing</entry>
     <entry key="Version">Version</entry>
-    <entry key="Universe">Universe</entry>
+    <entry key="Universe">Universer</entry>
     <entry key="Contributors">Contributor(s)</entry>
     <entry key="Access_Authority">Access Authority</entry>
     <entry key="Data_Processing_and_Appraisal">Data Processing &amp; Appraisal</entry>
@@ -185,4 +185,9 @@
     <entry key="NotParticipating">Deltager ikke</entry>
     <entry key="Instrumentation">Instrumentering</entry>
     <entry key="If">hvis</entry>
+    <entry key="MainSequence">Hovedsekvens</entry>
+    <entry key="Sequences">Undersekvenser</entry>
+    <entry key="RefNo">DDA-</entry>
+	<entry key="MainUniverse">Univers</entry>
+	<entry key="AllUniverses">Subuniverser</entry>
 </properties>
