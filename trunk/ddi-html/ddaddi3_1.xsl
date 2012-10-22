@@ -5,51 +5,15 @@
 
   <xsl:import href="ddi3_1.xsl"/>
 
-  <!--  SVN version -->
-  <xsl:param name="svn-revision">$Revision$</xsl:param>
-  <!-- render text-elements of this language-->
-  <xsl:param name="lang">da</xsl:param>
-  <!-- if the requested language is not found for e.g. questionText, use fallback language-->
-  <xsl:param name="fallback-lang">da</xsl:param>
-  <!-- render all html-elements or just the content of body-->
-  <xsl:param name="render-as-document">true</xsl:param>
-  <!-- include interactive js and jquery for navigation (external links to eXist)-->
-  <xsl:param name="include-js">0</xsl:param>
-  <!-- print anchors for eg QuestionItems-->
-  <xsl:param name="print-anchor">1</xsl:param>
-  <!-- show the title (and subtitle, creator, etc.) of the study-->
-  <xsl:param name="show-study-title">1</xsl:param>
-  <!-- show the abstract as part of study-information-->
-  <xsl:param name="show-abstract">0</xsl:param>
-  <!-- show the coverage as part of study-information -->
-  <xsl:param name="show-coverage">0</xsl:param>
-  <!-- show the questions as a separate flow from the variables-->
-  <xsl:param name="show-questionnaires">0</xsl:param>
-  <!-- show variable navigation-bar-->
-  <xsl:param name="show-navigration-bar">0</xsl:param>
-  <!-- show inline variable toc-->
-  <xsl:param name="show-inline-toc">1</xsl:param>
-  <!-- show study-information-->
-  <xsl:param name="show-study-information">1</xsl:param>
-  <!-- show frequence on numeric variable with missing values -->
+  <!-- show frequencies on numeric variable with missing values -->
   <xsl:param name="show-numeric-var-frequence">0</xsl:param>
 
-  <!-- show universe on variable -->
-  <xsl:param name="show-universe">0</xsl:param>
-
-  <!-- path prefix to the css-files-->
-  <xsl:param name="theme-path">theme/default</xsl:param>
-
-  <!-- path prefix (used for css, js when rendered on the web)-->
-  <xsl:param name="path-prefix">.</xsl:param>
-
-  <xsl:param name="translations">i18n/messages_da.properties.xml</xsl:param>
-  <xsl:variable name="msg" select="document($translations)"/>
+  <!-- upper lower case translations-->
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyzæøå'"/>
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'"/>
 
+  <!-- output -->
   <xsl:output method="html" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes"/>
-
   <xsl:decimal-format name="euro" decimal-separator="," grouping-separator="."/>
 
   <!-- DisplayLabel -->
@@ -92,26 +56,6 @@
     </xsl:choose>
   </xsl:template>
 
-  <!-- DisplayInstructionText -->
-  <!-- Context:  Instruction-->
-  <xsl:template name="DisplayInstructionText">
-    <xsl:choose>
-      <xsl:when test="d:InstructionText/@xml:lang">
-        <xsl:choose>
-          <xsl:when test="d:InstructionText[@xml:lang=$lang]">
-            <xsl:value-of select="d:InstructionText[@xml:lang=$lang]/d:LiteralText"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="d:InstructionText[@xml:lang=$fallback-lang]/d:LiteralText"/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="d:InstructionText/d:LiteralText"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
   <!--  Variables -->
   <xsl:template match="l:Variable">
     <xsl:variable name="varID" select="@id"/>
@@ -122,23 +66,23 @@
       </a>
       <strong class="variableName">
         <xsl:value-of select="l:VariableName"/>
-        <xsl:text> </xsl:text>
-        <xsl:call-template name="DisplayLabel"/>
+        <xsl:text> </xsl:text>        
+        <span class="label"><xsl:call-template name="DisplayLabel"/></span>
       </strong>
       <!-- Concept -->
-      <xsl:if test="count(l:ConceptReference) > 0">
-        <xsl:variable name="cID" select="l:ConceptReference/r:ID"/>
+        <xsl:variable name="cID" select="l:ConceptReference/r:ID"/>      
+      <xsl:if test="$cID">
         <li class="concepts">
           <xsl:for-each select="../../../c:ConceptualComponent/c:ConceptScheme/c:Concept[@id = $cID]">
             <xsl:call-template name="DisplayLabel"/>
-            <div>
+            <!--div>
               <xsl:call-template name="DisplayDescription"/>
-            </div>
+            </div-->
           </xsl:for-each>
         </li>
       </xsl:if>
       <!-- Universe -->
-      <xsl:if test="$show-universe>0">
+      <xsl:if test="$show-universe = 1">
         <xsl:if test="count(r:UniverseReference) > 0">
           <xsl:variable name="uID" select="r:UniverseReference/r:ID"/>
           <li class="universes">
@@ -152,8 +96,15 @@
         </xsl:if>
       </xsl:if>
       <!-- Question Text: -->
+      <xsl:if test="l:QuestionReference">
       <li class="questions">
         <xsl:variable name="qiID" select="l:QuestionReference/r:ID"/>
+          <a>
+            <xsl:attribute name="name">
+              <xsl:value-of select="$qiID"/>
+            </xsl:attribute>
+          </a>
+        <span class="questionText">
         <xsl:if test="count(../../../d:DataCollection/d:QuestionScheme/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text) > 0">
           <xsl:value-of select="../../../d:DataCollection/d:QuestionScheme/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text"/>
         </xsl:if>
@@ -165,7 +116,9 @@
             <xsl:value-of select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text"/>
           </div>
         </xsl:if>
+          </span>
       </li>
+      </xsl:if>
       <!-- Filter: -->
       <xsl:variable name="filterInfo">
         <xsl:call-template name="traverseFilters">
@@ -629,7 +582,9 @@
               <p/>
               <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
               <xsl:text>: </xsl:text>
-              <xsl:value-of select="d:IfCondition/r:Code"/>
+              <xsl:call-template name="splitCondition">
+                <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
+              </xsl:call-template>
               <p/>
               <xsl:call-template name="getHigherIfThenElse">
                 <xsl:with-param name="ifth" select="$h-ifth"/>
@@ -666,7 +621,9 @@
                   <p>
                     <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
                     <xsl:text>: </xsl:text>
-                    <xsl:value-of select="d:IfCondition/r:Code"/>
+                    <xsl:call-template name="splitCondition">
+                      <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
+                    </xsl:call-template>
                   </p>
                   <xsl:call-template name="getHigherIfThenElse">
                     <xsl:with-param name="ifth" select="$ifth"/>
@@ -709,47 +666,105 @@
     </div>
   </xsl:template>
 
+  <!-- Split condition to enable wrap lines 
+   Prameters
+   condition - condition to split
+  -->
+  <xsl:template name="splitCondition">
+    <xsl:param name="condition"/>
+    <xsl:variable name="and" select="replace($condition,'&amp;&amp;', ' &amp;&amp; ')"/>
+    <xsl:variable name="or" select="replace($and,'\|\|', ' || ')"/>
+    <xsl:value-of select="$or"/> 
+  </xsl:template>
+  
+  <!-- Instrumentation -->
   <xsl:template match="d:ControlConstructScheme">
-    <div>
-      <h3>
-        <xsl:value-of select="$msg/*/entry[@key='Instrumentation']"/>
-      </h3>
-      <!-- Sequnces -->
+	  <h3>
+	    <xsl:value-of select="$msg/*/entry[@key='Instrumentation']"/>
+	  </h3>   
+    <xsl:variable name="mainSeqId" select="../d:Instrument/d:ControlConstructReference/r:ID"/>
+    
+    <!-- Main sequence -->
+    <xsl:for-each select="d:Sequence">
+      <xsl:if test="@id = $mainSeqId">
+        <h4>
+          <xsl:value-of select="$msg/*/entry[@key='MainSequence']"/>
+        </h4>  
+        <div class="instrumentation">
+            <ul class="sequences">
+              <xsl:call-template name="sequenceLabel"/>
+              <xsl:call-template name="sequence"/>
+            </ul>
+          </div>
+      </xsl:if>      
+    </xsl:for-each>
+    
+    <!-- All other sequences -->    
+    <h4>
+      <xsl:value-of select="$msg/*/entry[@key='Sequences']"/>
+    </h4>
+    <div class="instrumentation">
       <ul class="sequences">
-        <xsl:for-each select="d:Sequence">
-          <li class="sequences">
-            <a>
-              <xsl:attribute name="name"><xsl:value-of select="@id"/>.<xsl:value-of select="@version"/>
-              </xsl:attribute>
-            </a>
-            <strong>
-              <xsl:value-of select="r:Label"/>
-            </strong>
-          </li>
+    <xsl:for-each select="d:Sequence">
+      <xsl:choose>
+        <xsl:when test="not($mainSeqId)">
+          <xsl:call-template name="sequenceLabel"/>
+          <xsl:call-template name="sequence"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:if test="@id != $mainSeqId">
+            <xsl:call-template name="sequenceLabel"/>
+            <xsl:call-template name="sequence"/>
+          </xsl:if>
+        </xsl:otherwise>
+      </xsl:choose>      
+    </xsl:for-each>        
+      </ul>
+    </div>
+  </xsl:template>
+    
+  <!-- Render Sequence Label -->  
+  <!-- Context:  Sequence-->  
+  <xsl:template name="sequenceLabel">    
+    <li class="sequences">
+      <a>
+        <xsl:attribute name="name"><xsl:value-of select="@id"/>.<xsl:value-of select="@version"/>
+        </xsl:attribute>
+      </a>
+      <strong>
+        <xsl:value-of select="r:Label"/>
+      </strong>
+    </li>
+  </xsl:template>
+  
+    <!-- Sequences -->
+  	<!-- Context:  Sequence-->
+    <xsl:template name="sequence">
           <ul>
             <xsl:for-each select="d:ControlConstructReference">
               <xsl:variable name="qcId" select="r:ID"/>
+              
               <!-- look for Question Constructs -->
               <xsl:for-each select="../../d:QuestionConstruct[@id=$qcId]">
                 <!--  Question Item -->
                 <xsl:variable name="qrId" select="d:QuestionReference/r:ID"/>
 
-                <!--  Interview Instructions -->
-                <xsl:for-each select="d:InterviewerInstructionReference">
-                  <xsl:variable name="iiId" select="r:ID"/>
-                  <xsl:for-each select="../../../d:InterviewerInstructionScheme/d:Instruction[@id=$iiId]">
-                    <li class="instructions">
-                      <!-- <xsl:xsl:call-template name="DisplayLabel"/><xsl:text>: </xsl:text> -->
-                      <xsl:call-template name="DisplayInstructionText"/>
-                      <xsl:if test="string-length(d:InstructionText/d:ConditionalText) > 0">
-                        <xsl:text> </xsl:text>
-                        <xsl:value-of select="$msg/*/entry[@key='If']"/>
-                        <xsl:text> </xsl:text>
-                        <xsl:value-of select="d:InstructionText/d:ConditionalText/d:Expression/r:Code"/>
-                      </xsl:if>
-                    </li>
-                  </xsl:for-each>
+              <!--  look for Interview Instructions -->
+              <xsl:for-each select="d:InterviewerInstructionReference">
+                <xsl:variable name="iiId" select="r:ID"/>
+                <xsl:for-each select="../../../d:InterviewerInstructionScheme/d:Instruction[@id=$iiId]">
+                  <li class="instructions">
+                    <!-- <xsl:xsl:call-template name="DisplayLabel"/><xsl:text>: </xsl:text> -->
+                    <xsl:call-template name="DisplayInstructionText"/>
+                    <xsl:if test="string-length(d:InstructionText/d:ConditionalText) > 0">
+                      <xsl:text> </xsl:text>
+                      <xsl:value-of select="$msg/*/entry[@key='If']"/>
+                      <xsl:text> </xsl:text>
+                      <xsl:value-of select="d:InstructionText/d:ConditionalText/d:Expression/r:Code"/>
+                    </xsl:if>
+                  </li>
                 </xsl:for-each>
+              </xsl:for-each>
 
                 <xsl:for-each select="../../d:QuestionScheme/d:QuestionItem[@id=$qrId] |
                       ../../d:QuestionScheme/d:MultipleQuestionItem[@id=$qrId]/d:SubQuestions/d:QuestionItem">
@@ -776,30 +791,89 @@
               <!-- look for statement items -->
               <xsl:if test="../../d:StatementItem[@id=$qcId]">
                 <li class="statements">
-                  <xsl:value-of select="../../d:StatementItem[@id=$qcId]/r:Label"/>
+                  <!-- xsl:value-of select="../../d:StatementItem[@id=$qcId]/r:Label"/-->
+                  <xsl:for-each select="../../d:StatementItem[@id=$qcId]">
+                    <xsl:call-template name="DisplayStatementItemText" />
+                  </xsl:for-each>                  
                 </li>
               </xsl:if>
+              
               <!-- look for ifthenelse -->
               <xsl:for-each select="../../d:IfThenElse[@id=$qcId]">
                 <li class="ifthenelses">
                   <xsl:text>If </xsl:text>
-                  <xsl:value-of select="d:IfCondition/r:Code"/>
+                  <xsl:call-template name="splitCondition">
+                    <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
+                  </xsl:call-template>
                   <xsl:variable name="tid" select="d:ThenConstructReference/r:ID"/>
+                  <xsl:variable name="tversion" select="d:ThenConstructReference/r:Version"/>
+                  <xsl:variable name="eid" select="d:ElseConstructReference/r:ID"/>
+                  <xsl:variable name="eversion" select="d:ElseConstructReference/r:Version"/>
                   <xsl:text> then </xsl:text>
                   <a>
-                    <xsl:attribute name="href">#<xsl:value-of select="$tid"/><xsl:text>.1.0.0</xsl:text></xsl:attribute>
+                    <xsl:attribute name="href">#<xsl:value-of select="$tid"/><xsl:text>.</xsl:text><xsl:value-of select="$tversion"/></xsl:attribute>
                     <xsl:value-of select="../d:Sequence[@id=$tid]/r:Label"/>
                   </a>
-                  <xsl:if test="string-length(d:ElseConstructReference/r:ID) > 0">
-                    <xsl:variable name="eid" select="d:ThenConstructReference/r:ID"/> else <xsl:value-of select="../d:Sequence[@id=$eid]/r:Label"/>
+                  <xsl:if test="$eid">
+                    <xsl:text> else </xsl:text>
+                    <!--xsl:value-of select="schema-element(../d:ControlConstruct[@id=$eid])/r:Label"/-->
+                    <xsl:value-of select="../d:Sequence[@id=$eid]/r:Label"/>
                   </xsl:if>
                 </li>
               </xsl:for-each>
-            </xsl:for-each>
+              
+              <!-- look for sequences -->
+              <xsl:for-each select="../../d:Sequence[@id=$qcId]">
+                <xsl:variable name="seq" select="../../d:Sequence[@id=$qcId]"/>
+                <li class="subsequences">
+                  <a>
+                    <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/>
+                    </xsl:attribute>
+                    <xsl:value-of select="r:Label"/>
+                  </a>
+                </li>
+              </xsl:for-each>
+              </xsl:for-each>
           </ul>
-        </xsl:for-each>
-      </ul>
-    </div>
   </xsl:template>
-
+  
+  <!-- DisplayInstructionText -->
+  <!-- Context:  Instruction-->
+  <xsl:template name="DisplayInstructionText">
+    <xsl:choose>
+      <xsl:when test="d:InstructionText/@xml:lang">
+        <xsl:choose>
+          <xsl:when test="d:InstructionText[@xml:lang=$lang]">
+            <xsl:value-of select="d:InstructionText[@xml:lang=$lang]/d:LiteralText"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="d:InstructionText[@xml:lang=$fallback-lang]/d:LiteralText"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="d:InstructionText/d:LiteralText"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
+  <!-- DisplayStatementItemText -->
+  <!-- Context:  StatementItem-->
+  <xsl:template name="DisplayStatementItemText">
+    <xsl:choose>
+      <xsl:when test="d:DisplayText/@xml:lang">
+        <xsl:choose>
+          <xsl:when test="d:DisplayText[@xml:lang=$lang]">
+            <xsl:value-of select="d:DisplayText[@xml:lang=$lang]/d:LiteralText"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="d:DisplayText[@xml:lang=$fallback-lang]/d:LiteralText"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="d:DisplayText/d:LiteralText"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 </xsl:stylesheet>
