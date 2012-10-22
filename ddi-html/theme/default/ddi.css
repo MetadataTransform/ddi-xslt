@@ -31,6 +31,11 @@ ul.variables {
     padding-left: 15px;
     margin-left: 15px;
 }
+li.variable {
+    list-style-image: url(img/variable.png);
+    margin:15px;
+    padding-right:45px;
+}
 ul.sequences {
     list-style:none;
 }
@@ -83,7 +88,7 @@ vertical-align:top;
 ul.creator {
     list-style:none;
 }
-div.questionScheme, div.variableScheme {
+div.questionScheme, div.variableScheme, div.universeScheme, div.instrumentation {
     border: 1px solid #DDDDDD;
     padding:5px;
     margin-top:5px;
@@ -92,9 +97,15 @@ div.questionScheme, div.variableScheme {
     margin-top: 25px;
     padding-right:5px;
 }
+.universeList {
+    margin:15px;
+    padding-right:25px;
+    list-style-image: url(img/universe.png);
+    vertical-align: middle; 
+}
 .questionName {
     font-size:0.8em;
-    font-face:monospace;
+    #font-face:monospace; not avialable on some systems
     color:#BBBBBB;
     margin-right:5px;
     border: 1px solid #DDDDDD;
@@ -107,12 +118,16 @@ h3.questionSchemeName {
     margin-left: 10px;
 }
 .refNr {
-    float:right;
+    float:left;
+}
+.sequenceImg {
+	#float:left;
+	margin: 0px;
+	padding: 0px;
 }
 .version {
     font-size:8px;
-    float:left;
-    margin-bottom:3cm;
+    float:right;
 }
 li.pdf, li.stream {
     list-style-image: url(img/pdf.png);
@@ -127,7 +142,14 @@ li.codeDomain {
     list-style-image: url(img/code-scheme.png);
 }
 li.sequences {
-    margin-top: 15px;
+    margin-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    padding-right:25px;
+    list-style-image: url(img/sequence.gif);
+}
+li.subsequences {
+    list-style-image: url(img/sequence.gif);
 }
 li.questions {
     list-style-image: url(img/question.png);
