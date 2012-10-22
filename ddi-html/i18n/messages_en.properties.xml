@@ -171,4 +171,24 @@
 <entry key="ShowingSubset"> total - showing a subset of </entry>
 <entry key="Countries">Countries</entry>
 <entry key="TOC">Table of contents</entry>
+<entry key="MD%">MD%</entry>
+<entry key="Number">Number</entry>
+<entry key="Code">Code</entry>
+<entry key="ValidPercent">Response Rate</entry>
+<entry key="Filtering">Variable filters</entry>
+<entry key="FilteredBy">Variable is filtered by</entry>
+<entry key="Interval">Variable is coded in the interval of </entry>
+<entry key="To"> to </entry>
+<entry key="MissingValue">Unknown/irrelevant/not participating - is </entry>
+<entry key="Messure">Scale</entry>
+<entry key="Unknown">Unknown</entry>
+<entry key="Irrelevant">Irrelevant</entry>
+<entry key="NotParticipating">Not participating</entry>
+<entry key="Instrumentation">Instrument</entry>
+<entry key="If">if</entry>
+<entry key="MainSequence">Main Sequence</entry>
+<entry key="Sequences">Sub Sequences</entry>
+<entry key="RefNo">Reference No.: </entry>
+<entry key="MainUniverses">Main Universes</entry>
+<entry key="AllUniverses">All Universes</entry>
 </properties>
