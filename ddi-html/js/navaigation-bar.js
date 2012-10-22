@@ -20,7 +20,7 @@ $(document).ready(function(){
     
     menuTabs();
     pupulateVariableList();
-    pupulateQuestionList();
+    pupulateVariableQuestionList();
     
     $('.filter').keyup(function(e){
         var total   = $('#variable-list li').length;
@@ -69,10 +69,10 @@ function pupulateVariableList(){
         $(variableScheme).children().each(function(i, variable){
             var name  = $(variable).children('.variableName').text();
             var label =  $(variable).children('.label').text();
-            var href = $(variable).children('a').attr('name')
-            
-            $(container).append('<li><a href="#'+href+'"><strong class="variableName">'+name+'</strong><span class="variablel-label">'+label+'</span></a></li>');
-            
+            var href = $(variable).children('a').attr('name');
+            if(name) {
+            	$(container).append('<li><a href="#'+href+'"><strong class="variableName">'+name+'</strong><span class="variablel-label">'+label+'</span></a></li>');
+            }
         });
     });
     
@@ -81,6 +81,22 @@ function pupulateVariableList(){
     $('#variable-list-wrapper .count').html($('#variable-list li').length+' '+'variables');
 }
 
+function pupulateVariableQuestionList(){
+    var container = $("#question-list");
+    $('.variableScheme .variables').each(function(index, variableScheme) {
+        $(variableScheme).children().each(function(i, variable){            
+		var href  = $(variable).children('a').attr('name');   
+		var qtext  = $(variable).children('.questionText').text();
+            if(qtext) {
+            	$(container).append('<li><a href="#'+href+'"><span class="questionText">'+qtext+'</strong></a></li>');
+            }
+        });
+    });
+    
+    $('#question-list-wrapper').liveFilter('ul');
+    
+    $('#question-list-wrapper .count').html($('#question-list li').length+' '+'questions');
+}
 
 function pupulateQuestionList(){
     var container = $("#question-list");
