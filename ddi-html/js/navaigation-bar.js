@@ -85,8 +85,8 @@ function pupulateVariableQuestionList(){
     var container = $("#question-list");
     $('.variableScheme .variables').each(function(index, variableScheme) {
         $(variableScheme).children().each(function(i, variable){            
-		var href  = $(variable).children('a').attr('name');   
-		var qtext  = $(variable).children('.questionText').text();
+		var href  = $(variable).children('.questionsmargin').children('a').attr('name');   
+		var qtext  = $(variable).children('.questionsmargin').text();
             if(qtext) {
             	$(container).append('<li><a href="#'+href+'"><span class="questionText">'+qtext+'</strong></a></li>');
             }

@@ -14,7 +14,6 @@ resource {
     color:green;
 }
 div.question {
-    font-style:italic;
     margin-top:5px;
 }
 ul {
@@ -58,7 +57,8 @@ body {
 a {
     color:#015497;
 }
-ul {
+ul.padleft {
+    margin-left:15px;
     padding-left: 15px;
 }
 measure {
@@ -88,7 +88,7 @@ vertical-align:top;
 ul.creator {
     list-style:none;
 }
-div.questionScheme, div.variableScheme, div.universeScheme, div.instrumentation {
+div.questionScheme, div.variableScheme, div.universeScheme, div.instrumentation, div.conceptScheme {
     border: 1px solid #DDDDDD;
     padding:5px;
     margin-top:5px;
@@ -101,6 +101,12 @@ div.questionScheme, div.variableScheme, div.universeScheme, div.instrumentation 
     margin:15px;
     padding-right:25px;
     list-style-image: url(img/universe.png);
+    vertical-align: middle; 
+}
+.conceptList {
+    margin:15px;
+    padding-right:25px;
+      list-style-image: url(img/concept.png);
     vertical-align: middle; 
 }
 .questionName {
@@ -154,6 +160,11 @@ li.subsequences {
 li.questions {
     list-style-image: url(img/question.png);
 }
+li.questionsmargin {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style-image: url(img/question.png);
+}
 li.statements {
     list-style-image: url(img/statement.gif);
 }
@@ -163,6 +174,11 @@ li.instructions {
 li.ifthenelses {
     list-style-image: url(img/decision_palette.gif);
 }
+li.filteredby {
+    font-style:italic;
+    list-style-image: url(img/decision_palette.gif);
+}
+
 .study {
     float:left;
 }
@@ -179,7 +195,7 @@ li.ifthenelses {
     margin-left: 0px;
     padding-left: 5px;
 }
-.filter {
+.filter {    
     width: 80%;
 }
 /* * tabs navigation* */
@@ -253,9 +269,12 @@ li.ifthenelses {
     list-style-image: url(img/universe.png);
 }
 .questions {
-    font-style:italic;
     list-style-image: url(img/question.png);
 }
 .variables {
     list-style-image: url(img/variable.png);
+}
+.multipleQuestion {
+    color: #5f5f5f;
+    font-style:italic;
 }
