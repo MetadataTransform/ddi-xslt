@@ -50,7 +50,7 @@
     <entry key="Decimals">decimaler</entry>
     <entry key="Type">Type</entry>
     <entry key="Literal_question">Literal question</entry>
-    <entry key="Concepts">Concepts</entry>
+    <entry key="Concepts">Begreber</entry>
     <entry key="Range">Range</entry>
     <entry key="Abstract">Resume</entry>
     <entry key="June">June</entry>
@@ -188,6 +188,6 @@
     <entry key="MainSequence">Hovedsekvens</entry>
     <entry key="Sequences">Undersekvenser</entry>
     <entry key="RefNo">DDA-</entry>
-	<entry key="MainUniverse">Univers</entry>
-	<entry key="AllUniverses">Subuniverser</entry>
+    <entry key="MainUniverse">Univers</entry>
+    <entry key="AllUniverses">Subuniverser</entry>
 </properties>
