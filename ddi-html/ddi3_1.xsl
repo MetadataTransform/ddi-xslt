@@ -24,10 +24,12 @@
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
-    
+    <!-- imports -->
     <xsl:import href="ddi3_1_datacollection.xsl"/>
     <xsl:import href="ddi3_1_logicalproduct.xsl"/>
-
+    <xsl:import href="ddi3_1_conceptualcomponent.xsl"/>    
+    <xsl:import href="ddi3_1_util.xsl"/>
+    
     <!--  SVN version -->
     <xsl:param name="svn-revision">$Revision: 103 $</xsl:param>
     <!-- render text-elements of this language-->
@@ -65,7 +67,6 @@
     
     <!-- path prefix (used for css, js when rendered on the web)-->
     <xsl:param name="path-prefix">../ddi-html</xsl:param>    
-    
 
     <xsl:param name="translations">i18n/messages_en.properties.xml</xsl:param>
     <xsl:variable name="msg" select="document($translations)"/>	
@@ -202,8 +203,7 @@
 			     </xsl:if>
 				
                 <xsl:if test="c:ConceptualComponent/c:UniverseScheme">       
-                    <h3><xsl:value-of select="$msg/*/entry[@key='Universe']"/></h3>
-                    
+                    <h3><xsl:value-of select="$msg/*/entry[@key='Universe']"/></h3>                    
                     
                     <div class="universeScheme">                        
                         <!-- Study Unit Unverse Reference -->
@@ -234,9 +234,12 @@
                 <xsl:apply-templates select="r:SeriesStatement"/>                           
             </xsl:if>
             
+            <xsl:apply-templates select="c:ConceptualComponent"/>
+            
             <xsl:if test="$show-questionnaires = 1">
                 <xsl:apply-templates select="d:DataCollection"/>
             </xsl:if>
+            
             <xsl:apply-templates select="l:LogicalProduct"/>
         </div>        
     </xsl:template>
