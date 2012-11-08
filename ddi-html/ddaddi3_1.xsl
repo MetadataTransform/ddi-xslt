@@ -6,6 +6,8 @@
   <xsl:import href="ddi3_1.xsl"/>
   <xsl:import href="ddi3_1_util.xsl"/>
 
+  <!--  SVN version -->
+  <xsl:param name="svn-revision">$Revision$</xsl:param>
   <!-- show frequencies on numeric variable with missing values -->
   <xsl:param name="show-numeric-var-frequence">0</xsl:param>
 
