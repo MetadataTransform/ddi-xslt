@@ -146,7 +146,14 @@
                     </strong>
                 </p>
             </xsl:if>
-
+            
+            <xsl:if test="string-length($msg/*/entry[@key='Introduction1']) > 0">
+                <h3><xsl:value-of select="$msg/*/entry[@key='Introduction1']"/></h3>
+            </xsl:if>
+            <xsl:if test="string-length($msg/*/entry[@key='Introduction2']) > 0">
+                <h3><xsl:value-of select="$msg/*/entry[@key='Introduction2']"/></h3>
+            </xsl:if>
+            
             <xsl:if test="$show-study-information = 1">
                 <div id="studyId">
                     <h2><xsl:value-of select="$msg/*/entry[@key='RefNo']"/><strong><xsl:value-of select="@id"/></strong></h2>
