@@ -33,7 +33,7 @@
     <!--  SVN version -->
     <xsl:param name="svn-revision">$Revision: 103 $</xsl:param>
     <!-- render text-elements of this language-->
-    <xsl:param name="lang">en</xsl:param>
+    <xsl:param name="lang">sv</xsl:param>
     <!-- if the requested language is not found for e.g. questionText, use fallback language-->
     <xsl:param name="fallback-lang">en</xsl:param>
     <!-- render all html-elements or just the content of body--> 
@@ -199,15 +199,15 @@
                 </xsl:if>
                 
                 <xsl:if test="$show-kind-of-data">
-	                <xsl:if test="s:KindOfData">
-	                    <h3><xsl:value-of select="$msg/*/entry[@key='Kind_of_Data']"/></h3>
-	                    <xsl:for-each select="s:KindOfData">
-	                        <p>
-	                            <xsl:value-of select="."/>
-	                        </p>
-	                    </xsl:for-each>
-	                </xsl:if>
-			     </xsl:if>
+                    <xsl:if test="s:KindOfData">
+                        <h3><xsl:value-of select="$msg/*/entry[@key='Kind_of_Data']"/></h3>
+                        <xsl:for-each select="s:KindOfData">
+                            <p>
+                                <xsl:value-of select="."/>
+                            </p>
+                        </xsl:for-each>
+                    </xsl:if>
+		</xsl:if>
 				
                 <xsl:if test="c:ConceptualComponent/c:UniverseScheme">       
                     <h3><xsl:value-of select="$msg/*/entry[@key='Universe']"/></h3>                    
@@ -241,6 +241,16 @@
                 <xsl:apply-templates select="r:SeriesStatement"/>                           
             </xsl:if>
             
+            <xsl:if test="r:OtherMaterial">
+                <h4>
+                    <xsl:value-of select="$msg/*/entry[@key='Other_documents']"/>
+                </h4>                
+                <ul>
+                    <xsl:apply-templates select="r:OtherMaterial" />
+                </ul>
+            </xsl:if>
+            
+            
             <xsl:apply-templates select="c:ConceptualComponent"/>
             
             <xsl:if test="$show-questionnaires = 1">
@@ -254,10 +264,28 @@
     <xsl:template match="s:Coverage">
         <h3><xsl:value-of select="$msg/*/entry[@key='Scope_and_Coverage']"/></h3>
         <xsl:for-each select="r:TemporalCoverage">
-            <p>
-                <xsl:value-of select="r:ReferenceDate/r:StartDate"/> - <xsl:value-of select="r:ReferenceDate/r:EndDate"/>
+            <p itemscope="" itemtype="http://schema.org/Event">
+                <span itemprop="startDate"><xsl:value-of select="r:ReferenceDate/r:StartDate"/></span> - <span itemprop="endDate"><xsl:value-of select="r:ReferenceDate/r:EndDate"/></span>
             </p>
         </xsl:for-each>
+        <xsl:apply-templates select="r:TopicalCoverage"/>
+    </xsl:template>
+    
+    <xsl:template match="r:TopicalCoverage">
+        <xsl:if test="r:Subject">
+            <ul>
+                <xsl:for-each select="r:Subject">
+                    <li><xsl:value-of select="."/></li>  
+                </xsl:for-each>
+            </ul>
+        </xsl:if>
+        <xsl:if test="r:Keyword">
+            <ul>
+                <xsl:for-each select="r:Keyword">  
+                    <li><xsl:value-of select="."/></li>  
+                </xsl:for-each>
+            </ul>   
+        </xsl:if>     
     </xsl:template>
 
     <xsl:template match="c:Universe">
@@ -307,9 +335,9 @@
 	        <h3><xsl:value-of select="$msg/*/entry[@key='Primary_Investigators']"/></h3>
 	        <ul class="creator">
 	            <xsl:for-each select="r:Creator[@xml:lang=$lang]">
-	                <li>
-	                    <xsl:value-of select="."/>, <em>
-	                        <xsl:value-of select="@affiliation"/>
+	                <li itemscope="" itemtype="http://schema.org/Person">
+	                    <span itemprop="name"><xsl:value-of select="."/></span>, <em>
+	                        <span itemprop="affiliation"><xsl:value-of select="@affiliation"/></span>
 	                    </em>
 	                </li>
 	            </xsl:for-each>
@@ -339,17 +367,48 @@
     </xsl:template>
 
     <xsl:template match="r:OtherMaterial">
-        <li>
-            <!-- used for setting class for icon for the filetype-->
-            <xsl:attribute name="class">
-                <xsl:value-of select="substring-after(r:MIMEType,'/')"/>
-            </xsl:attribute>
-            <a>
-                <xsl:attribute name="href">
-                    <xsl:value-of select="r:ExternalURLReference"/>
-                </xsl:attribute>
-                <xsl:value-of select="r:Citation/r:Title[@xml:lang=$lang]"/>
-            </a>
-        </li>
+        <xsl:choose>
+            <xsl:when test="./@type = 'publication'">
+                <li itemscope="" itemtype="http://schema.org/Article">
+                    <xsl:choose>
+                        <xsl:when test="r:ExternalURLReference">
+                            <a>
+                                <xsl:attribute name="href">
+                                    <xsl:value-of select="r:ExternalURLReference"/>
+                                </xsl:attribute>                   
+                                <span itemprop="name"><xsl:value-of select="r:Citation/r:Title[@xml:lang=$lang]"/></span>           
+                            </a>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <span itemprop="name">
+                                <xsl:value-of select="r:Citation/r:Title[@xml:lang=$lang]"/>
+                            </span>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:for-each select="r:Citation/r:Creator[@xml:lang=$lang]">
+                        <span itemprop="author"><xsl:value-of select="."/></span>
+                    </xsl:for-each>
+                    <xsl:if test="r:Citation/r:Publisher[@xml:lang=$lang]">
+                        <xsl:for-each select="r:Citation/r:Publisher[@xml:lang=$lang]">
+                            <span itemprop="publisher"><xsl:value-of select="."/></span>
+                        </xsl:for-each>
+                    </xsl:if>                    
+                </li>
+            </xsl:when>
+            <xsl:otherwise>
+                <li>
+                    <!-- used for setting class for icon for the filetype-->
+                    <xsl:attribute name="class">
+                        <xsl:value-of select="substring-after(r:MIMEType,'/')"/>
+                    </xsl:attribute>
+                    <a>
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="r:ExternalURLReference"/>
+                        </xsl:attribute>
+                        <xsl:value-of select="r:Citation/r:Title[@xml:lang=$lang]"/>
+                    </a>
+                </li>                
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>
