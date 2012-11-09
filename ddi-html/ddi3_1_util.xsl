@@ -26,7 +26,12 @@
     
     <xsl:template name="CreateLink">
         <a>
-            <xsl:attribute name="name"><xsl:value-of select="@id"/>.<xsl:value-of select="@version"/>
+            <xsl:attribute name="name">
+                <xsl:value-of select="@id"/>
+                <xsl:if test="@version">
+                    <xsl:text>.</xsl:text>
+                    <xsl:value-of select="@version"/>
+                </xsl:if>
             </xsl:attribute>
         </a>    
     </xsl:template>
