@@ -433,7 +433,7 @@
             <xsl:value-of select="$msg/*/entry[@key='Irrelevant']"/>
           </xsl:if>
           <xsl:if test="normalize-space($codeValue) = $deltagerIkke">
-            <xsl:value-of select="$msg/*/entry[@key='NotParticiparing']"/>
+            <xsl:value-of select="$msg/*/entry[@key='NotParticipating']"/>
           </xsl:if>
         </td>
       </tr>
