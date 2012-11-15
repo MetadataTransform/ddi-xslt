@@ -54,8 +54,8 @@
     <xsl:param name="show-questionnaires">1</xsl:param>
     <!-- show navigation-bar-->
     <xsl:param name="show-navigration-bar">1</xsl:param>
-    <!-- show inline variable toc-->
-    <xsl:param name="show-inline-toc">0</xsl:param>
+    <!-- show inline variable list-->
+    <xsl:param name="show-variable-list">1</xsl:param>
     <!-- show study-information-->
     <xsl:param name="show-study-information">1</xsl:param>
     <!-- show kind-of-data-->
@@ -179,9 +179,9 @@
                     <xsl:apply-templates select="s:Coverage"/>
                 </xsl:if>
 
-                <xsl:if test="$show-inline-toc = 1">
+                <xsl:if test="$show-variable-list = 1">
                     <p>
-                    <h3><xsl:value-of select="$msg/*/entry[@key='TOC']"/></h3>
+                        <h3><xsl:value-of select="$msg/*/entry[@key='VariableList']"/></h3>
                     <dl>
                         <xsl:for-each select="l:LogicalProduct/l:VariableScheme/l:Variable">
                             <dt>
