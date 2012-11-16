@@ -22,6 +22,10 @@ $(document).ready(function(){
     pupulateVariableList();
     pupulateVariableQuestionList();
     
+    if($("#question-list li").length == 0){
+        pupulateQuestionList();
+    }
+    
     $('.filter').keyup(function(e){
         var total   = $('#variable-list li').length;
         var hidden  = $('#variable-list li:hidden').length;
@@ -103,7 +107,7 @@ function pupulateQuestionList(){
     $('.questionScheme .questions').each(function(index, questionScheme) {
         $(questionScheme).children().each(function(i, question){
             var name            = $(question).children('.questionName').text();
-            var questionText    =  $(question).children('.questionText').text();
+            var questionText    = $(question).children('.questionText').text();
             var href            = $(question).children('a').attr('name')
             
             $(container).append('<li><a href="#'+href+'"><span class="questionText">'+questionText+'</span></a></li>');
