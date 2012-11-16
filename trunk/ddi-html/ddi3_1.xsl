@@ -163,11 +163,11 @@
                     <h3><xsl:value-of select="$msg/*/entry[@key='Abstract']"/></h3>
                     <p itemprop="description">
                         <xsl:choose>
-                            <xsl:when test="s:Abstract/@xml:lang">
-                                <xsl:copy-of select="s:Abstract[@xml:lang=$lang]"/>
+                            <xsl:when test="s:Abstract/r:content[@xml:lang]">
+                                <xsl:value-of select="s:Abstract/r:content[@xml:lang=$lang]"/>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:copy-of select="s:Abstract"/>
+                                <xsl:value-of select="s:Abstract/r:content"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </p>
@@ -342,7 +342,8 @@
 	        <ul class="creator">
 	            <xsl:for-each select="r:Creator[@xml:lang=$lang]">
 	                <li itemscope="" itemtype="http://schema.org/Person">
-	                    <span itemprop="name"><xsl:value-of select="."/></span>, <em>
+	                    <span itemprop="name"><xsl:value-of select="."/></span>, 
+                            <em>
 	                        <span itemprop="affiliation"><xsl:value-of select="@affiliation"/></span>
 	                    </em>
 	                </li>
@@ -392,13 +393,20 @@
                         </xsl:otherwise>
                     </xsl:choose>
                     <xsl:for-each select="r:Citation/r:Creator[@xml:lang=$lang]">
-                        <span itemprop="author"><xsl:value-of select="."/></span>
+                        <span itemprop="author"><xsl:value-of select="."/>, </span>
                     </xsl:for-each>
-                    <xsl:if test="r:Citation/r:Publisher[@xml:lang=$lang]">
-                        <xsl:for-each select="r:Citation/r:Publisher[@xml:lang=$lang]">
-                            <span itemprop="publisher"><xsl:value-of select="."/></span>
-                        </xsl:for-each>
-                    </xsl:if>                    
+                    <xsl:choose>
+                        <xsl:when test="r:Citation/r:Publisher[@xml:lang=$lang]">
+                            <xsl:for-each select="r:Citation/r:Publisher[@xml:lang=$lang]">
+                                <span itemprop="publisher"><xsl:value-of select="."/></span>
+                            </xsl:for-each>                            
+                        </xsl:when>
+                        <xsl:when test="r:Citation/r:Publisher">
+                            <xsl:for-each select="r:Citation/r:Publisher">
+                               <span itemprop="publisher"><xsl:value-of select="."/></span>
+                           </xsl:for-each>                           
+                        </xsl:when>
+                    </xsl:choose>             
                 </li>
             </xsl:when>
             <xsl:otherwise>
