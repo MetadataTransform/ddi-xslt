@@ -9,8 +9,9 @@
     xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1" xmlns:pd="ddi:physicaldataproduct:3_1"
     xmlns:cm="ddi:comparative:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:r="ddi:reusable:3_1"
     xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:util="https://code.google.com/p/ddixslt/#util"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    version="2.0"
     xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
     <!-- import -->
@@ -31,7 +32,7 @@
                 </h3>
             </xsl:if>           
             <xsl:if test="c:ConceptScheme">
-                <h3><xsl:value-of select="$msg/*/entry[@key='Concepts']"/></h3>
+                <h3><xsl:value-of select="util:i18n('Concepts')"/></h3>
             </xsl:if>
             <xsl:apply-templates select="c:ConceptScheme"/>
         </div>

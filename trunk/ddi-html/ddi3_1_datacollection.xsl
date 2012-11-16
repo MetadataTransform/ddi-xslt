@@ -22,7 +22,10 @@
                 xmlns:ds="ddi:dataset:3_1"
                 xmlns:pr="ddi:profile:3_1"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                xmlns:util="https://code.google.com/p/ddixslt/#util"
+                
+                version="2.0"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
     <xsl:output method="html"/>
     
@@ -40,7 +43,7 @@
     <xsl:template match="d:DataCollection">  
         <div class="dataCollection">
             <xsl:if test="r:OtherMaterial">
-                <h3><xsl:value-of select="$msg/*/entry[@key='Other_resources']"/></h3>
+                <h3><xsl:value-of select="util:i18n('Other_resources')"/></h3>
                 <ul class="otherMaterial">
                     <xsl:apply-templates select="r:OtherMaterial"/>
                 </ul>
@@ -194,10 +197,10 @@
         <ul>
             <li class="text">
                 <xsl:if test="@minLength">
-                    <xsl:value-of select="$msg/*/entry[@key='Minimum']"/>: <xsl:value-of select="@minLength" />
+                    <xsl:value-of select="util:i18n('Minimum')"/>: <xsl:value-of select="@minLength" />
                 </xsl:if>
                 <xsl:if test="@maxLength">
-                    <xsl:value-of select="$msg/*/entry[@key='Maximum']"/>: <xsl:value-of select="@maxLength" />
+                    <xsl:value-of select="util:i18n('Maximum')"/>: <xsl:value-of select="@maxLength" />
                 </xsl:if>
             </li>
         </ul>
