@@ -187,19 +187,21 @@
                 <xsl:if test="$show-variable-list = 1">
                     <p>
                         <h3><xsl:value-of select="util:i18n('VariableList')"/></h3>
-                    <dl>
-                        <xsl:for-each select="l:LogicalProduct/l:VariableScheme/l:Variable">
-                            <dt>
-                                <a>
-                                    <!-- Note: JS Navigation Bar - does not support not supported anchors with version -->
-                                    <!-- <xsl:attribute name="href">#<xsl:value-of select="@id"/></xsl:attribute> -->
-                                    <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/></xsl:attribute>
-                                    <xsl:value-of select="l:VariableName"/><xsl:text> </xsl:text>
-                                    <xsl:value-of select="r:Label"/>
-                                </a>
-                            </dt>
-                        </xsl:for-each>
-                    </dl>
+                        <div class="varlist">
+                            <dl>
+                                <xsl:for-each select="l:LogicalProduct/l:VariableScheme/l:Variable">
+                                <dt>
+                                    <a>
+                                        <!-- Note: JS Navigation Bar - does not support not supported anchors with version -->
+                                        <!-- <xsl:attribute name="href">#<xsl:value-of select="@id"/></xsl:attribute> -->
+                                        <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/></xsl:attribute>
+                                        <xsl:value-of select="l:VariableName"/><xsl:text> </xsl:text>
+                                        <xsl:value-of select="r:Label"/>
+                                    </a>
+                                </dt>
+                            </xsl:for-each>
+                        </dl>
+                       </div>
                     </p>
                 </xsl:if>
                 
@@ -306,9 +308,7 @@
         <ul>
             <li class="universeList">
                     <xsl:text> </xsl:text>
-                    <a>
-                        <xsl:attribute name="name"><xsl:value-of select="$uniId"/></xsl:attribute>
-                    </a>
+                    <xsl:call-template name="CreateLink"/>
                     <xsl:text> </xsl:text>
                     <strong>
                         <xsl:value-of select="c:HumanReadable[@xml:lang=$lang]"/>
