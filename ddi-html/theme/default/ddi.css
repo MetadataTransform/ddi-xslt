@@ -16,10 +16,6 @@ resource {
 div.question {
     margin-top:5px;
 }
-.description {
-    font-weight: normal;
-    padding-left: 20px;
-    margin-left: 20px;
 ul {
     padding-left: 15px;
 }
@@ -282,3 +278,9 @@ li.filteredby {
     color: #5f5f5f;
     font-style:italic;
 }
+.description {
+    font-weight: normal;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+
