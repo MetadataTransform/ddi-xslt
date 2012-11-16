@@ -96,7 +96,14 @@
             </a>
            </xsl:if>
             <strong class="questionName">
-                <xsl:value-of select="d:QuestionItemName[@xml:lang=$lang]"/>
+                <xsl:choose>
+                    <xsl:when test="d:QuestionItemName[@xml:lang=$lang]">
+                        <xsl:value-of select="d:QuestionItemName[@xml:lang=$lang]"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="d:QuestionItemName"/>
+                    </xsl:otherwise>
+                </xsl:choose>
             </strong>
             <span class="questionText">
                 <xsl:choose>
@@ -136,8 +143,15 @@
             <!-- use optional external question-id as id to the li-element -->
             <xsl:attribute name="class">question-<xsl:value-of select="r:UserID[@type='question_id']"/></xsl:attribute>
             <strong class="questionName">
-                <xsl:value-of select="d:MultipleQuestionItemName[@xml:lang=$lang]"/>
-            </strong>
+                <xsl:choose>
+                    <xsl:when test="d:MultipleQuestionItemName[@xml:lang=$lang]">
+                        <xsl:value-of select="d:MultipleQuestionItemName[@xml:lang=$lang]"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="d:MultipleQuestionItemName"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </strong>            
             <xsl:choose>
                 <xsl:when test="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text">
                     <xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
