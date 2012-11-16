@@ -176,7 +176,7 @@
                 </xsl:if>
                 
                 <xsl:if test="$show-coverage = 1">
-                    <xsl:apply-templates select="s:Coverage"/>
+                    <xsl:apply-templates select="r:Coverage"/>
                 </xsl:if>
 
                 <xsl:if test="$show-variable-list = 1">
@@ -261,13 +261,17 @@
         </div>        
     </xsl:template>
     
-    <xsl:template match="s:Coverage">
+    <xsl:template match="r:Coverage">
         <h3><xsl:value-of select="$msg/*/entry[@key='Scope_and_Coverage']"/></h3>
+        
+        <h4><xsl:value-of select="$msg/*/entry[@key='Time_Periods']"/></h4>
         <xsl:for-each select="r:TemporalCoverage">
             <p itemscope="" itemtype="http://schema.org/Event">
                 <span itemprop="startDate"><xsl:value-of select="r:ReferenceDate/r:StartDate"/></span> - <span itemprop="endDate"><xsl:value-of select="r:ReferenceDate/r:EndDate"/></span>
             </p>
         </xsl:for-each>
+        <h4><xsl:value-of select="$msg/*/entry[@key='Topics']"/></h4>
+        
         <xsl:apply-templates select="r:TopicalCoverage"/>
     </xsl:template>
     
