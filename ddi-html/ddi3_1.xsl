@@ -128,9 +128,9 @@
     </xsl:template>
     
     <xsl:template match="s:StudyUnit">
-        <div id="study">
+        <div id="study" itemscope="" itemtype="http://schema.org/CreativeWork">
             <xsl:if test="$show-study-title = 1">
-                <h1>
+                <h1 itemprop="name">
                     <xsl:choose>
                         <xsl:when test="r:Citation/r:Title/@xml:lang">
                             <xsl:value-of select="r:Citation/r:Title[@xml:lang=$lang]"/>
@@ -141,7 +141,7 @@
                     </xsl:choose>
                 </h1>
                 <p>
-                    <strong>
+                    <strong itemprop="alternativeHeadline">
                     <xsl:value-of select="r:Citation/r:AlternateTitle[@xml:lang=$lang]"/>
                     </strong>
                 </p>
@@ -161,14 +161,16 @@
                 
                 <xsl:if test="$show-abstract = 1">
                     <h3><xsl:value-of select="$msg/*/entry[@key='Abstract']"/></h3>
-                    <xsl:choose>
-                        <xsl:when test="s:Abstract/@xml:lang">
-                            <xsl:copy-of select="s:Abstract[@xml:lang=$lang]"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:copy-of select="s:Abstract"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
+                    <p itemprop="description">
+                        <xsl:choose>
+                            <xsl:when test="s:Abstract/@xml:lang">
+                                <xsl:copy-of select="s:Abstract[@xml:lang=$lang]"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:copy-of select="s:Abstract"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </p>
                 </xsl:if>
 
                 <xsl:if test="$show-citation = 1">
@@ -277,16 +279,16 @@
     
     <xsl:template match="r:TopicalCoverage">
         <xsl:if test="r:Subject">
-            <ul>
+            <ul class="subjects">
                 <xsl:for-each select="r:Subject">
-                    <li><xsl:value-of select="."/></li>  
+                    <li itemprop="keywords"><xsl:value-of select="."/></li>  
                 </xsl:for-each>
             </ul>
         </xsl:if>
         <xsl:if test="r:Keyword">
-            <ul>
+            <ul class="keywords">
                 <xsl:for-each select="r:Keyword">  
-                    <li><xsl:value-of select="."/></li>  
+                    <li itemprop="keywords"><xsl:value-of select="."/></li>  
                 </xsl:for-each>
             </ul>   
         </xsl:if>     
