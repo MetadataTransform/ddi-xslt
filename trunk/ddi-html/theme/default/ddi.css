@@ -88,7 +88,7 @@ vertical-align:top;
 ul.creator {
     list-style:none;
 }
-div.questionScheme, div.variableScheme, div.universeScheme, div.instrumentation, div.conceptScheme {
+div.questionScheme, div.variableScheme, div.universeScheme, div.instrumentation, div.conceptScheme, div.varlist {
     border: 1px solid #DDDDDD;
     padding:5px;
     margin-top:5px;
@@ -280,7 +280,8 @@ li.filteredby {
 }
 .description {
     font-weight: normal;
-    padding-left: 20px;
-    margin-left: 20px;
+    margin-left: 15px;
+    margin-top: 2px;
+    margin-bottom: 8px;
 }
 
