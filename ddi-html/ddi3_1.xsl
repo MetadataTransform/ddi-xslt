@@ -21,7 +21,10 @@
                 xmlns:ds="ddi:dataset:3_1"
                 xmlns:pr="ddi:profile:3_1"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                xmlns:util="https://code.google.com/p/ddixslt/#util"
+    
+                version="2.0"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
     <!-- imports -->
@@ -156,18 +159,18 @@
             
             <xsl:if test="$show-study-information = 1">
                 <div id="studyId">
-                    <h2><xsl:value-of select="$msg/*/entry[@key='RefNo']"/><strong><xsl:value-of select="@id"/></strong></h2>
+                    <h2><xsl:value-of select="util:i18n('RefNo')"/><strong><xsl:value-of select="@id"/></strong></h2>
                 </div>
                 
                 <xsl:if test="$show-abstract = 1">
-                    <h3><xsl:value-of select="$msg/*/entry[@key='Abstract']"/></h3>
+                    <h3><xsl:value-of select="util:i18n('Abstract')"/></h3>
                     <p itemprop="description">
                         <xsl:choose>
-                            <xsl:when test="s:Abstract/r:content[@xml:lang]">
-                                <xsl:value-of select="s:Abstract/r:content[@xml:lang=$lang]"/>
+                            <xsl:when test="s:Abstract/r:Content[@xml:lang=$lang]">
+                                <xsl:value-of select="s:Abstract/r:Content[@xml:lang=$lang]"/>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:value-of select="s:Abstract/r:content"/>
+                                <xsl:value-of select="s:Abstract/r:Content"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </p>
@@ -183,7 +186,7 @@
 
                 <xsl:if test="$show-variable-list = 1">
                     <p>
-                        <h3><xsl:value-of select="$msg/*/entry[@key='VariableList']"/></h3>
+                        <h3><xsl:value-of select="util:i18n('VariableList')"/></h3>
                     <dl>
                         <xsl:for-each select="l:LogicalProduct/l:VariableScheme/l:Variable">
                             <dt>
@@ -202,7 +205,7 @@
                 
                 <xsl:if test="$show-kind-of-data">
                     <xsl:if test="s:KindOfData">
-                        <h3><xsl:value-of select="$msg/*/entry[@key='Kind_of_Data']"/></h3>
+                        <h3><xsl:value-of select="util:i18n('Kind_of_Data')"/></h3>
                         <xsl:for-each select="s:KindOfData">
                             <p>
                                 <xsl:value-of select="."/>
@@ -212,12 +215,12 @@
 		</xsl:if>
 				
                 <xsl:if test="c:ConceptualComponent/c:UniverseScheme">       
-                    <h3><xsl:value-of select="$msg/*/entry[@key='Universe']"/></h3>                    
+                    <h3><xsl:value-of select="util:i18n('Universe')"/></h3>                    
                     
                     <div class="universeScheme">                        
                         <!-- Study Unit Unverse Reference -->
                         <h4>
-                            <xsl:value-of select="$msg/*/entry[@key='MainUniverse']"/>
+                            <xsl:value-of select="util:i18n('MainUniverse')"/>
                         </h4>
                         <xsl:for-each select="r:UniverseReference/r:ID">                            
                             <xsl:variable name="univRefId" select="."/>
@@ -231,7 +234,7 @@
                     <!-- Sub Universes -->
                     <xsl:if test="$show-universe = 1">    
                     <h4>
-                        <xsl:value-of select="$msg/*/entry[@key='AllUniverses']"/>
+                        <xsl:value-of select="util:i18n('AllUniverses')"/>
                     </h4>
                             <xsl:for-each select="c:ConceptualComponent/c:UniverseScheme/c:Universe">
                                 <xsl:call-template name="Universe"/>
@@ -245,7 +248,7 @@
             
             <xsl:if test="r:OtherMaterial">
                 <h4>
-                    <xsl:value-of select="$msg/*/entry[@key='Other_documents']"/>
+                    <xsl:value-of select="util:i18n('Other_documents')"/>
                 </h4>                
                 <ul>
                     <xsl:apply-templates select="r:OtherMaterial" />
@@ -264,15 +267,15 @@
     </xsl:template>
     
     <xsl:template match="r:Coverage">
-        <h3><xsl:value-of select="$msg/*/entry[@key='Scope_and_Coverage']"/></h3>
+        <h3><xsl:value-of select="util:i18n('Scope_and_Coverage')"/></h3>
         
-        <h4><xsl:value-of select="$msg/*/entry[@key='Time_Periods']"/></h4>
+        <h4><xsl:value-of select="util:i18n('Time_Periods')"/></h4>
         <xsl:for-each select="r:TemporalCoverage">
             <p itemscope="" itemtype="http://schema.org/Event">
                 <span itemprop="startDate"><xsl:value-of select="r:ReferenceDate/r:StartDate"/></span> - <span itemprop="endDate"><xsl:value-of select="r:ReferenceDate/r:EndDate"/></span>
             </p>
         </xsl:for-each>
-        <h4><xsl:value-of select="$msg/*/entry[@key='Topics']"/></h4>
+        <h4><xsl:value-of select="util:i18n('Topics')"/></h4>
         
         <xsl:apply-templates select="r:TopicalCoverage"/>
     </xsl:template>
@@ -338,7 +341,7 @@
 
     <xsl:template match="r:Citation">
         <xsl:if test="count(r:Creator) > 0">
-	        <h3><xsl:value-of select="$msg/*/entry[@key='Primary_Investigators']"/></h3>
+	        <h3><xsl:value-of select="util:i18n('Primary_Investigators')"/></h3>
 	        <ul class="creator">
 	            <xsl:for-each select="r:Creator[@xml:lang=$lang]">
 	                <li itemscope="" itemtype="http://schema.org/Person">
@@ -351,7 +354,7 @@
 	        </ul>
         </xsl:if>
         <xsl:if test="count(r:Publisher[@xml:lang=$lang]) > 0">
-	        <h3><xsl:value-of select="$msg/*/entry[@key='Publishers']"/></h3>
+	        <h3><xsl:value-of select="util:i18n('Publishers')"/></h3>
 	        <ul class="publisher">
 	            <xsl:for-each select="r:Publisher[@xml:lang=$lang]">
 	                <li>
@@ -363,9 +366,9 @@
     </xsl:template>
 
     <xsl:template match="r:SeriesStatement">
-        <h3><xsl:value-of select="$msg/*/entry[@key='Series']"/></h3>
+        <h3><xsl:value-of select="util:i18n('Series')"/></h3>
         <p>
-        	<strong><xsl:value-of select="$msg/*/entry[@key='Name']"/>: </strong>
+        	<strong><xsl:value-of select="util:i18n('Name')"/>: </strong>
         	<xsl:value-of select="r:SeriesName[@xml:lang=$lang]"/>
         </p>
         <p>
