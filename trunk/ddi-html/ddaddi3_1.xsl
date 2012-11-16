@@ -45,10 +45,12 @@
         <span class="label">
           <xsl:call-template name="DisplayLabel"/>
         </span>
-        <div class="description">
-            <xsl:call-template name="DisplayDescription"/>
-        </div>
       </strong>
+        <xsl:if test="r:Description">
+          <div class="description">
+              <xsl:call-template name="DisplayDescription"/>
+          </div>
+        </xsl:if>
     </li>
 
     <ul>
@@ -68,16 +70,20 @@
           </xsl:for-each>
         </li>
       </xsl:if>
+      
       <!-- universe -->
       <xsl:if test="$show-universe = 1">
-        <xsl:if test="count(r:UniverseReference) > 0">
-          <xsl:variable name="uID" select="r:UniverseReference/r:ID"/>
-          <xsl:for-each select="../../../c:ConceptualComponent/c:UniverseScheme/c:Universe[@id = $uID]">
-            <li class="universes">
-              <xsl:call-template name="DisplayLabel"/>
-            </li>
+          <xsl:for-each select="r:UniverseReference">
+            <xsl:variable name="uID" select="r:ID"/>
+            <xsl:for-each select="../../../../c:ConceptualComponent/c:UniverseScheme/c:Universe[@id = $uID]">
+              <li class="universes">
+                <a>
+                  <xsl:attribute name="href">#<xsl:value-of select="$uID"/>.<xsl:value-of select="@version"/></xsl:attribute>
+                  <xsl:call-template name="DisplayLabel"/>
+                </a>
+               </li>
+            </xsl:for-each>
           </xsl:for-each>
-        </xsl:if>
       </xsl:if>
 
       <!-- filter -->
