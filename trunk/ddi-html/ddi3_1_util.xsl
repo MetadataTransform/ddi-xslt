@@ -9,7 +9,9 @@
     xmlns:cm="ddi:comparative:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:r="ddi:reusable:3_1"
     xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:util="https://code.google.com/p/ddixslt/#util"
+    version="2.0"
     xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
     <xsl:output method="html"/>
     
@@ -75,4 +77,18 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    
+    <!-- i18n -->
+    <!-- Helper function for geting translated strings -->
+    <xsl:function name="util:i18n">
+        <xsl:param name="term"/>
+        <xsl:choose>
+            <xsl:when test="$msg/*/entry[@key=$term]">
+                <xsl:value-of select="$msg/*/entry[@key=$term]/text()"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$term"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
 </xsl:stylesheet>
