@@ -16,6 +16,10 @@ resource {
 div.question {
     margin-top:5px;
 }
+.description {
+    font-weight: normal;
+    padding-left: 20px;
+    margin-left: 20px;
 ul {
     padding-left: 15px;
 }
