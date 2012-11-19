@@ -379,7 +379,7 @@
     <xsl:template match="r:OtherMaterial">
         <xsl:choose>
             <xsl:when test="./@type = 'publication'">
-                <li itemscope="" itemtype="http://schema.org/Article">
+                <li class="publication" itemscope="" itemtype="http://schema.org/Article">
                     <xsl:choose>
                         <xsl:when test="r:ExternalURLReference">
                             <a>
