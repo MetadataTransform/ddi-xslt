@@ -14,8 +14,6 @@
     version="2.0"
     xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
-    <!-- import -->
-    <xsl:import href="ddi3_1_util.xsl"/>
 
     <!-- params -->
     <!--xsl:param name="translations">i18n/messages_en.properties.xml</xsl:param>
@@ -31,10 +29,10 @@
                     <xsl:value-of select="c:ConceptualComponentModuleName"/>
                 </h3>
             </xsl:if>           
-            <xsl:if test="c:ConceptScheme">
+            <xsl:if test="count(c:ConceptScheme/c:Concept) > 0">
                 <h3><xsl:value-of select="util:i18n('Concepts')"/></h3>
+                <xsl:apply-templates select="c:ConceptScheme"/>
             </xsl:if>
-            <xsl:apply-templates select="c:ConceptScheme"/>
         </div>
     </xsl:template>
 
