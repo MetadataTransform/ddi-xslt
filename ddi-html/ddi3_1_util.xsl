@@ -91,4 +91,21 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
+    
+    <!-- i18nString -->
+    <!-- Helper function for rendering an element in the correct language -->    
+    <xsl:function name="util:i18nString">
+        <xsl:param name="item" />
+        <xsl:choose>
+            <xsl:when test="$item[@xml:lang=$lang]">
+                <xsl:value-of select="$item[@xml:lang=$lang]/text()"/>
+            </xsl:when>
+            <xsl:when test="$item[@xml:lang=$fallback-lang]">
+                <xsl:value-of select="$item[@xml:lang=$fallback-lang]/text()"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$item/text()"/>
+            </xsl:otherwise>            
+        </xsl:choose>
+    </xsl:function>
 </xsl:stylesheet>

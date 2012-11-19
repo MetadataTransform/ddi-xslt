@@ -28,10 +28,11 @@
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
     <!-- imports -->
+    <xsl:import href="ddi3_1_util.xsl"/>
     <xsl:import href="ddi3_1_datacollection.xsl"/>
     <xsl:import href="ddi3_1_logicalproduct.xsl"/>
     <xsl:import href="ddi3_1_conceptualcomponent.xsl"/>    
-    <xsl:import href="ddi3_1_util.xsl"/>
+    
     
     <!--  SVN version -->
     <xsl:param name="svn-revision">$Revision: 103 $</xsl:param>
@@ -143,6 +144,7 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </h1>
+                <a><xsl:attribute name="href">#Title</xsl:attribute></a>
                 <p>
                     <strong itemprop="alternativeHeadline">
                     <xsl:value-of select="r:Citation/r:AlternateTitle[@xml:lang=$lang]"/>
@@ -159,11 +161,25 @@
             
             <xsl:if test="$show-study-information = 1">
                 <div id="studyId">
-                    <h2><xsl:value-of select="util:i18n('RefNo')"/><strong><xsl:value-of select="@id"/></strong></h2>
+                    <h2>
+                        <xsl:value-of select="util:i18n('RefNo')"/>
+                        <xsl:text>: </xsl:text>
+                        <strong> 
+                            <xsl:choose>
+                                <xsl:when test="a:Archive/a:ArchiveSpecific/a:Collection/a:CallNumber">
+                                    <xsl:value-of select="a:Archive/a:ArchiveSpecific/a:Collection/a:CallNumber"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="@id"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </strong>
+                    </h2>
                 </div>
                 
                 <xsl:if test="$show-abstract = 1">
                     <h3><xsl:value-of select="util:i18n('Abstract')"/></h3>
+                    <a><xsl:attribute name="href">#Abstract</xsl:attribute></a>
                     <p itemprop="description">
                         <xsl:choose>
                             <xsl:when test="s:Abstract/r:Content[@xml:lang=$lang]">
@@ -185,24 +201,26 @@
                 </xsl:if>
 
                 <xsl:if test="$show-variable-list = 1">
-                    <p>
-                        <h3><xsl:value-of select="util:i18n('VariableList')"/></h3>
-                        <div class="varlist">
-                            <dl>
-                                <xsl:for-each select="l:LogicalProduct/l:VariableScheme/l:Variable">
-                                <dt>
-                                    <a>
-                                        <!-- Note: JS Navigation Bar - does not support not supported anchors with version -->
-                                        <!-- <xsl:attribute name="href">#<xsl:value-of select="@id"/></xsl:attribute> -->
-                                        <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/></xsl:attribute>
-                                        <xsl:value-of select="l:VariableName"/><xsl:text> </xsl:text>
-                                        <xsl:value-of select="r:Label"/>
-                                    </a>
-                                </dt>
-                            </xsl:for-each>
-                        </dl>
-                       </div>
-                    </p>
+                    <xsl:if test="count(l:LogicalProduct/l:VariableScheme/l:Variable) > 0">
+                        <p>
+                            <h3><xsl:value-of select="util:i18n('VariableList')"/></h3>
+                            <div class="varlist">
+                                <dl>
+                                    <xsl:for-each select="l:LogicalProduct/l:VariableScheme/l:Variable">
+                                    <dt>
+                                        <a>
+                                            <!-- Note: JS Navigation Bar - does not support not supported anchors with version -->
+                                            <!-- <xsl:attribute name="href">#<xsl:value-of select="@id"/></xsl:attribute> -->
+                                            <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/></xsl:attribute>
+                                            <xsl:value-of select="l:VariableName"/><xsl:text> </xsl:text>
+                                            <xsl:value-of select="r:Label"/>
+                                        </a>
+                                    </dt>
+                                </xsl:for-each>
+                            </dl>
+                           </div>
+                        </p>
+                    </xsl:if>
                 </xsl:if>
                 
                 <xsl:if test="$show-kind-of-data">
@@ -277,12 +295,13 @@
                 <span itemprop="startDate"><xsl:value-of select="r:ReferenceDate/r:StartDate"/></span> - <span itemprop="endDate"><xsl:value-of select="r:ReferenceDate/r:EndDate"/></span>
             </p>
         </xsl:for-each>
-        <h4><xsl:value-of select="util:i18n('Topics')"/></h4>
+        
         
         <xsl:apply-templates select="r:TopicalCoverage"/>
     </xsl:template>
     
     <xsl:template match="r:TopicalCoverage">
+        <h4><xsl:value-of select="util:i18n('Topics')"/></h4>
         <xsl:if test="r:Subject">
             <ul class="subjects">
                 <xsl:for-each select="r:Subject">
@@ -290,6 +309,7 @@
                 </xsl:for-each>
             </ul>
         </xsl:if>
+        <h4><xsl:value-of select="util:i18n('Keywords')"/></h4>
         <xsl:if test="r:Keyword">
             <ul class="keywords">
                 <xsl:for-each select="r:Keyword">  

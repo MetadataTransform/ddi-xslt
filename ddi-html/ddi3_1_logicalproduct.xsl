@@ -22,7 +22,9 @@
                 xmlns:ds="ddi:dataset:3_1"
                 xmlns:pr="ddi:profile:3_1"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                xmlns:util="https://code.google.com/p/ddixslt/#util"
+                version="2.0"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
     <xsl:output method="html"/>
     
@@ -85,10 +87,10 @@
     <xsl:template match="l:Category">
        <xsl:choose>
            <xsl:when test="@missing">
-               <td><em><xsl:value-of select="r:Label" /></em></td>
+               <td class="missing"><em><xsl:value-of select="util:i18nString(r:Label)" /></em></td>
            </xsl:when>
            <xsl:otherwise>
-               <td><xsl:value-of select="r:Label" /></td>
+               <td><xsl:value-of select="util:i18nString(r:Label)" /></td>
            </xsl:otherwise>
        </xsl:choose>
     </xsl:template>
