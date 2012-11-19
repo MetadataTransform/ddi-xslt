@@ -4,11 +4,15 @@ $(document).ready(function(){
         <input class="filter" name="livefilter" type="text" placeholder="filter" />\n\
         <div class="tabs">\n\
             <ul class="tabNavigation">\n\
-                <li class="option active variables" id="tab1" tab="#variable-list-wrapper">Variables</li>\n\
-                <li class="option questions" id="tab2" tab="#question-list-wrapper">Questions</li>\n\
+                <li class="option index active" id="tab1" tab="#index-wrapper">Index</li>\n\
+                <li class="option variables" id="tab2" tab="#variable-list-wrapper">Variables</li>\n\
+                <li class="option questions" id="tab3" tab="#question-list-wrapper">Questions</li>\n\
             </ul>\n\
         </div>\n\
-        <div id="variable-list-wrapper" class="tab-content">\n\
+        <div id="index-wrapper" class="tab-content">\n\
+            <ul id="index"></ul>\n\
+        </div>\n\
+        <div id="variable-list-wrapper" class="tab-content hide">\n\
             <span class="count"></span>\n\
             <ul id="variable-list"></ul>\n\
         </div>\n\
@@ -110,8 +114,9 @@ function pupulateQuestionList(){
             var questionText    = $(question).children('.questionText').text();
             var href            = $(question).children('a').attr('name')
             
-            $(container).append('<li><a href="#'+href+'"><span class="questionText">'+questionText+'</span></a></li>');
-            
+            if(questionText.length > 0){
+                $(container).append('<li><a href="#'+href+'"><span class="questionText">'+questionText+'</span></a></li>');
+            }
         });
     });
     
