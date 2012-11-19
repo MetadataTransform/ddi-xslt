@@ -138,6 +138,9 @@ h3.questionSchemeName {
 li.pdf, li.stream {
     list-style-image: url(img/pdf.png);
 }
+li.publication{
+    list-style-image: url(img/publication.png);
+}
 li.html {
     list-style-image: url(img/html.png);
 }
