@@ -191,4 +191,7 @@
 <entry key="RefNo">Reference No.: </entry>
 <entry key="MainUniverses">Main Universes</entry>
 <entry key="AllUniverses">All Universes</entry>
+<entry key="Instruction">Instruction</entry>
+<entry key="GuidanceText">Codebook reading guide</entry>
+<entry key="CurrationProcessText">Information about applied curration process</entry>
 </properties>

@@ -62,6 +62,10 @@
     <xsl:param name="show-variable-list">1</xsl:param>
     <!-- show study-information-->
     <xsl:param name="show-study-information">1</xsl:param>
+    <!-- guidances and curration process -->
+    <xsl:param name="show-guidance">0</xsl:param>
+    <xsl:param name="guidancelink">#</xsl:param>  
+    <xsl:param name="currationprocesslink">#</xsl:param>
     <!-- show kind-of-data-->
     <xsl:param name="show-kind-of-data">1</xsl:param>
     <!-- show universe on variable -->
@@ -152,18 +156,10 @@
                 </p>
             </xsl:if>
             
-            <xsl:if test="string-length($msg/*/entry[@key='Introduction1']) > 0">
-                <h3><xsl:value-of select="$msg/*/entry[@key='Introduction1']"/></h3>
-            </xsl:if>
-            <xsl:if test="string-length($msg/*/entry[@key='Introduction2']) > 0">
-                <h3><xsl:value-of select="$msg/*/entry[@key='Introduction2']"/></h3>
-            </xsl:if>
-            
             <xsl:if test="$show-study-information = 1">
                 <div id="studyId">
                     <h2>
                         <xsl:value-of select="util:i18n('RefNo')"/>
-                        <xsl:text>: </xsl:text>
                         <strong> 
                             <xsl:choose>
                                 <xsl:when test="a:Archive/a:ArchiveSpecific/a:Collection/a:CallNumber">
@@ -176,6 +172,25 @@
                         </strong>
                     </h2>
                 </div>
+                
+                <!-- guidances and curration process --> 
+                <xsl:if test="$show-guidance = 1">
+                    <h3><xsl:value-of select="util:i18n('Instruction')"/></h3>
+                    <div class="guidance">
+                        <a>
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="util:i18n($guidancelink)"/>
+                            </xsl:attribute>
+                            <xsl:value-of select="util:i18n('GuidanceText')"/>
+                        </a><br/>
+                        <a>
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="util:i18n($currationprocesslink)"/>
+                            </xsl:attribute>
+                            <xsl:value-of select="util:i18n('CurrationProcessText')"/>
+                         </a>
+                    </div>
+                </xsl:if>
                 
                 <xsl:if test="$show-abstract = 1">
                     <h3><xsl:value-of select="util:i18n('Abstract')"/></h3>

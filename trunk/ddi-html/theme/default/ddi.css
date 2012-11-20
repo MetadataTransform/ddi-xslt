@@ -88,7 +88,7 @@ vertical-align:top;
 ul.creator {
     list-style:none;
 }
-div.questionScheme, div.variableScheme, div.universeScheme, div.instrumentation, div.conceptScheme, div.varlist {
+div.questionScheme, div.variableScheme, div.universeScheme, div.instrumentation, div.conceptScheme, div.varlist, div.guidance {
     border: 1px solid #DDDDDD;
     padding:5px;
     margin-top:5px;
