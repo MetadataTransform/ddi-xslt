@@ -6,11 +6,12 @@
   <xsl:import href="ddi3_1.xsl"/>
   <xsl:import href="ddi3_1_util.xsl"/>
 
-  <!--  SVN version -->
-  <xsl:param name="svn-revision">$Revision$</xsl:param>
+  <!--  svn version -->
+  <xsl:param name="svn-revision">Revision: 260</xsl:param>
+  
   <!-- show frequencies on numeric variable with missing values -->
   <xsl:param name="show-numeric-var-frequence">0</xsl:param>
-
+  
   <!-- upper lower case translations-->
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyzæøå'"/>
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'"/>
@@ -20,7 +21,7 @@
   <xsl:decimal-format name="euro" decimal-separator="," grouping-separator="."/>
 
   <!-- study - universe - concepts inherited from ddi3_1.xsl -->
-
+  
   <!-- variables and control constructs -->
   <xsl:template match="l:LogicalProduct">
     <div class="variableSchemes">
