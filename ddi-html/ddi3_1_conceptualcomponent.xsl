@@ -30,7 +30,7 @@
                 </h3>
             </xsl:if>           
             <xsl:if test="count(c:ConceptScheme/c:Concept) > 0">
-                <h3><xsl:value-of select="util:i18n('Concepts')"/></h3>
+                <h3 id="ConceptList"><xsl:value-of select="util:i18n('Concepts')"/></h3>
                 <xsl:apply-templates select="c:ConceptScheme"/>
             </xsl:if>
         </div>
