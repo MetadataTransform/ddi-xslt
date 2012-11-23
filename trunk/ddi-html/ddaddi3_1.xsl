@@ -666,7 +666,7 @@
 
   <!-- Instrumentation -->
   <xsl:template match="d:ControlConstructScheme">
-    <h3>
+    <h3 id="Instrumentation">
       <xsl:value-of select="$msg/*/entry[@key='Instrumentation']"/>
     </h3>
     <xsl:variable name="mainSeqId" select="../d:Instrument/d:ControlConstructReference/r:ID"/>
