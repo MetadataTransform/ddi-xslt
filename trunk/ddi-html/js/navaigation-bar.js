@@ -4,13 +4,9 @@ $(document).ready(function(){
         <input class="filter" name="livefilter" type="text" placeholder="filter" />\n\
         <div class="tabs">\n\
             <ul class="tabNavigation">\n\
-                <li class="option index active" id="tab1" tab="#index-wrapper">Index</li>\n\
                 <li class="option variables" id="tab2" tab="#variable-list-wrapper">Variables</li>\n\
                 <li class="option questions" id="tab3" tab="#question-list-wrapper">Questions</li>\n\
             </ul>\n\
-        </div>\n\
-        <div id="index-wrapper" class="tab-content">\n\
-            <ul id="index"></ul>\n\
         </div>\n\
         <div id="variable-list-wrapper" class="tab-content hide">\n\
             <span class="count"></span>\n\
