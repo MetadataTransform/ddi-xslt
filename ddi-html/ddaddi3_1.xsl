@@ -7,10 +7,10 @@
   <xsl:import href="ddi3_1_util.xsl"/>
 
   <!--  svn version -->
-  <xsl:param name="svn-revision">Revision: 260</xsl:param>
+  <xsl:param name="svn-revision" as="xs:string">Revision: 260</xsl:param>
   
   <!-- show frequencies on numeric variable with missing values -->
-  <xsl:param name="show-numeric-var-frequence">0</xsl:param>
+  <xsl:param name="show-numeric-var-frequence">true</xsl:param>
   
   <!-- upper lower case translations-->
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyzæøå'"/>
@@ -109,7 +109,7 @@
           <xsl:variable name="qiID" select="l:QuestionReference/r:ID"/>
           <a>
             <xsl:attribute name="name">
-              <xsl:value-of select="$qiID"/>
+              <xsl:value-of select="$qiID"/><xsl:text>.</xsl:text><xsl:value-of select="l:QuestionReference/r:Version"/>
             </xsl:attribute>
           </a>
 
@@ -431,9 +431,11 @@
         </td>
         <td class="left">
           <xsl:for-each select="../../../../l:LogicalProduct/l:CategoryScheme/l:Category[@id=$categoryRef]">
+            <xsl:call-template name="CreateLink"/>
             <xsl:call-template name="DisplayLabel"/>
           </xsl:for-each>
           <xsl:for-each select="../../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$categoryRef]">
+            <xsl:call-template name="CreateLink"/>
             <resource>
               <xsl:call-template name="DisplayLabel"/>
             </resource>
