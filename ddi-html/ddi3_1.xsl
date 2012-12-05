@@ -19,35 +19,35 @@
     <!-- render all html-elements or just the content of body-->
     <xsl:param name="render-as-document">true</xsl:param>
     <!-- include interactive js and jquery for navigation (external links to eXist)-->
-    <xsl:param name="include-js">1</xsl:param>
+    <xsl:param name="include-js">true</xsl:param>
     <!-- print anchors for eg QuestionItems-->
-    <xsl:param name="print-anchor">1</xsl:param>
+    <xsl:param name="print-anchor">true</xsl:param>
     <!-- show the title (and subtitle) of the study-->
-    <xsl:param name="show-study-title">1</xsl:param>
+    <xsl:param name="show-study-title">true</xsl:param>
     <!-- show citaion as part study-information-->
-    <xsl:param name="show-citation">1</xsl:param>
+    <xsl:param name="show-citation">true</xsl:param>
     <!-- show the coverage as part of study-information -->
-    <xsl:param name="show-coverage">1</xsl:param>
+    <xsl:param name="show-coverage">true</xsl:param>
     <!-- show the Table Of Content in top of document -->
-    <xsl:param name="show-toc">1</xsl:param>
+    <xsl:param name="show-toc">true</xsl:param>
     <!-- show the abstract as part of study-information -->
-    <xsl:param name="show-abstract">1</xsl:param>
+    <xsl:param name="show-abstract">true</xsl:param>
     <!-- show the questions as a separate flow from the variables-->
-    <xsl:param name="show-questionnaires">1</xsl:param>
+    <xsl:param name="show-questionnaires">true</xsl:param>
     <!-- show navigation-bar-->
-    <xsl:param name="show-navigration-bar">1</xsl:param>
+    <xsl:param name="show-navigration-bar">true</xsl:param>
     <!-- show inline variable list-->
-    <xsl:param name="show-variable-list">1</xsl:param>
+    <xsl:param name="show-variable-list">true</xsl:param>
     <!-- show study-information-->
-    <xsl:param name="show-study-information">1</xsl:param>
+    <xsl:param name="show-study-information">true</xsl:param>
     <!-- guidances and curration process -->
-    <xsl:param name="show-guidance">0</xsl:param>
+    <xsl:param name="show-guidance">false</xsl:param>
     <xsl:param name="guidancelink">#</xsl:param>
     <xsl:param name="currationprocesslink">#</xsl:param>
     <!-- show kind-of-data-->
-    <xsl:param name="show-kind-of-data">1</xsl:param>
+    <xsl:param name="show-kind-of-data">true</xsl:param>
     <!-- show universe on variable -->
-    <xsl:param name="show-universe">1</xsl:param>
+    <xsl:param name="show-universe">true</xsl:param>
     <!-- path prefix to the theme css-files-->
     <xsl:param name="theme-path">theme/default</xsl:param>
 
@@ -73,7 +73,7 @@
                     </xsl:choose>
                 </title>
                 <xsl:choose>
-                    <xsl:when test="$include-js = 1">
+                    <xsl:when test="$include-js = true">
                         <script type="text/javascript">
                             <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery-1.7.1.min.js</xsl:attribute>
                         </script>
@@ -109,7 +109,7 @@
 
     <xsl:template match="s:StudyUnit">
         <div id="study" itemscope="" itemtype="http://schema.org/CreativeWork">
-            <xsl:if test="$show-study-title = 1">
+            <xsl:if test="$show-study-title = true">
                 <h1 itemprop="name">
                     <xsl:choose>
                         <xsl:when test="r:Citation/r:Title/@xml:lang">
@@ -130,7 +130,7 @@
                 </p>
             </xsl:if>
 
-            <xsl:if test="$show-study-information = 1">
+            <xsl:if test="$show-study-information = true">
                 <div id="studyId">
                     <h2>
                         <xsl:value-of select="util:i18n('RefNo')"/>
@@ -148,7 +148,7 @@
                 </div>
 
                 <!-- guidances and curration process -->
-                <xsl:if test="$show-guidance = 1">
+                <xsl:if test="$show-guidance = true">
                     <h3>
                         <xsl:value-of select="util:i18n('Instruction')"/>
                     </h3>
@@ -169,7 +169,7 @@
                     </div>
                 </xsl:if>
 
-                <xsl:if test="$show-toc = 1">
+                <xsl:if test="$show-toc = true">
                     <h3>
                         <xsl:value-of select="util:i18n('Indholdsfortegnelse')"/>
                     </h3>
@@ -203,7 +203,7 @@
                     </dl>
                 </xsl:if>
 
-                <xsl:if test="$show-abstract = 1">
+                <xsl:if test="$show-abstract = true">
                     <h3>
                         <xsl:value-of select="util:i18n('Abstract')"/>
                     </h3>
@@ -222,15 +222,15 @@
                     </p>
                 </xsl:if>
 
-                <xsl:if test="$show-citation = 1">
+                <xsl:if test="$show-citation = true">
                     <xsl:apply-templates select="r:Citation"/>
                 </xsl:if>
 
-                <xsl:if test="$show-coverage = 1">
+                <xsl:if test="$show-coverage = true">
                     <xsl:apply-templates select="r:Coverage"/>
                 </xsl:if>
 
-                <xsl:if test="$show-variable-list = 1">
+                <xsl:if test="$show-variable-list = true">
                     <xsl:if test="count(l:LogicalProduct/l:VariableScheme/l:Variable) > 0">
                         <p>
                             <h3 id="VariableList">
@@ -289,7 +289,7 @@
                         </xsl:for-each>
 
                         <!-- Sub Universes -->
-                        <xsl:if test="$show-universe = 1">
+                        <xsl:if test="$show-universe = true">
                             <h4>
                                 <xsl:value-of select="util:i18n('AllUniverses')"/>
                             </h4>
@@ -315,7 +315,7 @@
 
             <xsl:apply-templates select="c:ConceptualComponent"/>
 
-            <xsl:if test="$show-questionnaires = 1">
+            <xsl:if test="$show-questionnaires = true">
                 <xsl:apply-templates select="d:DataCollection"/>
             </xsl:if>
 
@@ -352,9 +352,11 @@
         <xsl:if test="r:Subject">
             <ul class="subjects">
                 <xsl:for-each select="r:Subject">
-                    <li itemprop="keywords">
-                        <xsl:value-of select="."/>
-                    </li>
+                    <xsl:if test="./@xml:lang=$lang">
+                        <li itemprop="keywords">
+                            <xsl:value-of select="."/>
+                        </li>
+                    </xsl:if>
                 </xsl:for-each>
             </ul>
         </xsl:if>
@@ -364,9 +366,11 @@
         <xsl:if test="r:Keyword">
             <ul class="keywords">
                 <xsl:for-each select="r:Keyword">
-                    <li itemprop="keywords">
-                        <xsl:value-of select="."/>
-                    </li>
+                    <xsl:if test="./@xml:lang=$lang">
+                        <li itemprop="keywords">
+                            <xsl:value-of select="."/>
+                        </li>
+                    </xsl:if>
                 </xsl:for-each>
             </ul>
         </xsl:if>
