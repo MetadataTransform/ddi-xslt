@@ -7,7 +7,7 @@
   <xsl:import href="ddi3_1_util.xsl"/>
 
   <!--  svn version -->
-  <xsl:param name="svn-revision" as="xs:string">Revision: 260</xsl:param>
+  <xsl:param name="svn-revision">Revision: 260</xsl:param>
   
   <!-- show frequencies on numeric variable with missing values -->
   <xsl:param name="show-numeric-var-frequence">true</xsl:param>
@@ -73,7 +73,7 @@
       </xsl:if>
       
       <!-- universe -->
-      <xsl:if test="$show-universe = 1">
+      <xsl:if test="$show-universe = 'true'">
           <xsl:for-each select="r:UniverseReference">
             <xsl:variable name="uID" select="r:ID"/>
             <xsl:for-each select="../../../../c:ConceptualComponent/c:UniverseScheme/c:Universe[@id = $uID]">
@@ -174,7 +174,7 @@
       <!-- statistics -->
       <xsl:variable name="decimalPosition" select="l:Representation/l:NumericRepresentation/@decimalPositions"/>
       <xsl:if test="l:Representation/l:CodeRepresentation or 
-        (l:Representation/l:NumericRepresentation and $show-numeric-var-frequence = 1 and $missingValue != '' and $filterInfo != '')">
+        (l:Representation/l:NumericRepresentation and $show-numeric-var-frequence = 'true' and $missingValue != '' and $filterInfo != '')">
         <xsl:variable name="csID" select="l:Representation/l:CodeRepresentation/r:CodeSchemeReference/r:ID"/>
         <xsl:if test="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics/pi:VariableReference/r:ID = $varID">
           <li class="codeDomain">
