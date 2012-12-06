@@ -38,7 +38,7 @@
     <!-- if the requested language is not found for e.g. questionText, use fallback language-->
     <xsl:param name="fallback-lang">en</xsl:param>
     <!-- print anchors for eg QuestionItems-->
-    <xsl:param name="print-anchor">1</xsl:param>
+    <xsl:param name="print-anchor">true</xsl:param>
 
     <xsl:template match="d:DataCollection">  
         <div class="dataCollection">

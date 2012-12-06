@@ -73,7 +73,7 @@
                     </xsl:choose>
                 </title>
                 <xsl:choose>
-                    <xsl:when test="$include-js = true">
+                    <xsl:when test="$include-js='true'">
                         <script type="text/javascript">
                             <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery-1.7.1.min.js</xsl:attribute>
                         </script>
@@ -109,7 +109,7 @@
 
     <xsl:template match="s:StudyUnit">
         <div id="study" itemscope="" itemtype="http://schema.org/CreativeWork">
-            <xsl:if test="$show-study-title = true">
+            <xsl:if test="$show-study-title = 'true'">
                 <h1 itemprop="name">
                     <xsl:choose>
                         <xsl:when test="r:Citation/r:Title/@xml:lang">
@@ -130,7 +130,7 @@
                 </p>
             </xsl:if>
 
-            <xsl:if test="$show-study-information = true">
+            <xsl:if test="$show-study-information = 'true'">
                 <div id="studyId">
                     <h2>
                         <xsl:value-of select="util:i18n('RefNo')"/>
@@ -148,7 +148,7 @@
                 </div>
 
                 <!-- guidances and curration process -->
-                <xsl:if test="$show-guidance = true">
+                <xsl:if test="$show-guidance = 'true'">
                     <h3>
                         <xsl:value-of select="util:i18n('Instruction')"/>
                     </h3>
@@ -169,18 +169,20 @@
                     </div>
                 </xsl:if>
 
-                <xsl:if test="$show-toc = true">
+                <xsl:if test="$show-toc = 'true'">
                     <h3>
                         <xsl:value-of select="util:i18n('Indholdsfortegnelse')"/>
                     </h3>
                     <dl>
                         <div class="toc">
-                            <dt>
-                                <a>
-                                    <xsl:attribute name="href">#VariableList</xsl:attribute>
-                                    <xsl:value-of select="util:i18n('VariableList')"/>
-                                </a>
-                            </dt>
+                        	<xsl:if test="$show-variable-list = 'true'">
+                            	<dt>
+                                	<a>
+                                    	<xsl:attribute name="href">#VariableList</xsl:attribute>
+                                    	<xsl:value-of select="util:i18n('VariableList')"/>
+                                	</a>
+                            	</dt>
+							</xsl:if>
                             <dt>
                                 <a>
                                     <xsl:attribute name="href">#UniverseList</xsl:attribute>
@@ -203,7 +205,7 @@
                     </dl>
                 </xsl:if>
 
-                <xsl:if test="$show-abstract = true">
+                <xsl:if test="$show-abstract = 'true'">
                     <h3>
                         <xsl:value-of select="util:i18n('Abstract')"/>
                     </h3>
@@ -222,15 +224,15 @@
                     </p>
                 </xsl:if>
 
-                <xsl:if test="$show-citation = true">
+                <xsl:if test="$show-citation = 'true'">
                     <xsl:apply-templates select="r:Citation"/>
                 </xsl:if>
 
-                <xsl:if test="$show-coverage = true">
+                <xsl:if test="$show-coverage = 'true'">
                     <xsl:apply-templates select="r:Coverage"/>
                 </xsl:if>
 
-                <xsl:if test="$show-variable-list = true">
+                <xsl:if test="$show-variable-list = 'true'">
                     <xsl:if test="count(l:LogicalProduct/l:VariableScheme/l:Variable) > 0">
                         <p>
                             <h3 id="VariableList">
@@ -256,7 +258,7 @@
                     </xsl:if>
                 </xsl:if>
 
-                <xsl:if test="$show-kind-of-data">
+                <xsl:if test="$show-kind-of-data='true'">
                     <xsl:if test="s:KindOfData">
                         <h3>
                             <xsl:value-of select="util:i18n('Kind_of_Data')"/>
@@ -289,7 +291,7 @@
                         </xsl:for-each>
 
                         <!-- Sub Universes -->
-                        <xsl:if test="$show-universe = true">
+                        <xsl:if test="$show-universe = 'true'">
                             <h4>
                                 <xsl:value-of select="util:i18n('AllUniverses')"/>
                             </h4>
