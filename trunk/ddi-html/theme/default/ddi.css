@@ -76,11 +76,11 @@ table {
 text-align:right;
 vertical-align:top;
 }
-td.left {
+td.left, th.left {
 text-align:left;
 vertical-align:top;
 }
-td.right {
+td.right, th.right {
 text-align:right;
 vertical-align:top;
 }
@@ -184,6 +184,15 @@ li.filteredby {
 .study {
     float:left;
 }
+
+#dragbar{
+   background-color:black;
+   height:100%;
+   float: right;
+   width: 3px;
+   cursor: col-resize;
+}
+
 #navigration {
     position: fixed;
     border: 1px solid;

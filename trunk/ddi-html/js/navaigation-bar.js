@@ -1,7 +1,21 @@
 $(document).ready(function(){
 
     if($("#navigation").length === 0){
+        
+        var languageSwitchTmp = '';
+        if(languageSwitch){
+            var languages = languageSwitch.split(',');
+            languageSwitchTmp = '<div class="languageSwitch">';
+            languageSwitchTmp += '<span>'+i18n.language+'</span>: ';
+            $.each(languages, function(i, lang) { 
+                var newUrl = window.location.href.replace(/(lang=).*?(&)/,'$1' + lang + '$2');
+                languageSwitchTmp += '<a class="language" href="'+newUrl+'">'+lang+'</a> | ';
+            });
+            languageSwitchTmp += '</div>';
+        }
+    
         $('<div id="navigration">\n\
+            '+languageSwitchTmp+'\n\
             <input class="filter" name="livefilter" type="text" placeholder="'+i18n.filter+'" />\n\
             <div class="tabs">\n\
                 <ul class="tabNavigation">\n\
@@ -18,7 +32,14 @@ $(document).ready(function(){
                 <ul id="question-list"></ul>\n\
             </div>\n\
            </div>').insertBefore('#study');
+        
+        //when clicked navigate to the most recent url (including fragment)
+        $(".languageSwitch .language").click(function(e){	
+            e.preventDefault();
+            window.location =  window.location.href.replace(/(lang=).*?(&)/,'$1' + $(this).text() + '$2');
+        });
     }
+
     menuTabs();
     pupulateVariableList();
     pupulateVariableQuestionList();
@@ -28,19 +49,33 @@ $(document).ready(function(){
     }
     
     $('.filter').keyup(function(e){
-        var total   = $('#variable-list li').length;
-        var hidden  = $('#variable-list li:hidden').length;
-        $('#variable-list-wrapper .count').html((total-hidden)+'/'+total+' '+i18n.variables);        
-        
-        total   = $('#question-list li').length;
-        hidden  = $('#question-list li:hidden').length;
-        $('#question-list-wrapper .count').html((total-hidden)+'/'+total+' '+i18n.questions);
+        updateCount();
     });    
     
     $('#navigration').css('width', '15%');
     $('#study').css('margin-left', $('#navigration').width());
     
 });
+
+function updateCount(){
+    var totalVariables   = $('#variable-list li').length;
+    var hiddenVariables  = $('#variable-list li:hidden').length;
+    
+    if(hiddenVariables < totalVariables){
+        $('#variable-list-wrapper .count').html((totalVariables-hiddenVariables)+'/'+totalVariables+' '+i18n.variables);        
+    }else{
+        $('#variable-list-wrapper .count').html(totalVariables+' '+i18n.variables); 
+    }
+
+    var totalQuestions   = $('#question-list li').length;
+    var hiddenQuestions  = $('#question-list li:hidden').length;
+    
+    if(hiddenQuestions < totalQuestions){
+        $('#question-list-wrapper .count').html((totalQuestions-hiddenQuestions)+'/'+totalQuestions+' '+i18n.questions);
+    }else{
+        $('#question-list-wrapper .count').html(totalQuestions+' '+i18n.questions);
+    }   
+}
 
 function menuTabs(){
 	/* Default active tab */
@@ -64,6 +99,7 @@ function menuTabs(){
             /* Set the new activated tab */
             activeTab = deactivatedTab;
             activeTabContent = deactivatedTabContent;
+            updateCount();
 	});
 };
 
@@ -87,7 +123,7 @@ function pupulateVariableList(){
     $('#variable-list-wrapper .count').html(varaibleCount+' '+i18n.variables);
     
     //If study does not contain variables, show question tab
-    if(varaibleCount == 0){
+    if(varaibleCount === 0){
         $('.tabNavigation .variables').hide();
         $('.tabNavigation .questions').trigger('click');
     }
@@ -142,40 +178,42 @@ function pupulateQuestionList(){
 /*             	    Updated: Feb 2nd, 2010                 */
 /***********************************************************/
 
-(function($){  
-	$.fn.liveFilter = function (wrapper) {
-		
-		// Grabs the id of the element containing the filter
-		var wrap = '#' + $(this).attr('id');
-		
-		// Make sure we're looking in the correct sub-element
-		if (wrapper == 'table') {
-			var item = 'tr';
-		} else {
-			var item = 'li';
-		}
-		
-		// Listen for the value of the input to change
-		$('input.filter').keyup(function() {
-			var filter = $(this).val();
-			
-			// Hide all the items and then show only the ones matching the filter
-			$(wrap + ' ' + wrapper + ' ' + item).hide();
-			
-			if (wrapper == 'table') {
-				$(wrap + ' ' + wrapper + ' ' + 'tr.header').show();
-			}
-			$(wrap + ' ' + wrapper + ' ' + item + ':Contains("' + filter + '")').show();
-			
-		});
-		
-		// Custom expression for case insensitive contains()
-		jQuery.expr[':'].Contains = function(a,i,m){
-		    return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase())>=0;
-		};
+(function($) {
+    $.fn.liveFilter = function(wrapper) {
 
-	}
+        // Grabs the id of the element containing the filter
+        var wrap = '#' + $(this).attr('id');
 
+        // Make sure we're looking in the correct sub-element
+        if (wrapper === 'table') {
+            var item = 'tr';
+        } else {
+            var item = 'li';
+        }
+
+        // Listen for the value of the input to change
+        $('input.filter').keyup(function() {
+            var filter = $(this).val();
+
+            if(filter === ''){
+                $(wrap + ' ' + wrapper + ' ' + item).show();
+            }else{
+                // Hide all the items and then show only the ones matching the filter
+                $(wrap + ' ' + wrapper + ' ' + item).hide();
+
+                if (wrapper === 'table') {
+                    $(wrap + ' ' + wrapper + ' ' + 'tr.header').show();
+                }
+                $(wrap + ' ' + wrapper + ' ' + item + ':Contains("' + filter + '")').show();                
+            }
+
+        });
+
+        // Custom expression for case insensitive contains()
+        jQuery.expr[':'].Contains = function(a, i, m) {
+            return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+        };
+    };
 })(jQuery);
 
 

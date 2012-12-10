@@ -20,6 +20,8 @@
     <xsl:param name="render-as-document">true</xsl:param>
     <!-- include interactive js and jquery for navigation (external links to eXist)-->
     <xsl:param name="include-js">true</xsl:param>
+    <!-- coma-separated list for language switch (js-navigation)-->
+    <xsl:param name="languageSwitch">sv,en</xsl:param>
     <!-- print anchors for eg QuestionItems-->
     <xsl:param name="print-anchor">true</xsl:param>
     <!-- show the title (and subtitle) of the study-->
@@ -78,12 +80,15 @@
                             <xsl:attribute name="src">//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js</xsl:attribute>
                         </script>
                         
-                        <!-- Translations for javascript plugins-->
+                        <!-- Translations and settings for javascript plugins-->
                         <script type="text/javascript">
                             <xsl:text>var i18n = {};</xsl:text>
                             <xsl:text>i18n.questions = '</xsl:text><xsl:value-of select="util:i18n('Questions')"/><xsl:text>';</xsl:text>
                             <xsl:text>i18n.variables = '</xsl:text><xsl:value-of select="util:i18n('Variables')"/><xsl:text>';</xsl:text>
                             <xsl:text>i18n.filter = '</xsl:text><xsl:value-of select="util:i18n('Filter')"/><xsl:text>';</xsl:text>
+                            <xsl:text>i18n.language = '</xsl:text><xsl:value-of select="util:i18n('Language')"/><xsl:text>';</xsl:text>
+                            
+                            <xsl:text>var languageSwitch = '</xsl:text><xsl:value-of select="$languageSwitch"/><xsl:text>';</xsl:text>
                         </script>
 
                         <script type="text/javascript">

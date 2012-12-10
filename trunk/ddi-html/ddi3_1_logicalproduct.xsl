@@ -43,6 +43,12 @@
     <xsl:template match="l:CodeScheme">
         <xsl:if test="count(l:Code) > 0">
         <table class="codeScheme">
+            <thead>
+                <tr>
+                    <th><xsl:value-of select="util:i18n('Code')"/></th>
+                    <th class="left"><xsl:value-of select="util:i18n('Category')"/></th>
+                </tr>
+            </thead>
             <tbody>
                 <xsl:apply-templates select="l:Code" />
             </tbody>
@@ -57,7 +63,7 @@
 
     <xsl:template match="l:Code">
         <tr>
-            <td><xsl:value-of select="l:Value" /></td>
+            <td class="codeValue"><xsl:value-of select="l:Value" /></td>
             <xsl:apply-templates select ="l:CategoryReference" />
         </tr>
     </xsl:template>
@@ -87,10 +93,10 @@
     <xsl:template match="l:Category">
        <xsl:choose>
            <xsl:when test="@missing">
-               <td class="missing"><em><xsl:value-of select="util:i18nString(r:Label)" /></em></td>
+               <td class="missing left"><em><xsl:value-of select="util:i18nString(r:Label)" /></em></td>
            </xsl:when>
            <xsl:otherwise>
-               <td><xsl:value-of select="util:i18nString(r:Label)" /></td>
+               <td class="categoryLabel left"><xsl:value-of select="util:i18nString(r:Label)" /></td>
            </xsl:otherwise>
        </xsl:choose>
     </xsl:template>
