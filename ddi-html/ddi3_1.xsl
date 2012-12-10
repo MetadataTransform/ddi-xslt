@@ -75,7 +75,15 @@
                 <xsl:choose>
                     <xsl:when test="$include-js='true'">
                         <script type="text/javascript">
-                            <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery-1.7.1.min.js</xsl:attribute>
+                            <xsl:attribute name="src">//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js</xsl:attribute>
+                        </script>
+                        
+                        <!-- Translations for javascript plugins-->
+                        <script type="text/javascript">
+                            <xsl:text>var i18n = {};</xsl:text>
+                            <xsl:text>i18n.questions = '</xsl:text><xsl:value-of select="util:i18n('Questions')"/><xsl:text>';</xsl:text>
+                            <xsl:text>i18n.varaibles = '</xsl:text><xsl:value-of select="util:i18n('Variables')"/><xsl:text>';</xsl:text>
+                            <xsl:text>i18n.filter = '</xsl:text><xsl:value-of select="util:i18n('Filter')"/><xsl:text>';</xsl:text>
                         </script>
 
                         <script type="text/javascript">
@@ -175,14 +183,14 @@
                     </h3>
                     <dl>
                         <div class="toc">
-                        	<xsl:if test="$show-variable-list = 'true'">
+                           <xsl:if test="$show-variable-list = 'true'">
                             	<dt>
                                 	<a>
                                     	<xsl:attribute name="href">#VariableList</xsl:attribute>
                                     	<xsl:value-of select="util:i18n('VariableList')"/>
                                 	</a>
                             	</dt>
-							</xsl:if>
+			    </xsl:if>
                             <dt>
                                 <a>
                                     <xsl:attribute name="href">#UniverseList</xsl:attribute>
@@ -317,7 +325,7 @@
 
             <xsl:apply-templates select="c:ConceptualComponent"/>
 
-            <xsl:if test="$show-questionnaires = true">
+            <xsl:if test="$show-questionnaires = 'true'">
                 <xsl:apply-templates select="d:DataCollection"/>
             </xsl:if>
 

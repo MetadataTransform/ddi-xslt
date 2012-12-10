@@ -101,7 +101,7 @@
                 <xsl:value-of select="$item[@xml:lang=$lang]/text()"/>
             </xsl:when>
             <xsl:when test="$item[@xml:lang=$fallback-lang]">
-                <xsl:value-of select="$item[@xml:lang=$fallback-lang]/text()"/>
+                <em class="untranslated"><xsl:value-of select="$item[@xml:lang=$fallback-lang]/text()"/></em>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="$item/text()"/>

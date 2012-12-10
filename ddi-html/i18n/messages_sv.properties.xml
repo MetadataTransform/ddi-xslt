@@ -172,4 +172,10 @@
 	<entry key="ShowingSubset"> totalt - visar en delmängd av</entry>
 	<entry key="Countries">Länder</entry>
 	<entry key="TOC">Innehåll</entry>
+        <entry key="Indholdsfortegnelse">Innehålsförteckning</entry>
+        <entry key="Universe">Population</entry>
+        <entry key="VariableList">Variabellista</entry>
+        <entry key="RefNo">Referens: </entry>
+        <entry key="Questions">frågor</entry>
+        <entry key="Filter">Filter</entry>
 </properties>
