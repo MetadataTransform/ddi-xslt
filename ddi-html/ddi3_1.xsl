@@ -82,7 +82,7 @@
                         <script type="text/javascript">
                             <xsl:text>var i18n = {};</xsl:text>
                             <xsl:text>i18n.questions = '</xsl:text><xsl:value-of select="util:i18n('Questions')"/><xsl:text>';</xsl:text>
-                            <xsl:text>i18n.varaibles = '</xsl:text><xsl:value-of select="util:i18n('Variables')"/><xsl:text>';</xsl:text>
+                            <xsl:text>i18n.variables = '</xsl:text><xsl:value-of select="util:i18n('Variables')"/><xsl:text>';</xsl:text>
                             <xsl:text>i18n.filter = '</xsl:text><xsl:value-of select="util:i18n('Filter')"/><xsl:text>';</xsl:text>
                         </script>
 
