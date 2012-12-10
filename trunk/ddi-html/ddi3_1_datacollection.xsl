@@ -113,11 +113,16 @@
                     <xsl:when test="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text">
                         <xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
                     </xsl:when>
-                    <xsl:otherwise>
+                    <xsl:when test="d:QuestionText[@xml:lang=$fallback-lang]/d:LiteralText/d:Text">
                         <em>
                             <xsl:value-of select="d:QuestionText[@xml:lang=$fallback-lang]/d:LiteralText/d:Text"/>
+                        </em>                        
+                    </xsl:when>
+                    <xsl:when test="d:QuestionText/d:LiteralText/d:Text">
+                        <em>
+                            <xsl:value-of select="d:QuestionText/d:LiteralText/d:Text"/>
                         </em>
-                    </xsl:otherwise>
+                    </xsl:when>
                 </xsl:choose>
             </span>
 
@@ -155,16 +160,21 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </strong>            
-            <xsl:choose>
-                <xsl:when test="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text">
-                    <xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <em>
-                        <xsl:value-of select="d:QuestionText[@xml:lang=$fallback-lang]/d:LiteralText/d:Text"/>
-                    </em>
-                </xsl:otherwise>
-            </xsl:choose>
+                <xsl:choose>
+                    <xsl:when test="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text">
+                        <xsl:value-of select="d:QuestionText[@xml:lang=$lang]/d:LiteralText/d:Text"/>
+                    </xsl:when>
+                    <xsl:when test="d:QuestionText[@xml:lang=$fallback-lang]/d:LiteralText/d:Text">
+                        <em>
+                            <xsl:value-of select="d:QuestionText[@xml:lang=$fallback-lang]/d:LiteralText/d:Text"/>
+                        </em>                        
+                    </xsl:when>
+                    <xsl:when test="d:QuestionText/d:LiteralText/d:Text">
+                        <em>
+                            <xsl:value-of select="d:QuestionText/d:LiteralText/d:Text"/>
+                        </em>
+                    </xsl:when>
+                </xsl:choose>
             <xsl:if test="count(d:SubQuestions) > 0">
             <ul class="questions">
                 <xsl:apply-templates select="d:SubQuestions" />

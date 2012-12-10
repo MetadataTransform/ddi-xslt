@@ -1,23 +1,24 @@
 $(document).ready(function(){
 
-    $('<div id="navigration">\n\
-        <input class="filter" name="livefilter" type="text" placeholder="filter" />\n\
-        <div class="tabs">\n\
-            <ul class="tabNavigation">\n\
-                <li class="option variables active" id="tab1" tab="#variable-list-wrapper">Variables</li>\n\
-                <li class="option questions" id="tab2" tab="#question-list-wrapper">Questions</li>\n\
-            </ul>\n\
-        </div>\n\
-        <div id="variable-list-wrapper" class="tab-content">\n\
-            <span class="count"></span>\n\
-            <ul id="variable-list"></ul>\n\
-        </div>\n\
-        <div id="question-list-wrapper" class="tab-content hide">\n\
-            <span class="count"></span>\n\
-            <ul id="question-list"></ul>\n\
-        </div>\n\
-       </div>').insertBefore('#study');
-    
+    if($("#navigation").length === 0){
+        $('<div id="navigration">\n\
+            <input class="filter" name="livefilter" type="text" placeholder="'+i18n.filter+'" />\n\
+            <div class="tabs">\n\
+                <ul class="tabNavigation">\n\
+                    <li class="option variables active" id="tab1" tab="#variable-list-wrapper">'+i18n.variables+'</li>\n\
+                    <li class="option questions" id="tab2" tab="#question-list-wrapper">'+i18n.questions+'</li>\n\
+                </ul>\n\
+            </div>\n\
+            <div id="variable-list-wrapper" class="tab-content">\n\
+                <span class="count"></span>\n\
+                <ul id="variable-list"></ul>\n\
+            </div>\n\
+            <div id="question-list-wrapper" class="tab-content hide">\n\
+                <span class="count"></span>\n\
+                <ul id="question-list"></ul>\n\
+            </div>\n\
+           </div>').insertBefore('#study');
+    }
     menuTabs();
     pupulateVariableList();
     pupulateVariableQuestionList();
@@ -29,11 +30,11 @@ $(document).ready(function(){
     $('.filter').keyup(function(e){
         var total   = $('#variable-list li').length;
         var hidden  = $('#variable-list li:hidden').length;
-        $('#variable-list-wrapper .count').html((total-hidden)+'/'+total+' '+'variables');        
+        $('#variable-list-wrapper .count').html((total-hidden)+'/'+total+' '+i18n.variables);        
         
         total   = $('#question-list li').length;
         hidden  = $('#question-list li:hidden').length;
-        $('#question-list-wrapper .count').html((total-hidden)+'/'+total+' '+'questions');
+        $('#question-list-wrapper .count').html((total-hidden)+'/'+total+' '+i18n.questions);
     });    
     
     $('#navigration').css('width', '15%');
@@ -83,7 +84,7 @@ function pupulateVariableList(){
     
     var varaibleCount = $('#variable-list li').length;
     
-    $('#variable-list-wrapper .count').html(varaibleCount+' '+'variables');
+    $('#variable-list-wrapper .count').html(varaibleCount+' '+i18n.variables);
     
     //If study does not contain variables, show question tab
     if(varaibleCount == 0){
@@ -107,7 +108,7 @@ function pupulateVariableQuestionList(){
     
     $('#question-list-wrapper').liveFilter('ul');
     
-    $('#question-list-wrapper .count').html($('#question-list li').length+' '+'questions');
+    $('#question-list-wrapper .count').html($('#question-list li').length+' '+i18n.questions);
 }
 
 function pupulateQuestionList(){
@@ -126,7 +127,7 @@ function pupulateQuestionList(){
     
     $('#question-list-wrapper').liveFilter('ul');
     
-    $('#question-list-wrapper .count').html($('#question-list li').length+' '+'questions');
+    $('#question-list-wrapper .count').html($('#question-list li').length+' '+i18n.questions);
 }
 
 

@@ -19,13 +19,12 @@ div.question {
 ul {
     padding-left: 15px;
 }
-ul.questions {
-    font-style:italic;
+ul.questions, ul#question-list {
     list-style-image: url(img/question.png);
     padding-left: 15px;
     margin-left: 15px;
 }
-ul.variables {
+ul.variables, ul#variable-list {
     list-style-image: url(img/variable.png);
     padding-left: 15px;
     margin-left: 15px;

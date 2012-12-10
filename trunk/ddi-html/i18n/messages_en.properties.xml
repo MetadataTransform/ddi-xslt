@@ -194,4 +194,6 @@
 <entry key="Instruction">Instruction</entry>
 <entry key="GuidanceText">Codebook reading guide</entry>
 <entry key="CurrationProcessText">Information about applied curration process</entry>
+<entry key="Questions">Questions</entry>
+<entry key="Filter">Filter</entry>
 </properties>
