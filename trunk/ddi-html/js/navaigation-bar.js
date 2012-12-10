@@ -4,11 +4,11 @@ $(document).ready(function(){
         <input class="filter" name="livefilter" type="text" placeholder="filter" />\n\
         <div class="tabs">\n\
             <ul class="tabNavigation">\n\
-                <li class="option variables" id="tab2" tab="#variable-list-wrapper">Variables</li>\n\
-                <li class="option questions" id="tab3" tab="#question-list-wrapper">Questions</li>\n\
+                <li class="option variables active" id="tab1" tab="#variable-list-wrapper">Variables</li>\n\
+                <li class="option questions" id="tab2" tab="#question-list-wrapper">Questions</li>\n\
             </ul>\n\
         </div>\n\
-        <div id="variable-list-wrapper" class="tab-content hide">\n\
+        <div id="variable-list-wrapper" class="tab-content">\n\
             <span class="count"></span>\n\
             <ul id="variable-list"></ul>\n\
         </div>\n\
@@ -60,7 +60,6 @@ function menuTabs(){
             $(deactivatedTab).addClass('active');
             $(deactivatedTabContent).removeClass('hide');
 
-
             /* Set the new activated tab */
             activeTab = deactivatedTab;
             activeTabContent = deactivatedTabContent;
@@ -82,7 +81,16 @@ function pupulateVariableList(){
     
     $('#variable-list-wrapper').liveFilter('ul');
     
-    $('#variable-list-wrapper .count').html($('#variable-list li').length+' '+'variables');
+    var varaibleCount = $('#variable-list li').length;
+    
+    $('#variable-list-wrapper .count').html(varaibleCount+' '+'variables');
+    
+    //If study does not contain variables, show question tab
+    if(varaibleCount == 0){
+        $('.tabNavigation .variables').hide();
+        $('.tabNavigation .questions').trigger('click');
+    }
+    
 }
 
 function pupulateVariableQuestionList(){
