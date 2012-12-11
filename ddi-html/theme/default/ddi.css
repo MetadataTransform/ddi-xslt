@@ -16,13 +16,17 @@ resource {
 div.question {
     margin-top:5px;
 }
+.question-list li a, .question-list li a{
+    /*style for items in navbar*/
+}
+
 ul {
     padding-left: 15px;
 }
 ul.questions, ul#question-list {
     list-style-image: url(img/question.png);
     padding-left: 15px;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 ul.variables, ul#variable-list {
     list-style-image: url(img/variable.png);
