@@ -1,15 +1,27 @@
 $(document).ready(function(){
-
     if($("#navigation").length === 0){
-        
         var languageSwitchTmp = '';
+        
         if(languageSwitch){
+            var currentLang = getURLParameter('lang');
             var languages = languageSwitch.split(',');
+            
             languageSwitchTmp = '<div class="languageSwitch">';
             languageSwitchTmp += '<span>'+i18n.language+'</span>: ';
+            
+            var total = languages.length;
             $.each(languages, function(i, lang) { 
                 var newUrl = window.location.href.replace(/(lang=).*?(&)/,'$1' + lang + '$2');
-                languageSwitchTmp += '<a class="language" href="'+newUrl+'">'+lang+'</a> | ';
+                
+                if(lang == currentLang){
+                    languageSwitchTmp += '<span class="language active">'+lang+'</span>';
+                }else{
+                    languageSwitchTmp += '<a class="language" href="'+newUrl+'">'+lang+'</a>';
+                }
+            
+                if(i < total-1){
+                    languageSwitchTmp += ' | ';
+                }
             });
             languageSwitchTmp += '</div>';
         }
@@ -62,45 +74,46 @@ function updateCount(){
     var hiddenVariables  = $('#variable-list li:hidden').length;
     
     if(hiddenVariables < totalVariables){
-        $('#variable-list-wrapper .count').html((totalVariables-hiddenVariables)+'/'+totalVariables+' '+i18n.variables);        
+        $('#variable-list-wrapper .count').html((totalVariables-hiddenVariables)+'/'+totalVariables+' '+i18n.variables.toLowerCase());        
     }else{
-        $('#variable-list-wrapper .count').html(totalVariables+' '+i18n.variables); 
+        $('#variable-list-wrapper .count').html(totalVariables+' '+i18n.variables.toLowerCase()); 
     }
 
     var totalQuestions   = $('#question-list li').length;
     var hiddenQuestions  = $('#question-list li:hidden').length;
     
     if(hiddenQuestions < totalQuestions){
-        $('#question-list-wrapper .count').html((totalQuestions-hiddenQuestions)+'/'+totalQuestions+' '+i18n.questions);
+        $('#question-list-wrapper .count').html((totalQuestions-hiddenQuestions)+'/'+totalQuestions+' '+i18n.questions.toLowerCase());
     }else{
-        $('#question-list-wrapper .count').html(totalQuestions+' '+i18n.questions);
+        $('#question-list-wrapper .count').html(totalQuestions+' '+i18n.questions.toLowerCase());
     }   
 }
 
 function menuTabs(){
-	/* Default active tab */
-	activeTab = "#tab1"
-	activeTabContent = "#variable-list-wrapper";
+    /* Default active tab */
+    activeTab = "#tab1";
+    activeTabContent = "#variable-list-wrapper";
 
-	$(".option").click(function(){	
-            deactivatedTab = "#" + $(this).attr('id');
-            deactivatedTabContent = $(deactivatedTab).attr('tab');
-		
-	    id= $(this).attr('tab');
-		
-            /* Deactivate current tab using css */
-            $(activeTab).removeClass('active');
-            $(activeTabContent).addClass('hide');
+    $(".option").click(function(){	
+        var deactivatedTab = "#" + $(this).attr('id');
+        var deactivatedTabContent = $(deactivatedTab).attr('tab');
 
-            /* Activate tab that was clicked on */
-            $(deactivatedTab).addClass('active');
-            $(deactivatedTabContent).removeClass('hide');
+        var id= $(this).attr('tab');
 
-            /* Set the new activated tab */
-            activeTab = deactivatedTab;
-            activeTabContent = deactivatedTabContent;
-            updateCount();
-	});
+        /* Deactivate current tab using css */
+        $(activeTab).removeClass('active');
+        $(activeTabContent).addClass('hide');
+
+        /* Activate tab that was clicked on */
+        $(deactivatedTab).addClass('active');
+        $(deactivatedTabContent).removeClass('hide');
+
+        /* Set the new activated tab */
+        activeTab = deactivatedTab;
+        activeTabContent = deactivatedTabContent;
+        
+        updateCount();
+    });
 };
 
 function pupulateVariableList(){
@@ -120,14 +133,13 @@ function pupulateVariableList(){
     
     var varaibleCount = $('#variable-list li').length;
     
-    $('#variable-list-wrapper .count').html(varaibleCount+' '+i18n.variables);
+    $('#variable-list-wrapper .count').html(varaibleCount+' '+i18n.variables.toLowerCase());
     
     //If study does not contain variables, show question tab
     if(varaibleCount === 0){
         $('.tabNavigation .variables').hide();
         $('.tabNavigation .questions').trigger('click');
     }
-    
 }
 
 function pupulateVariableQuestionList(){
@@ -144,7 +156,7 @@ function pupulateVariableQuestionList(){
     
     $('#question-list-wrapper').liveFilter('ul');
     
-    $('#question-list-wrapper .count').html($('#question-list li').length+' '+i18n.questions);
+    $('#question-list-wrapper .count').html($('#question-list li').length+' '+i18n.questions.toLowerCase());
 }
 
 function pupulateQuestionList(){
@@ -163,11 +175,15 @@ function pupulateQuestionList(){
     
     $('#question-list-wrapper').liveFilter('ul');
     
-    $('#question-list-wrapper .count').html($('#question-list li').length+' '+i18n.questions);
+    $('#question-list-wrapper .count').html($('#question-list li').length+' '+i18n.questions.toLowerCase());
 }
 
 
-
+function getURLParameter(name) {
+    return decodeURI(
+        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+    );
+}
 
 /*********************** [plugins] ********************************************/
 
@@ -215,5 +231,3 @@ function pupulateQuestionList(){
         };
     };
 })(jQuery);
-
-
