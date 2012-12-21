@@ -1,0 +1,3248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.icpsr.umich.edu/DDI" targetNamespace="http://www.icpsr.umich.edu/DDI" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="AuthEntyType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="affiliation" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="ConOpsType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="agency" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="EstSmpErrType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ExtLinkType">
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="URI" type="xs:string" use="required"/>
+		<xs:attribute name="role" type="xs:string"/>
+		<xs:attribute name="title" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="IDNoType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="agency" type="xs:string"/>
+		<xs:attribute name="level">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="study"/>
+					<xs:enumeration value="file"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="LinkType">
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="refs" type="xs:IDREFS" use="required"/>
+		<xs:attribute name="role" type="xs:string"/>
+		<xs:attribute name="title" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="ProcStatType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="TotlRespType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="abstractType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="date" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="accsPlacType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="URI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="actMinType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="altTitlType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="anlyInfoType">
+		<xs:sequence>
+			<xs:element name="respRate" type="respRateType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="EstSmpErr" type="EstSmpErrType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="dataAppr" type="dataApprType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="anlyUnitType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="txt" type="txtType"/>
+			<xs:element name="concept" type="conceptType"/>
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="unit" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="anlysUnitType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="txt" type="txtType"/>
+			<xs:element name="concept" type="conceptType"/>
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="avlStatusType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="backwardType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="qstn" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="biblCitType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="format" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="caseQntyType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="catStatType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+			<xs:element name="table" type="tableType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" default="freq">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="freq"/>
+					<xs:enumeration value="percent"/>
+					<xs:enumeration value="crosstab"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="URI" type="xs:string"/>
+		<xs:attribute name="methrefs" type="xs:IDREFS"/>
+		<xs:attribute name="wgtd" default="not-wgtd">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="wgtd"/>
+					<xs:enumeration value="not-wgtd"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="wgt-var" type="xs:IDREFS"/>
+		<xs:attribute name="weight" type="xs:IDREFS"/>
+		<xs:attribute name="sdatrefs" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="catValuType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="catgryType">
+		<xs:sequence>
+			<xs:element name="catValu" type="catValuType" minOccurs="0"/>
+			<xs:element name="labl" type="lablType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="txt" type="txtType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="catStat" type="catStatType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="catgry" type="catgryType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="missing" default="N">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="Y"/>
+					<xs:enumeration value="N"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="missType" type="xs:string"/>
+		<xs:attribute name="country" type="xs:string"/>
+		<xs:attribute name="sdatrefs" type="xs:IDREFS"/>
+		<xs:attribute name="other" default="N">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="Y"/>
+					<xs:enumeration value="N"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="total" default="N">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="Y"/>
+					<xs:enumeration value="N"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="catgryGrpType">
+		<xs:sequence>
+			<xs:element name="labl" type="lablType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="catStat" type="catStatType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="txt" type="txtType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="missing" default="N">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="Y"/>
+					<xs:enumeration value="N"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="missType" type="xs:string"/>
+		<xs:attribute name="catgry" type="xs:IDREFS"/>
+		<xs:attribute name="catGrp" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="citReqType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="citationType">
+		<xs:sequence>
+			<xs:element name="titlStmt" type="titlStmtType"/>
+			<xs:element name="rspStmt" type="rspStmtType" minOccurs="0"/>
+			<xs:element name="prodStmt" type="prodStmtType" minOccurs="0"/>
+			<xs:element name="distStmt" type="distStmtType" minOccurs="0"/>
+			<xs:element name="serStmt" type="serStmtType" minOccurs="0"/>
+			<xs:element name="verStmt" type="verStmtType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="biblCit" type="biblCitType" minOccurs="0"/>
+			<xs:element name="holdings" type="holdingsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="MARCURI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="cleanOpsType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="agency" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="codInstrType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="codeBook">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="docDscr" type="docDscrType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="stdyDscr" type="stdyDscrType" maxOccurs="unbounded"/>
+				<xs:element name="fileDscr" type="fileDscrType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="dataDscr" type="dataDscrType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="otherMat" type="otherMatType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="ID" type="xs:ID"/>
+			<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+			<xs:attribute name="source" default="producer">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="archive"/>
+						<xs:enumeration value="producer"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="version" type="xs:string" fixed="1.2.2"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="collDateType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="date" type="xs:string"/>
+		<xs:attribute name="event" default="single">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="start"/>
+					<xs:enumeration value="end"/>
+					<xs:enumeration value="single"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="cycle" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="collModeType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="txt" type="txtType"/>
+			<xs:element name="concept" type="conceptType"/>
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="collSituType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="collSizeType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="colspecType">
+		<xs:attribute name="colnum" type="xs:string"/>
+		<xs:attribute name="colname" type="xs:NMTOKEN"/>
+		<xs:attribute name="colwidth" type="xs:string"/>
+		<xs:attribute name="colsep" type="xs:string"/>
+		<xs:attribute name="rowsep" type="xs:string"/>
+		<xs:attribute name="align">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="left"/>
+					<xs:enumeration value="right"/>
+					<xs:enumeration value="center"/>
+					<xs:enumeration value="justify"/>
+					<xs:enumeration value="char"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="char" type="xs:string"/>
+		<xs:attribute name="charoff" type="xs:NMTOKEN"/>
+	</xs:complexType>
+	<xs:complexType name="completeType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="conceptType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="vocab" type="xs:string"/>
+		<xs:attribute name="vocabURI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="conditionsType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="confDecType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="required" default="yes">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="yes"/>
+					<xs:enumeration value="no"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="formNo" type="xs:string"/>
+		<xs:attribute name="URI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="contactType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="affiliation" type="xs:string"/>
+		<xs:attribute name="URI" type="xs:string"/>
+		<xs:attribute name="email" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="copyrightType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="dataAccsType">
+		<xs:sequence>
+			<xs:element name="setAvail" type="setAvailType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="useStmt" type="useStmtType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="dataApprType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="dataChckType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="dataCollType">
+		<xs:sequence>
+			<xs:element name="timeMeth" type="timeMethType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="dataCollector" type="dataCollectorType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="frequenc" type="frequencType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="sampProc" type="sampProcType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="deviat" type="deviatType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="collMode" type="collModeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="resInstru" type="resInstruType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="sources" type="sourcesType" minOccurs="0"/>
+			<xs:element name="collSitu" type="collSituType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="actMin" type="actMinType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ConOps" type="ConOpsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="weight" type="weightType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="cleanOps" type="cleanOpsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="dataCollectorType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="abbr" type="xs:string"/>
+		<xs:attribute name="affiliation" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="dataDscrType">
+		<xs:sequence>
+			<xs:element name="varGrp" type="varGrpType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="var" type="varType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="dataKindType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="txt" type="txtType"/>
+			<xs:element name="concept" type="conceptType"/>
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="dataMsngType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="dataSrcType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="defntnType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="depDateType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="date" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="deposReqType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="depositrType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="abbr" type="xs:string"/>
+		<xs:attribute name="affiliation" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="derivationType">
+		<xs:sequence>
+			<xs:element name="drvdesc" type="drvdescType" minOccurs="0"/>
+			<xs:element name="drvcmd" type="drvcmdType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="var" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="deviatType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="dimensnsType">
+		<xs:sequence>
+			<xs:element name="caseQnty" type="caseQntyType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="varQnty" type="varQntyType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="logRecL" type="logRecLType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="recPrCas" type="recPrCasType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="recNumTot" type="recNumTotType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="disclaimerType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="distDateType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="date" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="distStmtType">
+		<xs:sequence>
+			<xs:element name="distrbtr" type="distrbtrType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="contact" type="contactType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="depositr" type="depositrType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="depDate" type="depDateType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="distDate" type="distDateType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="distrbtrType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="abbr" type="xs:string"/>
+		<xs:attribute name="affiliation" type="xs:string"/>
+		<xs:attribute name="URI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="docDscrType">
+		<xs:sequence>
+			<xs:element name="citation" type="citationType" minOccurs="0"/>
+			<xs:element name="guide" type="guideType" minOccurs="0"/>
+			<xs:element name="docStatus" type="docStatusType" minOccurs="0"/>
+			<xs:element name="docSrc" type="docSrcType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="docSrcType">
+		<xs:sequence>
+			<xs:element name="titlStmt" type="titlStmtType"/>
+			<xs:element name="rspStmt" type="rspStmtType" minOccurs="0"/>
+			<xs:element name="prodStmt" type="prodStmtType" minOccurs="0"/>
+			<xs:element name="distStmt" type="distStmtType" minOccurs="0"/>
+			<xs:element name="serStmt" type="serStmtType" minOccurs="0"/>
+			<xs:element name="verStmt" type="verStmtType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="biblCit" type="biblCitType" minOccurs="0"/>
+			<xs:element name="holdings" type="holdingsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="MARCURI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="docStatusType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="drvcmdType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="syntax" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="drvdescType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="embargoType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="date" type="xs:string"/>
+		<xs:attribute name="event" default="notBefore">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="notBefore"/>
+					<xs:enumeration value="notAfter"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="format" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="entryType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="colname" type="xs:NMTOKEN"/>
+				<xs:attribute name="namest" type="xs:NMTOKEN"/>
+				<xs:attribute name="nameend" type="xs:NMTOKEN"/>
+				<xs:attribute name="morerows" type="xs:string"/>
+				<xs:attribute name="colsep" type="xs:string"/>
+				<xs:attribute name="rowsep" type="xs:string"/>
+				<xs:attribute name="align">
+					<xs:simpleType>
+						<xs:restriction base="xs:NMTOKEN">
+							<xs:enumeration value="left"/>
+							<xs:enumeration value="right"/>
+							<xs:enumeration value="center"/>
+							<xs:enumeration value="justify"/>
+							<xs:enumeration value="char"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="char" type="xs:string"/>
+				<xs:attribute name="charoff" type="xs:NMTOKEN"/>
+				<xs:attribute name="valign">
+					<xs:simpleType>
+						<xs:restriction base="xs:NMTOKEN">
+							<xs:enumeration value="top"/>
+							<xs:enumeration value="middle"/>
+							<xs:enumeration value="bottom"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="fileContType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="fileDscrType">
+		<xs:sequence>
+			<xs:element name="fileTxt" type="fileTxtType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="URI" type="xs:string"/>
+		<xs:attribute name="sdatrefs" type="xs:IDREFS"/>
+		<xs:attribute name="methrefs" type="xs:IDREFS"/>
+		<xs:attribute name="pubrefs" type="xs:IDREFS"/>
+		<xs:attribute name="access" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="fileNameType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="filePlacType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="fileQntyType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="fileStrcType">
+		<xs:sequence>
+			<xs:element name="recGrp" type="recGrpType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" default="rectangular">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="rectangular"/>
+					<xs:enumeration value="hierarchical"/>
+					<xs:enumeration value="relational"/>
+					<xs:enumeration value="nested"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="fileTxtType">
+		<xs:sequence>
+			<xs:element name="fileName" type="fileNameType" minOccurs="0"/>
+			<xs:element name="fileCont" type="fileContType" minOccurs="0"/>
+			<xs:element name="fileStrc" type="fileStrcType" minOccurs="0"/>
+			<xs:element name="dimensns" type="dimensnsType" minOccurs="0"/>
+			<xs:element name="fileType" type="fileTypeType" minOccurs="0"/>
+			<xs:element name="format" type="formatType" minOccurs="0"/>
+			<xs:element name="filePlac" type="filePlacType" minOccurs="0"/>
+			<xs:element name="dataChck" type="dataChckType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ProcStat" type="ProcStatType" minOccurs="0"/>
+			<xs:element name="dataMsng" type="dataMsngType" minOccurs="0"/>
+			<xs:element name="software" type="softwareType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="verStmt" type="verStmtType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="fileTypeType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="charset" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="formatType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="forwardType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="qstn" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="frequencType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="freq" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="fundAgType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="abbr" type="xs:string"/>
+		<xs:attribute name="role" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="geogCoverType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="txt" type="txtType"/>
+			<xs:element name="concept" type="conceptType"/>
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="geogUnitType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="txt" type="txtType"/>
+			<xs:element name="concept" type="conceptType"/>
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="grantNoType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="agency" type="xs:string"/>
+		<xs:attribute name="role" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="guideType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="holdingsType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="location" type="xs:string"/>
+		<xs:attribute name="callno" type="xs:string"/>
+		<xs:attribute name="URI" type="xs:string"/>
+		<xs:attribute name="media" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="imputationType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="invalrngType">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="range" type="rangeType"/>
+				<xs:element name="item" type="itemType"/>
+			</xs:choice>
+			<xs:element name="key" type="keyType" minOccurs="0"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="itemType">
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="UNITS" default="INT">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="INT"/>
+					<xs:enumeration value="REAL"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="VALUE" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ivuInstrType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="keyType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+			<xs:element name="table" type="tableType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="keywordType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="vocab" type="xs:string"/>
+		<xs:attribute name="vocabURI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="lablType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="level" type="xs:string"/>
+		<xs:attribute name="vendor" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="locationType">
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="StartPos" type="xs:string"/>
+		<xs:attribute name="EndPos" type="xs:string"/>
+		<xs:attribute name="width" type="xs:string"/>
+		<xs:attribute name="RecSegNo" type="xs:string"/>
+		<xs:attribute name="fileid" type="xs:IDREF"/>
+	</xs:complexType>
+	<xs:complexType name="logRecLType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="methodType">
+		<xs:sequence>
+			<xs:element name="dataColl" type="dataCollType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="anlyInfo" type="anlyInfoType" minOccurs="0"/>
+			<xs:element name="stdyClas" type="stdyClasType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="nationType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="txt" type="txtType"/>
+			<xs:element name="concept" type="conceptType"/>
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="abbr" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="notesType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+			<xs:element name="table" type="tableType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" type="xs:string"/>
+		<xs:attribute name="subject" type="xs:string"/>
+		<xs:attribute name="level" type="xs:string"/>
+		<xs:attribute name="resp" type="xs:string"/>
+		<xs:attribute name="sdatrefs" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="origArchType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="othIdType">
+		<xs:sequence>
+			<xs:element name="p" type="pType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="othId" type="othIdType"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" type="xs:string"/>
+		<xs:attribute name="role" type="xs:string"/>
+		<xs:attribute name="affiliation" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="othRefsType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+			<xs:element name="citation" type="citationType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="otherMatType">
+		<xs:choice>
+			<xs:element name="otherMat" type="otherMatType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:sequence>
+				<xs:element name="labl" type="lablType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="txt" type="txtType" minOccurs="0"/>
+				<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="table" type="tableType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="citation" type="citationType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" type="xs:string"/>
+		<xs:attribute name="level" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="data"/>
+					<xs:enumeration value="datafile"/>
+					<xs:enumeration value="studydsc"/>
+					<xs:enumeration value="study"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="URI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="othrStdyMatType">
+		<xs:sequence>
+			<xs:element name="relMat" type="relMatType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="relStdy" type="relStdyType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="relPubl" type="relPublType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="othRefs" type="othRefsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="pType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="parTitlType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="postQTxtType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="preQTxtType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="prodDateType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="date" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="prodPlacType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="prodStmtType">
+		<xs:sequence>
+			<xs:element name="producer" type="producerType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="copyright" type="copyrightType" minOccurs="0"/>
+			<xs:element name="prodDate" type="prodDateType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="prodPlac" type="prodPlacType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="software" type="softwareType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="fundAg" type="fundAgType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="grantNo" type="grantNoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="producerType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="abbr" type="xs:string"/>
+		<xs:attribute name="affiliation" type="xs:string"/>
+		<xs:attribute name="role" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="qstnType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+			<xs:element name="preQTxt" type="preQTxtType"/>
+			<xs:element name="qstnLit" type="qstnLitType"/>
+			<xs:element name="postQTxt" type="postQTxtType"/>
+			<xs:element name="forward" type="forwardType"/>
+			<xs:element name="backward" type="backwardType"/>
+			<xs:element name="ivuInstr" type="ivuInstrType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="qstn" type="xs:IDREF"/>
+		<xs:attribute name="var" type="xs:IDREFS"/>
+		<xs:attribute name="seqNo" type="xs:string"/>
+		<xs:attribute name="sdatrefs" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="qstnLitType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="sdatrefs" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="rangeType">
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="UNITS" default="INT">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="INT"/>
+					<xs:enumeration value="REAL"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="min" type="xs:string"/>
+		<xs:attribute name="minExclusive" type="xs:string"/>
+		<xs:attribute name="max" type="xs:string"/>
+		<xs:attribute name="maxExclusive" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="recDimnsnType">
+		<xs:sequence>
+			<xs:element name="varQnty" type="varQntyType" minOccurs="0"/>
+			<xs:element name="caseQnty" type="caseQntyType" minOccurs="0"/>
+			<xs:element name="logRecL" type="logRecLType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="level" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="recGrpType">
+		<xs:sequence>
+			<xs:element name="labl" type="lablType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="recDimnsn" type="recDimnsnType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="recGrp" type="xs:IDREFS"/>
+		<xs:attribute name="rectype" type="xs:string"/>
+		<xs:attribute name="keyvar" type="xs:IDREFS"/>
+		<xs:attribute name="rtypeloc" type="xs:string"/>
+		<xs:attribute name="rtypewidth" type="xs:string" default="1"/>
+		<xs:attribute name="rtypevtype" default="numeric">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="numeric"/>
+					<xs:enumeration value="character"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="recidvar" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="recNumTotType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="recPrCasType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="relMatType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+			<xs:element name="citation" type="citationType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="callno" type="xs:string"/>
+		<xs:attribute name="label" type="xs:string"/>
+		<xs:attribute name="media" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="relPublType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+			<xs:element name="citation" type="citationType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="relStdyType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+			<xs:element name="citation" type="citationType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="resInstruType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="txt" type="txtType"/>
+			<xs:element name="concept" type="conceptType"/>
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="respRateType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="respUnitType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="restrctnType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="rowType">
+		<xs:sequence>
+			<xs:element name="entry" type="entryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="rowsep" type="xs:string"/>
+		<xs:attribute name="valign">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="top"/>
+					<xs:enumeration value="middle"/>
+					<xs:enumeration value="bottom"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="rspStmtType">
+		<xs:sequence>
+			<xs:element name="AuthEnty" type="AuthEntyType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="othId" type="othIdType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="sampProcType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="txt" type="txtType"/>
+			<xs:element name="concept" type="conceptType"/>
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="securityType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="date" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="serInfoType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="serNameType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="abbr" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="serStmtType">
+		<xs:sequence>
+			<xs:element name="serName" type="serNameType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="serInfo" type="serInfoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="URI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="setAvailType">
+		<xs:sequence>
+			<xs:element name="accsPlac" type="accsPlacType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="origArch" type="origArchType" minOccurs="0"/>
+			<xs:element name="avlStatus" type="avlStatusType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="collSize" type="collSizeType" minOccurs="0"/>
+			<xs:element name="complete" type="completeType" minOccurs="0"/>
+			<xs:element name="fileQnty" type="fileQntyType" minOccurs="0"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="media" type="xs:string"/>
+		<xs:attribute name="callno" type="xs:string"/>
+		<xs:attribute name="label" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="softwareType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="date" type="xs:string"/>
+		<xs:attribute name="version" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="sourcesType">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="dataSrc" type="dataSrcType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="srcOrig" type="srcOrigType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="srcChar" type="srcCharType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="srcDocu" type="srcDocuType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:choice>
+				<xs:element name="sources" type="sourcesType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:choice>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="specPermType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="required" default="yes">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="yes"/>
+					<xs:enumeration value="no"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="formNo" type="xs:string"/>
+		<xs:attribute name="URI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="srcCharType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="srcDocuType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="srcOrigType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="txt" type="txtType"/>
+			<xs:element name="concept" type="conceptType"/>
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="stdCatgryType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="date" type="xs:string"/>
+		<xs:attribute name="URI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="stdyClasType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="stdyDscrType">
+		<xs:sequence>
+			<xs:element name="citation" type="citationType" maxOccurs="unbounded"/>
+			<xs:element name="stdyInfo" type="stdyInfoType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="method" type="methodType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="dataAccs" type="dataAccsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="othrStdyMat" type="othrStdyMatType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="access" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="stdyInfoType">
+		<xs:sequence>
+			<xs:element name="subject" type="subjectType" minOccurs="0"/>
+			<xs:element name="abstract" type="abstractType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="sumDscr" type="sumDscrType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="subTitlType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="subjectType">
+		<xs:sequence>
+			<xs:element name="keyword" type="keywordType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="topcClas" type="topcClasType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="sumDscrType">
+		<xs:sequence>
+			<xs:element name="timePrd" type="timePrdType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="collDate" type="collDateType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="nation" type="nationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="geogCover" type="geogCoverType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="geogUnit" type="geogUnitType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="anlyUnit" type="anlyUnitType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="universe" type="universeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="dataKind" type="dataKindType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="sumStatType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="wgtd" default="not-wgtd">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="wgtd"/>
+					<xs:enumeration value="not-wgtd"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="wgt-var" type="xs:IDREFS"/>
+		<xs:attribute name="weight" type="xs:IDREFS"/>
+		<xs:attribute name="type" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="mean"/>
+					<xs:enumeration value="medn"/>
+					<xs:enumeration value="mode"/>
+					<xs:enumeration value="vald"/>
+					<xs:enumeration value="invd"/>
+					<xs:enumeration value="min"/>
+					<xs:enumeration value="max"/>
+					<xs:enumeration value="stdev"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tableType">
+		<xs:sequence>
+			<xs:element name="titl" type="titlType" minOccurs="0"/>
+			<xs:element name="tgroup" type="tgroupType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="frame">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="top"/>
+					<xs:enumeration value="bottom"/>
+					<xs:enumeration value="topbot"/>
+					<xs:enumeration value="all"/>
+					<xs:enumeration value="sides"/>
+					<xs:enumeration value="none"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="colsep" type="xs:string"/>
+		<xs:attribute name="rowsep" type="xs:string"/>
+		<xs:attribute name="pgwide" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="tbodyType">
+		<xs:sequence>
+			<xs:element name="row" type="rowType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="valign">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="top"/>
+					<xs:enumeration value="middle"/>
+					<xs:enumeration value="bottom"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="tgroupType">
+		<xs:sequence>
+			<xs:element name="colspec" type="colspecType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="thead" type="theadType" minOccurs="0"/>
+			<xs:element name="tbody" type="tbodyType"/>
+		</xs:sequence>
+		<xs:attribute name="cols" type="xs:string" use="required"/>
+		<xs:attribute name="colsep" type="xs:string"/>
+		<xs:attribute name="rowsep" type="xs:string"/>
+		<xs:attribute name="align">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="left"/>
+					<xs:enumeration value="right"/>
+					<xs:enumeration value="center"/>
+					<xs:enumeration value="justify"/>
+					<xs:enumeration value="char"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="theadType">
+		<xs:sequence>
+			<xs:element name="row" type="rowType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="valign">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="top"/>
+					<xs:enumeration value="middle"/>
+					<xs:enumeration value="bottom"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="timeMethType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="txt" type="txtType"/>
+			<xs:element name="concept" type="conceptType"/>
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="method" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="timePrdType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="date" type="xs:string"/>
+		<xs:attribute name="event" default="single">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="start"/>
+					<xs:enumeration value="end"/>
+					<xs:enumeration value="single"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="cycle" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="titlType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="titlStmtType">
+		<xs:sequence>
+			<xs:element name="titl" type="titlType"/>
+			<xs:element name="subTitl" type="subTitlType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="altTitl" type="altTitlType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="parTitl" type="parTitlType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="IDNo" type="IDNoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="topcClasType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="vocab" type="xs:string"/>
+		<xs:attribute name="vocabURI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="txtType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+			<xs:element name="table" type="tableType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="level" type="xs:string"/>
+		<xs:attribute name="sdatrefs" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="undocCodType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="universeType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="txt" type="txtType"/>
+			<xs:element name="concept" type="conceptType"/>
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="level" type="xs:string"/>
+		<xs:attribute name="clusion" default="I">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="I"/>
+					<xs:enumeration value="E"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="useStmtType">
+		<xs:sequence>
+			<xs:element name="confDec" type="confDecType" minOccurs="0"/>
+			<xs:element name="specPerm" type="specPermType" minOccurs="0"/>
+			<xs:element name="restrctn" type="restrctnType" minOccurs="0"/>
+			<xs:element name="contact" type="contactType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="citReq" type="citReqType" minOccurs="0"/>
+			<xs:element name="deposReq" type="deposReqType" minOccurs="0"/>
+			<xs:element name="conditions" type="conditionsType" minOccurs="0"/>
+			<xs:element name="disclaimer" type="disclaimerType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="valrngType">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="range" type="rangeType"/>
+				<xs:element name="item" type="itemType"/>
+			</xs:choice>
+			<xs:element name="key" type="keyType" minOccurs="0"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="varType">
+		<xs:sequence>
+			<xs:element name="location" type="locationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="labl" type="lablType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="imputation" type="imputationType" minOccurs="0"/>
+			<xs:element name="security" type="securityType" minOccurs="0"/>
+			<xs:element name="embargo" type="embargoType" minOccurs="0"/>
+			<xs:element name="respUnit" type="respUnitType" minOccurs="0"/>
+			<xs:element name="anlysUnit" type="anlysUnitType" minOccurs="0"/>
+			<xs:element name="qstn" type="qstnType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="valrng" type="valrngType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="invalrng" type="invalrngType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="undocCod" type="undocCodType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="universe" type="universeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="TotlResp" type="TotlRespType" minOccurs="0"/>
+			<xs:element name="sumStat" type="sumStatType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="txt" type="txtType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="stdCatgry" type="stdCatgryType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="catgryGrp" type="catgryGrpType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="catgry" type="catgryType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="codInstr" type="codInstrType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="verStmt" type="verStmtType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="concept" type="conceptType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="derivation" type="derivationType" minOccurs="0"/>
+			<xs:element name="varFormat" type="varFormatType" minOccurs="0"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="wgt" default="not-wgt">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="wgt"/>
+					<xs:enumeration value="not-wgt"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="wgt-var" type="xs:IDREFS"/>
+		<xs:attribute name="weight" type="xs:IDREFS"/>
+		<xs:attribute name="qstn" type="xs:IDREFS"/>
+		<xs:attribute name="files" type="xs:IDREFS"/>
+		<xs:attribute name="vendor" type="xs:string"/>
+		<xs:attribute name="dcml" type="xs:string"/>
+		<xs:attribute name="intrvl" default="discrete">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="contin"/>
+					<xs:enumeration value="discrete"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="rectype" type="xs:string"/>
+		<xs:attribute name="sdatrefs" type="xs:IDREFS"/>
+		<xs:attribute name="methrefs" type="xs:IDREFS"/>
+		<xs:attribute name="pubrefs" type="xs:IDREFS"/>
+		<xs:attribute name="access" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="varFormatType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" default="numeric">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="character"/>
+					<xs:enumeration value="numeric"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="formatname" type="xs:string"/>
+		<xs:attribute name="schema" default="ISO">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="SAS"/>
+					<xs:enumeration value="SPSS"/>
+					<xs:enumeration value="IBM"/>
+					<xs:enumeration value="ANSI"/>
+					<xs:enumeration value="ISO"/>
+					<xs:enumeration value="XML-Data"/>
+					<xs:enumeration value="other"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="category" default="other">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="date"/>
+					<xs:enumeration value="time"/>
+					<xs:enumeration value="currency"/>
+					<xs:enumeration value="other"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="URI" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="varGrpType">
+		<xs:sequence>
+			<xs:element name="labl" type="lablType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="txt" type="txtType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="concept" type="conceptType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="defntn" type="defntnType" minOccurs="0"/>
+			<xs:element name="universe" type="universeType" minOccurs="0"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" default="other">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="section"/>
+					<xs:enumeration value="multipleResp"/>
+					<xs:enumeration value="grid"/>
+					<xs:enumeration value="display"/>
+					<xs:enumeration value="repetition"/>
+					<xs:enumeration value="subject"/>
+					<xs:enumeration value="version"/>
+					<xs:enumeration value="iteration"/>
+					<xs:enumeration value="analysis"/>
+					<xs:enumeration value="pragmatic"/>
+					<xs:enumeration value="record"/>
+					<xs:enumeration value="file"/>
+					<xs:enumeration value="randomized"/>
+					<xs:enumeration value="other"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="var" type="xs:IDREFS"/>
+		<xs:attribute name="varGrp" type="xs:IDREFS"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="sdatrefs" type="xs:IDREFS"/>
+		<xs:attribute name="methrefs" type="xs:IDREFS"/>
+		<xs:attribute name="pubrefs" type="xs:IDREFS"/>
+		<xs:attribute name="access" type="xs:IDREFS"/>
+	</xs:complexType>
+	<xs:complexType name="varQntyType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="verRespType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="affiliation" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="verStmtType">
+		<xs:sequence>
+			<xs:element name="version" type="versionType" minOccurs="0"/>
+			<xs:element name="verResp" type="verRespType" minOccurs="0"/>
+			<xs:element name="notes" type="notesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="versionType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="date" type="xs:string"/>
+		<xs:attribute name="type" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="weightType" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Link" type="LinkType"/>
+			<xs:element name="ExtLink" type="ExtLinkType"/>
+		</xs:choice>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attribute name="xml-lang" type="xs:NMTOKEN"/>
+		<xs:attribute name="source" default="producer">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="archive"/>
+					<xs:enumeration value="producer"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>
