@@ -83,7 +83,7 @@
                     <xsl:when test="$include-js='true'">
                         <script type="text/javascript">
                             <!--xsl:attribute name="src">http://code.jquery.com/jquery.min.js</xsl:attribute-->
-                            <xsl:attribute name="src">//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js</xsl:attribute>
+                            <xsl:attribute name="src">http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js</xsl:attribute>
                         </script>
                         
                         <!-- Translations and settings for javascript plugins-->
