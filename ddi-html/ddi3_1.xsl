@@ -38,6 +38,8 @@
     <xsl:param name="show-questionnaires">true</xsl:param>
     <!-- show navigation-bar-->
     <xsl:param name="show-navigration-bar">true</xsl:param>
+    <!-- show category-statistics-->
+    <xsl:param name="show-category-statistics">false</xsl:param>
     <!-- show inline variable list-->
     <xsl:param name="show-variable-list">true</xsl:param>
     <!-- show study-information-->
@@ -74,9 +76,13 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </title>
+                
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+                
                 <xsl:choose>
                     <xsl:when test="$include-js='true'">
                         <script type="text/javascript">
+                            <!--xsl:attribute name="src">http://code.jquery.com/jquery.min.js</xsl:attribute-->
                             <xsl:attribute name="src">//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js</xsl:attribute>
                         </script>
                         
@@ -96,17 +102,33 @@
                         </script>
 
                         <script type="text/javascript" src="js/exist-requests.js"> </script>
+                        
                         <xsl:choose>
-                            <xsl:when test="$show-navigration-bar">
+                            <xsl:when test="$show-navigration-bar ='true'">
                                 <script type="text/javascript">
                                     <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/navaigation-bar.js</xsl:attribute>
                                 </script>
                             </xsl:when>
                         </xsl:choose>
+                        
+                        <!-- flot graph -->
+                        <xsl:choose>
+                            <xsl:when test="$show-category-statistics='true'">
+                                <xsl:comment>[if lte IE 8<![CDATA[>]]>&lt;script type="text/javascript" src="<xsl:value-of select="$path-prefix"/>/js/excanvas.min.js"&gt;&lt;/script&gt;<![CDATA[<![endif]]]></xsl:comment>                                    
+                                <script type="text/javascript">
+                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery.flot.js</xsl:attribute>
+                                </script>
+                                <script type="text/javascript">
+                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery.flot.pie.js</xsl:attribute>
+                                </script>
+                                <script type="text/javascript">
+                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery.flot.tooltip.min.js</xsl:attribute>
+                                </script>                                
+                            </xsl:when>           
+                        </xsl:choose>
                     </xsl:when>
                 </xsl:choose>
-
-                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+                
                 <link type="text/css" rel="stylesheet" media="all">
                     <xsl:attribute name="href"><xsl:value-of select="$path-prefix"/>/<xsl:value-of select="$theme-path"/>/ddi.css</xsl:attribute>
                 </link>
