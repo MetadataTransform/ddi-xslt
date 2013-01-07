@@ -26,7 +26,7 @@ $(document).ready(function(){
             languageSwitchTmp += '</div>';
         }
     
-        $('<div id="navigration">\n\
+        $('<div id="navigation">\n\
             '+languageSwitchTmp+'\n\
             <input class="filter" name="livefilter" type="text" placeholder="'+i18n.filter+'" />\n\
             <div class="tabs">\n\
@@ -64,8 +64,8 @@ $(document).ready(function(){
         updateCount();
     });    
     
-    $('#navigration').css('width', '15%');
-    $('#study').css('margin-left', $('#navigration').width());
+    $('#navigation').css('width', '15%');
+    $('#study').css('margin-left', $('#navigation').width());
     
 });
 

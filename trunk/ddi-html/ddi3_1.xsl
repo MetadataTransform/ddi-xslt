@@ -208,36 +208,36 @@
                     <h3>
                         <xsl:value-of select="util:i18n('Indholdsfortegnelse')"/>
                     </h3>
-                    <dl>
-                        <div class="toc">
-                           <xsl:if test="$show-variable-list = 'true'">
-                            	<dt>
-                                	<a>
-                                    	<xsl:attribute name="href">#VariableList</xsl:attribute>
-                                    	<xsl:value-of select="util:i18n('VariableList')"/>
-                                	</a>
-                            	</dt>
-			    </xsl:if>
-                            <dt>
-                                <a>
-                                    <xsl:attribute name="href">#UniverseList</xsl:attribute>
-                                    <xsl:value-of select="util:i18n('Universe')"/>
-                                </a>
-                            </dt>
-                            <dt>
-                                <a>
-                                    <xsl:attribute name="href">#ConceptList</xsl:attribute>
-                                    <xsl:value-of select="util:i18n('Concepts')"/>
-                                </a>
-                            </dt>
-                            <dt>
-                                <a>
-                                    <xsl:attribute name="href">#Instrumentation</xsl:attribute>
-                                    <xsl:value-of select="util:i18n('Instrumentation')"/>
-                                </a>
-                            </dt>
-                        </div>
-                    </dl>
+                    <div class="toc">
+                        <dl>
+                            <xsl:if test="$show-variable-list = 'true'">
+                                 <dt>
+                                    <a>
+                                    <xsl:attribute name="href">#VariableList</xsl:attribute>
+                                    <xsl:value-of select="util:i18n('VariableList')"/>
+                                    </a>
+                                 </dt>
+                             </xsl:if>
+                             <dt>
+                                 <a>
+                                     <xsl:attribute name="href">#UniverseList</xsl:attribute>
+                                     <xsl:value-of select="util:i18n('Universe')"/>
+                                 </a>
+                             </dt>
+                             <dt>
+                                 <a>
+                                     <xsl:attribute name="href">#ConceptList</xsl:attribute>
+                                     <xsl:value-of select="util:i18n('Concepts')"/>
+                                 </a>
+                             </dt>
+                             <dt>
+                                 <a>
+                                     <xsl:attribute name="href">#Instrumentation</xsl:attribute>
+                                     <xsl:value-of select="util:i18n('Instrumentation')"/>
+                                 </a>
+                             </dt>
+                        </dl>
+                    </div>
                 </xsl:if>
 
                 <xsl:if test="$show-abstract = 'true'">
