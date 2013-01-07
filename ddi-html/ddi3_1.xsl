@@ -168,7 +168,7 @@
             <xsl:if test="$show-study-information = 'true'">
                 <div id="studyId">
                     <h2>
-                        <xsl:value-of select="util:i18n('RefNo')"/>
+                        <xsl:value-of select="util:i18n('RefNo')"/>:
                         <strong>
                             <xsl:choose>
                                 <xsl:when test="a:Archive/a:ArchiveSpecific/a:Collection/a:CallNumber">
