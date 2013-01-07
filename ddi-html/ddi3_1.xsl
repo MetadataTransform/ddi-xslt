@@ -206,7 +206,7 @@
 
                 <xsl:if test="$show-toc = 'true'">
                     <h3>
-                        <xsl:value-of select="util:i18n('Indholdsfortegnelse')"/>
+                        <xsl:value-of select="util:i18n('Table_of_Contents')"/>
                     </h3>
                     <div class="toc">
                         <dl>
