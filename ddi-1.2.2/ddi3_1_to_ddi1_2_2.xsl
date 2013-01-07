@@ -109,6 +109,25 @@ http://www.gnu.org/copyleft/lesser.html
             </xsl:for-each>
           </subject>
       </xsl:if>
+      
+      <sumDscr>
+        <xsl:for-each select="r:SpatialCoverage/r:Description">
+            <geogCover>
+                <xsl:if test="@xml:lang">
+                    <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang" /></xsl:attribute>
+                </xsl:if>
+                <txt><xsl:value-of select="." /></txt>
+            </geogCover>             
+        </xsl:for-each>
+        <xsl:if test="r:SpatialCoverage/r:BoundingBox">
+            <geoBndBox>
+                <westBL><xsl:value-of select="r:SpatialCoverage/r:BoundingBox/r:WestLongitude" /></westBL>
+                <eastBL><xsl:value-of select="r:SpatialCoverage/r:BoundingBox/r:EastLongitude" /></eastBL>
+                <southBL><xsl:value-of select="r:SpatialCoverage/r:BoundingBox/r:SouthLatitude" /></southBL>
+                <northBL><xsl:value-of select="r:SpatialCoverage/r:BoundingBox/r:NorthLatitude" /></northBL>
+            </geoBndBox>
+        </xsl:if>           
+      </sumDscr>
   </xsl:template>  
   
       
