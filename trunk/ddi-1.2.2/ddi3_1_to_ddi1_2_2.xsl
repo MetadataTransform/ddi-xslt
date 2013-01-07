@@ -34,7 +34,7 @@ http://www.gnu.org/copyleft/lesser.html
   xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd">
 
   <xsl:import href="ddi3_1_util.xsl"/>
-
+  
   <!-- output -->
   <xsl:output method="xml" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
   <xsl:decimal-format name="euro" decimal-separator="," grouping-separator="."/>
@@ -52,9 +52,19 @@ http://www.gnu.org/copyleft/lesser.html
       <stdyDscr>
         <citation>
           <titlStmt>
-            <titl/>
+              <titl><xsl:value-of select="r:Citation/r:Title"/></titl>
+              <xsl:apply-templates select="r:Citation/r:AlternateTitle" />
+              <xsl:apply-templates select="r:Citation/r:InternationalIdentifier" />
           </titlStmt>
         </citation>
+
+        <prodStmt>
+            <xsl:apply-templates select="r:FundingInformation" />
+        </prodStmt>        
+        <stdyInfo>
+            <xsl:apply-templates select="s:Abstract" />
+            <xsl:apply-templates select="r:Coverage" />
+        </stdyInfo>
       </stdyDscr>
 
       <!-- default file description -->
@@ -68,6 +78,49 @@ http://www.gnu.org/copyleft/lesser.html
         <xsl:apply-templates select="*//l:Variable"/>
       </dataDscr>
     </codeBook>
+  </xsl:template>
+  
+  <xsl:template match="r:AlternateTitle">
+      <altTitl><xsl:value-of select="."/></altTitl>
+  </xsl:template>
+  
+  <xsl:template match="s:Abstract">
+      <abstract>
+          <xsl:if test="r:Content/@xml:lang">
+              <xsl:attribute name="xml:lang"><xsl:value-of select="r:Content/@xml:lang" /></xsl:attribute>
+          </xsl:if>
+          <xsl:value-of select="r:Content"/>
+      </abstract>
+  </xsl:template>
+
+  <xsl:template match="r:Coverage">
+      <xsl:if test="r:TopicalCoverage">
+          <subject>
+            <xsl:for-each select="r:TopicalCoverage/r:Subject | r:TopicalCoverage/r:Keyword">
+                <keyword>
+                    <xsl:if test="@xml:lang">
+                        <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang" /></xsl:attribute>
+                    </xsl:if>          
+                    <xsl:if test="@codeListID">
+                        <xsl:attribute name="vocab"><xsl:value-of select="@codeListID" /></xsl:attribute>
+                    </xsl:if>                                
+                    <xsl:value-of select="."/>
+                </keyword>
+            </xsl:for-each>
+          </subject>
+      </xsl:if>
+  </xsl:template>  
+  
+      
+  <xsl:template match="r:InternationalIdentifier">
+      <IDNo><xsl:value-of select="."/></IDNo>
+  </xsl:template>  
+  
+  <xsl:template match="r:FundingInformation">
+      <fundAg><xsl:value-of select="a:Organization[@id=r:AgencyOrganizationReference/r:ID]/a:OrganizationName"/></fundAg>
+      <xsl:if test="r:GrantNumber">
+        <grantNo><xsl:value-of select="r:GrantNumber"/></grantNo>
+      </xsl:if>
   </xsl:template>
 
   <!-- variable groups defined by concepts -->
