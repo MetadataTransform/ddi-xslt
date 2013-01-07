@@ -100,9 +100,9 @@
                         <script type="text/javascript">
                             <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/config.js</xsl:attribute>
                         </script>
-
+                        <!--
                         <script type="text/javascript" src="js/exist-requests.js"> </script>
-                        
+                        -->
                         <xsl:choose>
                             <xsl:when test="$show-navigration-bar ='true'">
                                 <script type="text/javascript">
