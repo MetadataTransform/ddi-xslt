@@ -106,7 +106,7 @@
                         <xsl:choose>
                             <xsl:when test="$show-navigration-bar ='true'">
                                 <script type="text/javascript">
-                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/navaigation-bar.js</xsl:attribute>
+                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/navigation-bar.js</xsl:attribute>
                                 </script>
                             </xsl:when>
                         </xsl:choose>
