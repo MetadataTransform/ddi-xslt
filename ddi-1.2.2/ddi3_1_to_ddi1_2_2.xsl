@@ -35,6 +35,9 @@ http://www.gnu.org/copyleft/lesser.html
 
   <xsl:import href="ddi3_1_util.xsl"/>
   
+  <!-- prefered lang for titl, other titles will be in parTitl -->
+  <xsl:param name="lang">en</xsl:param>
+  
   <!-- output -->
   <xsl:output method="xml" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
   <xsl:decimal-format name="euro" decimal-separator="," grouping-separator="."/>
@@ -52,7 +55,29 @@ http://www.gnu.org/copyleft/lesser.html
       <stdyDscr>
         <citation>
           <titlStmt>
-              <titl><xsl:value-of select="r:Citation/r:Title"/></titl>
+              <xsl:choose>
+                  <xsl:when test="r:Citation/r:Title[@xml:lang = $lang]">
+                      <titl>
+                            <xsl:attribute name="xml:lang">
+                                <xsl:value-of select="$lang" />
+                            </xsl:attribute>
+                            <xsl:value-of select="r:Citation/r:Title[@xml:lang = $lang]"/>
+                      </titl>
+                  </xsl:when>
+                  <xsl:otherwise>
+                      <titl><xsl:value-of select="r:Citation/r:Title"/></titl>
+                  </xsl:otherwise>
+              </xsl:choose>
+              <xsl:if test="r:Citation/r:Title[@xml:lang != $lang]">
+                <xsl:for-each select="r:Citation/r:Title[@xml:lang != $lang]">
+                    <parTitl>
+                      <xsl:if test="@xml:lang">
+                          <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang" /></xsl:attribute>
+                      </xsl:if>
+                      <xsl:value-of select="."/>                                
+                    </parTitl>
+                </xsl:for-each>
+              </xsl:if>
               <xsl:apply-templates select="r:Citation/r:AlternateTitle" />
               <xsl:apply-templates select="r:Citation/r:InternationalIdentifier" />
           </titlStmt>
