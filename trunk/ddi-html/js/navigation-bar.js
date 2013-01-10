@@ -26,9 +26,10 @@ $(document).ready(function(){
             languageSwitchTmp += '</div>';
         }
     
+
         $('<div id="navigation">\n\
             '+languageSwitchTmp+'\n\
-            <input class="filter" name="livefilter" type="text" placeholder="'+i18n.filter+'" />\n\
+            <input class="filter" name="livefilter" type="text" />\n\
             <div class="tabs">\n\
                 <ul class="tabNavigation">\n\
                     <li class="option variables active" id="tab1" tab="#variable-list-wrapper">'+i18n.variables+'</li>\n\
@@ -44,6 +45,11 @@ $(document).ready(function(){
                 <ul id="question-list"></ul>\n\
             </div>\n\
            </div>').insertBefore('#study');
+        
+        // placeholder text and autofill function for search input field
+        $('input.filter').autofill({
+		value: i18n.filter + '...'
+	});
         
         //when clicked navigate to the most recent url (including fragment)
         $(".languageSwitch .language").click(function(e){	

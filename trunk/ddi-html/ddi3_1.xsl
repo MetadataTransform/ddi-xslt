@@ -86,6 +86,10 @@
                             <xsl:attribute name="src">http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js</xsl:attribute>
                         </script>
                         
+                        <script type="text/javascript">
+                            <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>js/jquery.autofill.min.js</xsl:attribute>
+                        </script>
+                        
                         <!-- Translations and settings for javascript plugins-->
                         <script type="text/javascript">
                             <xsl:text>var i18n = {};</xsl:text>
@@ -98,7 +102,7 @@
                         </script>
 
                         <script type="text/javascript">
-                            <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/config.js</xsl:attribute>
+                            <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>js/config.js</xsl:attribute>
                         </script>
                         <!--
                         <script type="text/javascript" src="js/exist-requests.js"> </script>
@@ -106,7 +110,7 @@
                         <xsl:choose>
                             <xsl:when test="$show-navigration-bar ='true'">
                                 <script type="text/javascript">
-                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/navigation-bar.js</xsl:attribute>
+                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>js/navigation-bar.js</xsl:attribute>
                                 </script>
                             </xsl:when>
                         </xsl:choose>
