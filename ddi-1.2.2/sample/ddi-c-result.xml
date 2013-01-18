@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <codeBook xmlns="http://www.icpsr.umich.edu/DDI"
           xmlns:dc="http://purl.org/dc/elements/1.1/"
           xmlns:g="ddi:group:3_1"
@@ -19,13 +20,86 @@
           xmlns:pi="ddi:physicalinstance:3_1"
           xmlns:ds="ddi:dataset:3_1"
           xmlns:pr="ddi:profile:3_1"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd">
    <stdyDscr>
       <citation>
          <titlStmt>
-            <titl/>
+            <titl xml-lang="en">New work
+        life and work environment in news work, 2007</titl>
+            <parTitl xml-lang="da">Nyt
+        arbejdsliv og arbejdsmiljø i nyhedsarbejde, 2007</parTitl>
+            <IDNo>dx.doi.org/10.5279/DK-SA-DDA-25612</IDNo>
          </titlStmt>
+         <prodStmt>
+            <prodDate date="2013-01-18T23:59:23.801+01:00">2013-01-18T23:59:23.801+01:00</prodDate>
+            <software version="development">code.google.com/p/ddixslt
+              ddi3_1_to_ddi1_2_2.xsl</software>
+         </prodStmt>
       </citation>
+      <stdyInfo>
+         <subject>
+            <keyword xml-lang="da">Arbejde og beskæftigelse</keyword>
+            <keyword xml-lang="en">Labour and employment</keyword>
+            <keyword xml-lang="da">Afdeling</keyword>
+            <keyword xml-lang="da">Antal medarbejdere på arbejdspladsen</keyword>
+            <keyword xml-lang="da">Arbejde og beskæftigelse</keyword>
+            <keyword xml-lang="da">Arbejdsforhold</keyword>
+            <keyword xml-lang="da">Arbejdsgiverorganisation</keyword>
+            <keyword xml-lang="da">Arbejdsmiljø</keyword>
+            <keyword xml-lang="da">Arbejdspladsens krav</keyword>
+            <keyword xml-lang="da">Arbejdstid</keyword>
+            <keyword xml-lang="da">Deadlines på arbejdspladsen</keyword>
+            <keyword xml-lang="da">Faglig aktivitet</keyword>
+            <keyword xml-lang="da">Faglig uddannelse</keyword>
+            <keyword xml-lang="da">Forandringsprocesser</keyword>
+            <keyword xml-lang="da">Forventning</keyword>
+            <keyword xml-lang="da">Hjemmearbejdsplads</keyword>
+            <keyword xml-lang="da">Hovedbeskæftigelse</keyword>
+            <keyword xml-lang="da">Jobindhold og faglig udvikling</keyword>
+            <keyword xml-lang="da">Kritik</keyword>
+            <keyword xml-lang="da">Kultur</keyword>
+            <keyword xml-lang="da">Ledelse</keyword>
+            <keyword xml-lang="da">Medarbejderindflydelse</keyword>
+            <keyword xml-lang="da">Overarbejde</keyword>
+            <keyword xml-lang="da">Overenskomst</keyword>
+            <keyword xml-lang="da">Prioritering af arbejde og familie</keyword>
+            <keyword xml-lang="da">Stilling</keyword>
+            <keyword xml-lang="da">Stresshåndtering</keyword>
+            <keyword xml-lang="da">Tilfredshed med arbejde</keyword>
+            <keyword xml-lang="da">Trivsel på arbejdspladsen</keyword>
+            <keyword xml-lang="da">Værdi</keyword>
+            <keyword xml-lang="da">Weekendarbejde</keyword>
+         </subject>
+         <abstract xml-lang="da">Datamaterialet er baseret på en survey blandt nyhedsarbejdere gennemført over en seks ugers
+        periode i efteråret 2007. Alle medlemmer (n=6372) af Dansk Journalistforbund (DJ) fik
+        tilsendt et elektronisk spørgeskema. Heraf indløb i alt 2201 anvendelige besvarelser.
+        Spørgeskemaet rummede spørgsmål omkring arbejdsforhold, ansættelsesforhold og psykisk
+        arbejdsmiljø.Surveyen blev forudgået og opfulgt af casestudier på fem udvalgte virksomheder,
+        som blev udvalgt ud fra kriterier om at være repræsentative for branchen, og samtidig være
+        &amp;#39;&amp;#39;spydspidser&amp;#39;&amp;#39; i relation til nye organisationsstrukturerer
+        og arbejdsorganiseringer. Dertil blev der udført kvalitative interview af nyhedsarbejdere
+        inden for forskellige typer medieområder. Hensigten med de opfølgende undersøgelser var at
+        få indsigt i og en dybere og nuanceret forståelse af surveyens resultater.Det tilgængelige
+        datamateriale indeholder udelukkende data fra surveyen.</abstract>
+         <abstract xml-lang="en">This
+        survey of news workers was carried out in 2007-08. Members of The Danish Union of
+        Journalists makes up the study population.The study contributes knowledge of the
+        consequences of the considerable changes in use of tecnology, economical structures and
+        forms of organisation to workings conditions, conditions of employment and psychosocial work
+        environment. The primary research question concerns which consequences the ongoing
+        tecnological, economical and organisational development in the news business has to the news
+        workers working life in terms of workings conditions, conditions of employment and
+        psychosocial work environment. 6-8 casestudies is carried out over a period of 1-2 years in
+        companies chosen on the basis of. A combination of interviews, observations and written
+        material is used to create an overview of the development and changes in conditions of
+        employment, use of technology, management and job functions.</abstract>
+         <sumDscr>
+            <geogCover xml-lang="da">
+               <txt/>
+            </geogCover>
+         </sumDscr>
+      </stdyInfo>
    </stdyDscr>
    <fileDscr>
       <fileTxt ID="F1"/>
@@ -62,7 +136,8 @@
       </var>
       <var ID="V4" name="V4" files="F1" dcml="0" intrvl="contin">
          <location width="5" RecSegNo="1"/>
-         <labl>1. YEARS IN CURRENT POSITION</labl>
+         <labl>1. YEARS IN CURRENT
+            POSITION</labl>
          <qstn>
             <qstnLit>Q1: How long have you held your current position with this company? Number of
                 years: (roughly)</qstnLit>
@@ -269,7 +344,8 @@
       </var>
       <var ID="V8" name="V8" files="F1" dcml="0" intrvl="contin">
          <location width="5" RecSegNo="1"/>
-         <labl>2A. BUSINESS TYPE, OTHER</labl>
+         <labl>2A. BUSINESS TYPE,
+            OTHER</labl>
          <qstn>
             <qstnLit>Q2A: Other, please write</qstnLit>
          </qstn>
@@ -278,7 +354,8 @@
       </var>
       <var ID="V9" name="V9" files="F1" dcml="0" intrvl="contin">
          <location width="5" RecSegNo="1"/>
-         <labl>3A. EDITORIAL MANAGEMENT</labl>
+         <labl>3A. EDITORIAL
+            MANAGEMENT</labl>
          <qstn>
             <qstnLit>Q3A: Editorial management</qstnLit>
          </qstn>
@@ -306,7 +383,8 @@
       </var>
       <var ID="V10" name="V10" files="F1" dcml="0" intrvl="contin">
          <location width="5" RecSegNo="1"/>
-         <labl>3B. ADMINISTRATIVE MANAGEMENT</labl>
+         <labl>3B. ADMINISTRATIVE
+            MANAGEMENT</labl>
          <qstn>
             <qstnLit>Q3B: Administrative management</qstnLit>
          </qstn>
@@ -334,7 +412,8 @@
       </var>
       <var ID="V11" name="V11" files="F1" dcml="0" intrvl="contin">
          <location width="5" RecSegNo="1"/>
-         <labl>3C. EDITORIAL SECRETARIAT</labl>
+         <labl>3C. EDITORIAL
+            SECRETARIAT</labl>
          <qstn>
             <qstnLit>Q3C: Editorial secretariat</qstnLit>
          </qstn>
@@ -508,7 +587,8 @@
       </var>
       <var ID="V17" name="V17" files="F1" dcml="0" intrvl="contin">
          <location width="5" RecSegNo="1"/>
-         <labl>5A. DEADLINES CREATES CALM</labl>
+         <labl>5A. DEADLINES CREATES
+            CALM</labl>
          <qstn>
             <qstnLit>Q5: To which degree do the following apply to
                 you? (Mark only once per line)Q5A: Deadlines give stability in the work</qstnLit>
@@ -917,7 +997,8 @@
       </var>
       <var ID="V24" name="V24" files="F1" dcml="0" intrvl="contin">
          <location width="5" RecSegNo="1"/>
-         <labl>7. RIGHT TO WAGE COMPENSATION</labl>
+         <labl>7. RIGHT TO WAGE
+            COMPENSATION</labl>
          <qstn>
             <qstnLit>Q7: Does your collective agreement or contract give you the right to be
                 compensated for overtime (e.g. compensatory time-off or paid overtime)?</qstnLit>
@@ -951,7 +1032,8 @@
       </var>
       <var ID="V25" name="V25" files="F1" dcml="0" intrvl="contin">
          <location width="5" RecSegNo="1"/>
-         <labl>8. SETTLEMENT OF OVERTIME</labl>
+         <labl>8. SETTLEMENT OF
+            OVERTIME</labl>
          <qstn>
             <qstnLit>Q8: How are you compensated for working overtime?</qstnLit>
          </qstn>
@@ -1021,7 +1103,8 @@
       </var>
       <var ID="V27" name="V27" files="F1" dcml="0" intrvl="contin">
          <location width="5" RecSegNo="1"/>
-         <labl>9. OVERTIME IS DUE TO.</labl>
+         <labl>9. OVERTIME IS DUE
+            TO.</labl>
          <qstn>
             <qstnLit>Q9: I work overtime because...?</qstnLit>
          </qstn>
@@ -1160,7 +1243,8 @@
       </var>
       <var ID="V30" name="V30" files="F1" dcml="0" intrvl="contin">
          <location width="5" RecSegNo="1"/>
-         <labl>11A. NUMBER OF EMPLOYEES</labl>
+         <labl>11A. NUMBER OF
+            EMPLOYEES</labl>
          <qstn>
             <qstnLit>Q11A: Yes, number of employees in the department (approximately)</qstnLit>
          </qstn>
@@ -1216,7 +1300,8 @@
       </var>
       <var ID="V32" name="V32" files="F1" dcml="0" intrvl="contin">
          <location width="5" RecSegNo="1"/>
-         <labl>13. OVERTIME WORK A NECESSITY</labl>
+         <labl>13. OVERTIME WORK A
+            NECESSITY</labl>
          <qstn>
             <qstnLit>Q13: Are you required to work late?</qstnLit>
          </qstn>
