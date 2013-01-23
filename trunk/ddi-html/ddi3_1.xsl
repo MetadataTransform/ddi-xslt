@@ -430,8 +430,10 @@
                 <xsl:call-template name="CreateLink"/>
                 <xsl:text> </xsl:text>
                 <strong>
-                    <xsl:value-of select="c:HumanReadable[@xml:lang=$lang]"/>
+                    <xsl:call-template name="DisplayLabel"/>
                 </strong>
+                <br/>                
+                <xsl:value-of select="c:HumanReadable[@xml:lang=$lang]"/>
 
                 <xsl:if test="../../../l:LogicalProduct/l:VariableScheme/l:Variable/r:UniverseReference/r:ID=$uniId">
                     <ul>
