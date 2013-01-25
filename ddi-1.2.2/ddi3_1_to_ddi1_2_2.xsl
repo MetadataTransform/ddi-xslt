@@ -50,30 +50,77 @@ http://www.gnu.org/copyleft/lesser.html
   <!-- do transformation -->
   <xsl:template match="s:StudyUnit">
     <codeBook>
-
+      <!-- att schemaLocation -->
       <xsl:attribute name="xsi:schemaLocation">
         <xsl:text>http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd</xsl:text>
       </xsl:attribute>
 
-      <!-- default study description -->
+      <!-- study id -->
+      <xsl:variable name="studyId">
+        <xsl:choose>
+          <xsl:when test="*//a:CallNumber">
+            <xsl:value-of select="*//a:CallNumber"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="./@id"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+
+      <!-- att id -->
+      <xsl:attribute name="id">
+        <xsl:value-of select="$studyId"/>
+      </xsl:attribute>
+
+      <!-- att version -->
+      <xsl:attribute name="version">
+        <xsl:text>1.2.2</xsl:text>
+      </xsl:attribute>
+
+      <!-- study title -->
+      <xsl:variable name="studyTitle">
+        <xsl:choose>
+          <xsl:when test="r:Citation/r:Title[@xml:lang = $lang]">
+            <titl>
+              <xsl:attribute name="xml-lang">
+                <xsl:value-of select="$lang"/>
+              </xsl:attribute>
+              <xsl:value-of select="r:Citation/r:Title[@xml:lang = $lang]"/>
+            </titl>
+          </xsl:when>
+          <xsl:otherwise>
+            <titl>
+              <xsl:value-of select="r:Citation/r:Title"/>
+            </titl>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+
+      <!--  document description -->
+      <docDscr>
+        <citation>
+          <titlStmt>
+            <titl>
+              <xsl:text>XML Data Documentation for: </xsl:text>
+              <xsl:value-of select="$studyTitle"/>
+            </titl>
+          </titlStmt>
+          <prodStmt>
+            <xsl:apply-templates select="r:FundingInformation"/>
+            <prodDate date="{current-dateTime()}">
+              <xsl:value-of select="current-dateTime()"/>
+            </prodDate>
+            <software version="development">code.google.com/p/ddixslt
+              ddi3_1_to_ddi1_2_2.xsl</software>
+          </prodStmt>
+        </citation>
+      </docDscr>
+
+      <!-- study description -->
       <stdyDscr>
         <citation>
           <titlStmt>
-            <xsl:choose>
-              <xsl:when test="r:Citation/r:Title[@xml:lang = $lang]">
-                <titl>
-                  <xsl:attribute name="xml-lang">
-                    <xsl:value-of select="$lang"/>
-                  </xsl:attribute>
-                  <xsl:value-of select="r:Citation/r:Title[@xml:lang = $lang]"/>
-                </titl>
-              </xsl:when>
-              <xsl:otherwise>
-                <titl>
-                  <xsl:value-of select="r:Citation/r:Title"/>
-                </titl>
-              </xsl:otherwise>
-            </xsl:choose>
+            <xsl:copy-of select="$studyTitle"/>
             <xsl:if test="r:Citation/r:Title[@xml:lang != $lang]">
               <xsl:for-each select="r:Citation/r:Title[@xml:lang != $lang]">
                 <parTitl>
@@ -89,15 +136,6 @@ http://www.gnu.org/copyleft/lesser.html
             <xsl:apply-templates select="r:Citation/r:AlternateTitle"/>
             <xsl:apply-templates select="r:Citation/r:InternationalIdentifier"/>
           </titlStmt>
-
-          <prodStmt>
-            <xsl:apply-templates select="r:FundingInformation"/>
-            <prodDate date="{current-dateTime()}">
-              <xsl:value-of select="current-dateTime()"/>
-            </prodDate>
-            <software version="development">code.google.com/p/ddixslt
-              ddi3_1_to_ddi1_2_2.xsl</software>
-          </prodStmt>
         </citation>
 
         <stdyInfo>
@@ -107,9 +145,29 @@ http://www.gnu.org/copyleft/lesser.html
         </stdyInfo>
       </stdyDscr>
 
-      <!-- default file description -->
+      <!-- file description -->
       <fileDscr>
-        <fileTxt ID="F1"/>
+      <!--fileDscr ID="F1">
+        <xsl:attribute name="URI">
+          <xsl:value-of select="$studyId"/>
+          <xsl:text>.Nesstar?Index=0&amp;Name=</xsl:text>
+          <xsl:value-of select="$studyId"/>
+        </xsl:attribute-->
+        <fileTxt ID="F1">
+          <fileName>
+            <xsl:value-of select="$studyId"/>
+            <xsl:text>.NSDstat</xsl:text>
+          </fileName>
+          <dimensns>
+            <caseQnty>
+              <xsl:value-of select="*//pi:CaseQuantity"/>
+            </caseQnty>
+            <varQnty>
+              <xsl:value-of select="count(*//pd:DataItem)"/>
+            </varQnty>
+          </dimensns>
+          <fileType>Nesstar 200801</fileType>
+        </fileTxt>
       </fileDscr>
 
       <!-- data description -->
@@ -535,10 +593,10 @@ http://www.gnu.org/copyleft/lesser.html
       <xsl:choose>
         <xsl:when
           test="l:Representation/l:NumericRepresentation or l:Representation/l:CodeRepresentation">
-          <varFormat>numeric</varFormat>
+          <varFormat type="numeric" schema="other"/>
         </xsl:when>
         <xsl:otherwise>
-          <varFormat>character</varFormat>
+          <varFormat type="character" schema="other"/>
         </xsl:otherwise>
       </xsl:choose>
 
