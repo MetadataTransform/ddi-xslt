@@ -10992,6 +10992,9 @@
           <ID xmlns="ddi:reusable:3_1">00613</ID>
           <IdentifyingAgency xmlns="ddi:reusable:3_1">dk.dda</IdentifyingAgency>
         </ArchiveOrganizationReference>
+        <Collection>
+          <CallNumber>25612</CallNumber>
+        </Collection>
         <DefaultAccess id="d018b1ca-880b-4f9f-a183-325ae1895836">
           <AccessTypeName translated="false" translatable="false" xml:lang="da">03</AccessTypeName>
           <AccessConditions translated="false" translatable="true" xml:lang="da">Konsulter
