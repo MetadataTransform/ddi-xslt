@@ -32,8 +32,9 @@ $(document).ready(function(){
             <input class="filter" name="livefilter" type="text" />\n\
             <div class="tabs">\n\
                 <ul class="tabNavigation">\n\
-                    <li class="option variables active" id="tab1" tab="#variable-list-wrapper">'+i18n.variables+'</li>\n\
-                    <li class="option questions" id="tab2" tab="#question-list-wrapper">'+i18n.questions+'</li>\n\
+                    <li class="option variables active" id="tab2" tab="#variable-list-wrapper">'+i18n.variables+'</li>\n\
+                    <li class="option questions" id="tab3" tab="#question-list-wrapper">'+i18n.questions+'</li>\n\
+		    <li class="option index active" id="tab1" tab="#index-list-wrapper">Index</li>\n\
                 </ul>\n\
             </div>\n\
             <div id="variable-list-wrapper" class="tab-content">\n\
@@ -43,6 +44,10 @@ $(document).ready(function(){
             <div id="question-list-wrapper" class="tab-content hide">\n\
                 <span class="count"></span>\n\
                 <ul id="question-list"></ul>\n\
+            </div>\n\
+            <div id="index-list-wrapper" class="tab-content hide">\n\
+                <span class="count"></span>\n\
+                <ul id="index-list"></ul>\n\
             </div>\n\
            </div>').insertBefore('#study');
         
@@ -61,6 +66,7 @@ $(document).ready(function(){
     menuTabs();
     pupulateVariableList();
     pupulateVariableQuestionList();
+	pupulateIndexList();
     
     if($("#question-list li").length == 0){
         pupulateQuestionList();
@@ -184,6 +190,27 @@ function pupulateQuestionList(){
     $('#question-list-wrapper .count').html($('#question-list li').length+' '+i18n.questions.toLowerCase());
 }
 
+function pupulateIndexList(){
+    var container = $("#index-list")
+    // toc based on http://www.jankoatwarpspeed.com/automatically-generate-table-of-contents-using-jquery/	
+    $("h3, h4").each(function(i) {
+        var current = $(this);
+        current.attr("id", "title" + i);
+        if($(this).is('h3')) {
+	    $(container).append("<li><strong><a id='link" + i + "' href='#title" +
+	    i + "' title='" + current.attr("tagName") + "'>" + 
+            current.html() + "</a></strong></li>");
+        } else if($(this).is('h4')) {
+	    $(container).append("<ul><li><strong><a id='link" + i + "' href='#title" +
+	    i + "' title='" + current.attr("tagName") + "'>" + 
+	    current.html() + "</a></strong></li></ul>");
+        }
+    });
+    
+    // $('#index-list-wrapper').liveFilter('ul');
+
+    // $('#index-list-wrapper .count').html($('#question-list li').length+' '+i18n.questions.toLowerCase());
+}
 
 function getURLParameter(name) {
     return decodeURI(
