@@ -47,8 +47,11 @@
                     <xsl:when test="r:Label[@xml:lang=$lang]">
                         <xsl:value-of select="r:Label[@xml:lang=$lang]"/>
                     </xsl:when>
-                    <xsl:otherwise>
+                    <xsl:when test="r:Label[@xml:lang=$fallback-lang]">
                         <xsl:value-of select="r:Label[@xml:lang=$fallback-lang]"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="r:Label"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
@@ -67,8 +70,11 @@
                     <xsl:when test="r:Description[@xml:lang=$lang]">
                         <xsl:value-of select="r:Description[@xml:lang=$lang]"/>
                     </xsl:when>
-                    <xsl:otherwise>
+                    <xsl:when test="r:Description[@xml:lang=$fallback-lang]">
                         <xsl:value-of select="r:Description[@xml:lang=$fallback-lang]"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="r:Description"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
