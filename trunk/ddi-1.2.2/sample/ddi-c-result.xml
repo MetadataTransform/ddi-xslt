@@ -20,8 +20,36 @@
           xmlns:pi="ddi:physicalinstance:3_1"
           xmlns:ds="ddi:dataset:3_1"
           xmlns:pr="ddi:profile:3_1"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd">
+          xmlns:util="https://code.google.com/p/ddixslt/#util"
+          xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd"
+          ID="XXX25612"
+          version="1.2.2">
+   <docDscr>
+      <citation>
+         <titlStmt>
+            <titl>XML data documentation for "New work
+        life and work environment in news work, 2007"</titl>
+         </titlStmt>
+         <prodStmt>
+            <producer abbr="XXX" xml-lang="da">Dansk
+        Data Arkiv</producer>
+            <producer abbr="XXX" xml-lang="en">Danish Data Archive</producer>
+            <prodDate date="2013-01-28+01:00">2013-01-28+01:00</prodDate>
+            <software version="development">code.google.com/p/ddixslt
+              ddi3_1_to_ddi1_2_2.xsl</software>
+         </prodStmt>
+         <distStmt>
+            <distrbtr abbr="XXX" URI="http://example.org/catalogue/25612">Danish Data Archive</distrbtr>
+         </distStmt>
+         <verStmt>
+            <version date="2012-10-30">1.0.0</version>
+         </verStmt>
+         <biblCit>New work
+        life and work environment in news work, 2007, Danish Data Archive, XXX25612, version: 1.0.0, dx.doi.org/10.5279/DK-SA-DDA-25612</biblCit>
+      </citation>
+   </docDscr>
    <stdyDscr>
       <citation>
          <titlStmt>
@@ -29,13 +57,11 @@
         life and work environment in news work, 2007</titl>
             <parTitl xml-lang="da">Nyt
         arbejdsliv og arbejdsmiljø i nyhedsarbejde, 2007</parTitl>
-            <IDNo>dx.doi.org/10.5279/DK-SA-DDA-25612</IDNo>
+            <IDNo>XXX25612</IDNo>
          </titlStmt>
-         <prodStmt>
-            <prodDate date="2013-01-18T23:59:23.801+01:00">2013-01-18T23:59:23.801+01:00</prodDate>
-            <software version="development">code.google.com/p/ddixslt
-              ddi3_1_to_ddi1_2_2.xsl</software>
-         </prodStmt>
+         <prodStmt/>
+         <biblCit>New work
+        life and work environment in news work, 2007, Danish Data Archive, XXX25612, version: 1.0.0, dx.doi.org/10.5279/DK-SA-DDA-25612</biblCit>
       </citation>
       <stdyInfo>
          <subject>
@@ -98,11 +124,26 @@
             <geogCover xml-lang="da">
                <txt/>
             </geogCover>
+            <anlyUnit> Individual </anlyUnit>
+            <universe>Occupation</universe>
+            <dataKind> survey data </dataKind>
          </sumDscr>
       </stdyInfo>
+      <method>
+         <dataColl/>
+      </method>
+      <dataAccs/>
+      <othrStdyMat/>
    </stdyDscr>
-   <fileDscr>
-      <fileTxt ID="F1"/>
+   <fileDscr ID="F1">
+      <fileTxt ID="F1">
+         <fileName>XXX25612.NSDstat</fileName>
+         <dimensns>
+            <caseQnty>2201</caseQnty>
+            <varQnty>34</varQnty>
+         </dimensns>
+         <fileType>Nesstar 200801</fileType>
+      </fileTxt>
    </fileDscr>
    <dataDscr>
       <varGrp ID="VG1"
@@ -120,32 +161,32 @@
             demands</labl>
       </varGrp>
       <var ID="V1" name="V1" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>DDA STUDY NUMBER</labl>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V2" name="V2" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>DDA RESPONDENT NUMBER</labl>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V3" name="V3" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>DATE</labl>
-         <varFormat>character</varFormat>
+         <varFormat type="character" schema="other"/>
       </var>
       <var ID="V4" name="V4" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>1. YEARS IN CURRENT
             POSITION</labl>
          <qstn>
             <qstnLit>Q1: How long have you held your current position with this company? Number of
                 years: (roughly)</qstnLit>
          </qstn>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V5" name="V5" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>1B. MONTHS IN CURRENT
             POSITION</labl>
          <qstn>
@@ -235,15 +276,15 @@
             months</labl>
             <catStat type="freq">1</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>99</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">1245</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
-      <var ID="V6" name="V6" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+      <var ID="V6" name="V6" files="F1" dcml="1" intrvl="contin">
+         <location width="1"/>
          <labl>1C. CURRENT POSITION, NUMBER
             OF HOURS</labl>
          <qstn>
@@ -253,10 +294,10 @@
             <item UNITS="REAL" VALUE="999.0"/>
          </invalrng>
          <TotlResp>2201</TotlResp>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V7" name="V7" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>2. BUSINESS TYPE</labl>
          <qstn>
             <qstnLit>Q2: What type of company do you work for?</qstnLit>
@@ -335,25 +376,25 @@
             <labl>Other</labl>
             <catStat type="freq">192</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>99</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">54</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V8" name="V8" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>2A. BUSINESS TYPE,
             OTHER</labl>
          <qstn>
             <qstnLit>Q2A: Other, please write</qstnLit>
          </qstn>
          <universe clusion="I">Answer question 2A</universe>
-         <varFormat>character</varFormat>
+         <varFormat type="character" schema="other"/>
       </var>
       <var ID="V9" name="V9" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>3A. EDITORIAL
             MANAGEMENT</labl>
          <qstn>
@@ -374,15 +415,15 @@
             <labl>Mentioned</labl>
             <catStat type="freq">238</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">114</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V10" name="V10" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>3B. ADMINISTRATIVE
             MANAGEMENT</labl>
          <qstn>
@@ -403,15 +444,15 @@
             <labl>Mentioned</labl>
             <catStat type="freq">41</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">114</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V11" name="V11" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>3C. EDITORIAL
             SECRETARIAT</labl>
          <qstn>
@@ -432,15 +473,15 @@
             <labl>Mentioned</labl>
             <catStat type="freq">295</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">114</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V12" name="V12" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>3D. LOCAL NEWS</labl>
          <qstn>
             <qstnLit>Q3D: Locale news</qstnLit>
@@ -460,15 +501,15 @@
             <labl>Mentioned</labl>
             <catStat type="freq">489</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">114</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V13" name="V13" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>3E. NATIONAL NEWS</labl>
          <qstn>
             <qstnLit>Q3E: National news</qstnLit>
@@ -488,15 +529,15 @@
             <labl>Mentioned</labl>
             <catStat type="freq">412</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">114</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V14" name="V14" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>3F. OTHER:</labl>
          <qstn>
             <qstnLit>Q3F: Other</qstnLit>
@@ -516,24 +557,24 @@
             <labl>Mentioned</labl>
             <catStat type="freq">445</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">114</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V15" name="V15" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>3G OTHER, TEXT:</labl>
          <qstn>
             <qstnLit>Q3G: What are your primary duties? Other: (Please specify)</qstnLit>
          </qstn>
          <universe clusion="I">Answer question 3G, Other</universe>
-         <varFormat>character</varFormat>
+         <varFormat type="character" schema="other"/>
       </var>
       <var ID="V16" name="V16" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>4. FIXED DEADLINES</labl>
          <qstn>
             <qstnLit>Q4: Do you have to meet a fixed deadline?</qstnLit>
@@ -578,15 +619,15 @@
             several times a day/almost all the time</labl>
             <catStat type="freq">666</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">15</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V17" name="V17" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>5A. DEADLINES CREATES
             CALM</labl>
          <qstn>
@@ -634,20 +675,20 @@
             relevant for me</labl>
             <catStat type="freq">69</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">53</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>10</catValu>
             <labl>Irrelevant</labl>
             <catStat type="freq">121</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V18" name="V18" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>5B. DEADLINES CREATES
             MOTIVATION</labl>
          <qstn>
@@ -695,20 +736,20 @@
             relevant for me</labl>
             <catStat type="freq">57</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">44</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>10</catValu>
             <labl>Irrelevant</labl>
             <catStat type="freq">121</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V19" name="V19" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>5C. DEADLINES STRENGTHENS
             CO-OPERATION</labl>
          <qstn>
@@ -756,20 +797,20 @@
             relevant for me</labl>
             <catStat type="freq">192</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">64</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>10</catValu>
             <labl>Irrelevant</labl>
             <catStat type="freq">121</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V20" name="V20" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>5D. DEADLINES INCREASES THE
             CREATIVITY</labl>
          <qstn>
@@ -817,20 +858,20 @@
             relevant for me</labl>
             <catStat type="freq">65</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">49</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>10</catValu>
             <labl>Irrelevant</labl>
             <catStat type="freq">121</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V21" name="V21" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>5E. DEADLINES INCREASES THE
             WORK PRESSURE</labl>
          <qstn>
@@ -878,20 +919,20 @@
             relevant for me</labl>
             <catStat type="freq">35</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">38</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>10</catValu>
             <labl>Irrelevant</labl>
             <catStat type="freq">121</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V22" name="V22" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>5E. DEADLINES WEAKENS THE
             QUALITY</labl>
          <qstn>
@@ -939,20 +980,20 @@
             relevant for me</labl>
             <catStat type="freq">64</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">42</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>10</catValu>
             <labl>Irrelevant</labl>
             <catStat type="freq">121</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V23" name="V23" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>6. OVERALL HEALTH</labl>
          <qstn>
             <qstnLit>Q6: How would you rate your overall health?</qstnLit>
@@ -988,15 +1029,15 @@
             <labl>Poor</labl>
             <catStat type="freq">27</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">39</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V24" name="V24" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>7. RIGHT TO WAGE
             COMPENSATION</labl>
          <qstn>
@@ -1023,15 +1064,15 @@
             <labl>Don't know</labl>
             <catStat type="freq">93</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">33</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V25" name="V25" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>8. SETTLEMENT OF
             OVERTIME</labl>
          <qstn>
@@ -1078,20 +1119,20 @@
             <labl>Other, elaborate</labl>
             <catStat type="freq">69</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">60</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>10</catValu>
             <labl>Irrelevant</labl>
             <catStat type="freq">602</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V26" name="V26" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>8A. OTHER MEANS OF SETTLING
             OVERTIME</labl>
          <qstn>
@@ -1099,10 +1140,10 @@
          </qstn>
          <universe clusion="I">Answer question 8A</universe>
          <universe clusion="I">Answer question 8 and 9</universe>
-         <varFormat>character</varFormat>
+         <varFormat type="character" schema="other"/>
       </var>
       <var ID="V27" name="V27" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>9. OVERTIME IS DUE
             TO.</labl>
          <qstn>
@@ -1149,20 +1190,20 @@
             are too few employees</labl>
             <catStat type="freq">166</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">91</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>10</catValu>
             <labl>Irrelevant</labl>
             <catStat type="freq">602</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V28" name="V28" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>10. WORKTIME CHANGES WITH
             SHORT NOTICE</labl>
          <qstn>
@@ -1198,15 +1239,15 @@
             don't work regular hours</labl>
             <catStat type="freq">483</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">23</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V29" name="V29" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>11. PLACE OF EMPLOYMENT
             DIVIDED INTO DEPARTMENTS</labl>
          <qstn>
@@ -1234,15 +1275,15 @@
             not relevant (freelancer)</labl>
             <catStat type="freq">384</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">122</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V30" name="V30" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>11A. NUMBER OF
             EMPLOYEES</labl>
          <qstn>
@@ -1254,10 +1295,10 @@
          </invalrng>
          <universe clusion="I">Answer question 11a</universe>
          <TotlResp>2201</TotlResp>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V31" name="V31" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>12. PACE OF WORK</labl>
          <qstn>
             <qstnLit>Q12: In your job, are you required to work in a very high pace?</qstnLit>
@@ -1291,15 +1332,15 @@
             <labl/>
             <catStat type="freq">375</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">25</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V32" name="V32" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>13. OVERTIME WORK A
             NECESSITY</labl>
          <qstn>
@@ -1334,15 +1375,15 @@
             <labl/>
             <catStat type="freq">91</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">56</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V33" name="V33" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>14. WORKLOAD EVENLY
             DISTRIBUTED</labl>
          <qstn>
@@ -1377,15 +1418,15 @@
             <labl/>
             <catStat type="freq">122</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">37</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
       <var ID="V34" name="V34" files="F1" dcml="0" intrvl="contin">
-         <location width="5" RecSegNo="1"/>
+         <location width="1"/>
          <labl>15.WORKLOAD TOO HIGH</labl>
          <qstn>
             <qstnLit>Q15: Do you have too much to do at work?</qstnLit>
@@ -1419,12 +1460,12 @@
             <labl/>
             <catStat type="freq">127</catStat>
          </catgry>
-         <catgry>
+         <catgry missing="Y">
             <catValu>9</catValu>
             <labl>Unknown</labl>
             <catStat type="freq">42</catStat>
          </catgry>
-         <varFormat>numeric</varFormat>
+         <varFormat type="numeric" schema="other"/>
       </var>
    </dataDscr>
 </codeBook>
