@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <properties>
+	<entry key="XMLDocStatement">XML data dokumentation for </entry>
 	<entry key="MissingValue">Unknown/irrelevant/not participating - is </entry>
 	<entry key="Messure">Scale</entry>
 	<entry key="Unknown">Unknown</entry>
