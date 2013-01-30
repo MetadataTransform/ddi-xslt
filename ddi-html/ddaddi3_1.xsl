@@ -96,9 +96,7 @@
       </xsl:variable>
       <xsl:if test="$filterInfo != ''">
         <xsl:for-each select="$filterInfo">
-          <li class="filteredby">
             <xsl:copy-of select="."/>
-          </li>
         </xsl:for-each>
       </xsl:if>
 
@@ -715,15 +713,20 @@
         <xsl:if test="r:ID=$ifth">
           <!-- Sequence found - get higher IfThenElse referring to this Sequence -->
           <xsl:for-each select="../../d:IfThenElse">
-            <xsl:variable name="h-ifth" select="@id"/>
+            <xsl:variable name="h-ifth" select="@id"/>            
+            <xsl:variable name="h-ifth-version" select="@version"/>
             <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
-              <p/>
-              <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
-              <xsl:text>: </xsl:text>
-              <xsl:call-template name="splitCondition">
-                <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
-              </xsl:call-template>
-              <p/>
+              <li class="filteredby">
+                <a>
+                  <xsl:attribute name="href">#<xsl:value-of select="$h-ifth"/>.<xsl:value-of select="$h-ifth-version"/>
+                  </xsl:attribute>
+                  <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
+                  <xsl:text>: </xsl:text>
+                  <xsl:call-template name="splitCondition">
+                    <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
+                  </xsl:call-template>
+                </a>
+              </li>
               <xsl:call-template name="getHigherIfThenElse">
                 <xsl:with-param name="ifth" select="$h-ifth"/>
               </xsl:call-template>
@@ -757,36 +760,20 @@
                 <xsl:variable name="ifth" select="@id"/>
                 <xsl:variable name="ifthVersion" select="@version"/>
                 <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
-                  <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
-                  <xsl:text>: </xsl:text>
-                  <a>
+                  <li class="filteredby">
+                    <a>
                       <xsl:attribute name="href">#<xsl:value-of select="$ifth"/>.<xsl:value-of select="$ifthVersion"/>
                       </xsl:attribute>
+                      <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
+                      <xsl:text>: </xsl:text>
                       <xsl:call-template name="splitCondition">
                         <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
                       </xsl:call-template>
                       <xsl:call-template name="getHigherIfThenElse">
                         <xsl:with-param name="ifth" select="$ifth"/>
                       </xsl:call-template>
-                  </a>
-                  
-                                   
-                  <xsl:variable name="test" as="item()*">                    
-                    <xsl:analyze-string select="d:IfCondition/r:Code" regex="[vV][1-9]+[0-9]*">                    
-                    <xsl:matching-substring> 
-                      <xsl:value-of select="."/>
-                    </xsl:matching-substring>
-                  </xsl:analyze-string>
-                  </xsl:variable>
-                  
-                  <xsl:for-each select="*//l:Variable">
-                    <xsl:variable name="id" select="./@id"/>
-                    <xsl:for-each select="$test">
-                      <xsl:if test=".=$id">
-                        <xsl:value-of select="$id"/>
-                      </xsl:if>  
-                    </xsl:for-each>                    
-                  </xsl:for-each>
+                    </a>
+                  </li>
                 </xsl:if>
               </xsl:for-each>
             </xsl:for-each>
