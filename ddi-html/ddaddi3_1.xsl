@@ -4,7 +4,6 @@
   xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
 
   <xsl:import href="ddi3_1.xsl"/>
-  <xsl:import href="ddi3_1_util.xsl"/>
 
   <!--  svn version -->
   <xsl:param name="svn-revision">Revision: 260</xsl:param>
@@ -756,17 +755,38 @@
               <!-- get IfThenElse pointing to this Sequence -->
               <xsl:for-each select="../../d:IfThenElse">
                 <xsl:variable name="ifth" select="@id"/>
+                <xsl:variable name="ifthVersion" select="@version"/>
                 <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
-                  <!--p-->
                   <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
                   <xsl:text>: </xsl:text>
-                  <xsl:call-template name="splitCondition">
-                    <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
-                  </xsl:call-template>
-                  <!--/p-->
-                  <xsl:call-template name="getHigherIfThenElse">
-                    <xsl:with-param name="ifth" select="$ifth"/>
-                  </xsl:call-template>
+                  <a>
+                      <xsl:attribute name="href">#<xsl:value-of select="$ifth"/>.<xsl:value-of select="$ifthVersion"/>
+                      </xsl:attribute>
+                      <xsl:call-template name="splitCondition">
+                        <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
+                      </xsl:call-template>
+                      <xsl:call-template name="getHigherIfThenElse">
+                        <xsl:with-param name="ifth" select="$ifth"/>
+                      </xsl:call-template>
+                  </a>
+                  
+                                   
+                  <xsl:variable name="test" as="item()*">                    
+                    <xsl:analyze-string select="d:IfCondition/r:Code" regex="[vV][1-9]+[0-9]*">                    
+                    <xsl:matching-substring> 
+                      <xsl:value-of select="."/>
+                    </xsl:matching-substring>
+                  </xsl:analyze-string>
+                  </xsl:variable>
+                  
+                  <xsl:for-each select="*//l:Variable">
+                    <xsl:variable name="id" select="./@id"/>
+                    <xsl:for-each select="$test">
+                      <xsl:if test=".=$id">
+                        <xsl:value-of select="$id"/>
+                      </xsl:if>  
+                    </xsl:for-each>                    
+                  </xsl:for-each>
                 </xsl:if>
               </xsl:for-each>
             </xsl:for-each>
@@ -774,6 +794,13 @@
         </xsl:if>
       </xsl:for-each>
     </xsl:if>
+  </xsl:template>
+  
+  <xsl:template name="getVariableLink">
+    <xsl:param name="varId"/>
+    <!--xsl:for-each select="/r:DDIInstance">
+      <xsl:value-of select="./@id"/>
+    </xsl:for-each-->
   </xsl:template>
 
   <!-- Traverse Filters:
@@ -961,6 +988,7 @@
 
         <!-- look for ifthenelse -->
         <xsl:for-each select="../../d:IfThenElse[@id=$qcId]">
+          <xsl:call-template name="CreateLink"/>
           <li class="ifthenelses">
             <xsl:text>If </xsl:text>
             <xsl:call-template name="splitCondition">
