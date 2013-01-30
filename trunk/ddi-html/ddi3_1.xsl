@@ -96,6 +96,7 @@
                             <xsl:text>i18n.variables = '</xsl:text><xsl:value-of select="util:i18n('Variables')"/><xsl:text>';</xsl:text>
                             <xsl:text>i18n.filter = '</xsl:text><xsl:value-of select="util:i18n('Filter')"/><xsl:text>';</xsl:text>
                             <xsl:text>i18n.language = '</xsl:text><xsl:value-of select="util:i18n('Language')"/><xsl:text>';</xsl:text>
+                            <xsl:text>i18n.toc = '</xsl:text><xsl:value-of select="util:i18n('Table_of_Contents')"/><xsl:text>';</xsl:text>
                             
                             <xsl:text>var languageSwitch = '</xsl:text><xsl:value-of select="$languageSwitch"/><xsl:text>';</xsl:text>
                         </script>
@@ -112,6 +113,14 @@
                             <xsl:when test="$show-navigration-bar ='true'">
                                 <script type="text/javascript">
                                     <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/navigation-bar.js</xsl:attribute>
+                                </script>
+                            </xsl:when>
+                        </xsl:choose>
+                        
+                        <xsl:choose>
+                            <xsl:when test="$show-toc ='true'">
+                                <script type="text/javascript">
+                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/toc.js</xsl:attribute>
                                 </script>
                             </xsl:when>
                         </xsl:choose>
@@ -186,14 +195,23 @@
                         </strong>
                     </h2>
                 </div>
-
+                
+                <xsl:if test="$show-toc = 'true'">
+                    <h3>
+                        <xsl:value-of select="util:i18n('Table_of_Contents')"/>
+                    </h3>
+                    <div class="toc">
+                        <dl id="toc-list"></dl>
+                    </div>
+                </xsl:if>
+                
                 <!-- guidances and curration process -->
                 <xsl:if test="$show-guidance = 'true'">
                     <h3>
                         <xsl:value-of select="util:i18n('Instruction')"/>
                     </h3>
                     <div class="guidance">
-                        <a>
+                        <!--a>
                             <xsl:attribute name="href">
                                 <xsl:value-of select="util:i18n($guidancelink)"/>
                             </xsl:attribute>
@@ -205,42 +223,24 @@
                                 <xsl:value-of select="util:i18n($currationprocesslink)"/>
                             </xsl:attribute>
                             <xsl:value-of select="util:i18n('CurrationProcessText')"/>
-                        </a>
-                    </div>
-                </xsl:if>
-
-                <xsl:if test="$show-toc = 'true'">
-                    <h3>
-                        <xsl:value-of select="util:i18n('Table_of_Contents')"/>
-                    </h3>
-                    <div class="toc">
+                        </a-->
                         <dl>
-                            <xsl:if test="$show-variable-list = 'true'">
-                                 <dt>
-                                    <a>
-                                    <xsl:attribute name="href">#VariableList</xsl:attribute>
-                                    <xsl:value-of select="util:i18n('VariableList')"/>
-                                    </a>
-                                 </dt>
-                             </xsl:if>
-                             <dt>
-                                 <a>
-                                     <xsl:attribute name="href">#UniverseList</xsl:attribute>
-                                     <xsl:value-of select="util:i18n('Universe')"/>
-                                 </a>
-                             </dt>
-                             <dt>
-                                 <a>
-                                     <xsl:attribute name="href">#ConceptList</xsl:attribute>
-                                     <xsl:value-of select="util:i18n('Concepts')"/>
-                                 </a>
-                             </dt>
-                             <dt>
-                                 <a>
-                                     <xsl:attribute name="href">#Instrumentation</xsl:attribute>
-                                     <xsl:value-of select="util:i18n('Instrumentation')"/>
-                                 </a>
-                             </dt>
+                            <dt>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="util:i18n($guidancelink)"/>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="util:i18n('GuidanceText')"/>
+                                </a>
+                            </dt>
+                            <dt>
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:value-of select="util:i18n($currationprocesslink)"/>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="util:i18n('CurrationProcessText')"/>
+                                </a>
+                            </dt>
                         </dl>
                     </div>
                 </xsl:if>
