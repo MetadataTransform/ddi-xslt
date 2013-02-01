@@ -176,6 +176,7 @@
 <entry key="Code">Code</entry>
 <entry key="ValidPercent">Response Rate</entry>
 <entry key="Filtering">Variable filters</entry>
+<entry key="FilteringVariable">Filtering variable</entry>
 <entry key="FilteredBy">Variable is filtered by</entry>
 <entry key="Interval">Variable is coded in the interval of </entry>
 <entry key="To"> to </entry>

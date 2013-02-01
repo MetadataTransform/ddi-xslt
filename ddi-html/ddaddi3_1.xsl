@@ -21,6 +21,25 @@
 
   <!-- study - universe - concepts inherited from ddi3_1.xsl -->
   
+  <!-- variable name to {label, link} map -->
+  <xsl:variable name="vars">
+    <xsl:for-each select="*//l:LogicalProduct/l:VariableScheme/l:Variable">
+      <Entry>
+        <xsl:attribute name="key">
+          <xsl:value-of select="l:VariableName"/>
+        </xsl:attribute>
+        <xsl:attribute name="value">
+          <xsl:value-of select="@id"/>
+          <xsl:text>.</xsl:text>
+          <xsl:value-of select="@version"/>  
+        </xsl:attribute>
+        <xsl:attribute name="label">
+          <xsl:call-template name="DisplayLabel"/>
+        </xsl:attribute>
+      </Entry>
+    </xsl:for-each>
+  </xsl:variable>
+  
   <!-- variables and control constructs -->
   <xsl:template match="l:LogicalProduct">
     <div class="variableSchemes">
@@ -727,6 +746,9 @@
                   </xsl:call-template>
                 </a>
               </li>
+              <xsl:call-template name="createFilteredByLinks">
+                <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
+              </xsl:call-template>
               <xsl:call-template name="getHigherIfThenElse">
                 <xsl:with-param name="ifth" select="$h-ifth"/>
               </xsl:call-template>
@@ -769,17 +791,55 @@
                       <xsl:call-template name="splitCondition">
                         <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
                       </xsl:call-template>
-                      <xsl:call-template name="getHigherIfThenElse">
-                        <xsl:with-param name="ifth" select="$ifth"/>
-                      </xsl:call-template>
-                    </a>
+                    </a>                    
                   </li>
+                  <xsl:call-template name="createFilteredByLinks">
+                    <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
+                  </xsl:call-template>                  
+                  <xsl:call-template name="getHigherIfThenElse">
+                    <xsl:with-param name="ifth" select="$ifth"/>
+                  </xsl:call-template>
                 </xsl:if>
               </xsl:for-each>
             </xsl:for-each>
           </xsl:for-each>
         </xsl:if>
       </xsl:for-each>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template name="createFilteredByLinks">
+    <xsl:param name="condition"/>
+    
+    <xsl:variable name="result">      
+      <xsl:analyze-string select="$condition" regex="[vV][1-9]+[0-9]*">
+        <xsl:matching-substring>
+          <xsl:variable name="match">
+            <xsl:value-of select="."/>
+          </xsl:variable>
+          <xsl:for-each select="$vars/*">
+            <xsl:if test="@key=$match">
+              <a>
+                <xsl:attribute name="href">#<xsl:value-of select="@value"/></xsl:attribute>
+                <xsl:attribute name="title"><xsl:value-of select="normalize-space(@label)"/></xsl:attribute>
+                <xsl:value-of select="@key"/>
+              </a>
+            </xsl:if>
+          </xsl:for-each>
+        </xsl:matching-substring>
+      </xsl:analyze-string>
+    </xsl:variable>
+    <xsl:if test="$result!=''">
+      <ul>
+        <li>
+          <xsl:value-of select="$msg/*/entry[@key='FilteringVariable']"/>
+          <xsl:text>: </xsl:text>
+        <xsl:for-each select="$result/*">
+          <xsl:copy-of select="."/>
+          <xsl:text> </xsl:text>
+        </xsl:for-each>
+        </li>
+      </ul>
     </xsl:if>
   </xsl:template>
   
