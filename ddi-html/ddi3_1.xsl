@@ -442,6 +442,9 @@
                                 <xsl:if test="$uniId = r:UniverseReference/r:ID">
                                     <a>
                                         <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/></xsl:attribute>
+                                        <xsl:attribute name="title">
+                                            <xsl:call-template name="DisplayLabel"/>
+                                        </xsl:attribute>
                                         <xsl:value-of select="l:VariableName"/>
                                     </a>
                                     <xsl:text> </xsl:text>
