@@ -98,6 +98,9 @@
               <li class="universes">
                 <a>
                   <xsl:attribute name="href">#<xsl:value-of select="$uID"/>.<xsl:value-of select="@version"/></xsl:attribute>
+                  <xsl:attribute name="title">
+                    <xsl:value-of select="c:HumanReadable[@xml:lang=$lang]"/>
+                  </xsl:attribute>
                   <xsl:call-template name="DisplayLabel"/>
                 </a>
                </li>
@@ -735,16 +738,18 @@
             <xsl:variable name="h-ifth" select="@id"/>            
             <xsl:variable name="h-ifth-version" select="@version"/>
             <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
-              <li class="filteredby">
-                <a>
-                  <xsl:attribute name="href">#<xsl:value-of select="$h-ifth"/>.<xsl:value-of select="$h-ifth-version"/>
-                  </xsl:attribute>
-                  <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
-                  <xsl:text>: </xsl:text>
-                  <xsl:call-template name="splitCondition">
-                    <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
-                  </xsl:call-template>
-                </a>
+              <li class="filteredby">                
+                <xsl:call-template name="createFilterLinks">
+                  <xsl:with-param name="ccId">
+                    <xsl:value-of select="$h-ifth"/>
+                  </xsl:with-param>
+                  <xsl:with-param name="ccVersion">
+                    <xsl:value-of select="$h-ifth-version"/>
+                  </xsl:with-param>
+                  <xsl:with-param name="condition">
+                    <xsl:value-of select="d:IfCondition/r:Code"/>
+                  </xsl:with-param>
+                </xsl:call-template>
               </li>
               <xsl:call-template name="createFilteredByLinks">
                 <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
@@ -783,15 +788,17 @@
                 <xsl:variable name="ifthVersion" select="@version"/>
                 <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
                   <li class="filteredby">
-                    <a>
-                      <xsl:attribute name="href">#<xsl:value-of select="$ifth"/>.<xsl:value-of select="$ifthVersion"/>
-                      </xsl:attribute>
-                      <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
-                      <xsl:text>: </xsl:text>
-                      <xsl:call-template name="splitCondition">
-                        <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
-                      </xsl:call-template>
-                    </a>                    
+                    <xsl:call-template name="createFilterLinks">
+                      <xsl:with-param name="ccId">
+                        <xsl:value-of select="$ifth"/>
+                      </xsl:with-param>
+                      <xsl:with-param name="ccVersion">
+                        <xsl:value-of select="$ifthVersion"/>
+                      </xsl:with-param>
+                      <xsl:with-param name="condition">
+                        <xsl:value-of select="d:IfCondition/r:Code"/>
+                      </xsl:with-param>
+                    </xsl:call-template>
                   </li>
                   <xsl:call-template name="createFilteredByLinks">
                     <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
@@ -808,6 +815,27 @@
     </xsl:if>
   </xsl:template>
   
+  <xsl:template name="createFilterLinks">
+    <xsl:param name="ccId"/>
+    <xsl:param name="ccVersion"/>
+    <xsl:param name="condition"/>
+    
+    <xsl:variable name="splitCondition">
+      <xsl:call-template name="splitCondition">
+        <xsl:with-param name="condition" select="d:IfCondition/r:Code"/>
+      </xsl:call-template>
+    </xsl:variable>
+    
+    <a>
+      <xsl:attribute name="href">#<xsl:value-of select="$ccId"/>.<xsl:value-of select="$ccVersion"/>
+      </xsl:attribute>
+      <xsl:attribute name="title"><xsl:value-of select="$splitCondition"/></xsl:attribute>
+      <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
+      <xsl:text>: </xsl:text>
+      <xsl:value-of select="$splitCondition"/>
+    </a>
+  </xsl:template>
+  
   <xsl:template name="createFilteredByLinks">
     <xsl:param name="condition"/>
     
@@ -821,7 +849,7 @@
             <xsl:if test="@key=$match">
               <a>
                 <xsl:attribute name="href">#<xsl:value-of select="@value"/></xsl:attribute>
-                <xsl:attribute name="title"><xsl:value-of select="normalize-space(@label)"/></xsl:attribute>
+                <xsl:attribute name="title"><xsl:value-of select="normalize-space(@label) "/></xsl:attribute>
                 <xsl:value-of select="@key"/>
               </a>
             </xsl:if>
@@ -841,13 +869,6 @@
         </li>
       </ul>
     </xsl:if>
-  </xsl:template>
-  
-  <xsl:template name="getVariableLink">
-    <xsl:param name="varId"/>
-    <!--xsl:for-each select="/r:DDIInstance">
-      <xsl:value-of select="./@id"/>
-    </xsl:for-each-->
   </xsl:template>
 
   <!-- Traverse Filters:
@@ -1013,6 +1034,9 @@
                 <xsl:if test="l:QuestionReference/r:ID = $qId">
                   <a>
                     <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/></xsl:attribute>
+                    <xsl:attribute name="title">
+                      <xsl:call-template name="DisplayLabel"/>
+                    </xsl:attribute>
                     <xsl:value-of select="$userId"/>
                   </a>
                 </xsl:if>
