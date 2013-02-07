@@ -45,7 +45,7 @@
             <xsl:when test="r:Label/@xml:lang">
                 <xsl:choose>
                     <xsl:when test="r:Label[@xml:lang=$lang]">
-                        <xsl:value-of select="normalize-space(r:Label[@xml:lang=$fallback-lang])"/>
+                        <xsl:value-of select="normalize-space(r:Label[@xml:lang=$lang])"/>
                     </xsl:when>
                     <xsl:when test="r:Label[@xml:lang=$fallback-lang]">
                         <xsl:value-of select="normalize-space(r:Label[@xml:lang=$fallback-lang])"/>
