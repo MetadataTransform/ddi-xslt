@@ -1,7 +1,7 @@
 <xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:g="ddi:group:3_1" xmlns:d="ddi:datacollection:3_1" xmlns:dce="ddi:dcelements:3_1" xmlns:c="ddi:conceptualcomponent:3_1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:a="ddi:archive:3_1"
   xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_1" xmlns:ddi="ddi:instance:3_1" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_1" xmlns:o="ddi:organizations:3_1" xmlns:l="ddi:logicalproduct:3_1" xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1" xmlns:pd="ddi:physicaldataproduct:3_1"
-  xmlns:cm="ddi:comparative:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:r="ddi:reusable:3_1" xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
-  xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
+  xmlns:cm="ddi:comparative:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:r="ddi:reusable:3_1" xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1" xmlns:util="https://code.google.com/p/ddixslt/#util" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd" version="2.0">
 
   <xsl:import href="ddi3_1.xsl"/>
 
@@ -246,7 +246,7 @@
     <xsl:for-each select="l:Representation/l:CodeRepresentation">
       <xsl:if test="@classificationLevel">
         <p>
-          <xsl:value-of select="$msg/*/entry[@key='Messure']"/>
+          <xsl:value-of select="util:i18n('Messure')"/>
           <xsl:text>: </xsl:text>
           <xsl:value-of select="@classificationLevel"/>
         </p>
@@ -279,22 +279,22 @@
         </td>
         <td>
           <strong>
-            <xsl:value-of select="$msg/*/entry[@key='MD%']"/>
+            <xsl:value-of select="util:i18n('MD%')"/>
           </strong>
         </td>
         <td>
           <strong>
-            <xsl:value-of select="$msg/*/entry[@key='Number']"/>
+            <xsl:value-of select="util:i18n('Number')"/>
           </strong>
         </td>
         <td class="right">
           <strong>
-            <xsl:value-of select="$msg/*/entry[@key='Code']"/>
+            <xsl:value-of select="util:i18n('Code')"/>
           </strong>
         </td>
         <td class="left">
           <strong>
-            <xsl:value-of select="$msg/*/entry[@key='Category']"/>
+            <xsl:value-of select="util:i18n('Category')"/>
           </strong>
         </td>
       </tr>
@@ -384,7 +384,7 @@
     <xsl:for-each select="pi:SummaryStatistic">
       <xsl:if test="pi:SummaryStatisticTypeCoded[@otherValue = 'ValidPercent'] = 'UseOther'">
         <strong>
-          <xsl:value-of select="$msg/*/entry[@key='ValidPercent']"/>
+          <xsl:value-of select="util:i18n('ValidPercent')"/>
           <xsl:text>: </xsl:text>
         </strong>
         <xsl:value-of select="format-number(pi:Value, '0', 'euro')"/>
@@ -517,13 +517,13 @@
 
           <!-- test for Missing Values -->
           <xsl:if test="normalize-space($codeValue) = $uoplyst">
-            <xsl:value-of select="$msg/*/entry[@key='Unknown']"/>
+            <xsl:value-of select="util:i18n('Unknown')"/>
           </xsl:if>
           <xsl:if test="normalize-space($codeValue) = $irrelevant">
-            <xsl:value-of select="$msg/*/entry[@key='Irrelevant']"/>
+            <xsl:value-of select="util:i18n('Irrelevant')"/>
           </xsl:if>
           <xsl:if test="normalize-space($codeValue) = $deltagerIkke">
-            <xsl:value-of select="$msg/*/entry[@key='NotParticipating']"/>
+            <xsl:value-of select="util:i18n('NotParticipating')"/>
           </xsl:if>
         </td>
       </tr>
@@ -694,7 +694,7 @@
             <xsl:text>?</xsl:text>
           </xsl:if>
           <xsl:if test="string-length(pi:Value) > 0">
-            <xsl:value-of select="$msg/*/entry[@key='Interval']"/>
+            <xsl:value-of select="util:i18n('Interval')"/>
             <xsl:value-of select="pi:Value"/>
           </xsl:if>
         </xsl:if>
@@ -703,7 +703,7 @@
             <xsl:text>?</xsl:text>
           </xsl:if>
           <xsl:if test="string-length(pi:Value) > 0">
-            <xsl:value-of select="$msg/*/entry[@key='To']"/>
+            <xsl:value-of select="util:i18n('To')"/>
             <xsl:value-of select="pi:Value"/>
           </xsl:if>
         </xsl:if>
@@ -715,7 +715,7 @@
   <!-- Context: Code/Numeric/Text Representation -->
   <xsl:template name="displayMissingValue">
     <xsl:if test="@missingValue">
-      <xsl:value-of select="$msg/*/entry[@key='MissingValue']"/>
+      <xsl:value-of select="util:i18n('MissingValue')"/>
       <xsl:call-template name="splitAtWhitespace">
         <xsl:with-param name="in-string" select="@missingValue"/>
       </xsl:call-template>
@@ -830,7 +830,7 @@
       <xsl:attribute name="href">#<xsl:value-of select="$ccId"/>.<xsl:value-of select="$ccVersion"/>
       </xsl:attribute>
       <xsl:attribute name="title"><xsl:value-of select="$splitCondition"/></xsl:attribute>
-      <xsl:value-of select="$msg/*/entry[@key='FilteredBy']"/>
+      <xsl:value-of select="util:i18n('FilteredBy')"/>
       <xsl:text>: </xsl:text>
       <xsl:value-of select="$splitCondition"/>
     </a>
@@ -860,7 +860,7 @@
     <xsl:if test="$result!=''">
       <ul>
         <li>
-          <xsl:value-of select="$msg/*/entry[@key='FilteringVariable']"/>
+          <xsl:value-of select="util:i18n('FilteringVariable')"/>
           <xsl:text>: </xsl:text>
         <xsl:for-each select="$result/*">
           <xsl:copy-of select="."/>
@@ -936,7 +936,7 @@
   <!-- Instrumentation -->
   <xsl:template match="d:ControlConstructScheme">
     <h3 id="Instrumentation">
-      <xsl:value-of select="$msg/*/entry[@key='Instrumentation']"/>
+      <xsl:value-of select="util:i18n('Instrumentation')"/>
     </h3>
     <xsl:variable name="mainSeqId" select="../d:Instrument/d:ControlConstructReference/r:ID"/>
 
@@ -944,7 +944,7 @@
     <xsl:for-each select="d:Sequence">
       <xsl:if test="@id = $mainSeqId">
         <h4>
-          <xsl:value-of select="$msg/*/entry[@key='MainSequence']"/>
+          <xsl:value-of select="util:i18n('MainSequence')"/>
         </h4>
         <div class="instrumentation">
           <ul class="sequences">
@@ -957,7 +957,7 @@
 
     <!-- All other sequences -->
     <h4>
-      <xsl:value-of select="$msg/*/entry[@key='Sequences']"/>
+      <xsl:value-of select="util:i18n('Sequences')"/>
     </h4>
     <div class="instrumentation">
       <ul class="sequences">
@@ -1014,7 +1014,7 @@
                 <xsl:call-template name="DisplayInstructionText"/>
                 <xsl:if test="string-length(d:InstructionText/d:ConditionalText) > 0">
                   <xsl:text> </xsl:text>
-                  <xsl:value-of select="$msg/*/entry[@key='If']"/>
+                  <xsl:value-of select="util:i18n('If')"/>
                   <xsl:text> </xsl:text>
                   <xsl:value-of select="d:InstructionText/d:ConditionalText/d:Expression/r:Code"/>
                 </xsl:if>
