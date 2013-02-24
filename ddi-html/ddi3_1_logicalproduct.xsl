@@ -86,7 +86,7 @@
     </xsl:template>
 
     <xsl:template match="l:NumericRepresentation">
-        <ul><li class="numeric"><xsl:value-of select="@type" /> (<xsl:value-of select="@decimalPositions" /><xsl:text> </xsl:text><xsl:value-of select="$msg/*/entry[@key='Decimals']"/>)</li></ul>
+        <ul><li class="numeric"><xsl:value-of select="@type" /> (<xsl:value-of select="@decimalPositions" /><xsl:text> </xsl:text><xsl:value-of select="util:i18n('Decimals')"/>)</li></ul>
 
     </xsl:template>
 
@@ -108,7 +108,7 @@
 
     <!-- Variables -->
     <xsl:template match="l:VariableScheme">
-        <h3><xsl:value-of select="$msg/*/entry[@key='Variables']"/></h3>
+        <h3><xsl:value-of select="util:i18n('Variables')"/></h3>
         <div class="variableScheme">
             <a><xsl:attribute name="name"><xsl:value-of select="@id"/></xsl:attribute></a>
             <ul class="variables">
