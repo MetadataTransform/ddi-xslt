@@ -89,11 +89,14 @@
   <xsl:param name="variable-name-length"                      select="14"/>
 
   <!-- Params from OutputServlet.java (supposedly?) -->
+  <!-- Not used, will be removed soon -->
+  <!--
   <xsl:param name="numberOfVars"/>
   <xsl:param name="numberOfGroups"/>
   <xsl:param name="subsetGroups"/>
   <xsl:param name="subsetVars"/>
   <xsl:param name="maxVars"/>
+  -->
 
   <!-- Required by EXSLT date function -->
   <xsl:variable name="date:date-time"       select="'2000-01-01T00:00:00Z'"/>
