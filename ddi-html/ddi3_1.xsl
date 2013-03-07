@@ -51,9 +51,13 @@
     <xsl:param name="show-kind-of-data">true</xsl:param>
     <!-- show universe on variable -->
     <xsl:param name="show-universe">true</xsl:param>
+    
+    <!-- show othermaterials -->
+    <xsl:param name="show-otherdocuments">true</xsl:param>
+    
     <!-- path prefix to the theme css-files-->
     <xsl:param name="theme-path">theme/default</xsl:param>
-
+    
     <!-- path prefix (used for css, js when rendered on the web)-->
     <xsl:param name="path-prefix">../ddi-html</xsl:param>
 
@@ -345,15 +349,16 @@
                 <xsl:apply-templates select="r:SeriesStatement"/>
             </xsl:if>
 
-            <xsl:if test="r:OtherMaterial">
-                <h4>
-                    <xsl:value-of select="util:i18n('Other_documents')"/>
-                </h4>
-                <ul>
-                    <xsl:apply-templates select="r:OtherMaterial"/>
-                </ul>
+            <xsl:if test="$show-otherdocuments = 'true'">
+                <xsl:if test="r:OtherMaterial">
+                    <h4>
+                        <xsl:value-of select="util:i18n('Other_documents')"/>
+                    </h4>
+                    <ul>
+                        <xsl:apply-templates select="r:OtherMaterial"/>
+                    </ul>
+                </xsl:if>
             </xsl:if>
-
 
             <xsl:apply-templates select="c:ConceptualComponent"/>
 
