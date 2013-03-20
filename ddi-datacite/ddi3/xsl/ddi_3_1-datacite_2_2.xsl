@@ -20,9 +20,9 @@
     Version    : development
     Created on : den 11 december 2011, 22:29
     Description: extract metadata from DDI 3.1 to DataCite metadata
-
+    
     DOC: http://schema.datacite.org/meta/kernel-2.2/doc/DataCite-MetadataKernel_v2.2.pdf
-
+    
     progress:
     id     | datacite              | ddi3
     =======================================
@@ -35,9 +35,12 @@
     4       publisher               r:Publisher
     ?       publicationYear         r:PublicationDate
     ?       +subject                r:Subject && r:Keyword
+    ?       +date                    r:StatDate && r:EndDate
     ?       language                parameter
     ?       resourceType            s:KindOfData
+    ?       alternateIdentifier   s:CallNumber
     ?       +format                 parameter
+    ?       rights                     a:AccessConditions
     ?       +description           	s:Abstract, s:purpose
     -->
 
@@ -163,6 +166,7 @@
                 </publicationYear>
             </xsl:if>
 
+            <!-- subject -->
             <xsl:if test="r:Coverage/r:TopicalCoverage/r:Subject">
                 <subjects>
                     <xsl:for-each select="r:Coverage/r:TopicalCoverage/r:Subject">
@@ -185,10 +189,41 @@
                 </subjects>
             </xsl:if>
 
+            <!-- dates -->
+            <xsl:if
+                test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate or r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate">
+                <dates>
+                    <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate">
+                        <date dateType="StartDate">
+                            <xsl:call-template name="getDate">
+                                <xsl:with-param name="date">
+                                    <xsl:value-of
+                                        select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate"
+                                    />
+                                </xsl:with-param>
+                            </xsl:call-template>
+                        </date>
+                    </xsl:if>
+                    <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate">
+                        <date dateType="EndDate">
+                            <xsl:call-template name="getDate">
+                                <xsl:with-param name="date">
+                                    <xsl:value-of
+                                        select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate"
+                                    />
+                                </xsl:with-param>
+                            </xsl:call-template>
+                        </date>
+                    </xsl:if>
+                </dates>
+            </xsl:if>
+
+            <!-- language -->
             <language>
                 <xsl:value-of select="$resourceLang"/>
             </language>
 
+            <!-- resource type -->
             <resourceType resourceTypeGeneral="Dataset">
                 <xsl:choose>
                     <xsl:when test="s:KindOfData">
@@ -208,6 +243,17 @@
                 </xsl:choose>
             </resourceType>
 
+            <!-- alternate identifier -->
+            <xsl:variable name="callnumber" select="//a:CallNumber"/>
+            <xsl:if test="$callnumber">
+                <alternateIdentifiers>
+                    <alternateIdentifier alternateIdentifierType="Internal">
+                        <xsl:value-of select="$callnumber"/>
+                    </alternateIdentifier>
+                </alternateIdentifiers>
+            </xsl:if>
+
+            <!-- formats -->
             <xsl:variable name="formatList" select="tokenize($formats, ' ')"/>
             <formats>
                 <xsl:for-each select="$formatList">
@@ -216,6 +262,16 @@
                     </format>
                 </xsl:for-each>
             </formats>
+
+            <!-- rights -->
+            <xsl:if
+                test="a:Archive/a:ArchiveSpecific/a:DefaultAccess/a:AccessConditions[@xml:lang=$lang]">
+                <rights>
+                    <xsl:value-of
+                        select="a:Archive/a:ArchiveSpecific/a:DefaultAccess/a:AccessConditions[@xml:lang=$lang]"
+                    />
+                </rights>
+            </xsl:if>
 
             <!-- s:Abstract, s:Purpose-->
             <xsl:if test="s:Abstract | s:Purpose">
@@ -251,5 +307,19 @@
                 </descriptions>
             </xsl:if>
         </resource>
+    </xsl:template>
+
+    <!-- template to subtract a date from a datetime -->
+    <!-- parameter r:SimpleDate -->
+    <xsl:template name="getDate">
+        <xsl:param name="date"/>
+        <xsl:choose>
+            <xsl:when test="contains($date, 'T')">
+                <xsl:value-of select="substring-before($date, 'T')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$date"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>
