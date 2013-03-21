@@ -26,7 +26,7 @@
     <entry key="Data_Files">Data Files</entry>
     <entry key="Geographic_Coverage">Geographic Coverage</entry>
     <entry key="April">April</entry>
-    <entry key="Mean">Mean</entry>
+    <entry key="Mean">Gennemsnit</entry>
     <entry key="Metadata_Production">Metadata Production</entry>
     <entry key="Data_Collection">Data Collection</entry>
     <entry key="Missing_Data">Missing Data</entry>
@@ -71,7 +71,7 @@
     <entry key="Dataset_contains">Dataset contains</entry>
     <entry key="Acknowledgments">Acknowledgment(s)</entry>
     <entry key="Continuous">Continuous</entry>
-    <entry key="Standard_deviation">Standard deviation</entry>
+    <entry key="Standard_deviation">Standard afvigelse</entry>
     <entry key="Variables_Description">Variables Description</entry>
     <entry key="Producer">Producer</entry>
     <entry key="Production_Date">Production Date</entry>
