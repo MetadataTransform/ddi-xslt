@@ -150,6 +150,9 @@ li.html {
 li.numeric, li.textRepresentation {
     list-style-image: url(img/input.png);
 }
+li.numericstat {
+    list-style-image: url(img/flatLayout.gif);
+}
 li.codeDomain {
     list-style-image: url(img/code-scheme.png);
 }
