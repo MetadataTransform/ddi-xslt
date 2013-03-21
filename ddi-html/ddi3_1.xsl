@@ -132,7 +132,7 @@
                         <!-- flot graph -->
                         <xsl:choose>
                             <xsl:when test="$show-category-statistics='true'">
-                                <xsl:comment>[if lte IE 8<![CDATA[>]]>&lt;script type="text/javascript" src="<xsl:value-of select="$path-prefix"/>/js/excanvas.min.js"&gt;&lt;/script&gt;<![CDATA[<![endif]]]></xsl:comment>                                    
+                                <xsl:comment>[if lte IE 9]<![CDATA[>]]>&lt;script type="text/javascript" src="<xsl:value-of select="$path-prefix"/>/js/excanvas.min.js"&gt;&lt;/script&gt;<![CDATA[<![endif]]]></xsl:comment>                                    
                                 <script type="text/javascript">
                                     <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery.flot.js</xsl:attribute>
                                 </script>
@@ -186,7 +186,7 @@
             <xsl:if test="$show-study-information = 'true'">
                 <div id="studyId">
                     <h2>
-                        <xsl:value-of select="util:i18n('RefNo')"/>:
+                        <xsl:value-of select="util:i18n('RefNo')"/>
                         <strong>
                             <xsl:choose>
                                 <xsl:when test="a:Archive/a:ArchiveSpecific/a:Collection/a:CallNumber">
