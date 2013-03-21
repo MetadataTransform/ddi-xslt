@@ -193,7 +193,7 @@
       <!-- statistics -->
       <xsl:variable name="decimalPosition" select="l:Representation/l:NumericRepresentation/@decimalPositions"/>
       <xsl:if test="l:Representation/l:CodeRepresentation or 
-        (l:Representation/l:NumericRepresentation and $show-numeric-var-frequence = 'true' and $missingValue != '' and $filterInfo != '')">
+        (l:Representation/l:NumericRepresentation and $show-numeric-var-frequence = 'true'  and $missingValue != '' and $filterInfo != '')">
         <xsl:variable name="csID" select="l:Representation/l:CodeRepresentation/r:CodeSchemeReference/r:ID"/>
         <xsl:if test="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics/pi:VariableReference/r:ID = $varID">
           <li class="codeDomain">
@@ -226,14 +226,14 @@
           </li>
         </xsl:if>
       </xsl:if>
+      <xsl:apply-templates select="l:Representation/l:NumericRepresentation"/>
+      <xsl:apply-templates select="l:Representation/l:TextRepresentation"/>
       <xsl:for-each select="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics">
         <!-- find statistics for current variable -->
         <xsl:if test="pi:VariableReference/r:ID = $varID">
           <xsl:call-template name="displayMiminumMaximum"/>
         </xsl:if>
       </xsl:for-each>
-      <xsl:apply-templates select="l:Representation/l:NumericRepresentation"/>
-      <xsl:apply-templates select="l:Representation/l:TextRepresentation"/>
     </ul>
 
     <!-- numeric -->
@@ -496,6 +496,7 @@
               <xsl:value-of select="format-number($codeValue, '0,0', 'euro')"/>
             </xsl:when>
             <xsl:when test="$decimalPosition = '2'">
+              <xsl:text></xsl:text>
               <xsl:value-of select="format-number($codeValue, '0,00', 'euro')"/>
             </xsl:when>
             <xsl:otherwise>
@@ -687,28 +688,78 @@
   <!-- Display minimum and maximum of SummaryStatistic -->
   <!-- Concext: VariableStatistics -->
   <xsl:template name="displayMiminumMaximum">
-    <p>
-      <xsl:for-each select="pi:SummaryStatistic">
-        <xsl:if test="pi:SummaryStatisticTypeCoded = 'Minimum'">
-          <xsl:if test="string-length(pi:Value) = 0">
-            <xsl:text>?</xsl:text>
-          </xsl:if>
-          <xsl:if test="string-length(pi:Value) > 0">
-            <xsl:value-of select="util:i18n('Interval')"/>
-            <xsl:value-of select="pi:Value"/>
-          </xsl:if>
-        </xsl:if>
-        <xsl:if test="pi:SummaryStatisticTypeCoded = 'Maximum'">
-          <xsl:if test="string-length(pi:Value) = 0">
-            <xsl:text>?</xsl:text>
-          </xsl:if>
-          <xsl:if test="string-length(pi:Value) > 0">
-            <xsl:value-of select="util:i18n('To')"/>
-            <xsl:value-of select="pi:Value"/>
-          </xsl:if>
-        </xsl:if>
-      </xsl:for-each>
-    </p>
+    <xsl:if test="pi:SummaryStatistic/pi:SummaryStatisticTypeCoded = 'Minimum'">
+      <ul>
+        <li class="numericstat">
+          <table class="table.categoryStatistics">
+            <tbody>
+              <xsl:for-each select="pi:SummaryStatistic">
+                <!-- valid cases -->
+                <xsl:call-template name="displayNumericStatisticType">
+                  <xsl:with-param name="type" select="'ValidCases'"/>
+                  <xsl:with-param name="i18n" select="'Valid_cases'"/>
+                </xsl:call-template>
+                
+                <!-- invalid cases-->
+                <xsl:call-template name="displayNumericStatisticType">
+                  <xsl:with-param name="type" select="'InvalidCases'"/>
+                  <xsl:with-param name="i18n" select="'Invalid_cases'"/>
+                </xsl:call-template>
+                
+                <!-- min -->
+                <xsl:call-template name="displayNumericStatisticType">
+                  <xsl:with-param name="type" select="'Minimum'"/>
+                  <xsl:with-param name="i18n" select="'Minimum'"/>
+                </xsl:call-template>
+                
+                <!-- max -->
+                <xsl:call-template name="displayNumericStatisticType">
+                  <xsl:with-param name="type" select="'Maximum'"/>
+                  <xsl:with-param name="i18n" select="'Maximum'"/>
+                </xsl:call-template>
+                
+                <!-- meadian -->
+                <xsl:call-template name="displayNumericStatisticType">
+                  <xsl:with-param name="type" select="'Median'"/>
+                  <xsl:with-param name="i18n" select="'Median'"/>
+                </xsl:call-template>
+                
+                <!-- mean -->
+                <xsl:call-template name="displayNumericStatisticType">
+                  <xsl:with-param name="type" select="'Mean'"/>
+                  <xsl:with-param name="i18n" select="'Mean'"/>
+                </xsl:call-template>
+                
+                <!-- standard deviation -->
+                <xsl:call-template name="displayNumericStatisticType">
+                  <xsl:with-param name="type" select="'StandardDeviation'"/>
+                  <xsl:with-param name="i18n" select="'Standard_deviation'"/>
+                </xsl:call-template>
+              </xsl:for-each>            
+            </tbody>
+          </table>
+        </li>
+      </ul>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template name="displayNumericStatisticType">
+    <xsl:param name="type"/>
+    <xsl:param name="i18n"/>
+    
+    <xsl:if test="pi:SummaryStatisticTypeCoded = $type">
+      <tr>
+        <td align="left">
+        <xsl:value-of select="util:i18n($i18n)"/>
+        </td>
+        <td>
+          <xsl:text> </xsl:text>
+        </td>
+        <td>
+        <xsl:value-of select="pi:Value"/>
+        </td>
+      </tr>
+    </xsl:if>
   </xsl:template>
 
   <!-- Display MissingValue attribute -->
