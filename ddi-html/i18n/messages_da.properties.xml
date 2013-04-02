@@ -61,7 +61,7 @@
     <entry key="Data_Collection_Dates">Data Collection Dates</entry>
     <entry key="Data_Editing">Data Editing</entry>
     <entry key="Questionnaires">Questionnaires</entry>
-    <entry key="Valid_cases">Valid case(s)</entry>
+    <entry key="Valid_cases">Gyldige</entry>
     <entry key="Reports_and_analytical_documents">Reports and analytical documents</entry>
     <entry key="Copyright">Copyright</entry>
     <entry key="Documentation">Documentation</entry>
@@ -176,7 +176,7 @@
     <entry key="ValidPercent">Svarprocent</entry>
     <entry key="Filtering">Variablen filtrerer</entry>
     <entry key="FilteredBy">Variablen er filtreret af</entry>
-    <entry key="FilteringVariable">Filterende variable</entry>
+    <entry key="FilteringVariable">Filtrerende variable</entry>
     <entry key="Interval">Variablen er kodet i intervallet </entry>
     <entry key="To"> til </entry>
     <entry key="MissingValue">Uoplyst/irrelevant/deltager ikke - er </entry>
@@ -195,4 +195,5 @@
     <entry key="Instruction">Vejledning</entry>
     <entry key="GuidanceText">Vejledning til at læse kodebogen</entry>
     <entry key="CurrationProcessText">Information om anvendt oparbejdningsproces</entry>
+    <entry key="Invalid_cases">Manglende</entry>
 </properties>
