@@ -26,19 +26,18 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:marc="http://www.loc.gov/MARC21/slim"
-                xmlns:dc="http://purl.org/dc/elements/1.1/" 
-                xmlns:g="ddi:group:3_1" 
-                xmlns:d="ddi:datacollection:3_1" 
-                xmlns:dc2="ddi:dcelements:3_1" 
-                xmlns:c="ddi:conceptualcomponent:3_1" 
                 xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+                xmlns:marc="http://www.loc.gov/MARC21/slim"                              
+                xmlns:dc="http://purl.org/dc/elements/1.1/" 
+                xmlns:dc2="ddi:dcelements:3_1" 
+                xmlns:g="ddi:group:3_1" 
+                xmlns:d="ddi:datacollection:3_1"                 
+                xmlns:c="ddi:conceptualcomponent:3_1"                 
                 xmlns:a="ddi:archive:3_1"
                 xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_1" 				
                 xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_1" 
                 xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1" 
-                xmlns:ddi="ddi:instance:3_1" 			
-                xmlns:o="ddi:organizations:3_1" 
+                xmlns:ddi="ddi:instance:3_1"
                 xmlns:l="ddi:logicalproduct:3_1" 				
                 xmlns:pd="ddi:physicaldataproduct:3_1"
                 xmlns:cm="ddi:comparative:3_1" 
@@ -48,7 +47,10 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 xmlns:ds="ddi:dataset:3_1" 
                 xmlns:pr="ddi:profile:3_1"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd">
+                xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd"
+                xmlns:exslt="http://exslt.org/dates-and-times"
+                extension-element-prefixes="exslt"
+                exclude-result-prefixes="xsl xhtml marc dc dc2 g d c a m1 m2 m3 ddi l pd cm s r pi ds pr">
   
     <xsl:output method="xml" encoding="iso-8859-1" indent="yes" />
 
@@ -68,14 +70,14 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         <xsl:text>
             
         </xsl:text>
-        <collection xmlns="http://www.loc.gov/MARC21/slim">
+        <collection xmlns="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
             <xsl:apply-templates select="s:StudyUnit"/>
         </collection>
   
     </xsl:template>
   
     <xsl:template match="s:StudyUnit">
-        <record>
+        <record xmlns="http://www.loc.gov/MARC21/slim">
             
             <!-- Default leader -->            
             <leader>
@@ -88,34 +90,125 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                     <xsl:value-of select="normalize-space(a:Archive/a:ArchiveSpecific/a:Collection/a:CallNumber)"/>
                 </controlfield>
             </xsl:if>      
-            
-            <!-- 010: LCCN -->
-            <xsl:if test="r:Citation/r:InternationalIdentifier[@type='LCCN']">
-                <datafield ind1=" " ind2=" " tag="010">
-                    <subfield code="a">
-                        <xsl:value-of select="normalize-space(r:Citation/r:InternationalIdentifier[@type='LCCN'])"/>
-                    </subfield>
-                </datafield>
-            </xsl:if> 
-                                  
-            <!-- 020: ISBN -->
-            <xsl:if test="r:Citation/r:InternationalIdentifier[@type='ISBN']">
-                <datafield ind1=" " ind2=" " tag="020">
-                    <subfield code="a">
-                        <xsl:value-of select="normalize-space(r:Citation/r:InternationalIdentifier[@type='ISBN'])"/>
-                    </subfield>
-                </datafield>
-            </xsl:if> 
-            
-            <!-- 022: ISSN -->
-            <xsl:if test="r:Citation/r:InternationalIdentifier[@type='ISSN']">
-                <datafield ind1=" " ind2=" " tag="022">
-                    <subfield code="a">
-                        <xsl:value-of select="normalize-space(r:Citation/r:InternationalIdentifier[@type='ISSN'])"/>
-                    </subfield>
-                </datafield>
-            </xsl:if> 
-                    
+                   
+            <!-- 005: Version date -->
+            <xsl:if test="@versionDate">
+                <controlfield tag="005">
+                    <xsl:value-of select="translate(@versionDate, '-', '')"/>
+                </controlfield>
+            </xsl:if>
+                     
+            <!-- 007 -->
+            <controlfield tag="007">c| |||||||||||</controlfield>
+                      
+            <!-- 008 -->
+            <controlfield tag="008">
+                <!-- 00-05 - Date entered on file -->
+                <xsl:value-of select="substring(exslt:year(), 3, 2)"/>
+                <xsl:value-of select="format-number(exslt:month-in-year(), '00')"/>
+                <xsl:value-of select="format-number(exslt:day-in-month(), '00')"/>
+
+                <!-- 06, 07-14 - Type of date/Publication status, Date 1, Date 2 -->                
+                <xsl:choose>
+                    <xsl:when test="r:Citation/r:PublicationDate/r:SimpleDate | r:Citation/r:PublicationDate/r:StartDate">
+                        <xsl:text>e</xsl:text>
+                        <xsl:choose>
+                            <xsl:when test="r:Citation/r:PublicationDate/r:SimpleDate">
+                                <xsl:value-of select="translate(normalize-space(r:Citation/r:PublicationDate/r:SimpleDate), '-', '')"/>
+                            </xsl:when>
+                            <xsl:when test="r:Citation/r:PublicationDate/r:StartDate">
+                                <xsl:value-of select="translate(normalize-space(r:Citation/r:PublicationDate/r:StartDate), '-', '')"/>
+                            </xsl:when>
+                        </xsl:choose>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>b        </xsl:text>
+                    </xsl:otherwise>                        
+                </xsl:choose>
+                
+                <!-- 15-17 - Place of publication, production, or execution -->
+                <xsl:text>|||</xsl:text>
+                
+                <!-- 18-34 - Material specific coded elements -->
+                <!-- 18-21 - Undefined -->
+                <xsl:text>    </xsl:text>
+                
+                <!-- 22 - Target audience -->
+                <xsl:text>|</xsl:text>
+                
+                <!-- 23 - Form of item -->
+                <xsl:text>|</xsl:text>
+                
+                <!-- 24-25 - Undefined -->
+                <xsl:text>  </xsl:text>
+                
+                <!-- 26 - Type of computer file -->
+                <xsl:text>|</xsl:text>
+                
+                <!-- 27 - Undefined -->
+                <xsl:text> </xsl:text>
+                
+                <!-- 28 - Government publication -->
+                <xsl:text>|</xsl:text>
+                
+                <!-- 29-34 - Undefined -->
+                <xsl:text>      </xsl:text>
+                
+                <!-- 35-37 - Language -->
+                <!-- Note: Coded in 041 -->
+                <xsl:text>|||</xsl:text>
+                
+                <!-- 38 - Modified record -->
+                <xsl:text>|</xsl:text>
+                
+                <!-- 39 - Cataloging source -->
+                <xsl:text>|</xsl:text>
+                
+            </controlfield>
+                                                                                                                                        
+            <xsl:for-each select="r:Citation/r:InternationalIdentifier">
+                <xsl:choose>
+                    <!-- 010: LCCN -->
+                    <xsl:when test="@type='LCCN'">
+                        <datafield ind1=" " ind2=" " tag="010">
+                            <subfield code="a">
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </subfield>
+                        </datafield>
+                    </xsl:when> 
+
+                    <!-- 020: ISBN -->
+                    <xsl:when test="@type='ISBN'">
+                        <datafield ind1=" " ind2=" " tag="020">
+                            <subfield code="a">
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </subfield>
+                        </datafield>
+                    </xsl:when> 
+
+                    <!-- 022: ISSN -->
+                    <xsl:when test="@type='ISSN'">
+                        <datafield ind1=" " ind2=" " tag="022">
+                            <subfield code="a">
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </subfield>
+                        </datafield>
+                    </xsl:when> 
+
+                    <!-- 024: Other Standard Identifier -->
+                    <xsl:otherwise>                                    
+                        <datafield ind1="7" ind2=" " tag="024">
+                            <subfield code="a">
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </subfield>
+                            <subfield code="2">
+                                <xsl:value-of select="normalize-space(@type)"/>
+                            </subfield>
+                        </datafield>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:for-each>
+                        
             <!-- 034: BoundingBox -->
             <xsl:if test="r:Coverage/r:SpatialCoverage/r:BoundingBox">
                 <datafield ind1="0" ind2=" " tag="034">
@@ -131,6 +224,50 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                     <subfield code="g">
                         <xsl:value-of select="normalize-space(r:Coverage/r:SpatialCoverage/r:BoundingBox/r:SouthLatitude)"/>
                     </subfield>
+                </datafield>
+            </xsl:if>
+            
+            <!-- 041: Language -->
+            <xsl:if test="r:Citation/r:Language">
+                <datafield ind1=" " ind2="7" tag="041">
+                    <subfield code="a">
+                        <xsl:value-of select="r:Citation/r:Language"/>
+                    </subfield>
+                    <subfield code="2">ISO 639-1</subfield>
+                </datafield>
+            </xsl:if>
+                    
+            <!-- 045: TemporalCoverage -->
+            <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate">          
+                <datafield ind2=" " tag="045">
+                    <xsl:choose>
+                        <xsl:when test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:SimpleDate">
+                            <xsl:choose>                            
+                                <xsl:when test="count(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:SimpleDate) > 0">
+                                    <xsl:attribute name="ind1">1</xsl:attribute>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:attribute name="ind1">0</xsl:attribute>
+                                </xsl:otherwise>                            
+                            </xsl:choose>
+                            <xsl:for-each select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:SimpleDate">
+                                <subfield code="b">
+                                    <xsl:text>d</xsl:text><xsl:value-of select="translate(., '-', '')"/>
+                                </subfield>
+                            </xsl:for-each>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:attribute name="ind1">2</xsl:attribute>
+                            <subfield code="b">
+                                <xsl:text>d</xsl:text><xsl:value-of select="translate(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate, '-', '')"/>
+                            </subfield>
+                            <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate">
+                                <subfield code="b">
+                                     <xsl:text>d</xsl:text><xsl:value-of select="translate(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate, '-', '')"/>
+                                </subfield>
+                            </xsl:if>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </datafield>
             </xsl:if>
                     
@@ -240,6 +377,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 </datafield>
             </xsl:if>
             
+            <!-- 506: AvailabilityStatus -->
             <xsl:if test="a:Archive/a:ArchiveSpecific/a:Collection/a:AvailabilityStatus">                            
                 <datafield tag="506" ind1=" " ind2=" ">
                     <subfield code="a">
@@ -271,6 +409,25 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:value-of select="normalize-space(s:Abstract/r:Content)"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </subfield>
+                </datafield>
+            </xsl:if>
+            
+            <!-- 522: Geographic Coverage Note -->
+            <xsl:if test="r:Coverage/r:SpatialCoverage/r:Description">
+                <datafield ind1=" " ind2=" " tag="522">
+                    <subfield code="a">
+                        <xsl:choose>
+                            <xsl:when test="r:Coverage/r:SpatialCoverage/r:Description[@xml:lang=$lang]">                    
+                                <xsl:value-of select="normalize-space(r:Coverage/r:SpatialCoverage/r:Description[@xml:lang=$lang])"/>
+                            </xsl:when>
+                            <xsl:when test="r:Coverage/r:SpatialCoverage/r:Description[@xml:lang=$fallback-lang]">
+                                <xsl:value-of select="normalize-space(r:Coverage/r:SpatialCoverage/r:Description[@xml:lang=$fallback-lang])"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="normalize-space(r:Coverage/r:SpatialCoverage/r:Description)"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </subfield>
@@ -360,10 +517,17 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </xsl:if>         
             
             <!-- 856: URI -->
-            <xsl:if test="a:Archive/a:ArchiveSpecific/a:Collection/a:URI">
+            <xsl:if test="a:Archive/a:ArchiveSpecific/a:Collection/a:URI | a:Archive/a:ArchiveSpecific/a:Item/a:URI">
                 <datafield ind1="4" ind2="0" tag="856">
                     <subfield code="u">
-                        <xsl:value-of select="normalize-space(a:Archive/a:ArchiveSpecific/a:Collection/a:URI)"/>
+                        <xsl:choose>
+                            <xsl:when test="a:Archive/a:ArchiveSpecific/a:Collection/a:URI">                    
+                                <xsl:value-of select="normalize-space(a:Archive/a:ArchiveSpecific/a:Collection/a:URI)"/>
+                            </xsl:when>
+                            <xsl:when test="a:Archive/a:ArchiveSpecific/a:Item/a:URI">
+                                <xsl:value-of select="normalize-space(a:Archive/a:ArchiveSpecific/a:Item/a:URI)"/>                        
+                            </xsl:when>
+                        </xsl:choose>
                     </subfield>
                 </datafield>
             </xsl:if>
@@ -372,7 +536,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     </xsl:template>
   
     <xsl:template match="r:Publisher">
-        <subfield code="a">
+        <subfield xmlns="http://www.loc.gov/MARC21/slim" code="a">
             <xsl:value-of select="normalize-space(.)"/>
         </subfield>
     </xsl:template>
@@ -381,7 +545,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         <xsl:variable name="codeList">
             <xsl:value-of select="normalize-space(@codeListID)"/>
         </xsl:variable>
-        <datafield ind1=" ">
+        <datafield xmlns="http://www.loc.gov/MARC21/slim" ind1=" ">
             <xsl:attribute name="ind2">
                 <xsl:choose>
                     <xsl:when test="$codeList='LCSH'">0</xsl:when>
@@ -405,7 +569,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         <xsl:variable name="codeList">
             <xsl:value-of select="normalize-space(@codeListID)"/>
         </xsl:variable>
-        <datafield ind1="1">
+        <datafield xmlns="http://www.loc.gov/MARC21/slim" ind1="1">
             <xsl:attribute name="ind2">
                 <xsl:choose>
                     <xsl:when test="$codeList='LCSH'">0</xsl:when>
@@ -426,7 +590,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     </xsl:template>
   
     <xsl:template match="r:Creator">
-        <datafield ind1=" " ind2=" " tag="720">
+        <datafield xmlns="http://www.loc.gov/MARC21/slim" ind1=" " ind2=" " tag="720">
             <subfield code="a">
                 <xsl:value-of select="normalize-space(.)"/>
             </subfield>
