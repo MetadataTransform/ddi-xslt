@@ -59,6 +59,8 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     <!-- if the requested language is not found for e.g. questionText, use fallback language-->
     <xsl:param name="fallback-lang">en</xsl:param>
   
+    <xsl:variable name="doi_address">http://dx.doi.org/</xsl:variable>
+  
     <xsl:template match="ddi:DDIInstance">
         <xsl:text>
             
@@ -94,7 +96,14 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <!-- 005: Version date -->
             <xsl:if test="@versionDate">
                 <controlfield tag="005">
-                    <xsl:value-of select="translate(@versionDate, '-', '')"/>
+                    <xsl:choose>
+                        <xsl:when test="contains(@versionDate, 'T')">
+                            <xsl:value-of select="substring-before(translate(@versionDate, '-', ''), 'T')"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="translate(@versionDate, '-', '')"/>
+                        </xsl:otherwise>
+                    </xsl:choose>                    
                 </controlfield>
             </xsl:if>
                      
@@ -114,10 +123,24 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                         <xsl:text>e</xsl:text>
                         <xsl:choose>
                             <xsl:when test="r:Citation/r:PublicationDate/r:SimpleDate">
-                                <xsl:value-of select="translate(normalize-space(r:Citation/r:PublicationDate/r:SimpleDate), '-', '')"/>
+                                <xsl:choose>
+                                    <xsl:when test="contains(r:Citation/r:PublicationDate/r:SimpleDate, 'T')">
+                                        <xsl:value-of select="substring-before(translate(r:Citation/r:PublicationDate/r:SimpleDate, '-', ''), 'T')"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="translate(r:Citation/r:PublicationDate/r:SimpleDate, '-', '')"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </xsl:when>
                             <xsl:when test="r:Citation/r:PublicationDate/r:StartDate">
-                                <xsl:value-of select="translate(normalize-space(r:Citation/r:PublicationDate/r:StartDate), '-', '')"/>
+                                <xsl:choose>
+                                    <xsl:when test="contains(r:Citation/r:PublicationDate/r:StartDate, 'T')">
+                                        <xsl:value-of select="substring-before(translate(r:Citation/r:PublicationDate/r:StartDate, '-', ''), 'T')"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="translate(r:Citation/r:PublicationDate/r:StartDate, '-', '')"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </xsl:when>
                         </xsl:choose>
                     </xsl:when>
@@ -252,18 +275,42 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                             </xsl:choose>
                             <xsl:for-each select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:SimpleDate">
                                 <subfield code="b">
-                                    <xsl:text>d</xsl:text><xsl:value-of select="translate(., '-', '')"/>
+                                    <xsl:text>d</xsl:text>                                    
+                                    <xsl:choose>
+                                        <xsl:when test="contains(., 'T')">
+                                            <xsl:value-of select="substring-before(translate(., '-', ''), 'T')"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:value-of select="translate(., '-', '')"/>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
                                 </subfield>
                             </xsl:for-each>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:attribute name="ind1">2</xsl:attribute>
                             <subfield code="b">
-                                <xsl:text>d</xsl:text><xsl:value-of select="translate(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate, '-', '')"/>
+                                <xsl:text>d</xsl:text>
+                                <xsl:choose>
+                                    <xsl:when test="contains(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate, 'T')">
+                                        <xsl:value-of select="substring-before(translate(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate, '-', ''), 'T')"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="translate(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate, '-', '')"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
                             </subfield>
                             <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate">
                                 <subfield code="b">
-                                     <xsl:text>d</xsl:text><xsl:value-of select="translate(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate, '-', '')"/>
+                                    <xsl:text>d</xsl:text>
+                                    <xsl:choose>
+                                        <xsl:when test="contains(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate, 'T')">
+                                            <xsl:value-of select="substring-before(translate(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate, '-', ''), 'T')"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:value-of select="translate(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate, '-', '')"/>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
                                 </subfield>
                             </xsl:if>
                         </xsl:otherwise>
@@ -342,13 +389,38 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                     <xsl:if test="r:Citation/r:PublicationDate">
                         <subfield code="c">
                             <xsl:choose>
-                                <xsl:when test="r:Citation/r:PublicationDate/r:SimpleDate">
-                                    <xsl:value-of select="normalize-space(r:Citation/r:PublicationDate/r:SimpleDate)"/>
+                                <xsl:when test="r:Citation/r:PublicationDate/r:SimpleDate">                                    
+                                    <xsl:choose>
+                                        <xsl:when test="contains(r:Citation/r:PublicationDate/r:SimpleDate, 'T')">
+                                            <xsl:value-of select="substring-before(translate(r:Citation/r:PublicationDate/r:SimpleDate, '-', ''), 'T')"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:value-of select="translate(r:Citation/r:PublicationDate/r:SimpleDate, '-', '')"/>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
                                 </xsl:when>
                                 <xsl:when test="r:Citation/r:PublicationDate/r:StartDate">
-                                    <xsl:variable name="pub_date" select="normalize-space(r:Citation/r:PublicationDate/r:StartDate)"/>
+                                    <xsl:variable name="pub_date">
+                                        <xsl:choose>
+                                            <xsl:when test="contains(r:Citation/r:PublicationDate/r:StartDate, 'T')">
+                                                <xsl:value-of select="substring-before(translate(r:Citation/r:PublicationDate/r:StartDate, '-', ''), 'T')"/>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <xsl:value-of select="translate(r:Citation/r:PublicationDate/r:StartDate, '-', '')"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                    </xsl:variable>                                    
                                     <xsl:if test="r:Citation/r:PublicationDate/r:EndDate">
-                                        <xsl:variable name="pub_date" select="concat($pub_date, ' - ', normalize-space(r:Citation/r:PublicationDate/r:EndDate))"/>
+                                        <xsl:variable name="pub_date">
+                                            <xsl:choose>
+                                                <xsl:when test="contains(r:Citation/r:PublicationDate/r:EndDate, 'T')">
+                                                    <xsl:value-of select="concat($pub_date, ' - ', substring-before(translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''), 'T'))"/>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <xsl:value-of select="concat($pub_date, ' - ', translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''))"/>
+                                                </xsl:otherwise>
+                                            </xsl:choose>
+                                        </xsl:variable>
                                     </xsl:if>
                                     <xsl:value-of select="$pub_date"/>     
                                 </xsl:when>
@@ -516,11 +588,34 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 </xsl:if>            
             </xsl:if>         
             
-            <!-- 856: URI -->
-            <xsl:if test="a:Archive/a:ArchiveSpecific/a:Collection/a:URI | a:Archive/a:ArchiveSpecific/a:Item/a:URI">
+            <!-- 856: DOI, URI -->
+            <xsl:if test="r:Citation/r:InternationalIdentifier[@type = 'DOI'] |
+                          r:UserID[@type = 'DOI'] |
+                          a:Archive/a:ArchiveSpecific/a:Collection/a:URI | 
+                          a:Archive/a:ArchiveSpecific/a:Item/a:URI">
                 <datafield ind1="4" ind2="0" tag="856">
                     <subfield code="u">
                         <xsl:choose>
+                            <xsl:when test="r:Citation/r:InternationalIdentifier[@type = 'DOI']">
+                                <xsl:choose>
+                                    <xsl:when test="contains(r:Citation/r:InternationalIdentifier[@type = 'DOI'], $doi_address)">                                    
+                                        <xsl:value-of select="normalize-space(r:Citation/r:InternationalIdentifier[@type = 'DOI'])"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="concat($doi_address, normalize-space(r:Citation/r:InternationalIdentifier[@type = 'DOI']))"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:when>
+                            <xsl:when test="r:UserID[@type = 'DOI']">
+                                <xsl:choose>
+                                    <xsl:when test="contains(r:UserID[@type = 'DOI'], $doi_address)">                                    
+                                        <xsl:value-of select="normalize-space(r:UserID[@type = 'DOI'])"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="concat($doi_address, normalize-space(r:UserID[@type = 'DOI']))"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:when>
                             <xsl:when test="a:Archive/a:ArchiveSpecific/a:Collection/a:URI">                    
                                 <xsl:value-of select="normalize-space(a:Archive/a:ArchiveSpecific/a:Collection/a:URI)"/>
                             </xsl:when>
