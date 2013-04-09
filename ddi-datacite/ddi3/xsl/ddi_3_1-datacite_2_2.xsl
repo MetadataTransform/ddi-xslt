@@ -376,18 +376,18 @@
             <xsl:if test="s:KindOfData">
                 <resourceType>
                     <xsl:choose>
-                        <xsl:when test="s:KindOfData = ('Collection' or 
-                                                        'Dataset' or 
-                                                        'Event' or 
-                                                        'Film' or 
-                                                        'Image' or 
-                                                        'InteractiveResource' or 
-                                                        'Model' or 
-                                                        'PhysicalObject' or 
-                                                        'Service' or 
-                                                        'Software' or 
-                                                        'Sound' or 
-                                                        'Text')">                
+                        <xsl:when test="s:KindOfData = 'Collection' or 
+                                        s:KindOfData = 'Dataset' or 
+                                        s:KindOfData = 'Event' or 
+                                        s:KindOfData = 'Film' or 
+                                        s:KindOfData = 'Image' or 
+                                        s:KindOfData = 'InteractiveResource' or 
+                                        s:KindOfData = 'Model' or 
+                                        s:KindOfData = 'PhysicalObject' or 
+                                        s:KindOfData = 'Service' or 
+                                        s:KindOfData = 'Software' or 
+                                        s:KindOfData = 'Sound' or 
+                                        s:KindOfData = 'Text'">                
                             <xsl:attribute name="resourceTypeGeneral">
                                 <xsl:value-of select="s:KindOfData"/>
                             </xsl:attribute>
