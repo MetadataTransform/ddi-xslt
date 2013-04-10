@@ -112,42 +112,26 @@
                                     
             <!-- 2 creators -->
             <!-- last name comes before first name(s) separated by comma ("family, given") -->
-            <creators>
+                     <creators>
                 <xsl:choose>
-                    <xsl:when test="r:Citation/r:Creator/@xml:lang">
+                    <xsl:when test="r:Citation/r:Creator/@xml:lang">                    
                         <xsl:for-each select="r:Citation/r:Creator[@xml:lang = $lang]">
-                            <xsl:variable name="tokenizedName" select="tokenize(.,'\s+')"/>
                             <creator>
                                 <creatorName>
-                                    <xsl:choose>
-                                        <xsl:when test="count($tokenizedName) > 1">
-                                            <xsl:value-of
-                                                select="concat($tokenizedName[last()], ', ', normalize-space(substring-before(., $tokenizedName[last()])))"
-                                            />
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <xsl:value-of select="."/>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
+                                    <xsl:call-template name="formatName">
+                                        <xsl:with-param name="name" select="."/>
+                                    </xsl:call-template>
                                 </creatorName>
                             </creator>
-                        </xsl:for-each>
+                        </xsl:for-each>                           
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:for-each select="r:Citation/r:Creator">
-                            <xsl:variable name="tokenizedName" select="tokenize(.,'\s+')"/>
                             <creator>
                                 <creatorName>
-                                    <xsl:choose>
-                                        <xsl:when test="count($tokenizedName) > 1">
-                                            <xsl:value-of
-                                                select="concat($tokenizedName[last()], ', ', normalize-space(substring-before(., $tokenizedName[last()])))"
-                                            />
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <xsl:value-of select="."/>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
+                                    <xsl:call-template name="formatName">
+                                        <xsl:with-param name="name" select="."/>
+                                    </xsl:call-template>
                                 </creatorName>
                             </creator>
                         </xsl:for-each>
@@ -283,7 +267,9 @@
                                         <xsl:attribute name="contributorType"><xsl:value-of select="@role"/></xsl:attribute>                                        
                                     </xsl:if>
                                     <contributorName>
-                                        <xsl:value-of select="."/>
+                                        <xsl:call-template name="formatName">
+                                            <xsl:with-param name="name" select="."/>
+                                        </xsl:call-template>
                                     </contributorName>
                                 </contributor>
                             </xsl:for-each>                            
@@ -295,7 +281,9 @@
                                         <xsl:attribute name="contributorType"><xsl:value-of select="@role"/></xsl:attribute>                                        
                                     </xsl:if>
                                     <contributorName>
-                                        <xsl:value-of select="."/>
+                                        <xsl:call-template name="formatName">
+                                            <xsl:with-param name="name" select="."/>
+                                        </xsl:call-template>
                                     </contributorName>
                                 </contributor>
                             </xsl:for-each>            
@@ -564,6 +552,63 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="$date"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+	
+	<!--
+    Formats a name to family, given format. If name is an organization or
+    contains any comma, no formatting is applied apart from normalize-space.
+    -->   
+    <xsl:template name="formatName">
+        <xsl:param name="name" />
+        <xsl:variable name="normalized" select="normalize-space($name)"/>
+        
+        <xsl:choose>
+            <xsl:when test="//a:Organization[a:OrganizationName = $name]">
+                <!-- name is an organization, don't do any formatting -->
+                <xsl:value-of select="$normalized"/>
+            </xsl:when> 
+            <xsl:when test="contains($normalized, ',')">
+                <!-- name is (presumably) already in family, given format -->
+                <xsl:value-of select="$normalized"/>
+            </xsl:when>
+            <xsl:when test="not(contains($normalized, ' '))">
+                <!-- name contains no spaces, we are done -->
+                <xsl:value-of select="$normalized"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <!-- name needs to be transformed to family, given format -->
+                <xsl:call-template name="transformName">
+                    <xsl:with-param name="name" select="$normalized" />
+                </xsl:call-template>
+            </xsl:otherwise>             
+        </xsl:choose>
+ 
+    </xsl:template>
+    
+    <!-- 
+    Transforms a string of form "Given Family" to "Family, Given".
+    Assumes input string is normalized and contains at least one space.
+    -->
+    <xsl:template name="transformName">
+        <xsl:param name="name" />
+        <xsl:param name="acc" />
+        <xsl:variable name="first" select="substring-before($name, ' ')" />
+        <xsl:variable name="remaining" select="substring-after($name, ' ')" />     
+
+        <!-- call recursively until remaining is empty -->
+        <xsl:choose>
+            <xsl:when test="$remaining">
+                <xsl:call-template name="transformName">
+                    <xsl:with-param name="name" select="$remaining" />
+                    <xsl:with-param name="acc" select="concat($acc, ' ', $first)" />
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$name"/>
+                <xsl:text>, </xsl:text>
+                <xsl:value-of select="$acc"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
