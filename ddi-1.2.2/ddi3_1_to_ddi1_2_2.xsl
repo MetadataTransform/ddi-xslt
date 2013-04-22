@@ -246,8 +246,8 @@ http://www.gnu.org/copyleft/lesser.html
             <!--collDate date="2000-09-20" event="start"/>
             <collDate date="2000-11-15" event="end"/-->
 
-            <xsl:call-template name="spatialCoverage"/>
-
+            <xsl:apply-templates select="r:Coverage/r:SpatialCoverage"/>
+            
             <!-- AnalysisUnit -->
             <xsl:if test="r:AnalysisUnit">
                 <xsl:for-each select="r:AnalysisUnit">
@@ -273,8 +273,19 @@ http://www.gnu.org/copyleft/lesser.html
               </universe>
             </xsl:if>
 
-            <!-- todo -->
-            <dataKind> survey data </dataKind>
+            <!-- DataKind -->
+            <xsl:if test="s:KindOfData">
+                <xsl:for-each select="s:KindOfData">
+                    <dataKind>
+                        <txt><xsl:value-of select="." /></txt>
+                        <concept>
+                            <xsl:if test="@codeListName">
+                                <xsl:attribute name="vocab"><xsl:value-of select="@codeListName" /></xsl:attribute>
+                            </xsl:if>                        
+                        </concept>
+                    </dataKind>  
+                </xsl:for-each>             
+            </xsl:if>
           </sumDscr>
         </stdyInfo>
 
@@ -298,7 +309,7 @@ http://www.gnu.org/copyleft/lesser.html
       <!-- file description -->
       <fileDscr ID="F1">
         <!-- dublicate ID for nesstar import ok -->
-        <fileTxt ID="F1">
+        <fileTxt ID="F1-file">
           <fileName>
             <xsl:value-of select="$identification-prefix"/>
             <xsl:value-of select="$studyId"/>
@@ -402,6 +413,27 @@ http://www.gnu.org/copyleft/lesser.html
     </xsl:if>
   </xsl:template>
 
+  <xsl:template match="r:SpatialCoverage">
+    <xsl:for-each select="r:Description">
+        <geogCover>
+            <xsl:if test="@xml:lang">
+                <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang" /></xsl:attribute>
+            </xsl:if>
+            <txt><xsl:value-of select="." /></txt>
+        </geogCover>             
+    </xsl:for-each>
+
+    <xsl:if test="r:BoundingBox">
+        <geoBndBox>
+            <westBL><xsl:value-of select="r:BoundingBox/r:WestLongitude" /></westBL>
+            <eastBL><xsl:value-of select="r:BoundingBox/r:EastLongitude" /></eastBL>
+            <southBL><xsl:value-of select="r:BoundingBox/r:SouthLatitude" /></southBL>
+            <northBL><xsl:value-of select="r:BoundingBox/r:NorthLatitude" /></northBL>
+        </geoBndBox>
+    </xsl:if>      
+  </xsl:template>
+
+
   <!-- context: r:Citation -->
   <xsl:template name="bibCitation">
     <!-- studyTitle as titl -->
@@ -424,38 +456,8 @@ http://www.gnu.org/copyleft/lesser.html
         <xsl:text>, </xsl:text>
         <xsl:value-of select="r:Citation/r:InternationalIdentifier"/>
       </xsl:if>
-      
-      <sumDscr>
-        <xsl:for-each select="r:SpatialCoverage/r:Description">
-            <geogCover>
-                <xsl:if test="@xml:lang">
-                    <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang" /></xsl:attribute>
-                </xsl:if>
-                <txt><xsl:value-of select="." /></txt>
-            </geogCover>             
-        </xsl:for-each>
-        <xsl:if test="r:SpatialCoverage/r:BoundingBox">
-            <geoBndBox>
-                <westBL><xsl:value-of select="r:SpatialCoverage/r:BoundingBox/r:WestLongitude" /></westBL>
-                <eastBL><xsl:value-of select="r:SpatialCoverage/r:BoundingBox/r:EastLongitude" /></eastBL>
-                <southBL><xsl:value-of select="r:SpatialCoverage/r:BoundingBox/r:SouthLatitude" /></southBL>
-                <northBL><xsl:value-of select="r:SpatialCoverage/r:BoundingBox/r:NorthLatitude" /></northBL>
-            </geoBndBox>
-        </xsl:if>
-        
-        <xsl:if test="../s:KindOfData">
-            <xsl:for-each select="../s:KindOfData">
-                <dataKind>
-                    <txt><xsl:value-of select="." /></txt>
-                    <concept>
-                        <xsl:if test="@codeListName">
-                            <xsl:attribute name="vocab"><xsl:value-of select="@codeListName" /></xsl:attribute>
-                        </xsl:if>                        
-                    </concept>
-                </dataKind>  
-            </xsl:for-each>             
-        </xsl:if>
-      </sumDscr>
+    </biblCit>
+
   </xsl:template>  
   
       
