@@ -248,9 +248,13 @@ http://www.gnu.org/copyleft/lesser.html
 
             <xsl:call-template name="spatialCoverage"/>
 
-            <!-- todo -->
-            <anlyUnit> Individual </anlyUnit>
-
+            <!-- AnalysisUnit -->
+            <xsl:if test="r:AnalysisUnit">
+                <xsl:for-each select="r:AnalysisUnit">
+                    <anlyUnit><xsl:value-of select="."/></anlyUnit>
+                </xsl:for-each>
+            </xsl:if>
+            
             <xsl:variable name="universeId" select="r:UniverseReference/r:ID"/>
             <xsl:variable name="universe" select="*//c:Universe[@id=$universeId]"/>
             <xsl:if test="$universe">
@@ -420,43 +424,41 @@ http://www.gnu.org/copyleft/lesser.html
         <xsl:text>, </xsl:text>
         <xsl:value-of select="r:Citation/r:InternationalIdentifier"/>
       </xsl:if>
-    </biblCit>
-  </xsl:template>
-
-  <xsl:template name="spatialCoverage">
-    <xsl:for-each select="r:Coverage/r:SpatialCoverage">
-      <xsl:for-each select="r:Description">
-        <geogCover>
-          <xsl:if test="@xml:lang">
-            <xsl:attribute name="xml-lang">
-              <xsl:value-of select="@xml:lang"/>
-            </xsl:attribute>
-          </xsl:if>
-          <txt>
-            <xsl:value-of select="."/>
-          </txt>
-        </geogCover>
-      </xsl:for-each>
-
-      <xsl:if test="r:BoundingBox">
-        <geoBndBox>
-          <westBL>
-            <xsl:value-of select="r:BoundingBox/r:WestLongitude"/>
-          </westBL>
-          <eastBL>
-            <xsl:value-of select="r:BoundingBox/r:EastLongitude"/>
-          </eastBL>
-          <southBL>
-            <xsl:value-of select="r:BoundingBox/r:SouthLatitude"/>
-          </southBL>
-          <northBL>
-            <xsl:value-of select="r:BoundingBox/r:NorthLatitude"/>
-          </northBL>
-        </geoBndBox>
-      </xsl:if>
-    </xsl:for-each>
-  </xsl:template>
-
+      
+      <sumDscr>
+        <xsl:for-each select="r:SpatialCoverage/r:Description">
+            <geogCover>
+                <xsl:if test="@xml:lang">
+                    <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang" /></xsl:attribute>
+                </xsl:if>
+                <txt><xsl:value-of select="." /></txt>
+            </geogCover>             
+        </xsl:for-each>
+        <xsl:if test="r:SpatialCoverage/r:BoundingBox">
+            <geoBndBox>
+                <westBL><xsl:value-of select="r:SpatialCoverage/r:BoundingBox/r:WestLongitude" /></westBL>
+                <eastBL><xsl:value-of select="r:SpatialCoverage/r:BoundingBox/r:EastLongitude" /></eastBL>
+                <southBL><xsl:value-of select="r:SpatialCoverage/r:BoundingBox/r:SouthLatitude" /></southBL>
+                <northBL><xsl:value-of select="r:SpatialCoverage/r:BoundingBox/r:NorthLatitude" /></northBL>
+            </geoBndBox>
+        </xsl:if>
+        
+        <xsl:if test="../s:KindOfData">
+            <xsl:for-each select="../s:KindOfData">
+                <dataKind>
+                    <txt><xsl:value-of select="." /></txt>
+                    <concept>
+                        <xsl:if test="@codeListName">
+                            <xsl:attribute name="vocab"><xsl:value-of select="@codeListName" /></xsl:attribute>
+                        </xsl:if>                        
+                    </concept>
+                </dataKind>  
+            </xsl:for-each>             
+        </xsl:if>
+      </sumDscr>
+  </xsl:template>  
+  
+      
   <xsl:template match="r:InternationalIdentifier">
     <IDNo>
       <xsl:value-of select="."/>
