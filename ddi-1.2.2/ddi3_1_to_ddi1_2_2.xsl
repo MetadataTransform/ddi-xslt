@@ -312,7 +312,7 @@ http://www.gnu.org/copyleft/lesser.html
       <!-- file description -->
       <fileDscr ID="F1">
         <!-- dublicate ID for nesstar import ok -->
-        <fileTxt ID="F1-file">
+        <fileTxt ID="F1">
           <fileName>
             <xsl:value-of select="$identification-prefix"/>
             <xsl:value-of select="$studyId"/>
