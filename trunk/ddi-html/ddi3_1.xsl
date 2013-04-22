@@ -19,6 +19,8 @@
     <xsl:param name="render-as-document">true</xsl:param>
     <!-- include interactive js and jquery for navigation (external links to eXist)-->
     <xsl:param name="include-js">true</xsl:param>
+    <!-- include jQuery from local or remote resource (local is default)-->
+    <xsl:param name="jquery">local</xsl:param>
     <!-- coma-separated list for language switch (js-navigation)-->
     <xsl:param name="languageSwitch">sv,en</xsl:param>
     <!-- print anchors for eg QuestionItems-->
@@ -86,7 +88,15 @@
                     <xsl:when test="$include-js='true'">
                         <script type="text/javascript">
                             <!--xsl:attribute name="src">http://code.jquery.com/jquery.min.js</xsl:attribute-->
-                            <xsl:attribute name="src">http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js</xsl:attribute>
+                            <xsl:choose>
+                                <xsl:when test="$jquery = 'remote'">
+                                    <xsl:attribute name="src">http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js</xsl:attribute>
+                                </xsl:when>
+                                <xsl:xsl:otherwise>
+                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery-1.9.1.min.js</xsl:attribute>
+                                </xsl:xsl:otherwise>
+                            </xsl:choose>
+                            
                         </script>
                         
                         <script type="text/javascript">
