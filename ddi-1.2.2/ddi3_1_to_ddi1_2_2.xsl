@@ -303,7 +303,10 @@ http://www.gnu.org/copyleft/lesser.html
         <dataAccs> </dataAccs>
 
         <!-- other study materials -->
-        <othrStdyMat/>
+        <othrStdyMat>
+            <xsl:apply-templates select="r:OtherMaterial[@type='file']" mode="file"/>
+            <xsl:apply-templates select="r:OtherMaterial[@type='publication']" mode="publication"/>
+        </othrStdyMat>
       </stdyDscr>
 
       <!-- file description -->
@@ -457,10 +460,69 @@ http://www.gnu.org/copyleft/lesser.html
         <xsl:value-of select="r:Citation/r:InternationalIdentifier"/>
       </xsl:if>
     </biblCit>
-
   </xsl:template>  
   
-      
+  <xsl:template match="r:OtherMaterial" mode="file">
+      <relMat>
+          <citation>
+              <titlStmt>
+                  <titl>
+                    <xsl:choose>
+                        <xsl:when test="r:Citation/r:Title[@xml:lang = $lang]">
+                          <titl>
+                            <xsl:attribute name="xml-lang">
+                              <xsl:value-of select="$lang"/>
+                            </xsl:attribute>
+                            <xsl:value-of select="r:Citation/r:Title[@xml:lang = $lang]"/>
+                          </titl>
+                        </xsl:when>
+                        <xsl:otherwise>
+                          <titl>
+                            <xsl:value-of select="r:Citation/r:Title"/>
+                          </titl>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                  </titl>
+              </titlStmt>
+          </citation>
+          <holdings>
+              <xsl:attribute name="URI"><xsl:value-of select="r:ExternalURLReference" /></xsl:attribute>
+              <xsl:attribute name="media"><xsl:value-of select="r:MIMEType" /></xsl:attribute>
+          </holdings>
+      </relMat>
+  </xsl:template>
+ 
+   <xsl:template match="r:OtherMaterial" mode="publication">
+      <relMat>
+          <citation>
+              <titlStmt>
+                  <titl>
+                    <xsl:choose>
+                        <xsl:when test="r:Citation/r:Title[@xml:lang = $lang]">
+                          <titl>
+                            <xsl:attribute name="xml-lang">
+                              <xsl:value-of select="$lang"/>
+                            </xsl:attribute>
+                            <xsl:value-of select="r:Citation/r:Title[@xml:lang = $lang]"/>
+                          </titl>
+                        </xsl:when>
+                        <xsl:otherwise>
+                          <titl>
+                            <xsl:value-of select="r:Citation/r:Title"/>
+                          </titl>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                  </titl>
+              </titlStmt>
+          </citation>
+          <xsl:if test="r:ExternalURLReference">
+          <holdings>
+              <xsl:attribute name="URI"><xsl:value-of select="r:ExternalURLReference" /></xsl:attribute>
+          </holdings>
+          </xsl:if>
+      </relMat>
+  </xsl:template>           
+                     
   <xsl:template match="r:InternationalIdentifier">
     <IDNo>
       <xsl:value-of select="."/>
