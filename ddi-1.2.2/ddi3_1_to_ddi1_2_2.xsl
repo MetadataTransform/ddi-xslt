@@ -67,7 +67,12 @@ http://www.gnu.org/copyleft/lesser.html
       <xsl:variable name="studyId">
         <xsl:choose>
           <xsl:when test="*//a:CallNumber">
-            <xsl:value-of select="*//a:CallNumber"/>
+
+             <xsl:call-template name="replace-string">
+                <xsl:with-param name="text" select="*//a:CallNumber"/>
+                <xsl:with-param name="replace" select="' '" />
+                <xsl:with-param name="with" select="''"/>
+              </xsl:call-template>
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="./@id"/>
@@ -469,26 +474,24 @@ http://www.gnu.org/copyleft/lesser.html
                   <titl>
                     <xsl:choose>
                         <xsl:when test="r:Citation/r:Title[@xml:lang = $lang]">
-                          <titl>
                             <xsl:attribute name="xml-lang">
                               <xsl:value-of select="$lang"/>
                             </xsl:attribute>
                             <xsl:value-of select="r:Citation/r:Title[@xml:lang = $lang]"/>
-                          </titl>
                         </xsl:when>
                         <xsl:otherwise>
-                          <titl>
                             <xsl:value-of select="r:Citation/r:Title"/>
-                          </titl>
                         </xsl:otherwise>
                     </xsl:choose>
                   </titl>
               </titlStmt>
+              <xsl:if test="r:ExternalURLReference">
+                <holdings>
+                    <xsl:attribute name="URI"><xsl:value-of select="r:ExternalURLReference" /></xsl:attribute>
+                    <xsl:attribute name="media"><xsl:value-of select="r:MIMEType" /></xsl:attribute>
+                </holdings>             
+             </xsl:if> 
           </citation>
-          <holdings>
-              <xsl:attribute name="URI"><xsl:value-of select="r:ExternalURLReference" /></xsl:attribute>
-              <xsl:attribute name="media"><xsl:value-of select="r:MIMEType" /></xsl:attribute>
-          </holdings>
       </relMat>
   </xsl:template>
  
@@ -499,27 +502,23 @@ http://www.gnu.org/copyleft/lesser.html
                   <titl>
                     <xsl:choose>
                         <xsl:when test="r:Citation/r:Title[@xml:lang = $lang]">
-                          <titl>
                             <xsl:attribute name="xml-lang">
                               <xsl:value-of select="$lang"/>
                             </xsl:attribute>
                             <xsl:value-of select="r:Citation/r:Title[@xml:lang = $lang]"/>
-                          </titl>
                         </xsl:when>
                         <xsl:otherwise>
-                          <titl>
                             <xsl:value-of select="r:Citation/r:Title"/>
-                          </titl>
                         </xsl:otherwise>
                     </xsl:choose>
                   </titl>
               </titlStmt>
+            <xsl:if test="r:ExternalURLReference">
+            <holdings>
+                <xsl:attribute name="URI"><xsl:value-of select="r:ExternalURLReference" /></xsl:attribute>
+            </holdings>
+            </xsl:if>              
           </citation>
-          <xsl:if test="r:ExternalURLReference">
-          <holdings>
-              <xsl:attribute name="URI"><xsl:value-of select="r:ExternalURLReference" /></xsl:attribute>
-          </holdings>
-          </xsl:if>
       </relMat>
   </xsl:template>           
                      
@@ -1109,4 +1108,24 @@ http://www.gnu.org/copyleft/lesser.html
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+  
+<xsl:template name="replace-string">
+    <xsl:param name="text"/>
+    <xsl:param name="replace"/>
+    <xsl:param name="with"/>
+    <xsl:choose>
+      <xsl:when test="contains($text,$replace)">
+        <xsl:value-of select="substring-before($text,$replace)"/>
+        <xsl:value-of select="$with"/>
+        <xsl:call-template name="replace-string">
+          <xsl:with-param name="text" select="substring-after($text,$replace)"/>
+          <xsl:with-param name="replace" select="$replace"/>
+          <xsl:with-param name="with" select="$with"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$text"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template> 
 </xsl:stylesheet>
