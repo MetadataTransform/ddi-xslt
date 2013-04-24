@@ -87,16 +87,14 @@
                 <xsl:choose>
                     <xsl:when test="$include-js='true'">
                         <script type="text/javascript">
-                            <!--xsl:attribute name="src">http://code.jquery.com/jquery.min.js</xsl:attribute-->
                             <xsl:choose>
                                 <xsl:when test="$jquery = 'remote'">
                                     <xsl:attribute name="src">http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js</xsl:attribute>
                                 </xsl:when>
-                                <xsl:xsl:otherwise>
+                                <xsl:otherwise>
                                     <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery-1.9.1.min.js</xsl:attribute>
-                                </xsl:xsl:otherwise>
-                            </xsl:choose>
-                            
+                                </xsl:otherwise>
+                            </xsl:choose>                            
                         </script>
                         
                         <script type="text/javascript">
