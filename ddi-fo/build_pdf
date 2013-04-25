@@ -1,0 +1,27 @@
+#!/bin/sh
+
+XSLT_TEMPLATE="dditofo.xsl"
+
+# stringparams for xsltproc:
+#  paper.type A4                   use A4 paper
+#  fop1.extensions 1               activate FOP extensions
+#                                  (giving us bookmarks)
+#  translations ../i18n/sv.xml     point to swedish i18n string file
+STRINGPARAMS="--stringparam paper.type A4 \
+              --stringparam fop1.extensions 1 \
+              --stringparam translations ../i18n/sv.xml"
+
+# DDI Codebook to FO
+echo "Processing Codebook to FO..."
+xsltproc -o codebook.fo $STRINGPARAMS $XSLT_TEMPLATE $1
+
+# FO to PDF
+echo "Processing FO to PDF..."
+fop -fo codebook.fo -pdf $1.pdf
+
+# clean up
+echo "Cleaning up temp files..."
+rm codebook.fo
+
+# report status
+echo "File $1.pdf generated."
