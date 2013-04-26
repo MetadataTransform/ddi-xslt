@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Simple build script for turning DDI Codebook into PDF
+# 2013-04-25	Initial version
+# 2013-04-26	Better file extension on generated file
+
+# usage: ./build_pdf input_file.xml
+
+
 XSLT_TEMPLATE="dditofo.xsl"
 
 # stringparams for xsltproc:
@@ -11,17 +18,19 @@ STRINGPARAMS="--stringparam paper.type A4 \
               --stringparam fop1.extensions 1 \
               --stringparam translations ../i18n/sv.xml"
 
+FILENAME="${1%.*}" # remove file extension from DDI input file
+
 # DDI Codebook to FO
 echo "Processing Codebook to FO..."
-xsltproc -o codebook.fo $STRINGPARAMS $XSLT_TEMPLATE $1
+xsltproc -o $FILENAME.fo $STRINGPARAMS $XSLT_TEMPLATE $1
 
 # FO to PDF
 echo "Processing FO to PDF..."
-fop -fo codebook.fo -pdf $1.pdf
+fop -fo $FILENAME.fo -pdf $FILENAME.pdf
 
 # clean up
 echo "Cleaning up temp files..."
-rm codebook.fo
+rm $FILENAME.fo
 
 # report status
-echo "File $1.pdf generated."
+echo "File $FILENAME.pdf generated."
