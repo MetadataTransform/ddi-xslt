@@ -4,10 +4,29 @@
 # 2013-04-25	Initial version
 # 2013-04-26	Better file extension on generated file
 
-# usage: ./build_pdf input_file.xml
+# requierments: xsltproc, fop
+# usage: ./build_pdf [-h] [-l LANGUAGE] input_file.xml 
 
 
-XSLT_TEMPLATE="dditofo.xsl"
+# ==========================
+# Handle options & arguments
+# ==========================
+
+LANGUAGE_STRING="sv"	# default i18n file
+
+# handle options
+while getopts "hl:" opt
+do
+	case $opt in
+		h) echo "Usage: build_pdf [-h] [-l LANGUAGE] input_file.xml"
+		   exit 1;;
+		l) LANGUAGE_STRING=$OPTARG;;
+	esac
+done
+
+shift $(($OPTIND - 1)) # shift argument to position 1
+
+FILENAME="${1%.*}" # remove file extension from DDI input file
 
 # stringparams for xsltproc:
 #  paper.type A4                   use A4 paper
@@ -16,13 +35,17 @@ XSLT_TEMPLATE="dditofo.xsl"
 #  translations ../i18n/sv.xml     point to swedish i18n string file
 STRINGPARAMS="--stringparam paper.type A4 \
               --stringparam fop1.extensions 1 \
-              --stringparam translations ../i18n/sv.xml"
+              --stringparam translations ../i18n/$LANGUAGE_STRING.xml"
 
-FILENAME="${1%.*}" # remove file extension from DDI input file
+# ============
+# Process file
+# ============
+
+echo "Using language: $LANGUAGE_STRING"
 
 # DDI Codebook to FO
 echo "Processing Codebook to FO..."
-xsltproc -o $FILENAME.fo $STRINGPARAMS $XSLT_TEMPLATE $1
+xsltproc -o $FILENAME.fo $STRINGPARAMS dditofo.xsl $1
 
 # FO to PDF
 echo "Processing FO to PDF..."
