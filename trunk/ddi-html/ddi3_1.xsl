@@ -142,10 +142,10 @@
                             <xsl:when test="$show-category-statistics='true'">
                                 <xsl:comment>[if lte IE 9]<![CDATA[>]]>&lt;script type="text/javascript" src="<xsl:value-of select="$path-prefix"/>/js/excanvas.min.js"&gt;&lt;/script&gt;<![CDATA[<![endif]]]></xsl:comment>                                    
                                 <script type="text/javascript">
-                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery.flot.js</xsl:attribute>
+                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery.flot.min.js</xsl:attribute>
                                 </script>
                                 <script type="text/javascript">
-                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery.flot.pie.js</xsl:attribute>
+                                    <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery.flot.pie.min.js</xsl:attribute>
                                 </script>
                                 <script type="text/javascript">
                                     <xsl:attribute name="src"><xsl:value-of select="$path-prefix"/>/js/jquery.flot.tooltip.min.js</xsl:attribute>
