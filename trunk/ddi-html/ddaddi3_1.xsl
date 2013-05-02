@@ -6,7 +6,7 @@
   <xsl:import href="ddi3_1.xsl"/>
 
   <!--  svn version -->
-  <xsl:param name="svn-revision">Revision: 261</xsl:param>
+  <xsl:param name="svn-revision">Revision: 334</xsl:param>
   
   <!-- show frequencies on numeric variable with missing values -->
   <xsl:param name="show-numeric-var-frequence">true</xsl:param>
@@ -913,7 +913,7 @@
         <li>
           <xsl:value-of select="util:i18n('FilteringVariable')"/>
           <xsl:text>: </xsl:text>
-        <xsl:for-each select="$result/*">
+          <xsl:for-each select="distinct-values($result/*)">
           <xsl:copy-of select="."/>
           <xsl:text> </xsl:text>
         </xsl:for-each>
