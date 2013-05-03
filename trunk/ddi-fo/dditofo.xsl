@@ -75,7 +75,8 @@
                 version="1.0"
                 extension-element-prefixes="date exsl str">
 
-  <xsl:output version="1.0" encoding="UTF-8" indent="no" omit-xml-declaration="no" media-type="text/html"/>
+  <xsl:output version="1.0" encoding="UTF-8" indent="no"
+              omit-xml-declaration="no" media-type="text/html"/>
 
   <!-- =================================== -->
   <!-- File/template inclusion "hierarchy" -->

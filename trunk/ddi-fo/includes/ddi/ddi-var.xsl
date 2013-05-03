@@ -17,7 +17,9 @@
                 xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 xmlns:fn="http://www.w3.org/2005/xpath-functions"
-                version="1.0" extension-element-prefixes="date exsl str">
+                version="1.0"
+                extension-element-prefixes="date exsl str">
+    
   <xsl:output version="1.0" encoding="UTF-8" indent="no"
               omit-xml-declaration="no" media-type="text/html"/>
 

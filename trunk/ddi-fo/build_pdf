@@ -29,15 +29,6 @@ shift $(($OPTIND - 1)) # shift argument to position 1
 
 FILENAME="${1%.*}" # remove file extension from DDI input file
 
-# stringparams for xsltproc:
-#  paper.type A4                   use A4 paper
-#  fop1.extensions 1               activate FOP extensions
-#                                  (giving us bookmarks)
-#  translations ../i18n/sv.xml     point to swedish i18n string file
-#STRINGPARAMS="--stringparam paper.type A4 \
-#              --stringparam fop1.extensions 1 \
-#              --stringparam translations ../i18n/$LANGUAGE_STRING.xml"
-
 # params for fop
 FOP_PARAMS="-param paper.type A4 \
             -param fop1.extensions 1 \
@@ -51,18 +42,6 @@ echo "Using language: $LANGUAGE_STRING"
 
 # transformation with fop/xalan (one step)
 fop -xml $1 -xsl dditofo.xsl -pdf $FILENAME.pdf $FOP_PARAMS
-
-# DDI Codebook to FO
-#echo "xsltproc: Processing Codebook to FO..."
-#xsltproc -o $FILENAME.fo $STRINGPARAMS dditofo.xsl $1
-
-# FO to PDF
-#echo "fop: Processing FO to PDF..."
-#fop -fo $FILENAME.fo -pdf $FILENAME.pdf
-
-# clean up
-#echo "Cleaning up temp files..."
-#rm $FILENAME.fo
 
 # report status
 echo "File $FILENAME.pdf generated."
