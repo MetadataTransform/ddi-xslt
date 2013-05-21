@@ -431,7 +431,7 @@ http://www.gnu.org/copyleft/lesser.html
     <xsl:for-each select="r:Description">
         <geogCover>
             <xsl:if test="@xml:lang">
-                <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang" /></xsl:attribute>
+                <xsl:attribute name="xml-lang"><xsl:value-of select="@xml:lang" /></xsl:attribute>
             </xsl:if>
             <txt><xsl:value-of select="." /></txt>
         </geogCover>             
