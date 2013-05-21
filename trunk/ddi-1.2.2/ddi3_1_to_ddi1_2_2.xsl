@@ -63,6 +63,12 @@ http://www.gnu.org/copyleft/lesser.html
         <xsl:text>http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd</xsl:text>
       </xsl:attribute>
 
+      <xsl:if test="$multilang = 'false'">
+        <xsl:attribute name="xml-lang">
+          <xsl:value-of select="$lang"/>
+        </xsl:attribute>
+      </xsl:if>
+
       <!-- study id -->
       <xsl:variable name="studyId">
         <xsl:choose>
