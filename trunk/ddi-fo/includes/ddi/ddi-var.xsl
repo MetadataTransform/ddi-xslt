@@ -23,50 +23,48 @@
   <xsl:output version="1.0" encoding="UTF-8" indent="no"
               omit-xml-declaration="no" media-type="text/html"/>
 
-  <!-- ======================== -->
-  <!-- match: ddi:var / default -->
-  <!-- fo:table-row             -->
-  <!-- ======================== -->
+  <!-- 
+  ========================
+  match: ddi:var / default
+  fo:table-row            
+  ========================
 
-  <!--
-    parameters used:
-    ($fileId)
+  parameters used:
+  ($fileId)
 
-    global vars read:
-    $cell-padding, $color-gray1, $default-border, $msg,
-    $show-variables-description-categories-max, $subsetVars,
+  global vars read:
+  $cell-padding, $color-gray1, $default-border, $msg,
+  $show-variables-description-categories-max, $subsetVars,
 
-    local vars set:
-    $statistics, $type, $label, $category-count, $is-weighted,
-    $catgry-freq-nodes, $catgry-sum-freq, $catgry-sum-freq-wgtd,
-    $catgry-max-freq, $catgry-max-freq-wgtd, $bar-column-width, $catgry-freq
+  local vars set:
+  $statistics, $type, $label, $category-count, $is-weighted,
+  $catgry-freq-nodes, $catgry-sum-freq, $catgry-sum-freq-wgtd,
+  $catgry-max-freq, $catgry-max-freq-wgtd, $bar-column-width, $catgry-freq
 
-    XPath 1.0 functions called:
-    concat(), contains(), string-length(), normalize-space(), number(),
-    position(), string()
+  XPath 1.0 functions called:
+  concat(), contains(), string-length(), normalize-space(), number(),
+  position(), string()
 
-    templates called:
-    [math:max], [trim]
+  templates called:
+  [math:max], [trim]
+
+  fo output by section:
+  1: Information                <fo:table-row>
+  2: Statistics                 <fo:table-row>
+  3: Definition                 <fo:table-row>
+  4: Universe                   <fo:table-row>
+  5: Source                     <fo:table-row>
+  6: Pre-Question               <fo:table-row>
+  7: Question                   <fo:table-row>
+  8: Post-Question              <fo:table-row>
+  9: Interviewer Instructions   <fo:table-row>
+  10: Imputation                 <fo:table-row>
+  11: Recoding                   <fo:table-row>
+  12: Security                   <fo:table-row>
+  13: Concepts                   <fo:table-row>
+  14: Notes                      <fo:table-row>
+  15: Categories                 <fo:table-row>
   -->
-
-  <!--
-    1: Information                <fo:table-row>
-    2: Statistics                 <fo:table-row>
-    3: Definition                 <fo:table-row>
-    4: Universe                   <fo:table-row>
-    5: Source                     <fo:table-row>
-    6: Pre-Question               <fo:table-row>
-    7: Question                   <fo:table-row>
-    8: Post-Question              <fo:table-row>
-    9: Interviewer Instructions   <fo:table-row>
-   10: Imputation                 <fo:table-row>
-   11: Recoding                   <fo:table-row>
-   12: Security                   <fo:table-row>
-   13: Concepts                   <fo:table-row>
-   14: Notes                      <fo:table-row>
-   15: Categories                 <fo:table-row>
-  -->
-
 
   <xsl:template match="ddi:var">
 
@@ -78,7 +76,7 @@
     <!-- ====================== -->
     <!-- r) [fo:table row] Main -->
     <!-- ====================== -->
-    <xsl:if test="contains($subsetVars,concat(',',@ID,',')) or string-length($subsetVars)=0 ">
+    <xsl:if test="contains($subsetVars, concat(',',@ID,',')) or string-length($subsetVars) = 0 ">
       <fo:table-row text-align="center" vertical-align="top">
         <fo:table-cell>
           <fo:table id="var-{@ID}" table-layout="fixed" width="100%" font-size="8pt" space-after="0.3in">
@@ -542,7 +540,7 @@
 
                                 <!-- [fo:table-cell] Label -->
                                 <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
-                                  <fo:block>
+                                  <fo:block>jjjjjj
                                     <xsl:call-template name="trim">
                                       <xsl:with-param name="s" select="ddi:labl"/>
                                     </xsl:call-template>

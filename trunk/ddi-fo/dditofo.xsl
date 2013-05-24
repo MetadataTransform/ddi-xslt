@@ -1,5 +1,4 @@
 <?xml version='1.0' encoding='utf-8'?>
-
 <!-- dditofo.xsl -->
 
 <!--
@@ -14,9 +13,8 @@
 	Platform: XSL 1.0, Apache FOP 0.20.5 (http://xmlgraphics.apache.org/fop)
 
 	Updated for FOP 0.93 2010 - oistein.kristiansen@nsd.uib.no
--->
 
-<!--
+
 	License:
 	Copyright 2006 Pascal Heus (pascal.heus@gmail.com)
 
@@ -29,10 +27,9 @@
 	See the GNU Lesser General Public License for more details.
 
  	The full text of the license is available at http://www.gnu.org/copyleft/lesser.html
--->
 
-<!--
- 	References:
+
+  References:
     XSL-FO:
       http://www.w3.org/Style/XSL/
       http://www.w3schools.com/xslfo/xslfo_reference.asp
@@ -47,14 +44,13 @@
 -->
 
 <!--
- 	History:
-    2006-04:    Added multilingual support and French translation
-    2006-06:    Added Spanish and new elements to match IHSN Template v1.2
-    2006-07:    Minor fixes and typos
-    2006-07:    Added option parameters to hide producers in cover page and questions in variables list page
-    2010-03:    Made it FOP 0.93 compatible
-    2012-11-01: Broken up into parts using xsl:include
-    2013-01-22: Changing the file names to match template names better
+  2006-04:    Added multilingual support and French translation
+  2006-06:    Added Spanish and new elements to match IHSN Template v1.2
+  2006-07:    Minor fixes and typos
+  2006-07:    Added option parameters to hide producers in cover page and questions in variables list page
+  2010-03:    Made FOP 0.93 compatible
+  2012-11-01: Broken up into parts using xsl:include
+  2013-01-22: Changing the file names to match template names better
 -->
 
 <xsl:stylesheet xmlns:n1="http://www.icpsr.umich.edu/DDI"
@@ -78,22 +74,13 @@
   <xsl:output version="1.0" encoding="UTF-8" indent="no"
               omit-xml-declaration="no" media-type="text/html"/>
 
-  <!-- =================================== -->
-  <!-- File/template inclusion "hierarchy" -->
-  <!-- dditofo_v2.xsl                      -->
-  <!--    parameters.xsl + variables.xsl + -->
-  <!--    conditional_variables.xsl        -->
-  <!--      root_template.xsl              -->
-  <!--        (all other templates)        -->
-  <!-- =================================== -->
-
   <!-- Setup global vars and parameters -->
   <xsl:include href='includes/config.xsl' />
 
   <!-- Templates -->
   <xsl:include href="includes/root_template.xsl" />
 
-  <!-- templates matching ddi: namespace -->
+  <!-- templates matching the ddi: namespace -->
   <xsl:include href="includes/ddi/ddi-AuthEnty.xsl" />
   <xsl:include href="includes/ddi/ddi-collDate.xsl" />
   <xsl:include href="includes/ddi/ddi-contact.xsl" />
@@ -112,7 +99,7 @@
   <xsl:include href="includes/ddi/ddi-varGrp.xsl" />
   <xsl:include href="includes/ddi/ddi_default_text.xsl" />
 
-  <!-- templates matching rdf: namespace -->
+  <!-- templates matching the rdf: namespace -->
   <xsl:include href="includes/rdf/rdf-Description.xsl" />
 
   <!-- Named templates -->
