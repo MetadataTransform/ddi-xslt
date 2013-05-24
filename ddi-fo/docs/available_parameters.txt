@@ -1,0 +1,62 @@
+# Paths to external files
+rdf-file
+translations
+  
+# Used for ISO-date template
+language-code [en]
+  
+# Optional text
+report-title [Study Documentation]
+report-acknowledgments
+report-notes
+
+# Page related
+page-format [us-letter]
+show-variables-list-layout>default-page</xsl:param>
+font-family>Times</xsl:param>
+
+# Start page number, used by Overview (useful if running multi-survey reports)
+report-start-page-number [4]
+show-variables-description-categories-max [1000]
+variable-name-length [14]
+
+# Params from OutputServlet.java (supposedly?)
+# Not used, should be removed soon
+numberOfVars
+numberOfGroups
+subsetGroups
+subsetVars
+maxVars
+allowHTML [0]
+
+report-date [$exslt-date]
+
+# Main sections in root template
+show-bookmarks [1]
+show-cover-page [1]
+show-metadata-info [1]
+show-toc [1]
+show-overview [1]
+show-files-description [1]
+show-documentation [0]
+
+# Parts in the Cover page
+show-logo [0]
+show-geography [0]
+show-cover-page-producer [1]
+show-report-subtitle [0]
+show-date" [0]
+
+# Misc
+show-metadata-production [1]
+show-variables-list-question [1]
+show-variables-description-categories [1]
+
+# documentation refer to a rdf file given as parameter which we dont have
+show-documentation-description [0]
+show-documentation-abstract [0]
+show-documentation-toc [0]
+show-documentation-subjects [0]
+
+# from OutputServlet.java, supposedly?
+showVariableGroupsParam [1]
