@@ -24,27 +24,25 @@
               omit-xml-declaration="no" media-type="text/html"/>
 
   <!--
-    ===================================================================
-    xsl:template match: /
-    <fo:root>
+  ===================================================================
+  xsl:template match: /
+  <fo:root>
 
-    the root of the FO document starts and ends in this template
-    ===================================================================
-  -->
+  the root of the FO document starts and ends in this template
+  ===================================================================
 
-  <!--
-    Sections:
-    0: Setup FO page sizes and layouts  <fo:layout-master-set>
-    1: Outline / Bookmarks              <fo:bookmark-tree>
-    2: Cover page                       <fo:page-sequence>
-    3: Metadata information             <fo:page-sequence>
-    4: TOC                              <fo:page-sequence>
-    5: Overview                         <fo:page-sequence>
-    6: Files Description                <fo:page-sequence>
-    7: Variables List                   <fo:page-sequence>
-    8: Variable Groups                  <fo:page-sequence>
-    9: Variables Description            <fo:page-sequence>
-   10: Documentation                    <fo:page-sequence>
+  Sections:
+  0: Setup FO page sizes and layouts  <fo:layout-master-set>
+  1: Outline / Bookmarks              <fo:bookmark-tree>
+  2: Cover page                       <fo:page-sequence>
+  3: Metadata information             <fo:page-sequence>
+  4: TOC                              <fo:page-sequence>
+  5: Overview                         <fo:page-sequence>
+  6: Files Description                <fo:page-sequence>
+  7: Variables List                   <fo:page-sequence>
+  8: Variable Groups                  <fo:page-sequence>
+  9: Variables Description            <fo:page-sequence>
+  10: Documentation                    <fo:page-sequence>
   -->
 
   <xsl:template match="/">
@@ -137,8 +135,8 @@
         <fo:bookmark-tree>
 
           <!-- 1) [fo:bookmark] Cover page -->
-          <xsl:if test="$show-cover-page = 1">
-            <fo:bookmark internal-destination="cover-page">
+          <xsl:if test = "$show-cover-page = 1">
+            <fo:bookmark internal-destination = "cover-page">
               <fo:bookmark-title>
                 <xsl:value-of select="$msg/*/entry[@key='Cover_Page']"/>
               </fo:bookmark-title>
@@ -158,7 +156,7 @@
           <xsl:if test="$show-toc = 1">
             <fo:bookmark internal-destination="toc">
               <fo:bookmark-title>
-                <xsl:value-of select="$msg/*/entry[@key='Table_of_Contents']"/>
+                <xsl:value-of select="$msg/*/entry[@key = 'Table_of_Contents']"/>
               </fo:bookmark-title>
             </fo:bookmark>
           </xsl:if>
@@ -274,11 +272,9 @@
           <!-- 7) [fo:bookmark] variables list -->
           <xsl:if test="$show-variables-list = 1">
             <fo:bookmark internal-destination="variables-list">
-
               <fo:bookmark-title>
                 <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
               </fo:bookmark-title>
-
               <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
                 <fo:bookmark internal-destination="varlist-{ddi:fileTxt/ddi:fileName/@ID}">
                   <fo:bookmark-title>
@@ -286,7 +282,6 @@
                   </fo:bookmark-title>
                 </fo:bookmark>
               </xsl:for-each>
-
             </fo:bookmark>
           </xsl:if>
 
@@ -305,7 +300,7 @@
                   <xsl:variable name="fileId">
                     <xsl:choose>
                       <xsl:when test="ddi:fileTxt/ddi:fileName/@ID">
-                        <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID"/>
+                        <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID" />
                       </xsl:when>
                       <xsl:when test="@ID">
                         <xsl:value-of select="@ID"/>
@@ -314,7 +309,7 @@
                   </xsl:variable>
 
                   <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId]">
-                    <xsl:if test="contains($subsetVars,concat(',',@ID,',')) or string-length($subsetVars)=0 ">
+                    <xsl:if test="contains($subsetVars, concat(',',@ID,',')) or string-length($subsetVars)=0 ">
                       <fo:bookmark internal-destination="var-{@ID}">
                         <fo:bookmark-title>
                           <xsl:apply-templates select="@name"/>

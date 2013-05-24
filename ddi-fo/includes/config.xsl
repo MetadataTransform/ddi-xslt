@@ -3,24 +3,25 @@
 <!-- config.xsl -->
 
 <xsl:stylesheet xmlns:n1="http://www.icpsr.umich.edu/DDI" 
-                xmlns:dc="http://purl.org/dc/elements/1.1/"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:ddi="http://www.icpsr.umich.edu/DDI"
-                xmlns:date="http://exslt.org/dates-and-times"
-                xmlns:dcterms="http://purl.org/dc/terms/"
-                xmlns:exsl="http://exslt.org/common"
-                xmlns:math="http://exslt.org/math"
-                xmlns:str="http://exslt.org/strings"
-                xmlns:doc="http://www.icpsr.umich.edu/doc"
-                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
-                xmlns:fo="http://www.w3.org/1999/XSL/Format"
-                xmlns:fn="http://www.w3.org/2005/xpath-functions"
-                version="1.0"
-                extension-element-prefixes="date exsl str">
+                  xmlns:dc="http://purl.org/dc/elements/1.1/"
+                  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:ddi="http://www.icpsr.umich.edu/DDI"
+                  xmlns:date="http://exslt.org/dates-and-times"
+                  xmlns:dcterms="http://purl.org/dc/terms/"
+                  xmlns:exsl="http://exslt.org/common"
+                  xmlns:math="http://exslt.org/math"
+                  xmlns:str="http://exslt.org/strings"
+                  xmlns:doc="http://www.icpsr.umich.edu/doc"
+                  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                  xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
+                  xmlns:fo="http://www.w3.org/1999/XSL/Format"
+                  xmlns:fn="http://www.w3.org/2005/xpath-functions"
+                  version="1.0"
+                  extension-element-prefixes="date exsl str">
     
-  <xsl:output version="1.0" encoding="UTF-8" indent="no" omit-xml-declaration="no" media-type="text/html"/>
+  <xsl:output version="1.0" encoding="UTF-8" indent="no"
+              omit-xml-declaration="no" media-type="text/html"/>
 
   <!--
     XPath 1.0 function called:
@@ -71,14 +72,13 @@
     $translations, $exslt-date
   -->
 
-  <!-- Full path to RDF file -->
+  <!-- Paths to external files -->
   <xsl:param name="rdf-file" />
-
-  <!-- Multilingual strings -->
-  <xsl:param name="language-code"                               select="en"/>
   <xsl:param name="translations"/>
-  <xsl:variable name="msg" select="document($translations)"/>
-
+  
+  <!-- Used for ISO-date template -->
+  <xsl:param name="language-code" select="en"/>
+  
   <!-- Optional text -->
   <xsl:param name="report-title" select=" 'Study Documentation' "/>
   <xsl:param name="report-acknowledgments" />
@@ -87,34 +87,27 @@
   <!-- Page related -->
   <xsl:param name="page-format" select="us-letter"/>
   <xsl:param name="show-variables-list-layout">default-page</xsl:param>
-
-  <!-- Style Settings -->
   <xsl:param name="font-family">Times</xsl:param>
-  <xsl:variable name="cell-padding"                       select=" '3pt' "/>
-  <xsl:variable name="default-border"       select=" '0.5pt solid black' "/>
-  <xsl:variable name="color-white"                    select=" '#ffffff' "/>
-  <xsl:variable name="color-gray0"                    select=" '#f8f8f8' "/>
-  <xsl:variable name="color-gray1"                    select=" '#f0f0f0' "/>
-  <xsl:variable name="color-gray2"                    select=" '#e0e0e0' "/>
-  <xsl:variable name="color-gray3"                    select=" '#d0d0d0' "/>
-  <xsl:variable name="color-gray4"                    select=" '#c0c0c0' "/>
 
   <!-- Start page number, used by Overview (useful if running multi-survey reports) -->
   <xsl:param name="report-start-page-number" select="4"/>
-
   <xsl:param name="show-variables-description-categories-max" select="1000"/>
-  <xsl:param name="variable-name-length"                      select="14"/>
+  <xsl:param name="variable-name-length" select="14"/>
 
   <!-- Params from OutputServlet.java (supposedly?) -->
-  <!-- Not used, will be removed soon -->
-
+  <!-- Not used, should be removed soon -->
   <xsl:param name="numberOfVars"/>
   <xsl:param name="numberOfGroups"/>
   <xsl:param name="subsetGroups"/>
   <xsl:param name="subsetVars"/>
   <xsl:param name="maxVars"/>
-  
+  <xsl:param name="allowHTML" select="0"/>
 
+  <xsl:param name="report-date" select="$exslt-date"/>
+    
+  <!-- Use translations in external file -->
+  <xsl:variable name="msg" select="document($translations)"/>
+  
   <!-- Required by EXSLT date function -->
   <xsl:variable name="date:date-time" select="'2000-01-01T00:00:00Z'"/>
 
@@ -122,12 +115,18 @@
   <xsl:variable name="exslt-date">
     <xsl:call-template name="date:date"/>
   </xsl:variable>
-  <xsl:param name="report-date" select="$exslt-date"/>
 
-  <!-- from OutputServlet.java, supposedly? -->
-  <xsl:param name="allowHTML" select="0"/>
-
-
+  <!-- Style Settings -->
+  <xsl:variable name="cell-padding" select=" '3pt' "/>
+  <xsl:variable name="default-border" select=" '0.5pt solid black' "/>
+  <xsl:variable name="color-white" select=" '#ffffff' "/>
+  <xsl:variable name="color-gray0" select=" '#f8f8f8' "/>
+  <xsl:variable name="color-gray1" select=" '#f0f0f0' "/>
+  <xsl:variable name="color-gray2" select=" '#e0e0e0' "/>
+  <xsl:variable name="color-gray3" select=" '#d0d0d0' "/>
+  <xsl:variable name="color-gray4" select=" '#c0c0c0' "/>
+  
+  
   <!-- ========================================================== -->
   <!-- [2] Show/hide sections (main/sub) in root template         -->
   <!-- Set: Manual or parameter                                   -->
@@ -135,30 +134,34 @@
   <!-- ========================================================== -->
 
   <!-- Main sections in root template -->
-  <xsl:param name="show-bookmarks"                                select="1"/>
-  <xsl:param name="show-cover-page"                               select="1"/>
-  <xsl:param name="show-metadata-info"                            select="1"/>
-  <xsl:param name="show-toc"                                      select="1"/>
-  <xsl:param name="show-overview"                                 select="1"/>
-  <xsl:param name="show-files-description"                        select="1"/>
-  <xsl:param name="show-documentation"                            select="0"/>
+  <xsl:param name="show-bookmarks" select="1"/>
+  <xsl:param name="show-cover-page" select="1"/>
+  <xsl:param name="show-metadata-info" select="1"/>
+  <xsl:param name="show-toc" select="1"/>
+  <xsl:param name="show-overview" select="1"/>
+  <xsl:param name="show-files-description" select="1"/>
+  <xsl:param name="show-documentation" select="0"/>
+
   <!-- Parts in the Cover page -->
-  <xsl:param name="show-logo"                                     select="0"/>
-  <xsl:param name="show-geography"                                select="0"/>
-  <xsl:param name="show-cover-page-producer"                      select="1"/>
-  <xsl:param name="show-report-subtitle"                          select="0"/>
-  <xsl:param name="show-date"                                     select="0"/>
+  <xsl:param name="show-logo" select="0"/>
+  <xsl:param name="show-geography" select="0"/>
+  <xsl:param name="show-cover-page-producer" select="1"/>
+  <xsl:param name="show-report-subtitle" select="0"/>
+  <xsl:param name="show-date" select="0"/>
+
   <!-- Misc -->
-  <xsl:param name="show-metadata-production"                      select="1"/>
-  <xsl:param name="show-variables-list-question"                  select="1"/>
-  <xsl:param name="show-variables-description-categories"         select="1"/>
+  <xsl:param name="show-metadata-production" select="1"/>
+  <xsl:param name="show-variables-list-question" select="1"/>
+  <xsl:param name="show-variables-description-categories" select="1"/>
+
   <!-- documentation refer to a rdf file given as parameter which we dont have -->
-  <xsl:param name="show-documentation-description"                select="0"/>
-  <xsl:param name="show-documentation-abstract"                   select="0"/>
-  <xsl:param name="show-documentation-toc"                        select="0"/>
-  <xsl:param name="show-documentation-subjects"                   select="0"/>
+  <xsl:param name="show-documentation-description" select="0"/>
+  <xsl:param name="show-documentation-abstract" select="0"/>
+  <xsl:param name="show-documentation-toc" select="0"/>
+  <xsl:param name="show-documentation-subjects" select="0"/>
+
   <!-- from OutputServlet.java, supposedly? -->
-  <xsl:param name="showVariableGroupsParam"                       select="1"/>
+  <xsl:param name="showVariableGroupsParam" select="1"/>
 
 
   <!-- ============================================================= -->
@@ -168,8 +171,8 @@
   <!-- ============================================================= -->
 
   <!--
-    global vars read:
-    $showVariableGroupsParam, $numberOfVars, $maxVars
+  global vars read:
+  $showVariableGroupsParam, $numberOfVars, $maxVars
   -->
 
   <!-- Show variable groups only if there are any -->
@@ -288,7 +291,7 @@
   -->
 
   <!-- toolkit: Microdata Management Toolkit or Nesstar Publishser 3.x -->
-  <!-- ddp:     World Bank Data Development Platform                   -->
+  <!-- ddp:     World Bank Data Development Platform -->
   <xsl:variable name="ddi-flavor">
     <xsl:choose>
       <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'DDP' ) ])">ddp</xsl:when>
@@ -339,7 +342,7 @@
   <!-- ToDo: might not be needed -->
   <xsl:variable name="timeProduced" select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd/@date"/>
 
-  <!--	 To avoid empty pages; use a huge chunksize for subsets -->
+  <!-- To avoid empty pages; use a huge chunksize for subsets -->
   <xsl:variable name="chunkSize">
     <xsl:choose>
       <xsl:when test="($numberOfVars &gt; 0 )">
