@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- documentation_toc_section.xsl -->
+
+<!-- ================================ -->
+<!-- documentation-toc-section(nodes) -->
+<!-- [fo:block]                       -->
+<!-- ================================ -->
+
+<!--
+    params:
+    ($nodes)
+
+    global vars read:
+    $msg,
+
+    XPath 1.0 functions called:
+    normalize-space()
+
+    FO functions called:
+    generate-id()
+-->
+
+<xsl:template name="documentation-toc-section"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- params -->
+    <xsl:param name="nodes"/>
+
+    <!-- ==================================== -->
+    <!-- r) [fo:block] Iterate through $nodes -->
+    <!-- ==================================== -->
+    <xsl:for-each select="$nodes">
+      <fo:block margin-left="0.1in" font-size="8pt"
+                text-align-last="justify" space-after="0.03in">
+
+        <!-- [fo:basic-link] -->
+        <fo:basic-link internal-destination="{generate-id()}"
+                       text-decoration="underline" color="blue">
+          <xsl:choose>
+            <xsl:when test="normalize-space(dc:title)">
+              <xsl:value-of select="normalize-space(dc:title)"/>
+            </xsl:when>
+
+            <xsl:otherwise>
+              <xsl:text>*** </xsl:text>
+              <xsl:value-of select="$msg/*/entry[@key='Untitled']"/>
+              <xsl:text> ****</xsl:text>
+            </xsl:otherwise>
+          </xsl:choose>
+
+          <fo:leader leader-pattern="dots"/>
+          <fo:page-number-citation ref-id="{generate-id()}"/>
+        </fo:basic-link>
+
+      </fo:block>
+    </xsl:for-each>
+
+</xsl:template>

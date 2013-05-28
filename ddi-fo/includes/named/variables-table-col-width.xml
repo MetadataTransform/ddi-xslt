@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- variables-table-col-width.xsl -->
+<!-- Header for variable table -->
+
+<!-- =========================== -->
+<!-- variables-table-col-width() -->
+<!-- fo:table-column (multiple)  -->
+<!-- =========================== -->
+
+<!--
+    global vars read:
+    $show-variables-list-question
+
+    FO functions called:
+    proportional-column-width()
+-->
+
+<xsl:template name="variables-table-col-width"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <fo:table-column column-width="proportional-column-width( 5)"/>
+    <fo:table-column column-width="proportional-column-width(12)"/>
+    <fo:table-column column-width="proportional-column-width(20)"/>
+    <fo:table-column column-width="proportional-column-width(10)"/>
+    <fo:table-column column-width="proportional-column-width(10)"/>
+    <fo:table-column column-width="proportional-column-width( 8)"/>
+    <fo:table-column column-width="proportional-column-width( 8)"/>
+
+    <xsl:if test="$show-variables-list-question">
+      <fo:table-column column-width="proportional-column-width(27)"/>
+    </xsl:if>
+
+</xsl:template>

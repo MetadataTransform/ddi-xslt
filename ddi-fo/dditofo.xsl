@@ -68,6 +68,7 @@
                 xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 xmlns:fn="http://www.w3.org/2005/xpath-functions"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
                 version="1.0"
                 extension-element-prefixes="date exsl str">
 
@@ -78,45 +79,46 @@
   <xsl:include href='includes/config.xsl' />
 
   <!-- Templates -->
-  <xsl:include href="includes/root_template.xsl" />
+  <xi:include href="includes/root_template.xml" />
 
   <!-- templates matching the ddi: namespace -->
-  <xsl:include href="includes/ddi/ddi-AuthEnty.xsl" />
-  <xsl:include href="includes/ddi/ddi-collDate.xsl" />
-  <xsl:include href="includes/ddi/ddi-contact.xsl" />
-  <xsl:include href="includes/ddi/ddi-dataCollector.xsl" />
-  <xsl:include href="includes/ddi/ddi-fileDscr.xsl" />
-  <xsl:include href="includes/ddi/ddi-fileDscr_variables-description.xsl" />
-  <xsl:include href="includes/ddi/ddi-fileDscr_variables-list.xsl" />
-  <xsl:include href="includes/ddi/ddi-fileName.xsl" />
-  <xsl:include href="includes/ddi/ddi-fundAg.xsl" />
-  <xsl:include href="includes/ddi/ddi-IDNo.xsl" />
-  <xsl:include href="includes/ddi/ddi-othId.xsl" />
-  <xsl:include href="includes/ddi/ddi-producer.xsl" />
-  <xsl:include href="includes/ddi/ddi-timePrd.xsl" />
-  <xsl:include href="includes/ddi/ddi-var.xsl" />
-  <xsl:include href="includes/ddi/ddi-var_variablesList.xsl" />
-  <xsl:include href="includes/ddi/ddi-varGrp.xsl" />
-  <xsl:include href="includes/ddi/ddi_default_text.xsl" />
+  <xi:include href="includes/ddi/ddi-AuthEnty.xml" />
+  <xi:include href="includes/ddi/ddi-collDate.xml" />
+
+  <xi:include href="includes/ddi/ddi-contact.xml" />
+  <xi:include href="includes/ddi/ddi-dataCollector.xml" />
+  <xi:include href="includes/ddi/ddi-fileDscr.xml" />
+  <xi:include href="includes/ddi/ddi-fileDscr_variables-description.xml" />
+  <xi:include href="includes/ddi/ddi-fileDscr_variables-list.xml" />
+  <xi:include href="includes/ddi/ddi-fileName.xml" />
+  <xi:include href="includes/ddi/ddi-fundAg.xml" />
+  <xi:include href="includes/ddi/ddi-IDNo.xml" />
+  <xi:include href="includes/ddi/ddi-othId.xml" />
+  <xi:include href="includes/ddi/ddi-producer.xml" />
+  <xi:include href="includes/ddi/ddi-timePrd.xml" />
+  <xi:include href="includes/ddi/ddi-var.xml" />
+  <xi:include href="includes/ddi/ddi-var_variablesList.xml" />
+  <xi:include href="includes/ddi/ddi-varGrp.xml" />
+  <xi:include href="includes/ddi/ddi_default_text.xml" />
 
   <!-- templates matching the rdf: namespace -->
-  <xsl:include href="includes/rdf/rdf-Description.xsl" />
+  <xi:include href="includes/rdf/rdf-Description.xml" />
 
   <!-- Named templates -->
-  <xsl:include href='includes/named/documentation-toc-section.xsl' />
-  <xsl:include href='includes/named/variables-table-col-header.xsl' />
-  <xsl:include href='includes/named/variables-table-col-width.xsl' />
-  <xsl:include href="includes/named/header.xsl" />
-  <xsl:include href="includes/named/footer.xsl" />
+  <xi:include href='includes/named/documentation-toc-section.xml' />
+  <xi:include href='includes/named/variables-table-col-header.xml' />
+  <xi:include href='includes/named/variables-table-col-width.xml' />
+  <xi:include href="includes/named/header.xml" />
+  <xi:include href="includes/named/footer.xml" />
 
   <!-- Utility templates -->
-  <xsl:include href="includes/utilities/isodate-long.xsl" />
-  <xsl:include href="includes/utilities/isodate-month.xsl" />
-  <xsl:include href="includes/utilities/trim/ltrim.xsl" />
-  <xsl:include href="includes/utilities/trim/rtrim.xsl" />
-  <xsl:include href="includes/utilities/trim/trim.xsl" />
-  <xsl:include href='includes/utilities/FixHTML.xsl' />
-  <xsl:include href="includes/utilities/date-date.xsl" />
-  <xsl:include href="includes/utilities/math-max.xsl" />
+  <xi:include href="includes/utilities/isodate-long.xml" />
+  <xi:include href="includes/utilities/isodate-month.xml" />
+  <xi:include href="includes/utilities/trim/ltrim.xml" />
+  <xi:include href="includes/utilities/trim/rtrim.xml" />
+  <xi:include href="includes/utilities/trim/trim.xml" />
+  <xi:include href='includes/utilities/FixHTML.xml' />
+  <xi:include href="includes/utilities/date-date.xml" />
+  <xi:include href="includes/utilities/math-max.xml" />
 
 </xsl:stylesheet>
