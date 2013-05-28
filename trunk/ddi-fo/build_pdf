@@ -4,6 +4,7 @@
 # 2013-04-25	Initial version
 # 2013-04-26	Better file extension on generated file
 # 2013-04-30    Using only fop for transformation
+# 2013-05-28    Use xinclude insted of xsl:include (mostly)
 
 # requierments: fop
 # usage: ./build_pdf [-h] [-l LANGUAGE] input_file.xml 
@@ -38,10 +39,14 @@ FOP_PARAMS="-param paper.type A4 \
 # Process file
 # ============
 
+# Uncomment when editing the files and debugging
+#echo "Preprocessing Xincludes..."
+#python3 process_xincludes.py
+
 echo "Using language: $LANGUAGE_STRING"
 
 # transformation with fop/xalan (one step)
-fop -xml $1 -xsl dditofo.xsl -pdf $FILENAME.pdf $FOP_PARAMS
+fop -xml $1 -xsl dditofo_complete.xsl -pdf $FILENAME.pdf $FOP_PARAMS
 
 # report status
 echo "File $FILENAME.pdf generated."

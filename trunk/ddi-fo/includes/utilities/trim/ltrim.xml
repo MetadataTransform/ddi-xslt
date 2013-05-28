@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- ltrim.xsl -->
+
+<!-- ========================= -->
+<!-- ltrim(s)                  -->
+<!-- string                    -->
+<!--                           -->
+<!-- perform left trim on text -->
+<!-- ========================= -->
+
+<!--
+    params: s
+    local vars set: s-no-ws, s-first-non-ws, s-no-leading-ws
+
+    XPath 1.0 functions called:
+    translate(), concat(), substring(), substring-after()
+-->
+
+<xsl:template name="ltrim"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- params -->
+    <xsl:param name="s"/>
+
+    <!-- variables -->
+    <xsl:variable name="s-no-ws" select="translate($s,' &#x9;&#xA;&#xD;','$%*!')"/>
+    <xsl:variable name="s-first-non-ws" select="substring($s-no-ws,1,1)"/>
+    <xsl:variable name="s-no-leading-ws" select="concat($s-first-non-ws,substring-after($s,$s-first-non-ws))"/>
+
+    <!-- content -->
+    <xsl:value-of select="concat('[',$s-first-non-ws,'|',$s-no-ws,']')"/>
+
+</xsl:template>

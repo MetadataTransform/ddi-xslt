@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- ddi-contact.xsl -->
+
+<!-- ================== -->
+<!-- match: ddi:contact -->
+<!-- [fo:block]         -->
+<!-- ================== -->
+
+<!--
+  FO functions called:
+  url()
+-->
+
+<xsl:template match="ddi:contact"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <fo:block>
+
+      <!-- [-] Current Node -->
+      <xsl:value-of select="."/>
+
+      <!-- [-] Affiliation Attribute -->
+      <xsl:if test="@affiliation"> (
+        <xsl:value-of select="@affiliation"/>)
+      </xsl:if>
+
+      <!-- [fo:basic-link] URI Attribute -->
+      <xsl:if test="@URI"> ,
+        <fo:basic-link external-destination="url('{@URI}')" text-decoration="underline" color="blue">
+          <xsl:value-of select="@URI"/>
+        </fo:basic-link>
+      </xsl:if>
+
+      <!-- [fo:basic-link] Mail Address Attribute -->
+      <xsl:if test="@email"> ,
+        <fo:basic-link external-destination="url('mailto:{@URI}')" text-decoration="underline" color="blue">
+          <xsl:value-of select="@email"/>
+        </fo:basic-link>
+      </xsl:if>
+
+    </fo:block>
+
+</xsl:template>

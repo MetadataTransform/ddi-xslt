@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- ddi_producer.xsl -->
+
+<!-- =================== -->
+<!-- match: ddi:producer -->
+<!-- fo:block            -->
+<!-- =================== -->
+
+<!--
+  templates called:
+  [trim]
+-->
+
+<xsl:template match="ddi:producer"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <fo:block>
+
+      <!-- 1) [-] Trim current node -->
+      <xsl:call-template name="trim">
+        <xsl:with-param name="s" select="."/>
+      </xsl:call-template>
+
+      <!-- 2) [-] Abbreviation -->
+      <xsl:if test="@abbr">
+        (<xsl:value-of select="@abbr"/>)
+      </xsl:if>
+
+      <!-- 3) [-] Affiliation -->
+      <xsl:if test="@affiliation"> ,
+        <xsl:value-of select="@affiliation"/>
+      </xsl:if>
+
+      <!-- 4) [-] Role -->
+      <xsl:if test="@role"> ,
+        <xsl:value-of select="@role"/>
+      </xsl:if>
+
+    </fo:block>
+</xsl:template>
+

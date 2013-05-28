@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- footer.xsl -->
+<!-- Named template for creating page footer -->
+
+<!-- =================== -->
+<!--	 footer()          -->
+<!-- [fo:static-content] -->
+<!--                     -->
+<!-- creates page footer -->
+<!-- =================== -->
+<xsl:template name="footer"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+
+    <!-- r) [fo:static-content] Main -->
+    <fo:static-content flow-name="xsl-region-after">
+      <fo:block font-size="6" text-align="center" space-before="0.3in">
+        -
+        <fo:page-number />
+        -
+      </fo:block>
+    </fo:static-content>
+
+</xsl:template>
