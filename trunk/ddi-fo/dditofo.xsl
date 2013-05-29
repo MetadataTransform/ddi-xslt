@@ -93,14 +93,6 @@
   -->
 
   <!--
-    Sections in this file:
-    1: Misc uses        strings, numbers    manual/param
-    2: Show/hide        bools               manual/param
-    3: Show/hide        bools               from DDI file
-    4: Misc uses        strings, numbers    from DDI file
-  -->
-
-  <!--
     Main "sections" of the root template and their show/hide vars:
     0:  fo:layout-master-set    n/a
     1:  fo:bookmark-tree        show-bookmarks                param   1
@@ -314,9 +306,9 @@
     </xsl:choose>
   </xsl:variable>
 
-  <!-- ============================================================= -->
-  <!-- [4] Misc                                                      -->
-  <!-- ============================================================= -->
+  <!-- ========================================================= -->
+  <!-- Misc                                                      -->
+  <!-- ========================================================= -->
 
   <!-- toolkit: Microdata Management Toolkit or Nesstar Publishser 3.x -->
   <!-- ddp:     World Bank Data Development Platform -->
@@ -358,9 +350,9 @@
     </xsl:choose>
   </xsl:variable>
 
-  <!-- ============================================================= -->
-  <!-- [4] Misc - Time and date related                              -->
-  <!-- ============================================================= -->
+  <!-- ========================================================= -->
+  <!-- Misc - Time and date related                              -->
+  <!-- ========================================================= -->
 
   <!-- year-from - the first data collection mode element with a 'start' event -->
   <xsl:variable name="year-from" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='start'][1]/@date,1,4)"/>
@@ -381,9 +373,9 @@
   <!-- If timeperiods returns empty, use timePrd instead -->
   <xsl:variable name="time-produced" select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd/@date" />
 
-  <!-- ================================= -->
-  <!-- [5] Xincludes - include templates -->
-  <!-- ================================= -->
+  <!-- ===================================== -->
+  <!-- Xincludes - include templates         -->
+  <!-- ===================================== -->
 
   <xi:include href="includes/root_template.xml" />
 
@@ -421,7 +413,7 @@
   <xi:include href="includes/utilities/trim/ltrim.xml" />
   <xi:include href="includes/utilities/trim/rtrim.xml" />
   <xi:include href="includes/utilities/trim/trim.xml" />
-  <xi:include href='includes/utilities/FixHTML.xml' />
+  <xi:include href='includes/utilities/fix-html.xml' />
   <xi:include href="includes/utilities/date-date.xml" />
   <xi:include href="includes/utilities/math-max.xml" />
 

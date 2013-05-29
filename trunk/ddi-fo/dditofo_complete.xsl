@@ -66,14 +66,6 @@
   -->
 
   <!--
-    Sections in this file:
-    1: Misc uses        strings, numbers    manual/param
-    2: Show/hide        bools               manual/param
-    3: Show/hide        bools               from DDI file
-    4: Misc uses        strings, numbers    from DDI file
-  -->
-
-  <!--
     Main "sections" of the root template and their show/hide vars:
     0:  fo:layout-master-set    n/a
     1:  fo:bookmark-tree        show-bookmarks                param   1
@@ -287,9 +279,9 @@
     </xsl:choose>
   </xsl:variable>
 
-  <!-- ============================================================= -->
-  <!-- [4] Misc                                                      -->
-  <!-- ============================================================= -->
+  <!-- ========================================================= -->
+  <!-- Misc                                                      -->
+  <!-- ========================================================= -->
 
   <!-- toolkit: Microdata Management Toolkit or Nesstar Publishser 3.x -->
   <!-- ddp:     World Bank Data Development Platform -->
@@ -331,9 +323,9 @@
     </xsl:choose>
   </xsl:variable>
 
-  <!-- ============================================================= -->
-  <!-- [4] Misc - Time and date related                              -->
-  <!-- ============================================================= -->
+  <!-- ========================================================= -->
+  <!-- Misc - Time and date related                              -->
+  <!-- ========================================================= -->
 
   <!-- year-from - the first data collection mode element with a 'start' event -->
   <xsl:variable name="year-from" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='start'][1]/@date,1,4)"/>
@@ -354,9 +346,9 @@
   <!-- If timeperiods returns empty, use timePrd instead -->
   <xsl:variable name="time-produced" select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd/@date"/>
 
-  <!-- ================================= -->
-  <!-- [5] Xincludes - include templates -->
-  <!-- ================================= -->
+  <!-- ===================================== -->
+  <!-- Xincludes - include templates         -->
+  <!-- ===================================== -->
 
   <!-- Match: / --><!-- Value: <fo:root> --><!-- the root of the FO document starts and ends in this template --><!--
   Sections:                           Value:
@@ -4051,12 +4043,12 @@
   trimmed
 
   Functions/templates called:
-  trim, FixHTML
+  trim, fix-html
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:*|text()" xml:base="includes/ddi/ddi_default_text.xml">
 
     <!-- Case 1) HTML content -->
     <xsl:if test="$allow-html = 1">
-      <xsl:call-template name="FixHTML">
+      <xsl:call-template name="fix-html">
         <xsl:with-param name="input-string" select="."/>
       </xsl:call-template>
     </xsl:if>
@@ -4594,7 +4586,7 @@
     </xsl:call-template>
 
 </xsl:template>
-  <!-- FixHTML.xml --><!-- Name: FixHTML --><!-- creates FOP equivalent from a subset of HTML --><!--
+  <!-- fix-html.xml --><!-- Name: fix-html --><!-- creates FOP equivalent from a subset of HTML --><!--
     Params: input-string
 
     Variables set:
@@ -4603,8 +4595,8 @@
     Functions/templates called:
     substring-after, substring-before(), contains()
     string-length(), not() [Xpath 1.0]
-    FixHTML
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="FixHTML" xml:base="includes/utilities/FixHTML.xml">
+    fix-html
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="fix-html" xml:base="includes/utilities/fix-html.xml">
 
     <!-- params -->
     <xsl:param name="input-string"/>
@@ -4634,7 +4626,7 @@
           <xsl:value-of select="substring-after($before-end,$head-start)"/>
         </fo:block>
 
-        <xsl:call-template name="FixHTML">
+        <xsl:call-template name="fix-html">
           <xsl:with-param name="input-string">
             <xsl:value-of select="substring-after($input-string,$head-end)"/>
           </xsl:with-param>
@@ -4651,7 +4643,7 @@
           <xsl:value-of select="substring-before($input-string,$break)"/>
         </fo:block>
 
-        <xsl:call-template name="FixHTML">
+        <xsl:call-template name="fix-html">
           <xsl:with-param name="input-string">
             <xsl:value-of select="substring-after($input-string,$break)"/>
           </xsl:with-param>
