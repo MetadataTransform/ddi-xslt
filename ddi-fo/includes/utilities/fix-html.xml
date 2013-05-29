@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- fix-html.xml -->
+<!-- Name: fix-html -->
+<!-- creates FOP equivalent from a subset of HTML -->
+
+<!--
+    Params: input-string
+
+    Variables set:
+    head-start, head-end, break, before-end
+
+    Functions/templates called:
+    substring-after, substring-before(), contains()
+    string-length(), not() [Xpath 1.0]
+    fix-html
+-->
+
+<xsl:template name="fix-html"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- params -->
+    <xsl:param name="input-string"/>
+
+    <!-- variables -->
+    <xsl:variable name="head-start">
+      <xsl:text>&lt;h2&gt;</xsl:text>
+    </xsl:variable>
+
+    <xsl:variable name="head-end">
+      <xsl:text>&lt;/h2&gt;</xsl:text>
+    </xsl:variable>
+
+    <xsl:variable name="break">
+      <xsl:text>&lt;br/&gt;</xsl:text>
+    </xsl:variable>
+
+    <!-- content -->
+    <!-- what to do -->
+    <xsl:choose>
+
+      <!-- Case 1: Make a header -->
+      <xsl:when test="(contains($input-string,$head-end) and string-length(substring-before($input-string,$head-end)) &lt; string-length(substring-before($input-string,$break))) or (not(contains($input-string,$break))and contains($input-string,$head-end))">
+        <xsl:variable name="before-end" select="substring-before($input-string,$head-end)"/>
+
+        <fo:block font-weight="bold">
+          <xsl:value-of select="substring-after($before-end,$head-start)"/>
+        </fo:block>
+
+        <xsl:call-template name="fix-html">
+          <xsl:with-param name="input-string">
+            <xsl:value-of select="substring-after($input-string,$head-end)"/>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:when>
+
+      <!-- Case 2: Make a newline -->
+      <xsl:when test="contains($input-string,$break)">
+        <xsl:if test="string-length(substring-before($input-string,$break))=0">
+          <fo:block>&#160;</fo:block>
+        </xsl:if>
+
+        <fo:block>
+          <xsl:value-of select="substring-before($input-string,$break)"/>
+        </fo:block>
+
+        <xsl:call-template name="fix-html">
+          <xsl:with-param name="input-string">
+            <xsl:value-of select="substring-after($input-string,$break)"/>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:when>
+
+      <!-- Case 3: If no headers or breaks left in string, display all -->
+      <xsl:otherwise>
+        <fo:block>
+          <xsl:value-of select="$input-string"/>
+        </fo:block>
+      </xsl:otherwise>
+
+    </xsl:choose>
+
+</xsl:template>

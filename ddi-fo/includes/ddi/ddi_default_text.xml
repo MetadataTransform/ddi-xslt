@@ -8,7 +8,7 @@
   trimmed
 
   Functions/templates called:
-  trim, FixHTML
+  trim, fix-html
 -->
 
 <xsl:template match="ddi:*|text()"
@@ -17,7 +17,7 @@
 
     <!-- Case 1) HTML content -->
     <xsl:if test="$allow-html = 1">
-      <xsl:call-template name="FixHTML">
+      <xsl:call-template name="fix-html">
         <xsl:with-param name="input-string" select="."/>
       </xsl:call-template>
     </xsl:if>
