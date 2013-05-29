@@ -8,7 +8,7 @@
 
 <!--
   global vars read:
-  $msg, $chunkSize, $font-family, $default-border
+  $msg, $chunk-size, $font-family, $default-border
 
   local vars set:
   $fileId, $fileName
@@ -47,7 +47,7 @@
     <xsl:variable name="fileName" select="ddi:fileTxt/ddi:fileName"/>
 
     <!-- content -->
-    <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId][position() mod $chunkSize = 1]">
+    <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId][position() mod $chunk-size = 1]">
       <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
         <xsl:call-template name="footer"/>
@@ -84,7 +84,7 @@
                     <fo:block />
                   </fo:table-cell>
                 </fo:table-row>
-                <xsl:apply-templates select=".|following-sibling::ddi:var[@files=$fileId][$chunkSize &gt; position()]"/>
+                <xsl:apply-templates select=".|following-sibling::ddi:var[@files=$fileId][$chunk-size &gt; position()]"/>
               </fo:table-body>
 
             </fo:table>
@@ -100,7 +100,7 @@
                     <fo:block/>
                   </fo:table-cell>
                 </fo:table-row>
-                <xsl:apply-templates select=".|following-sibling::ddi:var[@files=$fileId][$chunkSize &gt; position()]"/>
+                <xsl:apply-templates select=".|following-sibling::ddi:var[@files=$fileId][$chunk-size &gt; position()]"/>
               </fo:table-body>
             </fo:table>
           </xsl:if>

@@ -4,7 +4,7 @@
 
 <!--
     Variables read:
-    msg, subsetGroups, default-border, cell-padding
+    msg, subset-groups, default-border, cell-padding
 
     Variables set:
     list
@@ -29,7 +29,7 @@
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-    <xsl:if test="contains($subsetGroups,concat(',',@ID,',')) or string-length($subsetGroups)=0">
+    <xsl:if test="contains($subset-groups,concat(',',@ID,',')) or string-length($subset-groups)=0">
 
       <fo:table id="vargrp-{@ID}" table-layout="fixed" width="100%" space-before="0.2in">
 

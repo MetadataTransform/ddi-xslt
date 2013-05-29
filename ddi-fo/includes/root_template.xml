@@ -52,7 +52,7 @@
       show-scope-and-coverage, show-producers-and-sponsors,
       show-sampling, show-data-collection, show-data-processing-and-appraisal,
       show-accessibility, show-rights-and-disclaimer, show-files-description,
-      showVariableGroups, show-variables-list, show-variables-description,
+      show-variable-groups, show-variables-list, show-variables-description,
       show-documentation
 
       Functions/templates called:
@@ -200,14 +200,14 @@
           </xsl:if>
 
           <!-- 6) Variable_Groups -->
-          <xsl:if test="$showVariableGroups = 1">
+          <xsl:if test="$show-variable-groups = 1">
             <fo:bookmark internal-destination="variables-groups">
               <fo:bookmark-title>
                 <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
               </fo:bookmark-title>
 
               <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp">
-                <xsl:if test="contains($subsetGroups,concat(',',@ID,',')) or string-length($subsetGroups)=0">
+                <xsl:if test="contains($subset-groups,concat(',',@ID,',')) or string-length($subset-groups)=0">
                   <fo:bookmark internal-destination="vargrp-{@ID}">
                     <fo:bookmark-title>
                       <xsl:value-of select="normalize-space(ddi:labl)"/>
@@ -258,7 +258,7 @@
                   </xsl:variable>
 
                   <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId]">
-                    <xsl:if test="contains($subsetVars, concat(',',@ID,',')) or string-length($subsetVars)=0 ">
+                    <xsl:if test="contains($subset-vars, concat(',',@ID,',')) or string-length($subset-vars)=0 ">
                       <fo:bookmark internal-destination="var-{@ID}">
                         <fo:bookmark-title>
                           <xsl:apply-templates select="@name"/>
@@ -534,7 +534,7 @@
         show-producers-and-sponsors, show-sampling, show-data-collection
         show-data-processing-and-appraisal, show-accessibility,
         show-rights-and-disclaimer, show-files-description, show-variables-list
-        showVariableGroups, subsetGroups, show-documentation
+        show-variable-groups, subset-groups, show-documentation
 
         Functions called:
         normalize-space(), string-length(), contains(), concat()
@@ -702,7 +702,7 @@
               </xsl:if>
 
               <!-- 11) [fo:block] Variable groups -->
-              <xsl:if test="$showVariableGroups = 1">
+              <xsl:if test="$show-variable-groups = 1">
                 <fo:block font-size="10pt" text-align-last="justify">
                   <fo:basic-link internal-destination="variables-groups" text-decoration="underline" color="blue">
                     <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
@@ -712,7 +712,7 @@
 
                   <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp">
                     <!-- Show group if its part of subset OR no subset is defined -->
-                    <xsl:if test="contains($subsetGroups,concat(',',@ID,',')) or string-length($subsetGroups)=0">
+                    <xsl:if test="contains($subset-groups,concat(',',@ID,',')) or string-length($subset-groups)=0">
                       <fo:block margin-left="0.7in" font-size="10pt" text-align-last="justify">
                         <fo:basic-link internal-destination="vargrp-{@ID}" text-decoration="underline" color="blue">
                           <xsl:value-of select="normalize-space(ddi:labl)"/>
@@ -1034,7 +1034,7 @@
                 </xsl:if>
 
                 <!-- 15) [fo:table-row] Geographic Coverage -->
-                <xsl:if test="string-length($time)&gt;3 or string-length($timeProduced)&gt;3">
+                <xsl:if test="string-length($time)&gt;3 or string-length($time-produced)&gt;3">
                   <fo:table-row>
                     <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                       <fo:block font-weight="bold" text-decoration="underline">
@@ -1048,9 +1048,9 @@
                             <xsl:value-of select="$time"/>
                           </fo:block>
                         </xsl:when>
-                        <xsl:when test="string-length($timeProduced)&gt;3">
+                        <xsl:when test="string-length($time-produced)&gt;3">
                           <fo:block>
-                            <xsl:value-of select="$timeProduced"/>
+                            <xsl:value-of select="$time-produced"/>
                           </fo:block>
                         </xsl:when>
                       </xsl:choose>
@@ -1763,14 +1763,14 @@
 
       <!--
         Variables read:
-        msg, font-family, numberOfGroups
+        msg, font-family, number-of-groups
 
         Functions/templates called:
         string-length(), count()
         header, footer
       -->
 
-      <xsl:if test="$showVariableGroups = 1">
+      <xsl:if test="$show-variable-groups = 1">
 
         <fo:page-sequence master-reference="default-page"
                           font-family="{$font-family}" font-size="10pt">
@@ -1800,9 +1800,9 @@
               <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp)"/>
               <xsl:text> </xsl:text>
               <xsl:value-of select="$msg/*/entry[@key='groups']"/>
-              <xsl:if test="string-length($subsetVars)&gt;0">
+              <xsl:if test="string-length($subset-vars)&gt;0">
                 <xsl:value-of select="$msg/*/entry[@key='ShowingSubset']"/>
-                <xsl:value-of select="$numberOfGroups"/>
+                <xsl:value-of select="$number-of-groups"/>
               </xsl:if>
             </fo:block>
 
@@ -1821,7 +1821,7 @@
 
       <!--
         Variables read:
-        font-family, msg, numberOfvars
+        font-family, msg, number-of-vars
 
         Functions/templates called
         count(), string-length()
@@ -1858,9 +1858,9 @@
               <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:var)"/>
               <xsl:text> </xsl:text>
               <xsl:value-of select="$msg/*/entry[@key='variables']"/>
-              <xsl:if test="string-length($subsetVars)&gt;0">
+              <xsl:if test="string-length($subset-vars)&gt;0">
                 <xsl:value-of select="$msg/*/entry[@key='ShowingSubset']"/>
-                <xsl:value-of select="$numberOfVars"/>
+                <xsl:value-of select="$number-of-vars"/>
               </xsl:if>
             </fo:block>
 
