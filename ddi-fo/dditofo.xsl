@@ -56,11 +56,14 @@
   2012-11-01: Broken up into parts using xsl:include
   2013-01-22: Changing the file names to match template names better
   2013-05-28: Using xincludes instead of xsl:includes
+  2013-05-29: Including config in main file
 -->
 
-<xsl:stylesheet xmlns:n1="http://www.icpsr.umich.edu/DDI"
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:fo="http://www.w3.org/1999/XSL/Format"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xmlns:n1="http://www.icpsr.umich.edu/DDI"
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:ddi="http://www.icpsr.umich.edu/DDI"
                 xmlns:date="http://exslt.org/dates-and-times"
@@ -71,9 +74,7 @@
                 xmlns:doc="http://www.icpsr.umich.edu/doc"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
-                xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 xmlns:fn="http://www.w3.org/2005/xpath-functions"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
                 version="1.0"
                 extension-element-prefixes="date exsl str">
 
