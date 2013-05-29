@@ -1,27 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- rdf-Description.xsl -->
-
-<!-- ====================== -->
-<!-- match: rdf:Description -->
-<!-- [fo:block]             -->
-<!-- ====================== -->
+<!-- Match: rdf:Description -->
+<!-- Value: <fo:block> -->
 
 <!--
-    global vars read:
-    $msg, $color-gray1, $color-gray2, $color-white,
-    $show-documentation-description,
+    Parameters/variables read:
+    msg, color-gray1, color-gray2, color-white,
+    show-documentation-description
 
-    local vars set:
-    $date
+    Variables set:
+    date
 
-    XPath 1.0 functions called:
-    normalize-space(), string-length(), boolean(), position()
-
-    XSLT 1.0 functions called:
-    generate-id()
-
-    templates called:
-    [isodate-month], [trim]
+    Functions/templates called:
+    normalize-space(), string-length(), boolean(), position() [Xpath 1.0]
+    generate-id() [XSLT 1.0]
+    isodate-month, trim
 -->
 
 <xsl:template match="rdf:Description"

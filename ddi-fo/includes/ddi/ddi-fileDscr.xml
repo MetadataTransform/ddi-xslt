@@ -1,43 +1,37 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-fileDscr.xsl -->
-
-<!-- ============================= -->
 <!-- match: ddi:fileDsrc / default -->
-<!-- fo:table                      -->
-<!-- ============================= -->
+<!-- value: <fo:table> -->
 
 <!--
-    global vars used:
-    $msg, $color-gray1, $default-border, $cell-padding
+  Variables read:
+  msg, color-gray1, default-border, cell-padding
 
-    local vars:
-    fileId, list
+  Variables set:
+  fileId, list
 
-    XPath 1.0 functions called:
-    concat(), contains(), normalize-space(), position()
-
-    FO functions called:
-    proportional-column-width()
+  Functions/templates called:
+  concat(), contains(), normalize-space(), position() [Xpath 1.0]
+  proportional-column-width() [FO]
 -->
 
 <!--
-    1: Filename                 <fo:table-row>
-    2: Cases                    <fo:table-row>
-    3: Variables                <fo:table-row>
-    4: File Structure           <fo:table-row>
-    5: File Content             <fo:table-row>
-    6: File Producer            <fo:table-row>
-    7: File Version             <fo:table-row>
-    8: File Processing Checks   <fo:table-row>
-    9: File Missing Data        <fo:table-row>
-   10: File Notes               <fo:table-row>
+  1: Filename                 <fo:table-row>
+  2: Cases                    <fo:table-row>
+  3: Variables                <fo:table-row>
+  4: File Structure           <fo:table-row>
+  5: File Content             <fo:table-row>
+  6: File Producer            <fo:table-row>
+  7: File Version             <fo:table-row>
+  8: File Processing Checks   <fo:table-row>
+  9: File Missing Data        <fo:table-row>
+  10: File Notes              <fo:table-row>
 -->
 
 <xsl:template match="ddi:fileDscr"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-    <!-- Variables -->
+    <!-- variables -->
     <xsl:variable name="fileId">
       <xsl:choose>
 
@@ -52,9 +46,7 @@
       </xsl:choose>
     </xsl:variable>
 
-    <!-- ================== -->
-    <!-- r) [fo:table] Main -->
-    <!-- ================== -->
+    <!-- content -->
     <fo:table id="file-{$fileId}" table-layout="fixed"
               width="100%" space-before="0.2in" space-after="0.2in">
 

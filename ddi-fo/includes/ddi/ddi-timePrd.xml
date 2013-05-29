@@ -1,10 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi_timePrd.xsl -->
-
-<!-- ================== -->
-<!-- match: ddi:timePrd -->
-<!-- fo:block           -->
-<!-- ================== -->
+<!-- Match: ddi:timePrd -->
+<!-- Value: <fo:block> -->
 
 <xsl:template match="ddi:timePrd"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -12,19 +8,19 @@
 
   <fo:block>
 
-      <!-- 1) [-] Attr: Cycle -->
+      <!-- @cycle -->
       <xsl:if test="@cycle">
         <xsl:value-of select="@cycle"/>
         <xsl:text>: </xsl:text>
       </xsl:if>
 
-      <!-- 2) [-] Attr: Event -->
+      <!-- @event -->
       <xsl:if test="@event">
         <xsl:value-of select="@event"/>
         <xsl:text> </xsl:text>
       </xsl:if>
 
-      <!-- 3) [-] Attr: Date -->
+      <!-- @date -->
       <xsl:value-of select="@date"/>
 
   </fo:block>

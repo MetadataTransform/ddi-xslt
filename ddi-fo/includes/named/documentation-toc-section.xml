@@ -1,23 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- documentation_toc_section.xsl -->
-
-<!-- ================================ -->
-<!-- documentation-toc-section(nodes) -->
-<!-- [fo:block]                       -->
-<!-- ================================ -->
+<!-- Name: documentation-toc-section -->
+<!-- Value: <fo:block> -->
 
 <!--
-    params:
-    ($nodes)
+    Params/variables read:
+    nodes [param]
+    msg
 
-    global vars read:
-    $msg,
-
-    XPath 1.0 functions called:
-    normalize-space()
-
-    FO functions called:
-    generate-id()
+    Functions/templates called:
+    normalize-space() [Xpath 1.0]
+    generate-id() [FO]
 -->
 
 <xsl:template name="documentation-toc-section"

@@ -27,7 +27,7 @@
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-    <!-- Variables -->
+    <!-- variables -->
     <xsl:variable name="fileId">
       <xsl:choose>
 
@@ -36,7 +36,7 @@
           <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID"/>
         </xsl:when>
 
-        <!-- other ID attribute -->
+        <!-- ID attribute -->
         <xsl:when test="@ID">
           <xsl:value-of select="@ID"/>
         </xsl:when>
@@ -46,9 +46,7 @@
 
     <xsl:variable name="fileName" select="ddi:fileTxt/ddi:fileName"/>
 
-    <!-- ================================================= -->
-    <!-- r) [fo:page-sequence] Main - Iterate through file -->
-    <!-- ================================================= -->
+    <!-- content -->
     <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId][position() mod $chunkSize = 1]">
       <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 

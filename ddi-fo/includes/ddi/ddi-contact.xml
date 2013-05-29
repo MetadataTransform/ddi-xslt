@@ -1,14 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-contact.xsl -->
-
-<!-- ================== -->
 <!-- match: ddi:contact -->
-<!-- [fo:block]         -->
-<!-- ================== -->
+<!-- value: fo:block -->
 
 <!--
-  FO functions called:
-  url()
+  Functions/templates called:
+  url() [FO]
 -->
 
 <xsl:template match="ddi:contact"
@@ -17,22 +13,22 @@
 
     <fo:block>
 
-      <!-- [-] Current Node -->
+      <!-- current Node -->
       <xsl:value-of select="."/>
 
-      <!-- [-] Affiliation Attribute -->
+      <!-- @affiliation -->
       <xsl:if test="@affiliation"> (
         <xsl:value-of select="@affiliation"/>)
       </xsl:if>
 
-      <!-- [fo:basic-link] URI Attribute -->
+      <!-- [fo:basic-link] @URI -->
       <xsl:if test="@URI"> ,
         <fo:basic-link external-destination="url('{@URI}')" text-decoration="underline" color="blue">
           <xsl:value-of select="@URI"/>
         </fo:basic-link>
       </xsl:if>
 
-      <!-- [fo:basic-link] Mail Address Attribute -->
+      <!-- [fo:basic-link] @email -->
       <xsl:if test="@email"> ,
         <fo:basic-link external-destination="url('mailto:{@URI}')" text-decoration="underline" color="blue">
           <xsl:value-of select="@email"/>

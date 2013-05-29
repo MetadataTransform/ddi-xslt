@@ -1,15 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- root_template.xsl -->
+<!-- Match: / -->
+<!-- Value: <fo:root> -->
+<!-- the root of the FO document starts and ends in this template -->
 
 <!--
-  ===================================================================
-  xsl:template match: /
-  <fo:root>
-
-  the root of the FO document starts and ends in this template
-  ===================================================================
-
-  Sections:
+  Sections:                           Value:
   0: Setup FO page sizes and layouts  <fo:layout-master-set>
   1: Outline / Bookmarks              <fo:bookmark-tree>
   2: Cover page                       <fo:page-sequence>
@@ -20,101 +15,75 @@
   7: Variables List                   <fo:page-sequence>
   8: Variable Groups                  <fo:page-sequence>
   9: Variables Description            <fo:page-sequence>
-  10: Documentation                    <fo:page-sequence>
+  10: Documentation                   <fo:page-sequence>
 -->
 
 <xsl:template match="/"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+  <!-- content -->
   <fo:root>
 
-      <!-- ============================================ -->
-      <!-- [0] Setup page sizes and layouts             -->
-      <!-- [fo:layout-master-set]                       -->
-      <!-- ============================================ -->
-      <fo:layout-master-set>
+    <!-- [0] setup page sizes and layouts -->
+    <fo:layout-master-set>
 
-        <!-- [fo:simple-page-master] US Letter (default page type) -->
-        <fo:simple-page-master master-name="default-page"
-                               page-height="11in" page-width="8.5in"
-                               margin-left="0.7in" margin-right="0.7in"
-                               margin-top="0.3in" margin-bottom="0.3in">
-          <fo:region-body margin-top="0.5in" margin-bottom="0.5in" region-name="xsl-region-body"/>
-          <fo:region-before extent="0.5in" region-name="xsl-region-before"/>
-          <fo:region-after extent="0.5in" region-name="xsl-region-after"/>
-        </fo:simple-page-master>
+      <!-- A4 page -->
+      <fo:simple-page-master master-name="default-page"
+                             page-height="297mm" page-width="210mm"
+                             margin-left="20mm" margin-right="20mm"
+                             margin-top="20mm" margin-bottom="20mm">
+        <fo:region-body region-name="xsl-region-body"
+                        margin-top="10mm" margin-bottom="10mm" />
+        <fo:region-before region-name="xsl-region-before" extent="10mm" />
+        <fo:region-after region-name="xsl-region-after" extent="10mm" />
+      </fo:simple-page-master>
 
-        <!-- [fo:simple-page-master] US Letter, landscape format -->
-        <fo:simple-page-master master-name="landscape-page"
-                               page-height="8.5in" page-width="11in"
-                               margin-left="0.7in" margin-right="0.7in"
-                               margin-top="0.3in" margin-bottom="0.3in">
-          <fo:region-body margin-top="0.5in" margin-bottom="0.5in" region-name="xsl-region-body"/>
-          <fo:region-before extent="0.5in" region-name="xsl-region-before"/>
-          <fo:region-after extent="0.5in" region-name="xsl-region-after"/>
-        </fo:simple-page-master>
+    </fo:layout-master-set>
 
-        <!-- [fo:simple-page-master] A4 page -->
-        <fo:simple-page-master master-name="A4"
-                               page-height="297mm" page-width="210in"
-                               margin-left="20mm" margin-right="20mm"
-                               margin-top="20mm" margin-bottom="20mm">
-          <fo:region-body margin-top="10mm" margin-bottom="10mm" region-name="xsl-region-body"/>
-          <fo:region-before extent="10mm" region-name="xsl-region-before"/>
-          <fo:region-after extent="10mm" region-name="xsl-region-after"/>
-        </fo:simple-page-master>
+    <!-- ============================================ -->
+    <!-- [1] Outline / Bookmarks                      -->
+    <!-- [fo:bookmark-tree]                           -->
+    <!-- ============================================ -->
 
-      </fo:layout-master-set>
+    <!--
+      Variables read:
+      show-cover-page, show-metadata-info, show-toc, show-overview
+      show-scope-and-coverage, show-producers-and-sponsors,
+      show-sampling, show-data-collection, show-data-processing-and-appraisal,
+      show-accessibility, show-rights-and-disclaimer, show-files-description,
+      showVariableGroups, show-variables-list, show-variables-description,
+      show-documentation
 
+      Functions/templates called:
+      nomalize-space(), contains(), concat(), string-length()
+      trim
+    -->
 
-      <!-- ============================================ -->
-      <!-- [1] Outline / Bookmarks                      -->
-      <!-- [fo:bookmark-tree]                           -->
-      <!-- ============================================ -->
+    <!--
+      1: Cover Page                       <fo:bookmark>
+      2: Metadata Info                    <fo:bookmark>
+      3: TOC                              <fo:bookmark>
+      4: Overview                         <fo:bookmark>
+      4.1: Scope and Coverage             <fo:bookmark>
+      4.2: Producers and Sponsors         <fo:bookmark>
+      4.3: Sampling                       <fo:bookmark>
+      4.4: Data Collection                <fo:bookmark>
+      4.5: Data processing and Appraisal  <fo:bookmark>
+      4.6: Accessibility                  <fo:bookmark>
+      4.7: Rights and Disclaimer          <fo:bookmark>
+      5: Files Description Section        <fo:bookmark>
+      6: Variable Groups                  <fo:bookmark>
+      7: Variables List                   <fo:bookmark>
+      8: Variables Description            <fo:bookmark>
+      9: Documentation Section            <fo:bookmark>
+    -->
 
-      <!--
-        global vars read:
-        $show-cover-page, $show-metadata-info, $show-toc, $show-overview
-        $show-scope-and-coverage, $show-producers-and-sponsors,
-        $show-sampling, $show-data-collection, $show-data-processing-and-appraisal,
-        $show-accessibility, $show-rights-and-disclaimer, $show-files-description,
-        $showVariableGroups, $show-variables-list, $show-variables-description,
-        $show-documentation
+    <xsl:if test="$show-bookmarks = 1">
 
-        XPath 1.0 functions called:
-        nomalize-space(), contains(), concat(), string-length()
+      <fo:bookmark-tree>
 
-        templates called:
-        [trim]
-      -->
-
-      <!--
-        1: Cover Page                       <fo:bookmark>
-        2: Metadata Info                    <fo:bookmark>
-        3: TOC                              <fo:bookmark>
-        4: Overview                         <fo:bookmark>
-        4.1: Scope and Coverage             <fo:bookmark>
-        4.2: Producers and Sponsors         <fo:bookmark>
-        4.3: Sampling                       <fo:bookmark>
-        4.4: Data Collection                <fo:bookmark>
-        4.5: Data processing and Appraisal  <fo:bookmark>
-        4.6: Accessibility                  <fo:bookmark>
-        4.7: Rights and Disclaimer          <fo:bookmark>
-        5: Files Description Section        <fo:bookmark>
-        6: Variable Groups                  <fo:bookmark>
-        7: Variables List                   <fo:bookmark>
-        8: Variables Description            <fo:bookmark>
-        9: Documentation Section            <fo:bookmark>
-      -->
-
-      <xsl:if test="$show-bookmarks = 1">
-
-        <!-- ========================== -->
-        <!-- r) [fo:bookmark-tree] Main -->
-        <!-- ========================== -->
-        <fo:bookmark-tree>
-
-          <!-- 1) [fo:bookmark] Cover page -->
+          <!-- 1) Cover_Page -->
           <xsl:if test = "$show-cover-page = 1">
             <fo:bookmark internal-destination = "cover-page">
               <fo:bookmark-title>
@@ -123,7 +92,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 2) [fo:bookmark] metadata info -->
+          <!-- 2) Document_Information -->
           <xsl:if test="$show-metadata-info = 1">
             <fo:bookmark internal-destination="metadata-info">
               <fo:bookmark-title>
@@ -132,7 +101,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 3) [fo:bookmark] TOC -->
+          <!-- 3) Table_of_Contents -->
           <xsl:if test="$show-toc = 1">
             <fo:bookmark internal-destination="toc">
               <fo:bookmark-title>
@@ -141,14 +110,14 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 4) [fo:bookmark] overview -->
+          <!-- 4) Overview -->
           <xsl:if test="$show-overview = 1">
             <fo:bookmark internal-destination="overview">
               <fo:bookmark-title>
                 <xsl:value-of select="$msg/*/entry[@key='Overview']"/>
               </fo:bookmark-title>
 
-              <!-- 4.1) [fo:bookmark] overview / scope and coverage -->
+              <!-- 4.1) Scope_and_Coverage -->
               <xsl:if test="$show-scope-and-coverage = 1">
                 <fo:bookmark internal-destination="scope-and-coverage">
                   <fo:bookmark-title>
@@ -157,7 +126,7 @@
                 </fo:bookmark>
               </xsl:if>
 
-              <!-- 4.2) [fo:bookmark] overview / producers and sponsors -->
+              <!-- 4.2) Producers_and_Sponsors -->
               <xsl:if test="$show-producers-and-sponsors = 1">
                 <fo:bookmark internal-destination="producers-and-sponsors">
                   <fo:bookmark-title>
@@ -166,7 +135,7 @@
                 </fo:bookmark>
               </xsl:if>
 
-              <!-- 4.3) [fo:bookmark] overview / sampling -->
+              <!-- 4.3) Sampling -->
               <xsl:if test="$show-sampling = 1">
                 <fo:bookmark internal-destination="sampling">
                   <fo:bookmark-title>
@@ -175,7 +144,7 @@
                 </fo:bookmark>
               </xsl:if>
 
-              <!-- 4.4) [fo:bookmark] overview / data collection -->
+              <!-- 4.4) Data_Collection -->
               <xsl:if test="$show-data-collection = 1">
                 <fo:bookmark internal-destination="data-collection">
                   <fo:bookmark-title>
@@ -184,7 +153,7 @@
                 </fo:bookmark>
               </xsl:if>
 
-              <!-- 4.5) [fo:bookmark] overview / data processing and appraisal -->
+              <!-- 4.5) Data_Processing_and_Appraisal -->
               <xsl:if test="$show-data-processing-and-appraisal = 1">
                 <fo:bookmark internal-destination="data-processing-and-appraisal">
                   <fo:bookmark-title>
@@ -193,7 +162,7 @@
                 </fo:bookmark>
               </xsl:if>
 
-              <!-- 4.6 [fo:bookmark] overview / accessibility -->
+              <!-- 4.6 Accessibility -->
               <xsl:if test="$show-accessibility= 1">
                 <fo:bookmark internal-destination="accessibility">
                   <fo:bookmark-title>
@@ -202,7 +171,7 @@
                 </fo:bookmark>
               </xsl:if>
 
-              <!-- 4.7 [fo:bookmark] overview / rights and disclaimer -->
+              <!-- 4.7 Rights_and_Disclaimer -->
               <xsl:if test="$show-rights-and-disclaimer = 1">
                 <fo:bookmark internal-destination="rights-and-disclaimer">
                   <fo:bookmark-title>
@@ -213,7 +182,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 5) [fo:bookmark] files description -->
+          <!-- 5) Files_Description -->
           <xsl:if test="$show-files-description = 1">
             <fo:bookmark internal-destination="files-description">
               <fo:bookmark-title>
@@ -230,7 +199,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 6) [fo:bookmark] variable groups -->
+          <!-- 6) Variable_Groups -->
           <xsl:if test="$showVariableGroups = 1">
             <fo:bookmark internal-destination="variables-groups">
               <fo:bookmark-title>
@@ -249,7 +218,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 7) [fo:bookmark] variables list -->
+          <!-- 7) Variables list -->
           <xsl:if test="$show-variables-list = 1">
             <fo:bookmark internal-destination="variables-list">
               <fo:bookmark-title>
@@ -265,7 +234,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 8) [fo:bookmark] variables description -->
+          <!-- 8) Variables_Description -->
           <xsl:if test="$show-variables-description= 1">
             <fo:bookmark internal-destination="variables-description">
               <fo:bookmark-title>
@@ -309,7 +278,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 9) [fo:bookmark] Documentation section -->
+          <!-- 9) Documentation -->
           <xsl:if test="$show-documentation = 1 and normalize-space($rdf-file)">
             <fo:bookmark internal-destination="documentation">
               <fo:bookmark-title>
@@ -321,22 +290,19 @@
         </fo:bookmark-tree>
       </xsl:if>
 
-
       <!-- ================================================= -->
       <!-- [2] Page sequence: Cover page                     -->
       <!-- [fo:page-sequence]                                -->
       <!-- ================================================= -->
 
       <!--
-        global vars read:
-        $show-logo, $show-geography, $show-cover-page-producer,
-        $show-report-subtitle, $show-date
+        Variables read:
+        show-logo, show-geography, show-cover-page-producer,
+        show-report-subtitle, show-date
 
-        functions called:
-        normalize-space()
-
-        templates called:
-        [trim], [isodate-long]
+        Functions/templates called:
+        normalize-space() [Xpath 1.0]
+        trim, isodate-long
       -->
 
       <!--
@@ -349,33 +315,27 @@
       -->
 
       <xsl:if test="$show-cover-page = 1">
-
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page" font-family="Helvetica" font-size="10pt">
-
-          <!-- [fo:flow] xsl-region-body -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] cover-page -->
+            <!-- cover-page -->
             <fo:block id="cover-page">
 
-              <!-- 1) [fo:block] Logo -->
+              <!-- 1) logo graphic -->
               <xsl:if test="$show-logo" >
                 <fo:block>
                   <fo:external-graphic src="snd_logo_sv.png" horizontal-align="middle" content-height="5mm"/>
                 </fo:block>
               </xsl:if>
 
-              <!-- 2) [fo:block] Geography -->
+              <!-- 2) geography -->
               <xsl:if test="$show-geography = 1">
                 <fo:block font-size="14pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.2in">
                   <xsl:value-of select="$geography"/>
                 </fo:block>
               </xsl:if>
 
-              <!-- 3) [fo:block] Agency/ies -->
+              <!-- 3) AuthEnty -->
               <xsl:if test="$show-cover-page-producer = 1">
                 <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">
                   <fo:block font-size="14pt" font-weight="bold" space-before="0.0in" text-align="center" space-after="0.0in">
@@ -391,19 +351,19 @@
                 </xsl:for-each>
               </xsl:if>
 
-              <!-- 4) [fo:block] Title -->
+              <!-- 4) titl -->
               <fo:block font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.0in">
                 <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)"/>
               </fo:block>
 
-              <!-- 5) [fo:block] Report subtitle -->
+              <!-- 5) Report subtitle -->
               <xsl:if test="show-report-subtitle">
                 <fo:block font-size="16pt" font-weight="bold" space-before="1.0in" text-align="center" space-after="0.0in">
                   <xsl:value-of select="$report-title"/>
                 </fo:block>
               </xsl:if>
 
-              <!-- 6) [fo:block] Date -->
+              <!-- 6) Date -->
               <xsl:if test="$show-date = 1">
                 <fo:block font-size="12pt" space-before="5.0in" text-align="center" space-after="0.1in">
                   <fo:block>
@@ -425,18 +385,14 @@
       <!-- ==================================================== -->
 
       <!--
-        global vars read:
-        $font-family, $show-metadata-production, $msg,
-        $default-border, $cell-padding
+        Variables read:
+        msg, font-family, show-metadata-production,
+        default-border, cell-padding
 
-        XPath 1.0 functions called:
-        boolean(), normalize-space()
-
-        FO functions called:
-        proportional-column-width()
-
-        templates called:
-        [isodate-long]
+        Functions/templates called:
+        boolean(), normalize-space() [Xpath 1.0]
+        proportional-column-width() [FO]
+        isodate-long
       -->
 
       <!--
@@ -451,20 +407,15 @@
 
       <xsl:if test="$show-metadata-info = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page"
                           font-family="{$font-family}" font-size="10pt">
 
-          <!-- [fo:flow] xsl-region-body -->
           <fo:flow flow-name="xsl-region-body">
-
             <fo:block id="metadata-info" />
 
             <xsl:if test="boolean($show-metadata-production)">
 
-              <!-- [fo:block] metadata-production -->
+              <!-- Metadata_Production -->
               <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="0.1in">
                 <xsl:value-of select="$msg/*/entry[@key='Metadata_Production']"/>
               </fo:block>
@@ -578,14 +529,14 @@
       <!-- ============================================== -->
 
       <!--
-        global vars read:
-        $font-family, $msg, $show-overview, $show-scope-and-coverage,
-        $show-producers-and-sponsors, $show-sampling, $show-data-collection
-        $show-data-processing-and-appraisal, $show-accessibility,
-        $show-rights-and-disclaimer, $show-files-description, $show-variables-list
-        $showVariableGroups, $subsetGroups, $show-documentation
+        Variables read:
+        font-family, msg, show-overview, show-scope-and-coverage,
+        show-producers-and-sponsors, show-sampling, show-data-collection
+        show-data-processing-and-appraisal, show-accessibility,
+        show-rights-and-disclaimer, show-files-description, show-variables-list
+        showVariableGroups, subsetGroups, show-documentation
 
-        XPath 1.0 functions called:
+        Functions called:
         normalize-space(), string-length(), contains(), concat()
       -->
 
@@ -607,24 +558,19 @@
 
       <xsl:if test="$show-toc = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page"
                           font-family="{$font-family}" font-size="10pt">
 
-          <!-- [fo:flow] xsl-region-body -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] TOC -->
+            <!-- Table_of_Contents -->
             <fo:block id="toc" font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.1in">
               <xsl:value-of select="$msg/*/entry[@key='Table_of_Contents']"/>
             </fo:block>
 
-            <!-- [fo:block] Main block -->
             <fo:block margin-left="0.5in" margin-right="0.5in">
 
-              <!-- 1) [fo:block] Overview -->
+              <!-- 1) Overview -->
               <xsl:if test="$show-overview = 1">
                 <fo:block font-size="10pt" text-align-last="justify">
                   <fo:basic-link internal-destination="overview" text-decoration="underline" color="blue">
@@ -822,18 +768,14 @@
       <!-- ================================================ -->
 
       <!--
-        global vars read:
-        $report-start-page-number, $font-family, $msg, $color-gray3
-        $default-border, $cell-padding, $survey-title, $color-gray1, $time
+        Variables read:
+        msg, report-start-page-number, font-family, color-gray3
+        default-border, cell-padding, survey-title, color-gray1, time
 
-        XPath 1.0 functions called:
-        nomalize-space(), position()
-
-        FO functions called:
-        proportional-column-width()
-
-        templates called:
-        [header], [footer]
+        Functions/templates called:
+        nomalize-space(), position() [Xpath]
+        proportional-column-width() [FO]
+        header, footer
       -->
 
       <!--
@@ -842,43 +784,38 @@
            Page Flow
         1: Title Header           <fo:table-row>
 
-
-
         55: Copyright             <fo:table-row>
       -->
 
 
       <xsl:if test="$show-overview = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page"
                           initial-page-number="{$report-start-page-number}"
                           font-family="{$font-family}"
                           font-size="10pt">
 
-          <!-- [-] Page Header -->
+          <!-- Page Header -->
           <xsl:call-template name="header">
             <xsl:with-param name="section">
               <xsl:value-of select="$msg/*/entry[@key='Overview']"/>
             </xsl:with-param>
           </xsl:call-template>
 
-          <!-- [-] Page Footer-->
+          <!-- Page Footer-->
           <xsl:call-template name="footer"/>
 
-          <!-- [fo:flow] Main page flow -->
+          <!-- Main page flow -->
           <fo:flow flow-name="xsl-region-body">
             <fo:table table-layout="fixed" width="100%">
 
-              <!-- [fo:table-column] Table setup -->
+              <!-- Table setup -->
               <fo:table-column column-width="proportional-column-width(20)"/>
               <fo:table-column column-width="proportional-column-width(80)"/>
 
               <fo:table-body>
 
-                <!-- 1) [fo:table-row] Title header -->
+                <!-- 1) Title header -->
                 <fo:table-row background-color="{$color-gray3}">
                   <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
 
@@ -1717,39 +1654,33 @@
       <!-- ======================================================== -->
 
       <!--
-        global vars read:
-        $font-family, $msg
+        Variables read:
+        msg, font-family
 
-        XSLT 1.0 functions called:
-        count(),
-
-        templates called:
-        [header], [footer]
+        Functions/templates called:
+        count()
+        header, footer
       -->
 
       <xsl:if test="$show-files-description = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page"
                           font-family="{$font-family}"
                           font-size="10pt">
 
-          <!-- [-] Page header -->
+          <!-- Page header -->
           <xsl:call-template name="header">
             <xsl:with-param name="section">
               <xsl:value-of select="$msg/*/entry[@key='Files_Description']"/>
             </xsl:with-param>
           </xsl:call-template>
 
-          <!-- [-] Page footer -->
+          <!-- Page footer -->
           <xsl:call-template name="footer"/>
 
-          <!-- [fo:flow] Page Flow -->
+          <!-- Main Page Flow -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] -->
             <fo:block id="files-description" font-size="18pt" font-weight="bold" space-after="0.1in">
               <xsl:value-of select="$msg/*/entry[@key='Files_Description']"/>
             </fo:block>
@@ -1777,38 +1708,33 @@
       <!-- ================================================ -->
 
       <!--
-        global vars read:
-        $show-variables-list-layout, $msg, $font-family
+        Variables read:
+        msg, show-variables-list-layout, font-family
 
-        XPath 1.0 functions called:
+        Functions/templates called
         count()
-
-        templates called:
-        [header], [footer]
+        header, footer
       -->
 
       <xsl:if test="$show-variables-list = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="{$show-variables-list-layout}"
                           font-family="{$font-family}" font-size="10pt">
 
-          <!-- [-] Page header -->
+          <!-- Page header -->
           <xsl:call-template name="header">
             <xsl:with-param name="section">
               <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
             </xsl:with-param>
           </xsl:call-template>
 
-          <!-- [-] Page footer-->
+          <!-- Page footer-->
           <xsl:call-template name="footer"/>
 
-          <!-- [fo:flow] Page flow -->
+          <!-- main flow -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] Variables list -->
+            <!-- Variables_List -->
             <fo:block id="variables-list" font-size="18pt" font-weight="bold" space-after="0.1in">
               <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
             </fo:block>
@@ -1822,7 +1748,7 @@
               <xsl:value-of select="$msg/*/entry[@key='variables']"/>
             </fo:block>
 
-            <!-- [-] Variables -->
+            <!-- fileDscr -->
             <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" mode="variables-list"/>
 
           </fo:flow>
@@ -1836,43 +1762,38 @@
       <!-- ================================================ -->
 
       <!--
-        global vars read:
-        $font-family, $msg, $numberOfGroups
+        Variables read:
+        msg, font-family, numberOfGroups
 
-        XPath 1.0 functions called:
-        string-length(), count(),
-
-        templates called:
-        [header], [footer]
+        Functions/templates called:
+        string-length(), count()
+        header, footer
       -->
 
       <xsl:if test="$showVariableGroups = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page"
                           font-family="{$font-family}" font-size="10pt">
 
-          <!-- [-] Page header -->
+          <!-- Page header -->
           <xsl:call-template name="header">
             <xsl:with-param name="section">
               <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
             </xsl:with-param>
           </xsl:call-template>
 
-          <!-- [-] Page footer-->
+          <!-- Page footer-->
           <xsl:call-template name="footer"/>
 
-          <!-- [fo:flow] Page flow -->
+          <!-- main flow -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] -->
+            <!-- Variables_Groups -->
             <fo:block id="variables-groups" font-size="18pt" font-weight="bold" space-after="0.1in">
               <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
             </fo:block>
 
-            <!-- [fo:block] Count -->
+            <!-- Count -->
             <fo:block font-weight="bold">
               <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']"/>
               <xsl:text> </xsl:text>
@@ -1885,7 +1806,7 @@
               </xsl:if>
             </fo:block>
 
-            <!-- [-] Groups -->
+            <!-- varGrp -->
             <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp"/>
 
           </fo:flow>
@@ -1899,43 +1820,38 @@
       <!-- ==================================================== -->
 
       <!--
-        global vars read:
-        $font-family, $msg, $numberOfvars,
+        Variables read:
+        font-family, msg, numberOfvars
 
-        XPath 1.0 functions called:
+        Functions/templates called
         count(), string-length()
-
-        templates called:
-        [header], [footer]
+        header, footer
       -->
 
       <xsl:if test="$show-variables-description = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page"
                           font-family="{$font-family}" font-size="10pt">
 
-          <!-- [-] Page header -->
+          <!-- Page header -->
           <xsl:call-template name="header">
             <xsl:with-param name="section">
               <xsl:value-of select="$msg/*/entry[@key='Variables_Description']"/>
             </xsl:with-param>
           </xsl:call-template>
 
-          <!-- [-] Page footer-->
+          <!-- Page footer-->
           <xsl:call-template name="footer"/>
 
-          <!-- [fo:flow] Page flow -->
+          <!-- main flow -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] Variables description -->
+            <!-- Variables_Description -->
             <fo:block id="variables-description" font-size="18pt" font-weight="bold" space-after="0.1in">
               <xsl:value-of select="$msg/*/entry[@key='Variables_Description']"/>
             </fo:block>
 
-            <!-- [fo:block] Count -->
+            <!-- Count -->
             <fo:block font-weight="bold">
               <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']"/>
               <xsl:text> </xsl:text>
@@ -1951,7 +1867,7 @@
           </fo:flow>
         </fo:page-sequence>
 
-        <!-- [-] Variables -->
+        <!-- fileDscr -->
         <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" mode="variables-description"/>
       </xsl:if>
 
@@ -1962,45 +1878,38 @@
       <!-- =============================================== -->
 
       <!--
-        global vars read:
-        $rdf-file, $font-family, $msg
+        Variables set:
+        rdf, adm-count, anl-count, qst-count, oth-count, ref-count,
+        rep-count, tec-count, tbl-count, prg-count, unc-count
 
-        local vars set:
-        $rdf, $adm-count, $anl-count, $qst-count, $oth-count, $ref-count,
-        $rep-count, $tec-count, $tbl-count, $prg-count, $unc-count
+        Variables read:
+        msg, rdf-file, font-family
 
-        XPath 1.0 functions called:
-        normalize-space(), count(), contains(), not()
-
-        XSLT 1.0 functions called:
-        document()
-
-        templates called:
-        [header], [footer], [documentation-toc-section]
+        Functions/templates called:
+        normalize-space(), count(), contains(), not() [Xpath]
+        document() [XSLT 1.0]
+        header, footer, documentation-toc-section
       -->
 
       <xsl:if test="$show-documentation = 1 and normalize-space($rdf-file)">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page"
                           font-family="{$font-family}" font-size="10pt">
 
-          <!-- [-] Page header -->
+          <!-- Page header -->
           <xsl:call-template name="header">
             <xsl:with-param name="section">
               <xsl:value-of select="$msg/*/entry[@key='Documentation']"/>
             </xsl:with-param>
           </xsl:call-template>
 
-          <!-- [-] page footer-->
+          <!-- Page footer-->
           <xsl:call-template name="footer"/>
 
-          <!-- [fo:flow] Page flow -->
+          <!-- main flow -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] -->
+            <!-- Documentation -->
             <fo:block id="documentation" font-size="18pt" font-weight="bold" space-after="0.1in">
               <xsl:value-of select="$msg/*/entry[@key='Documentation']"/>
             </fo:block>
@@ -2019,10 +1928,10 @@
             <xsl:variable name="prg-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[prg') ]) "/>
             <xsl:variable name="unc-count" select="count($rdf/rdf:RDF/rdf:Description[not( contains(dc:type,'[doc') or contains(dc:type,'[tbl') or contains(dc:type,'[prg') ) ] )"/>
 
-            <!-- [fo:block] Table of contents -->
+            <!-- Table of contents -->
             <fo:block space-after="0.2in">
 
-              <!-- [fo:block] Report/analytical -->
+              <!-- Report/analytical -->
               <xsl:if test="$rep-count &gt;0 or $anl-count &gt; 0">
                 <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
                   <fo:basic-link internal-destination="documentation-anl" text-decoration="underline" color="blue">
@@ -2036,7 +1945,7 @@
                 </xsl:call-template>
               </xsl:if>
 
-              <!-- [fo:block] Questionnaires -->
+              <!-- Questionnaires -->
               <xsl:if test="$qst-count &gt;0">
                 <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
                   <fo:basic-link internal-destination="documentation-qst" text-decoration="underline" color="blue">
@@ -2050,7 +1959,7 @@
                 </xsl:call-template>
               </xsl:if>
 
-              <!-- [fo:block] Technical -->
+              <!-- Technical -->
               <xsl:if test="$tec-count &gt;0">
                 <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
                   <fo:basic-link internal-destination="documentation-tec" text-decoration="underline" color="blue">
@@ -2064,7 +1973,7 @@
                 </xsl:call-template>
               </xsl:if>
 
-              <!-- [fo:block] Administrative -->
+              <!-- Administrative -->
               <xsl:if test="$adm-count &gt;0">
                 <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
                   <fo:basic-link internal-destination="documentation-adm" text-decoration="underline" color="blue">
@@ -2078,7 +1987,7 @@
                 </xsl:call-template>
               </xsl:if>
 
-              <!-- [fo:block] References -->
+              <!-- References -->
               <xsl:if test="$ref-count &gt;0">
                 <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
                   <fo:basic-link internal-destination="documentation-ref" text-decoration="underline" color="blue">
@@ -2223,4 +2132,4 @@
 
     </fo:root>
 
-  </xsl:template>
+</xsl:template>

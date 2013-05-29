@@ -1,18 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- variables-table-col-width.xsl -->
+<!-- Name: variables-table-col-width -->
+<!-- Value: <fo:table-column> -->
 <!-- Header for variable table -->
 
-<!-- =========================== -->
-<!-- variables-table-col-width() -->
-<!-- fo:table-column (multiple)  -->
-<!-- =========================== -->
-
 <!--
-    global vars read:
-    $show-variables-list-question
+    Parameters/variables read:
+    show-variables-list-question [var]
 
-    FO functions called:
-    proportional-column-width()
+    Functions/templates called: 
+    proportional-column-width() [FO]
 -->
 
 <xsl:template name="variables-table-col-width"

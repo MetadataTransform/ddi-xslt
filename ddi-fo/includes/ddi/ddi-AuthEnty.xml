@@ -1,14 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-AuthEnty.xsl -->
-
-<!-- =================== -->
-<!-- match: ddi:AuthEnty -->
-<!-- [fo:block]          -->
-<!-- =================== -->
+<!-- Match: ddi:AuthEnty -->
+<!-- Value: fo:block -->
 
 <!--
-  templates called:
-  [trim]
+  Functions/templates called:
+  trim
 -->
 
 <xsl:template match="ddi:AuthEnty"
@@ -17,16 +13,15 @@
 
   <fo:block>
 
-      <!-- 1) [-] Trim current node -->
+    <!-- trim current node -->
     <xsl:call-template name="trim">
       <xsl:with-param name="s" select="."/>
     </xsl:call-template>
 
-      <!-- 2) [-] Affiliation attribute -->
+    <!-- affiliation attribute -->
     <xsl:if test="@affiliation">,
       <xsl:value-of select="@affiliation"/>
     </xsl:if>
 
   </fo:block>
-
 </xsl:template>

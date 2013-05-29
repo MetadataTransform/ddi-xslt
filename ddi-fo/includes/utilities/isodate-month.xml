@@ -1,17 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- isodate.xsl -->
-
-<!-- ====================== -->
-<!-- isodate-month(isodate) -->
-<!-- string                 -->
-<!-- ====================== -->
+<!-- Name: isodate-month(isodate) -->
+<!-- Value: string -->
 
 <!--
-    params: $isodate
-    global vars read: $msg
-    local vars set: $month
+    Params/variables read:
+    isodate [param]
+    msg
 
-    functions used:
+    Variables set:
+    month
+
+    Functions/templates called:
     number(), substring()
 -->
 

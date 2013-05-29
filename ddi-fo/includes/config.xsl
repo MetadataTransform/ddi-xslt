@@ -1,5 +1,4 @@
 <?xml version='1.0' encoding='utf-8'?>
-
 <!-- config.xsl -->
 
 <xsl:stylesheet xmlns:n1="http://www.icpsr.umich.edu/DDI" 
@@ -24,14 +23,17 @@
               omit-xml-declaration="no" media-type="text/html"/>
 
   <!--
-    XPath 1.0 function called:
-    count(), normalize-space(), position(), substring()
+    Params/variables read:
+    rdf-file, translations, language-code, report-title,
+    report-acknowledgements, ... [param]
 
-    XSLT 1.0 functions called:
-    document()
+    Variables set:
+    showVariableGroups, show-variables-list ...
 
-    templates called:
-    [date:date]
+    Functions and templates called:
+    count(), normalize-space(), position(), substring() [Xpath 1.0]
+    document() [XSLT 1.0]
+    date:date
   -->
 
   <!--
@@ -63,8 +65,6 @@
 
   <!-- ========================================================== -->
   <!-- [1] Misc                                                   -->
-  <!-- Set: manual or parameter                                   -->
-  <!-- Type: strings or numbers, mostly                           -->
   <!-- ========================================================== -->
 
   <!--
@@ -129,8 +129,6 @@
   
   <!-- ========================================================== -->
   <!-- [2] Show/hide sections (main/sub) in root template         -->
-  <!-- Set: Manual or parameter                                   -->
-  <!-- Type: bools                                                -->
   <!-- ========================================================== -->
 
   <!-- Main sections in root template -->
@@ -163,17 +161,9 @@
   <!-- from OutputServlet.java, supposedly? -->
   <xsl:param name="showVariableGroupsParam" select="1"/>
 
-
   <!-- ============================================================= -->
   <!-- [3] Show/hide sections (main/sub) in root template            -->
-  <!-- Set: Determined from content of DDI file                      -->
-  <!-- Type: bools                                                   -->
   <!-- ============================================================= -->
-
-  <!--
-  global vars read:
-  $showVariableGroupsParam, $numberOfVars, $maxVars
-  -->
 
   <!-- Show variable groups only if there are any -->
   <xsl:variable name="showVariableGroups">
@@ -278,17 +268,9 @@
     </xsl:choose>
   </xsl:variable>
 
-
   <!-- ============================================================= -->
   <!-- [4] Misc                                                      -->
-  <!-- Set: determined from content of DDI file                      -->
-  <!-- Type: strings, numeric                                        -->
   <!-- ============================================================= -->
-
-  <!--
-    global vars read:
-    $yearFrom, $yearTo, $numberOfVars
-  -->
 
   <!-- toolkit: Microdata Management Toolkit or Nesstar Publishser 3.x -->
   <!-- ddp:     World Bank Data Development Platform -->

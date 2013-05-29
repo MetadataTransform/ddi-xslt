@@ -1,15 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- variables-table-col-header.xsl -->
+<!-- Name: variables-table-col-header -->
+<!-- Value: <fo:table-row> -->
 <!-- Header for variable table -->
 
-<!-- ============================ -->
-<!-- variables-table-col-header() -->
-<!-- [fo:table-row]               -->
-<!-- ============================ -->
-
 <!--
-    global vars read:
-    $show-variables-list-question, $msg
+    Params/variables read:
+    msg, show-variables-list-question
 -->
 
 <!--

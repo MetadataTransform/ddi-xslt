@@ -33,7 +33,7 @@ FILENAME="${1%.*}" # remove file extension from DDI input file
 # params for fop
 FOP_PARAMS="-param paper.type A4 \
             -param fop1.extensions 1 \
-            -param translations ../i18n/$LANGUAGE_STRING.xml"
+            -param translations ./i18n/$LANGUAGE_STRING.xml"
 
 # ============
 # Process file
