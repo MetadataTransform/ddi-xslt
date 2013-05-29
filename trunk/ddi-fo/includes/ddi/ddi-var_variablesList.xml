@@ -39,7 +39,7 @@
 
     <!-- content -->
     <!-- [fo:table-row] Main -->
-    <xsl:if test="contains($subsetVars,concat(',',@ID,',')) or string-length($subsetVars)=0 ">
+    <xsl:if test="contains($subset-vars,concat(',',@ID,',')) or string-length($subset-vars)=0 ">
       <fo:table-row text-align="center" vertical-align="top">
 
         <!-- Set background colour for this row -->

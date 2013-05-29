@@ -6,7 +6,9 @@
     Developed for DDI documents produced by the International Household Survey Network
     Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and
     Central Survey Catalog (http://www.surveynetwork.org/surveys)
+-->
 
+<!--
   Authors: 
     Pascal Heus (pascal.heus@gmail.com)
     Version: July 2006
@@ -31,7 +33,9 @@
     See the GNU Lesser General Public License for more details.
 
     The full text of the license is available at http://www.gnu.org/copyleft/lesser.html
+-->
 
+<!--
   References:
     XSL-FO:
       http://www.w3.org/Style/XSL/
@@ -82,13 +86,6 @@
               omit-xml-declaration="no" media-type="text/html"/>
 
   <!--
-    Params/variables read:
-    rdf-file, translations, language-code, report-title,
-    report-acknowledgements, ... [param]
-
-    Variables set:
-    showVariableGroups, show-variables-list ...
-
     Functions and templates called:
     count(), normalize-space(), position(), substring() [Xpath 1.0]
     document() [XSLT 1.0]
@@ -113,11 +110,11 @@
     5:  Overview:               show-overview                 param   1
     6:  Files Description:      show-files-description        param   1
     7:  Variable List:          show-variables-list           spec*
-    8:  Variable Groups:        showVariableGroups            spec**
+    8:  Variable Groups:        show-variable-groups            spec**
     9:  Variables Description:  show-variables-description    file
     10: Documentation:          show-documentation            param   0
 
-    *  If showVariableGroups is 1, this is set to 0
+    *  If show-variable-groups is 1, this is set to 0
     ** Both parameter and DDI file
   -->
 
@@ -125,22 +122,36 @@
   <!-- [1] Misc                                                   -->
   <!-- ========================================================== -->
 
-  <!-- Paths to external files -->
+  <!-- rdf file (file path)-->
   <xsl:param name="rdf-file" />
-  <xsl:param name="translations"/>
-  
-  <!-- Used for ISO-date template -->
+
+  <!-- language code (string) -->
   <xsl:param name="language-code" select="en"/>
+
+  <!-- translation file (path)-->
+  <xsl:param name="translations"/>
+  <xsl:variable name="msg" select="document($translations)"/>
   
-  <!-- Optional text -->
+  <!-- optional text -->
   <xsl:param name="report-title" select=" 'Study Documentation' "/>
   <xsl:param name="report-acknowledgments" />
   <xsl:param name="report-notes" />
 
-  <!-- Page related -->
-  <xsl:param name="page-format" select="us-letter"/>
-  <xsl:param name="show-variables-list-layout">default-page</xsl:param>
-  <xsl:param name="font-family">Times</xsl:param>
+  <!-- Params from OutputServlet.java -->
+  <xsl:param name="number-of-vars"/>
+  <xsl:param name="number-of-groups"/>
+  <xsl:param name="subset-groups"/>
+  <xsl:param name="subset-vars"/>
+  <xsl:param name="max-vars"/>
+  <xsl:param name="allow-html" select="0"/>
+
+  <!-- Report date -->
+  <xsl:variable name="exslt-date">
+    <xsl:call-template name="date:date"/>
+  </xsl:variable>
+  <!-- Required by EXSLT date function -->
+  <xsl:variable name="date:date-time" select="'2000-01-01T00:00:00Z'"/>
+  <xsl:param name="report-date" select="$exslt-date"/>
 
   <!-- Start page number, used by Overview -->
   <!-- (useful if running multi-survey reports) -->
@@ -148,29 +159,14 @@
   <xsl:param name="show-variables-description-categories-max" select="1000"/>
   <xsl:param name="variable-name-length" select="14"/>
 
-  <!-- Params from OutputServlet.java (supposedly?) -->
-  <!-- Not used, should be removed soon -->
-  <xsl:param name="numberOfVars"/>
-  <xsl:param name="numberOfGroups"/>
-  <xsl:param name="subsetGroups"/>
-  <xsl:param name="subsetVars"/>
-  <xsl:param name="maxVars"/>
-  <xsl:param name="allowHTML" select="0"/>
+  <!-- ========================================================== -->
+  <!-- Layout and style                                           -->
+  <!-- ========================================================== -->
 
-  <xsl:param name="report-date" select="$exslt-date"/>
-    
-  <!-- Use translations in external file -->
-  <xsl:variable name="msg" select="document($translations)"/>
-  
-  <!-- Required by EXSLT date function -->
-  <xsl:variable name="date:date-time" select="'2000-01-01T00:00:00Z'"/>
+  <!-- Style and page layout -->
+  <xsl:param name="show-variables-list-layout">default-page</xsl:param>
+  <xsl:param name="font-family">Times</xsl:param>
 
-  <!-- Report date -->
-  <xsl:variable name="exslt-date">
-    <xsl:call-template name="date:date"/>
-  </xsl:variable>
-
-  <!-- Style Settings -->
   <xsl:variable name="cell-padding" select=" '3pt' "/>
   <xsl:variable name="default-border" select=" '0.5pt solid black' "/>
   <xsl:variable name="color-white" select=" '#ffffff' "/>
@@ -179,12 +175,13 @@
   <xsl:variable name="color-gray2" select=" '#e0e0e0' "/>
   <xsl:variable name="color-gray3" select=" '#d0d0d0' "/>
   <xsl:variable name="color-gray4" select=" '#c0c0c0' "/>
-  
-  <!-- ========================================================== -->
-  <!-- [2] Show/hide sections (main/sub) in root template         -->
-  <!-- ========================================================== -->
 
-  <!-- Main sections in root template -->
+
+  <!-- ============================================================= -->
+  <!-- Layout and style - show or hide                               -->
+  <!-- ============================================================= -->
+
+  <!-- main sections of root template -->
   <xsl:param name="show-bookmarks" select="1"/>
   <xsl:param name="show-cover-page" select="1"/>
   <xsl:param name="show-metadata-info" select="1"/>
@@ -193,14 +190,14 @@
   <xsl:param name="show-files-description" select="1"/>
   <xsl:param name="show-documentation" select="0"/>
 
-  <!-- Parts in the Cover page -->
+  <!-- parts in the cover page -->
   <xsl:param name="show-logo" select="0"/>
   <xsl:param name="show-geography" select="0"/>
   <xsl:param name="show-cover-page-producer" select="1"/>
   <xsl:param name="show-report-subtitle" select="0"/>
   <xsl:param name="show-date" select="0"/>
 
-  <!-- Misc -->
+  <!-- misc -->
   <xsl:param name="show-metadata-production" select="1"/>
   <xsl:param name="show-variables-list-question" select="1"/>
   <xsl:param name="show-variables-description-categories" select="1"/>
@@ -212,16 +209,12 @@
   <xsl:param name="show-documentation-subjects" select="0"/>
 
   <!-- from OutputServlet.java, supposedly? -->
-  <xsl:param name="showVariableGroupsParam" select="1"/>
-
-  <!-- ============================================================= -->
-  <!-- [3] Show/hide sections (main/sub) in root template            -->
-  <!-- ============================================================= -->
+  <xsl:param name="show-variable-groups-param" select="1"/>
 
   <!-- Show variable groups only if there are any -->
-  <xsl:variable name="showVariableGroups">
+  <xsl:variable name="show-variable-groups">
     <xsl:choose>
-      <xsl:when test="$showVariableGroupsParam = 1 and count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp) &gt; 0">1</xsl:when>
+      <xsl:when test="$show-variable-groups-param = 1 and count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp) &gt; 0">1</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
@@ -229,7 +222,7 @@
   <!-- Show variable list if showing groups are disabled -->
   <xsl:variable name="show-variables-list">
     <xsl:choose>
-      <xsl:when test="$showVariableGroups = 1">0</xsl:when>
+      <xsl:when test="$show-variable-groups = 1">0</xsl:when>
       <xsl:otherwise>1</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
@@ -238,8 +231,8 @@
   <!-- exceeds given max, then dont show extensive variable desc -->
   <xsl:variable name="show-variables-description">
     <xsl:choose>
-      <xsl:when test="(count(/ddi:codeBook/ddi:dataDscr/ddi:var) &gt; $maxVars and $numberOfVars &lt; 1 )">0</xsl:when>
-      <xsl:when test="($numberOfVars &gt; $maxVars)">0</xsl:when>
+      <xsl:when test="(count(/ddi:codeBook/ddi:dataDscr/ddi:var) &gt; $max-vars and $number-of-vars &lt; 1 )">0</xsl:when>
+      <xsl:when test="($number-of-vars &gt; $max-vars)">0</xsl:when>
       <xsl:when test="(count(/ddi:codeBook/ddi:dataDscr/ddi:var) = 0)">0</xsl:when>
       <xsl:otherwise>1</xsl:otherwise>
     </xsl:choose>
@@ -355,37 +348,38 @@
     </xsl:for-each>
   </xsl:variable>
 
-  <!-- yearFrom - the first data collection mode element with a 'start' event -->
-  <!-- ToDO: collDate isnt always present, should test -->
-  <!-- and possibly use /ddi:timePrd[@date] -->
-  <xsl:variable name="yearFrom" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='start'][1]/@date,1,4)"/>
-
-  <!-- year to is the last data collection mode element with an 'end' event -->
-  <xsl:variable name="yearToCount" select="count(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='end'])"/>
-  <xsl:variable name="yearTo" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='end'][$yearToCount]/@date,1,4)"/>
-  <xsl:variable name="time">
-    <xsl:if test="$yearFrom">
-      <xsl:value-of select="$yearFrom" />
-      <xsl:if test="$yearTo &gt; $yearFrom">
-        <xsl:text>-</xsl:text>
-        <xsl:value-of select="$yearTo" />
-      </xsl:if>
-    </xsl:if>
-  </xsl:variable>
-
-  <!-- If timeperiods returns empty, use timePrd instead -->
-  <!-- ToDo: might not be needed -->
-  <xsl:variable name="timeProduced" select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd/@date" />
-
   <!-- To avoid empty pages; use a huge chunksize for subsets -->
-  <xsl:variable name="chunkSize">
+  <xsl:variable name="chunk-size">
     <xsl:choose>
-      <xsl:when test="($numberOfVars &gt; 0 )">
+      <xsl:when test="($number-of-vars &gt; 0 )">
         <xsl:value-of select="1000" />
       </xsl:when>
       <xsl:otherwise>50</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
+
+  <!-- ============================================================= -->
+  <!-- [4] Misc - Time and date related                              -->
+  <!-- ============================================================= -->
+
+  <!-- year-from - the first data collection mode element with a 'start' event -->
+  <xsl:variable name="year-from" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='start'][1]/@date,1,4)"/>
+  <!-- year to is the last data collection mode element with an 'end' event -->
+  <xsl:variable name="year-to-count" select="count(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='end'])"/>
+  <xsl:variable name="year-to" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='end'][$year-to-count]/@date,1,4)"/>
+
+  <xsl:variable name="time">
+    <xsl:if test="$year-from">
+      <xsl:value-of select="$year-from" />
+      <xsl:if test="$year-to &gt; $year-from">
+        <xsl:text>-</xsl:text>
+        <xsl:value-of select="$year-to" />
+      </xsl:if>
+    </xsl:if>
+  </xsl:variable>
+
+  <!-- If timeperiods returns empty, use timePrd instead -->
+  <xsl:variable name="time-produced" select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd/@date" />
 
   <!-- ================================= -->
   <!-- [5] Xincludes - include templates -->

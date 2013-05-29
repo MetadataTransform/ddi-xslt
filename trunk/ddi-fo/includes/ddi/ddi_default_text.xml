@@ -16,14 +16,14 @@
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
     <!-- Case 1) HTML content -->
-    <xsl:if test="$allowHTML = 1">
+    <xsl:if test="$allow-html = 1">
       <xsl:call-template name="FixHTML">
-        <xsl:with-param name="InputString" select="."/>
+        <xsl:with-param name="input-string" select="."/>
       </xsl:call-template>
     </xsl:if>
 
     <!-- Case 2) No HTML content -->
-    <xsl:if test="$allowHTML = 0">
+    <xsl:if test="$allow-html = 0">
 
       <!-- variables -->
       <xsl:variable name="trimmed">
