@@ -1,20 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- trim.xsl -->
-
-<!-- ========== -->
-<!-- trim(s)    -->
-<!-- string     -->
-<!-- ========== -->
+<!-- Name: trim(s) -->
+<!-- Value: string -->
 
 <!--
-    params:
-    ($s)
+    Params/variables read:
+    s [param]
 
-    XPath 1.0 functions called:
-    concat(), substring(), translate(), substring-after()
-
-    templates called:
-    [rtrim]
+    Functions/templates called:
+    concat(), substring(), translate(), substring-after() [Xpath 1.0]
+    rtrim
 -->
 
 <xsl:template name="trim"

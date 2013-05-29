@@ -1,23 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- fix_html.xsl -->
-
-<!-- ============================================ -->
-<!-- FixHTML(InputString)                         -->
+<!-- Name: FixHTML -->
+<!-- Value: -->
 <!-- creates FOP equivalent from a subset of HTML -->
-<!-- ============================================ -->
 
 <!--
-    params:
-    ($InputString)
+    Params: InputString
 
-    local vars set:
+    Variables set:
     headStart, headEnd, break, beforeEnd
 
-    XPath 1.0 functions called:
-    substring-after, substring-before(), contains(), string-length(), not()
-
-    templates called:
-    [FixHTML]
+    Functions/templates called:
+    substring-after, substring-before(), contains()
+    string-length(), not() [Xpath 1.0]
+    FixHTML
 -->
 
 <xsl:template name="FixHTML"

@@ -1,32 +1,28 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-IDNo.xsl -->
-
-<!-- =============== -->
-<!-- match: ddi:IDNo -->
-<!-- [fo:block]      -->
-<!-- =============== -->
+<!-- Match: ddi:IDNo -->
+<!-- Value: <fo:block> -->
 
 <!--
-  templates called:
-  [trim]
+  Functions/templates called:
+  trim
 -->
 
 <xsl:template match="ddi:IDNo"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-    <fo:block>
+  <fo:block>
 
-      <!-- [-] Agency attribute -->
-      <xsl:if test="@agency">
-        <xsl:value-of select="@agency"/>:
-      </xsl:if>
+    <!-- @agency -->
+    <xsl:if test="@agency">
+      <xsl:value-of select="@agency"/>:
+    </xsl:if>
 
-      <!-- [-] Trim current node -->
-      <xsl:call-template name="trim">
-        <xsl:with-param name="s" select="."/>
-      </xsl:call-template>
+    <!-- trim current node -->
+    <xsl:call-template name="trim">
+      <xsl:with-param name="s" select="."/>
+    </xsl:call-template>
 
-    </fo:block>
+  </fo:block>
 
 </xsl:template>

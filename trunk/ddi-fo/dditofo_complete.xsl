@@ -1,31 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- dditofo.xsl --><!--
-	Overview:
-	Transforms DDI-XML into XSL-FO to produce study documentation in PDF format
-	Developed for DDI documents produced by the International Household Survey Network
-	Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and
-	Central Survey Catalog (http://www.surveynetwork.org/surveys)
+<!--
+  Overview:
+    Transforms DDI-XML into XSL-FO to produce study documentation in PDF format
+    Developed for DDI documents produced by the International Household Survey Network
+    Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and
+    Central Survey Catalog (http://www.surveynetwork.org/surveys)
 
-	Author: Pascal Heus (pascal.heus@gmail.com)
-	Version: July 2006
-	Platform: XSL 1.0, Apache FOP 0.20.5 (http://xmlgraphics.apache.org/fop)
+  Authors: 
+    Pascal Heus (pascal.heus@gmail.com)
+    Version: July 2006
+    Platform: XSL 1.0, Apache FOP 0.20.5
 
-	Updated for FOP 0.93 2010 - oistein.kristiansen@nsd.uib.no
+    Oistein Kristiansen (oistein.kristiansen@nsd.uib.no)
+    Version: 2010
+    Updated for FOP 0.93 2010
 
+    Akira Olsbanning (akira.olsbanning@snd.gu.se)
+    Current version (2012)
 
-	License:
-	Copyright 2006 Pascal Heus (pascal.heus@gmail.com)
+  License:
+    Copyright 2006 Pascal Heus (pascal.heus@gmail.com)
 
-	This program is free software; you can redistribute it and/or modify it under the terms of the
-	GNU Lesser General Public License as published by the Free Software Foundation; either version
-	2.1 of the License, or (at your option) any later version.
+    This program is free software; you can redistribute it and/or modify it under the terms of the
+    GNU Lesser General Public License as published by the Free Software Foundation; either version
+    2.1 of the License, or (at your option) any later version.
 
-	This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
-	without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-	See the GNU Lesser General Public License for more details.
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU Lesser General Public License for more details.
 
- 	The full text of the license is available at http://www.gnu.org/copyleft/lesser.html
-
+    The full text of the license is available at http://www.gnu.org/copyleft/lesser.html
 
   References:
     XSL-FO:
@@ -43,27 +47,328 @@
   2006-04:    Added multilingual support and French translation
   2006-06:    Added Spanish and new elements to match IHSN Template v1.2
   2006-07:    Minor fixes and typos
-  2006-07:    Added option parameters to hide producers in cover page and questions in variables list page
+  2006-07:    Added option parameters to hide producers in cover
+              page and questions in variables list page
   2010-03:    Made FOP 0.93 compatible
   2012-11-01: Broken up into parts using xsl:include
   2013-01-22: Changing the file names to match template names better
+  2013-05-28: Using xincludes instead of xsl:includes
 --><xsl:stylesheet xmlns:n1="http://www.icpsr.umich.edu/DDI" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ddi="http://www.icpsr.umich.edu/DDI" xmlns:date="http://exslt.org/dates-and-times" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:exsl="http://exslt.org/common" xmlns:math="http://exslt.org/math" xmlns:str="http://exslt.org/strings" xmlns:doc="http://www.icpsr.umich.edu/doc" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xi="http://www.w3.org/2001/XInclude" version="1.0" extension-element-prefixes="date exsl str">
 
   <xsl:output version="1.0" encoding="UTF-8" indent="no" omit-xml-declaration="no" media-type="text/html"/>
 
-  <!-- Setup global vars and parameters -->
-  <xsl:include href="includes/config.xsl"/>
+  <!--
+    Params/variables read:
+    rdf-file, translations, language-code, report-title,
+    report-acknowledgements, ... [param]
 
-  <!-- Templates -->
-  <!-- root_template.xsl --><!--
-  ===================================================================
-  xsl:template match: /
-  <fo:root>
+    Variables set:
+    showVariableGroups, show-variables-list ...
 
-  the root of the FO document starts and ends in this template
-  ===================================================================
+    Functions and templates called:
+    count(), normalize-space(), position(), substring() [Xpath 1.0]
+    document() [XSLT 1.0]
+    date:date
+  -->
 
-  Sections:
+  <!--
+    Sections in this file:
+    1: Misc uses        strings, numbers    manual/param
+    2: Show/hide        bools               manual/param
+    3: Show/hide        bools               from DDI file
+    4: Misc uses        strings, numbers    from DDI file
+  -->
+
+  <!--
+    Main "sections" of the root template and their show/hide vars:
+    0:  fo:layout-master-set    n/a
+    1:  fo:bookmark-tree        show-bookmarks                param   1
+    2:  Cover page:             show-cover-page               param   1
+    3:  Metadata info:          show-metadata-info            param   1
+    4:  Table of Contents:      show-toc                      param   1
+    5:  Overview:               show-overview                 param   1
+    6:  Files Description:      show-files-description        param   1
+    7:  Variable List:          show-variables-list           spec*
+    8:  Variable Groups:        showVariableGroups            spec**
+    9:  Variables Description:  show-variables-description    file
+    10: Documentation:          show-documentation            param   0
+
+    *  If showVariableGroups is 1, this is set to 0
+    ** Both parameter and DDI file
+  -->
+
+  <!-- ========================================================== -->
+  <!-- [1] Misc                                                   -->
+  <!-- ========================================================== -->
+
+  <!-- Paths to external files -->
+  <xsl:param name="rdf-file"/>
+  <xsl:param name="translations"/>
+  
+  <!-- Used for ISO-date template -->
+  <xsl:param name="language-code" select="en"/>
+  
+  <!-- Optional text -->
+  <xsl:param name="report-title" select=" 'Study Documentation' "/>
+  <xsl:param name="report-acknowledgments"/>
+  <xsl:param name="report-notes"/>
+
+  <!-- Page related -->
+  <xsl:param name="page-format" select="us-letter"/>
+  <xsl:param name="show-variables-list-layout">default-page</xsl:param>
+  <xsl:param name="font-family">Times</xsl:param>
+
+  <!-- Start page number, used by Overview -->
+  <!-- (useful if running multi-survey reports) -->
+  <xsl:param name="report-start-page-number" select="4"/>
+  <xsl:param name="show-variables-description-categories-max" select="1000"/>
+  <xsl:param name="variable-name-length" select="14"/>
+
+  <!-- Params from OutputServlet.java (supposedly?) -->
+  <!-- Not used, should be removed soon -->
+  <xsl:param name="numberOfVars"/>
+  <xsl:param name="numberOfGroups"/>
+  <xsl:param name="subsetGroups"/>
+  <xsl:param name="subsetVars"/>
+  <xsl:param name="maxVars"/>
+  <xsl:param name="allowHTML" select="0"/>
+
+  <xsl:param name="report-date" select="$exslt-date"/>
+    
+  <!-- Use translations in external file -->
+  <xsl:variable name="msg" select="document($translations)"/>
+  
+  <!-- Required by EXSLT date function -->
+  <xsl:variable name="date:date-time" select="'2000-01-01T00:00:00Z'"/>
+
+  <!-- Report date -->
+  <xsl:variable name="exslt-date">
+    <xsl:call-template name="date:date"/>
+  </xsl:variable>
+
+  <!-- Style Settings -->
+  <xsl:variable name="cell-padding" select=" '3pt' "/>
+  <xsl:variable name="default-border" select=" '0.5pt solid black' "/>
+  <xsl:variable name="color-white" select=" '#ffffff' "/>
+  <xsl:variable name="color-gray0" select=" '#f8f8f8' "/>
+  <xsl:variable name="color-gray1" select=" '#f0f0f0' "/>
+  <xsl:variable name="color-gray2" select=" '#e0e0e0' "/>
+  <xsl:variable name="color-gray3" select=" '#d0d0d0' "/>
+  <xsl:variable name="color-gray4" select=" '#c0c0c0' "/>
+  
+  <!-- ========================================================== -->
+  <!-- [2] Show/hide sections (main/sub) in root template         -->
+  <!-- ========================================================== -->
+
+  <!-- Main sections in root template -->
+  <xsl:param name="show-bookmarks" select="1"/>
+  <xsl:param name="show-cover-page" select="1"/>
+  <xsl:param name="show-metadata-info" select="1"/>
+  <xsl:param name="show-toc" select="1"/>
+  <xsl:param name="show-overview" select="1"/>
+  <xsl:param name="show-files-description" select="1"/>
+  <xsl:param name="show-documentation" select="0"/>
+
+  <!-- Parts in the Cover page -->
+  <xsl:param name="show-logo" select="0"/>
+  <xsl:param name="show-geography" select="0"/>
+  <xsl:param name="show-cover-page-producer" select="1"/>
+  <xsl:param name="show-report-subtitle" select="0"/>
+  <xsl:param name="show-date" select="0"/>
+
+  <!-- Misc -->
+  <xsl:param name="show-metadata-production" select="1"/>
+  <xsl:param name="show-variables-list-question" select="1"/>
+  <xsl:param name="show-variables-description-categories" select="1"/>
+
+  <!-- documentation refer to a rdf file given as parameter which we dont have -->
+  <xsl:param name="show-documentation-description" select="0"/>
+  <xsl:param name="show-documentation-abstract" select="0"/>
+  <xsl:param name="show-documentation-toc" select="0"/>
+  <xsl:param name="show-documentation-subjects" select="0"/>
+
+  <!-- from OutputServlet.java, supposedly? -->
+  <xsl:param name="showVariableGroupsParam" select="1"/>
+
+  <!-- ============================================================= -->
+  <!-- [3] Show/hide sections (main/sub) in root template            -->
+  <!-- ============================================================= -->
+
+  <!-- Show variable groups only if there are any -->
+  <xsl:variable name="showVariableGroups">
+    <xsl:choose>
+      <xsl:when test="$showVariableGroupsParam = 1 and count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp) &gt; 0">1</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- Show variable list if showing groups are disabled -->
+  <xsl:variable name="show-variables-list">
+    <xsl:choose>
+      <xsl:when test="$showVariableGroups = 1">0</xsl:when>
+      <xsl:otherwise>1</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- If totalt amount of variables or given subsetamount       -->
+  <!-- exceeds given max, then dont show extensive variable desc -->
+  <xsl:variable name="show-variables-description">
+    <xsl:choose>
+      <xsl:when test="(count(/ddi:codeBook/ddi:dataDscr/ddi:var) &gt; $maxVars and $numberOfVars &lt; 1 )">0</xsl:when>
+      <xsl:when test="($numberOfVars &gt; $maxVars)">0</xsl:when>
+      <xsl:when test="(count(/ddi:codeBook/ddi:dataDscr/ddi:var) = 0)">0</xsl:when>
+      <xsl:otherwise>1</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <xsl:variable name="show-scope-and-coverage">
+    <xsl:choose>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:notes">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:keyword">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:geogCover">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:universe">1</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <xsl:variable name="show-producers-and-sponsors">
+    <xsl:choose>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:producer">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:fundAg">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:othId">1</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <xsl:variable name="show-sampling">
+    <xsl:choose>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='sampling']">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:sampProc">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:deviat">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:respRate">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:weight">1</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <xsl:variable name="show-data-collection">
+    <xsl:choose>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collMode">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='processing']">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='cleaning']">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collSitu">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:resInstru">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:dataCollector">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:actMin">1</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <xsl:variable name="show-data-processing-and-appraisal">
+    <xsl:choose>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:cleanOps">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:EstSmpErr">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:dataAppr">1</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <xsl:variable name="show-accessibility">
+    <xsl:choose>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:contact">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:distrbtr">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:contact">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:confDec">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:conditions">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:citReq">1</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <xsl:variable name="show-rights-and-disclaimer">
+    <xsl:choose>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:disclaimer">1</xsl:when>
+      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:copyright">1</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- ============================================================= -->
+  <!-- [4] Misc                                                      -->
+  <!-- ============================================================= -->
+
+  <!-- toolkit: Microdata Management Toolkit or Nesstar Publishser 3.x -->
+  <!-- ddp:     World Bank Data Development Platform -->
+  <xsl:variable name="ddi-flavor">
+    <xsl:choose>
+      <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'DDP' ) ])">ddp</xsl:when>
+      <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'Nesstar' ) ])">toolkit</xsl:when>
+      <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'Metadata Editor' ) ])">toolkit</xsl:when>
+      <xsl:otherwise>toolkit</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- survey title -->
+  <xsl:variable name="survey-title">
+    <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)"/>
+    <!-- abbreviation is stored in the altTitl element -->
+    <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:altTitl">
+      (<xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:altTitl)"/>)
+    </xsl:if>
+  </xsl:variable>
+
+  <!-- geography -->
+  <xsl:variable name="geography">
+    <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:nation">
+      <xsl:if test="position()&gt;1">
+        <xsl:text>, </xsl:text>
+      </xsl:if>
+      <xsl:value-of select="normalize-space(.)"/>
+    </xsl:for-each>
+  </xsl:variable>
+
+  <!-- yearFrom - the first data collection mode element with a 'start' event -->
+  <!-- ToDO: collDate isnt always present, should test -->
+  <!-- and possibly use /ddi:timePrd[@date] -->
+  <xsl:variable name="yearFrom" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='start'][1]/@date,1,4)"/>
+
+  <!-- year to is the last data collection mode element with an 'end' event -->
+  <xsl:variable name="yearToCount" select="count(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='end'])"/>
+  <xsl:variable name="yearTo" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='end'][$yearToCount]/@date,1,4)"/>
+  <xsl:variable name="time">
+    <xsl:if test="$yearFrom">
+      <xsl:value-of select="$yearFrom"/>
+      <xsl:if test="$yearTo &gt; $yearFrom">
+        <xsl:text>-</xsl:text>
+        <xsl:value-of select="$yearTo"/>
+      </xsl:if>
+    </xsl:if>
+  </xsl:variable>
+
+  <!-- If timeperiods returns empty, use timePrd instead -->
+  <!-- ToDo: might not be needed -->
+  <xsl:variable name="timeProduced" select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd/@date"/>
+
+  <!-- To avoid empty pages; use a huge chunksize for subsets -->
+  <xsl:variable name="chunkSize">
+    <xsl:choose>
+      <xsl:when test="($numberOfVars &gt; 0 )">
+        <xsl:value-of select="1000"/>
+      </xsl:when>
+      <xsl:otherwise>50</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- ================================= -->
+  <!-- [5] Xincludes - include templates -->
+  <!-- ================================= -->
+
+  <!-- Match: / --><!-- Value: <fo:root> --><!-- the root of the FO document starts and ends in this template --><!--
+  Sections:                           Value:
   0: Setup FO page sizes and layouts  <fo:layout-master-set>
   1: Outline / Bookmarks              <fo:bookmark-tree>
   2: Cover page                       <fo:page-sequence>
@@ -74,88 +379,67 @@
   7: Variables List                   <fo:page-sequence>
   8: Variable Groups                  <fo:page-sequence>
   9: Variables Description            <fo:page-sequence>
-  10: Documentation                    <fo:page-sequence>
+  10: Documentation                   <fo:page-sequence>
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="/" xml:base="includes/root_template.xml">
+
+  <!-- content -->
   <fo:root>
 
-      <!-- ============================================ -->
-      <!-- [0] Setup page sizes and layouts             -->
-      <!-- [fo:layout-master-set]                       -->
-      <!-- ============================================ -->
-      <fo:layout-master-set>
+    <!-- [0] setup page sizes and layouts -->
+    <fo:layout-master-set>
 
-        <!-- [fo:simple-page-master] US Letter (default page type) -->
-        <fo:simple-page-master master-name="default-page" page-height="11in" page-width="8.5in" margin-left="0.7in" margin-right="0.7in" margin-top="0.3in" margin-bottom="0.3in">
-          <fo:region-body margin-top="0.5in" margin-bottom="0.5in" region-name="xsl-region-body"/>
-          <fo:region-before extent="0.5in" region-name="xsl-region-before"/>
-          <fo:region-after extent="0.5in" region-name="xsl-region-after"/>
-        </fo:simple-page-master>
+      <!-- A4 page -->
+      <fo:simple-page-master master-name="default-page" page-height="297mm" page-width="210mm" margin-left="20mm" margin-right="20mm" margin-top="20mm" margin-bottom="20mm">
+        <fo:region-body region-name="xsl-region-body" margin-top="10mm" margin-bottom="10mm"/>
+        <fo:region-before region-name="xsl-region-before" extent="10mm"/>
+        <fo:region-after region-name="xsl-region-after" extent="10mm"/>
+      </fo:simple-page-master>
 
-        <!-- [fo:simple-page-master] US Letter, landscape format -->
-        <fo:simple-page-master master-name="landscape-page" page-height="8.5in" page-width="11in" margin-left="0.7in" margin-right="0.7in" margin-top="0.3in" margin-bottom="0.3in">
-          <fo:region-body margin-top="0.5in" margin-bottom="0.5in" region-name="xsl-region-body"/>
-          <fo:region-before extent="0.5in" region-name="xsl-region-before"/>
-          <fo:region-after extent="0.5in" region-name="xsl-region-after"/>
-        </fo:simple-page-master>
+    </fo:layout-master-set>
 
-        <!-- [fo:simple-page-master] A4 page -->
-        <fo:simple-page-master master-name="A4" page-height="297mm" page-width="210in" margin-left="20mm" margin-right="20mm" margin-top="20mm" margin-bottom="20mm">
-          <fo:region-body margin-top="10mm" margin-bottom="10mm" region-name="xsl-region-body"/>
-          <fo:region-before extent="10mm" region-name="xsl-region-before"/>
-          <fo:region-after extent="10mm" region-name="xsl-region-after"/>
-        </fo:simple-page-master>
+    <!-- ============================================ -->
+    <!-- [1] Outline / Bookmarks                      -->
+    <!-- [fo:bookmark-tree]                           -->
+    <!-- ============================================ -->
 
-      </fo:layout-master-set>
+    <!--
+      Variables read:
+      show-cover-page, show-metadata-info, show-toc, show-overview
+      show-scope-and-coverage, show-producers-and-sponsors,
+      show-sampling, show-data-collection, show-data-processing-and-appraisal,
+      show-accessibility, show-rights-and-disclaimer, show-files-description,
+      showVariableGroups, show-variables-list, show-variables-description,
+      show-documentation
 
+      Functions/templates called:
+      nomalize-space(), contains(), concat(), string-length()
+      trim
+    -->
 
-      <!-- ============================================ -->
-      <!-- [1] Outline / Bookmarks                      -->
-      <!-- [fo:bookmark-tree]                           -->
-      <!-- ============================================ -->
+    <!--
+      1: Cover Page                       <fo:bookmark>
+      2: Metadata Info                    <fo:bookmark>
+      3: TOC                              <fo:bookmark>
+      4: Overview                         <fo:bookmark>
+      4.1: Scope and Coverage             <fo:bookmark>
+      4.2: Producers and Sponsors         <fo:bookmark>
+      4.3: Sampling                       <fo:bookmark>
+      4.4: Data Collection                <fo:bookmark>
+      4.5: Data processing and Appraisal  <fo:bookmark>
+      4.6: Accessibility                  <fo:bookmark>
+      4.7: Rights and Disclaimer          <fo:bookmark>
+      5: Files Description Section        <fo:bookmark>
+      6: Variable Groups                  <fo:bookmark>
+      7: Variables List                   <fo:bookmark>
+      8: Variables Description            <fo:bookmark>
+      9: Documentation Section            <fo:bookmark>
+    -->
 
-      <!--
-        global vars read:
-        $show-cover-page, $show-metadata-info, $show-toc, $show-overview
-        $show-scope-and-coverage, $show-producers-and-sponsors,
-        $show-sampling, $show-data-collection, $show-data-processing-and-appraisal,
-        $show-accessibility, $show-rights-and-disclaimer, $show-files-description,
-        $showVariableGroups, $show-variables-list, $show-variables-description,
-        $show-documentation
+    <xsl:if test="$show-bookmarks = 1">
 
-        XPath 1.0 functions called:
-        nomalize-space(), contains(), concat(), string-length()
+      <fo:bookmark-tree>
 
-        templates called:
-        [trim]
-      -->
-
-      <!--
-        1: Cover Page                       <fo:bookmark>
-        2: Metadata Info                    <fo:bookmark>
-        3: TOC                              <fo:bookmark>
-        4: Overview                         <fo:bookmark>
-        4.1: Scope and Coverage             <fo:bookmark>
-        4.2: Producers and Sponsors         <fo:bookmark>
-        4.3: Sampling                       <fo:bookmark>
-        4.4: Data Collection                <fo:bookmark>
-        4.5: Data processing and Appraisal  <fo:bookmark>
-        4.6: Accessibility                  <fo:bookmark>
-        4.7: Rights and Disclaimer          <fo:bookmark>
-        5: Files Description Section        <fo:bookmark>
-        6: Variable Groups                  <fo:bookmark>
-        7: Variables List                   <fo:bookmark>
-        8: Variables Description            <fo:bookmark>
-        9: Documentation Section            <fo:bookmark>
-      -->
-
-      <xsl:if test="$show-bookmarks = 1">
-
-        <!-- ========================== -->
-        <!-- r) [fo:bookmark-tree] Main -->
-        <!-- ========================== -->
-        <fo:bookmark-tree>
-
-          <!-- 1) [fo:bookmark] Cover page -->
+          <!-- 1) Cover_Page -->
           <xsl:if test="$show-cover-page = 1">
             <fo:bookmark internal-destination="cover-page">
               <fo:bookmark-title>
@@ -164,7 +448,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 2) [fo:bookmark] metadata info -->
+          <!-- 2) Document_Information -->
           <xsl:if test="$show-metadata-info = 1">
             <fo:bookmark internal-destination="metadata-info">
               <fo:bookmark-title>
@@ -173,7 +457,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 3) [fo:bookmark] TOC -->
+          <!-- 3) Table_of_Contents -->
           <xsl:if test="$show-toc = 1">
             <fo:bookmark internal-destination="toc">
               <fo:bookmark-title>
@@ -182,14 +466,14 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 4) [fo:bookmark] overview -->
+          <!-- 4) Overview -->
           <xsl:if test="$show-overview = 1">
             <fo:bookmark internal-destination="overview">
               <fo:bookmark-title>
                 <xsl:value-of select="$msg/*/entry[@key='Overview']"/>
               </fo:bookmark-title>
 
-              <!-- 4.1) [fo:bookmark] overview / scope and coverage -->
+              <!-- 4.1) Scope_and_Coverage -->
               <xsl:if test="$show-scope-and-coverage = 1">
                 <fo:bookmark internal-destination="scope-and-coverage">
                   <fo:bookmark-title>
@@ -198,7 +482,7 @@
                 </fo:bookmark>
               </xsl:if>
 
-              <!-- 4.2) [fo:bookmark] overview / producers and sponsors -->
+              <!-- 4.2) Producers_and_Sponsors -->
               <xsl:if test="$show-producers-and-sponsors = 1">
                 <fo:bookmark internal-destination="producers-and-sponsors">
                   <fo:bookmark-title>
@@ -207,7 +491,7 @@
                 </fo:bookmark>
               </xsl:if>
 
-              <!-- 4.3) [fo:bookmark] overview / sampling -->
+              <!-- 4.3) Sampling -->
               <xsl:if test="$show-sampling = 1">
                 <fo:bookmark internal-destination="sampling">
                   <fo:bookmark-title>
@@ -216,7 +500,7 @@
                 </fo:bookmark>
               </xsl:if>
 
-              <!-- 4.4) [fo:bookmark] overview / data collection -->
+              <!-- 4.4) Data_Collection -->
               <xsl:if test="$show-data-collection = 1">
                 <fo:bookmark internal-destination="data-collection">
                   <fo:bookmark-title>
@@ -225,7 +509,7 @@
                 </fo:bookmark>
               </xsl:if>
 
-              <!-- 4.5) [fo:bookmark] overview / data processing and appraisal -->
+              <!-- 4.5) Data_Processing_and_Appraisal -->
               <xsl:if test="$show-data-processing-and-appraisal = 1">
                 <fo:bookmark internal-destination="data-processing-and-appraisal">
                   <fo:bookmark-title>
@@ -234,7 +518,7 @@
                 </fo:bookmark>
               </xsl:if>
 
-              <!-- 4.6 [fo:bookmark] overview / accessibility -->
+              <!-- 4.6 Accessibility -->
               <xsl:if test="$show-accessibility= 1">
                 <fo:bookmark internal-destination="accessibility">
                   <fo:bookmark-title>
@@ -243,7 +527,7 @@
                 </fo:bookmark>
               </xsl:if>
 
-              <!-- 4.7 [fo:bookmark] overview / rights and disclaimer -->
+              <!-- 4.7 Rights_and_Disclaimer -->
               <xsl:if test="$show-rights-and-disclaimer = 1">
                 <fo:bookmark internal-destination="rights-and-disclaimer">
                   <fo:bookmark-title>
@@ -254,7 +538,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 5) [fo:bookmark] files description -->
+          <!-- 5) Files_Description -->
           <xsl:if test="$show-files-description = 1">
             <fo:bookmark internal-destination="files-description">
               <fo:bookmark-title>
@@ -271,7 +555,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 6) [fo:bookmark] variable groups -->
+          <!-- 6) Variable_Groups -->
           <xsl:if test="$showVariableGroups = 1">
             <fo:bookmark internal-destination="variables-groups">
               <fo:bookmark-title>
@@ -290,7 +574,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 7) [fo:bookmark] variables list -->
+          <!-- 7) Variables list -->
           <xsl:if test="$show-variables-list = 1">
             <fo:bookmark internal-destination="variables-list">
               <fo:bookmark-title>
@@ -306,7 +590,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 8) [fo:bookmark] variables description -->
+          <!-- 8) Variables_Description -->
           <xsl:if test="$show-variables-description= 1">
             <fo:bookmark internal-destination="variables-description">
               <fo:bookmark-title>
@@ -350,7 +634,7 @@
             </fo:bookmark>
           </xsl:if>
 
-          <!-- 9) [fo:bookmark] Documentation section -->
+          <!-- 9) Documentation -->
           <xsl:if test="$show-documentation = 1 and normalize-space($rdf-file)">
             <fo:bookmark internal-destination="documentation">
               <fo:bookmark-title>
@@ -362,22 +646,19 @@
         </fo:bookmark-tree>
       </xsl:if>
 
-
       <!-- ================================================= -->
       <!-- [2] Page sequence: Cover page                     -->
       <!-- [fo:page-sequence]                                -->
       <!-- ================================================= -->
 
       <!--
-        global vars read:
-        $show-logo, $show-geography, $show-cover-page-producer,
-        $show-report-subtitle, $show-date
+        Variables read:
+        show-logo, show-geography, show-cover-page-producer,
+        show-report-subtitle, show-date
 
-        functions called:
-        normalize-space()
-
-        templates called:
-        [trim], [isodate-long]
+        Functions/templates called:
+        normalize-space() [Xpath 1.0]
+        trim, isodate-long
       -->
 
       <!--
@@ -390,33 +671,27 @@
       -->
 
       <xsl:if test="$show-cover-page = 1">
-
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page" font-family="Helvetica" font-size="10pt">
-
-          <!-- [fo:flow] xsl-region-body -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] cover-page -->
+            <!-- cover-page -->
             <fo:block id="cover-page">
 
-              <!-- 1) [fo:block] Logo -->
+              <!-- 1) logo graphic -->
               <xsl:if test="$show-logo">
                 <fo:block>
                   <fo:external-graphic src="snd_logo_sv.png" horizontal-align="middle" content-height="5mm"/>
                 </fo:block>
               </xsl:if>
 
-              <!-- 2) [fo:block] Geography -->
+              <!-- 2) geography -->
               <xsl:if test="$show-geography = 1">
                 <fo:block font-size="14pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.2in">
                   <xsl:value-of select="$geography"/>
                 </fo:block>
               </xsl:if>
 
-              <!-- 3) [fo:block] Agency/ies -->
+              <!-- 3) AuthEnty -->
               <xsl:if test="$show-cover-page-producer = 1">
                 <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">
                   <fo:block font-size="14pt" font-weight="bold" space-before="0.0in" text-align="center" space-after="0.0in">
@@ -432,19 +707,19 @@
                 </xsl:for-each>
               </xsl:if>
 
-              <!-- 4) [fo:block] Title -->
+              <!-- 4) titl -->
               <fo:block font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.0in">
                 <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)"/>
               </fo:block>
 
-              <!-- 5) [fo:block] Report subtitle -->
+              <!-- 5) Report subtitle -->
               <xsl:if test="show-report-subtitle">
                 <fo:block font-size="16pt" font-weight="bold" space-before="1.0in" text-align="center" space-after="0.0in">
                   <xsl:value-of select="$report-title"/>
                 </fo:block>
               </xsl:if>
 
-              <!-- 6) [fo:block] Date -->
+              <!-- 6) Date -->
               <xsl:if test="$show-date = 1">
                 <fo:block font-size="12pt" space-before="5.0in" text-align="center" space-after="0.1in">
                   <fo:block>
@@ -466,18 +741,14 @@
       <!-- ==================================================== -->
 
       <!--
-        global vars read:
-        $font-family, $show-metadata-production, $msg,
-        $default-border, $cell-padding
+        Variables read:
+        msg, font-family, show-metadata-production,
+        default-border, cell-padding
 
-        XPath 1.0 functions called:
-        boolean(), normalize-space()
-
-        FO functions called:
-        proportional-column-width()
-
-        templates called:
-        [isodate-long]
+        Functions/templates called:
+        boolean(), normalize-space() [Xpath 1.0]
+        proportional-column-width() [FO]
+        isodate-long
       -->
 
       <!--
@@ -492,19 +763,14 @@
 
       <xsl:if test="$show-metadata-info = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
-          <!-- [fo:flow] xsl-region-body -->
           <fo:flow flow-name="xsl-region-body">
-
             <fo:block id="metadata-info"/>
 
             <xsl:if test="boolean($show-metadata-production)">
 
-              <!-- [fo:block] metadata-production -->
+              <!-- Metadata_Production -->
               <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="0.1in">
                 <xsl:value-of select="$msg/*/entry[@key='Metadata_Production']"/>
               </fo:block>
@@ -618,14 +884,14 @@
       <!-- ============================================== -->
 
       <!--
-        global vars read:
-        $font-family, $msg, $show-overview, $show-scope-and-coverage,
-        $show-producers-and-sponsors, $show-sampling, $show-data-collection
-        $show-data-processing-and-appraisal, $show-accessibility,
-        $show-rights-and-disclaimer, $show-files-description, $show-variables-list
-        $showVariableGroups, $subsetGroups, $show-documentation
+        Variables read:
+        font-family, msg, show-overview, show-scope-and-coverage,
+        show-producers-and-sponsors, show-sampling, show-data-collection
+        show-data-processing-and-appraisal, show-accessibility,
+        show-rights-and-disclaimer, show-files-description, show-variables-list
+        showVariableGroups, subsetGroups, show-documentation
 
-        XPath 1.0 functions called:
+        Functions called:
         normalize-space(), string-length(), contains(), concat()
       -->
 
@@ -647,23 +913,18 @@
 
       <xsl:if test="$show-toc = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
-          <!-- [fo:flow] xsl-region-body -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] TOC -->
+            <!-- Table_of_Contents -->
             <fo:block id="toc" font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.1in">
               <xsl:value-of select="$msg/*/entry[@key='Table_of_Contents']"/>
             </fo:block>
 
-            <!-- [fo:block] Main block -->
             <fo:block margin-left="0.5in" margin-right="0.5in">
 
-              <!-- 1) [fo:block] Overview -->
+              <!-- 1) Overview -->
               <xsl:if test="$show-overview = 1">
                 <fo:block font-size="10pt" text-align-last="justify">
                   <fo:basic-link internal-destination="overview" text-decoration="underline" color="blue">
@@ -861,18 +1122,14 @@
       <!-- ================================================ -->
 
       <!--
-        global vars read:
-        $report-start-page-number, $font-family, $msg, $color-gray3
-        $default-border, $cell-padding, $survey-title, $color-gray1, $time
+        Variables read:
+        msg, report-start-page-number, font-family, color-gray3
+        default-border, cell-padding, survey-title, color-gray1, time
 
-        XPath 1.0 functions called:
-        nomalize-space(), position()
-
-        FO functions called:
-        proportional-column-width()
-
-        templates called:
-        [header], [footer]
+        Functions/templates called:
+        nomalize-space(), position() [Xpath]
+        proportional-column-width() [FO]
+        header, footer
       -->
 
       <!--
@@ -881,40 +1138,35 @@
            Page Flow
         1: Title Header           <fo:table-row>
 
-
-
         55: Copyright             <fo:table-row>
       -->
 
 
       <xsl:if test="$show-overview = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page" initial-page-number="{$report-start-page-number}" font-family="{$font-family}" font-size="10pt">
 
-          <!-- [-] Page Header -->
+          <!-- Page Header -->
           <xsl:call-template name="header">
             <xsl:with-param name="section">
               <xsl:value-of select="$msg/*/entry[@key='Overview']"/>
             </xsl:with-param>
           </xsl:call-template>
 
-          <!-- [-] Page Footer-->
+          <!-- Page Footer-->
           <xsl:call-template name="footer"/>
 
-          <!-- [fo:flow] Main page flow -->
+          <!-- Main page flow -->
           <fo:flow flow-name="xsl-region-body">
             <fo:table table-layout="fixed" width="100%">
 
-              <!-- [fo:table-column] Table setup -->
+              <!-- Table setup -->
               <fo:table-column column-width="proportional-column-width(20)"/>
               <fo:table-column column-width="proportional-column-width(80)"/>
 
               <fo:table-body>
 
-                <!-- 1) [fo:table-row] Title header -->
+                <!-- 1) Title header -->
                 <fo:table-row background-color="{$color-gray3}">
                   <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
 
@@ -1753,37 +2005,31 @@
       <!-- ======================================================== -->
 
       <!--
-        global vars read:
-        $font-family, $msg
+        Variables read:
+        msg, font-family
 
-        XSLT 1.0 functions called:
-        count(),
-
-        templates called:
-        [header], [footer]
+        Functions/templates called:
+        count()
+        header, footer
       -->
 
       <xsl:if test="$show-files-description = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
-          <!-- [-] Page header -->
+          <!-- Page header -->
           <xsl:call-template name="header">
             <xsl:with-param name="section">
               <xsl:value-of select="$msg/*/entry[@key='Files_Description']"/>
             </xsl:with-param>
           </xsl:call-template>
 
-          <!-- [-] Page footer -->
+          <!-- Page footer -->
           <xsl:call-template name="footer"/>
 
-          <!-- [fo:flow] Page Flow -->
+          <!-- Main Page Flow -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] -->
             <fo:block id="files-description" font-size="18pt" font-weight="bold" space-after="0.1in">
               <xsl:value-of select="$msg/*/entry[@key='Files_Description']"/>
             </fo:block>
@@ -1811,37 +2057,32 @@
       <!-- ================================================ -->
 
       <!--
-        global vars read:
-        $show-variables-list-layout, $msg, $font-family
+        Variables read:
+        msg, show-variables-list-layout, font-family
 
-        XPath 1.0 functions called:
+        Functions/templates called
         count()
-
-        templates called:
-        [header], [footer]
+        header, footer
       -->
 
       <xsl:if test="$show-variables-list = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="{$show-variables-list-layout}" font-family="{$font-family}" font-size="10pt">
 
-          <!-- [-] Page header -->
+          <!-- Page header -->
           <xsl:call-template name="header">
             <xsl:with-param name="section">
               <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
             </xsl:with-param>
           </xsl:call-template>
 
-          <!-- [-] Page footer-->
+          <!-- Page footer-->
           <xsl:call-template name="footer"/>
 
-          <!-- [fo:flow] Page flow -->
+          <!-- main flow -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] Variables list -->
+            <!-- Variables_List -->
             <fo:block id="variables-list" font-size="18pt" font-weight="bold" space-after="0.1in">
               <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
             </fo:block>
@@ -1855,7 +2096,7 @@
               <xsl:value-of select="$msg/*/entry[@key='variables']"/>
             </fo:block>
 
-            <!-- [-] Variables -->
+            <!-- fileDscr -->
             <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" mode="variables-list"/>
 
           </fo:flow>
@@ -1869,42 +2110,37 @@
       <!-- ================================================ -->
 
       <!--
-        global vars read:
-        $font-family, $msg, $numberOfGroups
+        Variables read:
+        msg, font-family, numberOfGroups
 
-        XPath 1.0 functions called:
-        string-length(), count(),
-
-        templates called:
-        [header], [footer]
+        Functions/templates called:
+        string-length(), count()
+        header, footer
       -->
 
       <xsl:if test="$showVariableGroups = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
-          <!-- [-] Page header -->
+          <!-- Page header -->
           <xsl:call-template name="header">
             <xsl:with-param name="section">
               <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
             </xsl:with-param>
           </xsl:call-template>
 
-          <!-- [-] Page footer-->
+          <!-- Page footer-->
           <xsl:call-template name="footer"/>
 
-          <!-- [fo:flow] Page flow -->
+          <!-- main flow -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] -->
+            <!-- Variables_Groups -->
             <fo:block id="variables-groups" font-size="18pt" font-weight="bold" space-after="0.1in">
               <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
             </fo:block>
 
-            <!-- [fo:block] Count -->
+            <!-- Count -->
             <fo:block font-weight="bold">
               <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']"/>
               <xsl:text> </xsl:text>
@@ -1917,7 +2153,7 @@
               </xsl:if>
             </fo:block>
 
-            <!-- [-] Groups -->
+            <!-- varGrp -->
             <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp"/>
 
           </fo:flow>
@@ -1931,42 +2167,37 @@
       <!-- ==================================================== -->
 
       <!--
-        global vars read:
-        $font-family, $msg, $numberOfvars,
+        Variables read:
+        font-family, msg, numberOfvars
 
-        XPath 1.0 functions called:
+        Functions/templates called
         count(), string-length()
-
-        templates called:
-        [header], [footer]
+        header, footer
       -->
 
       <xsl:if test="$show-variables-description = 1">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
-          <!-- [-] Page header -->
+          <!-- Page header -->
           <xsl:call-template name="header">
             <xsl:with-param name="section">
               <xsl:value-of select="$msg/*/entry[@key='Variables_Description']"/>
             </xsl:with-param>
           </xsl:call-template>
 
-          <!-- [-] Page footer-->
+          <!-- Page footer-->
           <xsl:call-template name="footer"/>
 
-          <!-- [fo:flow] Page flow -->
+          <!-- main flow -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] Variables description -->
+            <!-- Variables_Description -->
             <fo:block id="variables-description" font-size="18pt" font-weight="bold" space-after="0.1in">
               <xsl:value-of select="$msg/*/entry[@key='Variables_Description']"/>
             </fo:block>
 
-            <!-- [fo:block] Count -->
+            <!-- Count -->
             <fo:block font-weight="bold">
               <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']"/>
               <xsl:text> </xsl:text>
@@ -1982,7 +2213,7 @@
           </fo:flow>
         </fo:page-sequence>
 
-        <!-- [-] Variables -->
+        <!-- fileDscr -->
         <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" mode="variables-description"/>
       </xsl:if>
 
@@ -1993,44 +2224,37 @@
       <!-- =============================================== -->
 
       <!--
-        global vars read:
-        $rdf-file, $font-family, $msg
+        Variables set:
+        rdf, adm-count, anl-count, qst-count, oth-count, ref-count,
+        rep-count, tec-count, tbl-count, prg-count, unc-count
 
-        local vars set:
-        $rdf, $adm-count, $anl-count, $qst-count, $oth-count, $ref-count,
-        $rep-count, $tec-count, $tbl-count, $prg-count, $unc-count
+        Variables read:
+        msg, rdf-file, font-family
 
-        XPath 1.0 functions called:
-        normalize-space(), count(), contains(), not()
-
-        XSLT 1.0 functions called:
-        document()
-
-        templates called:
-        [header], [footer], [documentation-toc-section]
+        Functions/templates called:
+        normalize-space(), count(), contains(), not() [Xpath]
+        document() [XSLT 1.0]
+        header, footer, documentation-toc-section
       -->
 
       <xsl:if test="$show-documentation = 1 and normalize-space($rdf-file)">
 
-        <!-- ========================== -->
-        <!-- r) [fo:page-sequence] Main -->
-        <!-- ========================== -->
         <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
-          <!-- [-] Page header -->
+          <!-- Page header -->
           <xsl:call-template name="header">
             <xsl:with-param name="section">
               <xsl:value-of select="$msg/*/entry[@key='Documentation']"/>
             </xsl:with-param>
           </xsl:call-template>
 
-          <!-- [-] page footer-->
+          <!-- Page footer-->
           <xsl:call-template name="footer"/>
 
-          <!-- [fo:flow] Page flow -->
+          <!-- main flow -->
           <fo:flow flow-name="xsl-region-body">
 
-            <!-- [fo:block] -->
+            <!-- Documentation -->
             <fo:block id="documentation" font-size="18pt" font-weight="bold" space-after="0.1in">
               <xsl:value-of select="$msg/*/entry[@key='Documentation']"/>
             </fo:block>
@@ -2049,10 +2273,10 @@
             <xsl:variable name="prg-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[prg') ]) "/>
             <xsl:variable name="unc-count" select="count($rdf/rdf:RDF/rdf:Description[not( contains(dc:type,'[doc') or contains(dc:type,'[tbl') or contains(dc:type,'[prg') ) ] )"/>
 
-            <!-- [fo:block] Table of contents -->
+            <!-- Table of contents -->
             <fo:block space-after="0.2in">
 
-              <!-- [fo:block] Report/analytical -->
+              <!-- Report/analytical -->
               <xsl:if test="$rep-count &gt;0 or $anl-count &gt; 0">
                 <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
                   <fo:basic-link internal-destination="documentation-anl" text-decoration="underline" color="blue">
@@ -2066,7 +2290,7 @@
                 </xsl:call-template>
               </xsl:if>
 
-              <!-- [fo:block] Questionnaires -->
+              <!-- Questionnaires -->
               <xsl:if test="$qst-count &gt;0">
                 <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
                   <fo:basic-link internal-destination="documentation-qst" text-decoration="underline" color="blue">
@@ -2080,7 +2304,7 @@
                 </xsl:call-template>
               </xsl:if>
 
-              <!-- [fo:block] Technical -->
+              <!-- Technical -->
               <xsl:if test="$tec-count &gt;0">
                 <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
                   <fo:basic-link internal-destination="documentation-tec" text-decoration="underline" color="blue">
@@ -2094,7 +2318,7 @@
                 </xsl:call-template>
               </xsl:if>
 
-              <!-- [fo:block] Administrative -->
+              <!-- Administrative -->
               <xsl:if test="$adm-count &gt;0">
                 <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
                   <fo:basic-link internal-destination="documentation-adm" text-decoration="underline" color="blue">
@@ -2108,7 +2332,7 @@
                 </xsl:call-template>
               </xsl:if>
 
-              <!-- [fo:block] References -->
+              <!-- References -->
               <xsl:if test="$ref-count &gt;0">
                 <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
                   <fo:basic-link internal-destination="documentation-ref" text-decoration="underline" color="blue">
@@ -2253,75 +2477,73 @@
 
     </fo:root>
 
-  </xsl:template>
+</xsl:template>
 
   <!-- templates matching the ddi: namespace -->
-  <!-- ddi-AuthEnty.xsl --><!-- =================== --><!-- match: ddi:AuthEnty --><!-- [fo:block]          --><!-- =================== --><!--
-  templates called:
-  [trim]
+  <!-- Match: ddi:AuthEnty --><!-- Value: fo:block --><!--
+  Functions/templates called:
+  trim
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:AuthEnty" xml:base="includes/ddi/ddi-AuthEnty.xml">
 
   <fo:block>
 
-      <!-- 1) [-] Trim current node -->
+    <!-- trim current node -->
     <xsl:call-template name="trim">
       <xsl:with-param name="s" select="."/>
     </xsl:call-template>
 
-      <!-- 2) [-] Affiliation attribute -->
+    <!-- affiliation attribute -->
     <xsl:if test="@affiliation">,
       <xsl:value-of select="@affiliation"/>
     </xsl:if>
 
   </fo:block>
-
 </xsl:template>
-  <!-- ddi-collDate.xsl --><!-- =================== --><!-- match: ddi:collDate --><!-- [fo:block]          --><!-- =================== --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:collDate" xml:base="includes/ddi/ddi-collDate.xml">
+  <!-- match: ddi:collDate --><!-- value: fo:block --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:collDate" xml:base="includes/ddi/ddi-collDate.xml">
 
     <fo:block>
 
-      <!-- [-] Cycle Attribute -->
+      <!-- @cycle -->
       <xsl:if test="@cycle">
         <xsl:value-of select="@cycle"/>
         <xsl:text>: </xsl:text>
       </xsl:if>
 
-      <!-- [-] Event Attribute -->
+      <!-- @event -->
       <xsl:if test="@event">
         <xsl:value-of select="@event"/>
         <xsl:text> </xsl:text>
       </xsl:if>
 
-      <!-- [-] Date Attribute -->
+      <!-- @date -->
       <xsl:value-of select="@date"/>
 
     </fo:block>
 
 </xsl:template>
-
-  <!-- ddi-contact.xsl --><!-- ================== --><!-- match: ddi:contact --><!-- [fo:block]         --><!-- ================== --><!--
-  FO functions called:
-  url()
+  <!-- match: ddi:contact --><!-- value: fo:block --><!--
+  Functions/templates called:
+  url() [FO]
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:contact" xml:base="includes/ddi/ddi-contact.xml">
 
     <fo:block>
 
-      <!-- [-] Current Node -->
+      <!-- current Node -->
       <xsl:value-of select="."/>
 
-      <!-- [-] Affiliation Attribute -->
+      <!-- @affiliation -->
       <xsl:if test="@affiliation"> (
         <xsl:value-of select="@affiliation"/>)
       </xsl:if>
 
-      <!-- [fo:basic-link] URI Attribute -->
+      <!-- [fo:basic-link] @URI -->
       <xsl:if test="@URI"> ,
         <fo:basic-link external-destination="url('{@URI}')" text-decoration="underline" color="blue">
           <xsl:value-of select="@URI"/>
         </fo:basic-link>
       </xsl:if>
 
-      <!-- [fo:basic-link] Mail Address Attribute -->
+      <!-- [fo:basic-link] @email -->
       <xsl:if test="@email"> ,
         <fo:basic-link external-destination="url('mailto:{@URI}')" text-decoration="underline" color="blue">
           <xsl:value-of select="@email"/>
@@ -2331,25 +2553,24 @@
     </fo:block>
 
 </xsl:template>
-  <!-- ======================== --><!-- match: ddi:dataCollector --><!-- [fo:block]               --><!-- ======================== --><!--
-  templates called:
-  [trim]
+  <!-- match: ddi:dataCollector --><!-- value: <fo:block> --><!--
+  Functions/templates called:
+  trim
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:dataCollector" xml:base="includes/ddi/ddi-dataCollector.xml">
 
   <fo:block>
 
-    <!-- [-] Trim current node -->
+    <!-- trim current node -->
     <xsl:call-template name="trim">
       <xsl:with-param name="s" select="."/>
     </xsl:call-template>
 
-    <!-- [-] Abbreviation Attribute -->
+    <!-- @abbr -->
     <xsl:if test="@abbr">
-      (
-      <xsl:value-of select="@abbr"/>)
+      (<xsl:value-of select="@abbr"/>)
     </xsl:if>
 
-    <!-- [-] Affiliation Attribute -->
+    <!-- @affiliation -->
     <xsl:if test="@affiliation"> ,
       <xsl:value-of select="@affiliation"/>
     </xsl:if>
@@ -2357,32 +2578,30 @@
   </fo:block>
 
 </xsl:template>
-  <!-- ddi-fileDscr.xsl --><!-- ============================= --><!-- match: ddi:fileDsrc / default --><!-- fo:table                      --><!-- ============================= --><!--
-    global vars used:
-    $msg, $color-gray1, $default-border, $cell-padding
+  <!-- match: ddi:fileDsrc / default --><!-- value: <fo:table> --><!--
+  Variables read:
+  msg, color-gray1, default-border, cell-padding
 
-    local vars:
-    fileId, list
+  Variables set:
+  fileId, list
 
-    XPath 1.0 functions called:
-    concat(), contains(), normalize-space(), position()
-
-    FO functions called:
-    proportional-column-width()
+  Functions/templates called:
+  concat(), contains(), normalize-space(), position() [Xpath 1.0]
+  proportional-column-width() [FO]
 --><!--
-    1: Filename                 <fo:table-row>
-    2: Cases                    <fo:table-row>
-    3: Variables                <fo:table-row>
-    4: File Structure           <fo:table-row>
-    5: File Content             <fo:table-row>
-    6: File Producer            <fo:table-row>
-    7: File Version             <fo:table-row>
-    8: File Processing Checks   <fo:table-row>
-    9: File Missing Data        <fo:table-row>
-   10: File Notes               <fo:table-row>
+  1: Filename                 <fo:table-row>
+  2: Cases                    <fo:table-row>
+  3: Variables                <fo:table-row>
+  4: File Structure           <fo:table-row>
+  5: File Content             <fo:table-row>
+  6: File Producer            <fo:table-row>
+  7: File Version             <fo:table-row>
+  8: File Processing Checks   <fo:table-row>
+  9: File Missing Data        <fo:table-row>
+  10: File Notes              <fo:table-row>
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" xml:base="includes/ddi/ddi-fileDscr.xml">
 
-    <!-- Variables -->
+    <!-- variables -->
     <xsl:variable name="fileId">
       <xsl:choose>
 
@@ -2397,9 +2616,7 @@
       </xsl:choose>
     </xsl:variable>
 
-    <!-- ================== -->
-    <!-- r) [fo:table] Main -->
-    <!-- ================== -->
+    <!-- content -->
     <fo:table id="file-{$fileId}" table-layout="fixed" width="100%" space-before="0.2in" space-after="0.2in">
 
       <!-- Set up column sizes -->
@@ -2580,7 +2797,7 @@
   [footer]
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" mode="variables-description" xml:base="includes/ddi/ddi-fileDscr_variables-description.xml">
 
-    <!-- Variables -->
+    <!-- variables -->
     <xsl:variable name="fileId">
       <xsl:choose>
 
@@ -2589,7 +2806,7 @@
           <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID"/>
         </xsl:when>
 
-        <!-- other ID attribute -->
+        <!-- ID attribute -->
         <xsl:when test="@ID">
           <xsl:value-of select="@ID"/>
         </xsl:when>
@@ -2599,9 +2816,7 @@
 
     <xsl:variable name="fileName" select="ddi:fileTxt/ddi:fileName"/>
 
-    <!-- ================================================= -->
-    <!-- r) [fo:page-sequence] Main - Iterate through file -->
-    <!-- ================================================= -->
+    <!-- content -->
     <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId][position() mod $chunkSize = 1]">
       <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
@@ -2665,52 +2880,48 @@
     </xsl:for-each>
 
 </xsl:template>
-  <!-- ddi-fileDsrc_variables-list.xsl --><!-- ===================================== --><!-- match: ddi:fileDsrc / variables-list  --><!-- fo:table                              --><!-- ===================================== --><!--
-    global vars read:
-    $default-border, $cell-padding, $msg,
+  <!-- Match: ddi:fileDsrc / variables-list  --><!-- Value: fo:table --><!--
+    Variables read:
+    msg, default-border, cell-padding
 
-    local vars set:
-    $fileId
+    Variables set:
+    fileId
 
-    templates called:
-    [variables-table-col-width], [variables-table-col-header]
+    Functions/templates called:
+    variables-table-col-width, variables-table-col-header
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" mode="variables-list" xml:base="includes/ddi/ddi-fileDscr_variables-list.xml">
 
-    <!-- ========= -->
-    <!-- Variables -->
-    <!-- ========= -->
-    <xsl:variable name="fileId">
-      <xsl:choose>
+  <!-- variables -->
+  <xsl:variable name="fileId">
+    <xsl:choose>
 
-        <xsl:when test="ddi:fileTxt/ddi:fileName/@ID">
-          <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID"/>
-        </xsl:when>
+      <xsl:when test="ddi:fileTxt/ddi:fileName/@ID">
+        <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID"/>
+      </xsl:when>
 
-        <xsl:when test="@ID">
-          <xsl:value-of select="@ID"/>
-        </xsl:when>
+      <xsl:when test="@ID">
+        <xsl:value-of select="@ID"/>
+      </xsl:when>
 
-      </xsl:choose>
-    </xsl:variable>
+    </xsl:choose>
+  </xsl:variable>
 
-    <!-- ================== -->
-    <!-- r) [fo:table] Main -->
-    <!-- ================== -->
-    <fo:table id="varlist-{ddi:fileTxt/ddi:fileName/@ID}" table-layout="fixed" width="100%" font-size="8pt" space-before="0.2in" space-after="0.2in">
+  <!-- content -->
+  <fo:table id="varlist-{ddi:fileTxt/ddi:fileName/@ID}" table-layout="fixed" width="100%" font-size="8pt" space-before="0.2in" space-after="0.2in">
 
-      <xsl:call-template name="variables-table-col-width"/>
+    <xsl:call-template name="variables-table-col-width"/>
 
-      <!-- [fo:table-header] -->
-      <fo:table-header>
-        <fo:table-row text-align="center" vertical-align="top" keep-with-next="always">
-          <fo:table-cell text-align="left" number-columns-spanned="8" border="{$default-border}" padding="{$cell-padding}">
-            <fo:block font-size="12pt" font-weight="bold">
-              <xsl:value-of select="$msg/*/entry[@key='File']"/>
-              <xsl:text> </xsl:text>
-              <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
-            </fo:block>
-          </fo:table-cell>
-        </fo:table-row>
+    <!-- [fo:table-header] -->
+    <fo:table-header>
+      <fo:table-row text-align="center" vertical-align="top" keep-with-next="always">
+        <fo:table-cell text-align="left" number-columns-spanned="8" border="{$default-border}" padding="{$cell-padding}">
+          <fo:block font-size="12pt" font-weight="bold">
+            <xsl:value-of select="$msg/*/entry[@key='File']"/>
+            <xsl:text> </xsl:text>
+            <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+          </fo:block>
+        </fo:table-cell>
+      </fo:table-row>
 
         <xsl:call-template name="variables-table-col-header"/>
       </fo:table-header>
@@ -2730,30 +2941,27 @@
     </fo:table>
 
 </xsl:template>
-  <!-- ddi_fileName.xsl --><!-- ======================================== --><!-- match: ddi:fileName                      --><!-- [-]                                      --><!-- return filename minus .NSDstat extension --><!-- ======================================== --><!--
-  local vars set:
-  $filename
+  <!-- Match: ddi:fileName --><!-- Value: filename minus .NSDstat extension --><!--
+  Variables set:
+  filename
 
-  XPath 1.0 functions called:
+  Functions/templates called:
   contains(), normalize-space(), string-length(), substring()
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileName" xml:base="includes/ddi/ddi-fileName.xml">
 
-    <!-- ========= -->
-    <!-- Variables -->
-    <!-- ========= -->
+    <!-- variables -->
     <xsl:variable name="filename" select="normalize-space(.)"/>
 
-    <!-- =============================================== -->
-    <!-- r) [-] Check if filename has .NSDstat extension -->
-    <!-- =============================================== -->
+    <!-- content -->
+    <!-- Check if filename has .NSDstat extension -->
     <xsl:choose>
 
-      <!-- Case 1) [-] Filename contains .NSDstat-->
+      <!-- filename contains .NSDstat-->
       <xsl:when test=" contains( $filename , '.NSDstat' )">
         <xsl:value-of select="substring($filename,1,string-length($filename)-8)"/>
       </xsl:when>
 
-      <!-- Case 2) [-] Does not contain .NSDstat -->
+      <!-- does not contain .NSDstat -->
       <xsl:otherwise>
         <xsl:value-of select="$filename"/>
       </xsl:otherwise>
@@ -2761,157 +2969,144 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- ddi_fundAg.xsl --><!-- ================= --><!-- match: ddi:fundAg --><!-- [fo:block]        --><!-- ================= --><!--
-  templates called:
-  [trim]
+  <!-- Match: ddi:fundAg --><!-- Value: <fo:block> --><!--
+  Functions/templates called:
+  trim
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fundAg" xml:base="includes/ddi/ddi-fundAg.xml">
-
-    <fo:block>
-
-      <!-- 1) [-] Trim current node -->
-      <xsl:call-template name="trim">
-        <xsl:with-param name="s" select="."/>
-      </xsl:call-template>
-
-      <!-- 2) [-] Abbreviation -->
-      <xsl:if test="@abbr">
-        (
-        <xsl:value-of select="@abbr"/>)
-      </xsl:if>
-
-      <!-- 3) [-] Role -->
-      <xsl:if test="@role"> ,
-        <xsl:value-of select="@role"/>
-      </xsl:if>
-
-    </fo:block>
-
-</xsl:template>
-  <!-- ddi-IDNo.xsl --><!-- =============== --><!-- match: ddi:IDNo --><!-- [fo:block]      --><!-- =============== --><!--
-  templates called:
-  [trim]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:IDNo" xml:base="includes/ddi/ddi-IDNo.xml">
-
-    <fo:block>
-
-      <!-- [-] Agency attribute -->
-      <xsl:if test="@agency">
-        <xsl:value-of select="@agency"/>:
-      </xsl:if>
-
-      <!-- [-] Trim current node -->
-      <xsl:call-template name="trim">
-        <xsl:with-param name="s" select="."/>
-      </xsl:call-template>
-
-    </fo:block>
-
-</xsl:template>
-  <!-- ddi_othId.xsl --><!-- 
-  ================ 
-  match: ddi:othId 
-  [fo:block]       
-  ================
-
-  templates called:
-  [trim]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:othId" xml:base="includes/ddi/ddi-othId.xml">
-
-    <fo:block>
-
-      <!-- 1) [-] Trim current node -->
-      <xsl:call-template name="trim">
-        <xsl:with-param name="s" select="ddi:p"/>
-      </xsl:call-template>
-
-      <!-- 2) [-] Role -->
-      <xsl:if test="@role"> ,
-        <xsl:value-of select="@role"/>
-      </xsl:if>
-
-      <!-- 3) [-] Affiliation -->
-      <xsl:if test="@affiliation"> ,
-        <xsl:value-of select="@affiliation"/>
-      </xsl:if>
-
-    </fo:block>
-
-</xsl:template>
-  <!-- ddi_producer.xsl --><!-- =================== --><!-- match: ddi:producer --><!-- fo:block            --><!-- =================== --><!--
-  templates called:
-  [trim]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:producer" xml:base="includes/ddi/ddi-producer.xml">
-
-    <fo:block>
-
-      <!-- 1) [-] Trim current node -->
-      <xsl:call-template name="trim">
-        <xsl:with-param name="s" select="."/>
-      </xsl:call-template>
-
-      <!-- 2) [-] Abbreviation -->
-      <xsl:if test="@abbr">
-        (<xsl:value-of select="@abbr"/>)
-      </xsl:if>
-
-      <!-- 3) [-] Affiliation -->
-      <xsl:if test="@affiliation"> ,
-        <xsl:value-of select="@affiliation"/>
-      </xsl:if>
-
-      <!-- 4) [-] Role -->
-      <xsl:if test="@role"> ,
-        <xsl:value-of select="@role"/>
-      </xsl:if>
-
-    </fo:block>
-</xsl:template>
-  <!-- ddi_timePrd.xsl --><!-- ================== --><!-- match: ddi:timePrd --><!-- fo:block           --><!-- ================== --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:timePrd" xml:base="includes/ddi/ddi-timePrd.xml">
 
   <fo:block>
 
-      <!-- 1) [-] Attr: Cycle -->
+    <!-- trim current node -->
+    <xsl:call-template name="trim">
+      <xsl:with-param name="s" select="."/>
+    </xsl:call-template>
+
+    <!-- @abbr -->
+    <xsl:if test="@abbr">
+      (<xsl:value-of select="@abbr"/>)
+    </xsl:if>
+
+    <!-- @role -->
+    <xsl:if test="@role"> ,
+      <xsl:value-of select="@role"/>
+    </xsl:if>
+
+  </fo:block>
+
+</xsl:template>
+  <!-- Match: ddi:IDNo --><!-- Value: <fo:block> --><!--
+  Functions/templates called:
+  trim
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:IDNo" xml:base="includes/ddi/ddi-IDNo.xml">
+
+  <fo:block>
+
+    <!-- @agency -->
+    <xsl:if test="@agency">
+      <xsl:value-of select="@agency"/>:
+    </xsl:if>
+
+    <!-- trim current node -->
+    <xsl:call-template name="trim">
+      <xsl:with-param name="s" select="."/>
+    </xsl:call-template>
+
+  </fo:block>
+
+</xsl:template>
+  <!-- Match: ddi:othId --><!-- Value: <fo:block> --><!--
+  Functions/templates called:
+  trim
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:othId" xml:base="includes/ddi/ddi-othId.xml">
+
+  <fo:block>
+
+    <!-- trim current node -->
+    <xsl:call-template name="trim">
+      <xsl:with-param name="s" select="ddi:p"/>
+    </xsl:call-template>
+
+    <!-- @role -->
+    <xsl:if test="@role"> ,
+      <xsl:value-of select="@role"/>
+    </xsl:if>
+
+    <!-- @affiliation -->
+    <xsl:if test="@affiliation"> ,
+      <xsl:value-of select="@affiliation"/>
+    </xsl:if>
+
+  </fo:block>
+
+</xsl:template>
+  <!-- Match: ddi:producer --><!-- Value: <fo:block> --><!--
+  Functions/templates called:
+  trim
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:producer" xml:base="includes/ddi/ddi-producer.xml">
+
+  <fo:block>
+
+    <!-- trim current node -->
+    <xsl:call-template name="trim">
+      <xsl:with-param name="s" select="."/>
+    </xsl:call-template>
+
+    <!-- @abbr -->
+    <xsl:if test="@abbr">
+      (<xsl:value-of select="@abbr"/>)
+    </xsl:if>
+
+    <!-- @affiliation -->
+    <xsl:if test="@affiliation"> ,
+      <xsl:value-of select="@affiliation"/>
+    </xsl:if>
+
+    <!-- @role -->
+    <xsl:if test="@role"> ,
+      <xsl:value-of select="@role"/>
+    </xsl:if>
+
+  </fo:block>
+</xsl:template>
+  <!-- Match: ddi:timePrd --><!-- Value: <fo:block> --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:timePrd" xml:base="includes/ddi/ddi-timePrd.xml">
+
+  <fo:block>
+
+      <!-- @cycle -->
       <xsl:if test="@cycle">
         <xsl:value-of select="@cycle"/>
         <xsl:text>: </xsl:text>
       </xsl:if>
 
-      <!-- 2) [-] Attr: Event -->
+      <!-- @event -->
       <xsl:if test="@event">
         <xsl:value-of select="@event"/>
         <xsl:text> </xsl:text>
       </xsl:if>
 
-      <!-- 3) [-] Attr: Date -->
+      <!-- @date -->
       <xsl:value-of select="@date"/>
 
   </fo:block>
 </xsl:template>
-  <!-- ddi-var.xsl --><!-- 
-  ========================
-  match: ddi:var / default
-  fo:table-row            
-  ========================
+  <!-- Match: ddi:var / default --><!-- Value: <fo:table-row> --><!--
+  Parameters used:
+  fileId
 
-  parameters used:
-  ($fileId)
+  Variables read:
+  msg, cell-padding,  color-gray1, default-border,
+  show-variables-description-categories-max, subsetVars,
 
-  global vars read:
-  $cell-padding, $color-gray1, $default-border, $msg,
-  $show-variables-description-categories-max, $subsetVars,
+  Variables set:
+  statistics, type, label, category-count, is-weighted,
+  catgry-freq-nodes, catgry-sum-freq, catgry-sum-freq-wgtd,
+  catgry-max-freq, catgry-max-freq-wgtd, bar-column-width, catgry-freq
 
-  local vars set:
-  $statistics, $type, $label, $category-count, $is-weighted,
-  $catgry-freq-nodes, $catgry-sum-freq, $catgry-sum-freq-wgtd,
-  $catgry-max-freq, $catgry-max-freq-wgtd, $bar-column-width, $catgry-freq
-
-  XPath 1.0 functions called:
+  Functions/templates called:
   concat(), contains(), string-length(), normalize-space(), number(),
-  position(), string()
-
-  templates called:
-  [math:max], [trim]
-
+  position(), string() [Xpath 1.0]
+  math:max, trim
+--><!--
   fo output by section:
   1: Information                <fo:table-row>
   2: Statistics                 <fo:table-row>
@@ -2922,48 +3117,48 @@
   7: Question                   <fo:table-row>
   8: Post-Question              <fo:table-row>
   9: Interviewer Instructions   <fo:table-row>
-  10: Imputation                 <fo:table-row>
-  11: Recoding                   <fo:table-row>
-  12: Security                   <fo:table-row>
-  13: Concepts                   <fo:table-row>
-  14: Notes                      <fo:table-row>
-  15: Categories                 <fo:table-row>
+  10: Imputation                <fo:table-row>
+  11: Recoding                  <fo:table-row>
+  12: Security                  <fo:table-row>
+  13: Concepts                  <fo:table-row>
+  14: Notes                     <fo:table-row>
+  15: Categories                <fo:table-row>
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" xml:base="includes/ddi/ddi-var.xml">
 
-    <!-- params -->
-    <xsl:param name="fileId" select="./@files"/> <!-- use first file in @files if not specified) -->
+  <!-- params -->
+  <xsl:param name="fileId" select="./@files"/> <!-- use first file in @files if not specified) -->
 
-    <!-- r) [fo:table row] Main -->
-    <xsl:if test="contains($subsetVars, concat(',',@ID,',')) or string-length($subsetVars) = 0 ">
-      <fo:table-row text-align="center" vertical-align="top">
-        <fo:table-cell>
-          <fo:table id="var-{@ID}" table-layout="fixed" width="100%" font-size="8pt" space-after="0.3in">
-            <fo:table-column column-width="proportional-column-width(20)"/>
-            <fo:table-column column-width="proportional-column-width(80)"/>
+  <!-- content -->
+  <xsl:if test="contains($subsetVars, concat(',',@ID,',')) or string-length($subsetVars) = 0 ">
+    <fo:table-row text-align="center" vertical-align="top">
+      <fo:table-cell>
+        <fo:table id="var-{@ID}" table-layout="fixed" width="100%" font-size="8pt" space-after="0.3in">
+          <fo:table-column column-width="proportional-column-width(20)"/>
+          <fo:table-column column-width="proportional-column-width(80)"/>
 
-            <!-- =================================== -->
-            <!-- [fo:table-header] Main table Header -->
-            <!-- =================================== -->
-            <fo:table-header>
-              <fo:table-row background-color="{$color-gray1}" text-align="center" vertical-align="top">
-                <fo:table-cell number-columns-spanned="2" font-size="10pt" font-weight="bold" text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                  <fo:block>
-                    <fo:inline font-size="8pt" font-weight="normal" vertical-align="text-top">#
-                      <xsl:value-of select="./@id"/>
-                      <xsl:text> </xsl:text>
-                    </fo:inline>
+          <!-- =================================== -->
+          <!-- [fo:table-header] Main table Header -->
+          <!-- =================================== -->
+          <fo:table-header>
+            <fo:table-row background-color="{$color-gray1}" text-align="center" vertical-align="top">
+              <fo:table-cell number-columns-spanned="2" font-size="10pt" font-weight="bold" text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <fo:inline font-size="8pt" font-weight="normal" vertical-align="text-top">#
+                    <xsl:value-of select="./@id"/>
+                    <xsl:text> </xsl:text>
+                  </fo:inline>
 
-                    <xsl:value-of select="./@name"/>
+                  <xsl:value-of select="./@name"/>
 
-                    <xsl:if test="normalize-space(./ddi:labl)">
-                      <xsl:text>: </xsl:text>
-                      <xsl:value-of select="normalize-space(./ddi:labl)"/>
-                    </xsl:if>
+                  <xsl:if test="normalize-space(./ddi:labl)">
+                    <xsl:text>: </xsl:text>
+                    <xsl:value-of select="normalize-space(./ddi:labl)"/>
+                  </xsl:if>
 
-                  </fo:block>
-                </fo:table-cell>
-              </fo:table-row>
-            </fo:table-header>
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </fo:table-header>
 
             <!-- =============================== -->
             <!-- [fo:table-body] Main table body -->
@@ -3398,7 +3593,7 @@
 
                                 <!-- [fo:table-cell] Label -->
                                 <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
-                                  <fo:block>jjjjjj
+                                  <fo:block>
                                     <xsl:call-template name="trim">
                                       <xsl:with-param name="s" select="ddi:labl"/>
                                     </xsl:call-template>
@@ -3552,9 +3747,8 @@
     <!-- params -->
     <xsl:param name="fileId" select="./@files"/> <!-- (use first file in @files if not specified) -->
 
-    <!-- ====================== -->
-    <!-- r) [fo:table-row] Main -->
-    <!-- ====================== -->
+    <!-- content -->
+    <!-- [fo:table-row] Main -->
     <xsl:if test="contains($subsetVars,concat(',',@ID,',')) or string-length($subsetVars)=0 ">
       <fo:table-row text-align="center" vertical-align="top">
 
@@ -3717,21 +3911,18 @@
     </xsl:if>
 
 </xsl:template>
-  <!-- ddi_varGrp.xsl --><!-- ================= --><!-- match: ddi:varGrp --><!-- fo:table          --><!-- ================= --><!--
-    global vars read:
-    $subsetGroups, $msg, $default-border, $cell-padding
+  <!-- Match: ddi:varGrp --><!-- Value: <fo:table> --><!--
+    Variables read:
+    msg, subsetGroups, default-border, cell-padding
 
-    local vars set:
-    $list
+    Variables set:
+    list
 
-    Xpath 1.0 functions called:
-    contains(), concat(), position(), string-length(), normalize-space()
-
-    FO functions called:
-    proportional-column-width()
-
-    templates called:
-    [variables-table-column-width], [variables-table-column-header]
+    Functions and templates called:
+    contains(), concat(), position(), string-length(),
+    normalize-space() [Xpath 1.0]
+    proportional-column-width() [FO]
+    variables-table-column-width, variables-table-column-header
 --><!--
     1: Group Name     <fo:table-row>
     2: Text           <fo:table-row>
@@ -3743,9 +3934,6 @@
 
     <xsl:if test="contains($subsetGroups,concat(',',@ID,',')) or string-length($subsetGroups)=0">
 
-      <!-- ================== -->
-      <!-- r) [fo:table] Main -->
-      <!-- ================== -->
       <fo:table id="vargrp-{@ID}" table-layout="fixed" width="100%" space-before="0.2in">
 
         <!-- Set up columns -->
@@ -3867,36 +4055,32 @@
       </xsl:if>
     </xsl:if>
 </xsl:template>
-  <!-- ddi_default_text.xsl --><!-- =================== --><!-- match: ddi:*|text() --><!-- [fo:block] / [-]    --><!--                     --><!-- the default text    --><!-- =================== --><!--
-  local vars set:
-  $trimmed
+  <!-- match: ddi:*|text() --><!-- value: <fo:block> / [-] --><!-- the default text --><!--
+  Variables set:
+  trimmed
 
-  templates called:
-  [trim], [FixHTML]
+  Functions/templates called:
+  trim, FixHTML
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:*|text()" xml:base="includes/ddi/ddi_default_text.xml">
 
-    <!-- ======================== -->
-    <!-- Case 1) [-] HTML content -->
-    <!-- ======================== -->
+    <!-- Case 1) HTML content -->
     <xsl:if test="$allowHTML = 1">
       <xsl:call-template name="FixHTML">
         <xsl:with-param name="InputString" select="."/>
       </xsl:call-template>
     </xsl:if>
 
-    <!-- =========================== -->
-    <!-- Case 2) [-] No HTML content -->
-    <!-- =========================== -->
+    <!-- Case 2) No HTML content -->
     <xsl:if test="$allowHTML = 0">
 
-      <!-- 1) [-] Trim current node -->
+      <!-- variables -->
       <xsl:variable name="trimmed">
         <xsl:call-template name="trim">
           <xsl:with-param name="s" select="."/>
         </xsl:call-template>
       </xsl:variable>
 
-      <!-- 2) [fo:block] Current node content -->
+      <!-- content -->
       <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0in">
         <xsl:value-of select="$trimmed"/>
       </fo:block>
@@ -3906,22 +4090,18 @@
 </xsl:template>
 
   <!-- templates matching the rdf: namespace -->
-  <!-- rdf-Description.xsl --><!-- ====================== --><!-- match: rdf:Description --><!-- [fo:block]             --><!-- ====================== --><!--
-    global vars read:
-    $msg, $color-gray1, $color-gray2, $color-white,
-    $show-documentation-description,
+  <!-- Match: rdf:Description --><!-- Value: <fo:block> --><!--
+    Parameters/variables read:
+    msg, color-gray1, color-gray2, color-white,
+    show-documentation-description
 
-    local vars set:
-    $date
+    Variables set:
+    date
 
-    XPath 1.0 functions called:
-    normalize-space(), string-length(), boolean(), position()
-
-    XSLT 1.0 functions called:
-    generate-id()
-
-    templates called:
-    [isodate-month], [trim]
+    Functions/templates called:
+    normalize-space(), string-length(), boolean(), position() [Xpath 1.0]
+    generate-id() [XSLT 1.0]
+    isodate-month, trim
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="rdf:Description" xml:base="includes/rdf/rdf-Description.xml">
 
 
@@ -4052,19 +4232,15 @@
 
 </xsl:template>
 
-  <!-- Named templates -->
-  <!-- documentation_toc_section.xsl --><!-- ================================ --><!-- documentation-toc-section(nodes) --><!-- [fo:block]                       --><!-- ================================ --><!--
-    params:
-    ($nodes)
+  <!-- Named/utility templates -->
+  <!-- Name: documentation-toc-section --><!-- Value: <fo:block> --><!--
+    Params/variables read:
+    nodes [param]
+    msg
 
-    global vars read:
-    $msg,
-
-    XPath 1.0 functions called:
-    normalize-space()
-
-    FO functions called:
-    generate-id()
+    Functions/templates called:
+    normalize-space() [Xpath 1.0]
+    generate-id() [FO]
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="documentation-toc-section" xml:base="includes/named/documentation-toc-section.xml">
 
     <!-- params -->
@@ -4098,9 +4274,9 @@
     </xsl:for-each>
 
 </xsl:template>
-  <!-- variables-table-col-header.xsl --><!-- Header for variable table --><!-- ============================ --><!-- variables-table-col-header() --><!-- [fo:table-row]               --><!-- ============================ --><!--
-    global vars read:
-    $show-variables-list-question, $msg
+  <!-- Name: variables-table-col-header --><!-- Value: <fo:table-row> --><!-- Header for variable table --><!--
+    Params/variables read:
+    msg, show-variables-list-question
 --><!--
     1: #-character    <fo:table-cell>
     2: Name           <fo:table-cell>
@@ -4174,12 +4350,12 @@
     </fo:table-row>
 
 </xsl:template>
-  <!-- variables-table-col-width.xsl --><!-- Header for variable table --><!-- =========================== --><!-- variables-table-col-width() --><!-- fo:table-column (multiple)  --><!-- =========================== --><!--
-    global vars read:
-    $show-variables-list-question
+  <!-- Name: variables-table-col-width --><!-- Value: <fo:table-column> --><!-- Header for variable table --><!--
+    Parameters/variables read:
+    show-variables-list-question [var]
 
-    FO functions called:
-    proportional-column-width()
+    Functions/templates called: 
+    proportional-column-width() [FO]
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="variables-table-col-width" xml:base="includes/named/variables-table-col-width.xml">
 
     <fo:table-column column-width="proportional-column-width( 5)"/>
@@ -4195,9 +4371,9 @@
     </xsl:if>
 
 </xsl:template>
-  <!-- page_header_footer.xsl --><!-- Named template for creating page header --><!-- =================== --><!-- header(section)     --><!-- fo:block            --><!--                     --><!-- creates page header --><!-- =================== --><!--
-    params:
-    ($section)
+  <!-- Name: header --><!-- Value: <fo:block> --><!-- Creates page header --><!--
+    Params/variables read:
+    section [param]
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="header" xml:base="includes/named/header.xml">
 
     <!-- params -->
@@ -4214,10 +4390,8 @@
     </fo:static-content>
     
 </xsl:template>
-  <!-- footer.xsl --><!-- Named template for creating page footer --><!-- =================== --><!--	 footer()          --><!-- [fo:static-content] --><!--                     --><!-- creates page footer --><!-- =================== --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="footer" xml:base="includes/named/footer.xml">
+  <!-- Name: footer --><!-- Value: <fo:static-content> --><!-- Creates page footer --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="footer" xml:base="includes/named/footer.xml">
 
-
-    <!-- r) [fo:static-content] Main -->
     <fo:static-content flow-name="xsl-region-after">
       <fo:block font-size="6" text-align="center" space-before="0.3in">
         -
@@ -4228,22 +4402,17 @@
 
 </xsl:template>
 
-  <!-- Utility templates -->
-  <!-- isodate_long.xsl --><!-- ============================== --><!-- isodate-long(isodate)          --><!-- string                         --><!--                                --><!-- converts an ISO date string to --><!-- a "prettier" format            --><!-- ============================== --><!--
-    params:
-    ($isodate)
+  <!-- Name: isodate-long(isodate)    --><!-- Value: string                  --><!-- converts an ISO date string to a "prettier" format --><!--
+    Params/variables read:
+    isodate [param]
+    language-code
 
-    global vars read:
-    $language-code
+    Variables set:
+    month
 
-    local vars set:
-    $month
-
-    XPath 1.0 functions called:
-    number(), substring(), contains()
-
-    templates called:
-    [isodate-month]
+    Functions/templates called:
+    number(), substring(), contains() [Xpath 1.0]
+    isodate-month
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-long" xml:base="includes/utilities/isodate-long.xml">
 
     <!-- params -->
@@ -4287,12 +4456,15 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- isodate.xsl --><!-- ====================== --><!-- isodate-month(isodate) --><!-- string                 --><!-- ====================== --><!--
-    params: $isodate
-    global vars read: $msg
-    local vars set: $month
+  <!-- Name: isodate-month(isodate) --><!-- Value: string --><!--
+    Params/variables read:
+    isodate [param]
+    msg
 
-    functions used:
+    Variables set:
+    month
+
+    Functions/templates called:
     number(), substring()
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-month" xml:base="includes/utilities/isodate-month.xml">
 
@@ -4356,12 +4528,15 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- ltrim.xsl --><!-- ========================= --><!-- ltrim(s)                  --><!-- string                    --><!--                           --><!-- perform left trim on text --><!-- ========================= --><!--
-    params: s
-    local vars set: s-no-ws, s-first-non-ws, s-no-leading-ws
+  <!-- Name: ltrim(s) --><!-- Value: string --><!-- perform left trim on text --><!--
+    Params/variables read:
+    s [param]
 
-    XPath 1.0 functions called:
-    translate(), concat(), substring(), substring-after()
+    Variables set:
+    s-no-ws, s-first-non-ws, s-no-leading-ws
+
+    Functions/templates called:
+    translate(), concat(), substring(), substring-after() [Xpath 1.0]
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="ltrim" xml:base="includes/utilities/trim/ltrim.xml">
 
     <!-- params -->
@@ -4376,15 +4551,13 @@
     <xsl:value-of select="concat('[',$s-first-non-ws,'|',$s-no-ws,']')"/>
 
 </xsl:template>
-  <!-- rtrim.xsl --><!-- ========================== --><!-- rtrim(s, i)                --><!-- string                     --><!--                            --><!-- perform right trim on text --><!-- ========================== --><!--
-    params:
-    -s, -i
+  <!-- Name: rtrim(s, i) --><!-- Value: string --><!-- perform right trim on text --><!--
+    Parameters/variables read:
+    s, i [params]
 
-    XPath 1.0 functions called:
-    substring(), string-length(), translate()
-
-    templates called:
-    [rtrim]
+    Functions/templates called:
+    substring(), string-length(), translate() [Xpath 1.0]
+    rtrim
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="rtrim" xml:base="includes/utilities/trim/rtrim.xml">
 
     <!-- params -->
@@ -4412,15 +4585,13 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- trim.xsl --><!-- ========== --><!-- trim(s)    --><!-- string     --><!-- ========== --><!--
-    params:
-    ($s)
+  <!-- Name: trim(s) --><!-- Value: string --><!--
+    Params/variables read:
+    s [param]
 
-    XPath 1.0 functions called:
-    concat(), substring(), translate(), substring-after()
-
-    templates called:
-    [rtrim]
+    Functions/templates called:
+    concat(), substring(), translate(), substring-after() [Xpath 1.0]
+    rtrim
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="trim" xml:base="includes/utilities/trim/trim.xml">
 
     <!-- params -->
@@ -4432,18 +4603,16 @@
     </xsl:call-template>
 
 </xsl:template>
-  <!-- fix_html.xsl --><!-- ============================================ --><!-- FixHTML(InputString)                         --><!-- creates FOP equivalent from a subset of HTML --><!-- ============================================ --><!--
-    params:
-    ($InputString)
+  <!-- Name: FixHTML --><!-- Value: --><!-- creates FOP equivalent from a subset of HTML --><!--
+    Params: InputString
 
-    local vars set:
+    Variables set:
     headStart, headEnd, break, beforeEnd
 
-    XPath 1.0 functions called:
-    substring-after, substring-before(), contains(), string-length(), not()
-
-    templates called:
-    [FixHTML]
+    Functions/templates called:
+    substring-after, substring-before(), contains()
+    string-length(), not() [Xpath 1.0]
+    FixHTML
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="FixHTML" xml:base="includes/utilities/FixHTML.xml">
 
     <!-- params -->
@@ -4508,22 +4677,18 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- date-date.xsl --><!-- ============================================= --><!-- date:date(date-time)                          --><!-- string                                        --><!--                                               --><!-- Uses an EXSLT extension to determine the date --><!-- ============================================= --><!--
-    params:
-    ($date-time)
+  <!-- Name: date:date --><!-- Value: string --><!-- Uses an EXSLT extension to determine the date --><!--
+    Params/variables read:
+    date-time [param]
+    date:date-time
 
-    global vars read:
-    $date:date-time
+    Variables set:
+    neg, dt-no-neg, dt-no-neg-length, timezone,
+    tz, date, dt-length, dt
 
-    local vars set:
-    $neg, $dt-no-neg, $dt-no-neg-length, $timezone,
-    $tz, $date, $dt-length, $dt
-
-    XPath 1.0 functions called:
-    substring(), starts-with(), not(), string(), number()
-
-    XSLT functions called:
-    function-available(), date:date-time()
+    Functions/templates called:
+    substring(), starts-with(), not(), string(), number() [Xpath 1.0]
+    function-available(), date:date-time() [XSLT 1.0]
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="date:date" xml:base="includes/utilities/date-date.xml">
 
     <!-- params -->
@@ -4584,12 +4749,12 @@
     </xsl:if>
 
 </xsl:template>
-  <!-- math_max.xsl --><!-- ==================== --><!-- math:max(nodes)      --><!-- string?              --><!-- ==================== --><!--
-    params:
-    ($nodes)
+  <!-- Name: math:max(nodes) --><!-- Value: string? --><!--
+    Params/variables read:
+    nodes [param]
 
-    XPath 1.0 functions called:
-    not(), number(), position()
+    Functions/templates called:
+    not(), number(), position() [Xpath 1.0]
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="math:max" xml:base="includes/utilities/math-max.xml">
 
     <!-- params -->

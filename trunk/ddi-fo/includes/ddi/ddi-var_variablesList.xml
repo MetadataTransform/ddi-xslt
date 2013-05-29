@@ -37,9 +37,8 @@
     <!-- params -->
     <xsl:param name="fileId" select="./@files"/> <!-- (use first file in @files if not specified) -->
 
-    <!-- ====================== -->
-    <!-- r) [fo:table-row] Main -->
-    <!-- ====================== -->
+    <!-- content -->
+    <!-- [fo:table-row] Main -->
     <xsl:if test="contains($subsetVars,concat(',',@ID,',')) or string-length($subsetVars)=0 ">
       <fo:table-row text-align="center" vertical-align="top">
 

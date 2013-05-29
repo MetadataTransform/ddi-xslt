@@ -1,17 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- math_max.xsl -->
-
-<!-- ==================== -->
-<!-- math:max(nodes)      -->
-<!-- string?              -->
-<!-- ==================== -->
+<!-- Name: math:max(nodes) -->
+<!-- Value: string? -->
 
 <!--
-    params:
-    ($nodes)
+    Params/variables read:
+    nodes [param]
 
-    XPath 1.0 functions called:
-    not(), number(), position()
+    Functions/templates called:
+    not(), number(), position() [Xpath 1.0]
 -->
 
 <xsl:template name="math:max"

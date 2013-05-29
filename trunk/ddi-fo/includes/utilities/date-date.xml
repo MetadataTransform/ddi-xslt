@@ -1,29 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- date-date.xsl -->
-
-<!-- ============================================= -->
-<!-- date:date(date-time)                          -->
-<!-- string                                        -->
-<!--                                               -->
+<!-- Name: date:date -->
+<!-- Value: string -->
 <!-- Uses an EXSLT extension to determine the date -->
-<!-- ============================================= -->
 
 <!--
-    params:
-    ($date-time)
+    Params/variables read:
+    date-time [param]
+    date:date-time
 
-    global vars read:
-    $date:date-time
+    Variables set:
+    neg, dt-no-neg, dt-no-neg-length, timezone,
+    tz, date, dt-length, dt
 
-    local vars set:
-    $neg, $dt-no-neg, $dt-no-neg-length, $timezone,
-    $tz, $date, $dt-length, $dt
-
-    XPath 1.0 functions called:
-    substring(), starts-with(), not(), string(), number()
-
-    XSLT functions called:
-    function-available(), date:date-time()
+    Functions/templates called:
+    substring(), starts-with(), not(), string(), number() [Xpath 1.0]
+    function-available(), date:date-time() [XSLT 1.0]
 -->
 
 <xsl:template name="date:date"

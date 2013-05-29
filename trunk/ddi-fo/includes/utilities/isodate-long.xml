@@ -1,29 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- isodate_long.xsl -->
-
-<!-- ============================== -->
-<!-- isodate-long(isodate)          -->
-<!-- string                         -->
-<!--                                -->
-<!-- converts an ISO date string to -->
-<!-- a "prettier" format            -->
-<!-- ============================== -->
+<!-- Name: isodate-long(isodate)    -->
+<!-- Value: string                  -->
+<!-- converts an ISO date string to a "prettier" format -->
 
 <!--
-    params:
-    ($isodate)
+    Params/variables read:
+    isodate [param]
+    language-code
 
-    global vars read:
-    $language-code
+    Variables set:
+    month
 
-    local vars set:
-    $month
-
-    XPath 1.0 functions called:
-    number(), substring(), contains()
-
-    templates called:
-    [isodate-month]
+    Functions/templates called:
+    number(), substring(), contains() [Xpath 1.0]
+    isodate-month
 -->
 
 <xsl:template name="isodate-long"

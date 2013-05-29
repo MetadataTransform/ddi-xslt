@@ -1,26 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi_varGrp.xsl -->
-
-<!-- ================= -->
-<!-- match: ddi:varGrp -->
-<!-- fo:table          -->
-<!-- ================= -->
+<!-- Match: ddi:varGrp -->
+<!-- Value: <fo:table> -->
 
 <!--
-    global vars read:
-    $subsetGroups, $msg, $default-border, $cell-padding
+    Variables read:
+    msg, subsetGroups, default-border, cell-padding
 
-    local vars set:
-    $list
+    Variables set:
+    list
 
-    Xpath 1.0 functions called:
-    contains(), concat(), position(), string-length(), normalize-space()
-
-    FO functions called:
-    proportional-column-width()
-
-    templates called:
-    [variables-table-column-width], [variables-table-column-header]
+    Functions and templates called:
+    contains(), concat(), position(), string-length(),
+    normalize-space() [Xpath 1.0]
+    proportional-column-width() [FO]
+    variables-table-column-width, variables-table-column-header
 -->
 
 <!--
@@ -38,9 +31,6 @@
 
     <xsl:if test="contains($subsetGroups,concat(',',@ID,',')) or string-length($subsetGroups)=0">
 
-      <!-- ================== -->
-      <!-- r) [fo:table] Main -->
-      <!-- ================== -->
       <fo:table id="vargrp-{@ID}" table-layout="fixed" width="100%" space-before="0.2in">
 
         <!-- Set up columns -->

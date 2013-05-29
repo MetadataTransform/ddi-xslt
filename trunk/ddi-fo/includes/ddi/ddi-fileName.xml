@@ -1,17 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi_fileName.xsl -->
-
-<!-- ======================================== -->
-<!-- match: ddi:fileName                      -->
-<!-- [-]                                      -->
-<!-- return filename minus .NSDstat extension -->
-<!-- ======================================== -->
+<!-- Match: ddi:fileName -->
+<!-- Value: filename minus .NSDstat extension -->
 
 <!--
-  local vars set:
-  $filename
+  Variables set:
+  filename
 
-  XPath 1.0 functions called:
+  Functions/templates called:
   contains(), normalize-space(), string-length(), substring()
 -->
 
@@ -19,22 +14,19 @@
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-    <!-- ========= -->
-    <!-- Variables -->
-    <!-- ========= -->
+    <!-- variables -->
     <xsl:variable name="filename" select="normalize-space(.)"/>
 
-    <!-- =============================================== -->
-    <!-- r) [-] Check if filename has .NSDstat extension -->
-    <!-- =============================================== -->
+    <!-- content -->
+    <!-- Check if filename has .NSDstat extension -->
     <xsl:choose>
 
-      <!-- Case 1) [-] Filename contains .NSDstat-->
+      <!-- filename contains .NSDstat-->
       <xsl:when test=" contains( $filename , '.NSDstat' )">
         <xsl:value-of select="substring($filename,1,string-length($filename)-8)"/>
       </xsl:when>
 
-      <!-- Case 2) [-] Does not contain .NSDstat -->
+      <!-- does not contain .NSDstat -->
       <xsl:otherwise>
         <xsl:value-of select="$filename"/>
       </xsl:otherwise>

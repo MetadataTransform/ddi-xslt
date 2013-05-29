@@ -1,10 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-collDate.xsl -->
-
-<!-- =================== -->
 <!-- match: ddi:collDate -->
-<!-- [fo:block]          -->
-<!-- =================== -->
+<!-- value: fo:block -->
 
 <xsl:template match="ddi:collDate"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -12,19 +8,19 @@
 
     <fo:block>
 
-      <!-- [-] Cycle Attribute -->
+      <!-- @cycle -->
       <xsl:if test="@cycle">
         <xsl:value-of select="@cycle"/>
         <xsl:text>: </xsl:text>
       </xsl:if>
 
-      <!-- [-] Event Attribute -->
+      <!-- @event -->
       <xsl:if test="@event">
         <xsl:value-of select="@event"/>
         <xsl:text> </xsl:text>
       </xsl:if>
 
-      <!-- [-] Date Attribute -->
+      <!-- @date -->
       <xsl:value-of select="@date"/>
 
     </fo:block>

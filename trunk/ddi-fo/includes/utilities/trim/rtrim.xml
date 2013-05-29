@@ -1,22 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- rtrim.xsl -->
-
-<!-- ========================== -->
-<!-- rtrim(s, i)                -->
-<!-- string                     -->
-<!--                            -->
+<!-- Name: rtrim(s, i) -->
+<!-- Value: string -->
 <!-- perform right trim on text -->
-<!-- ========================== -->
 
 <!--
-    params:
-    -s, -i
+    Parameters/variables read:
+    s, i [params]
 
-    XPath 1.0 functions called:
-    substring(), string-length(), translate()
-
-    templates called:
-    [rtrim]
+    Functions/templates called:
+    substring(), string-length(), translate() [Xpath 1.0]
+    rtrim
 -->
 
 <xsl:template name="rtrim"

@@ -1,17 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- page_header_footer.xsl -->
-<!-- Named template for creating page header -->
-
-<!-- =================== -->
-<!-- header(section)     -->
-<!-- fo:block            -->
-<!--                     -->
-<!-- creates page header -->
-<!-- =================== -->
+<!-- Name: header -->
+<!-- Value: <fo:block> -->
+<!-- Creates page header -->
 
 <!--
-    params:
-    ($section)
+    Params/variables read:
+    section [param]
 -->
 
 <xsl:template name="header"
