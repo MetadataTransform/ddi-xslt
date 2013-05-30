@@ -75,7 +75,7 @@
     5:  Overview:               show-overview                 param   1
     6:  Files Description:      show-files-description        param   1
     7:  Variable List:          show-variables-list           spec*
-    8:  Variable Groups:        show-variable-groups            spec**
+    8:  Variable Groups:        show-variable-groups          spec**
     9:  Variables Description:  show-variables-description    file
     10: Documentation:          show-documentation            param   0
 
@@ -83,40 +83,32 @@
     ** Both parameter and DDI file
   -->
 
-  <!-- ========================================================== -->
-  <!-- [1] Misc                                                   -->
-  <!-- ========================================================== -->
+  <!-- ========================================================= -->
+  <!-- Misc                                                      -->
+  <!-- ========================================================= -->
 
-  <!-- rdf file (file path)-->
-  <xsl:param name="rdf-file"/>
-
-  <!-- language code (string) -->
+  <!-- used in isodate-long template -->
   <xsl:param name="language-code" select="en"/>
 
   <!-- translation file (path)-->
   <xsl:param name="translations"/>
   <xsl:variable name="msg" select="document($translations)"/>
-  
+
   <!-- optional text -->
-  <xsl:param name="report-title" select=" 'Study Documentation' "/>
+  <xsl:param name="report-title" select="'Study Documentation'"/>
   <xsl:param name="report-acknowledgments"/>
   <xsl:param name="report-notes"/>
 
-  <!-- Params from OutputServlet.java -->
-  <xsl:param name="number-of-vars"/>
+  <!-- params from OutputServlet.java -->
   <xsl:param name="number-of-groups"/>
   <xsl:param name="subset-groups"/>
   <xsl:param name="subset-vars"/>
-  <xsl:param name="max-vars"/>
-  <xsl:param name="allow-html" select="0"/>
 
-  <!-- Report date -->
-  <xsl:variable name="exslt-date">
-    <xsl:call-template name="date:date"/>
+  <!-- Report date, from parameter or EXSLT date:date-time() if available -->
+  <xsl:variable name="calculated-date">
+    <xsl:call-template name="date"/>
   </xsl:variable>
-  <!-- Required by EXSLT date function -->
-  <xsl:variable name="date:date-time" select="'2000-01-01T00:00:00Z'"/>
-  <xsl:param name="report-date" select="$exslt-date"/>
+  <xsl:param name="report-date" select="$calculated-date"/>
 
   <!-- Start page number, used by Overview -->
   <!-- (useful if running multi-survey reports) -->
@@ -128,22 +120,24 @@
   <!-- Layout and style                                           -->
   <!-- ========================================================== -->
 
+  <!-- To avoid empty pages; use a huge chunksize for subsets -->
+  <xsl:variable name="chunk-size">50</xsl:variable>
+
   <!-- Style and page layout -->
   <xsl:param name="show-variables-list-layout">default-page</xsl:param>
   <xsl:param name="font-family">Times</xsl:param>
 
-  <xsl:variable name="cell-padding" select=" '3pt' "/>
-  <xsl:variable name="default-border" select=" '0.5pt solid black' "/>
-  <xsl:variable name="color-white" select=" '#ffffff' "/>
-  <xsl:variable name="color-gray0" select=" '#f8f8f8' "/>
-  <xsl:variable name="color-gray1" select=" '#f0f0f0' "/>
-  <xsl:variable name="color-gray2" select=" '#e0e0e0' "/>
-  <xsl:variable name="color-gray3" select=" '#d0d0d0' "/>
-  <xsl:variable name="color-gray4" select=" '#c0c0c0' "/>
-
+  <xsl:variable name="cell-padding" select="'3pt'"/>
+  <xsl:variable name="default-border" select="'0.5pt solid black'"/>
+  <xsl:variable name="color-white" select="'#ffffff'"/>
+  <xsl:variable name="color-gray0" select="'#f8f8f8'"/>
+  <xsl:variable name="color-gray1" select="'#f0f0f0'"/>
+  <xsl:variable name="color-gray2" select="'#e0e0e0'"/>
+  <xsl:variable name="color-gray3" select="'#d0d0d0'"/>
+  <xsl:variable name="color-gray4" select="'#c0c0c0'"/>
 
   <!-- ============================================================= -->
-  <!-- Layout and style - show or hide                               -->
+  <!-- Layout and style params - show or hide                        -->
   <!-- ============================================================= -->
 
   <!-- main sections of root template -->
@@ -153,7 +147,6 @@
   <xsl:param name="show-toc" select="1"/>
   <xsl:param name="show-overview" select="1"/>
   <xsl:param name="show-files-description" select="1"/>
-  <xsl:param name="show-documentation" select="0"/>
 
   <!-- parts in the cover page -->
   <xsl:param name="show-logo" select="0"/>
@@ -173,13 +166,50 @@
   <xsl:param name="show-documentation-toc" select="0"/>
   <xsl:param name="show-documentation-subjects" select="0"/>
 
-  <!-- from OutputServlet.java, supposedly? -->
-  <xsl:param name="show-variable-groups-param" select="1"/>
+  <!-- ==================================== -->
+  <!-- string vars                          -->
+  <!-- ==================================== -->
+
+  <!-- toolkit: Microdata Management Toolkit or Nesstar Publishser 3.x -->
+  <!-- ddp:     World Bank Data Development Platform -->
+  <xsl:variable name="ddi-flavor">
+    <xsl:choose>
+      <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'DDP' ) ])">ddp</xsl:when>
+      <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'Nesstar' ) ])">toolkit</xsl:when>
+      <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'Metadata Editor' ) ])">toolkit</xsl:when>
+      <xsl:otherwise>toolkit</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- survey title -->
+  <xsl:variable name="survey-title">
+    <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)"/>
+    <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:altTitl">
+      (<xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:altTitl)"/>)
+    </xsl:if>
+  </xsl:variable>
+
+  <!-- geography -->
+  <xsl:variable name="geography">
+    <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:nation">
+      <xsl:if test="position() &gt; 1">
+        <xsl:text>, </xsl:text>
+      </xsl:if>
+      <xsl:value-of select="normalize-space(.)"/>
+    </xsl:for-each>
+  </xsl:variable>
+
+  <!-- If timeperiods returns empty, use timePrd instead -->
+  <xsl:variable name="time-produced" select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd/@date"/>
+
+  <!-- ==================================== -->
+  <!-- tricky/dependant boolean vars        -->
+  <!-- ==================================== -->
 
   <!-- Show variable groups only if there are any -->
   <xsl:variable name="show-variable-groups">
     <xsl:choose>
-      <xsl:when test="$show-variable-groups-param = 1 and count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp) &gt; 0">1</xsl:when>
+      <xsl:when test="count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp) &gt; 0">1</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
@@ -196,12 +226,14 @@
   <!-- exceeds given max, then dont show extensive variable desc -->
   <xsl:variable name="show-variables-description">
     <xsl:choose>
-      <xsl:when test="(count(/ddi:codeBook/ddi:dataDscr/ddi:var) &gt; $max-vars and $number-of-vars &lt; 1 )">0</xsl:when>
-      <xsl:when test="($number-of-vars &gt; $max-vars)">0</xsl:when>
       <xsl:when test="(count(/ddi:codeBook/ddi:dataDscr/ddi:var) = 0)">0</xsl:when>
       <xsl:otherwise>1</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
+
+  <!-- ==================================== -->
+  <!-- simple boolean vars                  -->
+  <!-- ==================================== -->
 
   <xsl:variable name="show-scope-and-coverage">
     <xsl:choose>
@@ -280,50 +312,6 @@
   </xsl:variable>
 
   <!-- ========================================================= -->
-  <!-- Misc                                                      -->
-  <!-- ========================================================= -->
-
-  <!-- toolkit: Microdata Management Toolkit or Nesstar Publishser 3.x -->
-  <!-- ddp:     World Bank Data Development Platform -->
-  <xsl:variable name="ddi-flavor">
-    <xsl:choose>
-      <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'DDP' ) ])">ddp</xsl:when>
-      <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'Nesstar' ) ])">toolkit</xsl:when>
-      <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'Metadata Editor' ) ])">toolkit</xsl:when>
-      <xsl:otherwise>toolkit</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <!-- survey title -->
-  <xsl:variable name="survey-title">
-    <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)"/>
-    <!-- abbreviation is stored in the altTitl element -->
-    <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:altTitl">
-      (<xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:altTitl)"/>)
-    </xsl:if>
-  </xsl:variable>
-
-  <!-- geography -->
-  <xsl:variable name="geography">
-    <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:nation">
-      <xsl:if test="position()&gt;1">
-        <xsl:text>, </xsl:text>
-      </xsl:if>
-      <xsl:value-of select="normalize-space(.)"/>
-    </xsl:for-each>
-  </xsl:variable>
-
-  <!-- To avoid empty pages; use a huge chunksize for subsets -->
-  <xsl:variable name="chunk-size">
-    <xsl:choose>
-      <xsl:when test="($number-of-vars &gt; 0 )">
-        <xsl:value-of select="1000"/>
-      </xsl:when>
-      <xsl:otherwise>50</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <!-- ========================================================= -->
   <!-- Misc - Time and date related                              -->
   <!-- ========================================================= -->
 
@@ -342,9 +330,6 @@
       </xsl:if>
     </xsl:if>
   </xsl:variable>
-
-  <!-- If timeperiods returns empty, use timePrd instead -->
-  <xsl:variable name="time-produced" select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd/@date"/>
 
   <!-- ===================================== -->
   <!-- Xincludes - include templates         -->
@@ -391,8 +376,7 @@
       show-scope-and-coverage, show-producers-and-sponsors,
       show-sampling, show-data-collection, show-data-processing-and-appraisal,
       show-accessibility, show-rights-and-disclaimer, show-files-description,
-      show-variable-groups, show-variables-list, show-variables-description,
-      show-documentation
+      show-variable-groups, show-variables-list, show-variables-description
 
       Functions/templates called:
       nomalize-space(), contains(), concat(), string-length()
@@ -614,15 +598,6 @@
 
                 </fo:bookmark>
               </xsl:for-each>
-            </fo:bookmark>
-          </xsl:if>
-
-          <!-- 9) Documentation -->
-          <xsl:if test="$show-documentation = 1 and normalize-space($rdf-file)">
-            <fo:bookmark internal-destination="documentation">
-              <fo:bookmark-title>
-                <xsl:value-of select="$msg/*/entry[@key='Documentation']"/>
-              </fo:bookmark-title>
             </fo:bookmark>
           </xsl:if>
 
@@ -872,7 +847,7 @@
         show-producers-and-sponsors, show-sampling, show-data-collection
         show-data-processing-and-appraisal, show-accessibility,
         show-rights-and-disclaimer, show-files-description, show-variables-list
-        show-variable-groups, subset-groups, show-documentation
+        show-variable-groups, subset-groups
 
         Functions called:
         normalize-space(), string-length(), contains(), concat()
@@ -1079,17 +1054,6 @@
                       </fo:basic-link>
                     </fo:block>
                   </xsl:for-each>
-                </fo:block>
-              </xsl:if>
-
-              <!-- 13) [fo:block] Documentation -->
-              <xsl:if test="$show-documentation">
-                <fo:block font-size="10pt" text-align-last="justify">
-                  <fo:basic-link internal-destination="documentation" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Documentation']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation"/>
-                  </fo:basic-link>
                 </fo:block>
               </xsl:if>
 
@@ -2151,7 +2115,7 @@
 
       <!--
         Variables read:
-        font-family, msg, number-of-vars
+        msg, font-family
 
         Functions/templates called
         count(), string-length()
@@ -2187,9 +2151,8 @@
               <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:var)"/>
               <xsl:text> </xsl:text>
               <xsl:value-of select="$msg/*/entry[@key='variables']"/>
-              <xsl:if test="string-length($subset-vars)&gt;0">
+              <xsl:if test="string-length($subset-vars) &gt; 0">
                 <xsl:value-of select="$msg/*/entry[@key='ShowingSubset']"/>
-                <xsl:value-of select="$number-of-vars"/>
               </xsl:if>
             </fo:block>
 
@@ -2199,265 +2162,7 @@
         <!-- fileDscr -->
         <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" mode="variables-description"/>
       </xsl:if>
-
-
-      <!-- =============================================== -->
-      <!-- [10] Page sequence: Documentation               -->
-      <!-- <fo:page-sequence>                              -->
-      <!-- =============================================== -->
-
-      <!--
-        Variables set:
-        rdf, adm-count, anl-count, qst-count, oth-count, ref-count,
-        rep-count, tec-count, tbl-count, prg-count, unc-count
-
-        Variables read:
-        msg, rdf-file, font-family
-
-        Functions/templates called:
-        normalize-space(), count(), contains(), not() [Xpath]
-        document() [XSLT 1.0]
-        header, footer, documentation-toc-section
-      -->
-
-      <xsl:if test="$show-documentation = 1 and normalize-space($rdf-file)">
-
-        <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
-
-          <!-- Page header -->
-          <xsl:call-template name="header">
-            <xsl:with-param name="section">
-              <xsl:value-of select="$msg/*/entry[@key='Documentation']"/>
-            </xsl:with-param>
-          </xsl:call-template>
-
-          <!-- Page footer-->
-          <xsl:call-template name="footer"/>
-
-          <!-- main flow -->
-          <fo:flow flow-name="xsl-region-body">
-
-            <!-- Documentation -->
-            <fo:block id="documentation" font-size="18pt" font-weight="bold" space-after="0.1in">
-              <xsl:value-of select="$msg/*/entry[@key='Documentation']"/>
-            </fo:block>
-
-            <!--  get RDF document -->
-            <xsl:variable name="rdf" select="document($rdf-file)"/>
-            <!-- count documents by category -->
-            <xsl:variable name="adm-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/adm]') ]) "/>
-            <xsl:variable name="anl-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/anl]') ]) "/>
-            <xsl:variable name="qst-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/qst]') ]) "/>
-            <xsl:variable name="oth-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/oth]') ]) "/>
-            <xsl:variable name="ref-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/ref]') ]) "/>
-            <xsl:variable name="rep-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/rep]') ]) "/>
-            <xsl:variable name="tec-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/tec]') ]) "/>
-            <xsl:variable name="tbl-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[tbl') ]) "/>
-            <xsl:variable name="prg-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[prg') ]) "/>
-            <xsl:variable name="unc-count" select="count($rdf/rdf:RDF/rdf:Description[not( contains(dc:type,'[doc') or contains(dc:type,'[tbl') or contains(dc:type,'[prg') ) ] )"/>
-
-            <!-- Table of contents -->
-            <fo:block space-after="0.2in">
-
-              <!-- Report/analytical -->
-              <xsl:if test="$rep-count &gt;0 or $anl-count &gt; 0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-anl" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Reports_and_analytical_documents']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-anl"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/rep]')  or contains(dc:type,'[doc/anl]') ]"/>
-                </xsl:call-template>
-              </xsl:if>
-
-              <!-- Questionnaires -->
-              <xsl:if test="$qst-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-qst" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Questionnaires']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-qst"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/qst]')]"/>
-                </xsl:call-template>
-              </xsl:if>
-
-              <!-- Technical -->
-              <xsl:if test="$tec-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-tec" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Technical_documents']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-tec"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/tec]')]"/>
-                </xsl:call-template>
-              </xsl:if>
-
-              <!-- Administrative -->
-              <xsl:if test="$adm-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-adm" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Administrative_documents']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-adm"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/adm]')]"/>
-                </xsl:call-template>
-              </xsl:if>
-
-              <!-- References -->
-              <xsl:if test="$ref-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-ref" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='References']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-ref"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/ref]')]"/>
-                </xsl:call-template>
-              </xsl:if>
-
-              <!-- [fo:block] Other -->
-              <xsl:if test="$oth-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-oth" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Other_documents']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-oth"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/oth]')]"/>
-                </xsl:call-template>
-              </xsl:if>
-
-              <!-- [fo:block] Statistical tables -->
-              <xsl:if test="$tbl-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-tbl" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Statistical_tables']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-tbl"/>
-                  </fo:basic-link>
-                </fo:block>
-              </xsl:if>
-
-              <!-- [fo:block] Scripts and programs -->
-              <xsl:if test="$prg-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-prg" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Scripts_and_programs']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-prg"/>
-                  </fo:basic-link>
-                </fo:block>
-              </xsl:if>
-
-              <!-- [fo:block] Other resources -->
-              <xsl:if test="$unc-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-unc" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Other_resources']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-unc"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select=" $rdf/rdf:RDF/rdf:Description[ not( contains(dc:type,'[doc') or contains(dc:type,'[tbl') or contains(dc:type,'[prg') )  ] "/>
-                </xsl:call-template>
-              </xsl:if>
-            </fo:block>
-
-            <!-- DOCUMENTS -->
-
-            <!-- [fo:block] Report/analytical -->
-            <xsl:if test="$rep-count &gt;0 or $anl-count &gt; 0">
-              <fo:block id="documentation-anl" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Reports_and_analytical_documents']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/rep]')  or contains(dc:type,'[doc/anl]') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Questionnaires -->
-            <xsl:if test="$qst-count &gt; 0">
-              <fo:block id="documentation-qst" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Questionnaires']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/qst]') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Technical -->
-            <xsl:if test="$tec-count &gt; 0">
-              <fo:block id="documentation-tec" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Technical_documents']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/tec]') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Administrative -->
-            <xsl:if test="$adm-count &gt; 0">
-              <fo:block id="documentation-adm" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Administrative_documents']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/adm]') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] References -->
-            <xsl:if test="$ref-count &gt; 0">
-              <fo:block id="documentation-ref" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='References']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/ref]') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Other documents-->
-            <xsl:if test="$oth-count &gt; 0">
-              <fo:block id="documentation-oth" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Other_documents']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/oth]') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Statistical tables -->
-            <xsl:if test="$tbl-count &gt; 0">
-              <fo:block id="documentation-tbl" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Statistical_Tables']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[tbl') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Scripts and programs -->
-            <xsl:if test="$prg-count &gt; 0">
-              <fo:block id="documentation-prg" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Scripts_and_programs']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[prg') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Other resources -->
-            <xsl:if test="$unc-count &gt; 0">
-              <fo:block id="documentation-unc" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Other_resources']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ not( contains(dc:type,'[doc') or contains(dc:type,'[tbl') or contains(dc:type,'[prg') )  ]"/>
-            </xsl:if>
-
-          </fo:flow>
-        </fo:page-sequence>
-      </xsl:if>
-
+ 
     </fo:root>
 
 </xsl:template>
@@ -4043,32 +3748,20 @@
   trimmed
 
   Functions/templates called:
-  trim, fix-html
+  trim
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:*|text()" xml:base="includes/ddi/ddi_default_text.xml">
 
-    <!-- Case 1) HTML content -->
-    <xsl:if test="$allow-html = 1">
-      <xsl:call-template name="fix-html">
-        <xsl:with-param name="input-string" select="."/>
-      </xsl:call-template>
-    </xsl:if>
+  <!-- variables -->
+  <xsl:variable name="trimmed">
+    <xsl:call-template name="trim">
+      <xsl:with-param name="s" select="."/>
+    </xsl:call-template>
+  </xsl:variable>
 
-    <!-- Case 2) No HTML content -->
-    <xsl:if test="$allow-html = 0">
-
-      <!-- variables -->
-      <xsl:variable name="trimmed">
-        <xsl:call-template name="trim">
-          <xsl:with-param name="s" select="."/>
-        </xsl:call-template>
-      </xsl:variable>
-
-      <!-- content -->
-      <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0in">
-        <xsl:value-of select="$trimmed"/>
-      </fo:block>
-
-    </xsl:if>
+  <!-- content -->
+  <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0in">
+    <xsl:value-of select="$trimmed"/>
+  </fo:block>
 
 </xsl:template>
 
@@ -4384,7 +4077,6 @@
     </fo:static-content>
 
 </xsl:template>
-
   <!-- Name: isodate-long(isodate)    --><!-- Value: string                  --><!-- converts an ISO date string to a "prettier" format --><!--
     Params/variables read:
     isodate [param]
@@ -4586,80 +4278,6 @@
     </xsl:call-template>
 
 </xsl:template>
-  <!-- fix-html.xml --><!-- Name: fix-html --><!-- creates FOP equivalent from a subset of HTML --><!--
-    Params: input-string
-
-    Variables set:
-    head-start, head-end, break, before-end
-
-    Functions/templates called:
-    substring-after, substring-before(), contains()
-    string-length(), not() [Xpath 1.0]
-    fix-html
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="fix-html" xml:base="includes/utilities/fix-html.xml">
-
-    <!-- params -->
-    <xsl:param name="input-string"/>
-
-    <!-- variables -->
-    <xsl:variable name="head-start">
-      <xsl:text>&lt;h2&gt;</xsl:text>
-    </xsl:variable>
-
-    <xsl:variable name="head-end">
-      <xsl:text>&lt;/h2&gt;</xsl:text>
-    </xsl:variable>
-
-    <xsl:variable name="break">
-      <xsl:text>&lt;br/&gt;</xsl:text>
-    </xsl:variable>
-
-    <!-- content -->
-    <!-- what to do -->
-    <xsl:choose>
-
-      <!-- Case 1: Make a header -->
-      <xsl:when test="(contains($input-string,$head-end) and string-length(substring-before($input-string,$head-end)) &lt; string-length(substring-before($input-string,$break))) or (not(contains($input-string,$break))and contains($input-string,$head-end))">
-        <xsl:variable name="before-end" select="substring-before($input-string,$head-end)"/>
-
-        <fo:block font-weight="bold">
-          <xsl:value-of select="substring-after($before-end,$head-start)"/>
-        </fo:block>
-
-        <xsl:call-template name="fix-html">
-          <xsl:with-param name="input-string">
-            <xsl:value-of select="substring-after($input-string,$head-end)"/>
-          </xsl:with-param>
-        </xsl:call-template>
-      </xsl:when>
-
-      <!-- Case 2: Make a newline -->
-      <xsl:when test="contains($input-string,$break)">
-        <xsl:if test="string-length(substring-before($input-string,$break))=0">
-          <fo:block> </fo:block>
-        </xsl:if>
-
-        <fo:block>
-          <xsl:value-of select="substring-before($input-string,$break)"/>
-        </fo:block>
-
-        <xsl:call-template name="fix-html">
-          <xsl:with-param name="input-string">
-            <xsl:value-of select="substring-after($input-string,$break)"/>
-          </xsl:with-param>
-        </xsl:call-template>
-      </xsl:when>
-
-      <!-- Case 3: If no headers or breaks left in string, display all -->
-      <xsl:otherwise>
-        <fo:block>
-          <xsl:value-of select="$input-string"/>
-        </fo:block>
-      </xsl:otherwise>
-
-    </xsl:choose>
-
-</xsl:template>
   <!-- Name: date:date --><!-- Value: string --><!-- Uses an EXSLT extension to determine the date --><!--
     Params/variables read:
     date-time [param]
@@ -4672,16 +4290,18 @@
     Functions/templates called:
     substring(), starts-with(), not(), string(), number() [Xpath 1.0]
     function-available(), date:date-time() [XSLT 1.0]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="date:date" xml:base="includes/utilities/date-date.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="date" xml:base="includes/utilities/date.xml">
 
     <!-- params -->
     <xsl:param name="date-time">
       <xsl:choose>
+        <!-- use EXSLT date:date-time() if available -->
         <xsl:when test="function-available('date:date-time')">
           <xsl:value-of select="date:date-time()"/>
         </xsl:when>
+        <!-- fallback value -->
         <xsl:otherwise>
-          <xsl:value-of select="$date:date-time"/>
+          <xsl:value-of select="'2000-01-01T00:00:00Z'"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:param>
@@ -4707,7 +4327,7 @@
         <xsl:when test="substring($dt-no-neg, $dt-no-neg-length) = 'Z'">Z</xsl:when>
         <xsl:otherwise>
           <xsl:variable name="tz" select="substring($dt-no-neg, $dt-no-neg-length - 5)"/>
-          <xsl:if test="(substring($tz, 1, 1) = '-' or       substring($tz, 1, 1) = '+') and       substring($tz, 4, 1) = ':'">
+          <xsl:if test="(substring($tz, 1, 1) = '-' or substring($tz, 1, 1) = '+') and substring($tz, 4, 1) = ':'">
             <xsl:value-of select="$tz"/>
           </xsl:if>
         </xsl:otherwise>
@@ -4715,16 +4335,19 @@
     </xsl:variable>
 
     <xsl:variable name="date">
-      <xsl:if test="not(string($timezone)) or     $timezone = 'Z' or     (substring($timezone, 2, 2) &lt;= 23 and     substring($timezone, 5, 2) &lt;= 59)">
+      <xsl:if test="not(string($timezone)) or $timezone = 'Z' or (substring($timezone, 2, 2) &lt;= 23 and substring($timezone, 5, 2) &lt;= 59)">
         <xsl:variable name="dt" select="substring($dt-no-neg, 1, $dt-no-neg-length - string-length($timezone))"/>
         <xsl:variable name="dt-length" select="string-length($dt)"/>
-        <xsl:if test="number(substring($dt, 1, 4)) and      substring($dt, 5, 1) = '-' and      substring($dt, 6, 2) &lt;= 12 and      substring($dt, 8, 1) = '-' and      substring($dt, 9, 2) &lt;= 31 and      ($dt-length = 10 or      (substring($dt, 11, 1) = 'T' and      substring($dt, 12, 2) &lt;= 23 and      substring($dt, 14, 1) = ':' and      substring($dt, 15, 2) &lt;= 59 and      substring($dt, 17, 1) = ':' and      substring($dt, 18) &lt;= 60))">
+
+        <xsl:if test="number(substring($dt, 1, 4)) and substring($dt, 5, 1) = '-' and substring($dt, 6, 2) &lt;= 12 and substring($dt, 8, 1) = '-' and substring($dt, 9, 2) &lt;= 31 and ($dt-length = 10 or (substring($dt, 11, 1) = 'T' and substring($dt, 12, 2) &lt;= 23 and substring($dt, 14, 1) = ':' and substring($dt, 15, 2) &lt;= 59 and substring($dt, 17, 1) = ':' and substring($dt, 18) &lt;= 60))">
           <xsl:value-of select="substring($dt, 1, 10)"/>
         </xsl:if>
+
       </xsl:if>
     </xsl:variable>
 
     <!-- content -->
+    <!-- the formated date string -->
     <xsl:if test="string($date)">
       <xsl:if test="$neg">-</xsl:if>
       <xsl:value-of select="$date"/>
