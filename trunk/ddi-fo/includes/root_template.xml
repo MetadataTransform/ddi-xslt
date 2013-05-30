@@ -15,7 +15,6 @@
   7: Variables List                   <fo:page-sequence>
   8: Variable Groups                  <fo:page-sequence>
   9: Variables Description            <fo:page-sequence>
-  10: Documentation                   <fo:page-sequence>
 -->
 
 <xsl:template match="/"
@@ -75,7 +74,6 @@
       6: Variable Groups                  <fo:bookmark>
       7: Variables List                   <fo:bookmark>
       8: Variables Description            <fo:bookmark>
-      9: Documentation Section            <fo:bookmark>
     -->
 
     <xsl:if test="$show-bookmarks = 1">
@@ -543,7 +541,6 @@
        10: Variables List                 <fo:block>
        11: Variable Groups                <fo:block>
        12: Variables Description          <fo:block>
-       13: Documentation                  <fo:block>
       -->
 
       <xsl:if test="$show-toc = 1">

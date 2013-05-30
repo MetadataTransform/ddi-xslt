@@ -89,7 +89,7 @@
     Functions and templates called:
     count(), normalize-space(), position(), substring() [Xpath 1.0]
     document() [XSLT 1.0]
-    date:date
+    date
   -->
 
   <!--
@@ -104,7 +104,6 @@
     7:  Variable List:          show-variables-list           spec*
     8:  Variable Groups:        show-variable-groups          spec**
     9:  Variables Description:  show-variables-description    file
-    10: Documentation:          show-documentation            param   0
 
     *  If show-variable-groups is 1, this is set to 0
     ** Both parameter and DDI file
@@ -187,12 +186,6 @@
   <xsl:param name="show-variables-list-question" select="1" />
   <xsl:param name="show-variables-description-categories" select="1" />
 
-  <!-- documentation refer to a rdf file given as parameter which we dont have -->
-  <xsl:param name="show-documentation-description" select="0" />
-  <xsl:param name="show-documentation-abstract" select="0" />
-  <xsl:param name="show-documentation-toc" select="0" />
-  <xsl:param name="show-documentation-subjects" select="0" />
-
   <!-- ==================================== -->
   <!-- string vars                          -->
   <!-- ==================================== -->
@@ -222,7 +215,7 @@
       <xsl:if test="position() &gt; 1">
         <xsl:text>, </xsl:text>
       </xsl:if>
-      <xsl:value-of select="normalize-space(.)"/>
+      <xsl:value-of select="normalize-space(.)" />
     </xsl:for-each>
   </xsl:variable>
 
@@ -383,11 +376,7 @@
   <xi:include href="includes/ddi/ddi-varGrp.xml" />
   <xi:include href="includes/ddi/ddi_default_text.xml" />
 
-  <!-- templates matching the rdf: namespace -->
-  <xi:include href="includes/rdf/rdf-Description.xml" />
-
   <!-- Named/utility templates -->
-  <xi:include href='includes/named/documentation-toc-section.xml' />
   <xi:include href='includes/named/variables-table-col-header.xml' />
   <xi:include href='includes/named/variables-table-col-width.xml' />
   <xi:include href="includes/named/header.xml" />

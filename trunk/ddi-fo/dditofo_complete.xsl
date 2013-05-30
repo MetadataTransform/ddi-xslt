@@ -62,7 +62,7 @@
     Functions and templates called:
     count(), normalize-space(), position(), substring() [Xpath 1.0]
     document() [XSLT 1.0]
-    date:date
+    date
   -->
 
   <!--
@@ -77,7 +77,6 @@
     7:  Variable List:          show-variables-list           spec*
     8:  Variable Groups:        show-variable-groups          spec**
     9:  Variables Description:  show-variables-description    file
-    10: Documentation:          show-documentation            param   0
 
     *  If show-variable-groups is 1, this is set to 0
     ** Both parameter and DDI file
@@ -159,12 +158,6 @@
   <xsl:param name="show-metadata-production" select="1"/>
   <xsl:param name="show-variables-list-question" select="1"/>
   <xsl:param name="show-variables-description-categories" select="1"/>
-
-  <!-- documentation refer to a rdf file given as parameter which we dont have -->
-  <xsl:param name="show-documentation-description" select="0"/>
-  <xsl:param name="show-documentation-abstract" select="0"/>
-  <xsl:param name="show-documentation-toc" select="0"/>
-  <xsl:param name="show-documentation-subjects" select="0"/>
 
   <!-- ==================================== -->
   <!-- string vars                          -->
@@ -347,7 +340,6 @@
   7: Variables List                   <fo:page-sequence>
   8: Variable Groups                  <fo:page-sequence>
   9: Variables Description            <fo:page-sequence>
-  10: Documentation                   <fo:page-sequence>
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="/" xml:base="includes/root_template.xml">
 
   <!-- content -->
@@ -399,7 +391,6 @@
       6: Variable Groups                  <fo:bookmark>
       7: Variables List                   <fo:bookmark>
       8: Variables Description            <fo:bookmark>
-      9: Documentation Section            <fo:bookmark>
     -->
 
     <xsl:if test="$show-bookmarks = 1">
@@ -866,7 +857,6 @@
        10: Variables List                 <fo:block>
        11: Variable Groups                <fo:block>
        12: Variables Description          <fo:block>
-       13: Documentation                  <fo:block>
       -->
 
       <xsl:if test="$show-toc = 1">
@@ -3765,256 +3755,63 @@
 
 </xsl:template>
 
-  <!-- templates matching the rdf: namespace -->
-  <!-- Match: rdf:Description --><!-- Value: <fo:block> --><!--
-    Parameters/variables read:
-    msg, color-gray1, color-gray2, color-white,
-    show-documentation-description
-
-    Variables set:
-    date
-
-    Functions/templates called:
-    normalize-space(), string-length(), boolean(), position() [Xpath 1.0]
-    generate-id() [XSLT 1.0]
-    isodate-month, trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="rdf:Description" xml:base="includes/rdf/rdf-Description.xml">
-
-
-    <!-- content -->
-    <fo:block id="{generate-id()}" background-color="{$color-gray1}" space-after="0.2in" border-top="0.5pt solid {$color-gray2}" border-bottom="0.5pt solid {$color-gray2}" padding-bottom="0.05in" padding-top="0.05in">
-
-      <!-- 1) [fo:inline] Title -->
-      <fo:inline font-weight="bold">
-        <xsl:choose>
-          <xsl:when test="normalize-space(dc:title)">
-            <xsl:value-of select="normalize-space(dc:title)"/>
-          </xsl:when>
-          <xsl:otherwise>***
-            <xsl:value-of select="$msg/*/entry[@key='Untitled']"/>
-            ***
-          </xsl:otherwise>
-        </xsl:choose>
-      </fo:inline>
-
-      <!-- 2) [fo:inline] Subtitle -->
-      <xsl:if test="normalize-space(dcterms:alternative)">
-        <xsl:text>, </xsl:text>
-        <fo:inline font-style="italic">
-          <xsl:value-of select="normalize-space(dcterms:alternative)"/>
-        </fo:inline>
-      </xsl:if>
-
-      <!-- 3) [-] Author -->
-      <xsl:if test="normalize-space(dc:creator)">
-        <xsl:text>, </xsl:text>
-        <xsl:value-of select="normalize-space(dc:creator)"/>
-      </xsl:if>
-
-      <!-- 4) [-] Date -->
-      <xsl:if test="normalize-space(dcterms:created)">
-        <xsl:variable name="date" select="normalize-space(dcterms:created)"/>
-        <xsl:text>, </xsl:text>
-        <xsl:if test="string-length($date) &gt;= 7">
-          <xsl:call-template name="isodate-month">
-            <xsl:with-param name="isodate" select="$date"/>
-          </xsl:call-template>
-          <xsl:text> </xsl:text>
-        </xsl:if>
-        <xsl:if test="string-length($date) &gt;= 4">
-          <xsl:value-of select="substring($date,1,4)"/>
-        </xsl:if>
-      </xsl:if>
-
-      <!-- 5) [-] Country -->
-      <xsl:if test="normalize-space(dcterms:spatial)">
-        <xsl:text>, </xsl:text>
-        <xsl:value-of select="normalize-space(dcterms:spatial)"/>
-      </xsl:if>
-
-      <!-- 6) [-] Language -->
-      <xsl:if test="normalize-space(dc:language)">
-        <xsl:text>, </xsl:text>
-        <xsl:value-of select="normalize-space(dc:language)"/>
-      </xsl:if>
-
-      <!-- 7) [-] Source -->
-      <xsl:if test="normalize-space(@rdf:about)">
-        <xsl:text>,  "</xsl:text>
-        <xsl:value-of select="normalize-space(@rdf:about)"/>
-        <xsl:text>"</xsl:text>
-      </xsl:if>
-
-      <!-- 8) [fo:block] Description -->
-      <xsl:if test="boolean($show-documentation-description)">
-        <xsl:if test="normalize-space(dc:description)">
-          <fo:block background-color="{$color-gray2}" border-top="0.5pt solid {$color-white}" font-size="8pt" font-weight="bold" padding-top="0.05in" space-before="0.05in">
-            <xsl:value-of select="$msg/*/entry[@key='Description']"/>
-          </fo:block>
-          <fo:block font-size="8pt" padding-top="0.05in" white-space-collapse="false">
-            <xsl:call-template name="trim">
-              <xsl:with-param name="s" select="dc:description"/>
-            </xsl:call-template>
-          </fo:block>
-        </xsl:if>
-      </xsl:if>
-
-      <!-- 9) [fo:block] Abstract -->
-      <xsl:if test="boolean($show-documentation-abstract)">
-        <xsl:if test="normalize-space(dcterms:abstract)">
-          <fo:block background-color="{$color-gray2}" border-top="0.5pt solid {$color-white}" font-size="8pt" font-weight="bold" padding-top="0.05in" space-before="0.05in">
-            <xsl:value-of select="$msg/*/entry[@key='Abstract']"/>
-          </fo:block>
-          <fo:block font-size="8pt" padding-top="0.05in" white-space-collapse="false">
-            <xsl:call-template name="trim">
-              <xsl:with-param name="s" select="dcterms:abstract"/>
-            </xsl:call-template>
-          </fo:block>
-        </xsl:if>
-      </xsl:if>
-
-      <!-- 10) [fo:block] TOC-->
-      <xsl:if test="boolean($show-documentation-toc)">
-        <xsl:if test="normalize-space(dcterms:tableOfContents)">
-          <fo:block background-color="{$color-gray2}" border-top="0.5pt solid {$color-white}" font-size="8pt" font-weight="bold" padding-top="0.05in" space-before="0.05in">
-            <xsl:value-of select="$msg/*/entry[@key='Table_of_Contents']"/>
-          </fo:block>
-          <fo:block font-size="8pt" padding-top="0.05in" white-space-collapse="false">
-            <xsl:call-template name="trim">
-              <xsl:with-param name="s" select="dcterms:tableOfContents"/>
-            </xsl:call-template>
-          </fo:block>
-        </xsl:if>
-      </xsl:if>
-
-      <!-- 11) [fo:block] Subjects -->
-      <xsl:if test="boolean($show-documentation-subjects)">
-        <xsl:if test="normalize-space(dc:subject)">
-          <fo:block background-color="{$color-gray2}" border-top="0.5pt solid {$color-white}" font-size="8pt" font-weight="bold" padding-top="0.05in" space-before="0.05in">
-            <xsl:value-of select="$msg/*/entry[@key='Subjects']"/>
-          </fo:block>
-          <fo:block font-size="8pt" padding-top="0.05in" white-space-collapse="false">
-            <xsl:for-each select="dc:subject">
-              <xsl:if test="position()&gt;1">
-                <xsl:text>, </xsl:text>
-              </xsl:if>
-              <xsl:value-of select="normalize-space(.)"/>
-            </xsl:for-each>
-          </fo:block>
-        </xsl:if>
-      </xsl:if>
-
-    </fo:block>
-
-</xsl:template>
-
   <!-- Named/utility templates -->
-  <!-- Name: documentation-toc-section --><!-- Value: <fo:block> --><!--
-    Params/variables read:
-    nodes [param]
-    msg
-
-    Functions/templates called:
-    normalize-space() [Xpath 1.0]
-    generate-id() [FO]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="documentation-toc-section" xml:base="includes/named/documentation-toc-section.xml">
-
-    <!-- params -->
-    <xsl:param name="nodes"/>
-
-    <!-- ==================================== -->
-    <!-- r) [fo:block] Iterate through $nodes -->
-    <!-- ==================================== -->
-    <xsl:for-each select="$nodes">
-      <fo:block margin-left="0.1in" font-size="8pt" text-align-last="justify" space-after="0.03in">
-
-        <!-- [fo:basic-link] -->
-        <fo:basic-link internal-destination="{generate-id()}" text-decoration="underline" color="blue">
-          <xsl:choose>
-            <xsl:when test="normalize-space(dc:title)">
-              <xsl:value-of select="normalize-space(dc:title)"/>
-            </xsl:when>
-
-            <xsl:otherwise>
-              <xsl:text>*** </xsl:text>
-              <xsl:value-of select="$msg/*/entry[@key='Untitled']"/>
-              <xsl:text> ****</xsl:text>
-            </xsl:otherwise>
-          </xsl:choose>
-
-          <fo:leader leader-pattern="dots"/>
-          <fo:page-number-citation ref-id="{generate-id()}"/>
-        </fo:basic-link>
-
-      </fo:block>
-    </xsl:for-each>
-
-</xsl:template>
   <!-- Name: variables-table-col-header --><!-- Value: <fo:table-row> --><!-- Header for variable table --><!--
     Params/variables read:
     msg, show-variables-list-question
---><!--
-    1: #-character    <fo:table-cell>
-    2: Name           <fo:table-cell>
-    3: Label          <fo:table-cell>
-    4: Type           <fo:table-cell>
-    5: Format         <fo:table-cell>
-    6: Valid          <fo:table-cell>
-    7: Invalid        <fo:table-cell>
-    8: Question       <fo:table-cell>
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="variables-table-col-header" xml:base="includes/named/variables-table-col-header.xml">
 
     <!-- content -->
     <fo:table-row text-align="center" vertical-align="top" font-weight="bold" keep-with-next="always">
 
-      <!-- 1) [fo:table-cell] #-character -->
+      <!-- #-character -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>#</fo:block>
       </fo:table-cell>
 
-      <!-- 2) [fo:table-cell] Name -->
+      <!-- Name -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>
           <xsl:value-of select="$msg/*/entry[@key='Name']"/>
         </fo:block>
       </fo:table-cell>
 
-      <!-- 3) [fo:table-cell] Label -->
+      <!-- Label -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>
           <xsl:value-of select="$msg/*/entry[@key='Label']"/>
         </fo:block>
       </fo:table-cell>
 
-      <!-- 4) [fo:table-cell]Type -->
+      <!-- Type -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>
           <xsl:value-of select="$msg/*/entry[@key='Type']"/>
         </fo:block>
       </fo:table-cell>
 
-      <!-- 5) [fo:table-cell] Format -->
+      <!-- Format -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>
           <xsl:value-of select="$msg/*/entry[@key='Format']"/>
         </fo:block>
       </fo:table-cell>
 
-      <!-- 6) [fo:table-cell] Valid -->
+      <!-- Valid -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>
           <xsl:value-of select="$msg/*/entry[@key='Valid']"/>
         </fo:block>
       </fo:table-cell>
 
-      <!-- 7) [fo:table-cell] Invalid -->
+      <!-- Invalid -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>
           <xsl:value-of select="$msg/*/entry[@key='Invalid']"/>
         </fo:block>
       </fo:table-cell>
 
-      <!-- 8) [fo:table-cell] Question -->
+      <!-- Question -->
       <xsl:if test="$show-variables-list-question">
         <fo:table-cell border="0.5pt solid black" padding="3pt">
           <fo:block>
