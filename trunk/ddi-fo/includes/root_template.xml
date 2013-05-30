@@ -52,8 +52,7 @@
       show-scope-and-coverage, show-producers-and-sponsors,
       show-sampling, show-data-collection, show-data-processing-and-appraisal,
       show-accessibility, show-rights-and-disclaimer, show-files-description,
-      show-variable-groups, show-variables-list, show-variables-description,
-      show-documentation
+      show-variable-groups, show-variables-list, show-variables-description
 
       Functions/templates called:
       nomalize-space(), contains(), concat(), string-length()
@@ -275,15 +274,6 @@
 
                 </fo:bookmark>
               </xsl:for-each>
-            </fo:bookmark>
-          </xsl:if>
-
-          <!-- 9) Documentation -->
-          <xsl:if test="$show-documentation = 1 and normalize-space($rdf-file)">
-            <fo:bookmark internal-destination="documentation">
-              <fo:bookmark-title>
-                <xsl:value-of select="$msg/*/entry[@key='Documentation']"/>
-              </fo:bookmark-title>
             </fo:bookmark>
           </xsl:if>
 
@@ -534,7 +524,7 @@
         show-producers-and-sponsors, show-sampling, show-data-collection
         show-data-processing-and-appraisal, show-accessibility,
         show-rights-and-disclaimer, show-files-description, show-variables-list
-        show-variable-groups, subset-groups, show-documentation
+        show-variable-groups, subset-groups
 
         Functions called:
         normalize-space(), string-length(), contains(), concat()
@@ -742,17 +732,6 @@
                       </fo:basic-link>
                     </fo:block>
                   </xsl:for-each>
-                </fo:block>
-              </xsl:if>
-
-              <!-- 13) [fo:block] Documentation -->
-              <xsl:if test="$show-documentation">
-                <fo:block font-size="10pt" text-align-last="justify">
-                  <fo:basic-link internal-destination="documentation" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Documentation']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation"/>
-                  </fo:basic-link>
                 </fo:block>
               </xsl:if>
 
@@ -1821,7 +1800,7 @@
 
       <!--
         Variables read:
-        font-family, msg, number-of-vars
+        msg, font-family
 
         Functions/templates called
         count(), string-length()
@@ -1858,9 +1837,8 @@
               <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:var)"/>
               <xsl:text> </xsl:text>
               <xsl:value-of select="$msg/*/entry[@key='variables']"/>
-              <xsl:if test="string-length($subset-vars)&gt;0">
+              <xsl:if test="string-length($subset-vars) &gt; 0">
                 <xsl:value-of select="$msg/*/entry[@key='ShowingSubset']"/>
-                <xsl:value-of select="$number-of-vars"/>
               </xsl:if>
             </fo:block>
 
@@ -1870,266 +1848,7 @@
         <!-- fileDscr -->
         <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" mode="variables-description"/>
       </xsl:if>
-
-
-      <!-- =============================================== -->
-      <!-- [10] Page sequence: Documentation               -->
-      <!-- <fo:page-sequence>                              -->
-      <!-- =============================================== -->
-
-      <!--
-        Variables set:
-        rdf, adm-count, anl-count, qst-count, oth-count, ref-count,
-        rep-count, tec-count, tbl-count, prg-count, unc-count
-
-        Variables read:
-        msg, rdf-file, font-family
-
-        Functions/templates called:
-        normalize-space(), count(), contains(), not() [Xpath]
-        document() [XSLT 1.0]
-        header, footer, documentation-toc-section
-      -->
-
-      <xsl:if test="$show-documentation = 1 and normalize-space($rdf-file)">
-
-        <fo:page-sequence master-reference="default-page"
-                          font-family="{$font-family}" font-size="10pt">
-
-          <!-- Page header -->
-          <xsl:call-template name="header">
-            <xsl:with-param name="section">
-              <xsl:value-of select="$msg/*/entry[@key='Documentation']"/>
-            </xsl:with-param>
-          </xsl:call-template>
-
-          <!-- Page footer-->
-          <xsl:call-template name="footer"/>
-
-          <!-- main flow -->
-          <fo:flow flow-name="xsl-region-body">
-
-            <!-- Documentation -->
-            <fo:block id="documentation" font-size="18pt" font-weight="bold" space-after="0.1in">
-              <xsl:value-of select="$msg/*/entry[@key='Documentation']"/>
-            </fo:block>
-
-            <!--  get RDF document -->
-            <xsl:variable name="rdf" select="document($rdf-file)"/>
-            <!-- count documents by category -->
-            <xsl:variable name="adm-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/adm]') ]) "/>
-            <xsl:variable name="anl-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/anl]') ]) "/>
-            <xsl:variable name="qst-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/qst]') ]) "/>
-            <xsl:variable name="oth-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/oth]') ]) "/>
-            <xsl:variable name="ref-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/ref]') ]) "/>
-            <xsl:variable name="rep-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/rep]') ]) "/>
-            <xsl:variable name="tec-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/tec]') ]) "/>
-            <xsl:variable name="tbl-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[tbl') ]) "/>
-            <xsl:variable name="prg-count" select="count($rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[prg') ]) "/>
-            <xsl:variable name="unc-count" select="count($rdf/rdf:RDF/rdf:Description[not( contains(dc:type,'[doc') or contains(dc:type,'[tbl') or contains(dc:type,'[prg') ) ] )"/>
-
-            <!-- Table of contents -->
-            <fo:block space-after="0.2in">
-
-              <!-- Report/analytical -->
-              <xsl:if test="$rep-count &gt;0 or $anl-count &gt; 0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-anl" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Reports_and_analytical_documents']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-anl"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/rep]')  or contains(dc:type,'[doc/anl]') ]"/>
-                </xsl:call-template>
-              </xsl:if>
-
-              <!-- Questionnaires -->
-              <xsl:if test="$qst-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-qst" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Questionnaires']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-qst"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/qst]')]"/>
-                </xsl:call-template>
-              </xsl:if>
-
-              <!-- Technical -->
-              <xsl:if test="$tec-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-tec" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Technical_documents']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-tec"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/tec]')]"/>
-                </xsl:call-template>
-              </xsl:if>
-
-              <!-- Administrative -->
-              <xsl:if test="$adm-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-adm" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Administrative_documents']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-adm"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/adm]')]"/>
-                </xsl:call-template>
-              </xsl:if>
-
-              <!-- References -->
-              <xsl:if test="$ref-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-ref" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='References']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-ref"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/ref]')]"/>
-                </xsl:call-template>
-              </xsl:if>
-
-              <!-- [fo:block] Other -->
-              <xsl:if test="$oth-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-oth" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Other_documents']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-oth"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/oth]')]"/>
-                </xsl:call-template>
-              </xsl:if>
-
-              <!-- [fo:block] Statistical tables -->
-              <xsl:if test="$tbl-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-tbl" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Statistical_tables']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-tbl"/>
-                  </fo:basic-link>
-                </fo:block>
-              </xsl:if>
-
-              <!-- [fo:block] Scripts and programs -->
-              <xsl:if test="$prg-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-prg" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Scripts_and_programs']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-prg"/>
-                  </fo:basic-link>
-                </fo:block>
-              </xsl:if>
-
-              <!-- [fo:block] Other resources -->
-              <xsl:if test="$unc-count &gt;0">
-                <fo:block font-size="8pt" text-align-last="justify" space-after="0.03in">
-                  <fo:basic-link internal-destination="documentation-unc" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Other_resources']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="documentation-unc"/>
-                  </fo:basic-link>
-                </fo:block>
-                <xsl:call-template name="documentation-toc-section">
-                  <xsl:with-param name="nodes" select=" $rdf/rdf:RDF/rdf:Description[ not( contains(dc:type,'[doc') or contains(dc:type,'[tbl') or contains(dc:type,'[prg') )  ] "/>
-                </xsl:call-template>
-              </xsl:if>
-            </fo:block>
-
-            <!-- DOCUMENTS -->
-
-            <!-- [fo:block] Report/analytical -->
-            <xsl:if test="$rep-count &gt;0 or $anl-count &gt; 0">
-              <fo:block id="documentation-anl" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Reports_and_analytical_documents']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/rep]')  or contains(dc:type,'[doc/anl]') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Questionnaires -->
-            <xsl:if test="$qst-count &gt; 0">
-              <fo:block id="documentation-qst" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Questionnaires']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/qst]') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Technical -->
-            <xsl:if test="$tec-count &gt; 0">
-              <fo:block id="documentation-tec" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Technical_documents']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/tec]') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Administrative -->
-            <xsl:if test="$adm-count &gt; 0">
-              <fo:block id="documentation-adm" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Administrative_documents']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/adm]') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] References -->
-            <xsl:if test="$ref-count &gt; 0">
-              <fo:block id="documentation-ref" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='References']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/ref]') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Other documents-->
-            <xsl:if test="$oth-count &gt; 0">
-              <fo:block id="documentation-oth" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Other_documents']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[doc/oth]') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Statistical tables -->
-            <xsl:if test="$tbl-count &gt; 0">
-              <fo:block id="documentation-tbl" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Statistical_Tables']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[tbl') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Scripts and programs -->
-            <xsl:if test="$prg-count &gt; 0">
-              <fo:block id="documentation-prg" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Scripts_and_programs']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ contains(dc:type,'[prg') ]"/>
-            </xsl:if>
-
-            <!-- [fo:block] Other resources -->
-            <xsl:if test="$unc-count &gt; 0">
-              <fo:block id="documentation-unc" font-size="14pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Other_resources']"/>
-              </fo:block>
-              <xsl:apply-templates select="$rdf/rdf:RDF/rdf:Description[ not( contains(dc:type,'[doc') or contains(dc:type,'[tbl') or contains(dc:type,'[prg') )  ]"/>
-            </xsl:if>
-
-          </fo:flow>
-        </fo:page-sequence>
-      </xsl:if>
-
+ 
     </fo:root>
 
 </xsl:template>
