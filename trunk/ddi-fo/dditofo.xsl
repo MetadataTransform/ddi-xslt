@@ -109,6 +109,16 @@
     ** Both parameter and DDI file
   -->
 
+<!--
+    Supplied by eXide server/webpage:
+    language-code
+    report-title
+    font-family
+    show-variables-list-question
+    translations    http://xml.snd.gu.se/xsl/ddi2/i18n/{$lang}.xml
+    show-cover-page
+-->
+
   <!-- ========================================================= -->
   <!-- Misc                                                      -->
   <!-- ========================================================= -->
@@ -169,17 +179,16 @@
   <!-- main sections of root template -->
   <xsl:param name="show-bookmarks" select="1" />
   <xsl:param name="show-cover-page" select="1" />
-  <xsl:param name="show-metadata-info" select="1" />
+  <xsl:param name="show-metadata-info" select="1" /> 
   <xsl:param name="show-toc" select="1" />
   <xsl:param name="show-overview" select="1" />
   <xsl:param name="show-files-description" select="1" />
 
-  <!-- parts in the cover page -->
+  <!-- parts of cover page -->
   <xsl:param name="show-logo" select="0" />
   <xsl:param name="show-geography" select="0" />
   <xsl:param name="show-cover-page-producer" select="1" />
   <xsl:param name="show-report-subtitle" select="0" />
-  <xsl:param name="show-date" select="0" />
 
   <!-- misc -->
   <xsl:param name="show-metadata-production" select="1" />
@@ -189,17 +198,6 @@
   <!-- ==================================== -->
   <!-- string vars                          -->
   <!-- ==================================== -->
-
-  <!-- toolkit: Microdata Management Toolkit or Nesstar Publishser 3.x -->
-  <!-- ddp:     World Bank Data Development Platform -->
-  <xsl:variable name="ddi-flavor">
-    <xsl:choose>
-      <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'DDP' ) ])">ddp</xsl:when>
-      <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'Nesstar' ) ])">toolkit</xsl:when>
-      <xsl:when test="count(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:software[ contains( . , 'Metadata Editor' ) ])">toolkit</xsl:when>
-      <xsl:otherwise>toolkit</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
 
   <!-- survey title -->
   <xsl:variable name="survey-title">
@@ -357,7 +355,7 @@
 
   <xi:include href="includes/root_template.xml" />
 
-  <!-- templates matching the ddi: namespace -->
+  <!-- templates matching ddi: namespace -->
   <xi:include href="includes/ddi/ddi-AuthEnty.xml" />
   <xi:include href="includes/ddi/ddi-collDate.xml" />
   <xi:include href="includes/ddi/ddi-contact.xml" />
@@ -376,7 +374,7 @@
   <xi:include href="includes/ddi/ddi-varGrp.xml" />
   <xi:include href="includes/ddi/ddi_default_text.xml" />
 
-  <!-- Named/utility templates -->
+  <!-- named/utility templates -->
   <xi:include href='includes/named/variables-table-col-header.xml' />
   <xi:include href='includes/named/variables-table-col-width.xml' />
   <xi:include href="includes/named/header.xml" />
