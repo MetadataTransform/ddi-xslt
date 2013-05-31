@@ -13,22 +13,22 @@
 
     <fo:block>
 
-      <!-- current Node -->
+      <!-- current node -->
       <xsl:value-of select="."/>
 
-      <!-- @affiliation -->
+      <!-- affiliation -->
       <xsl:if test="@affiliation"> (
         <xsl:value-of select="@affiliation"/>)
       </xsl:if>
 
-      <!-- [fo:basic-link] @URI -->
+      <!-- URI -->
       <xsl:if test="@URI"> ,
         <fo:basic-link external-destination="url('{@URI}')" text-decoration="underline" color="blue">
           <xsl:value-of select="@URI"/>
         </fo:basic-link>
       </xsl:if>
 
-      <!-- [fo:basic-link] @email -->
+      <!-- email -->
       <xsl:if test="@email"> ,
         <fo:basic-link external-destination="url('mailto:{@URI}')" text-decoration="underline" color="blue">
           <xsl:value-of select="@email"/>

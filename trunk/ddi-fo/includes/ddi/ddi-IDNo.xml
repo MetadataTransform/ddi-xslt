@@ -13,7 +13,7 @@
 
   <fo:block>
 
-    <!-- @agency -->
+    <!-- agency -->
     <xsl:if test="@agency">
       <xsl:value-of select="@agency"/>:
     </xsl:if>

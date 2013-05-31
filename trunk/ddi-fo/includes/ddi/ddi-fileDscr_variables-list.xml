@@ -37,7 +37,17 @@
             width="100%" font-size="8pt"
             space-before="0.2in" space-after="0.2in">
 
-    <xsl:call-template name="variables-table-col-width" />
+    <fo:table-column column-width="proportional-column-width( 5)"/>
+    <fo:table-column column-width="proportional-column-width(12)"/>
+    <fo:table-column column-width="proportional-column-width(20)"/>
+    <fo:table-column column-width="proportional-column-width(10)"/>
+    <fo:table-column column-width="proportional-column-width(10)"/>
+    <fo:table-column column-width="proportional-column-width( 8)"/>
+    <fo:table-column column-width="proportional-column-width( 8)"/>
+
+    <xsl:if test="$show-variables-list-question">
+      <fo:table-column column-width="proportional-column-width(27)"/>
+    </xsl:if>
 
     <!-- [fo:table-header] -->
     <fo:table-header>
@@ -52,7 +62,66 @@
         </fo:table-cell>
       </fo:table-row>
 
-        <xsl:call-template name="variables-table-col-header"/>
+    <fo:table-row text-align="center" vertical-align="top"
+                  font-weight="bold" keep-with-next="always">
+
+      <!-- #-character -->
+      <fo:table-cell border="0.5pt solid black" padding="3pt">
+        <fo:block>#</fo:block>
+      </fo:table-cell>
+
+      <!-- Name -->
+      <fo:table-cell border="0.5pt solid black" padding="3pt">
+        <fo:block>
+          <xsl:value-of select="$msg/*/entry[@key='Name']" />
+        </fo:block>
+      </fo:table-cell>
+
+      <!-- Label -->
+      <fo:table-cell border="0.5pt solid black" padding="3pt">
+        <fo:block>
+          <xsl:value-of select="$msg/*/entry[@key='Label']" />
+        </fo:block>
+      </fo:table-cell>
+
+      <!-- Type -->
+      <fo:table-cell border="0.5pt solid black" padding="3pt">
+        <fo:block>
+          <xsl:value-of select="$msg/*/entry[@key='Type']" />
+        </fo:block>
+      </fo:table-cell>
+
+      <!-- Format -->
+      <fo:table-cell border="0.5pt solid black" padding="3pt">
+        <fo:block>
+          <xsl:value-of select="$msg/*/entry[@key='Format']" />
+        </fo:block>
+      </fo:table-cell>
+
+      <!-- Valid -->
+      <fo:table-cell border="0.5pt solid black" padding="3pt">
+        <fo:block>
+          <xsl:value-of select="$msg/*/entry[@key='Valid']" />
+        </fo:block>
+      </fo:table-cell>
+
+      <!-- Invalid -->
+      <fo:table-cell border="0.5pt solid black" padding="3pt">
+        <fo:block>
+          <xsl:value-of select="$msg/*/entry[@key='Invalid']" />
+        </fo:block>
+      </fo:table-cell>
+
+      <!-- Question -->
+      <xsl:if test="$show-variables-list-question">
+        <fo:table-cell border="0.5pt solid black" padding="3pt">
+          <fo:block>
+            <xsl:value-of select="$msg/*/entry[@key='Question']" />
+          </fo:block>
+        </fo:table-cell>
+      </xsl:if>
+
+    </fo:table-row>
       </fo:table-header>
 
       <!-- [fo:table-body] -->

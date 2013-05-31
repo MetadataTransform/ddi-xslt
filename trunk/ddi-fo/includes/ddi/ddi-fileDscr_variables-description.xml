@@ -50,7 +50,11 @@
     <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId][position() mod $chunk-size = 1]">
       <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
-        <xsl:call-template name="footer"/>
+        <fo:static-content flow-name="xsl-region-after">
+          <fo:block font-size="6" text-align="center" space-before="0.3in">
+            - <fo:page-number /> -
+          </fo:block>
+        </fo:static-content>
 
         <fo:flow flow-name="xsl-region-body">
 

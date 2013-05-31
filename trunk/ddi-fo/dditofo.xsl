@@ -220,9 +220,9 @@
   <!-- If timeperiods returns empty, use timePrd instead -->
   <xsl:variable name="time-produced" select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd/@date" />
 
-  <!-- ==================================== -->
-  <!-- tricky/dependant boolean vars        -->
-  <!-- ==================================== -->
+  <!-- ========================================= -->
+  <!-- conditional boolean vars (co-dependant)   -->
+  <!-- ========================================= -->
 
   <!-- Show variable groups only if there are any -->
   <xsl:variable name="show-variable-groups">
@@ -250,7 +250,7 @@
   </xsl:variable>
 
   <!-- ==================================== -->
-  <!-- simple boolean vars                  -->
+  <!-- conditional boolean vars (direct)    -->
   <!-- ==================================== -->
 
   <xsl:variable name="show-scope-and-coverage">
@@ -329,15 +329,15 @@
     </xsl:choose>
   </xsl:variable>
 
-  <!-- ========================================================= -->
-  <!-- Misc - Time and date related                              -->
-  <!-- ========================================================= -->
+  <!-- ================================================== -->
+  <!-- time and date related                              -->
+  <!-- ================================================== -->
 
   <!-- year-from - the first data collection mode element with a 'start' event -->
-  <xsl:variable name="year-from" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='start'][1]/@date,1,4)"/>
+  <xsl:variable name="year-from" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='start'][1]/@date, 1, 4)" />
   <!-- year to is the last data collection mode element with an 'end' event -->
-  <xsl:variable name="year-to-count" select="count(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='end'])"/>
-  <xsl:variable name="year-to" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='end'][$year-to-count]/@date,1,4)"/>
+  <xsl:variable name="year-to-count" select="count(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='end'])" />
+  <xsl:variable name="year-to" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='end'][$year-to-count]/@date, 1, 4)" />
 
   <xsl:variable name="time">
     <xsl:if test="$year-from">
@@ -350,7 +350,7 @@
   </xsl:variable>
 
   <!-- ===================================== -->
-  <!-- Xincludes - include templates         -->
+  <!-- xincludes - include templates         -->
   <!-- ===================================== -->
 
   <xi:include href="includes/root_template.xml" />
@@ -374,14 +374,9 @@
   <xi:include href="includes/ddi/ddi-varGrp.xml" />
   <xi:include href="includes/ddi/ddi_default_text.xml" />
 
-  <!-- named/utility templates -->
-  <xi:include href='includes/named/variables-table-col-header.xml' />
-  <xi:include href='includes/named/variables-table-col-width.xml' />
-  <xi:include href="includes/named/header.xml" />
-  <xi:include href="includes/named/footer.xml" />
+  <!-- utility templates -->
   <xi:include href="includes/utilities/isodate-long.xml" />
   <xi:include href="includes/utilities/isodate-month.xml" />
-  <xi:include href="includes/utilities/trim/ltrim.xml" />
   <xi:include href="includes/utilities/trim/rtrim.xml" />
   <xi:include href="includes/utilities/trim/trim.xml" />
   <xi:include href="includes/utilities/date.xml" />
