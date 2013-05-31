@@ -18,12 +18,12 @@
       <xsl:with-param name="s" select="." />
     </xsl:call-template>
 
-    <!-- @abbr -->
+    <!-- abbr -->
     <xsl:if test="@abbr">
       (<xsl:value-of select="@abbr"/>)
     </xsl:if>
 
-    <!-- @affiliation -->
+    <!-- affiliation -->
     <xsl:if test="@affiliation"> ,
       <xsl:value-of select="@affiliation" />
     </xsl:if>

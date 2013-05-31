@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!-- Name: math:max(nodes) -->
-<!-- Value: string? -->
+<!-- Value: string -->
 
 <!--
     Params/variables read:
@@ -21,10 +21,10 @@
     <!-- count number of nodes -->
     <xsl:choose>
 
-      <!-- Case 1: Not a Number -->
+      <!-- Case: Not a Number -->
       <xsl:when test="not($nodes)">NaN</xsl:when>
 
-      <!-- Case 2: Actually a number -->
+      <!-- Actually a number -->
       <xsl:otherwise>
         <xsl:for-each select="$nodes">
           <xsl:sort data-type="number" order="descending"/>

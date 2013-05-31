@@ -8,19 +8,19 @@
 
     <fo:block>
 
-      <!-- @cycle -->
+      <!-- cycle -->
       <xsl:if test="@cycle">
         <xsl:value-of select="@cycle"/>
         <xsl:text>: </xsl:text>
       </xsl:if>
 
-      <!-- @event -->
+      <!-- event -->
       <xsl:if test="@event">
         <xsl:value-of select="@event"/>
         <xsl:text> </xsl:text>
       </xsl:if>
 
-      <!-- @date -->
+      <!-- date -->
       <xsl:value-of select="@date"/>
 
     </fo:block>

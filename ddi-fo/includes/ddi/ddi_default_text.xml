@@ -18,7 +18,7 @@
   <!-- variables -->
   <xsl:variable name="trimmed">
     <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="."/>
+      <xsl:with-param name="s" select="." />
     </xsl:call-template>
   </xsl:variable>
 

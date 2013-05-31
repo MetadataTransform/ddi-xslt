@@ -15,16 +15,16 @@
 -->
 
 <!--
-  1: Filename                 <fo:table-row>
-  2: Cases                    <fo:table-row>
-  3: Variables                <fo:table-row>
-  4: File Structure           <fo:table-row>
-  5: File Content             <fo:table-row>
-  6: File Producer            <fo:table-row>
-  7: File Version             <fo:table-row>
-  8: File Processing Checks   <fo:table-row>
-  9: File Missing Data        <fo:table-row>
-  10: File Notes              <fo:table-row>
+  1: Filename                 [table-row]
+  2: Cases                    [table-row]
+  3: Variables                [table-row]
+  4: File Structure           [table-row]
+  5: File Content             [table-row]
+  6: File Producer            [table-row]
+  7: File Version             [table-row]
+  8: File Processing Checks   [table-row]
+  9: File Missing Data        [table-row]
+  10: File Notes              [table-row]
 -->
 
 <xsl:template match="ddi:fileDscr"
@@ -57,7 +57,7 @@
       <!-- [fo:table-body] -->
       <fo:table-body>
 
-        <!-- 1) [fo:table-row] Filename -->
+        <!-- 1) Filename -->
         <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
           <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
             <fo:block font-size="12pt" font-weight="bold">
@@ -66,7 +66,7 @@
           </fo:table-cell>
         </fo:table-row>
 
-        <!-- 2) [fo:table-row] Cases -->
+        <!-- 2) Cases -->
         <xsl:if test="ddi:fileTxt/ddi:dimensns/ddi:caseQnty">
           <fo:table-row>
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
@@ -80,7 +80,7 @@
           </fo:table-row>
         </xsl:if>
 
-        <!-- 3) [fo:table-row] Variables -->
+        <!-- 3) Variables -->
         <xsl:if test="ddi:fileTxt/ddi:dimensns/ddi:varQnty">
           <fo:table-row>
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
@@ -94,18 +94,18 @@
           </fo:table-row>
         </xsl:if>
 
-        <!-- 4) [fo:table-row] File structure -->
+        <!-- 4) File structure -->
         <xsl:if test="ddi:fileTxt/ddi:fileStrc">
           <fo:table-row>
 
-            <!-- [fo:table-cell] -->
+            <!-- 4.1) File_Structure -->
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
               <fo:block>
                 <xsl:value-of select="$msg/*/entry[@key='File_Structure']"/>
               </fo:block>
             </fo:table-cell>
 
-            <!-- [fo:table-cell] -->
+            <!-- 4.2) Type -->
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
               <xsl:if test="ddi:fileTxt/ddi:fileStrc/@type">
                 <fo:block>
@@ -135,7 +135,7 @@
           </fo:table-row>
         </xsl:if>
 
-        <!-- 5) [fo:table-row] File content -->
+        <!-- 5) File_Content -->
         <xsl:for-each select="ddi:fileTxt/ddi:fileCont">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -147,7 +147,7 @@
           </fo:table-row>
         </xsl:for-each>
 
-        <!-- 6) [fo:table-row] File producer -->
+        <!-- 6) Producer -->
         <xsl:for-each select="ddi:fileTxt/ddi:filePlac">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -159,7 +159,7 @@
           </fo:table-row>
         </xsl:for-each>
 
-        <!-- 7) [fo:table-row] File version -->
+        <!-- 7) Version -->
         <xsl:for-each select="ddi:fileTxt/ddi:verStmt">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -171,7 +171,7 @@
           </fo:table-row>
         </xsl:for-each>
 
-        <!-- 8) [fo:table-row] File processing checks -->
+        <!-- 8) Processing_Checks -->
         <xsl:for-each select="ddi:fileTxt/ddi:dataChck">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -183,7 +183,7 @@
           </fo:table-row>
         </xsl:for-each>
 
-        <!-- 9) [fo:table-row] File missing data -->
+        <!-- 9) Missing_Data -->
         <xsl:for-each select="ddi:fileTxt/ddi:dataMsng">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -195,7 +195,7 @@
           </fo:table-row>
         </xsl:for-each>
 
-        <!-- 10) [fo:table-row] File notes -->
+        <!-- 10) Notes -->
         <xsl:for-each select="ddi:notes">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
