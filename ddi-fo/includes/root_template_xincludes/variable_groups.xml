@@ -28,37 +28,37 @@
       </fo:block>
     </fo:static-content>
           
-          <!-- footer -->
-          <fo:static-content flow-name="xsl-region-after">
-            <fo:block font-size="6" text-align="center" space-before="0.3in">
-              - <fo:page-number /> -
-            </fo:block>
-          </fo:static-content>
+    <!-- footer -->
+    <fo:static-content flow-name="xsl-region-after">
+      <fo:block font-size="6" text-align="center" space-before="0.3in">
+        - <fo:page-number /> -
+      </fo:block>
+    </fo:static-content>
 
-          <!-- page [flow] -->
-          <fo:flow flow-name="xsl-region-body">
+    <!-- page [flow] -->
+    <fo:flow flow-name="xsl-region-body">
 
-            <!-- Variables_Groups -->
-            <fo:block id="variables-groups" font-size="18pt" font-weight="bold" space-after="0.1in">
-              <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']" />
-            </fo:block>
+      <!-- Variables_Groups -->
+      <fo:block id="variables-groups" font-size="18pt" font-weight="bold" space-after="0.1in">
+        <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']" />
+      </fo:block>
 
-            <!-- Dataset_Contains -->
-            <fo:block font-weight="bold">
-              <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']" />
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp)" />
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="$msg/*/entry[@key='groups']" />
-              <xsl:if test="string-length($subset-vars)&gt;0">
-                <xsl:value-of select="$msg/*/entry[@key='ShowingSubset']" />
-                <xsl:value-of select="$number-of-groups" />
-              </xsl:if>
-            </fo:block>
+      <!-- Dataset_Contains -->
+      <fo:block font-weight="bold">
+        <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']" />
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp)" />
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$msg/*/entry[@key='groups']" />
+        <xsl:if test="string-length($subset-vars)&gt;0">
+          <xsl:value-of select="$msg/*/entry[@key='ShowingSubset']" />
+          <xsl:value-of select="$number-of-groups" />
+        </xsl:if>
+      </fo:block>
 
-            <!-- varGrp -->
-            <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp" />
+      <!-- varGrp -->
+      <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp" />
 
-          </fo:flow>
-        </fo:page-sequence>
-      </xsl:if>
+    </fo:flow>
+  </fo:page-sequence>
+</xsl:if>

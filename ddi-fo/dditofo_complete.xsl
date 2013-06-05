@@ -323,7 +323,7 @@
   </xsl:variable>
 
   <!-- ===================================== -->
-  <!-- xincludes - include templates         -->
+  <!-- templates                             -->
   <!-- ===================================== -->
 
   <!-- Match: / --><!-- Value: <fo:root> --><!--
@@ -384,198 +384,198 @@
       </fo:bookmark>
     </xsl:if>
 
-          <!-- 2) Document_Information -->
-          <xsl:if test="$show-metadata-info = 1">
-            <fo:bookmark internal-destination="metadata-info">
+    <!-- 2) Document_Information -->
+    <xsl:if test="$show-metadata-info = 1">
+      <fo:bookmark internal-destination="metadata-info">
+        <fo:bookmark-title>
+          <xsl:value-of select="$msg/*/entry[@key='Document_Information']"/>
+        </fo:bookmark-title>
+      </fo:bookmark>
+    </xsl:if>
+
+    <!-- 3) Table_of_Contents -->
+    <xsl:if test="$show-toc = 1">
+      <fo:bookmark internal-destination="toc">
+        <fo:bookmark-title>
+          <xsl:value-of select="$msg/*/entry[@key = 'Table_of_Contents']"/>
+        </fo:bookmark-title>
+      </fo:bookmark>
+    </xsl:if>
+
+    <!-- 4) Overview -->
+    <xsl:if test="$show-overview = 1">
+
+      <fo:bookmark internal-destination="overview">
+        <fo:bookmark-title>
+          <xsl:value-of select="$msg/*/entry[@key='Overview']"/>
+        </fo:bookmark-title>
+
+        <!-- 4.1) Scope_and_Coverage -->
+        <xsl:if test="$show-scope-and-coverage = 1">
+          <fo:bookmark internal-destination="scope-and-coverage">
+            <fo:bookmark-title>
+              <xsl:value-of select="$msg/*/entry[@key='Scope_and_Coverage']"/>
+            </fo:bookmark-title>
+          </fo:bookmark>
+        </xsl:if>
+
+        <!-- 4.2) Producers_and_Sponsors -->
+        <xsl:if test="$show-producers-and-sponsors = 1">
+          <fo:bookmark internal-destination="producers-and-sponsors">
+            <fo:bookmark-title>
+              <xsl:value-of select="$msg/*/entry[@key='Producers_and_Sponsors']"/>
+            </fo:bookmark-title>
+          </fo:bookmark>
+        </xsl:if>
+
+        <!-- 4.3) Sampling -->
+        <xsl:if test="$show-sampling = 1">
+          <fo:bookmark internal-destination="sampling">
+            <fo:bookmark-title>
+              <xsl:value-of select="$msg/*/entry[@key='Sampling']"/>
+            </fo:bookmark-title>
+          </fo:bookmark>
+        </xsl:if>
+
+        <!-- 4.4) Data_Collection -->
+        <xsl:if test="$show-data-collection = 1">
+          <fo:bookmark internal-destination="data-collection">
+            <fo:bookmark-title>
+              <xsl:value-of select="$msg/*/entry[@key='Data_Collection']"/>
+            </fo:bookmark-title>
+          </fo:bookmark>
+        </xsl:if>
+
+        <!-- 4.5) Data_Processing_and_Appraisal -->
+        <xsl:if test="$show-data-processing-and-appraisal = 1">
+          <fo:bookmark internal-destination="data-processing-and-appraisal">
+            <fo:bookmark-title>
+              <xsl:value-of select="$msg/*/entry[@key='Data_Processing_and_Appraisal']"/>
+            </fo:bookmark-title>
+          </fo:bookmark>
+        </xsl:if>
+
+        <!-- 4.6) Accessibility -->
+        <xsl:if test="$show-accessibility= 1">
+          <fo:bookmark internal-destination="accessibility">
+            <fo:bookmark-title>
+              <xsl:value-of select="$msg/*/entry[@key='Accessibility']"/>
+            </fo:bookmark-title>
+          </fo:bookmark>
+        </xsl:if>
+
+        <!-- 4.7) Rights_and_Disclaimer -->
+        <xsl:if test="$show-rights-and-disclaimer = 1">
+          <fo:bookmark internal-destination="rights-and-disclaimer">
+            <fo:bookmark-title>
+              <xsl:value-of select="$msg/*/entry[@key='Rights_and_Disclaimer']"/>
+            </fo:bookmark-title>
+          </fo:bookmark>
+        </xsl:if>
+
+      </fo:bookmark>
+    </xsl:if>
+
+    <!-- 5) Files_Description -->
+    <xsl:if test="$show-files-description = 1">
+      <fo:bookmark internal-destination="files-description">
+
+        <fo:bookmark-title>
+          <xsl:value-of select="$msg/*/entry[@key='Files_Description']"/>
+        </fo:bookmark-title>
+
+        <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
+          <fo:bookmark internal-destination="file-{ddi:fileTxt/ddi:fileName/@ID}">
+            <fo:bookmark-title>
+              <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+            </fo:bookmark-title>
+          </fo:bookmark>
+        </xsl:for-each>
+      </fo:bookmark>
+    </xsl:if>
+
+    <!-- 6) Variables_Groups -->
+    <xsl:if test="$show-variable-groups = 1">
+      <fo:bookmark internal-destination="variables-groups">
+        <fo:bookmark-title>
+          <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
+        </fo:bookmark-title>
+
+        <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp">
+          <xsl:if test="contains($subset-groups, concat(',',@ID,',')) or string-length($subset-groups)=0">
+            <fo:bookmark internal-destination="vargrp-{@ID}">
               <fo:bookmark-title>
-                <xsl:value-of select="$msg/*/entry[@key='Document_Information']"/>
+                <xsl:value-of select="normalize-space(ddi:labl)"/>
               </fo:bookmark-title>
             </fo:bookmark>
           </xsl:if>
+        </xsl:for-each>
+      </fo:bookmark>
+    </xsl:if>
 
-          <!-- 3) Table_of_Contents -->
-          <xsl:if test="$show-toc = 1">
-            <fo:bookmark internal-destination="toc">
-              <fo:bookmark-title>
-                <xsl:value-of select="$msg/*/entry[@key = 'Table_of_Contents']"/>
-              </fo:bookmark-title>
-            </fo:bookmark>
-          </xsl:if>
+    <!-- 7) Variables_List -->
+    <xsl:if test="$show-variables-list = 1">
+      <fo:bookmark internal-destination="variables-list">
+        <fo:bookmark-title>
+          <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
+        </fo:bookmark-title>
 
-          <!-- 4) Overview -->
-          <xsl:if test="$show-overview = 1">
+        <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
+          <fo:bookmark internal-destination="varlist-{ddi:fileTxt/ddi:fileName/@ID}">
+            <fo:bookmark-title>
+              <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+            </fo:bookmark-title>
+          </fo:bookmark>
+        </xsl:for-each>
+      </fo:bookmark>
+    </xsl:if>
 
-            <fo:bookmark internal-destination="overview">
-              <fo:bookmark-title>
-                <xsl:value-of select="$msg/*/entry[@key='Overview']"/>
-              </fo:bookmark-title>
+    <!-- 8) Variables_Description -->
+    <xsl:if test="$show-variables-description= 1">
+      <fo:bookmark internal-destination="variables-description">
+        <fo:bookmark-title>
+          <xsl:value-of select="$msg/*/entry[@key='Variables_Description']"/>
+        </fo:bookmark-title>
 
-              <!-- 4.1) Scope_and_Coverage -->
-              <xsl:if test="$show-scope-and-coverage = 1">
-                <fo:bookmark internal-destination="scope-and-coverage">
+        <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
+          <fo:bookmark internal-destination="vardesc-{ddi:fileTxt/ddi:fileName/@ID}">
+            <fo:bookmark-title>
+              <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+            </fo:bookmark-title>
+
+            <xsl:variable name="fileId">
+              <xsl:choose>
+                <xsl:when test="ddi:fileTxt/ddi:fileName/@ID">
+                  <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID"/>
+                </xsl:when>
+                <xsl:when test="@ID">
+                  <xsl:value-of select="@ID"/>
+                </xsl:when>
+              </xsl:choose>
+            </xsl:variable>
+
+            <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId]">
+              <xsl:if test="contains($subset-vars, concat(',',@ID,',')) or string-length($subset-vars)=0 ">
+                <fo:bookmark internal-destination="var-{@ID}">
                   <fo:bookmark-title>
-                    <xsl:value-of select="$msg/*/entry[@key='Scope_and_Coverage']"/>
-                  </fo:bookmark-title>
-                </fo:bookmark>
-              </xsl:if>
-
-              <!-- 4.2) Producers_and_Sponsors -->
-              <xsl:if test="$show-producers-and-sponsors = 1">
-                <fo:bookmark internal-destination="producers-and-sponsors">
-                  <fo:bookmark-title>
-                    <xsl:value-of select="$msg/*/entry[@key='Producers_and_Sponsors']"/>
-                  </fo:bookmark-title>
-                </fo:bookmark>
-              </xsl:if>
-
-              <!-- 4.3) Sampling -->
-              <xsl:if test="$show-sampling = 1">
-                <fo:bookmark internal-destination="sampling">
-                  <fo:bookmark-title>
-                    <xsl:value-of select="$msg/*/entry[@key='Sampling']"/>
-                  </fo:bookmark-title>
-                </fo:bookmark>
-              </xsl:if>
-
-              <!-- 4.4) Data_Collection -->
-              <xsl:if test="$show-data-collection = 1">
-                <fo:bookmark internal-destination="data-collection">
-                  <fo:bookmark-title>
-                    <xsl:value-of select="$msg/*/entry[@key='Data_Collection']"/>
-                  </fo:bookmark-title>
-                </fo:bookmark>
-              </xsl:if>
-
-              <!-- 4.5) Data_Processing_and_Appraisal -->
-              <xsl:if test="$show-data-processing-and-appraisal = 1">
-                <fo:bookmark internal-destination="data-processing-and-appraisal">
-                  <fo:bookmark-title>
-                    <xsl:value-of select="$msg/*/entry[@key='Data_Processing_and_Appraisal']"/>
-                  </fo:bookmark-title>
-                </fo:bookmark>
-              </xsl:if>
-
-              <!-- 4.6) Accessibility -->
-              <xsl:if test="$show-accessibility= 1">
-                <fo:bookmark internal-destination="accessibility">
-                  <fo:bookmark-title>
-                    <xsl:value-of select="$msg/*/entry[@key='Accessibility']"/>
-                  </fo:bookmark-title>
-                </fo:bookmark>
-              </xsl:if>
-
-              <!-- 4.7) Rights_and_Disclaimer -->
-              <xsl:if test="$show-rights-and-disclaimer = 1">
-                <fo:bookmark internal-destination="rights-and-disclaimer">
-                  <fo:bookmark-title>
-                    <xsl:value-of select="$msg/*/entry[@key='Rights_and_Disclaimer']"/>
-                  </fo:bookmark-title>
-                </fo:bookmark>
-              </xsl:if>
-            </fo:bookmark>
-            
-          </xsl:if>
-
-          <!-- 5) Files_Description -->
-          <xsl:if test="$show-files-description = 1">
-            <fo:bookmark internal-destination="files-description">
-
-              <fo:bookmark-title>
-                <xsl:value-of select="$msg/*/entry[@key='Files_Description']"/>
-              </fo:bookmark-title>
-
-              <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
-                <fo:bookmark internal-destination="file-{ddi:fileTxt/ddi:fileName/@ID}">
-                  <fo:bookmark-title>
-                    <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
-                  </fo:bookmark-title>
-                </fo:bookmark>
-              </xsl:for-each>
-            </fo:bookmark>
-          </xsl:if>
-
-          <!-- 6) Variables_Groups -->
-          <xsl:if test="$show-variable-groups = 1">
-            <fo:bookmark internal-destination="variables-groups">
-              <fo:bookmark-title>
-                <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
-              </fo:bookmark-title>
-
-              <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp">
-                <xsl:if test="contains($subset-groups, concat(',',@ID,',')) or string-length($subset-groups)=0">
-                  <fo:bookmark internal-destination="vargrp-{@ID}">
-                    <fo:bookmark-title>
-                      <xsl:value-of select="normalize-space(ddi:labl)"/>
-                    </fo:bookmark-title>
-                  </fo:bookmark>
-                </xsl:if>
-              </xsl:for-each>
-            </fo:bookmark>
-          </xsl:if>
-
-          <!-- 7) Variables_List -->
-          <xsl:if test="$show-variables-list = 1">
-            <fo:bookmark internal-destination="variables-list">
-              <fo:bookmark-title>
-                <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
-              </fo:bookmark-title>
-
-              <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
-                <fo:bookmark internal-destination="varlist-{ddi:fileTxt/ddi:fileName/@ID}">
-                  <fo:bookmark-title>
-                    <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
-                  </fo:bookmark-title>
-                </fo:bookmark>
-              </xsl:for-each>
-            </fo:bookmark>
-          </xsl:if>
-
-          <!-- 8) Variables_Description -->
-          <xsl:if test="$show-variables-description= 1">
-            <fo:bookmark internal-destination="variables-description">
-              <fo:bookmark-title>
-                <xsl:value-of select="$msg/*/entry[@key='Variables_Description']"/>
-              </fo:bookmark-title>
-
-              <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
-                <fo:bookmark internal-destination="vardesc-{ddi:fileTxt/ddi:fileName/@ID}">
-                  <fo:bookmark-title>
-                    <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
-                  </fo:bookmark-title>
-
-                  <xsl:variable name="fileId">
-                    <xsl:choose>
-                      <xsl:when test="ddi:fileTxt/ddi:fileName/@ID">
-                        <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID"/>
-                      </xsl:when>
-                      <xsl:when test="@ID">
-                        <xsl:value-of select="@ID"/>
-                      </xsl:when>
-                    </xsl:choose>
-                  </xsl:variable>
-
-                  <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId]">
-                    <xsl:if test="contains($subset-vars, concat(',',@ID,',')) or string-length($subset-vars)=0 ">
-                      <fo:bookmark internal-destination="var-{@ID}">
-                        <fo:bookmark-title>
-                          <xsl:apply-templates select="@name"/>
-                          <xsl:if test="normalize-space(ddi:labl)">
-                            <xsl:text>: </xsl:text>
-                            <xsl:call-template name="trim">
-                              <xsl:with-param name="s" select="ddi:labl"/>
-                            </xsl:call-template>
-                          </xsl:if>
-                        </fo:bookmark-title>
-                      </fo:bookmark>
+                    <xsl:apply-templates select="@name"/>
+                    <xsl:if test="normalize-space(ddi:labl)">
+                      <xsl:text>: </xsl:text>
+                      <xsl:call-template name="trim">
+                        <xsl:with-param name="s" select="ddi:labl"/>
+                      </xsl:call-template>
                     </xsl:if>
-                  </xsl:for-each>
-
+                  </fo:bookmark-title>
                 </fo:bookmark>
-              </xsl:for-each>
-            </fo:bookmark>
-          </xsl:if>
+              </xsl:if>
+            </xsl:for-each>
 
-        </fo:bookmark-tree>
+          </fo:bookmark>
+        </xsl:for-each>
+      </fo:bookmark>
+    </xsl:if>
+
+  </fo:bookmark-tree>
 </xsl:if>
 
     <!-- [2] Cover page [page-sequence] -->
@@ -594,54 +594,54 @@
 
       <fo:block id="cover-page">
 
-              <!-- 1) logo graphic -->
-              <xsl:if test="$show-logo = 1">
-                <fo:block>
-                  <fo:external-graphic src="snd_logo_sv.png" horizontal-align="middle" content-height="5mm"/>
-                </fo:block>
+        <!-- 1) logo graphic -->
+        <xsl:if test="$show-logo = 1">
+          <fo:block>
+            <fo:external-graphic src="snd_logo_sv.png" horizontal-align="middle" content-height="5mm"/>
+          </fo:block>
+        </xsl:if>
+
+        <!-- 2) geography -->
+        <!-- [block] $geography -->
+        <xsl:if test="$show-geography = 1">
+          <fo:block font-size="14pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.2in">
+            <xsl:value-of select="$geography"/>
+          </fo:block>
+        </xsl:if>
+
+        <!-- 3) responsible party -->
+        <!-- [block] AuthEnty/@affiliation -->
+        <xsl:if test="$show-cover-page-producer = 1">
+          <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">
+            <fo:block font-size="14pt" font-weight="bold" space-before="0.0in" text-align="center" space-after="0.0in">
+              <xsl:call-template name="trim">
+                <xsl:with-param name="s">
+                  <xsl:value-of select="."/>
+                </xsl:with-param>
+              </xsl:call-template>
+              <xsl:if test="@affiliation">,
+                <xsl:value-of select="@affiliation"/>
               </xsl:if>
-
-              <!-- 2) geography -->
-              <!-- [block] $geography -->
-              <xsl:if test="$show-geography = 1">
-                <fo:block font-size="14pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.2in">
-                  <xsl:value-of select="$geography"/>
-                </fo:block>
-              </xsl:if>
-
-              <!-- 3) responsible party -->
-              <!-- [block] AuthEnty/@affiliation -->
-              <xsl:if test="$show-cover-page-producer = 1">
-                <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">
-                  <fo:block font-size="14pt" font-weight="bold" space-before="0.0in" text-align="center" space-after="0.0in">
-                    <xsl:call-template name="trim">
-                      <xsl:with-param name="s">
-                        <xsl:value-of select="."/>
-                      </xsl:with-param>
-                    </xsl:call-template>
-                    <xsl:if test="@affiliation">,
-                      <xsl:value-of select="@affiliation"/>
-                    </xsl:if>
-                  </fo:block>
-                </xsl:for-each>
-              </xsl:if>
-
-              <!-- 4) title -->
-              <!-- [block] titl -->
-              <fo:block font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.0in">
-                <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)"/>
-              </fo:block>
-
-              <!-- 5) $report-title (actually report subtitle) -->
-              <xsl:if test="show-report-subtitle">
-                <fo:block font-size="16pt" font-weight="bold" space-before="1.0in" text-align="center" space-after="0.0in">
-                  <xsl:value-of select="$report-title"/>
-                </fo:block>
-              </xsl:if>
-
             </fo:block>
-          </fo:flow>
-        </fo:page-sequence>
+          </xsl:for-each>
+        </xsl:if>
+
+        <!-- 4) title -->
+        <!-- [block] titl -->
+        <fo:block font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.0in">
+          <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)"/>
+        </fo:block>
+
+        <!-- 5) $report-title (actually report subtitle) -->
+        <xsl:if test="show-report-subtitle">
+          <fo:block font-size="16pt" font-weight="bold" space-before="1.0in" text-align="center" space-after="0.0in">
+            <xsl:value-of select="$report-title"/>
+          </fo:block>
+        </xsl:if>
+
+      </fo:block>
+    </fo:flow>
+  </fo:page-sequence>
 </xsl:if>
 
     <!-- [3] Metadata information [page-sequence] with [table] -->
@@ -670,98 +670,98 @@
     <fo:flow flow-name="xsl-region-body">
       <fo:block id="metadata-info"/>
 
-            <!-- 1) metadata production -->
-            <xsl:if test="boolean($show-metadata-production)">
-              <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Metadata_Production']"/>
-              </fo:block>
+      <!-- 1) metadata production -->
+      <xsl:if test="boolean($show-metadata-production)">
+        <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="0.1in">
+          <xsl:value-of select="$msg/*/entry[@key='Metadata_Production']"/>
+        </fo:block>
 
-              <fo:table table-layout="fixed" width="100%" space-before="0.0in" space-after="0.2in">
-                <fo:table-column column-width="proportional-column-width(20)"/>
-                <fo:table-column column-width="proportional-column-width(80)"/>
+        <fo:table table-layout="fixed" width="100%" space-before="0.0in" space-after="0.2in">
+          <fo:table-column column-width="proportional-column-width(20)"/>
+          <fo:table-column column-width="proportional-column-width(80)"/>
 
-                <fo:table-body>
+          <fo:table-body>
 
-                  <!-- 1.1) metadata producer -->
-                  <xsl:if test="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:producer">
-                    <fo:table-row>
-                      <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                        <fo:block>
-                          <xsl:value-of select="$msg/*/entry[@key='Metadata_Producers']"/>
-                        </fo:block>
-                      </fo:table-cell>
-                      <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                        <xsl:apply-templates select="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:producer"/>
-                      </fo:table-cell>
-                    </fo:table-row>
-                  </xsl:if>
-
-                  <!-- 1.2) metadata production date -->
-                  <xsl:if test="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:prodDate">
-                    <fo:table-row>
-                      <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                        <fo:block>
-                          <xsl:value-of select="$msg/*/entry[@key='Production_Date']"/>
-                        </fo:block>
-                      </fo:table-cell>
-                      <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                        <fo:block>
-                          <xsl:call-template name="isodate-long">
-                            <xsl:with-param name="isodate" select="normalize-space(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:prodDate)"/>
-                          </xsl:call-template>
-                        </fo:block>
-                      </fo:table-cell>
-                    </fo:table-row>
-                  </xsl:if>
-
-                  <!-- 1.3) metadata version -->
-                  <xsl:if test="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:verStmt/ddi:version">
-                    <fo:table-row>
-                      <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                        <fo:block>
-                          <xsl:value-of select="$msg/*/entry[@key='Version']"/>
-                        </fo:block>
-                      </fo:table-cell>
-                      <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                        <xsl:apply-templates select="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:verStmt/ddi:version"/>
-                      </fo:table-cell>
-                    </fo:table-row>
-                  </xsl:if>
-
-                  <!-- 1.4) metadata id -->
-                  <xsl:if test="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:titlStmt/ddi:IDNo">
-                    <fo:table-row>
-                      <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                        <fo:block>
-                          <xsl:value-of select="$msg/*/entry[@key='Identification']"/>
-                        </fo:block>
-                      </fo:table-cell>
-                      <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                        <xsl:apply-templates select="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:titlStmt/ddi:IDNo"/>
-                      </fo:table-cell>
-                    </fo:table-row>
-                  </xsl:if>
-
-                  <!-- =================== -->
-                  <fo:table-row>
-                    <fo:table-cell>
-                      <fo:block> </fo:block>
-                    </fo:table-cell>
-                  </fo:table-row>
-
-                </fo:table-body>
-              </fo:table>
+            <!-- 1.1) metadata producer -->
+            <xsl:if test="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:producer">
+              <fo:table-row>
+                <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:value-of select="$msg/*/entry[@key='Metadata_Producers']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                  <xsl:apply-templates select="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:producer"/>
+                </fo:table-cell>
+              </fo:table-row>
             </xsl:if>
 
-            <!-- 2) report acknowledgements -->
-            <xsl:if test="normalize-space($report-acknowledgments)">
-              <fo:block font-size="18pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Acknowledgments']"/>
-              </fo:block>
-              <fo:block font-size="10pt" space-after="0.2in">
-                <xsl:value-of select="$report-acknowledgments"/>
-              </fo:block>
+            <!-- 1.2) metadata production date -->
+            <xsl:if test="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:prodDate">
+              <fo:table-row>
+                <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:value-of select="$msg/*/entry[@key='Production_Date']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:call-template name="isodate-long">
+                      <xsl:with-param name="isodate" select="normalize-space(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:prodDate)"/>
+                    </xsl:call-template>
+                  </fo:block>
+                </fo:table-cell>
+              </fo:table-row>
             </xsl:if>
+
+            <!-- 1.3) metadata version -->
+            <xsl:if test="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:verStmt/ddi:version">
+              <fo:table-row>
+                <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:value-of select="$msg/*/entry[@key='Version']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                  <xsl:apply-templates select="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:verStmt/ddi:version"/>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
+
+            <!-- 1.4) metadata id -->
+            <xsl:if test="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:titlStmt/ddi:IDNo">
+              <fo:table-row>
+                <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:value-of select="$msg/*/entry[@key='Identification']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                  <xsl:apply-templates select="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:titlStmt/ddi:IDNo"/>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
+
+            <!-- =================== -->
+            <fo:table-row>
+              <fo:table-cell>
+                <fo:block> </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+
+          </fo:table-body>
+        </fo:table>
+      </xsl:if>
+
+      <!-- 2) report acknowledgements -->
+      <xsl:if test="normalize-space($report-acknowledgments)">
+        <fo:block font-size="18pt" font-weight="bold" space-after="0.1in">
+          <xsl:value-of select="$msg/*/entry[@key='Acknowledgments']"/>
+        </fo:block>
+        <fo:block font-size="10pt" space-after="0.2in">
+          <xsl:value-of select="$report-acknowledgments"/>
+        </fo:block>
+      </xsl:if>
 
       <!-- 3) report notes -->
       <xsl:if test="normalize-space($report-notes)">
@@ -805,192 +805,192 @@
 
   <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
-          <fo:flow flow-name="xsl-region-body">
+    <fo:flow flow-name="xsl-region-body">
 
-            <!-- Table_of_Contents -->
-            <fo:block id="toc" font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.1in">
-              <xsl:value-of select="$msg/*/entry[@key='Table_of_Contents']"/>
-            </fo:block>
+      <!-- Table_of_Contents -->
+      <fo:block id="toc" font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.1in">
+        <xsl:value-of select="$msg/*/entry[@key='Table_of_Contents']"/>
+      </fo:block>
 
-            <fo:block margin-left="0.5in" margin-right="0.5in">
+      <fo:block margin-left="0.5in" margin-right="0.5in">
 
-              <!-- 1) Overview -->
-              <xsl:if test="$show-overview = 1">
-                <fo:block font-size="10pt" text-align-last="justify">
-                  <fo:basic-link internal-destination="overview" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Overview']"/>
+        <!-- 1) Overview -->
+        <xsl:if test="$show-overview = 1">
+          <fo:block font-size="10pt" text-align-last="justify">
+            <fo:basic-link internal-destination="overview" text-decoration="underline" color="blue">
+              <xsl:value-of select="$msg/*/entry[@key='Overview']"/>
+              <fo:leader leader-pattern="dots"/>
+              <fo:page-number-citation ref-id="overview"/>
+            </fo:basic-link>
+          </fo:block>
+        </xsl:if>
+
+        <!-- 2) Scope_and_Coverage -->
+        <xsl:if test="$show-scope-and-coverage = 1">
+          <fo:block font-size="10pt" text-align-last="justify">
+            <fo:basic-link internal-destination="scope-and-coverage" text-decoration="underline" color="blue">
+              <xsl:value-of select="$msg/*/entry[@key='Scope_and_Coverage']"/>
+              <fo:leader leader-pattern="dots"/>
+              <fo:page-number-citation ref-id="scope-and-coverage"/>
+            </fo:basic-link>
+          </fo:block>
+        </xsl:if>
+
+        <!-- 3) Producers_and_Sponsors -->
+        <xsl:if test="$show-producers-and-sponsors = 1">
+          <fo:block font-size="10pt" text-align-last="justify">
+            <fo:basic-link internal-destination="producers-and-sponsors" text-decoration="underline" color="blue">
+              <xsl:value-of select="$msg/*/entry[@key='Producers_and_Sponsors']"/>
+              <fo:leader leader-pattern="dots"/>
+              <fo:page-number-citation ref-id="producers-and-sponsors"/>
+            </fo:basic-link>
+          </fo:block>
+        </xsl:if>
+
+        <!-- 4) Sampling -->
+        <xsl:if test="$show-sampling = 1">
+          <fo:block font-size="10pt" text-align-last="justify">
+            <fo:basic-link internal-destination="sampling" text-decoration="underline" color="blue">
+              <xsl:value-of select="$msg/*/entry[@key='Sampling']"/>
+              <fo:leader leader-pattern="dots"/>
+              <fo:page-number-citation ref-id="sampling"/>
+            </fo:basic-link>
+          </fo:block>
+        </xsl:if>
+
+        <!-- 5) Data_Collection -->
+        <xsl:if test="$show-data-collection = 1">
+          <fo:block font-size="10pt" text-align-last="justify">
+            <fo:basic-link internal-destination="data-collection" text-decoration="underline" color="blue">
+              <xsl:value-of select="$msg/*/entry[@key='Data_Collection']"/>
+              <fo:leader leader-pattern="dots"/>
+              <fo:page-number-citation ref-id="data-collection"/>
+            </fo:basic-link>
+          </fo:block>
+        </xsl:if>
+
+        <!-- 6) Data_Processing_and_Appraisal -->
+        <xsl:if test="$show-data-processing-and-appraisal = 1">
+          <fo:block font-size="10pt" text-align-last="justify">
+            <fo:basic-link internal-destination="data-processing-and-appraisal" text-decoration="underline" color="blue">
+              <xsl:value-of select="$msg/*/entry[@key='Data_Processing_and_Appraisal']"/>
+              <fo:leader leader-pattern="dots"/>
+              <fo:page-number-citation ref-id="data-processing-and-appraisal"/>
+            </fo:basic-link>
+          </fo:block>
+        </xsl:if>
+
+        <!-- 7) Accessibility -->
+        <xsl:if test="$show-accessibility= 1">
+          <fo:block font-size="10pt" text-align-last="justify">
+            <fo:basic-link internal-destination="accessibility" text-decoration="underline" color="blue">
+              <xsl:value-of select="$msg/*/entry[@key='Accessibility']"/>
+              <fo:leader leader-pattern="dots"/>
+              <fo:page-number-citation ref-id="accessibility"/>
+            </fo:basic-link>
+          </fo:block>
+        </xsl:if>
+
+        <!-- 8) Rights_and_Disclaimer -->
+        <xsl:if test="$show-rights-and-disclaimer = 1">
+          <fo:block font-size="10pt" text-align-last="justify">
+            <fo:basic-link internal-destination="rights-and-disclaimer" text-decoration="underline" color="blue">
+              <xsl:value-of select="$msg/*/entry[@key='Rights_and_Disclaimer']"/>
+              <fo:leader leader-pattern="dots"/>
+              <fo:page-number-citation ref-id="rights-and-disclaimer"/>
+            </fo:basic-link>
+          </fo:block>
+        </xsl:if>
+
+        <!-- 9) [block] msg Files_Description, fileName -->
+        <xsl:if test="$show-files-description = 1">
+          <fo:block font-size="10pt" text-align-last="justify">
+
+            <fo:basic-link internal-destination="files-description" text-decoration="underline" color="blue">
+              <xsl:value-of select="$msg/*/entry[@key='Files_Description']"/>
+              <fo:leader leader-pattern="dots"/>
+              <fo:page-number-citation ref-id="files-description"/>
+            </fo:basic-link>
+
+            <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
+              <fo:block margin-left="0.7in" font-size="10pt" text-align-last="justify">
+                <fo:basic-link internal-destination="file-{ddi:fileTxt/ddi:fileName/@ID}" text-decoration="underline" color="blue">
+                  <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+                  <fo:leader leader-pattern="dots"/>
+                  <fo:page-number-citation ref-id="file-{ddi:fileTxt/ddi:fileName/@ID}"/>
+                </fo:basic-link>
+              </fo:block>
+            </xsl:for-each>
+
+          </fo:block>
+        </xsl:if>
+
+        <!-- 10) [block] msg Variables_List, fileName -->
+        <xsl:if test="$show-variables-list = 1">
+          <fo:block font-size="10pt" text-align-last="justify">
+            <fo:basic-link internal-destination="variables-list" text-decoration="underline" color="blue">
+              <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
+              <fo:leader leader-pattern="dots"/>
+              <fo:page-number-citation ref-id="variables-list"/>
+            </fo:basic-link>
+            <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
+              <fo:block margin-left="0.7in" font-size="10pt" text-align-last="justify">
+                <fo:basic-link internal-destination="varlist-{ddi:fileTxt/ddi:fileName/@ID}" text-decoration="underline" color="blue">
+                  <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+                  <fo:leader leader-pattern="dots"/>
+                  <fo:page-number-citation ref-id="varlist-{ddi:fileTxt/ddi:fileName/@ID}"/>
+                </fo:basic-link>
+              </fo:block>
+            </xsl:for-each>
+          </fo:block>
+        </xsl:if>
+
+        <!-- 11) [block] msg Variable_Groups -->
+        <xsl:if test="$show-variable-groups = 1">
+          <fo:block font-size="10pt" text-align-last="justify">
+            <fo:basic-link internal-destination="variables-groups" text-decoration="underline" color="blue">
+              <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
+              <fo:leader leader-pattern="dots"/>
+              <fo:page-number-citation ref-id="variables-groups"/>
+            </fo:basic-link>
+
+            <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp">
+              <!-- Show group if its part of subset OR no subset is defined -->
+              <xsl:if test="contains($subset-groups,concat(',',@ID,',')) or string-length($subset-groups)=0">
+                <fo:block margin-left="0.7in" font-size="10pt" text-align-last="justify">
+                  <fo:basic-link internal-destination="vargrp-{@ID}" text-decoration="underline" color="blue">
+                    <xsl:value-of select="normalize-space(ddi:labl)"/>
                     <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="overview"/>
+                    <fo:page-number-citation ref-id="vargrp-{@ID}"/>
                   </fo:basic-link>
                 </fo:block>
               </xsl:if>
+            </xsl:for-each>
+          </fo:block>
+        </xsl:if>
 
-              <!-- 2) Scope_and_Coverage -->
-              <xsl:if test="$show-scope-and-coverage = 1">
-                <fo:block font-size="10pt" text-align-last="justify">
-                  <fo:basic-link internal-destination="scope-and-coverage" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Scope_and_Coverage']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="scope-and-coverage"/>
-                  </fo:basic-link>
-                </fo:block>
-              </xsl:if>
+        <!-- 12) [block] Variables_Description, fileDscr/fileName -->
+        <xsl:if test="$show-variables-description = 1">
+          <fo:block font-size="10pt" text-align-last="justify">
 
-              <!-- 3) Producers_and_Sponsors -->
-              <xsl:if test="$show-producers-and-sponsors = 1">
-                <fo:block font-size="10pt" text-align-last="justify">
-                  <fo:basic-link internal-destination="producers-and-sponsors" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Producers_and_Sponsors']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="producers-and-sponsors"/>
-                  </fo:basic-link>
-                </fo:block>
-              </xsl:if>
+            <fo:basic-link internal-destination="variables-description" text-decoration="underline" color="blue">
+              <xsl:value-of select="$msg/*/entry[@key='Variables_Description']"/>
+              <fo:leader leader-pattern="dots"/>
+              <fo:page-number-citation ref-id="variables-description"/>
+            </fo:basic-link>
 
-              <!-- 4) Sampling -->
-              <xsl:if test="$show-sampling = 1">
-                <fo:block font-size="10pt" text-align-last="justify">
-                  <fo:basic-link internal-destination="sampling" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Sampling']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="sampling"/>
-                  </fo:basic-link>
-                </fo:block>
-              </xsl:if>
+            <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
+              <fo:block margin-left="0.7in" font-size="10pt" text-align-last="justify">
+                <fo:basic-link internal-destination="vardesc-{ddi:fileTxt/ddi:fileName/@ID}" text-decoration="underline" color="blue">
+                  <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+                  <fo:leader leader-pattern="dots"/>
+                  <fo:page-number-citation ref-id="vardesc-{ddi:fileTxt/ddi:fileName/@ID}"/>
+                </fo:basic-link>
+              </fo:block>
+            </xsl:for-each>
 
-              <!-- 5) Data_Collection -->
-              <xsl:if test="$show-data-collection = 1">
-                <fo:block font-size="10pt" text-align-last="justify">
-                  <fo:basic-link internal-destination="data-collection" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Data_Collection']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="data-collection"/>
-                  </fo:basic-link>
-                </fo:block>
-              </xsl:if>
-
-              <!-- 6) Data_Processing_and_Appraisal -->
-              <xsl:if test="$show-data-processing-and-appraisal = 1">
-                <fo:block font-size="10pt" text-align-last="justify">
-                  <fo:basic-link internal-destination="data-processing-and-appraisal" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Data_Processing_and_Appraisal']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="data-processing-and-appraisal"/>
-                  </fo:basic-link>
-                </fo:block>
-              </xsl:if>
-
-              <!-- 7) Accessibility -->
-              <xsl:if test="$show-accessibility= 1">
-                <fo:block font-size="10pt" text-align-last="justify">
-                  <fo:basic-link internal-destination="accessibility" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Accessibility']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="accessibility"/>
-                  </fo:basic-link>
-                </fo:block>
-              </xsl:if>
-
-              <!-- 8) Rights_and_Disclaimer -->
-              <xsl:if test="$show-rights-and-disclaimer = 1">
-                <fo:block font-size="10pt" text-align-last="justify">
-                  <fo:basic-link internal-destination="rights-and-disclaimer" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Rights_and_Disclaimer']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="rights-and-disclaimer"/>
-                  </fo:basic-link>
-                </fo:block>
-              </xsl:if>
-
-              <!-- 9) [block] msg Files_Description, fileName -->
-              <xsl:if test="$show-files-description = 1">
-                <fo:block font-size="10pt" text-align-last="justify">
-
-                  <fo:basic-link internal-destination="files-description" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Files_Description']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="files-description"/>
-                  </fo:basic-link>
-
-                  <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
-                    <fo:block margin-left="0.7in" font-size="10pt" text-align-last="justify">
-                      <fo:basic-link internal-destination="file-{ddi:fileTxt/ddi:fileName/@ID}" text-decoration="underline" color="blue">
-                        <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
-                        <fo:leader leader-pattern="dots"/>
-                        <fo:page-number-citation ref-id="file-{ddi:fileTxt/ddi:fileName/@ID}"/>
-                      </fo:basic-link>
-                    </fo:block>
-                  </xsl:for-each>
-
-                </fo:block>
-              </xsl:if>
-
-              <!-- 10) [block] msg Variables_List, fileName -->
-              <xsl:if test="$show-variables-list = 1">
-                <fo:block font-size="10pt" text-align-last="justify">
-                  <fo:basic-link internal-destination="variables-list" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="variables-list"/>
-                  </fo:basic-link>
-                  <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
-                    <fo:block margin-left="0.7in" font-size="10pt" text-align-last="justify">
-                      <fo:basic-link internal-destination="varlist-{ddi:fileTxt/ddi:fileName/@ID}" text-decoration="underline" color="blue">
-                        <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
-                        <fo:leader leader-pattern="dots"/>
-                        <fo:page-number-citation ref-id="varlist-{ddi:fileTxt/ddi:fileName/@ID}"/>
-                      </fo:basic-link>
-                    </fo:block>
-                  </xsl:for-each>
-                </fo:block>
-              </xsl:if>
-
-              <!-- 11) [block] msg Variable_Groups -->
-              <xsl:if test="$show-variable-groups = 1">
-                <fo:block font-size="10pt" text-align-last="justify">
-                  <fo:basic-link internal-destination="variables-groups" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="variables-groups"/>
-                  </fo:basic-link>
-
-                  <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp">
-                    <!-- Show group if its part of subset OR no subset is defined -->
-                    <xsl:if test="contains($subset-groups,concat(',',@ID,',')) or string-length($subset-groups)=0">
-                      <fo:block margin-left="0.7in" font-size="10pt" text-align-last="justify">
-                        <fo:basic-link internal-destination="vargrp-{@ID}" text-decoration="underline" color="blue">
-                          <xsl:value-of select="normalize-space(ddi:labl)"/>
-                          <fo:leader leader-pattern="dots"/>
-                          <fo:page-number-citation ref-id="vargrp-{@ID}"/>
-                        </fo:basic-link>
-                      </fo:block>
-                    </xsl:if>
-                  </xsl:for-each>
-                </fo:block>
-              </xsl:if>
-
-              <!-- 12) [block] Variables_Description, fileDscr/fileName -->
-              <xsl:if test="$show-variables-description = 1">
-                <fo:block font-size="10pt" text-align-last="justify">
-
-                  <fo:basic-link internal-destination="variables-description" text-decoration="underline" color="blue">
-                    <xsl:value-of select="$msg/*/entry[@key='Variables_Description']"/>
-                    <fo:leader leader-pattern="dots"/>
-                    <fo:page-number-citation ref-id="variables-description"/>
-                  </fo:basic-link>
-
-                  <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
-                    <fo:block margin-left="0.7in" font-size="10pt" text-align-last="justify">
-                      <fo:basic-link internal-destination="vardesc-{ddi:fileTxt/ddi:fileName/@ID}" text-decoration="underline" color="blue">
-                        <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
-                        <fo:leader leader-pattern="dots"/>
-                        <fo:page-number-citation ref-id="vardesc-{ddi:fileTxt/ddi:fileName/@ID}"/>
-                      </fo:basic-link>
-                    </fo:block>
-                  </xsl:for-each>
-
-                </fo:block>
-              </xsl:if>
+          </fo:block>
+        </xsl:if>
 
       </fo:block>
     </fo:flow>
@@ -1018,813 +1018,813 @@
       </fo:block>
     </fo:static-content>
 
-          <!-- footer-->
-          <fo:static-content flow-name="xsl-region-after">
-            <fo:block font-size="6" text-align="center" space-before="0.3in">
-              - <fo:page-number/> -
-            </fo:block>
-          </fo:static-content>
+    <!-- footer-->
+    <fo:static-content flow-name="xsl-region-after">
+      <fo:block font-size="6" text-align="center" space-before="0.3in">
+        - <fo:page-number/> -
+      </fo:block>
+    </fo:static-content>
 
-          <!-- page [flow] -->
-          <fo:flow flow-name="xsl-region-body">
-            <fo:table table-layout="fixed" width="100%">
-              <fo:table-column column-width="proportional-column-width(20)"/>
-              <fo:table-column column-width="proportional-column-width(80)"/>
+    <!-- page [flow] -->
+    <fo:flow flow-name="xsl-region-body">
+      <fo:table table-layout="fixed" width="100%">
+        <fo:table-column column-width="proportional-column-width(20)"/>
+        <fo:table-column column-width="proportional-column-width(80)"/>
 
-              <fo:table-body>
+        <fo:table-body>
 
-                <!-- 1) Title header -->
-                <fo:table-row background-color="{$color-gray3}">
-                  <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+          <!-- 1) Title header -->
+          <fo:table-row background-color="{$color-gray3}">
+            <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
 
-                    <!-- $survey-title -->
-                    <fo:block font-size="14pt" font-weight="bold">
-                      <xsl:value-of select="$survey-title"/>
-                    </fo:block>
+              <!-- $survey-title -->
+              <fo:block font-size="14pt" font-weight="bold">
+                <xsl:value-of select="$survey-title"/>
+              </fo:block>
 
-                    <!-- parTitl -->
-                    <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:parTitl">
-                      <fo:block font-size="12pt" font-weight="bold" font-style="italic">
-                        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:parTitl"/>
-                      </fo:block>
-                    </xsl:if>
+              <!-- parTitl -->
+              <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:parTitl">
+                <fo:block font-size="12pt" font-weight="bold" font-style="italic">
+                  <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:parTitl"/>
+                </fo:block>
+              </xsl:if>
 
-                  </fo:table-cell>
-                </fo:table-row>
+            </fo:table-cell>
+          </fo:table-row>
+      
+          <!-- ============================= -->
+          <fo:table-row height="0.2in">
+            <fo:table-cell number-columns-spanned="2">
+              <fo:block/>
+            </fo:table-cell>
+          </fo:table-row>
 
-                <!-- ============================= -->
-                <fo:table-row height="0.2in">
-                  <fo:table-cell number-columns-spanned="2">
-                    <fo:block/>
-                  </fo:table-cell>
-                </fo:table-row>
+          <!-- 2) Overview -->
+          <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
+            <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+              <fo:block id="overview" font-size="12pt" font-weight="bold">
+                <xsl:value-of select="$msg/*/entry[@key='Overview']"/>
+              </fo:block>
+            </fo:table-cell>
+          </fo:table-row>
 
-                <!-- 2) Overview -->
-                <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
-                  <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block id="overview" font-size="12pt" font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Overview']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
+          <!-- 3) Type -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serName">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Type']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serName"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 3) Type -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serName">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Type']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serName"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 4) Identification -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:IDNo">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Identification']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:IDNo"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 4) Identification -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:IDNo">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Identification']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:IDNo"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 5) Version -->
+          <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:verStmt/ddi:version">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Version']"/>
+                </fo:block>
+              </fo:table-cell>
 
-                <!-- 5) Version -->
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+
+                <!-- 5.1) Production_Date -->
                 <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:verStmt/ddi:version">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Version']"/>
-                      </fo:block>
-                    </fo:table-cell>
-
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-
-                      <!-- 5.1) Production_Date -->
-                      <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:verStmt/ddi:version">
-                        <xsl:if test="@date">
-                          <fo:block>
-                            <xsl:value-of select="$msg/*/entry[@key='Production_Date']"/>:
-                            <xsl:value-of select="@date"/>
-                          </fo:block>
-                        </xsl:if>
-                        <xsl:apply-templates select="."/>
-                      </xsl:for-each>
-
-                      <!-- 5.2) Notes -->
-                      <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:verStmt/ddi:notes">
-                        <fo:block text-decoration="underline">
-                          <xsl:value-of select="$msg/*/entry[@key='Notes']"/>
-                        </fo:block>
-                        <xsl:apply-templates select="."/>
-                      </xsl:for-each>
-
-                    </fo:table-cell>
-                  </fo:table-row>
+                  <xsl:if test="@date">
+                    <fo:block>
+                      <xsl:value-of select="$msg/*/entry[@key='Production_Date']"/>:
+                      <xsl:value-of select="@date"/>
+                    </fo:block>
+                  </xsl:if>
+                  <xsl:apply-templates select="."/>
                 </xsl:for-each>
 
-                <!-- 6) Series -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serInfo">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Series']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serInfo"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+                <!-- 5.2) Notes -->
+                <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:verStmt/ddi:notes">
+                  <fo:block text-decoration="underline">
+                    <xsl:value-of select="$msg/*/entry[@key='Notes']"/>
+                  </fo:block>
+                  <xsl:apply-templates select="."/>
+                </xsl:for-each>
 
-                <!-- 7) Abstract -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:abstract">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Abstract']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:abstract"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:for-each>
 
-                <!-- 8) Kind_of_Data -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:dataKind">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Kind_of_Data']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:dataKind"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 6) Series -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serInfo">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Series']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serInfo"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 9) Unit_of_Analysis  -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:anlyUnit">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Unit_of_Analysis']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:anlyUnit"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 7) Abstract -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:abstract">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Abstract']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:abstract"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- ===================== -->
-                <fo:table-row height="0.2in">
-                  <fo:table-cell number-columns-spanned="2">
-                    <fo:block/>
-                  </fo:table-cell>
-                </fo:table-row>
+          <!-- 8) Kind_of_Data -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:dataKind">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Kind_of_Data']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:dataKind"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 10) Scope_and_Coverage -->
-                <xsl:if test="$show-scope-and-coverage = 1">
-                  <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block id="scope-and-coverage" font-size="12pt" font-weight="bold">
-                        <xsl:value-of select="$msg/*/entry[@key='Scope_and_Coverage']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 9) Unit_of_Analysis  -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:anlyUnit">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Unit_of_Analysis']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:anlyUnit"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 11) Scope -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:notes">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Scope']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:notes"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- ===================== -->
+          <fo:table-row height="0.2in">
+            <fo:table-cell number-columns-spanned="2">
+              <fo:block/>
+            </fo:table-cell>
+          </fo:table-row>
 
-                <!-- 12) Keywords -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:keyword">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Keywords']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:keyword">
-                          <xsl:if test="position()&gt;1">, </xsl:if>
-                          <xsl:value-of select="normalize-space(.)"/>
-                        </xsl:for-each>
-                      </fo:block>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 10) Scope_and_Coverage -->
+          <xsl:if test="$show-scope-and-coverage = 1">
+            <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block id="scope-and-coverage" font-size="12pt" font-weight="bold">
+                  <xsl:value-of select="$msg/*/entry[@key='Scope_and_Coverage']"/>
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 13) Topics -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:topcClas">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Topics']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:topcClas">
-                          <xsl:if test="position()&gt;1">, </xsl:if>
-                          <xsl:value-of select="normalize-space(.)"/>
-                        </xsl:for-each>
-                      </fo:block>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 11) Scope -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:notes">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Scope']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:notes"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 14) Time_Periods -->
-                <xsl:if test="string-length($time)&gt;3 or string-length($time-produced)&gt;3">
-                  <fo:table-row>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Time_Periods']"/>
-                      </fo:block>
-                    </fo:table-cell>
+          <!-- 12) Keywords -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:keyword">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Keywords']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:keyword">
+                    <xsl:if test="position()&gt;1">, </xsl:if>
+                    <xsl:value-of select="normalize-space(.)"/>
+                  </xsl:for-each>
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:choose>
-                        <xsl:when test="string-length($time) &gt; 3">
-                          <fo:block>
-                            <xsl:value-of select="$time"/>
-                          </fo:block>
-                        </xsl:when>
-                        <xsl:when test="string-length($time-produced) &gt; 3">
-                          <fo:block>
-                            <xsl:value-of select="$time-produced"/>
-                          </fo:block>
-                        </xsl:when>
-                      </xsl:choose>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 13) Topics -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:topcClas">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Topics']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:topcClas">
+                    <xsl:if test="position()&gt;1">, </xsl:if>
+                    <xsl:value-of select="normalize-space(.)"/>
+                  </xsl:for-each>
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 15) Countries -->
-                <fo:table-row>
-                  <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold" text-decoration="underline">
-                      <xsl:value-of select="$msg/*/entry[@key='Countries']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+          <!-- 14) Time_Periods -->
+          <xsl:if test="string-length($time)&gt;3 or string-length($time-produced)&gt;3">
+            <fo:table-row>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Time_Periods']"/>
+                </fo:block>
+              </fo:table-cell>
+
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:choose>
+                  <xsl:when test="string-length($time) &gt; 3">
                     <fo:block>
-                      <xsl:value-of select="$geography"/>
+                      <xsl:value-of select="$time"/>
                     </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
+                  </xsl:when>
+                  <xsl:when test="string-length($time-produced) &gt; 3">
+                    <fo:block>
+                      <xsl:value-of select="$time-produced"/>
+                    </fo:block>
+                  </xsl:when>
+                </xsl:choose>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 16) Geographic_Coverage -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:geogCover">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Geographic_Coverage']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:geogCover"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 15) Countries -->
+          <fo:table-row>
+            <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+              <fo:block font-weight="bold" text-decoration="underline">
+                <xsl:value-of select="$msg/*/entry[@key='Countries']"/>
+              </fo:block>
+            </fo:table-cell>
+            <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+              <fo:block>
+                <xsl:value-of select="$geography"/>
+              </fo:block>
+            </fo:table-cell>
+          </fo:table-row>
 
-                <!-- 17) Universe -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:universe">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Universe']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:universe"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 16) Geographic_Coverage -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:geogCover">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Geographic_Coverage']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:geogCover"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- ============================= -->
-                <fo:table-row height="0.2in">
-                  <fo:table-cell number-columns-spanned="2">
-                    <fo:block/>
-                  </fo:table-cell>
-                </fo:table-row>
+          <!-- 17) Universe -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:universe">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Universe']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:universe"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 18) Producers_and_Sponsors -->
-                <xsl:if test="$show-producers-and-sponsors = 1">
-                  <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block id="producers-and-sponsors" font-size="12pt" font-weight="bold">
-                        <xsl:value-of select="$msg/*/entry[@key='Producers_and_Sponsors']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- ============================= -->
+          <fo:table-row height="0.2in">
+            <fo:table-cell number-columns-spanned="2">
+              <fo:block/>
+            </fo:table-cell>
+          </fo:table-row>
 
-                <!-- 19) Primary Investigator(s) -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Primary_Investigators']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 18) Producers_and_Sponsors -->
+          <xsl:if test="$show-producers-and-sponsors = 1">
+            <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block id="producers-and-sponsors" font-size="12pt" font-weight="bold">
+                  <xsl:value-of select="$msg/*/entry[@key='Producers_and_Sponsors']"/>
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 20) [fo:table-row] Other Producer(s) -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:producer">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Other_Producers']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:producer"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 19) Primary Investigator(s) -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Primary_Investigators']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 21) [fo:table-row] Funding -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:fundAg">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Funding_Agencies']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:fundAg"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 20) [fo:table-row] Other Producer(s) -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:producer">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Other_Producers']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:producer"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 22) [fo:table-row] Other Acknowledgements -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:othId">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Other_Acknowledgments']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:othId"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 21) [fo:table-row] Funding -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:fundAg">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Funding_Agencies']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:fundAg"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- ===[separator]=== -->
-                <fo:table-row height="0.2in">
-                  <fo:table-cell number-columns-spanned="2">
-                    <fo:block/>
-                  </fo:table-cell>
-                </fo:table-row>
+          <!-- 22) [fo:table-row] Other Acknowledgements -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:othId">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Other_Acknowledgments']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:othId"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 23) [fo:table-row] Sampling -->
-                <xsl:if test="$show-sampling = 1">
-                  <fo:table-row background-color="{$color-gray1}">
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block id="sampling" font-size="12pt" font-weight="bold">
-                        <xsl:value-of select="$msg/*/entry[@key='Sampling']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- ===[separator]=== -->
+          <fo:table-row height="0.2in">
+            <fo:table-cell number-columns-spanned="2">
+              <fo:block/>
+            </fo:table-cell>
+          </fo:table-row>
 
-                <!-- 24) Sampling Procedure -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:sampProc">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Sampling_Procedure']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:sampProc"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 23) [fo:table-row] Sampling -->
+          <xsl:if test="$show-sampling = 1">
+            <fo:table-row background-color="{$color-gray1}">
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block id="sampling" font-size="12pt" font-weight="bold">
+                  <xsl:value-of select="$msg/*/entry[@key='Sampling']"/>
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 25) [fo:table-row] Deviations from Sample -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:deviat">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Deviations_from_Sample_Design']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:deviat"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 24) Sampling Procedure -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:sampProc">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Sampling_Procedure']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:sampProc"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 26) [fo:table-row] Response Rate -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:respRate">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Response_Rate']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:respRate"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 25) [fo:table-row] Deviations from Sample -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:deviat">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Deviations_from_Sample_Design']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:deviat"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 27) [fo:table-row] Weighting -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:weight">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Weighting']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:weight"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 26) [fo:table-row] Response Rate -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:respRate">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Response_Rate']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:respRate"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- =============================== -->
-                <fo:table-row height="0.2in">
-                  <fo:table-cell number-columns-spanned="2">
-                    <fo:block/>
-                  </fo:table-cell>
-                </fo:table-row>
+          <!-- 27) [fo:table-row] Weighting -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:weight">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Weighting']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:weight"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 28) Data Collection -->
-                <xsl:if test="$show-data-collection = 1">
-                  <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block id="data-collection" font-size="12pt" font-weight="bold">
-                        <xsl:value-of select="$msg/*/entry[@key='Data_Collection']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- =============================== -->
+          <fo:table-row height="0.2in">
+            <fo:table-cell number-columns-spanned="2">
+              <fo:block/>
+            </fo:table-cell>
+          </fo:table-row>
 
-                <!-- 29) Data Collection Dates -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Data_Collection_Dates']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 28) Data Collection -->
+          <xsl:if test="$show-data-collection = 1">
+            <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block id="data-collection" font-size="12pt" font-weight="bold">
+                  <xsl:value-of select="$msg/*/entry[@key='Data_Collection']"/>
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 30) Time Periods -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Time_Periods']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 29) Data Collection Dates -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Data_Collection_Dates']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 31) Data Collection Mode -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collMode">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Data_Collection_Mode']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collMode"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 30) Time Periods -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Time_Periods']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 32) Data Collection Notes -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Data_Collection_Notes']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 31) Data Collection Mode -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collMode">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Data_Collection_Mode']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collMode"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 33) DDP Data Processing Notes -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='processing']">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Data_Processing_Notes']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 32) Data Collection Notes -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Data_Collection_Notes']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 34) Data Cleaning Notes -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='cleaning']">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Data_Cleaning_Notes']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 33) DDP Data Processing Notes -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='processing']">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Data_Processing_Notes']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 35) Data_Collection_Notes -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collSitu">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Data_Collection_Notes']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collSitu"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 34) Data Cleaning Notes -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='cleaning']">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Data_Cleaning_Notes']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 36) Questionnaires -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:resInstru">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Questionnaires']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:resInstru"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 35) Data_Collection_Notes -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collSitu">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Data_Collection_Notes']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collSitu"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 37) Data_Collectors -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:dataCollector">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Data_Collectors']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:dataCollector"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 36) Questionnaires -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:resInstru">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Questionnaires']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:resInstru"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 38) Supervision -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:actMin">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Supervision']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:actMin"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 37) Data_Collectors -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:dataCollector">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Data_Collectors']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:dataCollector"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- =============================== -->
-                <fo:table-row height="0.2in">
-                  <fo:table-cell number-columns-spanned="2">
-                    <fo:block/>
-                  </fo:table-cell>
-                </fo:table-row>
+          <!-- 38) Supervision -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:actMin">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Supervision']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:actMin"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 39) Data Processing and Appraisal -->
-                <xsl:if test="$show-data-processing-and-appraisal = 1">
-                  <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block id="data-processing-and-appraisal" font-size="12pt" font-weight="bold">
-                        <xsl:value-of select="$msg/*/entry[@key='Data_Processing_and_Appraisal']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- =============================== -->
+          <fo:table-row height="0.2in">
+            <fo:table-cell number-columns-spanned="2">
+              <fo:block/>
+            </fo:table-cell>
+          </fo:table-row>
 
-                <!-- 40) Data Editing -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:cleanOps">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Data_Editing']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:cleanOps"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 39) Data Processing and Appraisal -->
+          <xsl:if test="$show-data-processing-and-appraisal = 1">
+            <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block id="data-processing-and-appraisal" font-size="12pt" font-weight="bold">
+                  <xsl:value-of select="$msg/*/entry[@key='Data_Processing_and_Appraisal']"/>
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 41) Other Processing -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Other_Processing']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 40) Data Editing -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:cleanOps">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Data_Editing']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:cleanOps"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 42) Estimates of Sampling Error -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:EstSmpErr">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Estimates_of_Sampling_Error']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:EstSmpErr"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 41) Other Processing -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Other_Processing']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 43) Other_Forms_of_Data_Appraisal -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:dataAppr">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Other_Forms_of_Data_Appraisal']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:dataAppr"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 42) Estimates of Sampling Error -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:EstSmpErr">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Estimates_of_Sampling_Error']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:EstSmpErr"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- ============================= -->
-                <fo:table-row height="0.2in">
-                  <fo:table-cell number-columns-spanned="2">
-                    <fo:block/>
-                  </fo:table-cell>
-                </fo:table-row>
+          <!-- 43) Other_Forms_of_Data_Appraisal -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:dataAppr">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Other_Forms_of_Data_Appraisal']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:dataAppr"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 44) Accesibility -->
-                <xsl:if test="$show-accessibility = 1">
-                  <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block id="accessibility" font-size="12pt" font-weight="bold">
-                        <xsl:value-of select="$msg/*/entry[@key='Accessibility']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- ============================= -->
+          <fo:table-row height="0.2in">
+            <fo:table-cell number-columns-spanned="2">
+              <fo:block/>
+            </fo:table-cell>
+          </fo:table-row>
 
-                <!-- 45) Access Authority -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:contact">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Access_Authority']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:contact"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 44) Accesibility -->
+          <xsl:if test="$show-accessibility = 1">
+            <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block id="accessibility" font-size="12pt" font-weight="bold">
+                  <xsl:value-of select="$msg/*/entry[@key='Accessibility']"/>
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 46) Contacts -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:contact">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Contacts']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:contact"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 45) Access Authority -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:contact">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Access_Authority']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:contact"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 47) Distributor -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:distrbtr">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Distributors']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:distrbtr"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 46) Contacts -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:contact">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Contacts']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:contact"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 48) Depositors (DDP) -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:depositr">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Depositors']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:depositr"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 47) Distributor -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:distrbtr">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Distributors']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:distrbtr"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 49) Confidentiality -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:confDec">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Confidentiality']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:confDec"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 48) Depositors (DDP) -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:depositr">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Depositors']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:depositr"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 50) Access Conditions -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:conditions">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Access_Conditions']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:conditions"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 49) Confidentiality -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:confDec">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Confidentiality']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:confDec"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 51) Citation Requierments -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:citReq">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Citation_Requirements']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:citReq"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 50) Access Conditions -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:conditions">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Access_Conditions']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:conditions"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- ================================= -->
-                <fo:table-row height="0.2in">
-                  <fo:table-cell number-columns-spanned="2">
-                    <fo:block/>
-                  </fo:table-cell>
-                </fo:table-row>
+          <!-- 51) Citation Requierments -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:citReq">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Citation_Requirements']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:citReq"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 52) Rights and Disclaimer -->
-                <xsl:if test="$show-rights-and-disclaimer = 1">
-                  <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block id="rights-and-disclaimer" font-size="12pt" font-weight="bold">
-                        <xsl:value-of select="$msg/*/entry[@key='Rights_and_Disclaimer']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- ================================= -->
+          <fo:table-row height="0.2in">
+            <fo:table-cell number-columns-spanned="2">
+              <fo:block/>
+            </fo:table-cell>
+          </fo:table-row>
 
-                <!-- 53) Disclaimer -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:disclaimer">
-                  <fo:table-row>
-                    <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block font-weight="bold" text-decoration="underline">
-                        <xsl:value-of select="$msg/*/entry[@key='Disclaimer']"/>
-                      </fo:block>
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:disclaimer"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 52) Rights and Disclaimer -->
+          <xsl:if test="$show-rights-and-disclaimer = 1">
+            <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block id="rights-and-disclaimer" font-size="12pt" font-weight="bold">
+                  <xsl:value-of select="$msg/*/entry[@key='Rights_and_Disclaimer']"/>
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-                <!-- 54) Copyright -->
-                <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:copyright">
-                  <fo:table-row>
-                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                      <fo:block>
-                        <xsl:value-of select="$msg/*/entry[@key='Copyright']"/>
-                      </fo:block>
-                    </fo:table-cell>
-                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                      <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:copyright"/>
-                    </fo:table-cell>
-                  </fo:table-row>
-                </xsl:if>
+          <!-- 53) Disclaimer -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:disclaimer">
+            <fo:table-row>
+              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block font-weight="bold" text-decoration="underline">
+                  <xsl:value-of select="$msg/*/entry[@key='Disclaimer']"/>
+                </fo:block>
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:disclaimer"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
-              </fo:table-body>
-            </fo:table>
-          </fo:flow>
+          <!-- 54) Copyright -->
+          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:copyright">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Copyright']"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:copyright"/>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
+
+        </fo:table-body>
+      </fo:table>
+    </fo:flow>
   </fo:page-sequence>
 </xsl:if>
 
@@ -1847,29 +1847,29 @@
       </fo:block>
     </fo:static-content>
 
-          <!-- footer -->
-          <fo:static-content flow-name="xsl-region-after">
-            <fo:block font-size="6" text-align="center" space-before="0.3in">
-              - <fo:page-number/> -
-            </fo:block>
-          </fo:static-content>
+    <!-- footer -->
+    <fo:static-content flow-name="xsl-region-after">
+      <fo:block font-size="6" text-align="center" space-before="0.3in">
+        - <fo:page-number/> -
+      </fo:block>
+    </fo:static-content>
 
-          <!-- main [flow] -->
-          <fo:flow flow-name="xsl-region-body">
+    <!-- main [flow] -->
+    <fo:flow flow-name="xsl-region-body">
 
-            <!-- Files_Description -->
-            <fo:block id="files-description" font-size="18pt" font-weight="bold" space-after="0.1in">
-              <xsl:value-of select="$msg/*/entry[@key='Files_Description']"/>
-            </fo:block>
+      <!-- Files_Description -->
+      <fo:block id="files-description" font-size="18pt" font-weight="bold" space-after="0.1in">
+        <xsl:value-of select="$msg/*/entry[@key='Files_Description']"/>
+      </fo:block>
 
-            <!-- Dataset_Contains -->
-            <fo:block font-weight="bold">
-              <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']"/>
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="count(/ddi:codeBook/ddi:fileDscr)"/>
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="$msg/*/entry[@key='files']"/>
-            </fo:block>
+      <!-- Dataset_Contains -->
+      <fo:block font-weight="bold">
+        <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="count(/ddi:codeBook/ddi:fileDscr)"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$msg/*/entry[@key='files']"/>
+      </fo:block>
 
       <!-- fileDscr -->
       <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr"/>
@@ -1897,35 +1897,35 @@
       </fo:block>
     </fo:static-content>
 
-          <!-- footer -->
-          <fo:static-content flow-name="xsl-region-after">
-            <fo:block font-size="6" text-align="center" space-before="0.3in">
-              - <fo:page-number/> -
-            </fo:block>
-          </fo:static-content>
+    <!-- footer -->
+    <fo:static-content flow-name="xsl-region-after">
+      <fo:block font-size="6" text-align="center" space-before="0.3in">
+        - <fo:page-number/> -
+      </fo:block>
+    </fo:static-content>
 
-          <!-- main flow -->
-          <fo:flow flow-name="xsl-region-body">
+    <!-- main flow -->
+    <fo:flow flow-name="xsl-region-body">
 
-            <!-- Variables_List -->
-            <fo:block id="variables-list" font-size="18pt" font-weight="bold" space-after="0.1in">
-              <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
-            </fo:block>
+      <!-- Variables_List -->
+      <fo:block id="variables-list" font-size="18pt" font-weight="bold" space-after="0.1in">
+        <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
+      </fo:block>
 
-            <!-- Dataset_Contains -->
-            <fo:block font-weight="bold">
-              <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']"/>
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:var)"/>
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="$msg/*/entry[@key='variables']"/>
-            </fo:block>
+      <!-- Dataset_Contains -->
+      <fo:block font-weight="bold">
+        <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:var)"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$msg/*/entry[@key='variables']"/>
+      </fo:block>
 
-            <!-- fileDscr -->
-            <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" mode="variables-list"/>
+      <!-- fileDscr -->
+      <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" mode="variables-list"/>
 
-          </fo:flow>
-        </fo:page-sequence>
+    </fo:flow>
+  </fo:page-sequence>
 </xsl:if>
 
     <!-- [8] Variable groups [page-sequence] -->
@@ -1947,40 +1947,40 @@
       </fo:block>
     </fo:static-content>
           
-          <!-- footer -->
-          <fo:static-content flow-name="xsl-region-after">
-            <fo:block font-size="6" text-align="center" space-before="0.3in">
-              - <fo:page-number/> -
-            </fo:block>
-          </fo:static-content>
+    <!-- footer -->
+    <fo:static-content flow-name="xsl-region-after">
+      <fo:block font-size="6" text-align="center" space-before="0.3in">
+        - <fo:page-number/> -
+      </fo:block>
+    </fo:static-content>
 
-          <!-- page [flow] -->
-          <fo:flow flow-name="xsl-region-body">
+    <!-- page [flow] -->
+    <fo:flow flow-name="xsl-region-body">
 
-            <!-- Variables_Groups -->
-            <fo:block id="variables-groups" font-size="18pt" font-weight="bold" space-after="0.1in">
-              <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
-            </fo:block>
+      <!-- Variables_Groups -->
+      <fo:block id="variables-groups" font-size="18pt" font-weight="bold" space-after="0.1in">
+        <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
+      </fo:block>
 
-            <!-- Dataset_Contains -->
-            <fo:block font-weight="bold">
-              <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']"/>
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp)"/>
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="$msg/*/entry[@key='groups']"/>
-              <xsl:if test="string-length($subset-vars)&gt;0">
-                <xsl:value-of select="$msg/*/entry[@key='ShowingSubset']"/>
-                <xsl:value-of select="$number-of-groups"/>
-              </xsl:if>
-            </fo:block>
+      <!-- Dataset_Contains -->
+      <fo:block font-weight="bold">
+        <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp)"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$msg/*/entry[@key='groups']"/>
+        <xsl:if test="string-length($subset-vars)&gt;0">
+          <xsl:value-of select="$msg/*/entry[@key='ShowingSubset']"/>
+          <xsl:value-of select="$number-of-groups"/>
+        </xsl:if>
+      </fo:block>
 
-            <!-- varGrp -->
-            <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp"/>
+      <!-- varGrp -->
+      <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp"/>
 
-          </fo:flow>
-        </fo:page-sequence>
-      </xsl:if>
+    </fo:flow>
+  </fo:page-sequence>
+</xsl:if>
 
     <!-- [9] Variables description [fo:page-sequence] -->
     <!-- ==================================================== --><!-- [9] Variables description                            --><!-- [fo:page-sequence]                                   --><!-- ==================================================== --><!--
@@ -2001,35 +2001,35 @@
       </fo:block>
     </fo:static-content>
 
-          <!-- footer-->
-          <fo:static-content flow-name="xsl-region-after">
-            <fo:block font-size="6" text-align="center" space-before="0.3in">
-              - <fo:page-number/> -
-            </fo:block>
-          </fo:static-content>
+    <!-- footer-->
+    <fo:static-content flow-name="xsl-region-after">
+      <fo:block font-size="6" text-align="center" space-before="0.3in">
+        - <fo:page-number/> -
+      </fo:block>
+    </fo:static-content>
 
-          <!-- page flow -->
-          <fo:flow flow-name="xsl-region-body">
+    <!-- page flow -->
+    <fo:flow flow-name="xsl-region-body">
 
-            <!-- Variables_Description -->
-            <fo:block id="variables-description" font-size="18pt" font-weight="bold" space-after="0.1in">
-              <xsl:value-of select="$msg/*/entry[@key='Variables_Description']"/>
-            </fo:block>
+      <!-- Variables_Description -->
+      <fo:block id="variables-description" font-size="18pt" font-weight="bold" space-after="0.1in">
+        <xsl:value-of select="$msg/*/entry[@key='Variables_Description']"/>
+      </fo:block>
 
-            <!-- Dataset_Contains -->
-            <fo:block font-weight="bold">
-              <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']"/>
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:var)"/>
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="$msg/*/entry[@key='variables']"/>
-              <xsl:if test="string-length($subset-vars) &gt; 0">
-                <xsl:value-of select="$msg/*/entry[@key='ShowingSubset']"/>
-              </xsl:if>
-            </fo:block>
+      <!-- Dataset_Contains -->
+      <fo:block font-weight="bold">
+        <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:var)"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$msg/*/entry[@key='variables']"/>
+        <xsl:if test="string-length($subset-vars) &gt; 0">
+          <xsl:value-of select="$msg/*/entry[@key='ShowingSubset']"/>
+        </xsl:if>
+      </fo:block>
 
-          </fo:flow>
-        </fo:page-sequence>
+    </fo:flow>
+  </fo:page-sequence>
 
   <!-- fileDscr -->
   <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" mode="variables-description"/>
@@ -2789,563 +2789,563 @@
             </fo:table-row>
           </fo:table-header>
 
-            <!-- Main table body -->
-            <fo:table-body>
+          <!-- Main table body -->
+          <fo:table-body>
 
-              <!-- 1) Information -->
+            <!-- 1) Information -->
+            <fo:table-row text-align="center" vertical-align="top">
+
+              <fo:table-cell font-weight="bold" text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$msg/*/entry[@key='Information']"/>
+                </fo:block>
+              </fo:table-cell>
+
+              <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+
+                  <!-- 1.1) Information: Type -->
+                  <xsl:if test="normalize-space(@intrvl)">
+                    <xsl:text> [</xsl:text>
+                    <xsl:value-of select="$msg/*/entry[@key='Type']"/>=
+                    <xsl:choose>
+                      <xsl:when test="@intrvl='discrete'">
+                        <xsl:value-of select="$msg/*/entry[@key='discrete']"/>
+                      </xsl:when>
+                      <xsl:when test="@intrvl='contin'">
+                        <xsl:value-of select="$msg/*/entry[@key='continuous']"/>
+                      </xsl:when>
+                    </xsl:choose>
+                    <xsl:text>] </xsl:text>
+                  </xsl:if>
+
+                  <!-- 1.2) Information: Format -->
+                  <xsl:for-each select="ddi:varFormat">
+                    <xsl:text> [</xsl:text>
+                    <xsl:value-of select="$msg/*/entry[@key='Format']"/>=
+                    <xsl:value-of select="@type"/>
+                    <xsl:if test="normalize-space(ddi:location/@width)">
+                      <xsl:text>-</xsl:text>
+                      <xsl:value-of select="ddi:location/@width"/>
+                    </xsl:if>
+                    <xsl:if test="normalize-space(@dcml)">
+                      <xsl:text>.</xsl:text>
+                      <xsl:value-of select="@dcml"/>
+                    </xsl:if>
+                    <xsl:text>] </xsl:text>
+                  </xsl:for-each>
+
+                  <!-- 1.3) Information: Range -->
+                  <xsl:for-each select="ddi:valrng/ddi:range">
+                    <xsl:text> [</xsl:text>
+                    <xsl:value-of select="$msg/*/entry[@key='Range']"/>=
+                    <xsl:value-of select="@min"/>-
+                    <xsl:value-of select="@max"/>
+                    <xsl:text>] </xsl:text>
+                  </xsl:for-each>
+
+                  <!-- 1.4) Information: Missing -->
+                  <xsl:text> [</xsl:text>
+                  <xsl:value-of select="$msg/*/entry[@key='Missing']"/>
+                  <xsl:text>=*</xsl:text>
+                  <xsl:for-each select="ddi:invalrng/ddi:item">
+                    <xsl:text>/</xsl:text>
+                    <xsl:value-of select="@VALUE"/>
+                  </xsl:for-each>
+                  <xsl:text>] </xsl:text>
+
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+
+            <!-- 2) Statistics -->
+            <xsl:variable name="statistics" select="ddi:sumStat[contains('vald invd mean stdev',@type)]"/>
+
+            <xsl:if test="$statistics">
               <fo:table-row text-align="center" vertical-align="top">
-
                 <fo:table-cell font-weight="bold" text-align="left" border="{$default-border}" padding="{$cell-padding}">
                   <fo:block>
-                    <xsl:value-of select="$msg/*/entry[@key='Information']"/>
+                    <xsl:value-of select="$msg/*/entry[@key='Statistics']"/>
+                    <xsl:text> [</xsl:text>
+                    <xsl:value-of select="$msg/*/entry[@key='Abbrev_NotWeighted']"/>
+                    <xsl:text>/ </xsl:text>
+                    <xsl:value-of select="$msg/*/entry[@key='Abbrev_Weighted']"/>
+                    <xsl:text>]</xsl:text>
                   </fo:block>
                 </fo:table-cell>
 
                 <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                   <fo:block>
 
-                    <!-- 1.1) Information: Type -->
-                    <xsl:if test="normalize-space(@intrvl)">
+                    <!-- 2.1) Summary statistics -->
+                    <xsl:for-each select="$statistics[not(@wgtd)]">
+                      <xsl:variable name="type" select="@type"/>
+
+                      <xsl:variable name="label">
+                        <xsl:choose>
+                          <xsl:when test="@type='vald' ">
+                            <xsl:value-of select="$msg/*/entry[@key='Valid']"/>
+                          </xsl:when>
+                          <xsl:when test="@type='invd' ">
+                            <xsl:value-of select="$msg/*/entry[@key='Invalid']"/>
+                          </xsl:when>
+                          <xsl:when test="@type='mean' ">
+                            <xsl:value-of select="$msg/*/entry[@key='Mean']"/>
+                          </xsl:when>
+                          <xsl:when test="@type='stdev' ">
+                            <xsl:value-of select="$msg/*/entry[@key='StdDev']"/>
+                          </xsl:when>
+                          <xsl:otherwise>
+                            <xsl:value-of select="@type"/>
+                          </xsl:otherwise>
+                        </xsl:choose>
+                      </xsl:variable>
+
                       <xsl:text> [</xsl:text>
-                      <xsl:value-of select="$msg/*/entry[@key='Type']"/>=
+                      <xsl:value-of select="$label"/>
+                      <xsl:text>=</xsl:text>
+                      <xsl:value-of select="normalize-space(.)"/>
+
+                      <!-- 2.2) Weighted value -->
+                      <xsl:text> /</xsl:text>
                       <xsl:choose>
-                        <xsl:when test="@intrvl='discrete'">
-                          <xsl:value-of select="$msg/*/entry[@key='discrete']"/>
+                        <xsl:when test="following-sibling::ddi:sumStat[1]/@type=$type and following-sibling::ddi:sumStat[1]/@wgtd">
+                          <xsl:value-of select="following-sibling::ddi:sumStat[1]"/>
                         </xsl:when>
-                        <xsl:when test="@intrvl='contin'">
-                          <xsl:value-of select="$msg/*/entry[@key='continuous']"/>
-                        </xsl:when>
+                        <xsl:otherwise>
+                          <xsl:text>-</xsl:text>
+                        </xsl:otherwise>
                       </xsl:choose>
                       <xsl:text>] </xsl:text>
-                    </xsl:if>
-
-                    <!-- 1.2) Information: Format -->
-                    <xsl:for-each select="ddi:varFormat">
-                      <xsl:text> [</xsl:text>
-                      <xsl:value-of select="$msg/*/entry[@key='Format']"/>=
-                      <xsl:value-of select="@type"/>
-                      <xsl:if test="normalize-space(ddi:location/@width)">
-                        <xsl:text>-</xsl:text>
-                        <xsl:value-of select="ddi:location/@width"/>
-                      </xsl:if>
-                      <xsl:if test="normalize-space(@dcml)">
-                        <xsl:text>.</xsl:text>
-                        <xsl:value-of select="@dcml"/>
-                      </xsl:if>
-                      <xsl:text>] </xsl:text>
                     </xsl:for-each>
+                  </fo:block>
+                </fo:table-cell>
 
-                    <!-- 1.3) Information: Range -->
-                    <xsl:for-each select="ddi:valrng/ddi:range">
-                      <xsl:text> [</xsl:text>
-                      <xsl:value-of select="$msg/*/entry[@key='Range']"/>=
-                      <xsl:value-of select="@min"/>-
-                      <xsl:value-of select="@max"/>
-                      <xsl:text>] </xsl:text>
-                    </xsl:for-each>
+              </fo:table-row>
+            </xsl:if>
 
-                    <!-- 1.4) Information: Missing -->
-                    <xsl:text> [</xsl:text>
-                    <xsl:value-of select="$msg/*/entry[@key='Missing']"/>
-                    <xsl:text>=*</xsl:text>
-                    <xsl:for-each select="ddi:invalrng/ddi:item">
-                      <xsl:text>/</xsl:text>
-                      <xsl:value-of select="@VALUE"/>
-                    </xsl:for-each>
-                    <xsl:text>] </xsl:text>
-
+            <!-- 3) Definition  -->
+            <xsl:if test="normalize-space(./ddi:txt)">
+              <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block font-weight="bold">
+                    <xsl:value-of select="$msg/*/entry[@key='Definition']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:apply-templates select="./ddi:txt"/>
                   </fo:block>
                 </fo:table-cell>
               </fo:table-row>
+            </xsl:if>
 
-              <!-- 2) Statistics -->
-              <xsl:variable name="statistics" select="ddi:sumStat[contains('vald invd mean stdev',@type)]"/>
+            <!-- 4) Universe  -->
+            <xsl:if test="normalize-space(./ddi:universe)">
+              <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block font-weight="bold">
+                    <xsl:value-of select="$msg/*/entry[@key='Universe']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:apply-templates select="./ddi:universe"/>
+                  </fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
 
-              <xsl:if test="$statistics">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell font-weight="bold" text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:value-of select="$msg/*/entry[@key='Statistics']"/>
-                      <xsl:text> [</xsl:text>
-                      <xsl:value-of select="$msg/*/entry[@key='Abbrev_NotWeighted']"/>
-                      <xsl:text>/ </xsl:text>
-                      <xsl:value-of select="$msg/*/entry[@key='Abbrev_Weighted']"/>
-                      <xsl:text>]</xsl:text>
-                    </fo:block>
-                  </fo:table-cell>
+            <!-- 5) Source -->
+            <xsl:if test="normalize-space(./ddi:respUnit)">
+              <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block font-weight="bold">
+                    <xsl:value-of select="$msg/*/entry[@key='Source']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:apply-templates select="./ddi:respUnit"/>
+                  </fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
 
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
+            <!-- 6) Pre-Question -->
+            <xsl:if test="normalize-space(./ddi:qstn/ddi:preQTxt)">
+              <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block font-weight="bold">
+                    <xsl:value-of select="$msg/*/entry[@key='Pre-question']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:apply-templates select="./ddi:qstn/ddi:preQTxt"/>
+                  </fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
 
-                      <!-- 2.1) Summary statistics -->
-                      <xsl:for-each select="$statistics[not(@wgtd)]">
-                        <xsl:variable name="type" select="@type"/>
+            <!-- 7) Literal_Question -->
+            <xsl:if test="normalize-space(./ddi:qstn/ddi:qstnLit)">
+              <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block font-weight="bold">
+                    <xsl:value-of select="$msg/*/entry[@key='Literal_question']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:apply-templates select="./ddi:qstn/ddi:qstnLit"/>
+                  </fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
 
-                        <xsl:variable name="label">
-                          <xsl:choose>
-                            <xsl:when test="@type='vald' ">
-                              <xsl:value-of select="$msg/*/entry[@key='Valid']"/>
-                            </xsl:when>
-                            <xsl:when test="@type='invd' ">
-                              <xsl:value-of select="$msg/*/entry[@key='Invalid']"/>
-                            </xsl:when>
-                            <xsl:when test="@type='mean' ">
-                              <xsl:value-of select="$msg/*/entry[@key='Mean']"/>
-                            </xsl:when>
-                            <xsl:when test="@type='stdev' ">
-                              <xsl:value-of select="$msg/*/entry[@key='StdDev']"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                              <xsl:value-of select="@type"/>
-                            </xsl:otherwise>
-                          </xsl:choose>
-                        </xsl:variable>
+            <!-- 8) Post-question -->
+            <xsl:if test="normalize-space(./ddi:qstn/ddi:postQTxt)">
+              <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block font-weight="bold">
+                    <xsl:value-of select="$msg/*/entry[@key='Post-question']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:apply-templates select="./ddi:qstn/ddi:postQTxt"/>
+                  </fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
 
-                        <xsl:text> [</xsl:text>
-                        <xsl:value-of select="$label"/>
-                        <xsl:text>=</xsl:text>
-                        <xsl:value-of select="normalize-space(.)"/>
+            <!-- 9) Interviewer_instructions -->
+            <xsl:if test="normalize-space(./ddi:qstn/ddi:ivuInstr)">
+              <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block font-weight="bold">
+                    <xsl:value-of select="$msg/*/entry[@key='Interviewers_instructions']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:apply-templates select="./ddi:qstn/ddi:ivuInstr"/>
+                  </fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
 
-                        <!-- 2.2) Weighted value -->
-                        <xsl:text> /</xsl:text>
+            <!-- 10) Imputation -->
+            <xsl:if test="normalize-space(./ddi:imputation)">
+              <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block font-weight="bold">
+                    <xsl:value-of select="$msg/*/entry[@key='Imputation']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:apply-templates select="./ddi:imputation"/>
+                  </fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
+
+            <!-- 11) Recoding_and_Derivation -->
+            <xsl:if test="normalize-space(./ddi:codInstr)">
+              <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block font-weight="bold">
+                    <xsl:value-of select="$msg/*/entry[@key='Recoding_and_Derivation']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:apply-templates select="./ddi:codInstr"/>
+                  </fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
+
+            <!-- 12) Security -->
+            <xsl:if test="normalize-space(./ddi:security)">
+              <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block font-weight="bold">
+                    <xsl:value-of select="$msg/*/entry[@key='Security']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:apply-templates select="./ddi:security"/>
+                  </fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
+
+            <!-- 13) Concepts -->
+            <xsl:if test="normalize-space(./ddi:concept)">
+              <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block font-weight="bold">
+                    <xsl:value-of select="$msg/*/entry[@key='Concepts']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:for-each select="./ddi:concept">
+                      <xsl:if test="position()&gt;1">, </xsl:if>
+                      <xsl:value-of select="normalize-space(.)"/>
+                    </xsl:for-each>
+                  </fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
+
+            <!-- 14) Notes -->
+            <xsl:if test="normalize-space(./ddi:notes)">
+              <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block font-weight="bold">
+                    <xsl:value-of select="$msg/*/entry[@key='Notes']"/>
+                  </fo:block>
+                </fo:table-cell>
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                  <fo:block>
+                    <xsl:apply-templates select="./ddi:notes"/>
+                  </fo:block>
+                </fo:table-cell>
+              </fo:table-row>
+            </xsl:if>
+
+            <!-- 15) categories -->
+            <xsl:if test="$show-variables-description-categories=1 and normalize-space(./ddi:catgry)">
+              <xsl:variable name="category-count" select="count(ddi:catgry)"/>
+
+              <fo:table-row text-align="center" vertical-align="top">
+                <xsl:choose>
+
+                  <!-- ================== -->
+                  <!-- Case 1)            -->
+                  <!-- ================== -->
+                  <xsl:when test="number($show-variables-description-categories-max) &gt;= $category-count">
+                    <fo:table-cell text-align="left" border="{$default-border}" number-columns-spanned="2" padding="{$cell-padding}">
+
+                      <!-- Variables -->
+                      <xsl:variable name="is-weighted" select="count(ddi:catgry/ddi:catStat[@type='freq' and @wgtd='wgtd' ]) &gt; 0"/>
+                      <xsl:variable name="catgry-freq-nodes" select="ddi:catgry[not(@missing='Y')]/ddi:catStat[@type='freq']"/>
+                      <xsl:variable name="catgry-sum-freq" select="sum($catgry-freq-nodes[ not(@wgtd='wgtd') ])"/>
+                      <xsl:variable name="catgry-sum-freq-wgtd" select="sum($catgry-freq-nodes[ @wgtd='wgtd'])"/>
+
+                      <xsl:variable name="catgry-max-freq">
+                        <xsl:call-template name="math:max">
+                          <xsl:with-param name="nodes" select="$catgry-freq-nodes[ not(@wgtd='wgtd') ]"/>
+                        </xsl:call-template>
+                      </xsl:variable>
+
+                      <xsl:variable name="catgry-max-freq-wgtd">
+                        <xsl:call-template name="math:max">
+                          <xsl:with-param name="nodes" select="$catgry-freq-nodes[@type='freq' and @wgtd='wgtd' ]"/>
+                        </xsl:call-template>
+                      </xsl:variable>
+
+                      <!-- Render table -->
+                      <fo:table id="var-{@ID}-cat" table-layout="fixed" width="100%" font-size="8pt">
+                        <fo:table-column column-width="proportional-column-width(12)"/>
                         <xsl:choose>
-                          <xsl:when test="following-sibling::ddi:sumStat[1]/@type=$type and following-sibling::ddi:sumStat[1]/@wgtd">
-                            <xsl:value-of select="following-sibling::ddi:sumStat[1]"/>
+                          <xsl:when test="$is-weighted">
+                            <fo:table-column column-width="proportional-column-width(33)"/>
+                            <fo:table-column column-width="proportional-column-width(8)"/>
+                            <fo:table-column column-width="proportional-column-width(12)"/>
                           </xsl:when>
                           <xsl:otherwise>
-                            <xsl:text>-</xsl:text>
+                            <fo:table-column column-width="proportional-column-width(45)"/>
+                            <fo:table-column column-width="proportional-column-width(8)"/>
                           </xsl:otherwise>
                         </xsl:choose>
-                        <xsl:text>] </xsl:text>
-                      </xsl:for-each>
-                    </fo:block>
-                  </fo:table-cell>
+                        <xsl:variable name="bar-column-width" select="2.5"/>
+                        <fo:table-column column-width="{$bar-column-width}in"/>
 
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 3) Definition  -->
-              <xsl:if test="normalize-space(./ddi:txt)">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Definition']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:apply-templates select="./ddi:txt"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 4) Universe  -->
-              <xsl:if test="normalize-space(./ddi:universe)">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Universe']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:apply-templates select="./ddi:universe"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 5) Source -->
-              <xsl:if test="normalize-space(./ddi:respUnit)">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Source']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:apply-templates select="./ddi:respUnit"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 6) Pre-Question -->
-              <xsl:if test="normalize-space(./ddi:qstn/ddi:preQTxt)">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Pre-question']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:apply-templates select="./ddi:qstn/ddi:preQTxt"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 7) Literal_Question -->
-              <xsl:if test="normalize-space(./ddi:qstn/ddi:qstnLit)">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Literal_question']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:apply-templates select="./ddi:qstn/ddi:qstnLit"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 8) Post-question -->
-              <xsl:if test="normalize-space(./ddi:qstn/ddi:postQTxt)">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Post-question']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:apply-templates select="./ddi:qstn/ddi:postQTxt"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 9) Interviewer_instructions -->
-              <xsl:if test="normalize-space(./ddi:qstn/ddi:ivuInstr)">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Interviewers_instructions']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:apply-templates select="./ddi:qstn/ddi:ivuInstr"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 10) Imputation -->
-              <xsl:if test="normalize-space(./ddi:imputation)">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Imputation']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:apply-templates select="./ddi:imputation"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 11) Recoding_and_Derivation -->
-              <xsl:if test="normalize-space(./ddi:codInstr)">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Recoding_and_Derivation']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:apply-templates select="./ddi:codInstr"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 12) Security -->
-              <xsl:if test="normalize-space(./ddi:security)">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Security']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:apply-templates select="./ddi:security"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 13) Concepts -->
-              <xsl:if test="normalize-space(./ddi:concept)">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Concepts']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:for-each select="./ddi:concept">
-                        <xsl:if test="position()&gt;1">, </xsl:if>
-                        <xsl:value-of select="normalize-space(.)"/>
-                      </xsl:for-each>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 14) Notes -->
-              <xsl:if test="normalize-space(./ddi:notes)">
-                <fo:table-row text-align="center" vertical-align="top">
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='Notes']"/>
-                    </fo:block>
-                  </fo:table-cell>
-                  <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-                    <fo:block>
-                      <xsl:apply-templates select="./ddi:notes"/>
-                    </fo:block>
-                  </fo:table-cell>
-                </fo:table-row>
-              </xsl:if>
-
-              <!-- 15) categories -->
-              <xsl:if test="$show-variables-description-categories=1 and normalize-space(./ddi:catgry)">
-                <xsl:variable name="category-count" select="count(ddi:catgry)"/>
-
-                <fo:table-row text-align="center" vertical-align="top">
-                  <xsl:choose>
-
-                    <!-- ================== -->
-                    <!-- Case 1)            -->
-                    <!-- ================== -->
-                    <xsl:when test="number($show-variables-description-categories-max) &gt;= $category-count">
-                      <fo:table-cell text-align="left" border="{$default-border}" number-columns-spanned="2" padding="{$cell-padding}">
-
-                        <!-- Variables -->
-                        <xsl:variable name="is-weighted" select="count(ddi:catgry/ddi:catStat[@type='freq' and @wgtd='wgtd' ]) &gt; 0"/>
-                        <xsl:variable name="catgry-freq-nodes" select="ddi:catgry[not(@missing='Y')]/ddi:catStat[@type='freq']"/>
-                        <xsl:variable name="catgry-sum-freq" select="sum($catgry-freq-nodes[ not(@wgtd='wgtd') ])"/>
-                        <xsl:variable name="catgry-sum-freq-wgtd" select="sum($catgry-freq-nodes[ @wgtd='wgtd'])"/>
-
-                        <xsl:variable name="catgry-max-freq">
-                          <xsl:call-template name="math:max">
-                            <xsl:with-param name="nodes" select="$catgry-freq-nodes[ not(@wgtd='wgtd') ]"/>
-                          </xsl:call-template>
-                        </xsl:variable>
-
-                        <xsl:variable name="catgry-max-freq-wgtd">
-                          <xsl:call-template name="math:max">
-                            <xsl:with-param name="nodes" select="$catgry-freq-nodes[@type='freq' and @wgtd='wgtd' ]"/>
-                          </xsl:call-template>
-                        </xsl:variable>
-
-                        <!-- Render table -->
-                        <fo:table id="var-{@ID}-cat" table-layout="fixed" width="100%" font-size="8pt">
-                          <fo:table-column column-width="proportional-column-width(12)"/>
-                          <xsl:choose>
-                            <xsl:when test="$is-weighted">
-                              <fo:table-column column-width="proportional-column-width(33)"/>
-                              <fo:table-column column-width="proportional-column-width(8)"/>
-                              <fo:table-column column-width="proportional-column-width(12)"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                              <fo:table-column column-width="proportional-column-width(45)"/>
-                              <fo:table-column column-width="proportional-column-width(8)"/>
-                            </xsl:otherwise>
-                          </xsl:choose>
-                          <xsl:variable name="bar-column-width" select="2.5"/>
-                          <fo:table-column column-width="{$bar-column-width}in"/>
-
-                          <!-- table header -->
-                          <fo:table-header>
-                            <fo:table-row background-color="{$color-gray1}" text-align="left" vertical-align="top">
-                              <fo:table-cell border="0.5pt solid white" padding="{$cell-padding}">
-                                <fo:block font-weight="bold">
-                                  <xsl:value-of select="$msg/*/entry[@key='Value']"/>
-                                </fo:block>
-                              </fo:table-cell>
-                              <fo:table-cell border="0.5pt solid white" padding="{$cell-padding}">
-                                <fo:block font-weight="bold">
-                                  <xsl:value-of select="$msg/*/entry[@key='Label']"/>
-                                </fo:block>
-                              </fo:table-cell>
+                        <!-- table header -->
+                        <fo:table-header>
+                          <fo:table-row background-color="{$color-gray1}" text-align="left" vertical-align="top">
+                            <fo:table-cell border="0.5pt solid white" padding="{$cell-padding}">
+                              <fo:block font-weight="bold">
+                                <xsl:value-of select="$msg/*/entry[@key='Value']"/>
+                              </fo:block>
+                            </fo:table-cell>
+                            <fo:table-cell border="0.5pt solid white" padding="{$cell-padding}">
+                              <fo:block font-weight="bold">
+                                <xsl:value-of select="$msg/*/entry[@key='Label']"/>
+                              </fo:block>
+                            </fo:table-cell>
+                            <fo:table-cell border="0.4pt solid white" padding="{$cell-padding}" text-align="center">
+                              <fo:block font-weight="bold">
+                                <xsl:value-of select="$msg/*/entry[@key='Cases_Abbreviation']"/>
+                              </fo:block>
+                            </fo:table-cell>
+                            <xsl:if test="$is-weighted">
                               <fo:table-cell border="0.4pt solid white" padding="{$cell-padding}" text-align="center">
                                 <fo:block font-weight="bold">
-                                  <xsl:value-of select="$msg/*/entry[@key='Cases_Abbreviation']"/>
+                                  <xsl:value-of select="$msg/*/entry[@key='Weighted']"/>
                                 </fo:block>
                               </fo:table-cell>
+                            </xsl:if>
+                            <fo:table-cell border="0.4pt solid white" padding="{$cell-padding}" text-align="center">
+                              <fo:block font-weight="bold">
+                                <xsl:value-of select="$msg/*/entry[@key='Percentage']"/>
+                                <xsl:if test="$is-weighted">
+                                  (<xsl:value-of select="$msg/*/entry[@key='Weighted']"/>)
+                                </xsl:if>
+                              </fo:block>
+                            </fo:table-cell>
+                          </fo:table-row>
+                        </fo:table-header>
+
+                        <!-- table body -->
+                        <fo:table-body>
+                          <xsl:for-each select="ddi:catgry">
+                            <fo:table-row background-color="{$color-gray2}" text-align="center" vertical-align="top">
+
+                              <!-- catValue -->
+                              <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
+                                <fo:block>
+                                  <xsl:call-template name="trim">
+                                    <xsl:with-param name="s" select="ddi:catValu"/>
+                                  </xsl:call-template>
+                                </fo:block>
+                              </fo:table-cell>
+
+                              <!-- Label -->
+                              <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
+                                <fo:block>
+                                  <xsl:call-template name="trim">
+                                    <xsl:with-param name="s" select="ddi:labl"/>
+                                  </xsl:call-template>
+                                </fo:block>
+                              </fo:table-cell>
+
+                              <!-- Frequency -->
+                              <xsl:variable name="catgry-freq" select="ddi:catStat[@type='freq' and not(@wgtd='wgtd') ]"/>
+                              <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
+                                <fo:block>
+                                  <xsl:call-template name="trim">
+                                    <xsl:with-param name="s" select="$catgry-freq"/>
+                                  </xsl:call-template>
+                                </fo:block>
+                              </fo:table-cell>
+
+                              <!-- Weighted frequency -->
+                              <xsl:variable name="catgry-freq-wgtd" select="ddi:catStat[@type='freq' and @wgtd='wgtd' ]"/>
                               <xsl:if test="$is-weighted">
-                                <fo:table-cell border="0.4pt solid white" padding="{$cell-padding}" text-align="center">
-                                  <fo:block font-weight="bold">
-                                    <xsl:value-of select="$msg/*/entry[@key='Weighted']"/>
-                                  </fo:block>
-                                </fo:table-cell>
-                              </xsl:if>
-                              <fo:table-cell border="0.4pt solid white" padding="{$cell-padding}" text-align="center">
-                                <fo:block font-weight="bold">
-                                  <xsl:value-of select="$msg/*/entry[@key='Percentage']"/>
-                                  <xsl:if test="$is-weighted">
-                                    (<xsl:value-of select="$msg/*/entry[@key='Weighted']"/>)
-                                  </xsl:if>
-                                </fo:block>
-                              </fo:table-cell>
-                            </fo:table-row>
-                          </fo:table-header>
-
-                          <!-- table body -->
-                          <fo:table-body>
-                            <xsl:for-each select="ddi:catgry">
-                              <fo:table-row background-color="{$color-gray2}" text-align="center" vertical-align="top">
-
-                                <!-- catValue -->
-                                <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
-                                  <fo:block>
-                                    <xsl:call-template name="trim">
-                                      <xsl:with-param name="s" select="ddi:catValu"/>
-                                    </xsl:call-template>
-                                  </fo:block>
-                                </fo:table-cell>
-
-                                <!-- Label -->
-                                <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
-                                  <fo:block>
-                                    <xsl:call-template name="trim">
-                                      <xsl:with-param name="s" select="ddi:labl"/>
-                                    </xsl:call-template>
-                                  </fo:block>
-                                </fo:table-cell>
-
-                                <!-- Frequency -->
-                                <xsl:variable name="catgry-freq" select="ddi:catStat[@type='freq' and not(@wgtd='wgtd') ]"/>
                                 <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
                                   <fo:block>
                                     <xsl:call-template name="trim">
-                                      <xsl:with-param name="s" select="$catgry-freq"/>
+                                      <xsl:with-param name="s" select="format-number($catgry-freq-wgtd,'0.0')"/>
                                     </xsl:call-template>
                                   </fo:block>
                                 </fo:table-cell>
+                              </xsl:if>
 
-                                <!-- Weighted frequency -->
-                                <xsl:variable name="catgry-freq-wgtd" select="ddi:catStat[@type='freq' and @wgtd='wgtd' ]"/>
-                                <xsl:if test="$is-weighted">
-                                  <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
-                                    <fo:block>
-                                      <xsl:call-template name="trim">
-                                        <xsl:with-param name="s" select="format-number($catgry-freq-wgtd,'0.0')"/>
-                                      </xsl:call-template>
-                                    </fo:block>
-                                  </fo:table-cell>
-                                </xsl:if>
+                              <!-- Percentage Bar-->
+                              <!-- compute percentage -->
+                              <xsl:variable name="catgry-pct">
+                                <xsl:choose>
+                                  <xsl:when test="$is-weighted">
+                                    <xsl:value-of select="$catgry-freq-wgtd div $catgry-sum-freq-wgtd"/>
+                                  </xsl:when>
+                                  <xsl:otherwise>
+                                    <xsl:value-of select="$catgry-freq div $catgry-sum-freq"/>
+                                  </xsl:otherwise>
+                                </xsl:choose>
+                              </xsl:variable>
+                              <!-- compute bar width (percentage of highest value minus some space to display the percentage value) -->
+                              <xsl:variable name="tmp-col-width-1">
+                                <xsl:choose>
+                                  <xsl:when test="$is-weighted">
+                                    <xsl:value-of select="($catgry-freq-wgtd div $catgry-max-freq-wgtd) * ($bar-column-width - 0.5)"/>
+                                  </xsl:when>
+                                  <xsl:otherwise>
+                                    <xsl:value-of select="($catgry-freq div $catgry-max-freq) * ($bar-column-width - 0.5)"/>
+                                  </xsl:otherwise>
+                                </xsl:choose>
+                              </xsl:variable>
+                              <xsl:variable name="col-width-1">
+                                <!--	ToDO: handle exceptions regarding column-width	-->
+                                <xsl:choose>
+                                  <xsl:when test="string(number($tmp-col-width-1)) != 'NaN'">
+                                    <xsl:value-of select="$tmp-col-width-1"/>
+                                  </xsl:when>
+                                  <xsl:otherwise>0</xsl:otherwise>
+                                </xsl:choose>
+                              </xsl:variable>
+                              <!-- compute remaining space for second column -->
+                              <xsl:variable name="col-width-2" select="$bar-column-width - $col-width-1"/>
 
-                                <!-- Percentage Bar-->
-                                <!-- compute percentage -->
-                                <xsl:variable name="catgry-pct">
-                                  <xsl:choose>
-                                    <xsl:when test="$is-weighted">
-                                      <xsl:value-of select="$catgry-freq-wgtd div $catgry-sum-freq-wgtd"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                      <xsl:value-of select="$catgry-freq div $catgry-sum-freq"/>
-                                    </xsl:otherwise>
-                                  </xsl:choose>
-                                </xsl:variable>
-                                <!-- compute bar width (percentage of highest value minus some space to display the percentage value) -->
-                                <xsl:variable name="tmp-col-width-1">
-                                  <xsl:choose>
-                                    <xsl:when test="$is-weighted">
-                                      <xsl:value-of select="($catgry-freq-wgtd div $catgry-max-freq-wgtd) * ($bar-column-width - 0.5)"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                      <xsl:value-of select="($catgry-freq div $catgry-max-freq) * ($bar-column-width - 0.5)"/>
-                                    </xsl:otherwise>
-                                  </xsl:choose>
-                                </xsl:variable>
-                                <xsl:variable name="col-width-1">
-                                  <!--	ToDO: handle exceptions regarding column-width	-->
-                                  <xsl:choose>
-                                    <xsl:when test="string(number($tmp-col-width-1)) != 'NaN'">
-                                      <xsl:value-of select="$tmp-col-width-1"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>0</xsl:otherwise>
-                                  </xsl:choose>
-                                </xsl:variable>
-                                <!-- compute remaining space for second column -->
-                                <xsl:variable name="col-width-2" select="$bar-column-width - $col-width-1"/>
+                              <!-- display the bar but not for missing values or if there was a problem computing the width -->
+                              <xsl:if test="not(@missing='Y') and $col-width-1 &gt; 0">
+                                <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
+                                  <fo:table table-layout="fixed" width="100%">
+                                    <fo:table-column column-width="{$col-width-1}in"/>
+                                    <fo:table-column column-width="{$col-width-2}in"/>
+                                    <fo:table-body>
+                                      <fo:table-row>
+                                        <fo:table-cell background-color="{$color-gray4}">
+                                          <fo:block> </fo:block>
+                                        </fo:table-cell>
+                                        <fo:table-cell margin-left="0.05in">
+                                          <fo:block>
+                                            <xsl:value-of select="format-number($catgry-pct , '#0.0%')"/>
+                                          </fo:block>
+                                        </fo:table-cell>
+                                      </fo:table-row>
+                                    </fo:table-body>
+                                  </fo:table>
+                                  <!-- end bar table -->
+                                </fo:table-cell>
+                              </xsl:if>
+                            </fo:table-row>
+                          </xsl:for-each>
+                          <!-- category total -->
+                          <!-- TODO -->
+                        </fo:table-body>
+                      </fo:table>
 
-                                <!-- display the bar but not for missing values or if there was a problem computing the width -->
-                                <xsl:if test="not(@missing='Y') and $col-width-1 &gt; 0">
-                                  <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
-                                    <fo:table table-layout="fixed" width="100%">
-                                      <fo:table-column column-width="{$col-width-1}in"/>
-                                      <fo:table-column column-width="{$col-width-2}in"/>
-                                      <fo:table-body>
-                                        <fo:table-row>
-                                          <fo:table-cell background-color="{$color-gray4}">
-                                            <fo:block> </fo:block>
-                                          </fo:table-cell>
-                                          <fo:table-cell margin-left="0.05in">
-                                            <fo:block>
-                                              <xsl:value-of select="format-number($catgry-pct , '#0.0%')"/>
-                                            </fo:block>
-                                          </fo:table-cell>
-                                        </fo:table-row>
-                                      </fo:table-body>
-                                    </fo:table>
-                                    <!-- end bar table -->
-                                  </fo:table-cell>
-                                </xsl:if>
-                              </fo:table-row>
-                            </xsl:for-each>
-                            <!-- category total -->
-                            <!-- TODO -->
-                          </fo:table-body>
-                        </fo:table>
+                      <!-- [fo:block] Warning about summary of statistics? -->
+                      <fo:block font-weight="bold" color="#400000" font-size="6pt" font-style="italic">
+                        <xsl:value-of select="$msg/*/entry[@key='SumStat_Warning']"/>
+                      </fo:block>
 
-                        <!-- [fo:block] Warning about summary of statistics? -->
-                        <fo:block font-weight="bold" color="#400000" font-size="6pt" font-style="italic">
-                          <xsl:value-of select="$msg/*/entry[@key='SumStat_Warning']"/>
-                        </fo:block>
+                    </fo:table-cell>
+                  </xsl:when>
 
-                      </fo:table-cell>
-                    </xsl:when>
+                  <!-- =================================== -->
+                  <!-- Case 2) Frequence_table_not_shown   -->
+                  <!-- =================================== -->
+                  <xsl:otherwise>
+                    <fo:table-cell background-color="{$color-gray1}" text-align="center" font-style="italic" border="{$default-border}" number-columns-spanned="2" padding="{$cell-padding}">
+                      <fo:block>
+                        <xsl:value-of select="$msg/*/entry[@key='Frequency_table_not_shown']"/>
+                        <xsl:text> </xsl:text>(
+                        <xsl:value-of select="$category-count"/>
+                        <xsl:text> </xsl:text>
+                        <xsl:value-of select="$msg/*/entry[@key='Modalities']"/>)
+                      </fo:block>
+                    </fo:table-cell>
+                  </xsl:otherwise>
 
-                    <!-- =================================== -->
-                    <!-- Case 2) Frequence_table_not_shown   -->
-                    <!-- =================================== -->
-                    <xsl:otherwise>
-                      <fo:table-cell background-color="{$color-gray1}" text-align="center" font-style="italic" border="{$default-border}" number-columns-spanned="2" padding="{$cell-padding}">
-                        <fo:block>
-                          <xsl:value-of select="$msg/*/entry[@key='Frequency_table_not_shown']"/>
-                          <xsl:text> </xsl:text>(
-                          <xsl:value-of select="$category-count"/>
-                          <xsl:text> </xsl:text>
-                          <xsl:value-of select="$msg/*/entry[@key='Modalities']"/>)
-                        </fo:block>
-                      </fo:table-cell>
-                    </xsl:otherwise>
+                </xsl:choose>
+              </fo:table-row>
+            </xsl:if>
 
-                  </xsl:choose>
-                </fo:table-row>
-              </xsl:if>
+          </fo:table-body>
+        </fo:table> <!-- end of variable table -->
 
-            </fo:table-body>
-          </fo:table> <!-- end of variable table -->
+      </fo:table-cell>
+    </fo:table-row>
 
-        </fo:table-cell>
-      </fo:table-row>
-
-    </xsl:if>
+  </xsl:if>
 
 </xsl:template>
   <!-- ddi_match.xsl --><!-- =============================== --><!-- match: ddi:var / variables-list --><!-- fo:table-row                    --><!-- =============================== --><!--
@@ -3897,58 +3897,6 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- Name: rtrim(s, i) --><!-- Value: string --><!-- perform right trim on text by recursion --><!--
-    Parameters/variables read:
-    s, i [params]
-
-    Functions/templates called:
-    substring(), string-length(), translate() [Xpath 1.0]
-    rtrim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="rtrim" xml:base="includes/utilities/trim/rtrim.xml">
-
-    <!-- params -->
-    <xsl:param name="s"/>
-    <xsl:param name="i" select="string-length($s)"/>
-
-    <!-- is further trimming needed?-->
-    <xsl:choose>
-
-      <xsl:when test="translate(substring($s, $i, 1), ' &#9;&#10;&#13;', '')">
-        <xsl:value-of select="substring($s, 1, $i)"/>
-      </xsl:when>
-
-      <!-- case: string less than 2 (do nothing) -->
-      <xsl:when test="$i &lt; 2"/>
-
-      <!-- call this template -->
-      <xsl:otherwise>
-        <xsl:call-template name="rtrim">
-          <xsl:with-param name="s" select="$s"/>
-          <xsl:with-param name="i" select="$i - 1"/>
-        </xsl:call-template>
-      </xsl:otherwise>
-
-    </xsl:choose>
-
-</xsl:template>
-  <!-- Name: trim(s) --><!-- Value: string --><!--
-    Params/variables read:
-    s [param]
-
-    Functions/templates called:
-    concat(), substring(), translate(), substring-after() [Xpath 1.0]
-    rtrim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="trim" xml:base="includes/utilities/trim/trim.xml">
-
-    <!-- params -->
-    <xsl:param name="s"/>
-
-    <!-- perform trimming (from right)-->
-    <xsl:call-template name="rtrim">
-      <xsl:with-param name="s" select="concat(substring(translate($s ,' &#9;&#10;&#13;',''), 1, 1), substring-after($s, substring(translate($s, ' &#9;&#10;&#13;', ''), 1, 1)))"/>
-    </xsl:call-template>
-
-</xsl:template>
   <!-- Name: date --><!-- Value: string --><!-- Uses an EXSLT extension to determine the date --><!--
     Params/variables read:
     date-time [param]
@@ -4054,6 +4002,58 @@
         </xsl:for-each>
       </xsl:otherwise>
     </xsl:choose>
+
+</xsl:template>
+  <!-- Name: rtrim(s, i) --><!-- Value: string --><!-- perform right trim on text by recursion --><!--
+    Parameters/variables read:
+    s, i [params]
+
+    Functions/templates called:
+    substring(), string-length(), translate() [Xpath 1.0]
+    rtrim
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="rtrim" xml:base="includes/utilities/trim/rtrim.xml">
+
+    <!-- params -->
+    <xsl:param name="s"/>
+    <xsl:param name="i" select="string-length($s)"/>
+
+    <!-- is further trimming needed?-->
+    <xsl:choose>
+
+      <xsl:when test="translate(substring($s, $i, 1), ' &#9;&#10;&#13;', '')">
+        <xsl:value-of select="substring($s, 1, $i)"/>
+      </xsl:when>
+
+      <!-- case: string less than 2 (do nothing) -->
+      <xsl:when test="$i &lt; 2"/>
+
+      <!-- call this template -->
+      <xsl:otherwise>
+        <xsl:call-template name="rtrim">
+          <xsl:with-param name="s" select="$s"/>
+          <xsl:with-param name="i" select="$i - 1"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+
+    </xsl:choose>
+
+</xsl:template>
+  <!-- Name: trim(s) --><!-- Value: string --><!--
+    Params/variables read:
+    s [param]
+
+    Functions/templates called:
+    concat(), substring(), translate(), substring-after() [Xpath 1.0]
+    rtrim
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="trim" xml:base="includes/utilities/trim/trim.xml">
+
+    <!-- params -->
+    <xsl:param name="s"/>
+
+    <!-- perform trimming (from right)-->
+    <xsl:call-template name="rtrim">
+      <xsl:with-param name="s" select="concat(substring(translate($s ,' &#9;&#10;&#13;',''), 1, 1), substring-after($s, substring(translate($s, ' &#9;&#10;&#13;', ''), 1, 1)))"/>
+    </xsl:call-template>
 
 </xsl:template>
 

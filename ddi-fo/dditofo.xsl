@@ -350,7 +350,7 @@
   </xsl:variable>
 
   <!-- ===================================== -->
-  <!-- xincludes - include templates         -->
+  <!-- templates                             -->
   <!-- ===================================== -->
 
   <xi:include href="includes/root_template.xml" />
@@ -377,9 +377,9 @@
   <!-- utility templates -->
   <xi:include href="includes/utilities/isodate-long.xml" />
   <xi:include href="includes/utilities/isodate-month.xml" />
-  <xi:include href="includes/utilities/trim/rtrim.xml" />
-  <xi:include href="includes/utilities/trim/trim.xml" />
   <xi:include href="includes/utilities/date.xml" />
   <xi:include href="includes/utilities/math-max.xml" />
+  <xi:include href="includes/utilities/trim/rtrim.xml" />
+  <xi:include href="includes/utilities/trim/trim.xml" />
 
 </xsl:stylesheet>
