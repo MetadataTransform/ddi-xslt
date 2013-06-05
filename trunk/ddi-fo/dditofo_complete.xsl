@@ -340,7 +340,7 @@
   8: Variable Groups                  [page-sequence]
   9: Variables Description            [page-sequence]
   ===========================================================
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="/" xml:base="includes/root_template.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" match="/" xml:base="includes/root_template.xml">
   <fo:root>
 
     <!-- ================================ -->
@@ -359,36 +359,30 @@
 
     </fo:layout-master-set>
 
-    <!-- ============================================ -->
-    <!-- [1] Outline / Bookmarks                      -->
-    <!-- [bookmark-tree]                              -->
-    <!-- ============================================ -->
+    <!-- [1] Outline / Bookmarks [bookmark-tree] -->
+    <!-- ============================================ --><!-- [1] Outline / Bookmarks                      --><!-- [bookmark-tree]                              --><!-- ============================================ --><!--
+  Variables read:
+  show-cover-page, show-metadata-info, show-toc, show-overview
+  show-scope-and-coverage, show-producers-and-sponsors,
+  show-sampling, show-data-collection, show-data-processing-and-appraisal,
+  show-accessibility, show-rights-and-disclaimer, show-files-description,
+  show-variable-groups, show-variables-list, show-variables-description
 
-    <!--
-      Variables read:
-      show-cover-page, show-metadata-info, show-toc, show-overview
-      show-scope-and-coverage, show-producers-and-sponsors,
-      show-sampling, show-data-collection, show-data-processing-and-appraisal,
-      show-accessibility, show-rights-and-disclaimer, show-files-description,
-      show-variable-groups, show-variables-list, show-variables-description
+  Functions/templates called:
+  nomalize-space(), contains(), concat(), string-length()
+  trim
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-bookmarks = 1" xml:base="root_template_xincludes/bookmarks.xml">
 
-      Functions/templates called:
-      nomalize-space(), contains(), concat(), string-length()
-      trim
-    -->
+  <fo:bookmark-tree>
 
-    <xsl:if test="$show-bookmarks = 1">
-
-      <fo:bookmark-tree>
-
-          <!-- 1) Cover_Page -->
-          <xsl:if test="$show-cover-page = 1">
-            <fo:bookmark internal-destination="cover-page">
-              <fo:bookmark-title>
-                <xsl:value-of select="$msg/*/entry[@key='Cover_Page']"/>
-              </fo:bookmark-title>
-            </fo:bookmark>
-          </xsl:if>
+    <!-- 1) Cover_Page -->
+    <xsl:if test="$show-cover-page = 1">
+      <fo:bookmark internal-destination="cover-page">
+        <fo:bookmark-title>
+          <xsl:value-of select="$msg/*/entry[@key='Cover_Page']"/>
+        </fo:bookmark-title>
+      </fo:bookmark>
+    </xsl:if>
 
           <!-- 2) Document_Information -->
           <xsl:if test="$show-metadata-info = 1">
@@ -582,28 +576,23 @@
           </xsl:if>
 
         </fo:bookmark-tree>
-      </xsl:if>
+</xsl:if>
 
-      <!-- ================================================= -->
-      <!-- [2] Cover page                                    -->
-      <!-- [page-sequence]                                   -->
-      <!-- ================================================= -->
+    <!-- [2] Cover page [page-sequence] -->
+    <!-- ================================================= --><!-- [2] Cover page                                    --><!-- [page-sequence]                                   --><!-- ================================================= --><!--
+  Variables read:
+  show-logo, show-geography, show-cover-page-producer,
+  show-report-subtitle
 
-      <!--
-        Variables read:
-        show-logo, show-geography, show-cover-page-producer,
-        show-report-subtitle
+  Functions/templates called:
+  normalize-space() [Xpath 1.0]
+  trim, isodate-long
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 1" xml:base="root_template_xincludes/cover_page.xml">
 
-        Functions/templates called:
-        normalize-space() [Xpath 1.0]
-        trim, isodate-long
-      -->
+  <fo:page-sequence master-reference="default-page" font-family="Helvetica" font-size="10pt">
+    <fo:flow flow-name="xsl-region-body">
 
-      <xsl:if test="$show-cover-page = 1">
-        <fo:page-sequence master-reference="default-page" font-family="Helvetica" font-size="10pt">
-          <fo:flow flow-name="xsl-region-body">
-
-            <fo:block id="cover-page">
+      <fo:block id="cover-page">
 
               <!-- 1) logo graphic -->
               <xsl:if test="$show-logo = 1">
@@ -653,41 +642,33 @@
             </fo:block>
           </fo:flow>
         </fo:page-sequence>
-      </xsl:if>
+</xsl:if>
 
-      <!-- ==================================================== -->
-      <!-- [3] Metadata information                             -->
-      <!-- [page-sequence] with [table]                         -->
-      <!-- ==================================================== -->
+    <!-- [3] Metadata information [page-sequence] with [table] -->
+    <!-- ==================================================== --><!-- [3] Metadata information                             --><!-- [page-sequence] with [table]                         --><!-- ==================================================== --><!--
+  Variables read:
+  msg, font-family, show-metadata-production,
+  default-border, cell-padding
 
-      <!--
-        Variables read:
-        msg, font-family, show-metadata-production,
-        default-border, cell-padding
+  Functions/templates called:
+  boolean(), normalize-space() [Xpath 1.0]
+  proportional-column-width() [FO]
+  isodate-long
+--><!--
+  1:   Metadata production      [table]
+  1.1: Metadata producers       [table-row]
+  1.2: Metadata Production Date [table-row]
+  1.3: Metadata Version         [table-row]
+  1.5: Metadata ID              [table-row]
+  1.6: Spacer                   [table-row]
+  2:   Report Acknowledgements  [block]
+  3:   Report Notes             [block]
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 1" xml:base="root_template_xincludes/metadata_information.xml">
 
-        Functions/templates called:
-        boolean(), normalize-space() [Xpath 1.0]
-        proportional-column-width() [FO]
-        isodate-long
-      -->
+  <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
-      <!--
-        1:   Metadata production      [table]
-        1.1: Metadata producers       [table-row]
-        1.2: Metadata Production Date [table-row]
-        1.3: Metadata Version         [table-row]
-        1.5: Metadata ID              [table-row]
-        1.6: Spacer                   [table-row]
-        2:   Report Acknowledgements  [block]
-        3:   Report Notes             [block]
-      -->
-
-      <xsl:if test="$show-metadata-info = 1">
-
-        <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
-
-          <fo:flow flow-name="xsl-region-body">
-            <fo:block id="metadata-info"/>
+    <fo:flow flow-name="xsl-region-body">
+      <fo:block id="metadata-info"/>
 
             <!-- 1) metadata production -->
             <xsl:if test="boolean($show-metadata-production)">
@@ -782,56 +763,47 @@
               </fo:block>
             </xsl:if>
 
-            <!-- 3) report notes -->
-            <xsl:if test="normalize-space($report-notes)">
-              <fo:block font-size="18pt" font-weight="bold" space-after="0.1in">
-                <xsl:value-of select="$msg/*/entry[@key='Notes']"/>
-              </fo:block>
-              <fo:block font-size="10pt" space-after="0.2in">
-                <xsl:value-of select="$report-notes"/>
-              </fo:block>
-            </xsl:if>
-
-          </fo:flow>
-        </fo:page-sequence>
+      <!-- 3) report notes -->
+      <xsl:if test="normalize-space($report-notes)">
+        <fo:block font-size="18pt" font-weight="bold" space-after="0.1in">
+          <xsl:value-of select="$msg/*/entry[@key='Notes']"/>
+        </fo:block>
+        <fo:block font-size="10pt" space-after="0.2in">
+          <xsl:value-of select="$report-notes"/>
+        </fo:block>
       </xsl:if>
 
+    </fo:flow>
+  </fo:page-sequence>
+</xsl:if>
 
-      <!-- ============================================== -->
-      <!-- [4] Table of contents                          -->
-      <!-- [page-sequence]                                -->
-      <!-- ============================================== -->
+    <!-- [4] Table of contents [page-sequence] -->
+    <!-- ============================================== --><!-- [4] Table of contents                          --><!-- [page-sequence]                                --><!-- ============================================== --><!--
+  Variables read:
+  font-family, msg, show-overview, show-scope-and-coverage,
+  show-producers-and-sponsors, show-sampling, show-data-collection
+  show-data-processing-and-appraisal, show-accessibility,
+  show-rights-and-disclaimer, show-files-description, show-variables-list
+  show-variable-groups, subset-groups
 
-      <!--
-        Variables read:
-        font-family, msg, show-overview, show-scope-and-coverage,
-        show-producers-and-sponsors, show-sampling, show-data-collection
-        show-data-processing-and-appraisal, show-accessibility,
-        show-rights-and-disclaimer, show-files-description, show-variables-list
-        show-variable-groups, subset-groups
+  Functions called:
+  normalize-space(), string-length(), contains(), concat()
+--><!--
+  1:  Overview                      [block]
+  2:  Scope and Coverage            [block]
+  3:  Producers and Sponsors        [block]
+  4:  Sampling                      [block]
+  5:  Data Collection               [block]
+  6:  Data Processing and Appraisal [block]
+  7:  Accessibility                 [block]
+  8:  Rights and Disclaimer         [block]
+  9:  Files and Description         [block]
+  10: Variables List                [block]
+  11: Variable Groups               [block]
+  12: Variables Description         [block]
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 1" xml:base="root_template_xincludes/table_of_contents.xml">
 
-        Functions called:
-        normalize-space(), string-length(), contains(), concat()
-      -->
-
-      <!--
-        1: Overview                       [block]
-        2: Scope and Coverage             [block]
-        3: Producers and Sponsors         [block]
-        4: Sampling                       [block]
-        5: Data Collection                [block]
-        6: Data Processing and Appraisal  [block]
-        7: Accessibility                  [block]
-        8: Rights and Disclaimer          [block]
-        9: Files and Description          [block]
-       10: Variables List                 [block]
-       11: Variable Groups                [block]
-       12: Variables Description          [block]
-      -->
-
-      <xsl:if test="$show-toc = 1">
-
-        <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
+  <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
           <fo:flow flow-name="xsl-region-body">
 
@@ -1020,39 +992,31 @@
                 </fo:block>
               </xsl:if>
 
-            </fo:block>
-          </fo:flow>
-        </fo:page-sequence>
-      </xsl:if>
+      </fo:block>
+    </fo:flow>
+  </fo:page-sequence>
+</xsl:if>
 
+    <!-- [5] Overview [page-sequence] with [table] -->
+    <!-- ================================================ --><!-- [5] Overview                                     --><!-- [page-sequence] with [table]                     --><!-- ================================================ --><!--
+  Variables read:
+  msg, report-start-page-number, font-family, color-gray3
+  default-border, cell-padding, survey-title, color-gray1, time
 
-      <!-- ================================================ -->
-      <!-- [5] Overview                                     -->
-      <!-- [page-sequence] with [table]                     -->
-      <!-- ================================================ -->
+  Functions/templates called:
+  nomalize-space(), position() [Xpath]
+  proportional-column-width() [FO]
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-overview = 1" xml:base="root_template_xincludes/overview.xml">
 
-      <!--
-        Variables read:
-        msg, report-start-page-number, font-family, color-gray3
-        default-border, cell-padding, survey-title, color-gray1, time
+  <fo:page-sequence master-reference="default-page" initial-page-number="{$report-start-page-number}" font-family="{$font-family}" font-size="10pt">
 
-        Functions/templates called:
-        nomalize-space(), position() [Xpath]
-        proportional-column-width() [FO]
-        header, footer
-      -->
-
-      <xsl:if test="$show-overview = 1">
-
-        <fo:page-sequence master-reference="default-page" initial-page-number="{$report-start-page-number}" font-family="{$font-family}" font-size="10pt">
-
-            <!-- header -->
-            <fo:static-content flow-name="xsl-region-before">
-              <fo:block font-size="6" text-align="center">
-                <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
-                <xsl:value-of select="$msg/*/entry[@key='Overview']"/>
-              </fo:block>
-            </fo:static-content>
+    <!-- header -->
+    <fo:static-content flow-name="xsl-region-before">
+      <fo:block font-size="6" text-align="center">
+        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
+        <xsl:value-of select="$msg/*/entry[@key='Overview']"/>
+      </fo:block>
+    </fo:static-content>
 
           <!-- footer-->
           <fo:static-content flow-name="xsl-region-after">
@@ -1861,36 +1825,28 @@
               </fo:table-body>
             </fo:table>
           </fo:flow>
-        </fo:page-sequence>
-      </xsl:if>
+  </fo:page-sequence>
+</xsl:if>
 
+    <!-- [6] Files description [page-sequence] -->
+    <!-- ======================================================== --><!-- [6] Files description                                    --><!-- [page-sequence]                                          --><!-- ======================================================== --><!--
+  Variables read:
+  msg, font-family
 
-      <!-- ======================================================== -->
-      <!-- [6] Files description                                    -->
-      <!-- [page-sequence]                                          -->
-      <!-- ======================================================== -->
+  Functions/templates called:
+  count()
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-files-description = 1" xml:base="root_template_xincludes/files_description.xml">
 
-      <!--
-        Variables read:
-        msg, font-family
+  <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
-        Functions/templates called:
-        count()
-        header, footer
-      -->
+    <!-- header -->
+    <fo:static-content flow-name="xsl-region-before">
+      <fo:block font-size="6" text-align="center">
+        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
+        <xsl:value-of select="$msg/*/entry[@key='Files_Description']"/>
+      </fo:block>
+    </fo:static-content>
 
-      <xsl:if test="$show-files-description = 1">
-
-        <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
-
-          <!-- header -->
-          <fo:static-content flow-name="xsl-region-before">
-            <fo:block font-size="6" text-align="center">
-              <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
-              <xsl:value-of select="$msg/*/entry[@key='Files_Description']"/>
-            </fo:block>
-         </fo:static-content>
-  
           <!-- footer -->
           <fo:static-content flow-name="xsl-region-after">
             <fo:block font-size="6" text-align="center" space-before="0.3in">
@@ -1915,39 +1871,31 @@
               <xsl:value-of select="$msg/*/entry[@key='files']"/>
             </fo:block>
 
-            <!-- fileDscr -->
-            <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr"/>
+      <!-- fileDscr -->
+      <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr"/>
 
-          </fo:flow>
-        </fo:page-sequence>
-      </xsl:if>
+    </fo:flow>
+  </fo:page-sequence>
+</xsl:if>
 
+    <!-- [7] Variables list [page-sequence] -->
+    <!-- ================================================ --><!-- [7] Variables list                               --><!-- [page-sequence]                                  --><!-- ================================================ --><!--
+  Variables read:
+  msg, show-variables-list-layout, font-family
 
-      <!-- ================================================ -->
-      <!-- [7] Variables list                               -->
-      <!-- [page-sequence]                                  -->
-      <!-- ================================================ -->
+  Functions/templates called
+  count()
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-list = 1" xml:base="root_template_xincludes/variables_list.xml">
 
-      <!--
-        Variables read:
-        msg, show-variables-list-layout, font-family
+  <fo:page-sequence master-reference="{$show-variables-list-layout}" font-family="{$font-family}" font-size="10pt">
 
-        Functions/templates called
-        count()
-        header, footer
-      -->
-
-      <xsl:if test="$show-variables-list = 1">
-
-        <fo:page-sequence master-reference="{$show-variables-list-layout}" font-family="{$font-family}" font-size="10pt">
-
-          <!-- header -->
-          <fo:static-content flow-name="xsl-region-before">
-            <fo:block font-size="6" text-align="center">
-              <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
-              <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
-            </fo:block>
-          </fo:static-content>
+    <!-- header -->
+    <fo:static-content flow-name="xsl-region-before">
+      <fo:block font-size="6" text-align="center">
+        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
+        <xsl:value-of select="$msg/*/entry[@key='Variables_List']"/>
+      </fo:block>
+    </fo:static-content>
 
           <!-- footer -->
           <fo:static-content flow-name="xsl-region-after">
@@ -1978,34 +1926,26 @@
 
           </fo:flow>
         </fo:page-sequence>
-      </xsl:if>
+</xsl:if>
 
+    <!-- [8] Variable groups [page-sequence] -->
+    <!-- ================================================ --><!-- [8] Variable groups                              --><!-- [page-sequence]                                  --><!-- ================================================ --><!--
+  Variables read:
+  msg, font-family, number-of-groups
 
-      <!-- ================================================ -->
-      <!-- [8] Variable groups                              -->
-      <!-- [page-sequence]                                  -->
-      <!-- ================================================ -->
+  Functions/templates called:
+  string-length(), count()
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 1" xml:base="root_template_xincludes/variable_groups.xml">
 
-      <!--
-        Variables read:
-        msg, font-family, number-of-groups
+  <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
-        Functions/templates called:
-        string-length(), count()
-        header, footer
-      -->
-
-      <xsl:if test="$show-variable-groups = 1">
-
-        <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
-
-          <!-- header -->
-          <fo:static-content flow-name="xsl-region-before">
-            <fo:block font-size="6" text-align="center">
-                <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
-                <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
-            </fo:block>
-          </fo:static-content>
+    <!-- header -->
+    <fo:static-content flow-name="xsl-region-before">
+      <fo:block font-size="6" text-align="center">
+        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
+        <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']"/>
+      </fo:block>
+    </fo:static-content>
           
           <!-- footer -->
           <fo:static-content flow-name="xsl-region-after">
@@ -2042,32 +1982,24 @@
         </fo:page-sequence>
       </xsl:if>
 
+    <!-- [9] Variables description [fo:page-sequence] -->
+    <!-- ==================================================== --><!-- [9] Variables description                            --><!-- [fo:page-sequence]                                   --><!-- ==================================================== --><!--
+  Variables read:
+  msg, font-family
 
-      <!-- ==================================================== -->
-      <!-- [9] Variables description                            -->
-      <!-- [fo:page-sequence]                                   -->
-      <!-- ==================================================== -->
+  Functions/templates called
+  count(), string-length()
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-description = 1" xml:base="root_template_xincludes/variables_description.xml">
 
-      <!--
-        Variables read:
-        msg, font-family
+  <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
-        Functions/templates called
-        count(), string-length()
-        header, footer
-      -->
-
-      <xsl:if test="$show-variables-description = 1">
-
-        <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
-
-          <!-- header -->
-          <fo:static-content flow-name="xsl-region-before">
-            <fo:block font-size="6" text-align="center">
-              <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
-              <xsl:value-of select="$msg/*/entry[@key='Variables_Description']"/>
-           </fo:block>
-         </fo:static-content>
+    <!-- header -->
+    <fo:static-content flow-name="xsl-region-before">
+      <fo:block font-size="6" text-align="center">
+        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
+        <xsl:value-of select="$msg/*/entry[@key='Variables_Description']"/>
+      </fo:block>
+    </fo:static-content>
 
           <!-- footer-->
           <fo:static-content flow-name="xsl-region-after">
@@ -2099,11 +2031,11 @@
           </fo:flow>
         </fo:page-sequence>
 
-        <!-- fileDscr -->
-        <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" mode="variables-description"/>
-      </xsl:if>
- 
-    </fo:root>
+  <!-- fileDscr -->
+  <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" mode="variables-description"/>
+</xsl:if>
+
+  </fo:root>
 
 </xsl:template>
 
@@ -2788,7 +2720,7 @@
 
   </fo:block>
 </xsl:template>
-  <!-- Match: ddi:var / default --><!-- Value: <fo:table-row> --><!--
+  <!-- Match: ddi:var --><!-- Value: <fo:table-row> --><!--
   Parameters used:
   fileId
 
@@ -3263,8 +3195,8 @@
                               <fo:table-cell border="0.4pt solid white" padding="{$cell-padding}" text-align="center">
                                 <fo:block font-weight="bold">
                                   <xsl:value-of select="$msg/*/entry[@key='Percentage']"/>
-                                  <xsl:if test="$is-weighted"> (
-                                    <xsl:value-of select="$msg/*/entry[@key='Weighted']"/>)
+                                  <xsl:if test="$is-weighted">
+                                    (<xsl:value-of select="$msg/*/entry[@key='Weighted']"/>)
                                   </xsl:if>
                                 </fo:block>
                               </fo:table-cell>
