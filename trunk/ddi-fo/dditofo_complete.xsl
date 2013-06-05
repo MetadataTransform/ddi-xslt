@@ -327,19 +327,19 @@
   <!-- ===================================== -->
 
   <!-- Match: / --><!-- Value: <fo:root> --><!--
-  ===========================================================
-  Sections:                           Value:
+  ================================================================
+  Xincluded sections:                 Value:
   0: Setup page sizes and layouts     [layout-master-set]
   1: Outline / Bookmarks              [bookmark-tree]
   2: Cover page                       [page-sequence]
-  3: Metadata information             [page-sequence]
+  3: Metadata information             [page-sequence] with [table]
   4: Table of contents                [page-sequence]
-  5: Overview                         [page-sequence]
+  5: Overview                         [page-sequence] with [table]
   6: Files Description                [page-sequence]
   7: Variables List                   [page-sequence]
   8: Variable Groups                  [page-sequence]
   9: Variables Description            [page-sequence]
-  ===========================================================
+  ================================================================
 --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" match="/" xml:base="includes/root_template.xml">
   <fo:root>
 
@@ -352,14 +352,20 @@
 
       <!-- A4 page -->
       <fo:simple-page-master master-name="default-page" page-height="297mm" page-width="210mm" margin-left="20mm" margin-right="20mm" margin-top="20mm" margin-bottom="20mm">
+
         <fo:region-body region-name="xsl-region-body" margin-top="10mm" margin-bottom="10mm"/>
+
         <fo:region-before region-name="xsl-region-before" extent="10mm"/>
         <fo:region-after region-name="xsl-region-after" extent="10mm"/>
       </fo:simple-page-master>
 
     </fo:layout-master-set>
 
-    <!-- [1] Outline / Bookmarks [bookmark-tree] -->
+    <!-- ================================ -->
+    <!-- [1] to [9]                       -->
+    <!-- Other sections                   -->
+    <!-- ================================ -->
+
     <!-- ============================================ --><!-- [1] Outline / Bookmarks                      --><!-- [bookmark-tree]                              --><!-- ============================================ --><!--
   Variables read:
   show-cover-page, show-metadata-info, show-toc, show-overview
@@ -577,8 +583,6 @@
 
   </fo:bookmark-tree>
 </xsl:if>
-
-    <!-- [2] Cover page [page-sequence] -->
     <!-- ================================================= --><!-- [2] Cover page                                    --><!-- [page-sequence]                                   --><!-- ================================================= --><!--
   Variables read:
   show-logo, show-geography, show-cover-page-producer,
@@ -643,8 +647,6 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-
-    <!-- [3] Metadata information [page-sequence] with [table] -->
     <!-- ==================================================== --><!-- [3] Metadata information                             --><!-- [page-sequence] with [table]                         --><!-- ==================================================== --><!--
   Variables read:
   msg, font-family, show-metadata-production,
@@ -776,8 +778,6 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-
-    <!-- [4] Table of contents [page-sequence] -->
     <!-- ============================================== --><!-- [4] Table of contents                          --><!-- [page-sequence]                                --><!-- ============================================== --><!--
   Variables read:
   font-family, msg, show-overview, show-scope-and-coverage,
@@ -996,8 +996,6 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-
-    <!-- [5] Overview [page-sequence] with [table] -->
     <!-- ================================================ --><!-- [5] Overview                                     --><!-- [page-sequence] with [table]                     --><!-- ================================================ --><!--
   Variables read:
   msg, report-start-page-number, font-family, color-gray3
@@ -1827,8 +1825,6 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-
-    <!-- [6] Files description [page-sequence] -->
     <!-- ======================================================== --><!-- [6] Files description                                    --><!-- [page-sequence]                                          --><!-- ======================================================== --><!--
   Variables read:
   msg, font-family
@@ -1877,8 +1873,6 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-
-    <!-- [7] Variables list [page-sequence] -->
     <!-- ================================================ --><!-- [7] Variables list                               --><!-- [page-sequence]                                  --><!-- ================================================ --><!--
   Variables read:
   msg, show-variables-list-layout, font-family
@@ -1927,8 +1921,6 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-
-    <!-- [8] Variable groups [page-sequence] -->
     <!-- ================================================ --><!-- [8] Variable groups                              --><!-- [page-sequence]                                  --><!-- ================================================ --><!--
   Variables read:
   msg, font-family, number-of-groups
@@ -1981,8 +1973,6 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-
-    <!-- [9] Variables description [fo:page-sequence] -->
     <!-- ==================================================== --><!-- [9] Variables description                            --><!-- [fo:page-sequence]                                   --><!-- ==================================================== --><!--
   Variables read:
   msg, font-family
@@ -2039,7 +2029,9 @@
 
 </xsl:template>
 
-  <!-- templates matching ddi: namespace -->
+  <!-- ===================================== -->
+  <!-- matching templates                    -->
+  <!-- ===================================== -->
   <!-- Match: ddi:AuthEnty --><!-- Value: fo:block --><!--
   Functions/templates called:
   trim
@@ -2092,8 +2084,8 @@
       <xsl:value-of select="."/>
 
       <!-- affiliation -->
-      <xsl:if test="@affiliation"> (
-        <xsl:value-of select="@affiliation"/>)
+      <xsl:if test="@affiliation">
+        (<xsl:value-of select="@affiliation"/>)
       </xsl:if>
 
       <!-- URI -->
@@ -3770,7 +3762,9 @@
 
 </xsl:template>
 
-  <!-- utility templates -->
+  <!-- ===================================== -->
+  <!-- called templates                      -->
+  <!-- ===================================== -->
   <!-- Name: isodate-long(isodate)    --><!-- Value: string                  --><!-- converts an ISO date string to a "prettier" format --><!--
     Params/variables read:
     isodate [param]

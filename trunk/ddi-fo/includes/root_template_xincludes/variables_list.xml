@@ -39,7 +39,8 @@
     <fo:flow flow-name="xsl-region-body">
 
       <!-- Variables_List -->
-      <fo:block id="variables-list" font-size="18pt" font-weight="bold" space-after="0.1in">
+      <fo:block id="variables-list" font-size="18pt"
+                font-weight="bold" space-after="0.1in">
         <xsl:value-of select="$msg/*/entry[@key='Variables_List']" />
       </fo:block>
 
@@ -53,7 +54,8 @@
       </fo:block>
 
       <!-- fileDscr -->
-      <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" mode="variables-list" />
+      <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr"
+                           mode="variables-list" />
 
     </fo:flow>
   </fo:page-sequence>

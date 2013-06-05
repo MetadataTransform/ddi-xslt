@@ -3,19 +3,19 @@
 <!-- Value: <fo:root> -->
 
 <!--
-  ===========================================================
-  Sections:                           Value:
+  ================================================================
+  Xincluded sections:                 Value:
   0: Setup page sizes and layouts     [layout-master-set]
   1: Outline / Bookmarks              [bookmark-tree]
   2: Cover page                       [page-sequence]
-  3: Metadata information             [page-sequence]
+  3: Metadata information             [page-sequence] with [table]
   4: Table of contents                [page-sequence]
-  5: Overview                         [page-sequence]
+  5: Overview                         [page-sequence] with [table]
   6: Files Description                [page-sequence]
   7: Variables List                   [page-sequence]
   8: Variable Groups                  [page-sequence]
   9: Variables Description            [page-sequence]
-  ===========================================================
+  ================================================================
 -->
 
 <xsl:template match="/"
@@ -36,39 +36,29 @@
                              page-height="297mm" page-width="210mm"
                              margin-left="20mm" margin-right="20mm"
                              margin-top="20mm" margin-bottom="20mm">
+
         <fo:region-body region-name="xsl-region-body"
                         margin-top="10mm" margin-bottom="10mm" />
+
         <fo:region-before region-name="xsl-region-before" extent="10mm" />
         <fo:region-after region-name="xsl-region-after" extent="10mm" />
       </fo:simple-page-master>
 
     </fo:layout-master-set>
 
-    <!-- [1] Outline / Bookmarks [bookmark-tree] -->
+    <!-- ================================ -->
+    <!-- [1] to [9]                       -->
+    <!-- Other sections                   -->
+    <!-- ================================ -->
+
     <xi:include href='root_template_xincludes/bookmarks.xml' />
-
-    <!-- [2] Cover page [page-sequence] -->
     <xi:include href='root_template_xincludes/cover_page.xml' />
-
-    <!-- [3] Metadata information [page-sequence] with [table] -->
     <xi:include href='root_template_xincludes/metadata_information.xml' />
-
-    <!-- [4] Table of contents [page-sequence] -->
     <xi:include href='root_template_xincludes/table_of_contents.xml' />
-
-    <!-- [5] Overview [page-sequence] with [table] -->
     <xi:include href='root_template_xincludes/overview.xml' />
-
-    <!-- [6] Files description [page-sequence] -->
     <xi:include href='root_template_xincludes/files_description.xml' />
-
-    <!-- [7] Variables list [page-sequence] -->
     <xi:include href='root_template_xincludes/variables_list.xml' />
-
-    <!-- [8] Variable groups [page-sequence] -->
     <xi:include href='root_template_xincludes/variable_groups.xml' />
-
-    <!-- [9] Variables description [fo:page-sequence] -->
     <xi:include href='root_template_xincludes/variables_description.xml' />
 
   </fo:root>
