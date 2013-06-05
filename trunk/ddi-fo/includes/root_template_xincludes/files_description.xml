@@ -29,29 +29,29 @@
       </fo:block>
     </fo:static-content>
 
-          <!-- footer -->
-          <fo:static-content flow-name="xsl-region-after">
-            <fo:block font-size="6" text-align="center" space-before="0.3in">
-              - <fo:page-number /> -
-            </fo:block>
-          </fo:static-content>
+    <!-- footer -->
+    <fo:static-content flow-name="xsl-region-after">
+      <fo:block font-size="6" text-align="center" space-before="0.3in">
+        - <fo:page-number /> -
+      </fo:block>
+    </fo:static-content>
 
-          <!-- main [flow] -->
-          <fo:flow flow-name="xsl-region-body">
+    <!-- main [flow] -->
+    <fo:flow flow-name="xsl-region-body">
 
-            <!-- Files_Description -->
-            <fo:block id="files-description" font-size="18pt" font-weight="bold" space-after="0.1in">
-              <xsl:value-of select="$msg/*/entry[@key='Files_Description']" />
-            </fo:block>
+      <!-- Files_Description -->
+      <fo:block id="files-description" font-size="18pt" font-weight="bold" space-after="0.1in">
+        <xsl:value-of select="$msg/*/entry[@key='Files_Description']" />
+      </fo:block>
 
-            <!-- Dataset_Contains -->
-            <fo:block font-weight="bold">
-              <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']" />
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="count(/ddi:codeBook/ddi:fileDscr)" />
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="$msg/*/entry[@key='files']" />
-            </fo:block>
+      <!-- Dataset_Contains -->
+      <fo:block font-weight="bold">
+        <xsl:value-of select="$msg/*/entry[@key='Dataset_contains']" />
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="count(/ddi:codeBook/ddi:fileDscr)" />
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$msg/*/entry[@key='files']" />
+      </fo:block>
 
       <!-- fileDscr -->
       <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr" />
