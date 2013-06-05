@@ -17,8 +17,8 @@
       <xsl:value-of select="."/>
 
       <!-- affiliation -->
-      <xsl:if test="@affiliation"> (
-        <xsl:value-of select="@affiliation"/>)
+      <xsl:if test="@affiliation">
+        (<xsl:value-of select="@affiliation"/>)
       </xsl:if>
 
       <!-- URI -->

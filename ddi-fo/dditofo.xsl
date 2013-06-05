@@ -355,7 +355,9 @@
 
   <xi:include href="includes/root_template.xml" />
 
-  <!-- templates matching ddi: namespace -->
+  <!-- ===================================== -->
+  <!-- matching templates                    -->
+  <!-- ===================================== -->
   <xi:include href="includes/ddi/ddi-AuthEnty.xml" />
   <xi:include href="includes/ddi/ddi-collDate.xml" />
   <xi:include href="includes/ddi/ddi-contact.xml" />
@@ -374,7 +376,9 @@
   <xi:include href="includes/ddi/ddi-varGrp.xml" />
   <xi:include href="includes/ddi/ddi_default_text.xml" />
 
-  <!-- utility templates -->
+  <!-- ===================================== -->
+  <!-- called templates                      -->
+  <!-- ===================================== -->
   <xi:include href="includes/utilities/isodate-long.xml" />
   <xi:include href="includes/utilities/isodate-month.xml" />
   <xi:include href="includes/utilities/date.xml" />
