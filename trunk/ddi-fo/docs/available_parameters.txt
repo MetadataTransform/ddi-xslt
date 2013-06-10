@@ -1,10 +1,16 @@
+# list of available parameters for dditofo.xslt
+# Values in square brackets [like this] are the default values
+# How to actually send params to the XSLT-processor varies
+
+# 2013-06-10  Removing params after the cleanup
+
 # Paths to external files
 rdf-file
 translations
-  
+
 # Used for ISO-date template
 language-code [en]
-  
+
 # Optional text
 report-title [Study Documentation]
 report-acknowledgments
@@ -19,15 +25,6 @@ font-family>Times</xsl:param>
 report-start-page-number [4]
 show-variables-description-categories-max [1000]
 variable-name-length [14]
-
-# Params from OutputServlet.java (supposedly?)
-# Not used, should be removed soon
-numberOfVars
-numberOfGroups
-subsetGroups
-subsetVars
-maxVars
-allowHTML [0]
 
 report-date [$exslt-date]
 
@@ -58,5 +55,3 @@ show-documentation-abstract [0]
 show-documentation-toc [0]
 show-documentation-subjects [0]
 
-# from OutputServlet.java, supposedly?
-showVariableGroupsParam [1]
