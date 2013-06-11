@@ -1,0 +1,15 @@
+    
+<!-- named: footer_first -->
+<xsl:template name="footer_first"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- content -->
+    <fo:static-content flow-name="xsl-region-after">
+        <fo:block>	
+            <!-- Attention, élément à traduire ! -->					
+            <fo:external-graphic src="url('file:C:/Program Files (x86)/COMPASS Report Center/FORS/FORS_foot.jpg')"
+                                 content-height="2.2cm" content-width="16.8cm"/>
+        </fo:block>
+    </fo:static-content>
+</xsl:template>

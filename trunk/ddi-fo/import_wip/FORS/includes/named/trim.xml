@@ -1,0 +1,16 @@
+<!-- named: trim -->
+<xsl:template name="trim"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- params -->
+    <xsl:param name="s" />
+
+    <!-- value -->
+    <xsl:call-template name="rtrim">
+        <xsl:with-param name="s"
+                        select="concat(
+                            substring(translate($s,' &#9;&#10;&#13;',''), 1, 1),
+                            substring-after($s, substring(translate($s,' &#9;&#10;&#13;',''), 1, 1)))" />
+    </xsl:call-template>
+</xsl:template>
