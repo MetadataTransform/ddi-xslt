@@ -349,41 +349,37 @@
     </xsl:if>
   </xsl:variable>
 
-  <!-- ===================================== -->
-  <!-- templates                             -->
-  <!-- ===================================== -->
-
-  <xi:include href="includes/root_template.xml" />
 
   <!-- ===================================== -->
   <!-- matching templates                    -->
   <!-- ===================================== -->
-  <xi:include href="includes/ddi/ddi-AuthEnty.xml" />
-  <xi:include href="includes/ddi/ddi-collDate.xml" />
-  <xi:include href="includes/ddi/ddi-contact.xml" />
-  <xi:include href="includes/ddi/ddi-dataCollector.xml" />
-  <xi:include href="includes/ddi/ddi-fileDscr.xml" />
-  <xi:include href="includes/ddi/ddi-fileDscr_variables-description.xml" />
-  <xi:include href="includes/ddi/ddi-fileDscr_variables-list.xml" />
-  <xi:include href="includes/ddi/ddi-fileName.xml" />
-  <xi:include href="includes/ddi/ddi-fundAg.xml" />
-  <xi:include href="includes/ddi/ddi-IDNo.xml" />
-  <xi:include href="includes/ddi/ddi-othId.xml" />
-  <xi:include href="includes/ddi/ddi-producer.xml" />
-  <xi:include href="includes/ddi/ddi-timePrd.xml" />
-  <xi:include href="includes/ddi/ddi-var.xml" />
-  <xi:include href="includes/ddi/ddi-var_variablesList.xml" />
-  <xi:include href="includes/ddi/ddi-varGrp.xml" />
-  <xi:include href="includes/ddi/ddi_default_text.xml" />
+  <xi:include href="templates/match/root.xml" />
+  <xi:include href="templates/match/ddi-AuthEnty.xml" />
+  <xi:include href="templates/match/ddi-collDate.xml" />
+  <xi:include href="templates/match/ddi-contact.xml" />
+  <xi:include href="templates/match/ddi-dataCollector.xml" />
+  <xi:include href="templates/match/ddi_default_text.xml" />
+  <xi:include href="templates/match/ddi-fileDscr.xml" />
+  <xi:include href="templates/match/ddi-fileDscr_variables-description.xml" />
+  <xi:include href="templates/match/ddi-fileDscr_variables-list.xml" />
+  <xi:include href="templates/match/ddi-fileName.xml" />
+  <xi:include href="templates/match/ddi-fundAg.xml" />
+  <xi:include href="templates/match/ddi-IDNo.xml" />
+  <xi:include href="templates/match/ddi-othId.xml" />
+  <xi:include href="templates/match/ddi-producer.xml" />
+  <xi:include href="templates/match/ddi-timePrd.xml" />
+  <xi:include href="templates/match/ddi-var.xml" />
+  <xi:include href="templates/match/ddi-var_variablesList.xml" />
+  <xi:include href="templates/match/ddi-varGrp.xml" />
 
-  <!-- ===================================== -->
-  <!-- called templates                      -->
-  <!-- ===================================== -->
-  <xi:include href="includes/utilities/isodate-long.xml" />
-  <xi:include href="includes/utilities/isodate-month.xml" />
-  <xi:include href="includes/utilities/date.xml" />
-  <xi:include href="includes/utilities/math-max.xml" />
-  <xi:include href="includes/utilities/trim/rtrim.xml" />
-  <xi:include href="includes/utilities/trim/trim.xml" />
+  <!-- ==================================== -->
+  <!-- named templates                      -->
+  <!-- ==================================== -->
+  <xi:include href="templates/named/date.xml" />
+  <xi:include href="templates/named/isodate-long.xml" />
+  <xi:include href="templates/named/isodate-month.xml" />
+  <xi:include href="templates/named/math-max.xml" />
+  <xi:include href="templates/named/rtrim.xml" />
+  <xi:include href="templates/named/trim.xml" />
 
 </xsl:stylesheet>
