@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- ddi:fileDsrc (default mode) -->
+<xsl:template match="ddi:fileDscr"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- content -->
+    <fo:table id="file-{@ID}" table-layout="fixed" width="100%" space-before="0.2in" space-after="0.2in">
+        <fo:table-column column-width="proportional-column-width(20)"/>
+        <fo:table-column column-width="proportional-column-width(80)"/>
+
+        <fo:table-body>
+            <!-- Filename -->
+            <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
+                <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                    <fo:block font-size="12pt" font-weight="normal">
+                        <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+                    </fo:block>
+                </fo:table-cell>
+            </fo:table-row>
+            
+            <!-- File Content -->
+            <xsl:for-each select="ddi:fileTxt/ddi:fileCont">
+                <fo:table-row>
+                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="$msg/*/entry[@key='File_Content']"/>
+                        </fo:block>
+                    </fo:table-cell>
+                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="normalize-space(.)"/>
+                        </fo:block>
+                    </fo:table-cell>
+                </fo:table-row>
+            </xsl:for-each>
+            
+            <!-- # Cases-->
+            <xsl:if test="ddi:fileTxt/ddi:dimensns/ddi:caseQnty">
+                <fo:table-row>
+                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="$msg/*/entry[@key='Cases']"/>
+                        </fo:block>
+                    </fo:table-cell>
+                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block text-indent="1mm">
+
+                            <!-- (FK) Numeric format mask START -->
+                            <xsl:call-template name="NumFormat">
+                                <xsl:with-param name="input" select="ddi:fileTxt/ddi:dimensns/ddi:caseQnty"/>
+                            </xsl:call-template>
+                            <!-- (FK) Numeric format mask START -->
+                        </fo:block>
+                    </fo:table-cell>
+                </fo:table-row>
+            </xsl:if>
+            
+            <!-- # Variables  -->
+            <xsl:if test="ddi:fileTxt/ddi:dimensns/ddi:varQnty">
+                <fo:table-row>
+                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="$msg/*/entry[@key='Variables']"/>
+                        </fo:block>
+                    </fo:table-cell>
+                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block text-indent="1mm">
+                            <xsl:apply-templates select="ddi:fileTxt/ddi:dimensns/ddi:varQnty"/>
+                        </fo:block>
+                    </fo:table-cell>
+                </fo:table-row>
+            </xsl:if>
+            
+            <!-- File Structure -->
+            <xsl:if test="ddi:fileTxt/ddi:fileStrc">
+                <fo:table-row>
+                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="$msg/*/entry[@key='File_Structure']"/>
+                        </fo:block>
+                    </fo:table-cell>
+                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                        <xsl:if test="ddi:fileTxt/ddi:fileStrc/ddi:recGrp/@keyvar">
+                            <fo:block text-indent="1mm">
+                                <xsl:value-of select="$msg/*/entry[@key='Keys']"/>:&#160;
+                                <xsl:variable name="list" select="concat(ddi:fileTxt/ddi:fileStrc/ddi:recGrp/@keyvar,' ')"/> <!-- add a space at the end of the list for matching puspose -->
+                                <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[contains($list,concat(@ID,' '))]"> <!-- add a space to the variable ID to avoid partial match -->
+                                    <xsl:if test="position()>1">,&#160;</xsl:if>
+                                    <xsl:value-of select="./@name"/>
+                                    <xsl:if test="normalize-space(./ddi:labl)">
+                                        &#160;(<xsl:value-of select="normalize-space(./ddi:labl)"/>)
+                                    </xsl:if>
+                                </xsl:for-each>
+                            </fo:block>
+                        </xsl:if>
+                    </fo:table-cell>
+                </fo:table-row>
+            </xsl:if>
+            
+            <!-- File Producer -->
+            <xsl:for-each select="ddi:fileTxt/ddi:filePlac">
+                <fo:table-row>
+                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="$msg/*/entry[@key='Producer']"/>
+                        </fo:block>
+                    </fo:table-cell>
+                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="normalize-space(.)"/>
+                        </fo:block>
+                    </fo:table-cell>
+                </fo:table-row>
+            </xsl:for-each>
+            
+            <!-- File Version-->
+            <xsl:for-each select="ddi:fileTxt/ddi:verStmt">
+                <fo:table-row>
+                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="$msg/*/entry[@key='Version']"/>
+                        </fo:block>
+                    </fo:table-cell>
+                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="normalize-space(.)"/>
+                        </fo:block>
+                    </fo:table-cell>
+                </fo:table-row>
+            </xsl:for-each>
+            
+            <!-- File Processing Checks-->				
+            <xsl:for-each select="ddi:fileTxt/ddi:dataChck">
+                <fo:table-row>
+                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="$msg/*/entry[@key='Processing_Checks']"/>
+                        </fo:block>
+                    </fo:table-cell>
+                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="normalize-space(.)"/>
+                        </fo:block>
+                    </fo:table-cell>
+                </fo:table-row>
+            </xsl:for-each>
+            
+            <!-- File Missing Data-->
+            <xsl:for-each select="ddi:fileTxt/ddi:dataMsng">
+                <fo:table-row>
+                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="$msg/*/entry[@key='Missing_Data']"/>
+                        </fo:block>
+                    </fo:table-cell>
+                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="normalize-space(.)"/>
+                        </fo:block>
+                    </fo:table-cell>
+                </fo:table-row>
+            </xsl:for-each>
+            
+            <!-- File Notes-->				
+            <xsl:for-each select="ddi:notes">
+                <fo:table-row>
+                    <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="$msg/*/entry[@key='Notes']"/>
+                        </fo:block>
+                    </fo:table-cell>
+                    <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block>
+                            <xsl:value-of select="normalize-space(.)"/>
+                        </fo:block>
+                    </fo:table-cell>
+                </fo:table-row>
+            </xsl:for-each>
+        </fo:table-body>
+    </fo:table>
+</xsl:template>

@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- ddi:var (variables list) -->
+<xsl:template match="ddi:var" mode="variables-list"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- params -->
+    <xsl:param name="fileId" select="./@files" />
+
+    <!-- content -->
+    <fo:table-row text-align="center" vertical-align="top">
+        <xsl:choose>
+            <xsl:when test="position() mod 2 = 0">
+                <xsl:attribute name="background-color">
+                    <xsl:value-of select="$color-white"/>
+                </xsl:attribute>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:attribute name="background-color">
+                    <xsl:value-of select="$color-gray1"/>
+                </xsl:attribute>
+            </xsl:otherwise>
+        </xsl:choose>
+        <!-- Variable Position -->
+        <fo:table-cell text-align="center" border="{$default-border}" padding="{$cell-padding}">
+            <fo:block>
+                <xsl:value-of select="position()"/>
+            </fo:block>
+            
+        </fo:table-cell>
+        <!-- Variable Name-->
+        <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+            <fo:block>
+                <xsl:choose>
+                    <xsl:when test="$show-variables-list = 1">
+                        <fo:basic-link internal-destination="var-{@ID}" font-weight="bold"  color="{$forsblue}" font-size="9pt" >
+                            <xsl:value-of select="./@name"/>
+                        </fo:basic-link>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="./@name"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </fo:block>
+        </fo:table-cell>
+        <!-- Variable Label -->
+        <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+            <fo:block>
+                <xsl:choose>
+                    <xsl:when test="normalize-space(./ddi:labl)">
+                        <xsl:value-of select="normalize-space(./ddi:labl)"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>-</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </fo:block>
+        </fo:table-cell>
+        <!-- Variable Type -->
+        <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+            <fo:block>
+                <xsl:choose>
+                    <xsl:when test="normalize-space(@intrvl)">
+                        <xsl:choose>
+                            <xsl:when test="@intrvl='discrete'">
+                                <xsl:value-of select="$msg/*/entry[@key='discrete']"/>
+                            </xsl:when>
+                            <xsl:when test="@intrvl='contin'">
+                                <xsl:value-of select="$msg/*/entry[@key='continuous']"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="$msg/*/entry[@key='Undetermined']"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>-</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </fo:block>
+        </fo:table-cell>
+        <!-- Variable Format -->
+        <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+            <fo:block>
+                <xsl:choose>
+                    <xsl:when test="normalize-space(ddi:varFormat/@type)">
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text></xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
+                <xsl:if test="normalize-space(ddi:location/@width)">
+                    <xsl:text></xsl:text>
+                </xsl:if>
+                <xsl:if test="normalize-space(@dcml)">
+                    <xsl:text></xsl:text>
+                </xsl:if>
+            </fo:block>
+        </fo:table-cell>
+        <!-- Variable Valid -->
+        <fo:table-cell text-align="right" border="{$default-border}" padding="{$cell-padding}" padding-right="5mm">
+            <fo:block>
+                <xsl:choose>
+                    <xsl:when test="count(ddi:sumStat[@type='vald'])>0">
+                        <xsl:for-each select="ddi:sumStat[@type='vald']">
+                            <xsl:if test="position()=1">
+                                <!-- (FK) Numeric format mask START -->
+                                <xsl:call-template name="NumFormat">
+                                    <xsl:with-param name="input" select="."/>
+                                </xsl:call-template>
+                                <!-- (FK) Numeric format mask START -->
+                            </xsl:if>
+                        </xsl:for-each>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>-</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </fo:block>
+        </fo:table-cell>
+        <!-- Variable Invalid -->
+        <fo:table-cell text-align="center" border="{$default-border}" padding="{$cell-padding}">
+            <fo:block>
+                <xsl:choose>
+                    <xsl:when test="count(ddi:sumStat[@type='invd'])>0">
+                        <xsl:for-each select="ddi:sumStat[@type='invd']">
+                            <xsl:if test="position()=1">
+                            </xsl:if>
+                        </xsl:for-each>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text></xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </fo:block>
+        </fo:table-cell>
+        
+        <!-- Variable Literal Question-->
+        <xsl:if test="$show-variables-list-question = 1">
+            <fo:table-cell>
+                <fo:block>
+                    <xsl:choose>
+                        <xsl:when test="normalize-space(./ddi:qstn/ddi:qstnLit)">
+                            
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text></xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </fo:block>
+            </fo:table-cell>
+        </xsl:if>
+    </fo:table-row>
+</xsl:template>

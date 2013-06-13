@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- VARIABLE TABLE HEADER -->
+<!-- named: variables-table-col-width -->
+<xsl:template name="variables-table-col-width_grp"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- content -->
+    <fo:table-column column-width="proportional-column-width(17)" />
+    <fo:table-column column-width="proportional-column-width(57)" />
+
+    <xsl:if test="count(/ddi:codeBook/ddi:fileDscr)> 1">
+        <fo:table-column column-width="proportional-column-width(19)" />
+    </xsl:if >
+
+    <fo:table-column column-width="proportional-column-width(8)" />
+</xsl:template>

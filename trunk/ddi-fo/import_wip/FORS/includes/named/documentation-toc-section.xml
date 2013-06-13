@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- named: Documentation TOC Section -->
+<xsl:template name="documentation-toc-section"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- params -->
+    <xsl:param name="nodes"/>
+
+    <!-- content -->
+    <xsl:for-each select="$nodes">
+        <fo:block margin-left="0.7in" font-size="12pt" text-align-last="justify">
+            <fo:basic-link internal-destination="{generate-id()}" color="{$forsblue}">
+                <xsl:choose>
+                    <xsl:when test="normalize-space(ddi:labl)">
+                        <xsl:value-of select="normalize-space(ddi:labl)"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>*** </xsl:text>
+                        <xsl:value-of select="$msg/*/entry[@key='Untitled']"/>
+                        <xsl:text> ****</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>		
+                <fo:leader leader-pattern="dots"/>
+            </fo:basic-link>
+        </fo:block>
+    </xsl:for-each>
+</xsl:template>
