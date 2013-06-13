@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- ddi:varGrp -->
+<xsl:template match="ddi:varGrp"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- content -->
+    <xsl:if test="contains($subsetGroups,concat(',',@ID,',')) or string-length($subsetGroups)=0">
+        <fo:table id="vargrp-{@ID}" table-layout="fixed" width="100%" space-before="0.2in">	
+            <fo:table-column column-width="proportional-column-width(20)" />
+            <fo:table-column column-width="proportional-column-width(80)" />
+
+            <fo:table-body>
+                <!-- Group identification-->
+                <fo:table-row  vertical-align="top" keep-with-next="always">
+                    <fo:table-cell text-align="left" number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                        <fo:block font-size="12pt" font-weight="normal">
+                            <xsl:value-of select="$msg/*/entry[@key='Group']"/>
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="normalize-space(ddi:labl)"/>
+                        </fo:block>
+                    </fo:table-cell>
+                </fo:table-row> 
+                
+                <!-- Text-->
+                <xsl:for-each select="ddi:txt">
+                    <fo:table-row>
+                        <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+                            <fo:block>
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </xsl:for-each>
+                
+                <!-- Definition -->				
+                <xsl:for-each select="ddi:defntn">
+                    <fo:table-row>
+                        <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                            <fo:block>
+                                <xsl:value-of select="$msg/*/entry[@key='Definition']"/>
+                            </fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                            <fo:block>
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </xsl:for-each>
+                
+                <!-- Universe-->
+                <xsl:for-each select="ddi:universe">
+                    <fo:table-row>
+                        <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                            <fo:block>
+                                <xsl:value-of select="$msg/*/entry[@key='Universe']"/>
+                            </fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                            <fo:block>
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </xsl:for-each>
+                
+                <!-- Notes -->
+                <xsl:for-each select="ddi:notes">
+                    <fo:table-row>
+                        <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                            <fo:block>
+                                <xsl:value-of select="$msg/*/entry[@key='Notes']"/>
+                            </fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                            <fo:block>
+                                <xsl:value-of select="normalize-space(.)"/>
+                            </fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </xsl:for-each>				
+                
+                <!-- subgroups -->
+                <xsl:if test="./@varGrp">
+                    <fo:table-row>
+                        <fo:table-cell font-weight="normal" border="{$default-border}" padding="{$cell-padding}">
+                            <fo:block>
+                                <xsl:value-of select="$msg/*/entry[@key='Subgroups']"/>
+                            </fo:block>
+                        </fo:table-cell>
+                        <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                            <fo:block>
+                                <!-- loop over groups in codeBook that are in this sequence -->
+                                <xsl:variable name="list" select="concat(./@varGrp,' ')"/> <!-- add a space at the end of the list for matching purposes -->
+                                <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp[contains($list,concat(@ID,' '))]"> <!-- add a space to the ID to avoid partial match -->
+                                    <xsl:if test="position()>1">,</xsl:if>
+                                    <xsl:value-of select="./ddi:labl"/>
+                                </xsl:for-each>
+                            </fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </xsl:if>
+                
+            </fo:table-body>
+        </fo:table>
+        
+        <!-- Look for variables in this group -->
+        <xsl:if test="./@var">
+            <!-- variables table -->
+            <fo:table id="varlist-{@ID}" table-layout="fixed" width="100%" font-size="8pt" space-after="0.0in">
+                <!-- column width -->
+                <xsl:call-template name="variables-table-col-width_grp"/>
+                <!-- table header -->
+                <fo:table-header>
+                    <!-- column header -->
+                    <xsl:call-template name="variables-table-col-header_grp"/>
+                </fo:table-header>
+                <!-- table body -->
+                <fo:table-body>
+                    <xsl:variable name="list" select="concat(./@var,' ')"/> <!-- add a space at the end of the list for matching purposes -->
+                    <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:var[ contains($list,concat(@ID,' ')) ]" mode="variables-list_grp"/> <!-- add a space to the ID to avoid partial match -->
+                </fo:table-body>
+            </fo:table>
+        </xsl:if>
+    </xsl:if>
+</xsl:template>
