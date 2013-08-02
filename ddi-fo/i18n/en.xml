@@ -97,7 +97,7 @@
     <entry key="groups">group(s)</entry>
     <entry key="Abbrev_Weighted">W</entry>
     <entry key="Weight">Weight</entry>
-    <entry key="Files_Description">Files Description</entry>
+    <entry key="Files_Description">File Description(s)</entry>
     <entry key="Notes">Notes</entry>
     <entry key="Data_Collection_Notes">Data Collection Notes</entry>
     <entry key="files">file(s)</entry>
@@ -157,7 +157,7 @@
     <entry key="Variables_List">Variables List</entry>
     <entry key="Format">Format</entry>
     <entry key="Sampling_Notes">Sampling Notes</entry>
-    <entry key="Variables_Groups">Variables Group(s)</entry>
+    <entry key="Variables_Groups">Variable Group(s)</entry>
     <entry key="Description">Description</entry>
     <entry key="Categories">Categories</entry>
     <entry key="Maximum">Maximum</entry>
