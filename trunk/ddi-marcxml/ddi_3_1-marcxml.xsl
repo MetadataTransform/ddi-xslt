@@ -123,26 +123,20 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                         <xsl:text>e</xsl:text>
                         <xsl:choose>
                             <xsl:when test="r:Citation/r:PublicationDate/r:SimpleDate">
-                                <xsl:choose>
-                                    <xsl:when test="contains(r:Citation/r:PublicationDate/r:SimpleDate, 'T')">
-                                        <xsl:value-of select="substring-before(translate(r:Citation/r:PublicationDate/r:SimpleDate, '-', ''), 'T')"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:value-of select="translate(r:Citation/r:PublicationDate/r:SimpleDate, '-', '')"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
+                                <xsl:value-of select="substring(translate(r:Citation/r:PublicationDate/r:SimpleDate, '-', ''), 1, 4)"/>
                             </xsl:when>
                             <xsl:when test="r:Citation/r:PublicationDate/r:StartDate">
-                                <xsl:choose>
-                                    <xsl:when test="contains(r:Citation/r:PublicationDate/r:StartDate, 'T')">
-                                        <xsl:value-of select="substring-before(translate(r:Citation/r:PublicationDate/r:StartDate, '-', ''), 'T')"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:value-of select="translate(r:Citation/r:PublicationDate/r:StartDate, '-', '')"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
+                                <xsl:value-of select="substring(translate(r:Citation/r:PublicationDate/r:StartDate, '-', ''), 1, 4)"/>
                             </xsl:when>
                         </xsl:choose>
+						<xsl:choose>
+							<xsl:when test="r:Citation/r:PublicationDate/r:EndDate">
+								<xsl:value-of select="substring(translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''), 1, 4)"/>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:text>    </xsl:text>
+							</xsl:otherwise>
+						</xsl:choose>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:text>b        </xsl:text>
@@ -410,17 +404,15 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                                             </xsl:otherwise>
                                         </xsl:choose>
                                     </xsl:variable>                                    
-                                    <xsl:if test="r:Citation/r:PublicationDate/r:EndDate">
-                                        <xsl:variable name="pub_date">
-                                            <xsl:choose>
-                                                <xsl:when test="contains(r:Citation/r:PublicationDate/r:EndDate, 'T')">
-                                                    <xsl:value-of select="concat($pub_date, ' - ', substring-before(translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''), 'T'))"/>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                    <xsl:value-of select="concat($pub_date, ' - ', translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''))"/>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                        </xsl:variable>
+                                    <xsl:if test="r:Citation/r:PublicationDate/r:EndDate">                                        
+										<xsl:choose>
+											<xsl:when test="contains(r:Citation/r:PublicationDate/r:EndDate, 'T')">
+												<xsl:value-of select="concat($pub_date, ' - ', substring-before(translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''), 'T'))"/>
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:value-of select="concat($pub_date, ' - ', translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''))"/>
+											</xsl:otherwise>
+										</xsl:choose>
                                     </xsl:if>
                                     <xsl:value-of select="$pub_date"/>     
                                 </xsl:when>
