@@ -6,7 +6,7 @@
   <xsl:import href="ddi3_1.xsl"/>
 
   <!--  svn version -->
-  <xsl:param name="svn-revision">Revision: 355</xsl:param>
+  <xsl:param name="svn-revision">Revision: 387</xsl:param>
 
   <!-- show frequencies on numeric variable with missing values -->
   <xsl:param name="show-numeric-var-frequence">true</xsl:param>
@@ -280,7 +280,7 @@
       </p>
     </xsl:for-each>
     <!-- code -->
-    <xsl:for-each select="l:Representation/l:CodeRepresentation">
+    <!--<xsl:for-each select="l:Representation/l:CodeRepresentation">
       <xsl:if test="@classificationLevel">
         <p>
           <xsl:value-of select="util:i18n('Messure')"/>
@@ -288,8 +288,8 @@
           <xsl:value-of select="@classificationLevel"/>
         </p>
       </xsl:if>
-    </xsl:for-each>
-    <!-- other -->
+    </xsl:for-each>-->
+    <!--: other -->
     <xsl:for-each select="l:Representation/l:CategoryRepresentation | 
       l:Representation/l:GeographicRepresentation | 
       l:Representation/l:DateTimeRepresentation | 
