@@ -322,10 +322,10 @@
     </xsl:if>
   </xsl:variable>
 
-  <!-- ===================================== -->
-  <!-- templates                             -->
-  <!-- ===================================== -->
 
+  <!-- ===================================== -->
+  <!-- matching templates                    -->
+  <!-- ===================================== -->
   <!-- Match: / --><!-- Value: <fo:root> --><!--
   ================================================================
   Xincluded sections:                 Value:
@@ -340,7 +340,7 @@
   8: Variable Groups                  [page-sequence]
   9: Variables Description            [page-sequence]
   ================================================================
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" match="/" xml:base="includes/root_template.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" match="/" xml:base="templates/match/root.xsl">
   <fo:root>
 
     <!-- ================================ -->
@@ -377,7 +377,7 @@
   Functions/templates called:
   nomalize-space(), contains(), concat(), string-length()
   trim
---><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-bookmarks = 1" xml:base="root_template_xincludes/bookmarks.xml">
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-bookmarks = 1" xml:base="root_template_xincludes/bookmarks.xsl">
 
   <fo:bookmark-tree>
 
@@ -591,7 +591,7 @@
   Functions/templates called:
   normalize-space() [Xpath 1.0]
   trim, isodate-long
---><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 1" xml:base="root_template_xincludes/cover_page.xml">
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 1" xml:base="root_template_xincludes/cover_page.xsl">
 
   <fo:page-sequence master-reference="default-page" font-family="Helvetica" font-size="10pt">
     <fo:flow flow-name="xsl-region-body">
@@ -665,7 +665,7 @@
   1.6: Spacer                   [table-row]
   2:   Report Acknowledgements  [block]
   3:   Report Notes             [block]
---><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 1" xml:base="root_template_xincludes/metadata_information.xml">
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 1" xml:base="root_template_xincludes/metadata_information.xsl">
 
   <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
@@ -801,7 +801,7 @@
   10: Variables List                [block]
   11: Variable Groups               [block]
   12: Variables Description         [block]
---><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 1" xml:base="root_template_xincludes/table_of_contents.xml">
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 1" xml:base="root_template_xincludes/table_of_contents.xsl">
 
   <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
@@ -1004,7 +1004,7 @@
   Functions/templates called:
   nomalize-space(), position() [Xpath]
   proportional-column-width() [FO]
---><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-overview = 1" xml:base="root_template_xincludes/overview.xml">
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-overview = 1" xml:base="root_template_xincludes/overview.xsl">
 
   <fo:page-sequence master-reference="default-page" initial-page-number="{$report-start-page-number}" font-family="{$font-family}" font-size="10pt">
 
@@ -1831,7 +1831,7 @@
 
   Functions/templates called:
   count()
---><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-files-description = 1" xml:base="root_template_xincludes/files_description.xml">
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-files-description = 1" xml:base="root_template_xincludes/files_description.xsl">
 
   <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
@@ -1879,7 +1879,7 @@
 
   Functions/templates called
   count()
---><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-list = 1" xml:base="root_template_xincludes/variables_list.xml">
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-list = 1" xml:base="root_template_xincludes/variables_list.xsl">
 
   <fo:page-sequence master-reference="{$show-variables-list-layout}" font-family="{$font-family}" font-size="10pt">
 
@@ -1927,7 +1927,7 @@
 
   Functions/templates called:
   string-length(), count()
---><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 1" xml:base="root_template_xincludes/variable_groups.xml">
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 1" xml:base="root_template_xincludes/variable_groups.xsl">
 
   <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
@@ -1979,7 +1979,7 @@
 
   Functions/templates called
   count(), string-length()
---><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-description = 1" xml:base="root_template_xincludes/variables_description.xml">
+--><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-description = 1" xml:base="root_template_xincludes/variables_description.xsl">
 
   <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
 
@@ -2028,14 +2028,10 @@
   </fo:root>
 
 </xsl:template>
-
-  <!-- ===================================== -->
-  <!-- matching templates                    -->
-  <!-- ===================================== -->
   <!-- Match: ddi:AuthEnty --><!-- Value: fo:block --><!--
   Functions/templates called:
   trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:AuthEnty" xml:base="includes/ddi/ddi-AuthEnty.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:AuthEnty" xml:base="templates/match/ddi-AuthEnty.xsl">
 
   <fo:block>
 
@@ -2051,7 +2047,7 @@
 
   </fo:block>
 </xsl:template>
-  <!-- match: ddi:collDate --><!-- value: fo:block --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:collDate" xml:base="includes/ddi/ddi-collDate.xml">
+  <!-- match: ddi:collDate --><!-- value: fo:block --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:collDate" xml:base="templates/match/ddi-collDate.xsl">
 
     <fo:block>
 
@@ -2076,7 +2072,7 @@
   <!-- match: ddi:contact --><!-- value: fo:block --><!--
   Functions/templates called:
   url() [FO]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:contact" xml:base="includes/ddi/ddi-contact.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:contact" xml:base="templates/match/ddi-contact.xsl">
 
     <fo:block>
 
@@ -2108,7 +2104,7 @@
   <!-- match: ddi:dataCollector --><!-- value: <fo:block> --><!--
   Functions/templates called:
   trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:dataCollector" xml:base="includes/ddi/ddi-dataCollector.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:dataCollector" xml:base="templates/match/ddi-dataCollector.xsl">
 
   <fo:block>
 
@@ -2127,6 +2123,27 @@
       <xsl:value-of select="@affiliation"/>
     </xsl:if>
 
+  </fo:block>
+
+</xsl:template>
+  <!-- match: ddi:*|text() --><!-- value: <fo:block> / [-] --><!-- the default text --><!--
+  Variables set:
+  trimmed
+
+  Functions/templates called:
+  trim
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:*|text()" xml:base="templates/match/ddi_default_text.xsl">
+
+  <!-- variables -->
+  <xsl:variable name="trimmed">
+    <xsl:call-template name="trim">
+      <xsl:with-param name="s" select="."/>
+    </xsl:call-template>
+  </xsl:variable>
+
+  <!-- content -->
+  <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0in">
+    <xsl:value-of select="$trimmed"/>
   </fo:block>
 
 </xsl:template>
@@ -2151,7 +2168,7 @@
   8: File Processing Checks   [table-row]
   9: File Missing Data        [table-row]
   10: File Notes              [table-row]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" xml:base="includes/ddi/ddi-fileDscr.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" xml:base="templates/match/ddi-fileDscr.xsl">
 
     <!-- variables -->
     <xsl:variable name="fileId">
@@ -2347,7 +2364,7 @@
 
   templates called:
   [footer]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" mode="variables-description" xml:base="includes/ddi/ddi-fileDscr_variables-description.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" mode="variables-description" xml:base="templates/match/ddi-fileDscr_variables-description.xsl">
 
     <!-- variables -->
     <xsl:variable name="fileId">
@@ -2445,7 +2462,7 @@
 
     Functions/templates called:
     variables-table-col-width, variables-table-col-header
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" mode="variables-list" xml:base="includes/ddi/ddi-fileDscr_variables-list.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" mode="variables-list" xml:base="templates/match/ddi-fileDscr_variables-list.xsl">
 
   <!-- variables -->
   <xsl:variable name="fileId">
@@ -2571,7 +2588,7 @@
 
   Functions/templates called:
   contains(), normalize-space(), string-length(), substring()
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileName" xml:base="includes/ddi/ddi-fileName.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileName" xml:base="templates/match/ddi-fileName.xsl">
 
     <!-- variables -->
     <xsl:variable name="filename" select="normalize-space(.)"/>
@@ -2595,7 +2612,7 @@
   <!-- Match: ddi:fundAg --><!-- Value: <fo:block> --><!--
   Functions/templates called:
   trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fundAg" xml:base="includes/ddi/ddi-fundAg.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fundAg" xml:base="templates/match/ddi-fundAg.xsl">
 
   <fo:block>
 
@@ -2620,7 +2637,7 @@
   <!-- Match: ddi:IDNo --><!-- Value: <fo:block> --><!--
   Functions/templates called:
   trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:IDNo" xml:base="includes/ddi/ddi-IDNo.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:IDNo" xml:base="templates/match/ddi-IDNo.xsl">
 
   <fo:block>
 
@@ -2640,7 +2657,7 @@
   <!-- Match: ddi:othId --><!-- Value: <fo:block> --><!--
   Functions/templates called:
   trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:othId" xml:base="includes/ddi/ddi-othId.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:othId" xml:base="templates/match/ddi-othId.xsl">
 
   <fo:block>
 
@@ -2665,7 +2682,7 @@
   <!-- Match: ddi:producer --><!-- Value: <fo:block> --><!--
   Functions/templates called:
   trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:producer" xml:base="includes/ddi/ddi-producer.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:producer" xml:base="templates/match/ddi-producer.xsl">
 
   <fo:block>
 
@@ -2691,7 +2708,7 @@
 
   </fo:block>
 </xsl:template>
-  <!-- Match: ddi:timePrd --><!-- Value: <fo:block> --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:timePrd" xml:base="includes/ddi/ddi-timePrd.xml">
+  <!-- Match: ddi:timePrd --><!-- Value: <fo:block> --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:timePrd" xml:base="templates/match/ddi-timePrd.xsl">
 
   <fo:block>
 
@@ -2745,7 +2762,7 @@
   13: Concepts                  table-row
   14: Notes                     table-row
   15: Categories                table-row
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" xml:base="includes/ddi/ddi-var.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" xml:base="templates/match/ddi-var.xsl">
 
   <!-- params -->
   <xsl:param name="fileId" select="./@files"/> <!-- use first file in @files if not specified) -->
@@ -3360,7 +3377,7 @@
     6: Variable Valid             table-cell
     7: Variable Invalid           table-cell
     8: Variable Literal Question  table-cell
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" mode="variables-list" xml:base="includes/ddi/ddi-var_variablesList.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" mode="variables-list" xml:base="templates/match/ddi-var_variablesList.xsl">
     <!-- params -->
     <xsl:param name="fileId" select="./@files"/> <!-- (use first file in @files if not specified) -->
 
@@ -3546,7 +3563,7 @@
     4: Universe       [table-row]
     5: Notes          [table-row]
     6: Subgroups      [table-row]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:varGrp" xml:base="includes/ddi/ddi-varGrp.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:varGrp" xml:base="templates/match/ddi-varGrp.xsl">
 
     <xsl:if test="contains($subset-groups,concat(',',@ID,',')) or string-length($subset-groups)=0">
 
@@ -3740,157 +3757,10 @@
     </xsl:if>
     
 </xsl:template>
-  <!-- match: ddi:*|text() --><!-- value: <fo:block> / [-] --><!-- the default text --><!--
-  Variables set:
-  trimmed
 
-  Functions/templates called:
-  trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:*|text()" xml:base="includes/ddi/ddi_default_text.xml">
-
-  <!-- variables -->
-  <xsl:variable name="trimmed">
-    <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="."/>
-    </xsl:call-template>
-  </xsl:variable>
-
-  <!-- content -->
-  <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0in">
-    <xsl:value-of select="$trimmed"/>
-  </fo:block>
-
-</xsl:template>
-
-  <!-- ===================================== -->
-  <!-- called templates                      -->
-  <!-- ===================================== -->
-  <!-- Name: isodate-long(isodate)    --><!-- Value: string                  --><!-- converts an ISO date string to a "prettier" format --><!--
-    Params/variables read:
-    isodate [param]
-    language-code
-
-    Variables set:
-    month
-
-    Functions/templates called:
-    number(), substring(), contains() [Xpath 1.0]
-    isodate-month
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-long" xml:base="includes/utilities/isodate-long.xml">
-
-    <!-- params -->
-    <xsl:param name="isodate" select=" '2005-12-31' "/>
-
-    <!-- variables -->
-    <!-- determine name of month in date string -->
-    <xsl:variable name="month">
-      <xsl:call-template name="isodate-month">
-        <xsl:with-param name="isodate" select="$report-date"/>
-      </xsl:call-template>
-    </xsl:variable>
-
-    <!-- content -->
-    <!-- return date in relevant format -->
-    <xsl:choose>
-
-      <!-- european format -->
-      <xsl:when test="contains('fr es',$language-code)">
-        <xsl:value-of select="number(substring($isodate,9,2))"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="$month"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="substring($isodate,1,4)"/>
-      </xsl:when>
-
-      <!-- japanese format -->
-      <xsl:when test="contains('ja',$language-code)">
-        <xsl:value-of select="$isodate"/>
-      </xsl:when>
-
-      <!-- english format -->
-      <xsl:otherwise>
-        <xsl:value-of select="$month"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="number(substring($isodate,9,2))"/>
-        <xsl:text>, </xsl:text>
-        <xsl:value-of select="substring($isodate,1,4)"/>
-      </xsl:otherwise>
-
-    </xsl:choose>
-
-</xsl:template>
-  <!-- Name: isodate-month(isodate) --><!-- Value: string --><!--
-    Params/variables read:
-    isodate [param]
-    msg
-
-    Variables set:
-    month
-
-    Functions/templates called:
-    number(), substring()
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-month" xml:base="includes/utilities/isodate-month.xml">
-
-    <!-- params -->
-    <xsl:param name="isodate" select=" '2005-12-31' "/>
-
-    <!-- variables -->
-    <xsl:variable name="month" select="number(substring($isodate,6,2))"/>
-
-    <!-- content -->
-    <!-- determine month name -->
-    <xsl:choose>
-
-      <xsl:when test="$month=1">
-        <xsl:value-of select="$msg/*/entry[@key='January']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=2">
-        <xsl:value-of select="$msg/*/entry[@key='February']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=3">
-        <xsl:value-of select="$msg/*/entry[@key='March']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=4">
-        <xsl:value-of select="$msg/*/entry[@key='April']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=5">
-        <xsl:value-of select="$msg/*/entry[@key='May']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=6">
-        <xsl:value-of select="$msg/*/entry[@key='June']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=7">
-        <xsl:value-of select="$msg/*/entry[@key='July']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=8">
-        <xsl:value-of select="$msg/*/entry[@key='August']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=9">
-        <xsl:value-of select="$msg/*/entry[@key='September']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=10">
-        <xsl:value-of select="$msg/*/entry[@key='October']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=11">
-        <xsl:value-of select="$msg/*/entry[@key='November']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=12">
-        <xsl:value-of select="$msg/*/entry[@key='December']"/>
-      </xsl:when>
-    </xsl:choose>
-
-</xsl:template>
+  <!-- ==================================== -->
+  <!-- named templates                      -->
+  <!-- ==================================== -->
   <!-- Name: date --><!-- Value: string --><!-- Uses an EXSLT extension to determine the date --><!--
     Params/variables read:
     date-time [param]
@@ -3903,7 +3773,7 @@
     Functions/templates called:
     substring(), starts-with(), not(), string(), number() [Xpath 1.0]
     function-available(), date:date-time() [XSLT 1.0]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="date" xml:base="includes/utilities/date.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="date" xml:base="templates/named/date.xsl">
 
     <!-- params -->
     <xsl:param name="date-time">
@@ -3968,13 +3838,139 @@
     </xsl:if>
 
 </xsl:template>
+  <!-- Name: isodate-long(isodate)    --><!-- Value: string                  --><!-- converts an ISO date string to a "prettier" format --><!--
+    Params/variables read:
+    isodate [param]
+    language-code
+
+    Variables set:
+    month
+
+    Functions/templates called:
+    number(), substring(), contains() [Xpath 1.0]
+    isodate-month
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-long" xml:base="templates/named/isodate-long.xsl">
+
+    <!-- params -->
+    <xsl:param name="isodate" select=" '2005-12-31' "/>
+
+    <!-- variables -->
+    <!-- determine name of month in date string -->
+    <xsl:variable name="month">
+      <xsl:call-template name="isodate-month">
+        <xsl:with-param name="isodate" select="$report-date"/>
+      </xsl:call-template>
+    </xsl:variable>
+
+    <!-- content -->
+    <!-- return date in relevant format -->
+    <xsl:choose>
+
+      <!-- european format -->
+      <xsl:when test="contains('fr es',$language-code)">
+        <xsl:value-of select="number(substring($isodate,9,2))"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$month"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="substring($isodate,1,4)"/>
+      </xsl:when>
+
+      <!-- japanese format -->
+      <xsl:when test="contains('ja',$language-code)">
+        <xsl:value-of select="$isodate"/>
+      </xsl:when>
+
+      <!-- english format -->
+      <xsl:otherwise>
+        <xsl:value-of select="$month"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="number(substring($isodate,9,2))"/>
+        <xsl:text>, </xsl:text>
+        <xsl:value-of select="substring($isodate,1,4)"/>
+      </xsl:otherwise>
+
+    </xsl:choose>
+
+</xsl:template>
+  <!-- Name: isodate-month(isodate) --><!-- Value: string --><!--
+    Params/variables read:
+    isodate [param]
+    msg
+
+    Variables set:
+    month
+
+    Functions/templates called:
+    number(), substring()
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-month" xml:base="templates/named/isodate-month.xsl">
+
+    <!-- params -->
+    <xsl:param name="isodate" select=" '2005-12-31' "/>
+
+    <!-- variables -->
+    <xsl:variable name="month" select="number(substring($isodate,6,2))"/>
+
+    <!-- content -->
+    <!-- determine month name -->
+    <xsl:choose>
+
+      <xsl:when test="$month=1">
+        <xsl:value-of select="$msg/*/entry[@key='January']"/>
+      </xsl:when>
+
+      <xsl:when test="$month=2">
+        <xsl:value-of select="$msg/*/entry[@key='February']"/>
+      </xsl:when>
+
+      <xsl:when test="$month=3">
+        <xsl:value-of select="$msg/*/entry[@key='March']"/>
+      </xsl:when>
+
+      <xsl:when test="$month=4">
+        <xsl:value-of select="$msg/*/entry[@key='April']"/>
+      </xsl:when>
+
+      <xsl:when test="$month=5">
+        <xsl:value-of select="$msg/*/entry[@key='May']"/>
+      </xsl:when>
+
+      <xsl:when test="$month=6">
+        <xsl:value-of select="$msg/*/entry[@key='June']"/>
+      </xsl:when>
+
+      <xsl:when test="$month=7">
+        <xsl:value-of select="$msg/*/entry[@key='July']"/>
+      </xsl:when>
+
+      <xsl:when test="$month=8">
+        <xsl:value-of select="$msg/*/entry[@key='August']"/>
+      </xsl:when>
+
+      <xsl:when test="$month=9">
+        <xsl:value-of select="$msg/*/entry[@key='September']"/>
+      </xsl:when>
+
+      <xsl:when test="$month=10">
+        <xsl:value-of select="$msg/*/entry[@key='October']"/>
+      </xsl:when>
+
+      <xsl:when test="$month=11">
+        <xsl:value-of select="$msg/*/entry[@key='November']"/>
+      </xsl:when>
+
+      <xsl:when test="$month=12">
+        <xsl:value-of select="$msg/*/entry[@key='December']"/>
+      </xsl:when>
+    </xsl:choose>
+
+</xsl:template>
   <!-- Name: math:max(nodes) --><!-- Value: string --><!--
     Params/variables read:
     nodes [param]
 
     Functions/templates called:
     not(), number(), position() [Xpath 1.0]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="math:max" xml:base="includes/utilities/math-max.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="math:max" xml:base="templates/named/math-max.xsl">
 
     <!-- params -->
     <xsl:param name="nodes" select="/.."/>
@@ -4005,7 +4001,7 @@
     Functions/templates called:
     substring(), string-length(), translate() [Xpath 1.0]
     rtrim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="rtrim" xml:base="includes/utilities/trim/rtrim.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="rtrim" xml:base="templates/named/rtrim.xsl">
 
     <!-- params -->
     <xsl:param name="s"/>
@@ -4039,7 +4035,7 @@
     Functions/templates called:
     concat(), substring(), translate(), substring-after() [Xpath 1.0]
     rtrim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="trim" xml:base="includes/utilities/trim/trim.xml">
+--><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="trim" xml:base="templates/named/trim.xsl">
 
     <!-- params -->
     <xsl:param name="s"/>

@@ -51,15 +51,15 @@
     <!-- Other sections                   -->
     <!-- ================================ -->
 
-    <xi:include href='root_template_xincludes/bookmarks.xml' />
-    <xi:include href='root_template_xincludes/cover_page.xml' />
-    <xi:include href='root_template_xincludes/metadata_information.xml' />
-    <xi:include href='root_template_xincludes/table_of_contents.xml' />
-    <xi:include href='root_template_xincludes/overview.xml' />
-    <xi:include href='root_template_xincludes/files_description.xml' />
-    <xi:include href='root_template_xincludes/variables_list.xml' />
-    <xi:include href='root_template_xincludes/variable_groups.xml' />
-    <xi:include href='root_template_xincludes/variables_description.xml' />
+    <xi:include href='root_template_xincludes/bookmarks.xsl' />
+    <xi:include href='root_template_xincludes/cover_page.xsl' />
+    <xi:include href='root_template_xincludes/metadata_information.xsl' />
+    <xi:include href='root_template_xincludes/table_of_contents.xsl' />
+    <xi:include href='root_template_xincludes/overview.xsl' />
+    <xi:include href='root_template_xincludes/files_description.xsl' />
+    <xi:include href='root_template_xincludes/variables_list.xsl' />
+    <xi:include href='root_template_xincludes/variable_groups.xsl' />
+    <xi:include href='root_template_xincludes/variables_description.xsl' />
 
   </fo:root>
 
