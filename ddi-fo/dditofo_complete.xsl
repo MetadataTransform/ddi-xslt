@@ -158,7 +158,7 @@
   <xsl:param name="show-files-description" select="1"/>
 
   <!-- parts of cover page -->
-  <xsl:param name="show-logo" select="0"/>
+  <xsl:param name="show-logo" select="1"/>
   <xsl:param name="show-geography" select="0"/>
   <xsl:param name="show-cover-page-producer" select="1"/>
   <xsl:param name="show-report-subtitle" select="0"/>
@@ -326,21 +326,7 @@
   <!-- ===================================== -->
   <!-- matching templates                    -->
   <!-- ===================================== -->
-  <!-- Match: / --><!-- Value: <fo:root> --><!--
-  ================================================================
-  Xincluded sections:                 Value:
-  0: Setup page sizes and layouts     [layout-master-set]
-  1: Outline / Bookmarks              [bookmark-tree]
-  2: Cover page                       [page-sequence]
-  3: Metadata information             [page-sequence] with [table]
-  4: Table of contents                [page-sequence]
-  5: Overview                         [page-sequence] with [table]
-  6: Files Description                [page-sequence]
-  7: Variables List                   [page-sequence]
-  8: Variable Groups                  [page-sequence]
-  9: Variables Description            [page-sequence]
-  ================================================================
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" match="/" xml:base="templates/match/root.xsl">
+  <!-- Match: / --><!-- Value: <fo:root> --><!-- ================================================================ --><!-- Xincluded sections:                 Value:                       --><!-- 0: Setup page sizes and layouts     [layout-master-set]          --><!-- 1: Outline / Bookmarks              [bookmark-tree]              --><!-- 2: Cover page                       [page-sequence]              --><!-- 3: Metadata information             [page-sequence] with [table] --><!-- 4: Table of contents                [page-sequence]              --><!-- 5: Overview                         [page-sequence] with [table] --><!-- 6: Files Description                [page-sequence]              --><!-- 7: Variables List                   [page-sequence]              --><!-- 8: Variable Groups                  [page-sequence]              --><!-- 9: Variables Description            [page-sequence]              --><!-- ================================================================ --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" match="/" xml:base="templates/match/root.xsl">
   <fo:root>
 
     <!-- ================================ -->
@@ -583,38 +569,43 @@
 
   </fo:bookmark-tree>
 </xsl:if>
-    <!-- ================================================= --><!-- [2] Cover page                                    --><!-- [page-sequence]                                   --><!-- ================================================= --><!--
-  Variables read:
-  show-logo, show-geography, show-cover-page-producer,
-  show-report-subtitle
-
-  Functions/templates called:
-  normalize-space() [Xpath 1.0]
-  trim, isodate-long
---><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 1" xml:base="root_template_xincludes/cover_page.xsl">
+    <!-- ================================================= --><!-- [2] Cover page                                    --><!-- [page-sequence]                                   --><!-- ================================================= --><!-- Variables read:                                      --><!-- show-logo, show-geography, show-cover-page-producer, --><!-- show-report-subtitle                                 --><!-- Functions/templates called:                          --><!-- normalize-space() [Xpath 1.0]                        --><!-- trim, isodate-long                                   --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 1" xml:base="root_template_xincludes/cover_page.xsl">
 
   <fo:page-sequence master-reference="default-page" font-family="Helvetica" font-size="10pt">
     <fo:flow flow-name="xsl-region-body">
 
       <fo:block id="cover-page">
 
-        <!-- 1) logo graphic -->
+        <!-- logo graphic -->
         <xsl:if test="$show-logo = 1">
-          <fo:block>
-            <fo:external-graphic src="snd_logo_sv.png" horizontal-align="middle" content-height="5mm"/>
+          <fo:block text-align="center">
+            <fo:external-graphic src="http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png"/>
           </fo:block>
         </xsl:if>
 
-        <!-- 2) geography -->
-        <!-- [block] $geography -->
+        <!-- geography -->
         <xsl:if test="$show-geography = 1">
           <fo:block font-size="14pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.2in">
             <xsl:value-of select="$geography"/>
           </fo:block>
         </xsl:if>
 
-        <!-- 3) responsible party -->
-        <!-- [block] AuthEnty/@affiliation -->
+        <!-- title -->
+        <fo:block font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.0in">
+          <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)"/>
+        </fo:block>
+        
+        <!-- $report-title (actually report subtitle) -->
+        <xsl:if test="show-report-subtitle">
+          <fo:block font-size="16pt" font-weight="bold" space-before="1.0in" text-align="center" space-after="0.0in">
+            <xsl:value-of select="$report-title"/>
+          </fo:block>
+        </xsl:if>
+
+        <!-- blank line (&#x00A0; is the equivalent of HTML &nbsp;) -->
+        <fo:block white-space-treatment="preserve">   </fo:block>
+
+        <!-- responsible party -->
         <xsl:if test="$show-cover-page-producer = 1">
           <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">
             <fo:block font-size="14pt" font-weight="bold" space-before="0.0in" text-align="center" space-after="0.0in">
@@ -628,19 +619,6 @@
               </xsl:if>
             </fo:block>
           </xsl:for-each>
-        </xsl:if>
-
-        <!-- 4) title -->
-        <!-- [block] titl -->
-        <fo:block font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.0in">
-          <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)"/>
-        </fo:block>
-
-        <!-- 5) $report-title (actually report subtitle) -->
-        <xsl:if test="show-report-subtitle">
-          <fo:block font-size="16pt" font-weight="bold" space-before="1.0in" text-align="center" space-after="0.0in">
-            <xsl:value-of select="$report-title"/>
-          </fo:block>
         </xsl:if>
 
       </fo:block>
