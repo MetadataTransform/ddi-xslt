@@ -5,15 +5,13 @@
 <!-- [page-sequence]                                   -->
 <!-- ================================================= -->
 
-<!--
-  Variables read:
-  show-logo, show-geography, show-cover-page-producer,
-  show-report-subtitle
+<!-- Variables read:                                      -->
+<!-- show-logo, show-geography, show-cover-page-producer, -->
+<!-- show-report-subtitle                                 -->
 
-  Functions/templates called:
-  normalize-space() [Xpath 1.0]
-  trim, isodate-long
--->
+<!-- Functions/templates called:                          -->
+<!-- normalize-space() [Xpath 1.0]                        -->
+<!-- trim, isodate-long                                   -->
 
 <xsl:if test="$show-cover-page = 1"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -24,23 +22,36 @@
 
       <fo:block id="cover-page">
 
-        <!-- 1) logo graphic -->
+        <!-- logo graphic -->
         <xsl:if test="$show-logo = 1" >
-          <fo:block>
-            <fo:external-graphic src="snd_logo_sv.png" horizontal-align="middle" content-height="5mm" />
+          <fo:block text-align="center">
+            <fo:external-graphic src="http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png" />
           </fo:block>
         </xsl:if>
 
-        <!-- 2) geography -->
-        <!-- [block] $geography -->
+        <!-- geography -->
         <xsl:if test="$show-geography = 1">
           <fo:block font-size="14pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.2in">
             <xsl:value-of select="$geography" />
           </fo:block>
         </xsl:if>
 
-        <!-- 3) responsible party -->
-        <!-- [block] AuthEnty/@affiliation -->
+        <!-- title -->
+        <fo:block font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.0in">
+          <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)" />
+        </fo:block>
+        
+        <!-- $report-title (actually report subtitle) -->
+        <xsl:if test="show-report-subtitle">
+          <fo:block font-size="16pt" font-weight="bold" space-before="1.0in" text-align="center" space-after="0.0in">
+            <xsl:value-of select="$report-title" />
+          </fo:block>
+        </xsl:if>
+
+        <!-- blank line (&#x00A0; is the equivalent of HTML &nbsp;) -->
+        <fo:block white-space-treatment="preserve"> &#x00A0; </fo:block>
+
+        <!-- responsible party -->
         <xsl:if test="$show-cover-page-producer = 1">
           <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">
             <fo:block font-size="14pt" font-weight="bold" space-before="0.0in" text-align="center" space-after="0.0in">
@@ -54,19 +65,6 @@
               </xsl:if>
             </fo:block>
           </xsl:for-each>
-        </xsl:if>
-
-        <!-- 4) title -->
-        <!-- [block] titl -->
-        <fo:block font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.0in">
-          <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)" />
-        </fo:block>
-
-        <!-- 5) $report-title (actually report subtitle) -->
-        <xsl:if test="show-report-subtitle">
-          <fo:block font-size="16pt" font-weight="bold" space-before="1.0in" text-align="center" space-after="0.0in">
-            <xsl:value-of select="$report-title" />
-          </fo:block>
         </xsl:if>
 
       </fo:block>

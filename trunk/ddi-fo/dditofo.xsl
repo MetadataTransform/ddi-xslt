@@ -185,7 +185,7 @@
   <xsl:param name="show-files-description" select="1" />
 
   <!-- parts of cover page -->
-  <xsl:param name="show-logo" select="0" />
+  <xsl:param name="show-logo" select="1" />
   <xsl:param name="show-geography" select="0" />
   <xsl:param name="show-cover-page-producer" select="1" />
   <xsl:param name="show-report-subtitle" select="0" />

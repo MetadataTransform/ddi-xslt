@@ -2,21 +2,19 @@
 <!-- Match: / -->
 <!-- Value: <fo:root> -->
 
-<!--
-  ================================================================
-  Xincluded sections:                 Value:
-  0: Setup page sizes and layouts     [layout-master-set]
-  1: Outline / Bookmarks              [bookmark-tree]
-  2: Cover page                       [page-sequence]
-  3: Metadata information             [page-sequence] with [table]
-  4: Table of contents                [page-sequence]
-  5: Overview                         [page-sequence] with [table]
-  6: Files Description                [page-sequence]
-  7: Variables List                   [page-sequence]
-  8: Variable Groups                  [page-sequence]
-  9: Variables Description            [page-sequence]
-  ================================================================
--->
+<!-- ================================================================ -->
+<!-- Xincluded sections:                 Value:                       -->
+<!-- 0: Setup page sizes and layouts     [layout-master-set]          -->
+<!-- 1: Outline / Bookmarks              [bookmark-tree]              -->
+<!-- 2: Cover page                       [page-sequence]              -->
+<!-- 3: Metadata information             [page-sequence] with [table] -->
+<!-- 4: Table of contents                [page-sequence]              -->
+<!-- 5: Overview                         [page-sequence] with [table] -->
+<!-- 6: Files Description                [page-sequence]              -->
+<!-- 7: Variables List                   [page-sequence]              -->
+<!-- 8: Variable Groups                  [page-sequence]              -->
+<!-- 9: Variables Description            [page-sequence]              -->
+<!-- ================================================================ -->
 
 <xsl:template match="/"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
