@@ -29,51 +29,51 @@
     <xsl:choose>
 
       <xsl:when test="$month=1">
-        <xsl:value-of select="$msg/*/entry[@key='January']"/>
+        <xsl:value-of select="$strings/*/entry[@key='January']"/>
       </xsl:when>
 
       <xsl:when test="$month=2">
-        <xsl:value-of select="$msg/*/entry[@key='February']"/>
+        <xsl:value-of select="$strings/*/entry[@key='February']"/>
       </xsl:when>
 
       <xsl:when test="$month=3">
-        <xsl:value-of select="$msg/*/entry[@key='March']"/>
+        <xsl:value-of select="$strings/*/entry[@key='March']"/>
       </xsl:when>
 
       <xsl:when test="$month=4">
-        <xsl:value-of select="$msg/*/entry[@key='April']"/>
+        <xsl:value-of select="$strings/*/entry[@key='April']"/>
       </xsl:when>
 
       <xsl:when test="$month=5">
-        <xsl:value-of select="$msg/*/entry[@key='May']"/>
+        <xsl:value-of select="$strings/*/entry[@key='May']"/>
       </xsl:when>
 
       <xsl:when test="$month=6">
-        <xsl:value-of select="$msg/*/entry[@key='June']"/>
+        <xsl:value-of select="$strings/*/entry[@key='June']"/>
       </xsl:when>
 
       <xsl:when test="$month=7">
-        <xsl:value-of select="$msg/*/entry[@key='July']"/>
+        <xsl:value-of select="$strings/*/entry[@key='July']"/>
       </xsl:when>
 
       <xsl:when test="$month=8">
-        <xsl:value-of select="$msg/*/entry[@key='August']"/>
+        <xsl:value-of select="$strings/*/entry[@key='August']"/>
       </xsl:when>
 
       <xsl:when test="$month=9">
-        <xsl:value-of select="$msg/*/entry[@key='September']"/>
+        <xsl:value-of select="$strings/*/entry[@key='September']"/>
       </xsl:when>
 
       <xsl:when test="$month=10">
-        <xsl:value-of select="$msg/*/entry[@key='October']"/>
+        <xsl:value-of select="$strings/*/entry[@key='October']"/>
       </xsl:when>
 
       <xsl:when test="$month=11">
-        <xsl:value-of select="$msg/*/entry[@key='November']"/>
+        <xsl:value-of select="$strings/*/entry[@key='November']"/>
       </xsl:when>
 
       <xsl:when test="$month=12">
-        <xsl:value-of select="$msg/*/entry[@key='December']"/>
+        <xsl:value-of select="$strings/*/entry[@key='December']"/>
       </xsl:when>
     </xsl:choose>
 
