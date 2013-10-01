@@ -104,13 +104,13 @@
               <xsl:when test="normalize-space(@intrvl)">
                 <xsl:choose>
                   <xsl:when test="@intrvl='discrete'">
-                    <xsl:value-of select="$msg/*/entry[@key='discrete']" />
+                    <xsl:value-of select="$strings/*/entry[@key='discrete']" />
                   </xsl:when>
                   <xsl:when test="@intrvl='contin'">
-                    <xsl:value-of select="$msg/*/entry[@key='continuous']" />
+                    <xsl:value-of select="$strings/*/entry[@key='continuous']" />
                   </xsl:when>
                   <xsl:otherwise>
-                    <xsl:value-of select="$msg/*/entry[@key='Undetermined']" />
+                    <xsl:value-of select="$strings/*/entry[@key='Undetermined']" />
                   </xsl:otherwise>
                 </xsl:choose>
               </xsl:when>

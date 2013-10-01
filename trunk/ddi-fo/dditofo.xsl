@@ -19,7 +19,7 @@
     Updated for FOP 0.93 2010
 
     Akira Olsbanning (akira.olsbanning@snd.gu.se)
-    Current version (2012)
+    Current version (2012-2013)
 
   License:
     Copyright 2006 Pascal Heus (pascal.heus@gmail.com)
@@ -127,8 +127,8 @@
   <xsl:param name="language-code" select="en" />
 
   <!-- translation file (path)-->
-  <xsl:param name="translations" />
-  <xsl:variable name="msg" select="document($translations)" />
+  <xsl:param name="translations-file" />
+  <xsl:variable name="strings" select="document($translations-file)" />
 
   <!-- optional text -->
   <xsl:param name="report-title" select="'Study Documentation'" />
@@ -157,14 +157,21 @@
   <!-- ========================================================== -->
 
   <!-- To avoid empty pages; use a huge chunksize for subsets -->
-  <xsl:variable name='chunk-size'>50</xsl:variable>
+  <xsl:variable name="chunk-size">50</xsl:variable>
+
+  <!-- path to front page logo -->
+  <xsl:param name="logo-file">http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png</xsl:param>
 
   <!-- Style and page layout -->
-  <xsl:param name="show-variables-list-layout">default-page</xsl:param>
+  <xsl:param name="page-layout">A4-page</xsl:param>
   <xsl:param name="font-family">Times</xsl:param>
+  <xsl:param name="font-size">10</xsl:param>
+  <xsl:param name="header-font-size">6</xsl:param>
+  <xsl:param name="footer-font-size">6</xsl:param>
 
   <xsl:variable name="cell-padding" select="'3pt'" />
   <xsl:variable name="default-border" select="'0.5pt solid black'" />
+  
   <xsl:variable name="color-white" select="'#ffffff'" />
   <xsl:variable name="color-gray0" select="'#f8f8f8'" />
   <xsl:variable name="color-gray1" select="'#f0f0f0'" />
@@ -177,18 +184,19 @@
   <!-- ============================================================= -->
 
   <!-- main sections of root template -->
-  <xsl:param name="show-bookmarks" select="1" />
-  <xsl:param name="show-cover-page" select="1" />
-  <xsl:param name="show-metadata-info" select="1" /> 
-  <xsl:param name="show-toc" select="1" />
-  <xsl:param name="show-overview" select="1" />
-  <xsl:param name="show-files-description" select="1" />
+  <!-- <xsl:param name="show-bookmarks" select="1" /> -->
+  <xsl:param name="show-bookmarks" >1</xsl:param>
+  <xsl:param name="show-cover-page" >1</xsl:param>
+  <xsl:param name="show-metadata-info" >1</xsl:param> 
+  <xsl:param name="show-toc" >1</xsl:param>
+  <xsl:param name="show-overview" >1</xsl:param>
+  <xsl:param name="show-files-description" >1</xsl:param>
 
   <!-- parts of cover page -->
-  <xsl:param name="show-logo" select="1" />
-  <xsl:param name="show-geography" select="0" />
-  <xsl:param name="show-cover-page-producer" select="1" />
-  <xsl:param name="show-report-subtitle" select="0" />
+  <xsl:param name="show-logo" >1</xsl:param>
+  <xsl:param name="show-geography" >0</xsl:param>
+  <xsl:param name="show-cover-page-producer" >1</xsl:param>
+  <xsl:param name="show-report-subtitle" >0</xsl:param>
 
   <!-- misc -->
   <xsl:param name="show-metadata-production" select="1" />
@@ -201,9 +209,9 @@
 
   <!-- survey title -->
   <xsl:variable name="survey-title">
-    <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)"/>
+    <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)" />
     <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:altTitl">
-      (<xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:altTitl)"/>)
+      (<xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:altTitl)" />)
     </xsl:if>
   </xsl:variable>
 

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
 <!-- ================================================= -->
-<!-- [2] Cover page                                    -->
+<!-- Cover page                                        -->
 <!-- [page-sequence]                                   -->
 <!-- ================================================= -->
 
@@ -17,33 +17,43 @@
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-  <fo:page-sequence master-reference="default-page" font-family="Helvetica" font-size="10pt">
-    <fo:flow flow-name="xsl-region-body">
+  <fo:page-sequence master-reference="{$page-layout}"
+                    font-family="Helvetica"
+                    font-size="{$font-size}">
+
+    <!-- =========================================== -->
+    <!-- page content                                -->
+    <!-- =========================================== -->
+
+    <fo:flow flow-name="body">
 
       <fo:block id="cover-page">
 
         <!-- logo graphic -->
         <xsl:if test="$show-logo = 1" >
           <fo:block text-align="center">
-            <fo:external-graphic src="http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png" />
+            <fo:external-graphic src="{$logo-file}" />
           </fo:block>
         </xsl:if>
 
         <!-- geography -->
         <xsl:if test="$show-geography = 1">
-          <fo:block font-size="14pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.2in">
+          <fo:block font-size="14pt" font-weight="bold" space-before="0.5in"
+                    text-align="center" space-after="0.2in">
             <xsl:value-of select="$geography" />
           </fo:block>
         </xsl:if>
 
         <!-- title -->
-        <fo:block font-size="18pt" font-weight="bold" space-before="0.5in" text-align="center" space-after="0.0in">
+        <fo:block font-size="18pt" font-weight="bold" space-before="0.5in"
+                  text-align="center" space-after="0.0in">
           <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)" />
         </fo:block>
         
         <!-- $report-title (actually report subtitle) -->
         <xsl:if test="show-report-subtitle">
-          <fo:block font-size="16pt" font-weight="bold" space-before="1.0in" text-align="center" space-after="0.0in">
+          <fo:block font-size="16pt" font-weight="bold" space-before="1.0in"
+                    text-align="center" space-after="0.0in">
             <xsl:value-of select="$report-title" />
           </fo:block>
         </xsl:if>
