@@ -41,7 +41,7 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-size="12pt" font-weight="bold">
-                <xsl:value-of select="$msg/*/entry[@key='Group']"/>
+                <xsl:value-of select="$strings/*/entry[@key='Group']"/>
                 <xsl:text> </xsl:text>
                 <xsl:value-of select="normalize-space(ddi:labl)"/>
               </fo:block>
@@ -62,7 +62,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$msg/*/entry[@key='Definition']"/>
+                  <xsl:value-of select="$strings/*/entry[@key='Definition']"/>
                 </fo:block>
                 <xsl:apply-templates select="."/>
               </fo:table-cell>
@@ -74,7 +74,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$msg/*/entry[@key='Universe']"/>
+                  <xsl:value-of select="$strings/*/entry[@key='Universe']"/>
                 </fo:block>
                 <xsl:apply-templates select="."/>
               </fo:table-cell>
@@ -86,7 +86,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$msg/*/entry[@key='Notes']"/>
+                  <xsl:value-of select="$strings/*/entry[@key='Notes']"/>
                 </fo:block>
                 <xsl:apply-templates select="."/>
               </fo:table-cell>
@@ -98,7 +98,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$msg/*/entry[@key='Subgroups']"/>
+                  <xsl:value-of select="$strings/*/entry[@key='Subgroups']"/>
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -151,42 +151,42 @@
       <!-- Name -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>
-          <xsl:value-of select="$msg/*/entry[@key='Name']" />
+          <xsl:value-of select="$strings/*/entry[@key='Name']" />
         </fo:block>
       </fo:table-cell>
 
       <!-- Label -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>
-          <xsl:value-of select="$msg/*/entry[@key='Label']" />
+          <xsl:value-of select="$strings/*/entry[@key='Label']" />
         </fo:block>
       </fo:table-cell>
 
       <!-- Type -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>
-          <xsl:value-of select="$msg/*/entry[@key='Type']" />
+          <xsl:value-of select="$strings/*/entry[@key='Type']" />
         </fo:block>
       </fo:table-cell>
 
       <!-- Format -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>
-          <xsl:value-of select="$msg/*/entry[@key='Format']" />
+          <xsl:value-of select="$strings/*/entry[@key='Format']" />
         </fo:block>
       </fo:table-cell>
 
       <!-- Valid -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>
-          <xsl:value-of select="$msg/*/entry[@key='Valid']" />
+          <xsl:value-of select="$strings/*/entry[@key='Valid']" />
         </fo:block>
       </fo:table-cell>
 
       <!-- Invalid -->
       <fo:table-cell border="0.5pt solid black" padding="3pt">
         <fo:block>
-          <xsl:value-of select="$msg/*/entry[@key='Invalid']" />
+          <xsl:value-of select="$strings/*/entry[@key='Invalid']" />
         </fo:block>
       </fo:table-cell>
 
@@ -194,7 +194,7 @@
       <xsl:if test="$show-variables-list-question">
         <fo:table-cell border="0.5pt solid black" padding="3pt">
           <fo:block>
-            <xsl:value-of select="$msg/*/entry[@key='Question']" />
+            <xsl:value-of select="$strings/*/entry[@key='Question']" />
           </fo:block>
         </fo:table-cell>
       </xsl:if>

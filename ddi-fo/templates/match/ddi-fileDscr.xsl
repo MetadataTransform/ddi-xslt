@@ -31,7 +31,9 @@
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-    <!-- variables -->
+    <!-- ===================== -->
+    <!-- variables             -->
+    <!-- ===================== -->
     <xsl:variable name="fileId">
       <xsl:choose>
 
@@ -46,15 +48,14 @@
       </xsl:choose>
     </xsl:variable>
 
-    <!-- content -->
+    <!-- =================== -->
+    <!-- content             -->
+    <!-- =================== -->
     <fo:table id="file-{$fileId}" table-layout="fixed"
               width="100%" space-before="0.2in" space-after="0.2in">
-
-      <!-- Set up column sizes -->
       <fo:table-column column-width="proportional-column-width(20)" />
       <fo:table-column column-width="proportional-column-width(80)" />
 
-      <!-- [fo:table-body] -->
       <fo:table-body>
 
         <!-- 1) Filename -->
@@ -71,7 +72,7 @@
           <fo:table-row>
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
               <fo:block>#
-                <xsl:value-of select="$msg/*/entry[@key='Cases']"/>
+                <xsl:value-of select="$strings/*/entry[@key='Cases']"/>
               </fo:block>
             </fo:table-cell>
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -85,7 +86,7 @@
           <fo:table-row>
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
               <fo:block>#
-                <xsl:value-of select="$msg/*/entry[@key='Variables']"/>
+                <xsl:value-of select="$strings/*/entry[@key='Variables']"/>
               </fo:block>
             </fo:table-cell>
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -101,7 +102,7 @@
             <!-- 4.1) File_Structure -->
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
               <fo:block>
-                <xsl:value-of select="$msg/*/entry[@key='File_Structure']"/>
+                <xsl:value-of select="$strings/*/entry[@key='File_Structure']"/>
               </fo:block>
             </fo:table-cell>
 
@@ -109,14 +110,14 @@
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
               <xsl:if test="ddi:fileTxt/ddi:fileStrc/@type">
                 <fo:block>
-                  <xsl:value-of select="$msg/*/entry[@key='Type']"/>:
+                  <xsl:value-of select="$strings/*/entry[@key='Type']"/>:
                   <xsl:value-of select="ddi:fileTxt/ddi:fileStrc/@type"/>
                 </fo:block>
               </xsl:if>
 
               <xsl:if test="ddi:fileTxt/ddi:fileStrc/ddi:recGrp/@keyvar">
                 <fo:block>
-                  <xsl:value-of select="$msg/*/entry[@key='Keys']"/>:&#160;
+                  <xsl:value-of select="$strings/*/entry[@key='Keys']"/>:&#160;
                   <xsl:variable name="list" select="concat(ddi:fileTxt/ddi:fileStrc/ddi:recGrp/@keyvar,' ')"/>
                   <!-- add a space at the end of the list for matching puspose -->
                   <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[contains($list,concat(@ID,' '))]">
@@ -140,7 +141,7 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$msg/*/entry[@key='File_Content']"/>
+                <xsl:value-of select="$strings/*/entry[@key='File_Content']"/>
               </fo:block>
               <xsl:apply-templates select="."/>
             </fo:table-cell>
@@ -152,7 +153,7 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$msg/*/entry[@key='Producer']"/>
+                <xsl:value-of select="$strings/*/entry[@key='Producer']"/>
               </fo:block>
               <xsl:apply-templates select="."/>
             </fo:table-cell>
@@ -164,7 +165,7 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$msg/*/entry[@key='Version']"/>
+                <xsl:value-of select="$strings/*/entry[@key='Version']"/>
               </fo:block>
               <xsl:apply-templates select="."/>
             </fo:table-cell>
@@ -176,7 +177,7 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$msg/*/entry[@key='Processing_Checks']"/>
+                <xsl:value-of select="$strings/*/entry[@key='Processing_Checks']"/>
               </fo:block>
               <xsl:apply-templates select="."/>
             </fo:table-cell>
@@ -188,7 +189,7 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$msg/*/entry[@key='Missing_Data']"/>
+                <xsl:value-of select="$strings/*/entry[@key='Missing_Data']"/>
               </fo:block>
               <xsl:apply-templates select="."/>
             </fo:table-cell>
@@ -200,7 +201,7 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$msg/*/entry[@key='Notes']"/>
+                <xsl:value-of select="$strings/*/entry[@key='Notes']"/>
               </fo:block>
               <xsl:apply-templates select="."/>
             </fo:table-cell>

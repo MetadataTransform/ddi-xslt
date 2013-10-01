@@ -1,22 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
 <!-- ============================================ -->
-<!-- [1] Outline / Bookmarks                      -->
+<!-- Outline / Bookmarks                          -->
 <!-- [bookmark-tree]                              -->
 <!-- ============================================ -->
 
-<!--
-  Variables read:
-  show-cover-page, show-metadata-info, show-toc, show-overview
-  show-scope-and-coverage, show-producers-and-sponsors,
-  show-sampling, show-data-collection, show-data-processing-and-appraisal,
-  show-accessibility, show-rights-and-disclaimer, show-files-description,
-  show-variable-groups, show-variables-list, show-variables-description
+<!-- Variables read:                                                          -->
+<!-- show-cover-page, show-metadata-info, show-toc, show-overview             -->
+<!-- show-scope-and-coverage, show-producers-and-sponsors,                    -->
+<!-- show-sampling, show-data-collection, show-data-processing-and-appraisal, -->
+<!-- show-accessibility, show-rights-and-disclaimer, show-files-description,  -->
+<!-- show-variable-groups, show-variables-list, show-variables-description    -->
 
-  Functions/templates called:
-  nomalize-space(), contains(), concat(), string-length()
-  trim
--->
+<!-- Functions/templates called:                               -->
+<!-- nomalize-space(), contains(), concat(), string-length()   -->
+<!-- trim                                                      -->
 
 <xsl:if test="$show-bookmarks = 1"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -24,100 +22,103 @@
 
   <fo:bookmark-tree>
 
-    <!-- 1) Cover_Page -->
+    <!-- Cover_Page -->
     <xsl:if test = "$show-cover-page = 1">
       <fo:bookmark internal-destination = "cover-page">
         <fo:bookmark-title>
-          <xsl:value-of select="$msg/*/entry[@key='Cover_Page']" />
+          <xsl:value-of select="$strings/*/entry[@key='Cover_Page']" />
         </fo:bookmark-title>
       </fo:bookmark>
     </xsl:if>
 
-    <!-- 2) Document_Information -->
+    <!-- Document_Information -->
     <xsl:if test="$show-metadata-info = 1">
       <fo:bookmark internal-destination="metadata-info">
         <fo:bookmark-title>
-          <xsl:value-of select="$msg/*/entry[@key='Document_Information']" />
+          <xsl:value-of select="$strings/*/entry[@key='Document_Information']" />
         </fo:bookmark-title>
       </fo:bookmark>
     </xsl:if>
 
-    <!-- 3) Table_of_Contents -->
+    <!-- Table_of_Contents -->
     <xsl:if test="$show-toc = 1">
       <fo:bookmark internal-destination="toc">
         <fo:bookmark-title>
-          <xsl:value-of select="$msg/*/entry[@key = 'Table_of_Contents']" />
+          <xsl:value-of select="$strings/*/entry[@key = 'Table_of_Contents']" />
         </fo:bookmark-title>
       </fo:bookmark>
     </xsl:if>
 
-    <!-- 4) Overview -->
+    <!-- ============= -->
+    <!-- Overview      -->
+    <!-- ============= -->
+
     <xsl:if test="$show-overview = 1">
 
       <fo:bookmark internal-destination="overview">
         <fo:bookmark-title>
-          <xsl:value-of select="$msg/*/entry[@key='Overview']" />
+          <xsl:value-of select="$strings/*/entry[@key='Overview']" />
         </fo:bookmark-title>
 
-        <!-- 4.1) Scope_and_Coverage -->
+        <!-- Scope_and_Coverage -->
         <xsl:if test="$show-scope-and-coverage = 1">
           <fo:bookmark internal-destination="scope-and-coverage">
             <fo:bookmark-title>
-              <xsl:value-of select="$msg/*/entry[@key='Scope_and_Coverage']" />
+              <xsl:value-of select="$strings/*/entry[@key='Scope_and_Coverage']" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
 
-        <!-- 4.2) Producers_and_Sponsors -->
+        <!-- Producers_and_Sponsors -->
         <xsl:if test="$show-producers-and-sponsors = 1">
           <fo:bookmark internal-destination="producers-and-sponsors">
             <fo:bookmark-title>
-              <xsl:value-of select="$msg/*/entry[@key='Producers_and_Sponsors']" />
+              <xsl:value-of select="$strings/*/entry[@key='Producers_and_Sponsors']" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
 
-        <!-- 4.3) Sampling -->
+        <!-- Sampling -->
         <xsl:if test="$show-sampling = 1">
           <fo:bookmark internal-destination="sampling">
             <fo:bookmark-title>
-              <xsl:value-of select="$msg/*/entry[@key='Sampling']" />
+              <xsl:value-of select="$strings/*/entry[@key='Sampling']" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
 
-        <!-- 4.4) Data_Collection -->
+        <!-- Data_Collection -->
         <xsl:if test="$show-data-collection = 1">
           <fo:bookmark internal-destination="data-collection">
             <fo:bookmark-title>
-              <xsl:value-of select="$msg/*/entry[@key='Data_Collection']" />
+              <xsl:value-of select="$strings/*/entry[@key='Data_Collection']" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
 
-        <!-- 4.5) Data_Processing_and_Appraisal -->
+        <!-- Data_Processing_and_Appraisal -->
         <xsl:if test="$show-data-processing-and-appraisal = 1">
           <fo:bookmark internal-destination="data-processing-and-appraisal">
             <fo:bookmark-title>
-              <xsl:value-of select="$msg/*/entry[@key='Data_Processing_and_Appraisal']" />
+              <xsl:value-of select="$strings/*/entry[@key='Data_Processing_and_Appraisal']" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
 
-        <!-- 4.6) Accessibility -->
+        <!-- Accessibility -->
         <xsl:if test="$show-accessibility= 1">
           <fo:bookmark internal-destination="accessibility">
             <fo:bookmark-title>
-              <xsl:value-of select="$msg/*/entry[@key='Accessibility']" />
+              <xsl:value-of select="$strings/*/entry[@key='Accessibility']" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
 
-        <!-- 4.7) Rights_and_Disclaimer -->
+        <!-- Rights_and_Disclaimer -->
         <xsl:if test="$show-rights-and-disclaimer = 1">
           <fo:bookmark internal-destination="rights-and-disclaimer">
             <fo:bookmark-title>
-              <xsl:value-of select="$msg/*/entry[@key='Rights_and_Disclaimer']" />
+              <xsl:value-of select="$strings/*/entry[@key='Rights_and_Disclaimer']" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -125,12 +126,12 @@
       </fo:bookmark>
     </xsl:if>
 
-    <!-- 5) Files_Description -->
+    <!-- Files_Description -->
     <xsl:if test="$show-files-description = 1">
       <fo:bookmark internal-destination="files-description">
 
         <fo:bookmark-title>
-          <xsl:value-of select="$msg/*/entry[@key='Files_Description']" />
+          <xsl:value-of select="$strings/*/entry[@key='Files_Description']" />
         </fo:bookmark-title>
 
         <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
@@ -143,11 +144,11 @@
       </fo:bookmark>
     </xsl:if>
 
-    <!-- 6) Variables_Groups -->
+    <!-- Variables_Groups -->
     <xsl:if test="$show-variable-groups = 1">
       <fo:bookmark internal-destination="variables-groups">
         <fo:bookmark-title>
-          <xsl:value-of select="$msg/*/entry[@key='Variables_Groups']" />
+          <xsl:value-of select="$strings/*/entry[@key='Variables_Groups']" />
         </fo:bookmark-title>
 
         <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp">
@@ -162,11 +163,11 @@
       </fo:bookmark>
     </xsl:if>
 
-    <!-- 7) Variables_List -->
+    <!-- Variables_List -->
     <xsl:if test="$show-variables-list = 1">
       <fo:bookmark internal-destination="variables-list">
         <fo:bookmark-title>
-          <xsl:value-of select="$msg/*/entry[@key='Variables_List']" />
+          <xsl:value-of select="$strings/*/entry[@key='Variables_List']" />
         </fo:bookmark-title>
 
         <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
@@ -179,11 +180,11 @@
       </fo:bookmark>
     </xsl:if>
 
-    <!-- 8) Variables_Description -->
+    <!-- Variables_Description -->
     <xsl:if test="$show-variables-description= 1">
       <fo:bookmark internal-destination="variables-description">
         <fo:bookmark-title>
-          <xsl:value-of select="$msg/*/entry[@key='Variables_Description']" />
+          <xsl:value-of select="$strings/*/entry[@key='Variables_Description']" />
         </fo:bookmark-title>
 
         <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">

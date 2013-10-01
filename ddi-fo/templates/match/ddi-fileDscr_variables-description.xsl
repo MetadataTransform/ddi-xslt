@@ -1,5 +1,4 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-fileDsrc_variables-description.xsl -->
 
 <!-- =========================================== -->
 <!-- match: ddi:fileDsrc / variables-description -->
@@ -8,7 +7,7 @@
 
 <!--
   global vars read:
-  $msg, $chunk-size, $font-family, $default-border
+  $strings, $chunk-size, $font-family, $default-border
 
   local vars set:
   $fileId, $fileName
@@ -27,36 +26,47 @@
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-    <!-- variables -->
+    <!-- ================== -->
+    <!-- variables          -->
+    <!-- ================== -->
+
+    <!-- fileName ID attribute / ID attribute -->
     <xsl:variable name="fileId">
       <xsl:choose>
-
-        <!-- fileName ID attribute -->
         <xsl:when test="ddi:fileTxt/ddi:fileName/@ID">
           <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID"/>
         </xsl:when>
-
-        <!-- ID attribute -->
         <xsl:when test="@ID">
           <xsl:value-of select="@ID"/>
         </xsl:when>
-
       </xsl:choose>
     </xsl:variable>
 
     <xsl:variable name="fileName" select="ddi:fileTxt/ddi:fileName"/>
 
-    <!-- content -->
+    <!-- ===================== -->
+    <!-- content               -->
+    <!-- ===================== -->
+  
     <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId][position() mod $chunk-size = 1]">
-      <fo:page-sequence master-reference="default-page" font-family="{$font-family}" font-size="10pt">
+ 
+      <fo:page-sequence master-reference="{$page-layout}"
+                        font-family="{$font-family}"
+                        font-size="{$font-size}">
 
-        <fo:static-content flow-name="xsl-region-after">
+        <!-- =========== -->
+        <!-- page footer -->
+        <!-- =========== -->
+        <fo:static-content flow-name="after">
           <fo:block font-size="6" text-align="center" space-before="0.3in">
             - <fo:page-number /> -
           </fo:block>
         </fo:static-content>
 
-        <fo:flow flow-name="xsl-region-body">
+        <!-- =========== -->
+        <!-- page body   -->
+        <!-- =========== -->
+        <fo:flow flow-name="body">
 
           <!-- [fo:table] Header -->
           <!--	 (only written if at the start of file -->
@@ -71,7 +81,7 @@
                 <fo:table-row text-align="center" vertical-align="top">
                   <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                     <fo:block font-size="14pt" font-weight="bold">
-                      <xsl:value-of select="$msg/*/entry[@key='File']"/>
+                      <xsl:value-of select="$strings/*/entry[@key='File']"/>
                       <xsl:text> : </xsl:text>
                       <xsl:apply-templates select="$fileName"/>
                     </fo:block>
