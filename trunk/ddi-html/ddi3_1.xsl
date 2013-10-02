@@ -323,37 +323,6 @@
                     </xsl:if>
                 </xsl:if>
 
-                <xsl:if test="c:ConceptualComponent/c:UniverseScheme">
-                    <h3 id="UniverseList">
-                        <xsl:value-of select="util:i18n('Universe')"/>
-                    </h3>
-
-                    <div class="universeScheme">
-                        <!-- Study Unit Unverse Reference -->
-                        <h4>
-                            <xsl:value-of select="util:i18n('MainUniverse')"/>
-                        </h4>
-                        <xsl:for-each select="r:UniverseReference/r:ID">
-                            <xsl:variable name="univRefId" select="."/>
-                            <xsl:for-each select="../../c:ConceptualComponent/c:UniverseScheme/c:Universe">
-                                <xsl:if test="@id = $univRefId">
-                                    <xsl:call-template name="Universe"/>
-                                </xsl:if>
-                            </xsl:for-each>
-                        </xsl:for-each>
-
-                        <!-- Sub Universes -->
-                        <xsl:if test="$show-universe = 'true'">
-                            <h4>
-                                <xsl:value-of select="util:i18n('AllUniverses')"/>
-                            </h4>
-                            <xsl:for-each select="c:ConceptualComponent/c:UniverseScheme/c:Universe">
-                                <xsl:call-template name="Universe"/>
-                            </xsl:for-each>
-                        </xsl:if>
-                    </div>
-                </xsl:if>
-
                 <xsl:apply-templates select="r:SeriesStatement"/>
             </xsl:if>
 
@@ -368,13 +337,44 @@
                 </xsl:if>
             </xsl:if>
 
-            <xsl:apply-templates select="c:ConceptualComponent"/>
-
             <xsl:if test="$show-questionnaires = 'true'">
                 <xsl:apply-templates select="d:DataCollection"/>
             </xsl:if>
 
             <xsl:apply-templates select="l:LogicalProduct"/>
+            
+            <xsl:if test="c:ConceptualComponent/c:UniverseScheme">
+                <h3 id="UniverseList">
+                    <xsl:value-of select="util:i18n('Universe')"/>
+                </h3>
+                
+                <div class="universeScheme">
+                    <!-- Study Unit Unverse Reference -->
+                    <h4>
+                        <xsl:value-of select="util:i18n('MainUniverse')"/>
+                    </h4>
+                    <xsl:for-each select="r:UniverseReference/r:ID">
+                        <xsl:variable name="univRefId" select="."/>
+                        <xsl:for-each select="../../c:ConceptualComponent/c:UniverseScheme/c:Universe">
+                            <xsl:if test="@id = $univRefId">
+                                <xsl:call-template name="Universe"/>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </xsl:for-each>
+                    
+                    <!-- Sub Universes -->
+                    <xsl:if test="$show-universe = 'true'">
+                        <h4>
+                            <xsl:value-of select="util:i18n('AllUniverses')"/>
+                        </h4>
+                        <xsl:for-each select="c:ConceptualComponent/c:UniverseScheme/c:Universe">
+                            <xsl:call-template name="Universe"/>
+                        </xsl:for-each>
+                    </xsl:if>
+                </div>
+            </xsl:if>
+            
+            <xsl:apply-templates select="c:ConceptualComponent"/>
         </div>
     </xsl:template>
 
