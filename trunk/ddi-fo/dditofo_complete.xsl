@@ -3323,6 +3323,13 @@
               </fo:table-row>
             </xsl:if>
 
+            <!-- separate the individual variable tables to improve readability -->
+            <fo:table-row height="0.2in">
+              <fo:table-cell number-columns-spanned="2">
+                <fo:block/>
+              </fo:table-cell>
+            </fo:table-row>
+
           </fo:table-body>
         </fo:table> <!-- end of variable table -->
 
