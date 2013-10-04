@@ -1,0 +1,6118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<codeBook version="1.2.2" ID="0885-001" xml-lang="sv" xmlns="http://www.icpsr.umich.edu/DDI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd">
+  <docDscr>
+    <citation>
+      <titlStmt>
+        <titl>
+          xml-kodbok för VALU 2010 - SVT:s vallokalundersökning riksdagsvalet 2010
+        </titl>
+        <parTitl>
+          xml codebook for VALU 2010 - SVT exit poll survey parliamentary election 2010
+        </parTitl>
+        <IDNo>
+          0885-001
+        </IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty>
+          Svensk nationell datatjänst
+        </AuthEnty>
+      </rspStmt>
+      <prodStmt>
+        <producer abbr="SND" affiliation="Göteborgs universitet" role="Distributör">
+          Svensk nationell datatjänst
+        </producer>
+        <copyright>
+          Copyright (c) Svensk nationell datatjänst 2011
+        </copyright>
+        <prodDate date="2011-06-13">
+          2011-06-13
+        </prodDate>
+        <software version="4.0.4" date="2011-06-23">
+          Nesstar Publisher
+        </software>
+      </prodStmt>
+      <distStmt>
+        <distrbtr abbr="SND" affiliation="Göteborgs universitet">
+          Svensk nationell datatjänst
+        </distrbtr>
+      </distStmt>
+      <verStmt>
+        <version date="2011-06-13"/>
+      </verStmt>
+      <biblCit>
+        xml-kodbok för VALU 2010 - SVT:s vallokalundersökning riksdagsvalet 2010, 1:a xml-editionen, Göteborg 2011
+      </biblCit>
+    </citation>
+    <docSrc>
+      <titlStmt>
+        <titl>
+          VALU 2010 - SVT:s vallokalundersökning riksdagsvalet 2010
+        </titl>
+        <IDNo>
+          0885-001
+        </IDNo>
+      </titlStmt>
+      <distStmt>
+        <distrbtr abbr="SND">
+          Svensk nationell datatjänst
+        </distrbtr>
+      </distStmt>
+    </docSrc>
+  </docDscr>
+  <stdyDscr>
+    <citation>
+      <titlStmt>
+        <titl>
+          VALU 2010 - SVT:s vallokalundersökning riksdagsvalet 2010
+        </titl>
+        <altTitl>
+          VALU10
+        </altTitl>
+        <parTitl>
+          VALU 2010 - SVT exit poll survey parliamentary election 2010
+        </parTitl>
+        <IDNo>
+          0885-001
+        </IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty affiliation="Göteborgs universitet, Statsvetenskapliga institutionen">
+Holmberg, Sören
+        </AuthEnty>
+        <AuthEnty affiliation="Kungliga tekniska högskolan, Avdelningen för säkerhetsforskning">
+          Näsman, Per
+        </AuthEnty>
+        <AuthEnty affiliation="Sveriges Television">
+          Wännström, Kent
+        </AuthEnty>
+      </rspStmt>
+      <prodStmt>
+        <producer abbr="SVT">
+          Sveriges Television
+        </producer>
+        <software version="4.0.4" date="2011-06-23">
+          Nesstar Publisher
+        </software>
+      </prodStmt>
+      <distStmt>
+        <distrbtr abbr="SND">
+          Svensk nationell datatjänst
+        </distrbtr>
+        <depDate date="2010-10-12"/>
+      </distStmt>
+      <serStmt>
+        <serName>
+          SVT:s vallokalundersökningar
+        </serName>
+        <serInfo>
+          In Valu - Swedish exit poll surveys - voters leaving polling stations are asked by public service broadcaster Sveriges Television (SVT) to fill in a questionnaire and put it anonymously in a sealed box. After collecting and processing the responses, Sveriges Television is able to present an election forecast and an analysis of the reasons underlying the outcome of the election in it´s Election Night broadcast. The surveys are referred to as Valu, an abbreviation for vallokalsundersökning, Swedish for exit poll survey. Valu has been carried out by the public service broadcaster Sveriges Television (SVT) in connection with all national elections since 1991; parliamentary elections, referendums, and elections to the European Parliament. The first exit poll survey in Sweden was carried out by SVT in collaboration with Stockholm University and Göteborg University. Since 1994, SVT has carried out the studies in collaboration with Göteborg University and the Royal Institute of Technology in Stockholm (KTH). SVT´s main aim with Valu is to obtain an analytical basis for SVT´s election night broadcast and for SVT´s and other professional analysts´ post-election analyses. Another aim is to be able to forecast the result of the election at an early stage during election night. The responsible executive manager and project manager for the exit poll surveys is Hans Hernborn, head of programme editorial board, Sveriges Television. Professor Sören Holmberg, Department of Political Science, Göteborg University has been responsible for the design of the interview questions and analysis of the results. Research engineer Per Näsman and Professor Torbjörn Thedéen, both at the Royal Institute of Technology in Stockholm have been responsible for the statistical plan, analysis and forecasts. Valu is carried out in geographical regions centred around the largest university cities. A university lecturer is appointed in each of the regions as regional survey leader. Together, these survey leaders are responsible for approximately 300 field workers who carry out the survey at post offices where voting takes place before election day and outside polling stations during election day. Survey leaders and field workers are recruited from departments of statistics at the respective university. Thus, all survey leaders and field workers are familiar with statistical methods. All survey responses are registered in Valu´s teledata system. Field workers are calling the system and use the telephone buttons to register the one and two-digit codes that correspond to the respondents´ answers. After registration, the statistical information is compiled and published after the polling stations have closed.
+        </serInfo>
+      </serStmt>
+      <biblCit>
+        Holmberg, Sören, Näsman, Per och Wännström, Kent. VALU 2010 - SVT:S VALLOKALUNDERSÖKNING RIKSDAGSVALET 2010 [datafil]. Sveriges Television, 2010. Göteborg, Sverige: Svensk Nationell Datatjänst (SND) [distributör], 2010.
+      </biblCit>
+    </citation>
+    <stdyInfo>
+      <subject>
+        <keyword vocab="ELSST">
+          förtroende
+        </keyword>
+        <keyword vocab="ELSST">
+          kommunalval
+        </keyword>
+        <keyword vocab="ELSST">
+          medlemskap i fackförening
+        </keyword>
+        <keyword vocab="ELSST">
+          partiidentifikation
+        </keyword>
+        <keyword vocab="ELSST">
+          politiska ledare
+        </keyword>
+        <keyword vocab="ELSST">
+          politiskt deltagande
+        </keyword>
+        <keyword vocab="ELSST">
+          politiskt parti
+        </keyword>
+        <keyword vocab="ELSST">
+          regering
+        </keyword>
+        <keyword vocab="ELSST">
+          religiöst deltagande
+        </keyword>
+        <keyword vocab="ELSST">
+          riksdagsval
+        </keyword>
+        <keyword vocab="ELSST">
+          röstning
+        </keyword>
+        <keyword vocab="ELSST">
+          val
+        </keyword>
+        <keyword vocab="ELSST">
+          valdata
+        </keyword>
+        <keyword vocab="ELSST">
+          valfrågor
+        </keyword>
+        <keyword vocab="ELSST">
+          vallokalsundersökning
+        </keyword>
+        <keyword vocab="ELSST">
+          väljarbeteende
+        </keyword>
+        <topcClas vocab="CESSDA topical classification">
+          politiskt beteende, attityder/åsikter
+        </topcClas>
+        <topcClas vocab="CESSDA topical classification">
+          val
+        </topcClas>
+      </subject>
+      <abstract>
+        I samband med valet 1991 genomfördes den första svenska vallokalundersökningen. Undersökningen utfördes av Sveriges Television/Sveriges Radio i samarbete med universiteten i Göteborg och Stockholm. Liknande undersökningar har sedan dess genomförts i samband med samtliga riksdagsval, folkomröstningar och val till EU-parlamentet. En vallokalundersökning innebär i korthet att ett urval av väljare får besvara ett antal frågor då de lämnar vallokalen. Syftet med VALU är att ge ett bakgrundsmaterial för den valvaka som sänds i radio och TV direkt efter vallokalerna stängts. Med hjälp av undersökningen kan omfattande analyser av valresultatet ske redan under valvakan. VALU 2010 innehöll frågor om: vilket parti man röstat på i riksdags- respektive kommunalvalet; om man utnyttjat möjligheten att personrösta; tidpunkt då man bestämt hur man skulle rösta; vilket parti man röstat på i riksdagsvalet 2010; egen placering på en vänster-högerskala; förtroende för svenska politiker; arbetsmarknadsgrupp och medlemskap i facklig organisation; kyrkobesök. Respondenterna fick även ange vilken betydelse partiledaren respektive ett antal valfrågor haft för beslutet hur man skulle rösta. Därutöver fick man ange vilket politiskt block man tyckte hade bäst politik när det gäller svenska ekonomin, sysselsättningen, miljön, sjukvården, sociala välfärden, skola och utbildning, skatterna, och pensionerna.
+      </abstract>
+      <sumDscr>
+        <timePrd date="2010-09-11" event="start"/>
+        <timePrd date="2010-09-19" event="end"/>
+        <collDate date="2010-09-11" event="start"/>
+        <collDate date="2010-09-19" event="end"/>
+        <nation abbr="SE">
+          Sverige
+        </nation>
+        <anlyUnit>
+          Individ
+        </anlyUnit>
+        <universe>
+          Svenska valmanskåren
+        </universe>
+        <dataKind>
+          Surveydata
+        </dataKind>
+      </sumDscr>
+    </stdyInfo>
+    <method>
+      <dataColl>
+        <timeMeth>
+          Regelbunden tvärsnittsundersökning
+        </timeMeth>
+        <sampProc>
+          Självselektionsurval
+        </sampProc>
+        <collMode>
+          Självadministrerat frågeformulär
+        </collMode>
+        <sources/>
+      </dataColl>
+      <stdyClas>
+        SND Klass 1: Fullt genomgången av SND
+      </stdyClas>
+    </method>
+    <dataAccs>
+      <useStmt>
+        <restrctn>
+          Tillgång till materialet ges för akademiskt bruk; SNDs regler för tillgängliggörande tillämpas.
+        </restrctn>
+        <citReq>
+          Publications based on SND collections should acknowledge those sources by means of bibliographic citations. To ensure that such source attributions are captured for social science bibliographic utilities, citations must appear in footnotes or in the reference section of publication.
+        </citReq>
+        <deposReq>
+          Users of SND data are requested to send to SND bibliographic citations for, or copies of, each completed manuscript or thesis abstract.
+        </deposReq>
+        <disclaimer>
+          The original collector of the data, SND, and the relevant funding agency bear no responsibility for uses of this collection or for interpretations or inferences based upon such uses. According to an agreement between the principal investigator and SND this study can be disseminated to and analyzed by researchers on condition that the usage is for research purpose. The code of ethics for humanities and social sciences research established in 1990 by the Swedish Council for Research in the Humanities and Social Science, and published in HSFR ethics, must be adhered to wherever applicable.
+        </disclaimer>
+      </useStmt>
+    </dataAccs>
+    <othrStdyMat>
+      <relMat>
+        <citation>
+          <titlStmt>
+            <titl>
+              Questionnaire
+            </titl>
+          </titlStmt>
+          <holdings URI="http://www.snd.gu.se/catalogue/file/1817"/>
+        </citation>
+      </relMat>
+      <relMat/>
+      <relMat/>
+      <relStdy>
+        <citation>
+          <titlStmt>
+            <titl>
+              VALU 1991 - SVT exit poll survey parliamentary election 1991 (SND 0278)
+            </titl>
+          </titlStmt>
+          <holdings URI="http://www.snd.gu.se/catalogue/study/165"/>
+        </citation>
+      </relStdy>
+      <relStdy>
+        <citation>
+          <titlStmt>
+            <titl>
+              VALU 1994 - SVT exit poll survey EU-referendum 1994 (SND 0567)
+            </titl>
+          </titlStmt>
+          <holdings URI="http://www.snd.gu.se/catalogue/study/309"/>
+        </citation>
+      </relStdy>
+      <relStdy>
+        <citation>
+          <titlStmt>
+            <titl>
+              VALU 1994 - SVT exit poll survey parliamentary election 1994 (SND 0473)
+            </titl>
+          </titlStmt>
+          <holdings URI="http://www.snd.gu.se/catalogue/study/260"/>
+        </citation>
+      </relStdy>
+      <relStdy>
+        <citation>
+          <titlStmt>
+            <titl>
+              VALU 1995 - SVT exit poll survey EU-parliament election 1995 (SND 0568)
+            </titl>
+          </titlStmt>
+          <holdings URI="http://www.snd.gu.se/catalogue/study/310"/>
+        </citation>
+      </relStdy>
+      <relStdy>
+        <citation>
+          <titlStmt>
+            <titl>
+              VALU 1998 - SVT exit poll survey parliamentary election 1998 (SND 0630)
+            </titl>
+          </titlStmt>
+          <holdings URI="http://www.snd.gu.se/catalogue/study/352"/>
+        </citation>
+      </relStdy>
+      <relStdy>
+        <citation>
+          <titlStmt>
+            <titl>
+              VALU 1999 - SVT exit poll survey EU-parliament election 1999 (SND 0723)
+            </titl>
+          </titlStmt>
+          <holdings URI="http://www.snd.gu.se/catalogue/study/391"/>
+        </citation>
+      </relStdy>
+      <relStdy>
+        <citation>
+          <titlStmt>
+            <titl>
+              VALU 2002 - SVT exit poll survey parliamentary election 2002 (SND 0787)
+            </titl>
+          </titlStmt>
+          <holdings URI="http://www.snd.gu.se/catalogue/study/421"/>
+        </citation>
+      </relStdy>
+      <relStdy>
+        <citation>
+          <titlStmt>
+            <titl>
+              VALU 2003 - SVT exit poll survey EMU-election 2003 (SND 0806)
+            </titl>
+          </titlStmt>
+          <holdings URI="http://www.snd.gu.se/catalogue/study/440"/>
+        </citation>
+      </relStdy>
+      <relStdy>
+        <citation>
+          <titlStmt>
+            <titl>
+              VALU 2004 - SVT exit poll survey EU-parliament election 2004 (SND 0811)
+            </titl>
+          </titlStmt>
+          <holdings URI="http://www.snd.gu.se/catalogue/study/445"/>
+        </citation>
+      </relStdy>
+      <relStdy>
+        <citation>
+          <titlStmt>
+            <titl>
+              VALU 2009 - SVT exit poll survey EU-parliament election 2009 (SND 0874)
+            </titl>
+          </titlStmt>
+          <holdings URI="http://www.snd.gu.se/catalogue/study/576"/>
+        </citation>
+      </relStdy>
+      <relStdy>
+        <citation>
+          <titlStmt>
+            <titl>
+              VALU 2006 - SVT exit poll survey parliamentary election 2006 (SND 0844)
+            </titl>
+          </titlStmt>
+          <holdings URI="http://www.snd.gu.se/catalogue/study/478"/>
+        </citation>
+      </relStdy>
+      <relPubl>
+        <citation>
+          <titlStmt>
+            <titl>
+              Valu i allmänhetens tjänst
+            </titl>
+          </titlStmt>
+        </citation>
+      </relPubl>
+      <relPubl>
+        <citation>
+          <titlStmt>
+            <titl>
+              Valu - Swedish Exit Polls
+            </titl>
+          </titlStmt>
+        </citation>
+      </relPubl>
+      <relPubl>
+        <citation>
+          <titlStmt>
+            <titl>
+              Valu - Sveriges Televisions vallokalsundersökningar
+            </titl>
+          </titlStmt>
+        </citation>
+      </relPubl>
+    </othrStdyMat>
+  </stdyDscr>
+  <fileDscr ID="F1" URI="se.gu.snd.ddi.0885-001.Nesstar?Index=0&amp;Name=VALU 2010">
+    <fileTxt>
+      <fileName>
+        VALU 2010.NSDstat
+      </fileName>
+      <dimensns>
+        <caseQnty>
+          11889
+        </caseQnty>
+        <varQnty>
+          60
+        </varQnty>
+      </dimensns>
+      <fileType>
+        Nesstar 200801
+      </fileType>
+    </fileTxt>
+  </fileDscr>
+  <dataDscr>
+    <varGrp ID="VG1" type="subject" var="V1 V3 V2 V4 V5">
+      <labl>
+        Studieinfo
+      </labl>
+    </varGrp>
+    <varGrp ID="VG2" type="subject" var="V6 V7 V8 V9 V10 V11 V12 V13 V14 V15 V16 V17 V18 V19 V20 V21 V22 V23 V24 V25 V26 V27 V28 V29 V30 V31 V32 V33 V34 V35 V36 V37 V38 V39 V40 V41 V42 V43 V44 V45 V46 V47 V48 V49 V50 V51 V52 V53 V54 V55 V56 V57 V58 V59 V60">
+      <labl>
+        Vallokalundersökningen
+      </labl>
+    </varGrp>
+    <var ID="V1" name="SND_study" files="F1" dcml="0" intrvl="discrete">
+      <location width="4" RecSegNo="1"/>
+      <labl>
+        SND studie 0885
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="885" max="885"/>
+      </valrng>
+      <sumStat type="vald">
+        11889
+      </sumStat>
+      <sumStat type="invd">
+        0
+      </sumStat>
+      <txt>
+        SND-studie 0885: VALU 2010 - SVT:s vallokalundersökning 2010
+      </txt>
+      <catgry>
+        <catValu>
+          885
+        </catValu>
+        <labl>
+          SND 0885
+        </labl>
+        <catStat type="freq">
+          11889
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V3" name="SND_dataset" files="F1" dcml="0" intrvl="contin">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        SND dataset 0885-001
+      </labl>
+      <qstn>
+        <qstnLit>
+          SND 0885-001
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="1"/>
+      </valrng>
+      <sumStat type="vald">
+        11889
+      </sumStat>
+      <sumStat type="invd">
+        0
+      </sumStat>
+      <txt>
+        SND dataset 0885-001
+      </txt>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          SND 0885-001
+        </labl>
+        <catStat type="freq">
+          11889
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V2" name="SND_version" files="F1" dcml="0" intrvl="discrete">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        SND version 2.0
+      </labl>
+      <qstn>
+        <qstnLit>
+          SND version 1.0
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="2" max="2"/>
+      </valrng>
+      <sumStat type="vald">
+        11889
+      </sumStat>
+      <sumStat type="invd">
+        0
+      </sumStat>
+      <txt>
+        SND version 2.0
+      </txt>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          SND 2.0
+        </labl>
+        <catStat type="freq">
+          11889
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V4" name="ORT" files="F1" dcml="0" intrvl="discrete">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        Huvudort
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="4"/>
+      </valrng>
+      <sumStat type="vald">
+        11889
+      </sumStat>
+      <sumStat type="invd">
+        0
+      </sumStat>
+      <txt>
+        Huvudort
+      </txt>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Stockholm
+        </labl>
+        <catStat type="freq">
+          4146
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Lund
+        </labl>
+        <catStat type="freq">
+          2380
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Göteborg
+        </labl>
+        <catStat type="freq">
+          3060
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Sundsvall
+        </labl>
+        <catStat type="freq">
+          2303
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V5" name="TYP" files="F1" dcml="0" intrvl="discrete">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        Förtida röstning eller vallokalsröstning
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="2"/>
+      </valrng>
+      <sumStat type="vald">
+        11889
+      </sumStat>
+      <sumStat type="invd">
+        0
+      </sumStat>
+      <txt>
+        Förtida röstning eller vallokalsröstning
+      </txt>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Förtida röstning
+        </labl>
+        <catStat type="freq">
+          3986
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Vallokalsröstning
+        </labl>
+        <catStat type="freq">
+          7903
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V6" name="F1" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.1 Parti riksdagsvalet 2010
+      </labl>
+      <qstn>
+        <preQTxt>
+          Vi på Sveriges Television vill att valvakan ska spegla väljarnas åsikter. Därför ber vi Dig att kryssa för Dina svar på detta papper. Resultaten ska bara redovisas som siffror. Om någon fråga är svår att svara på, hoppa över den och gå till nästa fråga.
+        </preQTxt>
+        <qstnLit>
+          Vilket parti röstade Du på idag i riksdagsvalet?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="87"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11623
+      </sumStat>
+      <sumStat type="invd">
+        266
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Moderaterna
+        </labl>
+        <catStat type="freq">
+          3255
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Centerpartiet
+        </labl>
+        <catStat type="freq">
+          815
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Folkpartiet
+        </labl>
+        <catStat type="freq">
+          902
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Kristdemokraterna
+        </labl>
+        <catStat type="freq">
+          624
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Socialdemokraterna
+        </labl>
+        <catStat type="freq">
+          3192
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          6
+        </catValu>
+        <labl>
+          Vänsterpartiet
+        </labl>
+        <catStat type="freq">
+          864
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          7
+        </catValu>
+        <labl>
+          Miljöpartiet
+        </labl>
+        <catStat type="freq">
+          1174
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          81
+        </catValu>
+        <labl>
+          Sverigedemokraterna
+        </labl>
+        <catStat type="freq">
+          458
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          82
+        </catValu>
+        <labl>
+          Feministiskt initiativ
+        </labl>
+        <catStat type="freq">
+          88
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          83
+        </catValu>
+        <labl>
+          Piratpartiet
+        </labl>
+        <catStat type="freq">
+          85
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          84
+        </catValu>
+        <labl>
+          Annat parti
+        </labl>
+        <catStat type="freq">
+          26
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          85
+        </catValu>
+        <labl>
+          Blankt
+        </labl>
+        <catStat type="freq">
+          80
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          86
+        </catValu>
+        <labl>
+          Röstade ej
+        </labl>
+        <catStat type="freq">
+          8
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          87
+        </catValu>
+        <labl>
+          Ej röstberättigad
+        </labl>
+        <catStat type="freq">
+          52
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          266
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V7" name="F2" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.2 Parti kommunvalet 2010
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket parti röstade Du på idag i kommunvalet?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="86"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11270
+      </sumStat>
+      <sumStat type="invd">
+        619
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Moderaterna
+        </labl>
+        <catStat type="freq">
+          2634
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Centerpartiet
+        </labl>
+        <catStat type="freq">
+          915
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Folkpartiet
+        </labl>
+        <catStat type="freq">
+          1091
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Kristdemokraterna
+        </labl>
+        <catStat type="freq">
+          457
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Socialdemokraterna
+        </labl>
+        <catStat type="freq">
+          3349
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          6
+        </catValu>
+        <labl>
+          Vänsterpartiet
+        </labl>
+        <catStat type="freq">
+          802
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          7
+        </catValu>
+        <labl>
+          Miljöpartiet
+        </labl>
+        <catStat type="freq">
+          1097
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          81
+        </catValu>
+        <labl>
+          Sverigedemokraterna
+        </labl>
+        <catStat type="freq">
+          406
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          82
+        </catValu>
+        <labl>
+          Feministiskt initiativ
+        </labl>
+        <catStat type="freq">
+          69
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          83
+        </catValu>
+        <labl>
+          Piratpartiet
+        </labl>
+        <catStat type="freq">
+          42
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          84
+        </catValu>
+        <labl>
+          Annat parti
+        </labl>
+        <catStat type="freq">
+          274
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          85
+        </catValu>
+        <labl>
+          Blankt
+        </labl>
+        <catStat type="freq">
+          89
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          86
+        </catValu>
+        <labl>
+          Röstade ej
+        </labl>
+        <catStat type="freq">
+          45
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          619
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V8" name="F3" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.3 Personröstning i riksdagsvalet
+      </labl>
+      <qstn>
+        <qstnLit>
+          Utnyttjade Du möjligheten att personrösta genom att sätta kryss för någon kandidat på Din valsedel i riksdagsvalet?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="2"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11235
+      </sumStat>
+      <sumStat type="invd">
+        654
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Ja
+        </labl>
+        <catStat type="freq">
+          3937
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Nej
+        </labl>
+        <catStat type="freq">
+          7298
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          654
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V9" name="F4" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.4 Personröstning i kommunvalet
+      </labl>
+      <qstn>
+        <qstnLit>
+          Utnyttjade Du möjligheten att personrösta genom att sätta kryss för någon kandidat på Din valsedel i kommunvalet?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="2"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11353
+      </sumStat>
+      <sumStat type="invd">
+        536
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Ja
+        </labl>
+        <catStat type="freq">
+          4402
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Nej
+        </labl>
+        <catStat type="freq">
+          6951
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          536
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V10" name="F5" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.5 Tidpunkt röstbeslut
+      </labl>
+      <qstn>
+        <qstnLit>
+          När bestämde Du Dig för vilket parti Du skulle rösta på i årets riksdagsval?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="4"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11722
+      </sumStat>
+      <sumStat type="invd">
+        167
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Idag
+        </labl>
+        <catStat type="freq">
+          1344
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Under senaste veckan
+        </labl>
+        <catStat type="freq">
+          2144
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Tidigare under valrörelsen
+        </labl>
+        <catStat type="freq">
+          2467
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Visste sedan länge hur jag skulle rösta
+        </labl>
+        <catStat type="freq">
+          5767
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          167
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V11" name="F6" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.6 Partival riksdagsvalet 2006
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket parti röstade Du på i förra riksdagsvalet 2006?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="85"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11610
+      </sumStat>
+      <sumStat type="invd">
+        279
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Moderaterna
+        </labl>
+        <catStat type="freq">
+          3082
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Centerpartiet
+        </labl>
+        <catStat type="freq">
+          655
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Folkpartiet
+        </labl>
+        <catStat type="freq">
+          877
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Kristdemokraterna
+        </labl>
+        <catStat type="freq">
+          483
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Socialdemokraterna
+        </labl>
+        <catStat type="freq">
+          3029
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          6
+        </catValu>
+        <labl>
+          Vänsterpartiet
+        </labl>
+        <catStat type="freq">
+          725
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          7
+        </catValu>
+        <labl>
+          Miljöpartiet
+        </labl>
+        <catStat type="freq">
+          853
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          81
+        </catValu>
+        <labl>
+          Sverigedemokraterna
+        </labl>
+        <catStat type="freq">
+          207
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          82
+        </catValu>
+        <labl>
+          Annat parti
+        </labl>
+        <catStat type="freq">
+          192
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          83
+        </catValu>
+        <labl>
+          Blankt
+        </labl>
+        <catStat type="freq">
+          169
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          84
+        </catValu>
+        <labl>
+          Röstade ej
+        </labl>
+        <catStat type="freq">
+          394
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          85
+        </catValu>
+        <labl>
+          Ej röstberättigad 2006
+        </labl>
+        <catStat type="freq">
+          944
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          279
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V12" name="F7" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.7 Förtroende för svenska politiker
+      </labl>
+      <qstn>
+        <qstnLit>
+          Allmänt sett, hur stort förtroende har Du för svenska politiker?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="4"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11674
+      </sumStat>
+      <sumStat type="invd">
+        215
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stort
+        </labl>
+        <catStat type="freq">
+          1249
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stort
+        </labl>
+        <catStat type="freq">
+          6948
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Ganska litet
+        </labl>
+        <catStat type="freq">
+          2828
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Mycket litet
+        </labl>
+        <catStat type="freq">
+          649
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          215
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V13" name="F8_1" files="F1" dcml="0" intrvl="discrete">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        F.8_1 Parti i regeringen: Moderaterna
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket eller vilka partier skulle Du helst vilja ha med i regeringen efter dagens val? - Moderaterna
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="0" max="1"/>
+      </valrng>
+      <sumStat type="vald">
+        11763
+      </sumStat>
+      <sumStat type="invd">
+        126
+      </sumStat>
+      <catgry>
+        <catValu>
+          0
+        </catValu>
+        <labl>
+          Ej markerat
+        </labl>
+        <catStat type="freq">
+          6302
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Markerat
+        </labl>
+        <catStat type="freq">
+          5461
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          Sysmiss
+        </catValu>
+        <catStat type="freq">
+          126
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V14" name="F8_2" files="F1" dcml="0" intrvl="discrete">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        F.8_2 Parti i regeringen: Centerpartiet
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket eller vilka partier skulle Du helst vilja ha med i regeringen efter dagens val? - Centerpartiet
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="0" max="1"/>
+      </valrng>
+      <sumStat type="vald">
+        11763
+      </sumStat>
+      <sumStat type="invd">
+        126
+      </sumStat>
+      <catgry>
+        <catValu>
+          0
+        </catValu>
+        <labl>
+          Ej markerat
+        </labl>
+        <catStat type="freq">
+          8151
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Markerat
+        </labl>
+        <catStat type="freq">
+          3612
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          Sysmiss
+        </catValu>
+        <catStat type="freq">
+          126
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V15" name="F8_3" files="F1" dcml="0" intrvl="discrete">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        F.8_3 Parti i regeringen: Folkpartiet
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket eller vilka partier skulle Du helst vilja ha med i regeringen efter dagens val? - Folkpartiet
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="0" max="1"/>
+      </valrng>
+      <sumStat type="vald">
+        11763
+      </sumStat>
+      <sumStat type="invd">
+        126
+      </sumStat>
+      <catgry>
+        <catValu>
+          0
+        </catValu>
+        <labl>
+          Ej markerat
+        </labl>
+        <catStat type="freq">
+          7560
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Markerat
+        </labl>
+        <catStat type="freq">
+          4203
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          Sysmiss
+        </catValu>
+        <catStat type="freq">
+          126
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V16" name="F8_4" files="F1" dcml="0" intrvl="discrete">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        F.8_4 Parti i regeringen: Kristdemokraterna
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket eller vilka partier skulle Du helst vilja ha med i regeringen efter dagens val? - Kristdemokraterna
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="0" max="1"/>
+      </valrng>
+      <sumStat type="vald">
+        11763
+      </sumStat>
+      <sumStat type="invd">
+        126
+      </sumStat>
+      <catgry>
+        <catValu>
+          0
+        </catValu>
+        <labl>
+          Ej markerat
+        </labl>
+        <catStat type="freq">
+          8873
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Markerat
+        </labl>
+        <catStat type="freq">
+          2890
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          Sysmiss
+        </catValu>
+        <catStat type="freq">
+          126
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V17" name="F8_5" files="F1" dcml="0" intrvl="discrete">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        F.8_5 Parti i regeringen: Socialdemokraterna
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket eller vilka partier skulle Du helst vilja ha med i regeringen efter dagens val? - Socialdemokraterna
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="0" max="1"/>
+      </valrng>
+      <sumStat type="vald">
+        11763
+      </sumStat>
+      <sumStat type="invd">
+        126
+      </sumStat>
+      <catgry>
+        <catValu>
+          0
+        </catValu>
+        <labl>
+          Ej markerat
+        </labl>
+        <catStat type="freq">
+          6925
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Markerat
+        </labl>
+        <catStat type="freq">
+          4838
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          Sysmiss
+        </catValu>
+        <catStat type="freq">
+          126
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V18" name="F8_6" files="F1" dcml="0" intrvl="discrete">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        F.8_6 Parti i regeringen: Vänsterpartiet
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket eller vilka partier skulle Du helst vilja ha med i regeringen efter dagens val? - Vänsterpartiet
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="0" max="1"/>
+      </valrng>
+      <sumStat type="vald">
+        11763
+      </sumStat>
+      <sumStat type="invd">
+        126
+      </sumStat>
+      <catgry>
+        <catValu>
+          0
+        </catValu>
+        <labl>
+          Ej markerat
+        </labl>
+        <catStat type="freq">
+          9022
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Markerat
+        </labl>
+        <catStat type="freq">
+          2741
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          Sysmiss
+        </catValu>
+        <catStat type="freq">
+          126
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V19" name="F8_7" files="F1" dcml="0" intrvl="discrete">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        F.8_7 Parti i regeringen: Miljöpartiet
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket eller vilka partier skulle Du helst vilja ha med i regeringen efter dagens val? - Miljöpartiet
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="0" max="1"/>
+      </valrng>
+      <sumStat type="vald">
+        11763
+      </sumStat>
+      <sumStat type="invd">
+        126
+      </sumStat>
+      <catgry>
+        <catValu>
+          0
+        </catValu>
+        <labl>
+          Ej markerat
+        </labl>
+        <catStat type="freq">
+          7513
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Markerat
+        </labl>
+        <catStat type="freq">
+          4250
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          Sysmiss
+        </catValu>
+        <catStat type="freq">
+          126
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V20" name="F8_8" files="F1" dcml="0" intrvl="discrete">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        F.8_8 Parti i regeringen: Sverigedemokraterna
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket eller vilka partier skulle Du helst vilja ha med i regeringen efter dagens val? - Sverigedemokraterna
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="0" max="1"/>
+      </valrng>
+      <sumStat type="vald">
+        11763
+      </sumStat>
+      <sumStat type="invd">
+        126
+      </sumStat>
+      <catgry>
+        <catValu>
+          0
+        </catValu>
+        <labl>
+          Ej markerat
+        </labl>
+        <catStat type="freq">
+          11038
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Markerat
+        </labl>
+        <catStat type="freq">
+          725
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          Sysmiss
+        </catValu>
+        <catStat type="freq">
+          126
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V21" name="F8_9" files="F1" dcml="0" intrvl="discrete">
+      <location width="1" RecSegNo="1"/>
+      <labl>
+        F.8_9 Parti i regeringen: Ingen bestämd åsikt
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket eller vilka partier skulle Du helst vilja ha med i regeringen efter dagens val? - Ingen bestämd åsikt
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="0" max="1"/>
+      </valrng>
+      <sumStat type="vald">
+        11763
+      </sumStat>
+      <sumStat type="invd">
+        126
+      </sumStat>
+      <catgry>
+        <catValu>
+          0
+        </catValu>
+        <labl>
+          Ej markerat
+        </labl>
+        <catStat type="freq">
+          11594
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Markerat
+        </labl>
+        <catStat type="freq">
+          169
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          Sysmiss
+        </catValu>
+        <catStat type="freq">
+          126
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V22" name="F9" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.9 Placering vänster-högerskalan
+      </labl>
+      <qstn>
+        <qstnLit>
+          Man talar ibland om att politiska åsikter kan placeras in på en vänster-högerskala. Var någonstans skulle Du placera in Dig själv?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11436
+      </sumStat>
+      <sumStat type="invd">
+        453
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Klart till vänster
+        </labl>
+        <catStat type="freq">
+          2147
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Något till vänster
+        </labl>
+        <catStat type="freq">
+          2227
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken till vänster eller höger
+        </labl>
+        <catStat type="freq">
+          2246
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Något till höger
+        </labl>
+        <catStat type="freq">
+          2922
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Klart till höger
+        </labl>
+        <catStat type="freq">
+          1894
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          453
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V23" name="F10" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.10 Kön
+      </labl>
+      <qstn>
+        <qstnLit>
+          Är Du kvinna eller man?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="2"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11381
+      </sumStat>
+      <sumStat type="invd">
+        508
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Kvinna
+        </labl>
+        <catStat type="freq">
+          5847
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Man
+        </labl>
+        <catStat type="freq">
+          5534
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          508
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V24" name="F11" files="F1" dcml="0" intrvl="discrete">
+      <location width="4" RecSegNo="1"/>
+      <labl>
+        F.11 Födelseår
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket år är Du född?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1911" max="1992"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11651
+      </sumStat>
+      <sumStat type="invd">
+        238
+      </sumStat>
+      <catgry>
+        <catValu>
+          1911
+        </catValu>
+        <labl>
+          1911
+        </labl>
+        <catStat type="freq">
+          4
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1914
+        </catValu>
+        <labl>
+          1914
+        </labl>
+        <catStat type="freq">
+          2
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1915
+        </catValu>
+        <labl>
+          1915
+        </labl>
+        <catStat type="freq">
+          1
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1917
+        </catValu>
+        <labl>
+          1917
+        </labl>
+        <catStat type="freq">
+          1
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1918
+        </catValu>
+        <labl>
+          1918
+        </labl>
+        <catStat type="freq">
+          6
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1919
+        </catValu>
+        <labl>
+          1919
+        </labl>
+        <catStat type="freq">
+          9
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1920
+        </catValu>
+        <labl>
+          1920
+        </labl>
+        <catStat type="freq">
+          5
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1921
+        </catValu>
+        <labl>
+          1921
+        </labl>
+        <catStat type="freq">
+          13
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1922
+        </catValu>
+        <labl>
+          1922
+        </labl>
+        <catStat type="freq">
+          10
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1923
+        </catValu>
+        <labl>
+          1923
+        </labl>
+        <catStat type="freq">
+          8
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1924
+        </catValu>
+        <labl>
+          1924
+        </labl>
+        <catStat type="freq">
+          22
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1925
+        </catValu>
+        <labl>
+          1925
+        </labl>
+        <catStat type="freq">
+          23
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1926
+        </catValu>
+        <labl>
+          1926
+        </labl>
+        <catStat type="freq">
+          23
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1927
+        </catValu>
+        <labl>
+          1927
+        </labl>
+        <catStat type="freq">
+          20
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1928
+        </catValu>
+        <labl>
+          1928
+        </labl>
+        <catStat type="freq">
+          26
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1929
+        </catValu>
+        <labl>
+          1929
+        </labl>
+        <catStat type="freq">
+          29
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1930
+        </catValu>
+        <labl>
+          1930
+        </labl>
+        <catStat type="freq">
+          38
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1931
+        </catValu>
+        <labl>
+          1931
+        </labl>
+        <catStat type="freq">
+          41
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1932
+        </catValu>
+        <labl>
+          1932
+        </labl>
+        <catStat type="freq">
+          46
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1933
+        </catValu>
+        <labl>
+          1933
+        </labl>
+        <catStat type="freq">
+          54
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1934
+        </catValu>
+        <labl>
+          1934
+        </labl>
+        <catStat type="freq">
+          45
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1935
+        </catValu>
+        <labl>
+          1935
+        </labl>
+        <catStat type="freq">
+          51
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1936
+        </catValu>
+        <labl>
+          1936
+        </labl>
+        <catStat type="freq">
+          72
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1937
+        </catValu>
+        <labl>
+          1937
+        </labl>
+        <catStat type="freq">
+          80
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1938
+        </catValu>
+        <labl>
+          1938
+        </labl>
+        <catStat type="freq">
+          107
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1939
+        </catValu>
+        <labl>
+          1939
+        </labl>
+        <catStat type="freq">
+          88
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1940
+        </catValu>
+        <labl>
+          1940
+        </labl>
+        <catStat type="freq">
+          105
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1941
+        </catValu>
+        <labl>
+          1941
+        </labl>
+        <catStat type="freq">
+          127
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1942
+        </catValu>
+        <labl>
+          1942
+        </labl>
+        <catStat type="freq">
+          174
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1943
+        </catValu>
+        <labl>
+          1943
+        </labl>
+        <catStat type="freq">
+          151
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1944
+        </catValu>
+        <labl>
+          1944
+        </labl>
+        <catStat type="freq">
+          176
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1945
+        </catValu>
+        <labl>
+          1945
+        </labl>
+        <catStat type="freq">
+          205
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1946
+        </catValu>
+        <labl>
+          1946
+        </labl>
+        <catStat type="freq">
+          180
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1947
+        </catValu>
+        <labl>
+          1947
+        </labl>
+        <catStat type="freq">
+          197
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1948
+        </catValu>
+        <labl>
+          1948
+        </labl>
+        <catStat type="freq">
+          204
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1949
+        </catValu>
+        <labl>
+          1949
+        </labl>
+        <catStat type="freq">
+          199
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1950
+        </catValu>
+        <labl>
+          1950
+        </labl>
+        <catStat type="freq">
+          213
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1951
+        </catValu>
+        <labl>
+          1951
+        </labl>
+        <catStat type="freq">
+          167
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1952
+        </catValu>
+        <labl>
+          1952
+        </labl>
+        <catStat type="freq">
+          169
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1953
+        </catValu>
+        <labl>
+          1953
+        </labl>
+        <catStat type="freq">
+          187
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1954
+        </catValu>
+        <labl>
+          1954
+        </labl>
+        <catStat type="freq">
+          167
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1955
+        </catValu>
+        <labl>
+          1955
+        </labl>
+        <catStat type="freq">
+          191
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1956
+        </catValu>
+        <labl>
+          1956
+        </labl>
+        <catStat type="freq">
+          199
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1957
+        </catValu>
+        <labl>
+          1957
+        </labl>
+        <catStat type="freq">
+          205
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1958
+        </catValu>
+        <labl>
+          1958
+        </labl>
+        <catStat type="freq">
+          209
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1959
+        </catValu>
+        <labl>
+          1959
+        </labl>
+        <catStat type="freq">
+          173
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1960
+        </catValu>
+        <labl>
+          1960
+        </labl>
+        <catStat type="freq">
+          188
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1961
+        </catValu>
+        <labl>
+          1961
+        </labl>
+        <catStat type="freq">
+          198
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1962
+        </catValu>
+        <labl>
+          1962
+        </labl>
+        <catStat type="freq">
+          206
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1963
+        </catValu>
+        <labl>
+          1963
+        </labl>
+        <catStat type="freq">
+          197
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1964
+        </catValu>
+        <labl>
+          1964
+        </labl>
+        <catStat type="freq">
+          232
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1965
+        </catValu>
+        <labl>
+          1965
+        </labl>
+        <catStat type="freq">
+          197
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1966
+        </catValu>
+        <labl>
+          1966
+        </labl>
+        <catStat type="freq">
+          227
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1967
+        </catValu>
+        <labl>
+          1967
+        </labl>
+        <catStat type="freq">
+          230
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1968
+        </catValu>
+        <labl>
+          1968
+        </labl>
+        <catStat type="freq">
+          216
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1969
+        </catValu>
+        <labl>
+          1969
+        </labl>
+        <catStat type="freq">
+          196
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1970
+        </catValu>
+        <labl>
+          1970
+        </labl>
+        <catStat type="freq">
+          205
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1971
+        </catValu>
+        <labl>
+          1971
+        </labl>
+        <catStat type="freq">
+          215
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1972
+        </catValu>
+        <labl>
+          1972
+        </labl>
+        <catStat type="freq">
+          229
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1973
+        </catValu>
+        <labl>
+          1973
+        </labl>
+        <catStat type="freq">
+          235
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1974
+        </catValu>
+        <labl>
+          1974
+        </labl>
+        <catStat type="freq">
+          213
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1975
+        </catValu>
+        <labl>
+          1975
+        </labl>
+        <catStat type="freq">
+          220
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1976
+        </catValu>
+        <labl>
+          1976
+        </labl>
+        <catStat type="freq">
+          217
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1977
+        </catValu>
+        <labl>
+          1977
+        </labl>
+        <catStat type="freq">
+          209
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1978
+        </catValu>
+        <labl>
+          1978
+        </labl>
+        <catStat type="freq">
+          203
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1979
+        </catValu>
+        <labl>
+          1979
+        </labl>
+        <catStat type="freq">
+          235
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1980
+        </catValu>
+        <labl>
+          1980
+        </labl>
+        <catStat type="freq">
+          228
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1981
+        </catValu>
+        <labl>
+          1981
+        </labl>
+        <catStat type="freq">
+          253
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1982
+        </catValu>
+        <labl>
+          1982
+        </labl>
+        <catStat type="freq">
+          200
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1983
+        </catValu>
+        <labl>
+          1983
+        </labl>
+        <catStat type="freq">
+          228
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1984
+        </catValu>
+        <labl>
+          1984
+        </labl>
+        <catStat type="freq">
+          255
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1985
+        </catValu>
+        <labl>
+          1985
+        </labl>
+        <catStat type="freq">
+          225
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1986
+        </catValu>
+        <labl>
+          1986
+        </labl>
+        <catStat type="freq">
+          228
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1987
+        </catValu>
+        <labl>
+          1987
+        </labl>
+        <catStat type="freq">
+          239
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1988
+        </catValu>
+        <labl>
+          1988
+        </labl>
+        <catStat type="freq">
+          247
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1989
+        </catValu>
+        <labl>
+          1989
+        </labl>
+        <catStat type="freq">
+          247
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1990
+        </catValu>
+        <labl>
+          1990
+        </labl>
+        <catStat type="freq">
+          220
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1991
+        </catValu>
+        <labl>
+          1991
+        </labl>
+        <catStat type="freq">
+          220
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          1992
+        </catValu>
+        <labl>
+          1992
+        </labl>
+        <catStat type="freq">
+          171
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          238
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V25" name="F12" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.12 Egen uppväxtort
+      </labl>
+      <qstn>
+        <qstnLit>
+          Var någonstans har Du, Din far och Din mor huvudsakligen vuxit upp? - Du själv
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="7"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11515
+      </sumStat>
+      <sumStat type="invd">
+        374
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Ren landsbygd i Sverige
+        </labl>
+        <catStat type="freq">
+          2564
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Mindre tätort i Sverige
+        </labl>
+        <catStat type="freq">
+          3512
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Stad eller större tätort i Sverige
+        </labl>
+        <catStat type="freq">
+          2672
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Stockholm, Göteborg eller Malmö
+        </labl>
+        <catStat type="freq">
+          2044
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Annat land i Norden
+        </labl>
+        <catStat type="freq">
+          158
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          6
+        </catValu>
+        <labl>
+          Annat land i Europa
+        </labl>
+        <catStat type="freq">
+          251
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          7
+        </catValu>
+        <labl>
+          Land utanför Europa
+        </labl>
+        <catStat type="freq">
+          314
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          374
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V26" name="F13" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.13 Faderns uppväxtort
+      </labl>
+      <qstn>
+        <qstnLit>
+          Var någonstans har Du, Din far och Din mor huvudsakligen vuxit upp? - Din far
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="7"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11260
+      </sumStat>
+      <sumStat type="invd">
+        629
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Ren landsbygd i Sverige
+        </labl>
+        <catStat type="freq">
+          3469
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Mindre tätort i Sverige
+        </labl>
+        <catStat type="freq">
+          2975
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Stad eller större tätort i Sverige
+        </labl>
+        <catStat type="freq">
+          2012
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Stockholm, Göteborg eller Malmö
+        </labl>
+        <catStat type="freq">
+          1526
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Annat land i Norden
+        </labl>
+        <catStat type="freq">
+          339
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          6
+        </catValu>
+        <labl>
+          Annat land i Europa
+        </labl>
+        <catStat type="freq">
+          453
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          7
+        </catValu>
+        <labl>
+          Land utanför Europa
+        </labl>
+        <catStat type="freq">
+          486
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          629
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V27" name="F14" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.14 Moderns uppväxtort
+      </labl>
+      <qstn>
+        <qstnLit>
+          Var någonstans har Du, Din far och Din mor huvudsakligen vuxit upp? - Din mor
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="7"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11294
+      </sumStat>
+      <sumStat type="invd">
+        595
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Ren landsbygd i Sverige
+        </labl>
+        <catStat type="freq">
+          3370
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Mindre tätort i Sverige
+        </labl>
+        <catStat type="freq">
+          2936
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Stad eller större tätort i Sverige
+        </labl>
+        <catStat type="freq">
+          2139
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Stockholm, Göteborg eller Malmö
+        </labl>
+        <catStat type="freq">
+          1551
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Annat land i Norden
+        </labl>
+        <catStat type="freq">
+          419
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          6
+        </catValu>
+        <labl>
+          Annat land i Europa
+        </labl>
+        <catStat type="freq">
+          433
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          7
+        </catValu>
+        <labl>
+          Land utanför Europa
+        </labl>
+        <catStat type="freq">
+          446
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          595
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V28" name="F15" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.15 Kyrkobesök
+      </labl>
+      <qstn>
+        <qstnLit>
+          Hur ofta brukar Du gå till gudstjänst eller på möte i någon kyrka/religiöst samfund?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="4"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11725
+      </sumStat>
+      <sumStat type="invd">
+        164
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Minst en gång i månaden
+        </labl>
+        <catStat type="freq">
+          822
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Några gånger om året
+        </labl>
+        <catStat type="freq">
+          1923
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Mera sällan
+        </labl>
+        <catStat type="freq">
+          3699
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Aldrig
+        </labl>
+        <catStat type="freq">
+          5281
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          164
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V29" name="F16" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.16 Arbetsmarknadsgrupp
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken av de här grupperna tillhör Du?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="7"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11261
+      </sumStat>
+      <sumStat type="invd">
+        628
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Förvärvsarbetande (även sjukskriven, föräldraledig)
+        </labl>
+        <catStat type="freq">
+          6376
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Arbete/utbildning i arbetsmarknadspolitiska åtgärder
+        </labl>
+        <catStat type="freq">
+          1019
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Arbetslös
+        </labl>
+        <catStat type="freq">
+          477
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ålderspensionär/Avtalspensionär
+        </labl>
+        <catStat type="freq">
+          1771
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Har sjuk- eller aktivitetsersättning
+        </labl>
+        <catStat type="freq">
+          320
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          6
+        </catValu>
+        <labl>
+          Hemarbetande
+        </labl>
+        <catStat type="freq">
+          67
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          7
+        </catValu>
+        <labl>
+          Studerande
+        </labl>
+        <catStat type="freq">
+          1231
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          628
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V30" name="F17" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.17 Yrkesgrupp
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken av de här yrkesgrupperna hör/hörde Du till?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="84"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11125
+      </sumStat>
+      <sumStat type="invd">
+        764
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Tjänsteman
+        </labl>
+        <catStat type="freq">
+          3798
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Tjänsteman med arbetsledande funktion
+        </labl>
+        <catStat type="freq">
+          1304
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Tjänsteman med företags/-verksamhetsledande funktion
+        </labl>
+        <catStat type="freq">
+          550
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Arbetare
+        </labl>
+        <catStat type="freq">
+          3368
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Arbetare med arbetsledande funktion
+        </labl>
+        <catStat type="freq">
+          490
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          6
+        </catValu>
+        <labl>
+          Jordbrukare: ingen anställd
+        </labl>
+        <catStat type="freq">
+          77
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          7
+        </catValu>
+        <labl>
+          Jordbrukare: en eller flera anställda
+        </labl>
+        <catStat type="freq">
+          35
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          81
+        </catValu>
+        <labl>
+          Företagare: ingen anställd
+        </labl>
+        <catStat type="freq">
+          436
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          82
+        </catValu>
+        <labl>
+          Företagare: 1-9 anställda
+        </labl>
+        <catStat type="freq">
+          336
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          83
+        </catValu>
+        <labl>
+          Företagare: 10 eller fler anställda
+        </labl>
+        <catStat type="freq">
+          132
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          84
+        </catValu>
+        <labl>
+          Aldrig yrkesarbetat
+        </labl>
+        <catStat type="freq">
+          599
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          764
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V31" name="F18" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.18 Statlig, kommunal eller privat tjänst
+      </labl>
+      <qstn>
+        <qstnLit>
+          Arbetar/arbetade Du i statlig, kommunal eller privat tjänst?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="4"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11031
+      </sumStat>
+      <sumStat type="invd">
+        858
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Statlig
+        </labl>
+        <catStat type="freq">
+          1436
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Kommunal (även landstingskommunal)
+        </labl>
+        <catStat type="freq">
+          3037
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Privat
+        </labl>
+        <catStat type="freq">
+          5936
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Aldrig yrkesarbetat
+        </labl>
+        <catStat type="freq">
+          622
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          858
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V32" name="F19" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.19 Medlem i fackförening
+      </labl>
+      <qstn>
+        <qstnLit>
+          Är Du medlem i någon fackförening?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="4"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11005
+      </sumStat>
+      <sumStat type="invd">
+        884
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Ja, LO-förbund
+        </labl>
+        <catStat type="freq">
+          2390
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ja, TCO-förbund
+        </labl>
+        <catStat type="freq">
+          1708
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Ja, SACO-förbund
+        </labl>
+        <catStat type="freq">
+          1601
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Nej
+        </labl>
+        <catStat type="freq">
+          5306
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          884
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V33" name="F20" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.20 Partiledarens betydelse för partival
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade partiledaren för Ditt val av parti i riksdagsvalet i dag?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        11406
+      </sumStat>
+      <sumStat type="invd">
+        483
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor
+        </labl>
+        <catStat type="freq">
+          3079
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor
+        </labl>
+        <catStat type="freq">
+          3929
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten
+        </labl>
+        <catStat type="freq">
+          2501
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten
+        </labl>
+        <catStat type="freq">
+          1033
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten
+        </labl>
+        <catStat type="freq">
+          864
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          483
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V34" name="F21" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.21 Betydelse för partival: Skatterna
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Skatterna
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10729
+      </sumStat>
+      <sumStat type="invd">
+        1160
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          3619
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          4172
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          1990
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          664
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          284
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1160
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V35" name="F22" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.22 Betydelse för partival: Miljön
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Miljön
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10666
+      </sumStat>
+      <sumStat type="invd">
+        1223
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          3656
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          4360
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          1910
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          473
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          267
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1223
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V36" name="F23" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.23 Betydelse för partival: Sysselsättningen
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Sysselsättningen
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10585
+      </sumStat>
+      <sumStat type="invd">
+        1304
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          5596
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3764
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          969
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          147
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          109
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1304
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V37" name="F24" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.24 Betydelse för partival: Svenska ekonomin
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Svenska ekonomin
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10550
+      </sumStat>
+      <sumStat type="invd">
+        1339
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          5576
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3575
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          1121
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          172
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          106
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1339
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V38" name="F25" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.25 Betydelse för partival: Privatekonomin
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Din egen ekonomi
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10515
+      </sumStat>
+      <sumStat type="invd">
+        1374
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          4299
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3355
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          1943
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          580
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          338
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1374
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V39" name="F26" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.26 Betydelse för partival: Utrikes- och säkerhetspolitik
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Svensk utrikes- och säkerhetspolitik
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10435
+      </sumStat>
+      <sumStat type="invd">
+        1454
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          2023
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3585
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          3373
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          1015
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          439
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1454
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V40" name="F27" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.27 Betydelse för partival: Lag och ordning
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Lag och ordning
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10483
+      </sumStat>
+      <sumStat type="invd">
+        1406
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          3395
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3686
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          2406
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          725
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          271
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1406
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V41" name="F28" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.28 Betydelse för partival: Flyktingar/invandring
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Flyktingar/invandring
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10470
+      </sumStat>
+      <sumStat type="invd">
+        1419
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          2675
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3468
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          3094
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          768
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          465
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1419
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V42" name="F29" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.29 Betydelse för partival: EU/euro
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - EU/euro
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10309
+      </sumStat>
+      <sumStat type="invd">
+        1580
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          1617
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          2513
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          3792
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          1390
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          997
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1580
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V43" name="F30" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.30 Betydelse för partival: Sjukvården
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Sjukvården
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10743
+      </sumStat>
+      <sumStat type="invd">
+        1146
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          5304
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3657
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          1440
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          224
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          118
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1146
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V44" name="F31" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.31 Betydelse för partival: Jämställdheten mellan kvinnor och män
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Jämställdheten mellan kvinnor och män
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10606
+      </sumStat>
+      <sumStat type="invd">
+        1283
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          3890
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3253
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          2402
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          634
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          427
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1283
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V45" name="F32" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.32 Betydelse för partival: Skola och utbildning
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Skola och utbildning
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10671
+      </sumStat>
+      <sumStat type="invd">
+        1218
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          5801
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3430
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          1101
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          212
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          127
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1218
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V46" name="F33" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.33 Betydelse för partival: Företagens villkor
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Företagens villkor
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10416
+      </sumStat>
+      <sumStat type="invd">
+        1473
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          3062
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3474
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          2755
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          766
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          359
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1473
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V47" name="F34" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.34 Betydelse för partival: Energi och kärnkraft
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Energi och kärnkraft
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10473
+      </sumStat>
+      <sumStat type="invd">
+        1416
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          3141
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3829
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          2621
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          604
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          278
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1416
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V48" name="F35" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.35 Betydelse för partival: Äldreomsorgen
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Äldreomsorgen
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10717
+      </sumStat>
+      <sumStat type="invd">
+        1172
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          4309
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3517
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          2084
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          543
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          264
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1172
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V49" name="F36" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.36 Betydelse för partival: Barnomsorgen
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Barnomsorgen
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10614
+      </sumStat>
+      <sumStat type="invd">
+        1275
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          4058
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3243
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          2297
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          633
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          383
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1275
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V50" name="F37" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.37 Betydelse för partival: Sociala välfärden
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Sociala välfärden
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10608
+      </sumStat>
+      <sumStat type="invd">
+        1281
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          4890
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3672
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          1621
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          273
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          152
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1281
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V51" name="F38" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.38 Betydelse för partival: Pensionerna
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Pensionerna
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10566
+      </sumStat>
+      <sumStat type="invd">
+        1323
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          3477
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          3030
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          2721
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          840
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          498
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1323
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V52" name="F39" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.39 Betydelse för partival: Svensk militär närvaro i Afghanistan
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilken betydelse hade följande frågor för Ditt val av parti i riksdagsvalet idag? - Frågan om svensk militär närvaro i Afghanistan
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10407
+      </sumStat>
+      <sumStat type="invd">
+        1482
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          Mycket stor betydelse
+        </labl>
+        <catStat type="freq">
+          1303
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Ganska stor betydelse
+        </labl>
+        <catStat type="freq">
+          1873
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Varken stor eller liten betydelse
+        </labl>
+        <catStat type="freq">
+          3633
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          4
+        </catValu>
+        <labl>
+          Ganska liten betydelse
+        </labl>
+        <catStat type="freq">
+          1514
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          5
+        </catValu>
+        <labl>
+          Mycket liten betydelse
+        </labl>
+        <catStat type="freq">
+          2084
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1482
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V53" name="F40" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.40 Block med bäst politik när det gäller svenska ekonomi
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket block tycker Du har bäst politik när det gäller svenska ekonomin?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10803
+      </sumStat>
+      <sumStat type="invd">
+        1086
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          De rödgröna V/S/MP
+        </labl>
+        <catStat type="freq">
+          3479
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Alliansen C/FP/KD/M
+        </labl>
+        <catStat type="freq">
+          6094
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Ingen uppfattning
+        </labl>
+        <catStat type="freq">
+          1230
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1086
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V54" name="F41" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.41 Block med bäst politik när det gäller sysselsättningen
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket block tycker Du har bäst politik när det gäller sysselsättningen?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10714
+      </sumStat>
+      <sumStat type="invd">
+        1175
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          De rödgröna V/S/MP
+        </labl>
+        <catStat type="freq">
+          4142
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Alliansen C/FP/KD/M
+        </labl>
+        <catStat type="freq">
+          5500
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Ingen uppfattning
+        </labl>
+        <catStat type="freq">
+          1072
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1175
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V55" name="F42" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.42 Block med bäst politik när det gäller miljön
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket block tycker Du har bäst politik när det gäller miljön?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10686
+      </sumStat>
+      <sumStat type="invd">
+        1203
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          De rödgröna V/S/MP
+        </labl>
+        <catStat type="freq">
+          6058
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Alliansen C/FP/KD/M
+        </labl>
+        <catStat type="freq">
+          3290
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Ingen uppfattning
+        </labl>
+        <catStat type="freq">
+          1338
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1203
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V56" name="F43" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.43 Block med bäst politik när det gäller sjukvården
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket block tycker Du har bäst politik när det gäller sjukvården?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10733
+      </sumStat>
+      <sumStat type="invd">
+        1156
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          De rödgröna V/S/MP
+        </labl>
+        <catStat type="freq">
+          5421
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Alliansen C/FP/KD/M
+        </labl>
+        <catStat type="freq">
+          4140
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Ingen uppfattning
+        </labl>
+        <catStat type="freq">
+          1172
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1156
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V57" name="F44" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.44 Block med bäst politik när det gäller sociala välfärden
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket block tycker Du har bäst politik när det gäller sociala välfärden?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10678
+      </sumStat>
+      <sumStat type="invd">
+        1211
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          De rödgröna V/S/MP
+        </labl>
+        <catStat type="freq">
+          5360
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Alliansen C/FP/KD/M
+        </labl>
+        <catStat type="freq">
+          4222
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Ingen uppfattning
+        </labl>
+        <catStat type="freq">
+          1096
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1211
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V58" name="F45" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.45 Block med bäst politik när det gäller skola och utbildning
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket block tycker Du har bäst politik när det gäller skola och utbildning?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10698
+      </sumStat>
+      <sumStat type="invd">
+        1191
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          De rödgröna V/S/MP
+        </labl>
+        <catStat type="freq">
+          4266
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Alliansen C/FP/KD/M
+        </labl>
+        <catStat type="freq">
+          5482
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Ingen uppfattning
+        </labl>
+        <catStat type="freq">
+          950
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1191
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V59" name="F46" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.46 Block med bäst politik när det gäller skatterna
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket block tycker Du har bäst politik när det gäller skatterna?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10712
+      </sumStat>
+      <sumStat type="invd">
+        1177
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          De rödgröna V/S/MP
+        </labl>
+        <catStat type="freq">
+          3971
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Alliansen C/FP/KD/M
+        </labl>
+        <catStat type="freq">
+          5743
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Ingen uppfattning
+        </labl>
+        <catStat type="freq">
+          998
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1177
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+    <var ID="V60" name="F47" files="F1" dcml="0" intrvl="discrete">
+      <location width="3" RecSegNo="1"/>
+      <labl>
+        F.47 Block med bäst politik när det gäller pensionerna
+      </labl>
+      <qstn>
+        <qstnLit>
+          Vilket block tycker Du har bäst politik när det gäller pensionerna?
+        </qstnLit>
+      </qstn>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <invalrng>
+        <item UNITS="REAL" VALUE="999"/>
+      </invalrng>
+      <sumStat type="vald">
+        10738
+      </sumStat>
+      <sumStat type="invd">
+        1151
+      </sumStat>
+      <catgry>
+        <catValu>
+          1
+        </catValu>
+        <labl>
+          De rödgröna V/S/MP
+        </labl>
+        <catStat type="freq">
+          4456
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          2
+        </catValu>
+        <labl>
+          Alliansen C/FP/KD/M
+        </labl>
+        <catStat type="freq">
+          3941
+        </catStat>
+      </catgry>
+      <catgry>
+        <catValu>
+          3
+        </catValu>
+        <labl>
+          Ingen uppfattning
+        </labl>
+        <catStat type="freq">
+          2341
+        </catStat>
+      </catgry>
+      <catgry missing="Y">
+        <catValu>
+          999
+        </catValu>
+        <labl>
+          Uppgift saknas
+        </labl>
+        <catStat type="freq">
+          1151
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other"/>
+    </var>
+  </dataDscr>
+</codeBook>

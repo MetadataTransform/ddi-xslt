@@ -1,21 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- Name: date -->
-<!-- Value: string -->
+<!-- =================== -->
+<!-- name: date          -->
+<!-- value: string       -->
+<!-- =================== -->
+
 <!-- Uses an EXSLT extension to determine the date -->
 
-<!--
-    Params/variables read:
-    date-time [param]
-    date:date-time
+<!-- read: -->
+<!-- $date-time [param] -->
+<!-- $date:date-time -->
 
-    Variables set:
-    neg, dt-no-neg, dt-no-neg-length, timezone,
-    tz, date, dt-length, dt
+<!-- set: -->
+<!-- $neg, $dt-no-neg, $dt-no-neg-length, $timezone, -->
+<!-- $tz, $date, $dt-length, $dt                     -->
 
-    Functions/templates called:
-    substring(), starts-with(), not(), string(), number() [Xpath 1.0]
-    function-available(), date:date-time() [XSLT 1.0]
--->
+<!-- functions: -->
+<!-- substring(), starts-with(), not(), string(), number() [Xpath 1.0] -->
+<!-- function-available(), date:date-time() [XSLT 1.0] -->
 
 <xsl:template name="date"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

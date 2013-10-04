@@ -1,67 +1,68 @@
 <?xml version='1.0' encoding='utf-8'?>
 
-<!--
-  Overview:
-    Transforms DDI-XML into XSL-FO to produce study documentation in PDF format
-    Developed for DDI documents produced by the International Household Survey Network
-    Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and
-    Central Survey Catalog (http://www.surveynetwork.org/surveys)
--->
+<!-- Overview -->
+<!-- =================================================================================== -->
+<!-- Transforms DDI-XML into XSL-FO to produce study documentation in PDF format         -->
+<!-- Developed for DDI documents produced by the International Household Survey Network  -->
+<!-- Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and            -->
+<!-- Central Survey Catalog (http://www.surveynetwork.org/surveys)                       -->
+<!-- =================================================================================== -->
 
-<!--
-  Authors: 
-    Pascal Heus (pascal.heus@gmail.com)
-    Version: July 2006
-    Platform: XSL 1.0, Apache FOP 0.20.5
+<!-- Authors -->
+<!-- ==================================================== -->
+<!-- Pascal Heus (pascal.heus@gmail.com)                  -->
+<!-- Version: July 2006                                   -->
+<!-- Platform: XSL 1.0, Apache FOP 0.20.5                 -->
+<!--                                                      -->
+<!-- Oistein Kristiansen (oistein.kristiansen@nsd.uib.no) -->
+<!-- Version: 2010                                        -->
+<!-- Updated for FOP 0.93 2010                            -->
+<!--                                                      -->
+<!-- Akira Olsbänning (akira.olsbanning@snd.gu.se)        -->
+<!-- Current version (2012-2013)                          -->
+<!-- ==================================================== -->
 
-    Oistein Kristiansen (oistein.kristiansen@nsd.uib.no)
-    Version: 2010
-    Updated for FOP 0.93 2010
+<!-- License -->
+<!-- ================================================================================================ -->
+<!-- Copyright 2006 Pascal Heus (pascal.heus@gmail.com)                                               -->
+<!--                                                                                                  -->
+<!-- This program is free software; you can redistribute it and/or modify it under the terms of the   -->
+<!-- GNU Lesser General Public License as published by the Free Software Foundation; either version   -->
+<!-- 2.1 of the License, or (at your option) any later version.                                       -->
+<!--                                                                                                  -->
+<!-- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;        -->
+<!-- without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.        -->
+<!-- See the GNU Lesser General Public License for more details.                                      -->
+<!--                                                                                                  -->
+<!-- The full text of the license is available at http://www.gnu.org/copyleft/lesser.html             -->
+<!-- ================================================================================================ -->
 
-    Akira Olsbanning (akira.olsbanning@snd.gu.se)
-    Current version (2012-2013)
+<!-- References -->
+<!-- ========================================================= -->
+<!-- XSL-FO:                                                   -->
+<!--   http://www.w3.org/Style/XSL/                            -->
+<!--   http://www.w3schools.com/xslfo/xslfo_reference.asp      -->
+<!--   http://www.xslfo.info/                                  -->
+<!-- Apache FOP:                                               -->
+<!--   http://xmlgraphics.apache.org/fop/                      -->
+<!-- XSL-FO Tutorials:                                         -->
+<!--   http://www.renderx.com/tutorial.html                    -->
+<!--   http://www.antennahouse.com/XSLsample/XSLsample.htm     -->
+<!-- String trimming:                                          -->
+<!--  http://skew.org/xml                                      -->
+<!-- ========================================================= -->
 
-  License:
-    Copyright 2006 Pascal Heus (pascal.heus@gmail.com)
-
-    This program is free software; you can redistribute it and/or modify it under the terms of the
-    GNU Lesser General Public License as published by the Free Software Foundation; either version
-    2.1 of the License, or (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
-    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU Lesser General Public License for more details.
-
-    The full text of the license is available at http://www.gnu.org/copyleft/lesser.html
--->
-
-<!--
-  References:
-    XSL-FO:
-      http://www.w3.org/Style/XSL/
-      http://www.w3schools.com/xslfo/xslfo_reference.asp
-      http://www.xslfo.info/
-    Apache FOP:
-      http://xmlgraphics.apache.org/fop/
-    XSL-FO Tutorials:
-      http://www.renderx.com/tutorial.html
-      http://www.antennahouse.com/XSLsample/XSLsample.htm
-    String trimming:
-      http://skew.org/xml
--->
-
-<!--
-  2006-04:    Added multilingual support and French translation
-  2006-06:    Added Spanish and new elements to match IHSN Template v1.2
-  2006-07:    Minor fixes and typos
-  2006-07:    Added option parameters to hide producers in cover
-              page and questions in variables list page
-  2010-03:    Made FOP 0.93 compatible
-  2012-11-01: Broken up into parts using xsl:include
-  2013-01-22: Changing the file names to match template names better
-  2013-05-28: Using xincludes instead of xsl:includes
-  2013-05-29: Including config in main file
--->
+<!-- Changelog: -->
+<!-- 2006-04: Added multilingual support and French translation -->
+<!-- 2006-06: Added Spanish and new elements to match IHSN Template v1.2 -->
+<!-- 2006-07: Minor fixes and typos -->
+<!-- 2006-07: Added option parameters to hide producers in cover page and questions in variables list page -->
+<!-- 2010-03: Made FOP 0.93 compatible -->
+<!-- 2012-11-01: Broken up into parts using xsl:include -->
+<!-- 2013-01-22: Changing the file names to match template names better -->
+<!-- 2013-05-28: Using xincludes instead of xsl:includes -->
+<!-- 2013-05-29: Including config in main file -->
+<!-- Future changelogs can be read from the SVN repo at googlecode -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
@@ -85,39 +86,34 @@
   <xsl:output version="1.0" encoding="UTF-8" indent="no"
               omit-xml-declaration="no" media-type="text/html"/>
 
-  <!--
-    Functions and templates called:
-    count(), normalize-space(), position(), substring() [Xpath 1.0]
-    document() [XSLT 1.0]
-    date
-  -->
+  <!-- functions: -->
+  <!-- count(), normalize-space(), position(), substring() [Xpath 1.0] -->
+  <!-- document() [XSLT 1.0] -->
+  
+  <!-- called: -->
+  <!-- date -->
 
-  <!--
-    Main "sections" of the root template and their show/hide vars:
-    0:  fo:layout-master-set    n/a
-    1:  fo:bookmark-tree        show-bookmarks                param   1
-    2:  Cover page:             show-cover-page               param   1
-    3:  Metadata info:          show-metadata-info            param   1
-    4:  Table of Contents:      show-toc                      param   1
-    5:  Overview:               show-overview                 param   1
-    6:  Files Description:      show-files-description        param   1
-    7:  Variable List:          show-variables-list           spec*
-    8:  Variable Groups:        show-variable-groups          spec**
-    9:  Variables Description:  show-variables-description    file
+  <!-- =============================================================== -->
+  <!-- Main "sections" of the root template and their show/hide vars   -->
+  <!-- fo:layout-master-set    n/a                                     -->
+  <!-- fo:bookmark-tree        show-bookmarks                param   1 -->
+  <!-- Cover page:             show-cover-page               param   1 -->
+  <!-- Metadata info:          show-metadata-info            param   1 -->
+  <!-- Table of Contents:      show-toc                      param   1 -->
+  <!-- Overview:               show-overview                 param   1 -->
+  <!-- Files Description:      show-files-description        param   1 -->
+  <!-- Variable List:          show-variables-list           spec*     -->
+  <!-- Variable Groups:        show-variable-groups          spec**    -->
+  <!-- Variables Description:  show-variables-description    file      -->
+  <!--                                                                 -->
+  <!-- *  If show-variable-groups is 1, this is set to 0               -->
+  <!-- ** Both parameter and DDI file                                  -->
+  <!-- =============================================================== -->
 
-    *  If show-variable-groups is 1, this is set to 0
-    ** Both parameter and DDI file
-  -->
-
-<!--
-    Supplied by eXide server/webpage:
-    language-code
-    report-title
-    font-family
-    show-variables-list-question
-    translations    http://xml.snd.gu.se/xsl/ddi2/i18n/{$lang}.xml
-    show-cover-page
--->
+  <!-- params supplied by XSLT engine -->
+  <!-- language-code. report-title, font-family.                         -->
+  <!-- translation-file (http://xml.snd.gu.se/xsl/ddi2/i18n/{$lang}.xml) -->
+  <!-- show-variables-list-question, show-cover-page                     -->
 
   <!-- ========================================================= -->
   <!-- Misc                                                      -->
@@ -389,5 +385,8 @@
   <xi:include href="templates/named/math-max.xsl" />
   <xi:include href="templates/named/rtrim.xsl" />
   <xi:include href="templates/named/trim.xsl" />
+  
+  <xi:include href="templates/named/page_footer.xsl" />
+  
 
 </xsl:stylesheet>

@@ -1,18 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- Name: isodate-month(isodate) -->
-<!-- Value: string -->
+<!-- ========================== -->
+<!-- name: isodate-month        -->
+<!-- value: string              -->
+<!-- ========================== -->
 
-<!--
-    Params/variables read:
-    isodate [param]
-    msg
+<!-- read: -->
+<!-- $isodate [param] -->
+<!-- $strings -->
 
-    Variables set:
-    month
+<!-- set: -->
+<!-- $month -->
 
-    Functions/templates called:
-    number(), substring()
--->
+<!-- functions: -->
+<!-- number(), substring() [xpath 1.0] -->
 
 <xsl:template name="isodate-month"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

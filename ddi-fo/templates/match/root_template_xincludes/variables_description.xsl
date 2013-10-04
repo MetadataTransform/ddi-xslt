@@ -1,15 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-
 <!-- ==================================================== -->
-<!-- Variables description                                -->
-<!-- [fo:page-sequence]                                   -->
+<!-- <xsl:if> variables description                       -->
+<!-- value: <fo:page-sequence>                            -->
 <!-- ==================================================== -->
 
-<!-- Variables read:               -->
-<!-- msg, font-family              -->
+<!-- read: -->
+<!-- $strings, $font-family -->
 
-<!-- Functions/templates called    -->
-<!-- count(), string-length()      -->
+<!-- functions: -->
+<!-- count(), string-length() [Xpath 1.0] -->
 
 <xsl:if test="$show-variables-description = 1"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -29,14 +28,7 @@
       </fo:block>
     </fo:static-content>
 
-    <!-- =========================================== -->
-    <!-- page footer                                 -->
-    <!-- =========================================== -->
-    <fo:static-content flow-name="after">
-      <fo:block font-size="{$footer-font-size}" text-align="center" space-before="0.3in">
-        - <fo:page-number /> -
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_footer" />
 
     <!-- =========================================== -->
     <!-- page content                                -->

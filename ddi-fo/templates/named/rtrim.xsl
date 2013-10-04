@@ -1,16 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- Name: rtrim(s, i) -->
-<!-- Value: string -->
-<!-- perform right trim on text by recursion -->
+<!-- ================= -->
+<!-- name: rtrim       -->
+<!-- value: string     -->
+<!-- ================= -->
 
-<!--
-    Parameters/variables read:
-    s, i [params]
+<!-- perform right trim on text through recursion -->
 
-    Functions/templates called:
-    substring(), string-length(), translate() [Xpath 1.0]
-    rtrim
--->
+<!-- read: -->
+<!-- $string, $index [param] -->
+
+<!-- functions: -->
+<!-- substring(), string-length(), translate() [Xpath 1.0] -->
+
+<!-- called: -->
+<!-- rtrim -->
 
 <xsl:template name="rtrim"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
