@@ -1,3 +1,4 @@
+#!/usr/bin/python
 """
 Quick and dirty xinclude preprocessor thingy
 Req the lxml module
