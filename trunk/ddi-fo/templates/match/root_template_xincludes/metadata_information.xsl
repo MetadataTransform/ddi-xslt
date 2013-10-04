@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- ================================================= -->
+<!-- <xsl:if> metadata information                     -->
+<!-- value: <fo:page-sequence>                         -->
+<!-- ================================================= -->
 
-<!-- ==================================================== -->
-<!-- Metadata information                                 -->
-<!-- [page-sequence] with [table]                         -->
-<!-- ==================================================== -->
+<!-- read: -->
+<!-- $strings, $font-family, $show-metadata-production, -->
+<!-- $default-border, $cell-padding                     -->
 
-<!-- Variables read:                              -->
-<!-- msg, font-family, show-metadata-production,  -->
-<!-- default-border, cell-padding                 -->
+<!-- functions: -->
+<!-- boolean(), normalize-space() [Xpath 1.0] -->
+<!-- proportional-column-width() [FO]         -->
 
-<!--  Functions/templates called:                 -->
-<!--  boolean(), normalize-space() [Xpath 1.0]    -->
-<!--  proportional-column-width() [FO]            -->
-<!--  isodate-long                                -->
-
+<!-- called: -->
+<!-- isodate-long -->
 
 <!-- Metadata production        [table]      -->
 <!--   Metadata producers       [table-row]  -->

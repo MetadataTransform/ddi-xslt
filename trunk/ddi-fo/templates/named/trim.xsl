@@ -1,15 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- Name: trim(s) -->
-<!-- Value: string -->
+<!-- =================== -->
+<!-- name: trim          -->
+<!-- value: string       -->
+<!-- =================== -->
 
-<!--
-    Params/variables read:
-    s [param]
+<!-- read: -->
+<!-- $string [param] -->
 
-    Functions/templates called:
-    concat(), substring(), translate(), substring-after() [Xpath 1.0]
-    rtrim
--->
+<!-- functions: -->
+<!-- concat(), substring(), translate(), substring-after() [Xpath 1.0] -->
+
+<!-- called: -->
+<!-- rtrim -->
 
 <xsl:template name="trim"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

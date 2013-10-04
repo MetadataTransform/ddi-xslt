@@ -1,16 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-
 <!-- ================================================ -->
-<!-- Variable groups                                  -->
-<!-- [page-sequence]                                  -->
+<!-- <xsl:if> variable groups                         -->
+<!-- value: <fo:page-sequence>                        -->
 <!-- ================================================ -->
 
-<!-- Variables read:                    -->
-<!-- msg, font-family, number-of-groups -->
+<!-- read: -->
+<!-- $strings, $font-family, $number-of-groups -->
 
-<!-- Functions/templates called:        -->
-<!-- string-length(), count()           -->
-
+<!-- functions: -->
+<!-- string-length(), count() [xpath 1.0] -->
 
 <xsl:if test="$show-variable-groups = 1"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -21,7 +19,7 @@
                     font-size="{$font-size}">
     
     <!-- =========================================== -->
-    <!-- page header                                 -->
+    <!-- page header and footer                      -->
     <!-- =========================================== -->
     <fo:static-content flow-name="before">
       <fo:block font-size="{$header-font-size}" text-align="center">
@@ -29,15 +27,8 @@
         <xsl:value-of select="$strings/*/entry[@key='Variables_Groups']" />
       </fo:block>
     </fo:static-content>
-          
-    <!-- =========================================== -->
-    <!-- page footer                                 -->
-    <!-- =========================================== -->    
-    <fo:static-content flow-name="after">
-      <fo:block font-size="{$footer-font-size}" text-align="center" space-before="0.3in">
-        - <fo:page-number /> -
-      </fo:block>
-    </fo:static-content>
+  
+    <xsl:call-template name="page_footer" />
 
     <!-- =========================================== -->
     <!-- page content                                 -->

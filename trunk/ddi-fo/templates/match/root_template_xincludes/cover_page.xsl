@@ -1,17 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- ========================= -->
+<!-- <xsl:if> cover page       -->
+<!-- value: <fo:page-sequence> -->
+<!-- ========================= -->
 
-<!-- ================================================= -->
-<!-- Cover page                                        -->
-<!-- [page-sequence]                                   -->
-<!-- ================================================= -->
-
-<!-- Variables read:                                      -->
+<!-- read: -->
 <!-- show-logo, show-geography, show-cover-page-producer, -->
 <!-- show-report-subtitle                                 -->
 
-<!-- Functions/templates called:                          -->
-<!-- normalize-space() [Xpath 1.0]                        -->
-<!-- trim, isodate-long                                   -->
+<!-- functions: -->
+<!-- normalize-space() [Xpath 1.0] -->
+
+<!-- called: -->
+<!-- trim, isodate-long -->
 
 <xsl:if test="$show-cover-page = 1"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

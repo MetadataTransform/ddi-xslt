@@ -1,20 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
-
 <!-- ============================================== -->
-<!-- Table of contents                              -->
-<!-- [page-sequence]                                -->
+<!-- <xsl:if> table of contents                     -->
+<!-- value: <fo:page-sequence>                      -->
 <!-- ============================================== -->
 
-<!-- Variables read:                                                  -->
-<!-- font-family, msg, show-overview, show-scope-and-coverage,        -->
-<!-- show-producers-and-sponsors, show-sampling, show-data-collection -->
-<!-- show-data-processing-and-appraisal, show-accessibility,          -->
-<!-- show-rights-and-disclaimer, show-files-description,              -->
-<!-- show-variables-list, show-variable-groups, subset-groups         -->
+<!-- read: -->
+<!-- $font-family, $strings, $show-overview, $show-scope-and-coverage,   -->
+<!-- $show-producers-and-sponsors, $show-sampling, $show-data-collection -->
+<!-- $show-data-processing-and-appraisal, $show-accessibility,           -->
+<!-- $show-rights-and-disclaimer, $show-files-description,               -->
+<!-- $show-variables-list, $show-variable-groups, $subset-groups         -->
 
-<!-- Functions called:                                                -->
-<!-- normalize-space(), string-length(), contains(), concat()         -->
-
+<!-- functions: -->
+<!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] -->
 
 <!--  Overview                      [block] -->
 <!--  Scope and Coverage            [block] -->
@@ -28,7 +26,6 @@
 <!--  Variables List                [block] -->
 <!--  Variable Groups               [block] -->
 <!--  Variables Description         [block] -->
-
 
 <xsl:if test="$show-toc = 1"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

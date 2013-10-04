@@ -1,20 +1,23 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- Name: isodate-long(isodate)    -->
-<!-- Value: string                  -->
+<!-- ===================== -->
+<!-- name: isodate-long    -->
+<!-- value: string         -->
+<!-- ===================== -->
+
 <!-- converts an ISO date string to a "prettier" format -->
 
-<!--
-    Params/variables read:
-    isodate [param]
-    language-code
+<!-- read: -->
+<!-- $isodate [param] -->
+<!-- $language-code -->
 
-    Variables set:
-    month
+<!-- set: -->
+<!-- $month -->
 
-    Functions/templates called:
-    number(), substring(), contains() [Xpath 1.0]
-    isodate-month
--->
+<!-- functions: -->
+<!-- number(), substring(), contains() [Xpath 1.0] -->
+
+<!-- called: -->
+<!-- isodate-month -->
 
 <xsl:template name="isodate-long"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

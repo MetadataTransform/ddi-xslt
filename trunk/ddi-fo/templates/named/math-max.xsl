@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- Name: math:max(nodes) -->
-<!-- Value: string -->
+<!-- ===================== -->
+<!-- name: math:max        -->
+<!-- value: string         -->
+<!-- ===================== -->
 
-<!--
-    Params/variables read:
-    nodes [param]
+<!-- read: -->
+<!-- $nodes [param] -->
 
-    Functions/templates called:
-    not(), number(), position() [Xpath 1.0]
--->
+<!-- functions: -->
+<!-- not(), number(), position() [Xpath 1.0] -->
 
 <xsl:template name="math:max"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

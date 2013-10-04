@@ -1,20 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- =========================================== -->
+<!-- <xls:if> bookmarks                          -->
+<!-- value: <fo:bookmark-tree>                   -->
+<!-- =========================================== -->
 
-<!-- ============================================ -->
-<!-- Outline / Bookmarks                          -->
-<!-- [bookmark-tree]                              -->
-<!-- ============================================ -->
-
-<!-- Variables read:                                                          -->
+<!-- read: -->
 <!-- show-cover-page, show-metadata-info, show-toc, show-overview             -->
 <!-- show-scope-and-coverage, show-producers-and-sponsors,                    -->
 <!-- show-sampling, show-data-collection, show-data-processing-and-appraisal, -->
 <!-- show-accessibility, show-rights-and-disclaimer, show-files-description,  -->
 <!-- show-variable-groups, show-variables-list, show-variables-description    -->
 
-<!-- Functions/templates called:                               -->
-<!-- nomalize-space(), contains(), concat(), string-length()   -->
-<!-- trim                                                      -->
+<!-- functions: -->
+<!-- nomalize-space(), contains(), concat(), string-length() [xpath 1.0] -->
+
+<!-- called: -->
+<!-- trim -->
 
 <xsl:if test="$show-bookmarks = 1"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

@@ -1,16 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- ============================= -->
+<!-- <xsl:if> files description    -->
+<!-- value: <fo:page-sequence>     -->
+<!-- ============================= -->
 
-<!-- ======================================================== -->
-<!-- Files description                                        -->
-<!-- [page-sequence]                                          -->
-<!-- ======================================================== -->
+<!-- read: -->
+<!-- $page-layout, $strings, $font-family, $font-size, $header-font-size -->
 
-<!-- Variables read:             -->
-<!-- msg, font-family            -->
-
-<!-- Functions/templates called: -->
-<!-- count()                     -->
-
+<!-- functions -->
+<!-- count() [xpath 1.0] -->
 
 <xsl:if test="$show-files-description = 1"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -21,7 +19,7 @@
                     font-size="{$font-size}">
 
     <!-- =========================================== -->
-    <!-- page header                                 -->
+    <!-- page header and footer                      -->
     <!-- =========================================== -->
     <fo:static-content flow-name="before">
       <fo:block font-size="{$header-font-size}" text-align="center">
@@ -30,14 +28,7 @@
       </fo:block>
     </fo:static-content>
 
-    <!-- =========================================== -->
-    <!-- page footer                                 -->
-    <!-- =========================================== -->
-    <fo:static-content flow-name="after">
-      <fo:block font-size="{$header-font-size}" text-align="center" space-before="0.3in">
-        - <fo:page-number /> -
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_footer" />
 
     <!-- =========================================== -->
     <!-- page content                                -->

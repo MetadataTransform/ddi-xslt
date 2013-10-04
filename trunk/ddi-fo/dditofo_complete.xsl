@@ -1,96 +1,36 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!--
-  Overview:
-    Transforms DDI-XML into XSL-FO to produce study documentation in PDF format
-    Developed for DDI documents produced by the International Household Survey Network
-    Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and
-    Central Survey Catalog (http://www.surveynetwork.org/surveys)
---><!--
-  Authors: 
-    Pascal Heus (pascal.heus@gmail.com)
-    Version: July 2006
-    Platform: XSL 1.0, Apache FOP 0.20.5
-
-    Oistein Kristiansen (oistein.kristiansen@nsd.uib.no)
-    Version: 2010
-    Updated for FOP 0.93 2010
-
-    Akira Olsbanning (akira.olsbanning@snd.gu.se)
-    Current version (2012-2013)
-
-  License:
-    Copyright 2006 Pascal Heus (pascal.heus@gmail.com)
-
-    This program is free software; you can redistribute it and/or modify it under the terms of the
-    GNU Lesser General Public License as published by the Free Software Foundation; either version
-    2.1 of the License, or (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
-    without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU Lesser General Public License for more details.
-
-    The full text of the license is available at http://www.gnu.org/copyleft/lesser.html
---><!--
-  References:
-    XSL-FO:
-      http://www.w3.org/Style/XSL/
-      http://www.w3schools.com/xslfo/xslfo_reference.asp
-      http://www.xslfo.info/
-    Apache FOP:
-      http://xmlgraphics.apache.org/fop/
-    XSL-FO Tutorials:
-      http://www.renderx.com/tutorial.html
-      http://www.antennahouse.com/XSLsample/XSLsample.htm
-    String trimming:
-      http://skew.org/xml
---><!--
-  2006-04:    Added multilingual support and French translation
-  2006-06:    Added Spanish and new elements to match IHSN Template v1.2
-  2006-07:    Minor fixes and typos
-  2006-07:    Added option parameters to hide producers in cover
-              page and questions in variables list page
-  2010-03:    Made FOP 0.93 compatible
-  2012-11-01: Broken up into parts using xsl:include
-  2013-01-22: Changing the file names to match template names better
-  2013-05-28: Using xincludes instead of xsl:includes
-  2013-05-29: Including config in main file
---><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:n1="http://www.icpsr.umich.edu/DDI" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ddi="http://www.icpsr.umich.edu/DDI" xmlns:date="http://exslt.org/dates-and-times" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:exsl="http://exslt.org/common" xmlns:math="http://exslt.org/math" xmlns:str="http://exslt.org/strings" xmlns:doc="http://www.icpsr.umich.edu/doc" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:fn="http://www.w3.org/2005/xpath-functions" version="1.0" extension-element-prefixes="date exsl str">
+<!-- Overview --><!-- =================================================================================== --><!-- Transforms DDI-XML into XSL-FO to produce study documentation in PDF format         --><!-- Developed for DDI documents produced by the International Household Survey Network  --><!-- Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and            --><!-- Central Survey Catalog (http://www.surveynetwork.org/surveys)                       --><!-- =================================================================================== --><!-- Authors --><!-- ==================================================== --><!-- Pascal Heus (pascal.heus@gmail.com)                  --><!-- Version: July 2006                                   --><!-- Platform: XSL 1.0, Apache FOP 0.20.5                 --><!--                                                      --><!-- Oistein Kristiansen (oistein.kristiansen@nsd.uib.no) --><!-- Version: 2010                                        --><!-- Updated for FOP 0.93 2010                            --><!--                                                      --><!-- Akira Olsbänning (akira.olsbanning@snd.gu.se)        --><!-- Current version (2012-2013)                          --><!-- ==================================================== --><!-- License --><!-- ================================================================================================ --><!-- Copyright 2006 Pascal Heus (pascal.heus@gmail.com)                                               --><!--                                                                                                  --><!-- This program is free software; you can redistribute it and/or modify it under the terms of the   --><!-- GNU Lesser General Public License as published by the Free Software Foundation; either version   --><!-- 2.1 of the License, or (at your option) any later version.                                       --><!--                                                                                                  --><!-- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;        --><!-- without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.        --><!-- See the GNU Lesser General Public License for more details.                                      --><!--                                                                                                  --><!-- The full text of the license is available at http://www.gnu.org/copyleft/lesser.html             --><!-- ================================================================================================ --><!-- References --><!-- ========================================================= --><!-- XSL-FO:                                                   --><!--   http://www.w3.org/Style/XSL/                            --><!--   http://www.w3schools.com/xslfo/xslfo_reference.asp      --><!--   http://www.xslfo.info/                                  --><!-- Apache FOP:                                               --><!--   http://xmlgraphics.apache.org/fop/                      --><!-- XSL-FO Tutorials:                                         --><!--   http://www.renderx.com/tutorial.html                    --><!--   http://www.antennahouse.com/XSLsample/XSLsample.htm     --><!-- String trimming:                                          --><!--  http://skew.org/xml                                      --><!-- ========================================================= --><!-- Changelog: --><!-- 2006-04: Added multilingual support and French translation --><!-- 2006-06: Added Spanish and new elements to match IHSN Template v1.2 --><!-- 2006-07: Minor fixes and typos --><!-- 2006-07: Added option parameters to hide producers in cover page and questions in variables list page --><!-- 2010-03: Made FOP 0.93 compatible --><!-- 2012-11-01: Broken up into parts using xsl:include --><!-- 2013-01-22: Changing the file names to match template names better --><!-- 2013-05-28: Using xincludes instead of xsl:includes --><!-- 2013-05-29: Including config in main file --><!-- Future changelogs can be read from the SVN repo at googlecode --><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:n1="http://www.icpsr.umich.edu/DDI" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ddi="http://www.icpsr.umich.edu/DDI" xmlns:date="http://exslt.org/dates-and-times" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:exsl="http://exslt.org/common" xmlns:math="http://exslt.org/math" xmlns:str="http://exslt.org/strings" xmlns:doc="http://www.icpsr.umich.edu/doc" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:fn="http://www.w3.org/2005/xpath-functions" version="1.0" extension-element-prefixes="date exsl str">
 
   <xsl:output version="1.0" encoding="UTF-8" indent="no" omit-xml-declaration="no" media-type="text/html"/>
 
-  <!--
-    Functions and templates called:
-    count(), normalize-space(), position(), substring() [Xpath 1.0]
-    document() [XSLT 1.0]
-    date
-  -->
+  <!-- functions: -->
+  <!-- count(), normalize-space(), position(), substring() [Xpath 1.0] -->
+  <!-- document() [XSLT 1.0] -->
+  
+  <!-- called: -->
+  <!-- date -->
 
-  <!--
-    Main "sections" of the root template and their show/hide vars:
-    0:  fo:layout-master-set    n/a
-    1:  fo:bookmark-tree        show-bookmarks                param   1
-    2:  Cover page:             show-cover-page               param   1
-    3:  Metadata info:          show-metadata-info            param   1
-    4:  Table of Contents:      show-toc                      param   1
-    5:  Overview:               show-overview                 param   1
-    6:  Files Description:      show-files-description        param   1
-    7:  Variable List:          show-variables-list           spec*
-    8:  Variable Groups:        show-variable-groups          spec**
-    9:  Variables Description:  show-variables-description    file
+  <!-- =============================================================== -->
+  <!-- Main "sections" of the root template and their show/hide vars   -->
+  <!-- fo:layout-master-set    n/a                                     -->
+  <!-- fo:bookmark-tree        show-bookmarks                param   1 -->
+  <!-- Cover page:             show-cover-page               param   1 -->
+  <!-- Metadata info:          show-metadata-info            param   1 -->
+  <!-- Table of Contents:      show-toc                      param   1 -->
+  <!-- Overview:               show-overview                 param   1 -->
+  <!-- Files Description:      show-files-description        param   1 -->
+  <!-- Variable List:          show-variables-list           spec*     -->
+  <!-- Variable Groups:        show-variable-groups          spec**    -->
+  <!-- Variables Description:  show-variables-description    file      -->
+  <!--                                                                 -->
+  <!-- *  If show-variable-groups is 1, this is set to 0               -->
+  <!-- ** Both parameter and DDI file                                  -->
+  <!-- =============================================================== -->
 
-    *  If show-variable-groups is 1, this is set to 0
-    ** Both parameter and DDI file
-  -->
-
-<!--
-    Supplied by eXide server/webpage:
-    language-code
-    report-title
-    font-family
-    show-variables-list-question
-    translations    http://xml.snd.gu.se/xsl/ddi2/i18n/{$lang}.xml
-    show-cover-page
--->
+  <!-- params supplied by XSLT engine -->
+  <!-- language-code. report-title, font-family.                         -->
+  <!-- translation-file (http://xml.snd.gu.se/xsl/ddi2/i18n/{$lang}.xml) -->
+  <!-- show-variables-list-question, show-cover-page                     -->
 
   <!-- ========================================================= -->
   <!-- Misc                                                      -->
@@ -334,12 +274,11 @@
   <!-- ===================================== -->
   <!-- matching templates                    -->
   <!-- ===================================== -->
-  <!-- ========================== --><!-- Match: /                   --><!-- Value: <fo:root>           --><!-- ========================== --><!-- ============================================================= --><!-- Setup page sizes and layouts     [layout-master-set]          --><!-- Outline / Bookmarks              [bookmark-tree]              --><!-- Cover page                       [page-sequence]              --><!-- Metadata information             [page-sequence] with [table] --><!-- Table of contents                [page-sequence]              --><!-- Overview                         [page-sequence] with [table] --><!-- Files Description                [page-sequence]              --><!-- Variables List                   [page-sequence]              --><!-- Variable Groups                  [page-sequence]              --><!-- Variables Description            [page-sequence]              --><!-- ============================================================= --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" match="/" xml:base="templates/match/root.xsl">
+  <!-- ========================== --><!-- match: /                   --><!-- value: <fo:root>           --><!-- ========================== --><!-- ============================================================= --><!-- Setup page sizes and layouts     [layout-master-set]          --><!-- Outline / Bookmarks              [bookmark-tree]              --><!-- Cover page                       [page-sequence]              --><!-- Metadata information             [page-sequence] with [table] --><!-- Table of contents                [page-sequence]              --><!-- Overview                         [page-sequence] with [table] --><!-- Files Description                [page-sequence]              --><!-- Variables List                   [page-sequence]              --><!-- Variable Groups                  [page-sequence]              --><!-- Variables Description            [page-sequence]              --><!-- ============================================================= --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" match="/" xml:base="templates/match/root.xsl">
   <fo:root>
 
     <!-- ================================ -->
     <!-- Setup page size and layout       -->
-    <!-- [layout-master-set]              -->
     <!-- ================================ -->
 
     <fo:layout-master-set>
@@ -358,7 +297,7 @@
     <!-- Other sections                   -->
     <!-- ================================ -->
 
-    <!-- ============================================ --><!-- Outline / Bookmarks                          --><!-- [bookmark-tree]                              --><!-- ============================================ --><!-- Variables read:                                                          --><!-- show-cover-page, show-metadata-info, show-toc, show-overview             --><!-- show-scope-and-coverage, show-producers-and-sponsors,                    --><!-- show-sampling, show-data-collection, show-data-processing-and-appraisal, --><!-- show-accessibility, show-rights-and-disclaimer, show-files-description,  --><!-- show-variable-groups, show-variables-list, show-variables-description    --><!-- Functions/templates called:                               --><!-- nomalize-space(), contains(), concat(), string-length()   --><!-- trim                                                      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-bookmarks = 1" xml:base="root_template_xincludes/bookmarks.xsl">
+    <!-- =========================================== --><!-- <xls:if> bookmarks                          --><!-- value: <fo:bookmark-tree>                   --><!-- =========================================== --><!-- read: --><!-- show-cover-page, show-metadata-info, show-toc, show-overview             --><!-- show-scope-and-coverage, show-producers-and-sponsors,                    --><!-- show-sampling, show-data-collection, show-data-processing-and-appraisal, --><!-- show-accessibility, show-rights-and-disclaimer, show-files-description,  --><!-- show-variable-groups, show-variables-list, show-variables-description    --><!-- functions: --><!-- nomalize-space(), contains(), concat(), string-length() [xpath 1.0] --><!-- called: --><!-- trim --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-bookmarks = 1" xml:base="root_template_xincludes/bookmarks.xsl">
 
   <fo:bookmark-tree>
 
@@ -567,7 +506,7 @@
 
   </fo:bookmark-tree>
 </xsl:if>
-    <!-- ================================================= --><!-- Cover page                                        --><!-- [page-sequence]                                   --><!-- ================================================= --><!-- Variables read:                                      --><!-- show-logo, show-geography, show-cover-page-producer, --><!-- show-report-subtitle                                 --><!-- Functions/templates called:                          --><!-- normalize-space() [Xpath 1.0]                        --><!-- trim, isodate-long                                   --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 1" xml:base="root_template_xincludes/cover_page.xsl">
+    <!-- ========================= --><!-- <xsl:if> cover page       --><!-- value: <fo:page-sequence> --><!-- ========================= --><!-- read: --><!-- show-logo, show-geography, show-cover-page-producer, --><!-- show-report-subtitle                                 --><!-- functions: --><!-- normalize-space() [Xpath 1.0] --><!-- called: --><!-- trim, isodate-long --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 1" xml:base="root_template_xincludes/cover_page.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="Helvetica" font-size="{$font-size}">
 
@@ -628,7 +567,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ==================================================== --><!-- Metadata information                                 --><!-- [page-sequence] with [table]                         --><!-- ==================================================== --><!-- Variables read:                              --><!-- msg, font-family, show-metadata-production,  --><!-- default-border, cell-padding                 --><!--  Functions/templates called:                 --><!--  boolean(), normalize-space() [Xpath 1.0]    --><!--  proportional-column-width() [FO]            --><!--  isodate-long                                --><!-- Metadata production        [table]      --><!--   Metadata producers       [table-row]  --><!--   Metadata Production Date [table-row]  --><!--   Metadata Version         [table-row]  --><!--   Metadata ID              [table-row]  --><!--   Spacer                   [table-row]  --><!-- Report Acknowledgements    [block]      --><!-- Report Notes               [block]      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 1" xml:base="root_template_xincludes/metadata_information.xsl">
+    <!-- ================================================= --><!-- <xsl:if> metadata information                     --><!-- value: <fo:page-sequence>                         --><!-- ================================================= --><!-- read: --><!-- $strings, $font-family, $show-metadata-production, --><!-- $default-border, $cell-padding                     --><!-- functions: --><!-- boolean(), normalize-space() [Xpath 1.0] --><!-- proportional-column-width() [FO]         --><!-- called: --><!-- isodate-long --><!-- Metadata production        [table]      --><!--   Metadata producers       [table-row]  --><!--   Metadata Production Date [table-row]  --><!--   Metadata Version         [table-row]  --><!--   Metadata ID              [table-row]  --><!--   Spacer                   [table-row]  --><!-- Report Acknowledgements    [block]      --><!-- Report Notes               [block]      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 1" xml:base="root_template_xincludes/metadata_information.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -738,7 +677,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ============================================== --><!-- Table of contents                              --><!-- [page-sequence]                                --><!-- ============================================== --><!-- Variables read:                                                  --><!-- font-family, msg, show-overview, show-scope-and-coverage,        --><!-- show-producers-and-sponsors, show-sampling, show-data-collection --><!-- show-data-processing-and-appraisal, show-accessibility,          --><!-- show-rights-and-disclaimer, show-files-description,              --><!-- show-variables-list, show-variable-groups, subset-groups         --><!-- Functions called:                                                --><!-- normalize-space(), string-length(), contains(), concat()         --><!--  Overview                      [block] --><!--  Scope and Coverage            [block] --><!--  Producers and Sponsors        [block] --><!--  Sampling                      [block] --><!--  Data Collection               [block] --><!--  Data Processing and Appraisal [block] --><!--  Accessibility                 [block] --><!--  Rights and Disclaimer         [block] --><!--  Files and Description         [block] --><!--  Variables List                [block] --><!--  Variable Groups               [block] --><!--  Variables Description         [block] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 1" xml:base="root_template_xincludes/table_of_contents.xsl">
+    <!-- ============================================== --><!-- <xsl:if> table of contents                     --><!-- value: <fo:page-sequence>                      --><!-- ============================================== --><!-- read: --><!-- $font-family, $strings, $show-overview, $show-scope-and-coverage,   --><!-- $show-producers-and-sponsors, $show-sampling, $show-data-collection --><!-- $show-data-processing-and-appraisal, $show-accessibility,           --><!-- $show-rights-and-disclaimer, $show-files-description,               --><!-- $show-variables-list, $show-variable-groups, $subset-groups         --><!-- functions: --><!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] --><!--  Overview                      [block] --><!--  Scope and Coverage            [block] --><!--  Producers and Sponsors        [block] --><!--  Sampling                      [block] --><!--  Data Collection               [block] --><!--  Data Processing and Appraisal [block] --><!--  Accessibility                 [block] --><!--  Rights and Disclaimer         [block] --><!--  Files and Description         [block] --><!--  Variables List                [block] --><!--  Variable Groups               [block] --><!--  Variables Description         [block] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 1" xml:base="root_template_xincludes/table_of_contents.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -941,20 +880,12 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ================================================ --><!-- Overview                                         --><!-- [page-sequence] with [table]                     --><!-- ================================================ --><!--
-  Variables read:
-  msg, report-start-page-number, font-family, color-gray3
-  default-border, cell-padding, survey-title, color-gray1, time
-
-  Functions/templates called:
-  nomalize-space(), position() [Xpath]
-  proportional-column-width() [FO]
---><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-overview = 1" xml:base="root_template_xincludes/overview.xsl">
+    <!-- =========================================== --><!-- <xsl:if> overview                           --><!-- value: <fo:page-sequence>                   --><!-- =========================================== --><!-- read: --><!-- $strings, $report-start-page-number, $font-family, $color-gray3   --><!-- $default-border, $cell-padding, $survey-title, $color-gray1, $time --><!-- functions: --><!-- nomalize-space(), position() [Xpath] --><!-- proportional-column-width() [FO] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-overview = 1" xml:base="root_template_xincludes/overview.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" initial-page-number="{$report-start-page-number}" font-family="{$font-family}" font-size="{$font-size}">
 
     <!-- =========================================== -->
-    <!-- page header                                 -->
+    <!-- page header and footer                      -->
     <!-- =========================================== -->
 
     <fo:static-content flow-name="before">
@@ -964,15 +895,7 @@
       </fo:block>
     </fo:static-content>
 
-    <!-- =========================================== -->
-    <!-- page footer                                 -->
-    <!-- =========================================== -->
-    
-    <fo:static-content flow-name="after">
-      <fo:block font-size="{$footer-font-size}" text-align="center" space-before="0.3in">
-        - <fo:page-number/> -
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_footer"/>
 
     <!-- =========================================== -->
     <!-- page content                                -->
@@ -1790,12 +1713,12 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ======================================================== --><!-- Files description                                        --><!-- [page-sequence]                                          --><!-- ======================================================== --><!-- Variables read:             --><!-- msg, font-family            --><!-- Functions/templates called: --><!-- count()                     --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-files-description = 1" xml:base="root_template_xincludes/files_description.xsl">
+    <!-- ============================= --><!-- <xsl:if> files description    --><!-- value: <fo:page-sequence>     --><!-- ============================= --><!-- read: --><!-- $page-layout, $strings, $font-family, $font-size, $header-font-size --><!-- functions --><!-- count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-files-description = 1" xml:base="root_template_xincludes/files_description.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
     <!-- =========================================== -->
-    <!-- page header                                 -->
+    <!-- page header and footer                      -->
     <!-- =========================================== -->
     <fo:static-content flow-name="before">
       <fo:block font-size="{$header-font-size}" text-align="center">
@@ -1804,14 +1727,7 @@
       </fo:block>
     </fo:static-content>
 
-    <!-- =========================================== -->
-    <!-- page footer                                 -->
-    <!-- =========================================== -->
-    <fo:static-content flow-name="after">
-      <fo:block font-size="{$header-font-size}" text-align="center" space-before="0.3in">
-        - <fo:page-number/> -
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_footer"/>
 
     <!-- =========================================== -->
     <!-- page content                                -->
@@ -1838,7 +1754,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ================================================ --><!-- Variables list                                   --><!-- [page-sequence]                                  --><!-- ================================================ --><!-- Variables read:                              --><!-- msg, show-variables-list-layout, font-family --><!-- Functions/templates called                   --><!-- count()                                      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-list = 1" xml:base="root_template_xincludes/variables_list.xsl">
+    <!-- ===================================== --><!-- <xsl:if> variables list               --><!-- value: <fo:page-sequence>             --><!-- ===================================== --><!-- read: --><!-- $strings, $show-variables-list-layout, $font-family --><!-- functions: --><!-- count() [Xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-list = 1" xml:base="root_template_xincludes/variables_list.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -1852,14 +1768,7 @@
       </fo:block>
     </fo:static-content>
 
-    <!-- =========================================== -->
-    <!-- page footer                                 -->
-    <!-- =========================================== -->
-    <fo:static-content flow-name="after">
-      <fo:block font-size="{$footer-font-size}" text-align="center" space-before="0.3in">
-        - <fo:page-number/> -
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_footer"/>
 
     <!-- =========================================== -->
     <!-- page content                                -->
@@ -1886,12 +1795,12 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ================================================ --><!-- Variable groups                                  --><!-- [page-sequence]                                  --><!-- ================================================ --><!-- Variables read:                    --><!-- msg, font-family, number-of-groups --><!-- Functions/templates called:        --><!-- string-length(), count()           --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 1" xml:base="root_template_xincludes/variable_groups.xsl">
+    <!-- ================================================ --><!-- <xsl:if> variable groups                         --><!-- value: <fo:page-sequence>                        --><!-- ================================================ --><!-- read: --><!-- $strings, $font-family, $number-of-groups --><!-- functions: --><!-- string-length(), count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 1" xml:base="root_template_xincludes/variable_groups.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
     
     <!-- =========================================== -->
-    <!-- page header                                 -->
+    <!-- page header and footer                      -->
     <!-- =========================================== -->
     <fo:static-content flow-name="before">
       <fo:block font-size="{$header-font-size}" text-align="center">
@@ -1899,15 +1808,8 @@
         <xsl:value-of select="$strings/*/entry[@key='Variables_Groups']"/>
       </fo:block>
     </fo:static-content>
-          
-    <!-- =========================================== -->
-    <!-- page footer                                 -->
-    <!-- =========================================== -->    
-    <fo:static-content flow-name="after">
-      <fo:block font-size="{$footer-font-size}" text-align="center" space-before="0.3in">
-        - <fo:page-number/> -
-      </fo:block>
-    </fo:static-content>
+  
+    <xsl:call-template name="page_footer"/>
 
     <!-- =========================================== -->
     <!-- page content                                 -->
@@ -1938,7 +1840,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ==================================================== --><!-- Variables description                                --><!-- [fo:page-sequence]                                   --><!-- ==================================================== --><!-- Variables read:               --><!-- msg, font-family              --><!-- Functions/templates called    --><!-- count(), string-length()      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-description = 1" xml:base="root_template_xincludes/variables_description.xsl">
+    <!-- ==================================================== --><!-- <xsl:if> variables description                       --><!-- value: <fo:page-sequence>                            --><!-- ==================================================== --><!-- read: --><!-- $strings, $font-family --><!-- functions: --><!-- count(), string-length() [Xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-description = 1" xml:base="root_template_xincludes/variables_description.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -1952,14 +1854,7 @@
       </fo:block>
     </fo:static-content>
 
-    <!-- =========================================== -->
-    <!-- page footer                                 -->
-    <!-- =========================================== -->
-    <fo:static-content flow-name="after">
-      <fo:block font-size="{$footer-font-size}" text-align="center" space-before="0.3in">
-        - <fo:page-number/> -
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_footer"/>
 
     <!-- =========================================== -->
     <!-- page content                                -->
@@ -3595,8 +3490,6 @@
         </fo:block>
       </fo:table-cell>
 
-
-
       <!-- Question -->
       <xsl:if test="$show-variables-list-question">
         <fo:table-cell border="0.5pt solid black" padding="3pt">
@@ -3628,19 +3521,7 @@
   <!-- ==================================== -->
   <!-- named templates                      -->
   <!-- ==================================== -->
-  <!-- Name: date --><!-- Value: string --><!-- Uses an EXSLT extension to determine the date --><!--
-    Params/variables read:
-    date-time [param]
-    date:date-time
-
-    Variables set:
-    neg, dt-no-neg, dt-no-neg-length, timezone,
-    tz, date, dt-length, dt
-
-    Functions/templates called:
-    substring(), starts-with(), not(), string(), number() [Xpath 1.0]
-    function-available(), date:date-time() [XSLT 1.0]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="date" xml:base="templates/named/date.xsl">
+  <!-- =================== --><!-- name: date          --><!-- value: string       --><!-- =================== --><!-- Uses an EXSLT extension to determine the date --><!-- read: --><!-- $date-time [param] --><!-- $date:date-time --><!-- set: --><!-- $neg, $dt-no-neg, $dt-no-neg-length, $timezone, --><!-- $tz, $date, $dt-length, $dt                     --><!-- functions: --><!-- substring(), starts-with(), not(), string(), number() [Xpath 1.0] --><!-- function-available(), date:date-time() [XSLT 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="date" xml:base="templates/named/date.xsl">
 
     <!-- params -->
     <xsl:param name="date-time">
@@ -3705,18 +3586,7 @@
     </xsl:if>
 
 </xsl:template>
-  <!-- Name: isodate-long(isodate)    --><!-- Value: string                  --><!-- converts an ISO date string to a "prettier" format --><!--
-    Params/variables read:
-    isodate [param]
-    language-code
-
-    Variables set:
-    month
-
-    Functions/templates called:
-    number(), substring(), contains() [Xpath 1.0]
-    isodate-month
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-long" xml:base="templates/named/isodate-long.xsl">
+  <!-- ===================== --><!-- name: isodate-long    --><!-- value: string         --><!-- ===================== --><!-- converts an ISO date string to a "prettier" format --><!-- read: --><!-- $isodate [param] --><!-- $language-code --><!-- set: --><!-- $month --><!-- functions: --><!-- number(), substring(), contains() [Xpath 1.0] --><!-- called: --><!-- isodate-month --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-long" xml:base="templates/named/isodate-long.xsl">
 
     <!-- params -->
     <xsl:param name="isodate" select=" '2005-12-31' "/>
@@ -3759,17 +3629,7 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- Name: isodate-month(isodate) --><!-- Value: string --><!--
-    Params/variables read:
-    isodate [param]
-    msg
-
-    Variables set:
-    month
-
-    Functions/templates called:
-    number(), substring()
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-month" xml:base="templates/named/isodate-month.xsl">
+  <!-- ========================== --><!-- name: isodate-month        --><!-- value: string              --><!-- ========================== --><!-- read: --><!-- $isodate [param] --><!-- $strings --><!-- set: --><!-- $month --><!-- functions: --><!-- number(), substring() [xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-month" xml:base="templates/named/isodate-month.xsl">
 
     <!-- params -->
     <xsl:param name="isodate" select=" '2005-12-31' "/>
@@ -3831,13 +3691,7 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- Name: math:max(nodes) --><!-- Value: string --><!--
-    Params/variables read:
-    nodes [param]
-
-    Functions/templates called:
-    not(), number(), position() [Xpath 1.0]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="math:max" xml:base="templates/named/math-max.xsl">
+  <!-- ===================== --><!-- name: math:max        --><!-- value: string         --><!-- ===================== --><!-- read: --><!-- $nodes [param] --><!-- functions: --><!-- not(), number(), position() [Xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="math:max" xml:base="templates/named/math-max.xsl">
 
     <!-- params -->
     <xsl:param name="nodes" select="/.."/>
@@ -3861,14 +3715,7 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- Name: rtrim(s, i) --><!-- Value: string --><!-- perform right trim on text by recursion --><!--
-    Parameters/variables read:
-    s, i [params]
-
-    Functions/templates called:
-    substring(), string-length(), translate() [Xpath 1.0]
-    rtrim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="rtrim" xml:base="templates/named/rtrim.xsl">
+  <!-- ================= --><!-- name: rtrim       --><!-- value: string     --><!-- ================= --><!-- perform right trim on text through recursion --><!-- read: --><!-- $string, $index [param] --><!-- functions: --><!-- substring(), string-length(), translate() [Xpath 1.0] --><!-- called: --><!-- rtrim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="rtrim" xml:base="templates/named/rtrim.xsl">
 
     <!-- params -->
     <xsl:param name="s"/>
@@ -3895,14 +3742,7 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- Name: trim(s) --><!-- Value: string --><!--
-    Params/variables read:
-    s [param]
-
-    Functions/templates called:
-    concat(), substring(), translate(), substring-after() [Xpath 1.0]
-    rtrim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="trim" xml:base="templates/named/trim.xsl">
+  <!-- =================== --><!-- name: trim          --><!-- value: string       --><!-- =================== --><!-- read: --><!-- $string [param] --><!-- functions: --><!-- concat(), substring(), translate(), substring-after() [Xpath 1.0] --><!-- called: --><!-- rtrim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="trim" xml:base="templates/named/trim.xsl">
 
     <!-- params -->
     <xsl:param name="s"/>
@@ -3913,5 +3753,16 @@
     </xsl:call-template>
 
 </xsl:template>
+  
+  <!-- ==================================================== --><!-- name: page_footer                                    --><!-- value: <fo:static-content>                           --><!-- ==================================================== --><!-- read: --><!-- $header-font-size --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="page_footer" xml:base="templates/named/page_footer.xsl">
+  
+  <fo:static-content flow-name="after">
+    <fo:block font-size="{$footer-font-size}" text-align="center" space-before="0.3in">
+      - <fo:page-number/> -
+    </fo:block>
+  </fo:static-content>
+  
+</xsl:template>
+  
 
 </xsl:stylesheet>

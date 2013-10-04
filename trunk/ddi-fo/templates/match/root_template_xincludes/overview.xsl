@@ -1,19 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- =========================================== -->
+<!-- <xsl:if> overview                           -->
+<!-- value: <fo:page-sequence>                   -->
+<!-- =========================================== -->
 
-<!-- ================================================ -->
-<!-- Overview                                         -->
-<!-- [page-sequence] with [table]                     -->
-<!-- ================================================ -->
+<!-- read: -->
+<!-- $strings, $report-start-page-number, $font-family, $color-gray3   -->
+<!-- $default-border, $cell-padding, $survey-title, $color-gray1, $time -->
 
-<!--
-  Variables read:
-  msg, report-start-page-number, font-family, color-gray3
-  default-border, cell-padding, survey-title, color-gray1, time
-
-  Functions/templates called:
-  nomalize-space(), position() [Xpath]
-  proportional-column-width() [FO]
--->
+<!-- functions: -->
+<!-- nomalize-space(), position() [Xpath] -->
+<!-- proportional-column-width() [FO] -->
 
 <xsl:if test="$show-overview = 1"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -25,7 +22,7 @@
                     font-size="{$font-size}">
 
     <!-- =========================================== -->
-    <!-- page header                                 -->
+    <!-- page header and footer                      -->
     <!-- =========================================== -->
 
     <fo:static-content flow-name="before">
@@ -35,15 +32,7 @@
       </fo:block>
     </fo:static-content>
 
-    <!-- =========================================== -->
-    <!-- page footer                                 -->
-    <!-- =========================================== -->
-    
-    <fo:static-content flow-name="after">
-      <fo:block font-size="{$footer-font-size}" text-align="center" space-before="0.3in">
-        - <fo:page-number /> -
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_footer" />
 
     <!-- =========================================== -->
     <!-- page content                                -->
