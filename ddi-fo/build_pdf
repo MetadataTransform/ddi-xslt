@@ -31,23 +31,28 @@ shift $(($OPTIND - 1)) # shift argument to position 1
 FILENAME="${1%.*}" # remove file extension from DDI input file
 
 # params for fop
-FOP_PARAMS="-param paper.type A4 \
-            -param fop1.extensions 1 \
-            -param translations-file ./i18n/$LANGUAGE_STRING.xml"
+#PARAMS="-param paper.type A4 \
+#        -param fop1.extensions 1 \
+#        -param translations-file ./i18n/$LANGUAGE_STRING.xml"
+
+# parameters for Saxon and FOP
+PARAMS="paper.type=A4 \
+        fop1.extensions=1 \
+        translations-file=./i18n/$LANGUAGE_STRING.xml"
 
 # ============
 # Process file
 # ============
 
-# Uncomment when editing the files and debugging
-#echo "Preprocessing Xincludes..."
-#python process_xincludes.py
-
 echo "Using language: $LANGUAGE_STRING"
+
+# run xincludes
+#echo "[process_xincludes] Assembling dditofo_complete.xsl"
+#./process_xincludes
 
 # transform codebook to fo using saxon
 echo "[Saxon] Transforming $1 to FO..."
-java net.sf.saxon.Transform -s:$1 -xsl:dditofo_complete.xsl -o:$FILENAME.fo
+java net.sf.saxon.Transform -s:$1 -xsl:dditofo_complete.xsl -o:$FILENAME.fo $PARAMS
 echo "[Saxon] File $FILENAME.fo generated"
 
 # render PDF from FO
@@ -57,6 +62,3 @@ echo "[FOP] $FILENAME.pdf generated."
 
 # transformation with fop/xalan (one step)
 #fop -xml $1 -xsl dditofo_complete.xsl -pdf $FILENAME.pdf $FOP_PARAMS
-
-# report status
-#echo "File $FILENAME.pdf generated."
