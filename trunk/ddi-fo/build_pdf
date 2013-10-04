@@ -41,12 +41,22 @@ FOP_PARAMS="-param paper.type A4 \
 
 # Uncomment when editing the files and debugging
 #echo "Preprocessing Xincludes..."
-#python3 process_xincludes.py
+#python process_xincludes.py
 
 echo "Using language: $LANGUAGE_STRING"
 
+# transform codebook to fo using saxon
+echo "[Saxon] Transforming $1 to FO..."
+java net.sf.saxon.Transform -s:$1 -xsl:dditofo_complete.xsl -o:$FILENAME.fo
+echo "[Saxon] File $FILENAME.fo generated"
+
+# render PDF from FO
+echo "[FOP] Rendering $FILENAME.fo to PDF..."
+fop -fo $FILENAME.fo -pdf $FILENAME.pdf
+echo "[FOP] $FILENAME.pdf generated."
+
 # transformation with fop/xalan (one step)
-fop -xml $1 -xsl dditofo_complete.xsl -pdf $FILENAME.pdf $FOP_PARAMS
+#fop -xml $1 -xsl dditofo_complete.xsl -pdf $FILENAME.pdf $FOP_PARAMS
 
 # report status
-echo "File $FILENAME.pdf generated."
+#echo "File $FILENAME.pdf generated."
