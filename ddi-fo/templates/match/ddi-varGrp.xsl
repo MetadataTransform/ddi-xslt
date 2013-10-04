@@ -129,10 +129,7 @@
             <fo:table-column column-width="proportional-column-width( 5)"/>
             <fo:table-column column-width="proportional-column-width(12)"/>
             <fo:table-column column-width="proportional-column-width(20)"/>
-            <fo:table-column column-width="proportional-column-width(10)"/>
-            <fo:table-column column-width="proportional-column-width(10)"/>
-            <fo:table-column column-width="proportional-column-width( 8)"/>
-            <fo:table-column column-width="proportional-column-width( 8)"/>
+
 
             <xsl:if test="$show-variables-list-question">
                 <fo:table-column column-width="proportional-column-width(27)"/>
@@ -162,34 +159,6 @@
         </fo:block>
       </fo:table-cell>
 
-      <!-- Type -->
-      <fo:table-cell border="0.5pt solid black" padding="3pt">
-        <fo:block>
-          <xsl:value-of select="$strings/*/entry[@key='Type']" />
-        </fo:block>
-      </fo:table-cell>
-
-      <!-- Format -->
-      <fo:table-cell border="0.5pt solid black" padding="3pt">
-        <fo:block>
-          <xsl:value-of select="$strings/*/entry[@key='Format']" />
-        </fo:block>
-      </fo:table-cell>
-
-      <!-- Valid -->
-      <fo:table-cell border="0.5pt solid black" padding="3pt">
-        <fo:block>
-          <xsl:value-of select="$strings/*/entry[@key='Valid']" />
-        </fo:block>
-      </fo:table-cell>
-
-      <!-- Invalid -->
-      <fo:table-cell border="0.5pt solid black" padding="3pt">
-        <fo:block>
-          <xsl:value-of select="$strings/*/entry[@key='Invalid']" />
-        </fo:block>
-      </fo:table-cell>
-
       <!-- Question -->
       <xsl:if test="$show-variables-list-question">
         <fo:table-cell border="0.5pt solid black" padding="3pt">
@@ -205,13 +174,7 @@
 
           <!-- table body -->
           <fo:table-body>
-            <fo:table-row>
-              <fo:table-cell>
-                <fo:block>
-                  <!-- ToDo: -->
-                </fo:block>
-              </fo:table-cell>
-            </fo:table-row>
+
 
             <xsl:variable name="list" select="concat(./@var,' ')" />
             <!-- add a space at the end of the list for matching purposes -->

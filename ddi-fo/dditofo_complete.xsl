@@ -3424,87 +3424,7 @@
           </fo:block>
         </fo:table-cell>
 
-        <!-- 4) Variable type -->
-        <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-          <fo:block>
-            <xsl:choose>
-              <xsl:when test="normalize-space(@intrvl)">
-                <xsl:choose>
-                  <xsl:when test="@intrvl='discrete'">
-                    <xsl:value-of select="$strings/*/entry[@key='discrete']"/>
-                  </xsl:when>
-                  <xsl:when test="@intrvl='contin'">
-                    <xsl:value-of select="$strings/*/entry[@key='continuous']"/>
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <xsl:value-of select="$strings/*/entry[@key='Undetermined']"/>
-                  </xsl:otherwise>
-                </xsl:choose>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:text>-</xsl:text>
-              </xsl:otherwise>
-            </xsl:choose>
-          </fo:block>
-        </fo:table-cell>
 
-        <!-- 5) [fo:table-cell] Variable format -->
-        <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-          <fo:block>
-            <xsl:choose>
-              <xsl:when test="normalize-space(ddi:varFormat/@type)">
-                <xsl:value-of select="ddi:varFormat/@type"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:text>-</xsl:text>
-              </xsl:otherwise>
-            </xsl:choose>
-            <xsl:if test="normalize-space(ddi:location/@width)">
-              <xsl:text>-</xsl:text>
-              <xsl:value-of select="ddi:location/@width"/>
-            </xsl:if>
-            <xsl:if test="normalize-space(@dcml)">
-              <xsl:text>.</xsl:text>
-              <xsl:value-of select="@dcml"/>
-            </xsl:if>
-          </fo:block>
-        </fo:table-cell>
-
-        <!-- 6) [fo:table-cell] Variable valid -->
-        <fo:table-cell text-align="center" border="{$default-border}" padding="{$cell-padding}">
-          <fo:block>
-            <xsl:choose>
-              <xsl:when test="count(ddi:sumStat[@type='vald']) &gt; 0">
-                <xsl:for-each select="ddi:sumStat[@type='vald']">
-                  <xsl:if test="position() = 1">
-                    <xsl:value-of select="."/>
-                  </xsl:if>
-                </xsl:for-each>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:text>-</xsl:text>
-              </xsl:otherwise>
-            </xsl:choose>
-          </fo:block>
-        </fo:table-cell>
-
-        <!-- 7) [fo:table-cell] Variable invalid -->
-        <fo:table-cell text-align="center" border="{$default-border}" padding="{$cell-padding}">
-          <fo:block>
-            <xsl:choose>
-              <xsl:when test="count(ddi:sumStat[@type='invd']) &gt; 0">
-                <xsl:for-each select="ddi:sumStat[@type='invd']">
-                  <xsl:if test="position()=1">
-                    <xsl:value-of select="."/>
-                  </xsl:if>
-                </xsl:for-each>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:text>-</xsl:text>
-              </xsl:otherwise>
-            </xsl:choose>
-          </fo:block>
-        </fo:table-cell>
 
         <!-- 8) [fo:table-cell] Variable literal question -->
         <xsl:if test="$show-variables-list-question">
@@ -3646,10 +3566,7 @@
             <fo:table-column column-width="proportional-column-width( 5)"/>
             <fo:table-column column-width="proportional-column-width(12)"/>
             <fo:table-column column-width="proportional-column-width(20)"/>
-            <fo:table-column column-width="proportional-column-width(10)"/>
-            <fo:table-column column-width="proportional-column-width(10)"/>
-            <fo:table-column column-width="proportional-column-width( 8)"/>
-            <fo:table-column column-width="proportional-column-width( 8)"/>
+
 
             <xsl:if test="$show-variables-list-question">
                 <fo:table-column column-width="proportional-column-width(27)"/>
@@ -3678,33 +3595,7 @@
         </fo:block>
       </fo:table-cell>
 
-      <!-- Type -->
-      <fo:table-cell border="0.5pt solid black" padding="3pt">
-        <fo:block>
-          <xsl:value-of select="$strings/*/entry[@key='Type']"/>
-        </fo:block>
-      </fo:table-cell>
 
-      <!-- Format -->
-      <fo:table-cell border="0.5pt solid black" padding="3pt">
-        <fo:block>
-          <xsl:value-of select="$strings/*/entry[@key='Format']"/>
-        </fo:block>
-      </fo:table-cell>
-
-      <!-- Valid -->
-      <fo:table-cell border="0.5pt solid black" padding="3pt">
-        <fo:block>
-          <xsl:value-of select="$strings/*/entry[@key='Valid']"/>
-        </fo:block>
-      </fo:table-cell>
-
-      <!-- Invalid -->
-      <fo:table-cell border="0.5pt solid black" padding="3pt">
-        <fo:block>
-          <xsl:value-of select="$strings/*/entry[@key='Invalid']"/>
-        </fo:block>
-      </fo:table-cell>
 
       <!-- Question -->
       <xsl:if test="$show-variables-list-question">
@@ -3721,13 +3612,7 @@
 
           <!-- table body -->
           <fo:table-body>
-            <fo:table-row>
-              <fo:table-cell>
-                <fo:block>
-                  <!-- ToDo: -->
-                </fo:block>
-              </fo:table-cell>
-            </fo:table-row>
+
 
             <xsl:variable name="list" select="concat(./@var,' ')"/>
             <!-- add a space at the end of the list for matching purposes -->
