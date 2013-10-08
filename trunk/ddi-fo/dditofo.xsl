@@ -64,27 +64,30 @@
 <!-- 2013-05-29: Including config in main file -->
 <!-- Future changelogs can be read from the SVN repo at googlecode -->
 
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:fo="http://www.w3.org/1999/XSL/Format"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xmlns:n1="http://www.icpsr.umich.edu/DDI"
-                xmlns:dc="http://purl.org/dc/elements/1.1/"
-                xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:ddi="http://www.icpsr.umich.edu/DDI"
-                xmlns:date="http://exslt.org/dates-and-times"
-                xmlns:dcterms="http://purl.org/dc/terms/"
-                xmlns:exsl="http://exslt.org/common"
-                xmlns:math="http://exslt.org/math"
-                xmlns:str="http://exslt.org/strings"
-                xmlns:doc="http://www.icpsr.umich.edu/doc"
-                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
-                xmlns:fn="http://www.w3.org/2005/xpath-functions"
-                version="1.0"
-                extension-element-prefixes="date exsl str">
+<xsl:transform version="1.0"
+               extension-element-prefixes="date exsl str"
+               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+               xmlns:fo="http://www.w3.org/1999/XSL/Format"
+               xmlns:xi="http://www.w3.org/2001/XInclude"
+               xmlns:ddi="http://www.icpsr.umich.edu/DDI"
+               xmlns:n1="http://www.icpsr.umich.edu/DDI"
+               xmlns:dc="http://purl.org/dc/elements/1.1/"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:date="http://exslt.org/dates-and-times"
+               xmlns:dcterms="http://purl.org/dc/terms/"
+               xmlns:exsl="http://exslt.org/common"
+               xmlns:math="http://exslt.org/math"
+               xmlns:str="http://exslt.org/strings"
+               xmlns:doc="http://www.icpsr.umich.edu/doc"
+               xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+               xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
+               xmlns:fn="http://www.w3.org/2005/xpath-functions">
 
-  <xsl:output version="1.0" encoding="UTF-8" indent="no"
-              omit-xml-declaration="no" media-type="text/html"/>
+  <xsl:output version="1.0"
+              method="xml"
+              encoding="UTF-8"
+              indent="no"
+              omit-xml-declaration="no" />
 
   <!-- functions: -->
   <!-- count(), normalize-space(), position(), substring() [Xpath 1.0] -->
@@ -355,6 +358,79 @@
 
 
   <!-- ===================================== -->
+  <!-- i18n strings                          -->
+  <!-- ===================================== -->
+
+  <xsl:variable name="i18n-Abstract" select="$strings/*/entry[@key='Abstract']" />
+  <xsl:variable name="i18n-Accessibility" select="$strings/*/entry[@key='Accessibility']" />
+  <xsl:variable name="i18n-Access_Authority" select="$strings/*/entry[@key='Access_Authority']" />
+  <xsl:variable name="i18n-Access_Conditions" select="$strings/*/entry[@key='Access_Conditions']" />
+  <xsl:variable name="i18n-Acknowledgments" select="$strings/*/entry[@key='Acknowledgments']" />
+  <xsl:variable name="i18n-Citation_Requirements" select="$strings/*/entry[@key='Citation_Requirements']" />
+  <xsl:variable name="i18n-Confidentiality" select="$strings/*/entry[@key='Confidentiality']" />
+  <xsl:variable name="i18n-Contacts" select="$strings/*/entry[@key='Contacts']" />
+  <xsl:variable name="i18n-Copyright" select="$strings/*/entry[@key='Copyright']" />
+  <xsl:variable name="i18n-Countries" select="$strings/*/entry[@key='Countries']" />
+  <xsl:variable name="i18n-Data_Collection" select="$strings/*/entry[@key='Data_Collection']" />
+  <xsl:variable name="i18n-Data_Collectors" select="$strings/*/entry[@key='Data_Collectors']" />
+  <xsl:variable name="i18n-Data_Collection_Dates" select="$strings/*/entry[@key='Data_Collection_Dates']" /> 
+  <xsl:variable name="i18n-Data_Collection_Mode" select="$strings/*/entry[@key='Data_Collection_Mode']" />
+  <xsl:variable name="i18n-Data_Collection_Notes" select="$strings/*/entry[@key='Data_Collection_Notes']" />
+  <xsl:variable name="i18n-Data_Cleaning_Notes" select="$strings/*/entry[@key='Data_Cleaning_Notes']" />
+  <xsl:variable name="i18n-Data_Editing" select="$strings/*/entry[@key='Data_Editing']" />
+  <xsl:variable name="i18n-Data_Processing_Notes" select="$strings/*/entry[@key='Data_Collection']" />
+  <xsl:variable name="i18n-Data_Processing_and_Appraisal" select="$strings/*/entry[@key='Data_Processing_and_Appraisal']" />
+  <xsl:variable name="i18n-Dataset_contains" select="$strings/*/entry[@key='Dataset_contains']" />
+  <xsl:variable name="i18n-Depositors" select="$strings/*/entry[@key='Depositors']" />
+  <xsl:variable name="i18n-Deviations_from_Sample_Design" select="$strings/*/entry[@key='Deviations_from_Sample_Design']" />
+  <xsl:variable name="i18n-Distributors" select="$strings/*/entry[@key='Distributors']" />
+  <xsl:variable name="i18n-Disclaimer" select="$strings/*/entry[@key='Disclaimer']" />
+  <xsl:variable name="i18n-Estimates_of_Sampling_Error" select="$strings/*/entry[@key='Estimates_of_Sampling_Error']" />
+  <xsl:variable name="i18n-files" select="$strings/*/entry[@key='files']" />
+  <xsl:variable name="i18n-Files_Description" select="$strings/*/entry[@key='Files_Description']" />
+  <xsl:variable name="i18n-Funding_Agencies" select="$strings/*/entry[@key='Funding_Agencies']" />
+  <xsl:variable name="i18n-Geographic_Coverage" select="$strings/*/entry[@key='Geographic_Coverage']" />
+  <xsl:variable name="i18n-groups" select="$strings/*/entry[@key='groups']" />
+  <xsl:variable name="i18n-Identification" select="$strings/*/entry[@key='Identification']" />
+  <xsl:variable name="i18n-Information" select="$strings/*/entry[@key='Information']" />
+  <xsl:variable name="i18n-Keywords" select="$strings/*/entry[@key='Keywords']" />
+  <xsl:variable name="i18n-Kind_of_Data" select="$strings/*/entry[@key='Kind_of_Data']" />
+  <xsl:variable name="i18n-Metadata_Production" select="$strings/*/entry[@key='Metadata_Production']" />
+  <xsl:variable name="i18n-Metadata_Producers" select="$strings/*/entry[@key='Metadata_Producers']" />
+  <xsl:variable name="i18n-Notes" select="$strings/*/entry[@key='Notes']" />
+  <xsl:variable name="i18n-Other_Acknowledgements" select="$strings/*/entry[@key='Other_Acknowledgements']" />
+  <xsl:variable name="i18n-Other_Forms_of_Data_Appraisal" select="$strings/*/entry[@key='Other_Forms_of_Data_Appraisal']" />
+  <xsl:variable name="i18n-Other_Processing" select="$strings/*/entry[@key='Other_Processing']" />
+  <xsl:variable name="i18n-Other_Producers" select="$strings/*/entry[@key='Other_Producers']" />
+  <xsl:variable name="i18n-Overview" select="$strings/*/entry[@key='Overview']" />
+  <xsl:variable name="i18n-Primary_Investigators" select="$strings/*/entry[@key='Primary_Investigators']" /> 
+  <xsl:variable name="i18n-Producers_and_Sponsors" select="$strings/*/entry[@key='Producers_and_Sponsors']" />
+  <xsl:variable name="i18n-Production_Date" select="$strings/*/entry[@key='Production_Date']" />
+  <xsl:variable name="i18n-Questionnaires" select="$strings/*/entry[@key='Questionnaires']" />
+  <xsl:variable name="i18n-Response_Rate" select="$strings/*/entry[@key='Response_Rate']" />
+  <xsl:variable name="i18n-Rights_and_Disclaimer" select="$strings/*/entry[@key='Rights_and_Disclaimer']" />
+  <xsl:variable name="i18n-Sampling" select="$strings/*/entry[@key='Sampling']" />
+  <xsl:variable name="i18n-Sampling_Procedure" select="$strings/*/entry[@key='Sampling_Procedure']" />
+  <xsl:variable name="i18n-Scope" select="$strings/*/entry[@key='Scope']" />
+  <xsl:variable name="i18n-Scope_and_Coverage" select="$strings/*/entry[@key='Scope_and_Coverage']" />
+  <xsl:variable name="i18n-Series" select="$strings/*/entry[@key='Series']" />
+  <xsl:variable name="i18n-ShowingSubset" select="$strings/*/entry[@key='ShowingSubset']" />
+  <xsl:variable name="i18n-Supervision" select="$strings/*/entry[@key='Supervision']" />
+  <xsl:variable name="i18n-Table_of_Contents" select="$strings/*/entry[@key='Table_of_Contents']" />
+  <xsl:variable name="i18n-Time_Periods" select="$strings/*/entry[@key='Time_Periods']" />
+  <xsl:variable name="i18n-Topics" select="$strings/*/entry[@key='Topics']" />
+  <xsl:variable name="i18n-Type" select="$strings/*/entry[@key='Type']" />
+  <xsl:variable name="i18n-Unit_of_Analysis" select="$strings/*/entry[@key='Unit_of_Analysis']" />
+  <xsl:variable name="i18n-Universe" select="$strings/*/entry[@key='Universe']" />
+  <xsl:variable name="i18n-variables" select="$strings/*/entry[@key='variables']" />
+  <xsl:variable name="i18n-Variables_List" select="$strings/*/entry[@key='Variables_List']" />
+  <xsl:variable name="i18n-Variables_Groups" select="$strings/*/entry[@key='Variables_Groups']" />
+  <xsl:variable name="i18n-Variables_Description" select="$strings/*/entry[@key='Variables_Description']" />
+  <xsl:variable name="i18n-Version" select="$strings/*/entry[@key='Version']" />
+  <xsl:variable name="i18n-Weighting" select="$strings/*/entry[@key='Weighting']" />
+  
+
+  <!-- ===================================== -->
   <!-- matching templates                    -->
   <!-- ===================================== -->
   <xi:include href="templates/match/root.xsl" />
@@ -389,4 +465,4 @@
   <xi:include href="templates/named/page_footer.xsl" />
   
 
-</xsl:stylesheet>
+</xsl:transform>

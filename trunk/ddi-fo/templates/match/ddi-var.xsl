@@ -85,7 +85,7 @@
 
               <fo:table-cell font-weight="bold" text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$strings/*/entry[@key='Information']" />
+                  <xsl:value-of select="$i18n-Information" />
                 </fo:block>
               </fo:table-cell>
 

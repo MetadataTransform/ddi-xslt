@@ -26,6 +26,8 @@
 
 
 <xsl:if test="$show-metadata-info = 1"
+        version="2.0"
+        xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
@@ -40,10 +42,10 @@
     <fo:flow flow-name="body">
       <fo:block id="metadata-info" />
 
-      <!-- $strings Metadata_Poduction -->
+      <!-- Metadata_Poduction -->
       <xsl:if test="boolean($show-metadata-production)">
         <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="0.1in">
-          <xsl:value-of select="$strings/*/entry[@key='Metadata_Production']" />
+          <xsl:value-of select="$i18n-Metadata_Production"/>
         </fo:block>
 
         <fo:table table-layout="fixed" width="100%" space-before="0.0in" space-after="0.2in">
@@ -52,63 +54,63 @@
 
           <fo:table-body>
 
-            <!-- $strings Metadata_Producers -->
-            <xsl:if test="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:producer">
+            <!-- Metadata_Producers -->
+            <xsl:if test="/codeBook/docDscr/citation/prodStmt/producer">
               <fo:table-row>
                 <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                   <fo:block>
-                    <xsl:value-of select="$strings/*/entry[@key='Metadata_Producers']" />
+                    <xsl:value-of select="$i18n-Metadata_Producers"/>
                   </fo:block>
                 </fo:table-cell>
                 <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                  <xsl:apply-templates select="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:producer" />
+                  <xsl:apply-templates select="/codeBook/docDscr/citation/prodStmt/producer" />
                 </fo:table-cell>
               </fo:table-row>
             </xsl:if>
 
-            <!-- $strings Production_Date -->
-            <xsl:if test="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:prodDate">
+            <!-- Production_Date -->
+            <xsl:if test="/codeBook/docDscr/citation/prodStmt/prodDate">
               <fo:table-row>
                 <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                   <fo:block>
-                    <xsl:value-of select="$strings/*/entry[@key='Production_Date']" />
+                    <xsl:value-of select="$i18n-Production_Date"/>
                   </fo:block>
                 </fo:table-cell>
                 <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                   <fo:block>
                     <xsl:call-template name="isodate-long">
                       <xsl:with-param name="isodate"
-                                      select="normalize-space(/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:prodStmt/ddi:prodDate)" />
+                                      select="normalize-space(/codeBook/docDscr/citation/prodStmt/prodDate)" />
                     </xsl:call-template>
                   </fo:block>
                 </fo:table-cell>
               </fo:table-row>
             </xsl:if>
 
-            <!-- $strings Version -->
-            <xsl:if test="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:verStmt/ddi:version">
+            <!-- Version -->
+            <xsl:if test="/codeBook/docDscr/citation/verStmt/version">
               <fo:table-row>
                 <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                   <fo:block>
-                    <xsl:value-of select="$strings/*/entry[@key='Version']" />
+                    <xsl:value-of select="$i18n-Version"/>
                   </fo:block>
                 </fo:table-cell>
                 <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                  <xsl:apply-templates select="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:verStmt/ddi:version" />
+                  <xsl:apply-templates select="/codeBook/docDscr/citation/verStmt/version" />
                 </fo:table-cell>
               </fo:table-row>
             </xsl:if>
 
-            <!-- $strings Identification -->
-            <xsl:if test="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:titlStmt/ddi:IDNo">
+            <!-- Identification -->
+            <xsl:if test="/codeBook/docDscr/citation/titlStmt/IDNo">
               <fo:table-row>
                 <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                   <fo:block>
-                    <xsl:value-of select="$strings/*/entry[@key='Identification']" />
+                    <xsl:value-of select="$i18n-Identification"/>
                   </fo:block>
                 </fo:table-cell>
                 <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                  <xsl:apply-templates select="/ddi:codeBook/ddi:docDscr/ddi:citation/ddi:titlStmt/ddi:IDNo" />
+                  <xsl:apply-templates select="/codeBook/docDscr/citation/titlStmt/IDNo" />
                 </fo:table-cell>
               </fo:table-row>
             </xsl:if>
@@ -117,20 +119,20 @@
         </fo:table>
       </xsl:if>
 
-      <!-- $strings Acknowledgements -->
+      <!-- Acknowledgements -->
       <xsl:if test="normalize-space($report-acknowledgments)">
         <fo:block font-size="18pt" font-weight="bold" space-after="0.1in">
-          <xsl:value-of select="$strings/*/entry[@key='Acknowledgments']" />
+          <xsl:value-of select="$i18n-Acknowledgments"/>
         </fo:block>
         <fo:block font-size="10pt" space-after="0.2in">
           <xsl:value-of select="$report-acknowledgments" />
         </fo:block>
       </xsl:if>
 
-      <!-- $strings Notes -->
+      <!-- Notes -->
       <xsl:if test="normalize-space($report-notes)">
         <fo:block font-size="18pt" font-weight="bold" space-after="0.1in">
-          <xsl:value-of select="$strings/*/entry[@key='Notes']" />
+          <xsl:value-of select="$i18n-Notes"/>
         </fo:block>
         <fo:block font-size="10pt" space-after="0.2in">
           <xsl:value-of select="$report-notes" />

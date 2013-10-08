@@ -15,6 +15,8 @@
 <!-- trim, isodate-long -->
 
 <xsl:if test="$show-cover-page = 1"
+        version="2.0"
+        xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
@@ -48,7 +50,7 @@
         <!-- title -->
         <fo:block font-size="18pt" font-weight="bold" space-before="0.5in"
                   text-align="center" space-after="0.0in">
-          <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)" />
+          <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/titl)" />
         </fo:block>
         
         <!-- $report-title (actually report subtitle) -->
@@ -64,7 +66,7 @@
 
         <!-- responsible party -->
         <xsl:if test="$show-cover-page-producer = 1">
-          <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">
+          <xsl:for-each select="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">
             <fo:block font-size="14pt" font-weight="bold" space-before="0.0in" text-align="center" space-after="0.0in">
               <xsl:call-template name="trim">
                 <xsl:with-param name="s">
