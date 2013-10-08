@@ -1,38 +1,23 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi_match.xsl -->
+<!-- ================================== -->
+<!-- match: ddi:var (variables-list)    -->
+<!-- value: <xsl:if> <fo:table-row>     -->
+<!-- ================================== -->
 
-<!-- =============================== -->
-<!-- match: ddi:var / variables-list -->
-<!-- fo:table-row                    -->
-<!-- =============================== -->
+<!-- read: -->
+<!-- $fileId [param]                                            -->
+<!-- $subserVars, $color-white, $default-border, $cell-padding, -->
+<!-- $show-variables-list, $variable-name-length                -->
 
-<!--
-  parameters:
-  ($fileId)
+<!-- functions: -->
+<!-- concat(), contains(), count(), position(), normalize-space(), -->
+<!-- string-length(), substring() [xpath 1.0]                      -->
 
-  global vars read:
-  subserVars, color-white, default-border, cell-padding,
-  show-variables-list, variable-name-length
-
-  XPath 1.0 functions called:
-  concat(), contains(), count(), position(), normalize-space(),
-  string-length(), substring()
--->
-
-<!--
-    1: Variable Position          table-cell
-    2: Variable Name              table-cell
-    3: Variable Label             table-cell
-    4: Variable Type              table-cell
-    5: Variable Format            table-cell
-    6: Variable Valid             table-cell
-    7: Variable Invalid           table-cell
-    8: Variable Literal Question  table-cell
--->
-
-<xsl:template match="ddi:var" mode="variables-list"
+<xsl:template match="ddi:var"
+              mode="variables-list"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
     <!-- params -->
     <xsl:param name="fileId" select="./@files" /> <!-- (use first file in @files if not specified) -->
 

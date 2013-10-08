@@ -15,7 +15,6 @@
 <!-- trim, isodate-long -->
 
 <xsl:if test="$show-cover-page = 1"
-        version="2.0"
         xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">

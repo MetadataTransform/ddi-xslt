@@ -11,6 +11,7 @@
 <!-- string-length(), count() [xpath 1.0] -->
 
 <xsl:if test="$show-variable-groups = 1"
+        xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
@@ -23,7 +24,8 @@
     <!-- =========================================== -->
     <fo:static-content flow-name="before">
       <fo:block font-size="{$header-font-size}" text-align="center">
-        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl" /> -
+        <xsl:value-of select="/codeBook/stdyDscr/citation/titlStmt/titl" />
+        <xsl:text> - </xsl:text>
         <xsl:value-of select="$i18n-Variables_Groups" />
       </fo:block>
     </fo:static-content>
@@ -44,17 +46,17 @@
       <fo:block font-weight="bold">
         <xsl:value-of select="$i18n-Dataset_contains" />
         <xsl:text> </xsl:text>
-        <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp)" />
+        <xsl:value-of select="count(/codeBook/dataDscr/varGrp)" />
         <xsl:text> </xsl:text>
         <xsl:value-of select="$i18n-groups" />
-        <xsl:if test="string-length($subset-vars)&gt;0">
+        <xsl:if test="string-length($subset-vars) &gt; 0">
           <xsl:value-of select="$i18n-ShowingSubset" />
           <xsl:value-of select="$number-of-groups" />
         </xsl:if>
       </fo:block>
 
       <!-- the actual variable groups table -->
-      <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp" />
+      <xsl:apply-templates select="/codeBook/dataDscr/varGrp" />
 
     </fo:flow>
   </fo:page-sequence>

@@ -1,15 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- match: ddi:*|text() -->
-<!-- value: <fo:block> / [-] -->
-<!-- the default text -->
+<!-- ============================== -->
+<!-- match: ddi:*|text()            -->
+<!-- value: <fo:block>              -->
+<!-- ============================== -->
 
-<!--
-  Variables set:
-  trimmed
+<!-- set: -->
+<!-- $trimmed -->
 
-  Functions/templates called:
-  trim
--->
+<!-- called: -->
+<!-- trim -->
 
 <xsl:template match="ddi:*|text()"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

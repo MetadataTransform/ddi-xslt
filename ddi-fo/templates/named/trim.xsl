@@ -22,7 +22,8 @@
 
     <!-- perform trimming (from right)-->
     <xsl:call-template name="rtrim">
-      <xsl:with-param name="s" select="concat(substring(translate($s ,' &#x9;&#xA;&#xD;',''), 1, 1), substring-after($s, substring(translate($s, ' &#x9;&#xA;&#xD;', ''), 1, 1)))" />
+      <xsl:with-param name="s" select="concat(substring(translate($s ,' &#x9;&#xA;&#xD;',''), 1, 1),
+                                       substring-after($s, substring(translate($s, ' &#x9;&#xA;&#xD;', ''), 1, 1)))" />
     </xsl:call-template>
 
 </xsl:template>

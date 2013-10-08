@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- Match: ddi:AuthEnty -->
-<!-- Value: fo:block -->
+<!-- ========================= -->
+<!-- match: ddi:AuthEnty       -->
+<!-- value: <fo:block>         -->
+<!-- ========================= -->
 
-<!--
-  Functions/templates called:
-  trim
--->
+<!-- called: -->
+<!-- trim -->
 
 <xsl:template match="ddi:AuthEnty"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -15,12 +15,12 @@
 
     <!-- trim current node -->
     <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="."/>
+      <xsl:with-param name="s" select="." />
     </xsl:call-template>
 
     <!-- affiliation -->
     <xsl:if test="@affiliation">,
-      <xsl:value-of select="@affiliation"/>
+      <xsl:value-of select="@affiliation" />
     </xsl:if>
 
   </fo:block>

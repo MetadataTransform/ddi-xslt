@@ -20,11 +20,12 @@
 <!-- isodate-month -->
 
 <xsl:template name="isodate-long"
+              version="1.0"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
     <!-- params -->
-    <xsl:param name="isodate" select=" '2005-12-31' "/>
+    <xsl:param name="isodate" select="'2005-12-31'"/>
 
     <!-- variables -->
     <!-- determine name of month in date string -->

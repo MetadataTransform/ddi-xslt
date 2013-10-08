@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- Overview --><!-- =================================================================================== --><!-- Transforms DDI-XML into XSL-FO to produce study documentation in PDF format         --><!-- Developed for DDI documents produced by the International Household Survey Network  --><!-- Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and            --><!-- Central Survey Catalog (http://www.surveynetwork.org/surveys)                       --><!-- =================================================================================== --><!-- Authors --><!-- ==================================================== --><!-- Pascal Heus (pascal.heus@gmail.com)                  --><!-- Version: July 2006                                   --><!-- Platform: XSL 1.0, Apache FOP 0.20.5                 --><!--                                                      --><!-- Oistein Kristiansen (oistein.kristiansen@nsd.uib.no) --><!-- Version: 2010                                        --><!-- Updated for FOP 0.93 2010                            --><!--                                                      --><!-- Akira Olsbänning (akira.olsbanning@snd.gu.se)        --><!-- Current version (2012-2013)                          --><!-- ==================================================== --><!-- License --><!-- ================================================================================================ --><!-- Copyright 2006 Pascal Heus (pascal.heus@gmail.com)                                               --><!--                                                                                                  --><!-- This program is free software; you can redistribute it and/or modify it under the terms of the   --><!-- GNU Lesser General Public License as published by the Free Software Foundation; either version   --><!-- 2.1 of the License, or (at your option) any later version.                                       --><!--                                                                                                  --><!-- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;        --><!-- without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.        --><!-- See the GNU Lesser General Public License for more details.                                      --><!--                                                                                                  --><!-- The full text of the license is available at http://www.gnu.org/copyleft/lesser.html             --><!-- ================================================================================================ --><!-- References --><!-- ========================================================= --><!-- XSL-FO:                                                   --><!--   http://www.w3.org/Style/XSL/                            --><!--   http://www.w3schools.com/xslfo/xslfo_reference.asp      --><!--   http://www.xslfo.info/                                  --><!-- Apache FOP:                                               --><!--   http://xmlgraphics.apache.org/fop/                      --><!-- XSL-FO Tutorials:                                         --><!--   http://www.renderx.com/tutorial.html                    --><!--   http://www.antennahouse.com/XSLsample/XSLsample.htm     --><!-- String trimming:                                          --><!--  http://skew.org/xml                                      --><!-- ========================================================= --><!-- Changelog: --><!-- 2006-04: Added multilingual support and French translation --><!-- 2006-06: Added Spanish and new elements to match IHSN Template v1.2 --><!-- 2006-07: Minor fixes and typos --><!-- 2006-07: Added option parameters to hide producers in cover page and questions in variables list page --><!-- 2010-03: Made FOP 0.93 compatible --><!-- 2012-11-01: Broken up into parts using xsl:include --><!-- 2013-01-22: Changing the file names to match template names better --><!-- 2013-05-28: Using xincludes instead of xsl:includes --><!-- 2013-05-29: Including config in main file --><!-- Future changelogs can be read from the SVN repo at googlecode --><xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:ddi="http://www.icpsr.umich.edu/DDI" xmlns:n1="http://www.icpsr.umich.edu/DDI" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:date="http://exslt.org/dates-and-times" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:exsl="http://exslt.org/common" xmlns:math="http://exslt.org/math" xmlns:str="http://exslt.org/strings" xmlns:doc="http://www.icpsr.umich.edu/doc" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:fn="http://www.w3.org/2005/xpath-functions" version="1.0" extension-element-prefixes="date exsl str">
+<!-- Overview --><!-- =================================================================================== --><!-- Transforms DDI-XML into XSL-FO to produce study documentation in PDF format         --><!-- Developed for DDI documents produced by the International Household Survey Network  --><!-- Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and            --><!-- Central Survey Catalog (http://www.surveynetwork.org/surveys)                       --><!-- =================================================================================== --><!-- Authors --><!-- ==================================================== --><!-- Pascal Heus (pascal.heus@gmail.com)                  --><!-- Version: July 2006                                   --><!-- Platform: XSL 1.0, Apache FOP 0.20.5                 --><!--                                                      --><!-- Oistein Kristiansen (oistein.kristiansen@nsd.uib.no) --><!-- Version: 2010                                        --><!-- Updated for FOP 0.93 2010                            --><!--                                                      --><!-- Akira Olsbänning (akira.olsbanning@snd.gu.se)        --><!-- Current version (2012-2013)                          --><!-- ==================================================== --><!-- License --><!-- ================================================================================================ --><!-- Copyright 2006 Pascal Heus (pascal.heus@gmail.com)                                               --><!--                                                                                                  --><!-- This program is free software; you can redistribute it and/or modify it under the terms of the   --><!-- GNU Lesser General Public License as published by the Free Software Foundation; either version   --><!-- 2.1 of the License, or (at your option) any later version.                                       --><!--                                                                                                  --><!-- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;        --><!-- without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.        --><!-- See the GNU Lesser General Public License for more details.                                      --><!--                                                                                                  --><!-- The full text of the license is available at http://www.gnu.org/copyleft/lesser.html             --><!-- ================================================================================================ --><!-- References --><!-- ========================================================= --><!-- XSL-FO:                                                   --><!--   http://www.w3.org/Style/XSL/                            --><!--   http://www.w3schools.com/xslfo/xslfo_reference.asp      --><!--   http://www.xslfo.info/                                  --><!-- Apache FOP:                                               --><!--   http://xmlgraphics.apache.org/fop/                      --><!-- XSL-FO Tutorials:                                         --><!--   http://www.renderx.com/tutorial.html                    --><!--   http://www.antennahouse.com/XSLsample/XSLsample.htm     --><!-- String trimming:                                          --><!--  http://skew.org/xml                                      --><!-- ========================================================= --><!-- Changelog: --><!-- 2006-04: Added multilingual support and French translation --><!-- 2006-06: Added Spanish and new elements to match IHSN Template v1.2 --><!-- 2006-07: Minor fixes and typos --><!-- 2006-07: Added option parameters to hide producers in cover page and questions in variables list page --><!-- 2010-03: Made FOP 0.93 compatible --><!-- 2012-11-01: Broken up into parts using xsl:include --><!-- 2013-01-22: Changing the file names to match template names better --><!-- 2013-05-28: Using xincludes instead of xsl:includes --><!-- 2013-05-29: Including config in main file --><!-- Future changelogs can be read from the SVN repo at googlecode --><xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:ddi="http://www.icpsr.umich.edu/DDI" xmlns:n1="http://www.icpsr.umich.edu/DDI" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:date="http://exslt.org/dates-and-times" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:exsl="http://exslt.org/common" xmlns:math="http://exslt.org/math" xmlns:str="http://exslt.org/strings" xmlns:doc="http://www.icpsr.umich.edu/doc" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:fn="http://www.w3.org/2005/xpath-functions" version="2.0" extension-element-prefixes="date exsl str">
 
-  <xsl:output version="1.0" method="xml" encoding="UTF-8" indent="no" omit-xml-declaration="no"/>
+  <xsl:output method="xml" encoding="UTF-8" indent="no" omit-xml-declaration="no"/>
 
   <!-- functions: -->
   <!-- count(), normalize-space(), position(), substring() [Xpath 1.0] -->
@@ -295,6 +295,7 @@
   <xsl:variable name="i18n-Data_Processing_Notes" select="$strings/*/entry[@key='Data_Collection']"/>
   <xsl:variable name="i18n-Data_Processing_and_Appraisal" select="$strings/*/entry[@key='Data_Processing_and_Appraisal']"/>
   <xsl:variable name="i18n-Dataset_contains" select="$strings/*/entry[@key='Dataset_contains']"/>
+  <xsl:variable name="i18n-Definition" select="$strings/*/entry[@key='Definitions']"/>
   <xsl:variable name="i18n-Depositors" select="$strings/*/entry[@key='Depositors']"/>
   <xsl:variable name="i18n-Deviations_from_Sample_Design" select="$strings/*/entry[@key='Deviations_from_Sample_Design']"/>
   <xsl:variable name="i18n-Distributors" select="$strings/*/entry[@key='Distributors']"/>
@@ -304,13 +305,16 @@
   <xsl:variable name="i18n-Files_Description" select="$strings/*/entry[@key='Files_Description']"/>
   <xsl:variable name="i18n-Funding_Agencies" select="$strings/*/entry[@key='Funding_Agencies']"/>
   <xsl:variable name="i18n-Geographic_Coverage" select="$strings/*/entry[@key='Geographic_Coverage']"/>
+  <xsl:variable name="i18n-Group" select="$strings/*/entry[@key='Group']"/>
   <xsl:variable name="i18n-groups" select="$strings/*/entry[@key='groups']"/>
   <xsl:variable name="i18n-Identification" select="$strings/*/entry[@key='Identification']"/>
   <xsl:variable name="i18n-Information" select="$strings/*/entry[@key='Information']"/>
   <xsl:variable name="i18n-Keywords" select="$strings/*/entry[@key='Keywords']"/>
   <xsl:variable name="i18n-Kind_of_Data" select="$strings/*/entry[@key='Kind_of_Data']"/>
+  <xsl:variable name="i18n-Label" select="$strings/*/entry[@key='Label']"/>
   <xsl:variable name="i18n-Metadata_Production" select="$strings/*/entry[@key='Metadata_Production']"/>
   <xsl:variable name="i18n-Metadata_Producers" select="$strings/*/entry[@key='Metadata_Producers']"/>
+  <xsl:variable name="i18n-Name" select="$strings/*/entry[@key='Name']"/>
   <xsl:variable name="i18n-Notes" select="$strings/*/entry[@key='Notes']"/>
   <xsl:variable name="i18n-Other_Acknowledgements" select="$strings/*/entry[@key='Other_Acknowledgements']"/>
   <xsl:variable name="i18n-Other_Forms_of_Data_Appraisal" select="$strings/*/entry[@key='Other_Forms_of_Data_Appraisal']"/>
@@ -320,6 +324,7 @@
   <xsl:variable name="i18n-Primary_Investigators" select="$strings/*/entry[@key='Primary_Investigators']"/> 
   <xsl:variable name="i18n-Producers_and_Sponsors" select="$strings/*/entry[@key='Producers_and_Sponsors']"/>
   <xsl:variable name="i18n-Production_Date" select="$strings/*/entry[@key='Production_Date']"/>
+  <xsl:variable name="i18n-Question" select="$strings/*/entry[@key='Question']"/>
   <xsl:variable name="i18n-Questionnaires" select="$strings/*/entry[@key='Questionnaires']"/>
   <xsl:variable name="i18n-Response_Rate" select="$strings/*/entry[@key='Response_Rate']"/>
   <xsl:variable name="i18n-Rights_and_Disclaimer" select="$strings/*/entry[@key='Rights_and_Disclaimer']"/>
@@ -329,6 +334,7 @@
   <xsl:variable name="i18n-Scope_and_Coverage" select="$strings/*/entry[@key='Scope_and_Coverage']"/>
   <xsl:variable name="i18n-Series" select="$strings/*/entry[@key='Series']"/>
   <xsl:variable name="i18n-ShowingSubset" select="$strings/*/entry[@key='ShowingSubset']"/>
+  <xsl:variable name="i18n-Subgroups" select="$strings/*/entry[@key='Subgroups']"/>
   <xsl:variable name="i18n-Supervision" select="$strings/*/entry[@key='Supervision']"/>
   <xsl:variable name="i18n-Table_of_Contents" select="$strings/*/entry[@key='Table_of_Contents']"/>
   <xsl:variable name="i18n-Time_Periods" select="$strings/*/entry[@key='Time_Periods']"/>
@@ -578,7 +584,7 @@
 
   </fo:bookmark-tree>
 </xsl:if>
-    <!-- ========================= --><!-- <xsl:if> cover page       --><!-- value: <fo:page-sequence> --><!-- ========================= --><!-- read: --><!-- show-logo, show-geography, show-cover-page-producer, --><!-- show-report-subtitle                                 --><!-- functions: --><!-- normalize-space() [Xpath 1.0] --><!-- called: --><!-- trim, isodate-long --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 1" version="2.0" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/cover_page.xsl">
+    <!-- ========================= --><!-- <xsl:if> cover page       --><!-- value: <fo:page-sequence> --><!-- ========================= --><!-- read: --><!-- show-logo, show-geography, show-cover-page-producer, --><!-- show-report-subtitle                                 --><!-- functions: --><!-- normalize-space() [Xpath 1.0] --><!-- called: --><!-- trim, isodate-long --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/cover_page.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="Helvetica" font-size="{$font-size}">
 
@@ -639,7 +645,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ================================================= --><!-- <xsl:if> metadata information                     --><!-- value: <fo:page-sequence>                         --><!-- ================================================= --><!-- read: --><!-- $strings, $font-family, $show-metadata-production, --><!-- $default-border, $cell-padding                     --><!-- functions: --><!-- boolean(), normalize-space() [Xpath 1.0] --><!-- proportional-column-width() [FO]         --><!-- called: --><!-- isodate-long --><!-- Metadata production        [table]      --><!--   Metadata producers       [table-row]  --><!--   Metadata Production Date [table-row]  --><!--   Metadata Version         [table-row]  --><!--   Metadata ID              [table-row]  --><!--   Spacer                   [table-row]  --><!-- Report Acknowledgements    [block]      --><!-- Report Notes               [block]      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 1" version="2.0" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/metadata_information.xsl">
+    <!-- ================================================= --><!-- <xsl:if> metadata information                     --><!-- value: <fo:page-sequence>                         --><!-- ================================================= --><!-- read: --><!-- $strings, $font-family, $show-metadata-production, --><!-- $default-border, $cell-padding                     --><!-- functions: --><!-- boolean(), normalize-space() [Xpath 1.0] --><!-- proportional-column-width() [FO]         --><!-- called: --><!-- isodate-long --><!-- Metadata production        [table]      --><!--   Metadata producers       [table-row]  --><!--   Metadata Production Date [table-row]  --><!--   Metadata Version         [table-row]  --><!--   Metadata ID              [table-row]  --><!--   Spacer                   [table-row]  --><!-- Report Acknowledgements    [block]      --><!-- Report Notes               [block]      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/metadata_information.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -749,7 +755,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ============================================== --><!-- <xsl:if> table of contents                     --><!-- value: <fo:page-sequence>                      --><!-- ============================================== --><!-- read: --><!-- $font-family, $strings, $show-overview, $show-scope-and-coverage,   --><!-- $show-producers-and-sponsors, $show-sampling, $show-data-collection --><!-- $show-data-processing-and-appraisal, $show-accessibility,           --><!-- $show-rights-and-disclaimer, $show-files-description,               --><!-- $show-variables-list, $show-variable-groups, $subset-groups         --><!-- functions: --><!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] --><!--  Overview                      [block] --><!--  Scope and Coverage            [block] --><!--  Producers and Sponsors        [block] --><!--  Sampling                      [block] --><!--  Data Collection               [block] --><!--  Data Processing and Appraisal [block] --><!--  Accessibility                 [block] --><!--  Rights and Disclaimer         [block] --><!--  Files and Description         [block] --><!--  Variables List                [block] --><!--  Variable Groups               [block] --><!--  Variables Description         [block] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 1" xml:base="root_template_xincludes/table_of_contents.xsl">
+    <!-- ============================================== --><!-- <xsl:if> table of contents                     --><!-- value: <fo:page-sequence>                      --><!-- ============================================== --><!-- read: --><!-- $font-family, $strings, $show-overview, $show-scope-and-coverage,   --><!-- $show-producers-and-sponsors, $show-sampling, $show-data-collection --><!-- $show-data-processing-and-appraisal, $show-accessibility,           --><!-- $show-rights-and-disclaimer, $show-files-description,               --><!-- $show-variables-list, $show-variable-groups, $subset-groups         --><!-- functions: --><!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/table_of_contents.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -868,12 +874,12 @@
               <fo:page-number-citation ref-id="files-description"/>
             </fo:basic-link>
 
-            <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
+            <xsl:for-each select="/codeBook/fileDscr">
               <fo:block margin-left="0.7in" font-size="{$font-size}" text-align-last="justify">
-                <fo:basic-link internal-destination="file-{ddi:fileTxt/ddi:fileName/@ID}" text-decoration="underline" color="blue">
-                  <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+                <fo:basic-link internal-destination="file-{fileTxt/fileName/@ID}" text-decoration="underline" color="blue">
+                  <xsl:apply-templates select="fileTxt/fileName"/>
                   <fo:leader leader-pattern="dots"/>
-                  <fo:page-number-citation ref-id="file-{ddi:fileTxt/ddi:fileName/@ID}"/>
+                  <fo:page-number-citation ref-id="file-{fileTxt/fileName/@ID}"/>
                 </fo:basic-link>
               </fo:block>
             </xsl:for-each>
@@ -890,12 +896,12 @@
               <fo:leader leader-pattern="dots"/>
               <fo:page-number-citation ref-id="variables-list"/>
             </fo:basic-link>
-            <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
+            <xsl:for-each select="/codeBook/fileDscr">
               <fo:block margin-left="0.7in" font-size="{$font-size}" text-align-last="justify">
-                <fo:basic-link internal-destination="varlist-{ddi:fileTxt/ddi:fileName/@ID}" text-decoration="underline" color="blue">
-                  <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+                <fo:basic-link internal-destination="varlist-{fileTxt/fileName/@ID}" text-decoration="underline" color="blue">
+                  <xsl:apply-templates select="fileTxt/fileName"/>
                   <fo:leader leader-pattern="dots"/>
-                  <fo:page-number-citation ref-id="varlist-{ddi:fileTxt/ddi:fileName/@ID}"/>
+                  <fo:page-number-citation ref-id="varlist-{fileTxt/fileName/@ID}"/>
                 </fo:basic-link>
               </fo:block>
             </xsl:for-each>
@@ -911,12 +917,12 @@
               <fo:page-number-citation ref-id="variables-groups"/>
             </fo:basic-link>
 
-            <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp">
+            <xsl:for-each select="/codeBook/dataDscr/varGrp">
               <!-- Show group if its part of subset OR no subset is defined -->
               <xsl:if test="contains($subset-groups, concat(',' ,@ID, ',')) or string-length($subset-groups) = 0">
                 <fo:block margin-left="0.7in" font-size="{$font-size}" text-align-last="justify">
                   <fo:basic-link internal-destination="vargrp-{@ID}" text-decoration="underline" color="blue">
-                    <xsl:value-of select="normalize-space(ddi:labl)"/>
+                    <xsl:value-of select="normalize-space(labl)"/>
                     <fo:leader leader-pattern="dots"/>
                     <fo:page-number-citation ref-id="vargrp-{@ID}"/>
                   </fo:basic-link>
@@ -936,12 +942,12 @@
               <fo:page-number-citation ref-id="variables-description"/>
             </fo:basic-link>
 
-            <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
+            <xsl:for-each select="/codeBook/fileDscr">
               <fo:block margin-left="0.7in" font-size="{$font-size}" text-align-last="justify">
-                <fo:basic-link internal-destination="vardesc-{ddi:fileTxt/ddi:fileName/@ID}" text-decoration="underline" color="blue">
-                  <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+                <fo:basic-link internal-destination="vardesc-{fileTxt/fileName/@ID}" text-decoration="underline" color="blue">
+                  <xsl:apply-templates select="fileTxt/fileName"/>
                   <fo:leader leader-pattern="dots"/>
-                  <fo:page-number-citation ref-id="vardesc-{ddi:fileTxt/ddi:fileName/@ID}"/>
+                  <fo:page-number-citation ref-id="vardesc-{fileTxt/fileName/@ID}"/>
                 </fo:basic-link>
               </fo:block>
             </xsl:for-each>
@@ -953,7 +959,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- =========================================== --><!-- <xsl:if> overview                           --><!-- value: <fo:page-sequence>                   --><!-- =========================================== --><!-- read: --><!-- $strings, $report-start-page-number, $font-family, $color-gray3   --><!-- $default-border, $cell-padding, $survey-title, $color-gray1, $time --><!-- functions: --><!-- nomalize-space(), position() [Xpath] --><!-- proportional-column-width() [FO] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-overview = 1" xml:base="root_template_xincludes/overview.xsl">
+    <!-- =========================================== --><!-- <xsl:if> overview                           --><!-- value: <fo:page-sequence>                   --><!-- =========================================== --><!-- read: --><!-- $strings, $report-start-page-number, $font-family, $color-gray3   --><!-- $default-border, $cell-padding, $survey-title, $color-gray1, $time --><!-- functions: --><!-- nomalize-space(), position() [Xpath] --><!-- proportional-column-width() [FO] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-overview = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/overview.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" initial-page-number="{$report-start-page-number}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -963,7 +969,8 @@
 
     <fo:static-content flow-name="before">
       <fo:block font-size="{$header-font-size}" text-align="center">
-        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
+        <xsl:value-of select="/codeBook/stdyDscr/citation/titlStmt/titl"/>
+        <xsl:text> - </xsl:text>
         <xsl:value-of select="$i18n-Overview"/>
       </fo:block>
     </fo:static-content>
@@ -993,9 +1000,9 @@
               </fo:block>
 
               <!-- parTitl -->
-              <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:parTitl">
+              <xsl:if test="/codeBook/stdyDscr/citation/titlStmt/parTitl">
                 <fo:block font-size="12pt" font-weight="bold" font-style="italic">
-                  <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:parTitl"/>
+                  <xsl:value-of select="/codeBook/stdyDscr/citation/titlStmt/parTitl"/>
                 </fo:block>
               </xsl:if>
 
@@ -1023,7 +1030,7 @@
           </fo:table-row>
 
           <!-- Type  -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serName">
+          <xsl:if test="/codeBook/stdyDscr/citation/serStmt/serName">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1031,13 +1038,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serName"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/serStmt/serName"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Identification -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:IDNo">
+          <xsl:if test="/codeBook/stdyDscr/citation/titlStmt/IDNo">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1045,13 +1052,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:IDNo"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/titlStmt/IDNo"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Version -->
-          <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:verStmt/ddi:version">
+          <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/version">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1062,7 +1069,7 @@
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
 
                 <!-- 5.1) Production_Date -->
-                <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:verStmt/ddi:version">
+                <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/version">
                   <xsl:if test="@date">
                     <fo:block>
                       <xsl:value-of select="$i18n-Production_Date"/>:
@@ -1073,7 +1080,7 @@
                 </xsl:for-each>
 
                 <!-- 5.2) Notes -->
-                <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:verStmt/ddi:notes">
+                <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/notes">
                   <fo:block text-decoration="underline">
                     <xsl:value-of select="$i18n-Notes"/>
                   </fo:block>
@@ -1085,7 +1092,7 @@
           </xsl:for-each>
 
           <!-- Series -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serInfo">
+          <xsl:if test="/codeBook/stdyDscr/citation/serStmt/serInfo">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1093,25 +1100,25 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serInfo"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/serStmt/serInfo"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Abstract -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:abstract">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/abstract">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Abstract"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:abstract"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/abstract"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Kind_of_Data -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:dataKind">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/dataKind">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1119,13 +1126,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:dataKind"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/dataKind"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Unit_of_Analysis  -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:anlyUnit">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/anlyUnit">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1133,7 +1140,7 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:anlyUnit"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/anlyUnit"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -1161,19 +1168,19 @@
           </xsl:if>
 
           <!-- Scope -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:notes">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/notes">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                    <xsl:value-of select="$i18n-Scope"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:notes"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/notes"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Keywords -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:keyword">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/subject/keyword">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1182,7 +1189,7 @@
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:keyword">
+                  <xsl:for-each select="/codeBook/stdyDscr/stdyInfo/subject/keyword">
                     <xsl:if test="position()&gt;1">, </xsl:if>
                     <xsl:value-of select="normalize-space(.)"/>
                   </xsl:for-each>
@@ -1192,7 +1199,7 @@
           </xsl:if>
 
           <!-- Topics -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:topcClas">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/subject/topcClas">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1201,7 +1208,7 @@
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:topcClas">
+                  <xsl:for-each select="/codeBook/stdyDscr/stdyInfo/subject/topcClas">
                     <xsl:if test="position()&gt;1">, </xsl:if>
                     <xsl:value-of select="normalize-space(.)"/>
                   </xsl:for-each>
@@ -1251,25 +1258,25 @@
           </fo:table-row>
 
           <!-- Geographic_Coverage -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:geogCover">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/geogCover">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Geographic_Coverage"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:geogCover"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/geogCover"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Universe -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:universe">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/universe">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Universe"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:universe"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/universe"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -1297,7 +1304,7 @@
           </xsl:if>
 
           <!-- Primary Investigator(s) -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">
+          <xsl:if test="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1305,13 +1312,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/rspStmt/AuthEnty"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
-          <!-- Other Producer(s) -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:producer">
+          <!-- Other_Producers -->
+          <xsl:if test="/codeBook/stdyDscr/citation/prodStmt/producer">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1319,13 +1326,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:producer"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/prodStmt/producer"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Funding_Agencies -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:fundAg">
+          <xsl:if test="/codeBook/stdyDscr/citation/prodStmt/fundAg">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1333,13 +1340,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:fundAg"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/prodStmt/fundAg"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Other Acknowledgements -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:othId">
+          <xsl:if test="/codeBook/stdyDscr/citation/rspStmt/othId">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1347,7 +1354,7 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:othId"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/rspStmt/othId"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -1375,49 +1382,49 @@
           </xsl:if>
 
           <!-- Sampling_Procedure -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:sampProc">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/sampProc">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Sampling_Procedure"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:sampProc"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/sampProc"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Deviations_from_Sample_Design -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:deviat">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/deviat">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Deviations_from_Sample_Design"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:deviat"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/deviat"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Response_Rate -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:respRate">
+          <xsl:if test="/codeBook/stdyDscr/method/anlyInfo/respRate">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Response_Rate"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:respRate"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/anlyInfo/respRate"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Weighting -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:weight">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/weight">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Weighting"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:weight"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/weight"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -1445,7 +1452,7 @@
           </xsl:if>
 
           <!-- Data Collection Dates -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/collDate">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1453,13 +1460,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/collDate"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Time Periods -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1467,13 +1474,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data_Collection_Mode -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collMode">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/collMode">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1481,73 +1488,73 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collMode"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/collMode"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data_Collection_Notes -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']">
+          <xsl:if test="/codeBook/stdyDscr/method/notes[@subject='collection']">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Data_Collection_Notes"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject='collection']"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data_Processing_Notes -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='processing']">
+          <xsl:if test="/codeBook/stdyDscr/method/notes[@subject='processing']">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                    <xsl:value-of select="$i18n-Data_Processing_Notes"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject='collection']"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data_Cleaning_Notes -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='cleaning']">
+          <xsl:if test="/codeBook/stdyDscr/method/notes[@subject='cleaning']">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Data_Cleaning_Notes"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject='collection']"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data_Collection_Notes -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collSitu">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/collSitu">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                    <xsl:value-of select="$i18n-Data_Collection_Notes"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collSitu"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/collSitu"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Questionnaires -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:resInstru">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/resInstru">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Questionnaires"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:resInstru"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/resInstru"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data_Collectors -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:dataCollector">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/dataCollector">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1555,19 +1562,19 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:dataCollector"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/dataCollector"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Supervision -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:actMin">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/actMin">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Supervision"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:actMin"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/actMin"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -1595,49 +1602,49 @@
           </xsl:if>
 
           <!-- Data_Editing -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:cleanOps">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/cleanOps">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Data_Editing"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:cleanOps"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/cleanOps"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Other_Processing -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes">
+          <xsl:if test="/codeBook/stdyDscr/method/notes">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Other_Processing"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Estimates_of_Sampling_Error -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:EstSmpErr">
+          <xsl:if test="/codeBook/stdyDscr/method/anlyInfo/EstSmpErr">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Estimates_of_Sampling_Error"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:EstSmpErr"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/anlyInfo/EstSmpErr"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Other_Forms_of_Data_Appraisal -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:dataAppr">
+          <xsl:if test="/codeBook/stdyDscr/method/anlyInfo/dataAppr">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                    <xsl:value-of select="$i18n-Other_Forms_of_Data_Appraisal"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:dataAppr"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/anlyInfo/dataAppr"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -1665,7 +1672,7 @@
           </xsl:if>
 
           <!-- Access Authority -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:contact">
+          <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/contact">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1673,13 +1680,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:contact"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/contact"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Contacts -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:contact">
+          <xsl:if test="/codeBook/stdyDscr/citation/distStmt/contact">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1687,13 +1694,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:contact"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/distStmt/contact"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Distributors -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:distrbtr">
+          <xsl:if test="/codeBook/stdyDscr/citation/distStmt/distrbtr">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1701,13 +1708,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:distrbtr"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/distStmt/distrbtr"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Depositors (DDP) -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:depositr">
+          <xsl:if test="/codeBook/stdyDscr/citation/distStmt/depositr">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1715,43 +1722,43 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:depositr"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/distStmt/depositr"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Confidentiality -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:confDec">
+          <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/confDec">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Confidentiality"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:confDec"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/confDec"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Access Conditions -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:conditions">
+          <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/conditions">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Access_Conditions"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:conditions"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/conditions"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Citation Requierments -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:citReq">
+          <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/citReq">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                    <xsl:value-of select="$i18n-Citation_Requirements"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:citReq"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/citReq"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -1779,19 +1786,19 @@
           </xsl:if>
 
           <!-- Disclaimer -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:disclaimer">
+          <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/disclaimer">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Disclaimer"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:disclaimer"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/disclaimer"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Copyright -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:copyright">
+          <xsl:if test="/codeBook/stdyDscr/citation/prodStmt/copyright">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -1799,7 +1806,7 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:copyright"/>
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/prodStmt/copyright"/>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -1809,7 +1816,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ============================= --><!-- <xsl:if> files description    --><!-- value: <fo:page-sequence>     --><!-- ============================= --><!-- read: --><!-- $page-layout, $strings, $font-family, $font-size, $header-font-size --><!-- functions --><!-- count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-files-description = 1" version="2.0" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/files_description.xsl">
+    <!-- ============================= --><!-- <xsl:if> files description    --><!-- value: <fo:page-sequence>     --><!-- ============================= --><!-- read: --><!-- $page-layout, $strings, $font-family, $font-size, $header-font-size --><!-- functions --><!-- count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-files-description = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/files_description.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -1845,7 +1852,7 @@
       </fo:block>
 
       <!-- fileDscr -->
-      <xsl:apply-templates select="/ddi:codeBook/ddi:fileDscr"/>
+      <xsl:apply-templates select="/codeBook/fileDscr"/>
 
     </fo:flow>
   </fo:page-sequence>
@@ -1891,7 +1898,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ================================================ --><!-- <xsl:if> variable groups                         --><!-- value: <fo:page-sequence>                        --><!-- ================================================ --><!-- read: --><!-- $strings, $font-family, $number-of-groups --><!-- functions: --><!-- string-length(), count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 1" xml:base="root_template_xincludes/variable_groups.xsl">
+    <!-- ================================================ --><!-- <xsl:if> variable groups                         --><!-- value: <fo:page-sequence>                        --><!-- ================================================ --><!-- read: --><!-- $strings, $font-family, $number-of-groups --><!-- functions: --><!-- string-length(), count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/variable_groups.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
     
@@ -1900,7 +1907,8 @@
     <!-- =========================================== -->
     <fo:static-content flow-name="before">
       <fo:block font-size="{$header-font-size}" text-align="center">
-        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
+        <xsl:value-of select="/codeBook/stdyDscr/citation/titlStmt/titl"/>
+        <xsl:text> - </xsl:text>
         <xsl:value-of select="$i18n-Variables_Groups"/>
       </fo:block>
     </fo:static-content>
@@ -1921,17 +1929,17 @@
       <fo:block font-weight="bold">
         <xsl:value-of select="$i18n-Dataset_contains"/>
         <xsl:text> </xsl:text>
-        <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp)"/>
+        <xsl:value-of select="count(/codeBook/dataDscr/varGrp)"/>
         <xsl:text> </xsl:text>
         <xsl:value-of select="$i18n-groups"/>
-        <xsl:if test="string-length($subset-vars)&gt;0">
+        <xsl:if test="string-length($subset-vars) &gt; 0">
           <xsl:value-of select="$i18n-ShowingSubset"/>
           <xsl:value-of select="$number-of-groups"/>
         </xsl:if>
       </fo:block>
 
       <!-- the actual variable groups table -->
-      <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp"/>
+      <xsl:apply-templates select="/codeBook/dataDscr/varGrp"/>
 
     </fo:flow>
   </fo:page-sequence>
@@ -1945,7 +1953,8 @@
     <!-- =========================================== -->
     <fo:static-content flow-name="before">
       <fo:block font-size="{$header-font-size}" text-align="center">
-        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
+        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/>
+        <xsl:text> - </xsl:text>
         <xsl:value-of select="$i18n-Variables_Description"/>
       </fo:block>
     </fo:static-content>
@@ -1984,10 +1993,7 @@
   </fo:root>
 
 </xsl:template>
-  <!-- Match: ddi:AuthEnty --><!-- Value: fo:block --><!--
-  Functions/templates called:
-  trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:AuthEnty" xml:base="templates/match/ddi-AuthEnty.xsl">
+  <!-- ========================= --><!-- match: ddi:AuthEnty       --><!-- value: <fo:block>         --><!-- ========================= --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:AuthEnty" xml:base="templates/match/ddi-AuthEnty.xsl">
 
   <fo:block>
 
@@ -2003,7 +2009,7 @@
 
   </fo:block>
 </xsl:template>
-  <!-- match: ddi:collDate --><!-- value: fo:block --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:collDate" xml:base="templates/match/ddi-collDate.xsl">
+  <!-- ============================ --><!-- match: ddi:collDate          --><!-- value: <fo:block>            --><!-- ============================ --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:collDate" xml:base="templates/match/ddi-collDate.xsl">
 
     <fo:block>
 
@@ -2025,10 +2031,7 @@
     </fo:block>
 
 </xsl:template>
-  <!-- match: ddi:contact --><!-- value: fo:block --><!--
-  Functions/templates called:
-  url() [FO]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:contact" xml:base="templates/match/ddi-contact.xsl">
+  <!-- ========================= --><!-- match: ddi:contact        --><!-- value: <fo:block>         --><!-- ========================= --><!-- functions: --><!-- url() [FO] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:contact" xml:base="templates/match/ddi-contact.xsl">
 
     <fo:block>
 
@@ -2057,10 +2060,7 @@
     </fo:block>
 
 </xsl:template>
-  <!-- match: ddi:dataCollector --><!-- value: <fo:block> --><!--
-  Functions/templates called:
-  trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:dataCollector" xml:base="templates/match/ddi-dataCollector.xsl">
+  <!-- ============================== --><!-- match: ddi:dataCollector       --><!-- value: <fo:block>              --><!-- ============================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:dataCollector" xml:base="templates/match/ddi-dataCollector.xsl">
 
   <fo:block>
 
@@ -2071,7 +2071,9 @@
 
     <!-- abbr -->
     <xsl:if test="@abbr">
-      (<xsl:value-of select="@abbr"/>)
+      <xsl:text>(</xsl:text>
+      <xsl:value-of select="@abbr"/>
+      <xsl:text>)</xsl:text>
     </xsl:if>
 
     <!-- affiliation -->
@@ -2082,13 +2084,7 @@
   </fo:block>
 
 </xsl:template>
-  <!-- match: ddi:*|text() --><!-- value: <fo:block> / [-] --><!-- the default text --><!--
-  Variables set:
-  trimmed
-
-  Functions/templates called:
-  trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:*|text()" xml:base="templates/match/ddi_default_text.xsl">
+  <!-- ============================== --><!-- match: ddi:*|text()            --><!-- value: <fo:block>              --><!-- ============================== --><!-- set: --><!-- $trimmed --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:*|text()" xml:base="templates/match/ddi_default_text.xsl">
 
   <!-- variables -->
   <xsl:variable name="trimmed">
@@ -2103,28 +2099,7 @@
   </fo:block>
 
 </xsl:template>
-  <!-- match: ddi:fileDsrc / default --><!-- value: <fo:table> --><!--
-  Variables read:
-  msg, color-gray1, default-border, cell-padding
-
-  Variables set:
-  fileId, list
-
-  Functions/templates called:
-  concat(), contains(), normalize-space(), position() [Xpath 1.0]
-  proportional-column-width() [FO]
---><!--
-  1: Filename                 [table-row]
-  2: Cases                    [table-row]
-  3: Variables                [table-row]
-  4: File Structure           [table-row]
-  5: File Content             [table-row]
-  6: File Producer            [table-row]
-  7: File Version             [table-row]
-  8: File Processing Checks   [table-row]
-  9: File Missing Data        [table-row]
-  10: File Notes              [table-row]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" xml:base="templates/match/ddi-fileDscr.xsl">
+  <!-- =========================== --><!-- match: ddi:fileDsrc         --><!-- value: <fo:table>           --><!-- =========================== --><!-- read: --><!-- $strings, $color-gray1, $default-border, $cell-padding --><!-- set: --><!-- $fileId, $list --><!-- functions: --><!-- concat(), contains(), normalize-space(), position() [Xpath 1.0] --><!-- proportional-column-width() [FO] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" xml:base="templates/match/ddi-fileDscr.xsl">
 
     <!-- ===================== -->
     <!-- variables             -->
@@ -2306,22 +2281,7 @@
     </fo:table>
 
 </xsl:template>
-  <!-- =========================================== --><!-- match: ddi:fileDsrc / variables-description --><!-- fo:page-sequence (multiple)                 --><!-- =========================================== --><!--
-  global vars read:
-  $strings, $chunk-size, $font-family, $default-border
-
-  local vars set:
-  $fileId, $fileName
-
-  XPath 1.0 functions called:
-  position()
-
-  FO functions called:
-  proportional-column-width()
-
-  templates called:
-  [footer]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" mode="variables-description" xml:base="templates/match/ddi-fileDscr_variables-description.xsl">
+  <!-- =========================================== --><!-- match: ddi:fileDsrc (variables-description) --><!-- value: <xsl:for-each> <fo:page-sequence>    --><!-- =========================================== --><!-- read: --><!-- $strings, $chunk-size, $font-family, $default-border --><!-- set: --><!-- $fileId, $fileName --><!-- functions: --><!-- position() [xpath 1.0] --><!-- proportional-column-width() [fo] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" mode="variables-description" xml:base="templates/match/ddi-fileDscr_variables-description.xsl">
 
     <!-- ================== -->
     <!-- variables          -->
@@ -2419,16 +2379,7 @@
     </xsl:for-each>
 
 </xsl:template>
-  <!-- Match: ddi:fileDsrc / variables-list  --><!-- Value: fo:table --><!--
-    Variables read:
-    msg, default-border, cell-padding
-
-    Variables set:
-    fileId
-
-    Functions/templates called:
-    variables-table-col-width, variables-table-col-header
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" mode="variables-list" xml:base="templates/match/ddi-fileDscr_variables-list.xsl">
+  <!-- ===================================== --><!-- match: ddi:fileDsrc (variables-list)  --><!-- Value: <fo:table>                     --><!-- ===================================== --><!-- read: --><!-- $strings, $default-border, $cell-padding --><!-- set: --><!-- $fileId --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" mode="variables-list" xml:base="templates/match/ddi-fileDscr_variables-list.xsl">
 
   <!-- variables -->
   <xsl:variable name="fileId">
@@ -2548,13 +2499,7 @@
     </fo:table>
 
 </xsl:template>
-  <!-- Match: ddi:fileName --><!-- Value: filename minus .NSDstat extension --><!--
-  Variables set:
-  filename
-
-  Functions/templates called:
-  contains(), normalize-space(), string-length(), substring()
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileName" xml:base="templates/match/ddi-fileName.xsl">
+  <!-- ==================================================== --><!-- match: ddi:fileName                                  --><!-- value: string (filename minus .NSDstat extension)    --><!-- ==================================================== --><!-- set: --><!-- $filename --><!-- functions: --><!-- contains(), normalize-space(), string-length(), substring() [xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileName" xml:base="templates/match/ddi-fileName.xsl">
 
     <!-- variables -->
     <xsl:variable name="filename" select="normalize-space(.)"/>
@@ -2575,10 +2520,7 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- Match: ddi:fundAg --><!-- Value: <fo:block> --><!--
-  Functions/templates called:
-  trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fundAg" xml:base="templates/match/ddi-fundAg.xsl">
+  <!-- ========================== --><!-- match: ddi:fundAg          --><!-- value: <fo:block>          --><!-- ========================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fundAg" xml:base="templates/match/ddi-fundAg.xsl">
 
   <fo:block>
 
@@ -2600,10 +2542,7 @@
   </fo:block>
 
 </xsl:template>
-  <!-- Match: ddi:IDNo --><!-- Value: <fo:block> --><!--
-  Functions/templates called:
-  trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:IDNo" xml:base="templates/match/ddi-IDNo.xsl">
+  <!-- ==================== --><!-- match: ddi:IDNo      --><!-- value: <fo:block>    --><!-- ==================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:IDNo" xml:base="templates/match/ddi-IDNo.xsl">
 
   <fo:block>
 
@@ -2620,10 +2559,7 @@
   </fo:block>
 
 </xsl:template>
-  <!-- Match: ddi:othId --><!-- Value: <fo:block> --><!--
-  Functions/templates called:
-  trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:othId" xml:base="templates/match/ddi-othId.xsl">
+  <!-- =================== --><!-- match: ddi:othId    --><!-- value: <fo:block>   --><!-- =================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:othId" xml:base="templates/match/ddi-othId.xsl">
 
   <fo:block>
 
@@ -2645,10 +2581,7 @@
   </fo:block>
 
 </xsl:template>
-  <!-- Match: ddi:producer --><!-- Value: <fo:block> --><!--
-  Functions/templates called:
-  trim
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:producer" xml:base="templates/match/ddi-producer.xsl">
+  <!-- ========================== --><!-- match: ddi:producer        --><!-- value: <fo:block>          --><!-- ========================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:producer" xml:base="templates/match/ddi-producer.xsl">
 
   <fo:block>
 
@@ -2674,7 +2607,7 @@
 
   </fo:block>
 </xsl:template>
-  <!-- Match: ddi:timePrd --><!-- Value: <fo:block> --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:timePrd" xml:base="templates/match/ddi-timePrd.xsl">
+  <!-- ======================== --><!-- match: ddi:timePrd       --><!-- value: <fo:block>        --><!-- ======================== --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:timePrd" xml:base="templates/match/ddi-timePrd.xsl">
 
   <fo:block>
 
@@ -2695,40 +2628,7 @@
 
   </fo:block>
 </xsl:template>
-  <!-- Match: ddi:var --><!-- Value: <fo:table-row> --><!--
-  Parameters used:
-  fileId
-
-  Variables read:
-  msg, cell-padding,  color-gray1, default-border,
-  show-variables-description-categories-max, subset-vars,
-
-  Variables set:
-  statistics, type, label, category-count, is-weighted,
-  catgry-freq-nodes, catgry-sum-freq, catgry-sum-freq-wgtd,
-  catgry-max-freq, catgry-max-freq-wgtd, bar-column-width, catgry-freq
-
-  Functions/templates called:
-  concat(), contains(), string-length(), normalize-space(), number(),
-  position(), string() [Xpath 1.0]
-  math:max, trim
---><!--
-  1: Information                table-row
-  2: Statistics                 table-row
-  3: Definition                 table-row
-  4: Universe                   table-row
-  5: Source                     table-row
-  6: Pre-Question               table-row
-  7: Question                   table-row
-  8: Post-Question              table-row
-  9: Interviewer Instructions   table-row
-  10: Imputation                table-row
-  11: Recoding                  table-row
-  12: Security                  table-row
-  13: Concepts                  table-row
-  14: Notes                     table-row
-  15: Categories                table-row
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" xml:base="templates/match/ddi-var.xsl">
+  <!-- ================================== --><!-- match: ddi:var                     --><!-- value: <xsl:if> <fo:table-row>     --><!-- ================================== --><!-- read: --><!-- $fileId [params]                                          --><!-- $strings, $cell-padding, $color-gray1, $default-border,   --><!-- $show-variables-description-categories-max, $subset-vars, --><!-- set: --><!-- $statistics, $type, $label, $category-count, $is-weighted,  --><!-- $catgry-freq-nodes, $catgry-sum-freq, $catgry-sum-freq-wgtd,--><!-- $catgry-max-freq, $catgry-max-freq-wgtd,                    --><!-- $bar-column-width, $catgry-freq                             --><!-- functions: --><!-- concat(), contains(), string-length(), normalize-space(), --><!-- number(), position(), string() [Xpath 1.0]                --><!-- called: --><!-- math:max, trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" version="1.0" xml:base="templates/match/ddi-var.xsl">
 
   <!-- params -->
   <xsl:param name="fileId" select="./@files"/> <!-- use first file in @files if not specified) -->
@@ -3330,27 +3230,8 @@
   </xsl:if>
 
 </xsl:template>
-  <!-- ddi_match.xsl --><!-- =============================== --><!-- match: ddi:var / variables-list --><!-- fo:table-row                    --><!-- =============================== --><!--
-  parameters:
-  ($fileId)
+  <!-- ================================== --><!-- match: ddi:var (variables-list)    --><!-- value: <xsl:if> <fo:table-row>     --><!-- ================================== --><!-- read: --><!-- $fileId [param]                                            --><!-- $subserVars, $color-white, $default-border, $cell-padding, --><!-- $show-variables-list, $variable-name-length                --><!-- functions: --><!-- concat(), contains(), count(), position(), normalize-space(), --><!-- string-length(), substring() [xpath 1.0]                      --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" mode="variables-list" xml:base="templates/match/ddi-var_variablesList.xsl">
 
-  global vars read:
-  subserVars, color-white, default-border, cell-padding,
-  show-variables-list, variable-name-length
-
-  XPath 1.0 functions called:
-  concat(), contains(), count(), position(), normalize-space(),
-  string-length(), substring()
---><!--
-    1: Variable Position          table-cell
-    2: Variable Name              table-cell
-    3: Variable Label             table-cell
-    4: Variable Type              table-cell
-    5: Variable Format            table-cell
-    6: Variable Valid             table-cell
-    7: Variable Invalid           table-cell
-    8: Variable Literal Question  table-cell
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" mode="variables-list" xml:base="templates/match/ddi-var_variablesList.xsl">
     <!-- params -->
     <xsl:param name="fileId" select="./@files"/> <!-- (use first file in @files if not specified) -->
 
@@ -3437,187 +3318,167 @@
     </xsl:if>
 
 </xsl:template>
-  <!-- Match: ddi:varGrp --><!-- Value: <fo:table> --><!--
-    Variables read:
-    msg, subset-groups, default-border, cell-padding
+  <!-- ================================================== --><!-- match: ddi:varGrp                                  --><!-- value: <xsl:if> [<fo:table> + <xsl:if> <fo:table>] --><!-- ================================================== --><!-- read --><!-- $subset-groups, $default-border, $cell-padding --><!-- set --><!-- $list --><!-- functions --><!-- contains(), concat(), position(), string-length(), --><!-- normalize-space() [Xpath 1.0]                      --><!-- proportional-column-width() [fo]                   --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:varGrp" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi-varGrp.xsl">
 
-    Variables set:
-    list
+  <xsl:if test="contains($subset-groups, concat(',', @ID, ','))                 or string-length($subset-groups) = 0">
 
-    Functions and templates called:
-    contains(), concat(), position(), string-length(),
-    normalize-space() [Xpath 1.0]
-    proportional-column-width() [FO]
-    variables-table-column-width, variables-table-column-header
---><!--
-    1: Group Name     [table-row]
-    2: Text           [table-row]
-    3: Definition     [table-row]
-    4: Universe       [table-row]
-    5: Notes          [table-row]
-    6: Subgroups      [table-row]
---><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:varGrp" xml:base="templates/match/ddi-varGrp.xsl">
+    <fo:table id="vargrp-{@ID}" table-layout="fixed" width="100%" space-before="0.2in">
+      <fo:table-column column-width="proportional-column-width(20)"/>
+      <fo:table-column column-width="proportional-column-width(80)"/>
 
-    <xsl:if test="contains($subset-groups,concat(',',@ID,',')) or string-length($subset-groups)=0">
+      <fo:table-body>
 
-      <fo:table id="vargrp-{@ID}" table-layout="fixed" width="100%" space-before="0.2in">
-        <fo:table-column column-width="proportional-column-width(20)"/>
-        <fo:table-column column-width="proportional-column-width(80)"/>
+        <!-- Group -->
+        <fo:table-row>
+          <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+            <fo:block font-size="12pt" font-weight="bold">
+              <xsl:value-of select="$i18n-Group"/>
+              <xsl:text> </xsl:text>
+              <xsl:value-of select="normalize-space(labl)"/>
+            </fo:block>
+          </fo:table-cell>
+        </fo:table-row>
 
-        <fo:table-body>
-
-          <!-- 1) Group -->
+        <!-- Text -->
+        <xsl:for-each select="txt">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-              <fo:block font-size="12pt" font-weight="bold">
-                <xsl:value-of select="$strings/*/entry[@key='Group']"/>
-                <xsl:text> </xsl:text>
-                <xsl:value-of select="normalize-space(ddi:labl)"/>
+              <xsl:apply-templates select="."/>
+            </fo:table-cell>
+          </fo:table-row>
+        </xsl:for-each>
+
+        <!-- Definition -->
+        <xsl:for-each select="defntn">
+          <fo:table-row>
+            <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+              <fo:block font-weight="bold" text-decoration="underline">
+                <xsl:value-of select="$i18n-Definition"/>
+              </fo:block>
+              <xsl:apply-templates select="."/>
+            </fo:table-cell>
+          </fo:table-row>
+        </xsl:for-each>
+
+        <!-- Universe-->
+        <xsl:for-each select="universe">
+          <fo:table-row>
+            <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+              <fo:block font-weight="bold" text-decoration="underline">
+                <xsl:value-of select="$i18n-Universe"/>
+              </fo:block>
+              <xsl:apply-templates select="."/>
+            </fo:table-cell>
+          </fo:table-row>
+        </xsl:for-each>
+
+        <!-- Notes -->
+        <xsl:for-each select="notes">
+          <fo:table-row>
+            <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
+              <fo:block font-weight="bold" text-decoration="underline">
+                <xsl:value-of select="$i18n-Notes"/>
+              </fo:block>
+              <xsl:apply-templates select="."/>
+            </fo:table-cell>
+          </fo:table-row>
+        </xsl:for-each>
+
+        <!-- Subgroups -->
+        <xsl:if test="./@varGrp">
+          <fo:table-row>
+            <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+              <fo:block>
+                <xsl:value-of select="$i18n-Subgroups"/>
+              </fo:block>
+            </fo:table-cell>
+            <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+              <fo:block>
+                <!-- loop over groups in codeBook that are in this sequence -->
+                <xsl:variable name="list" select="concat(./@varGrp,' ')"/>
+                <!-- add a space at the end of the list for matching purposes -->
+                <xsl:for-each select="/codeBook/dataDscr/varGrp[contains($list, concat(@ID,' '))]">
+                  <!-- add a space to the ID to avoid partial match -->
+                  <xsl:if test="position() &gt; 1">
+                    <xsl:text>,</xsl:text>
+                  </xsl:if>
+                  <xsl:value-of select="./labl"/>
+                </xsl:for-each>
               </fo:block>
             </fo:table-cell>
           </fo:table-row>
+        </xsl:if>
+      </fo:table-body>
+    </fo:table>
 
-          <!-- 2) Text -->
-          <xsl:for-each select="ddi:txt">
-            <fo:table-row>
-              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="."/>
-              </fo:table-cell>
-            </fo:table-row>
-          </xsl:for-each>
+    <!-- ======================= -->
+    <!-- Variables table         -->
+    <!-- ======================= -->
+    <xsl:if test="./@var"> <!-- Look for variables in this group -->
+      <fo:table id="varlist-{@ID}" table-layout="fixed" width="100%" font-size="8pt" space-after="0.0in">
 
-          <!-- 3) Definition -->
-          <xsl:for-each select="ddi:defntn">
-            <fo:table-row>
-              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$strings/*/entry[@key='Definition']"/>
-                </fo:block>
-                <xsl:apply-templates select="."/>
-              </fo:table-cell>
-            </fo:table-row>
-          </xsl:for-each>
+        <fo:table-column column-width="proportional-column-width( 5)"/>
+        <fo:table-column column-width="proportional-column-width(12)"/>
+        <fo:table-column column-width="proportional-column-width(20)"/>
 
-          <!-- 4) Universe-->
-          <xsl:for-each select="ddi:universe">
-            <fo:table-row>
-              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$strings/*/entry[@key='Universe']"/>
-                </fo:block>
-                <xsl:apply-templates select="."/>
-              </fo:table-cell>
-            </fo:table-row>
-          </xsl:for-each>
+        <xsl:if test="$show-variables-list-question">
+          <fo:table-column column-width="proportional-column-width(27)"/>
+        </xsl:if>
 
-          <!-- 5) Notes -->
-          <xsl:for-each select="ddi:notes">
-            <fo:table-row>
-              <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-                <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$strings/*/entry[@key='Notes']"/>
-                </fo:block>
-                <xsl:apply-templates select="."/>
-              </fo:table-cell>
-            </fo:table-row>
-          </xsl:for-each>
+        <!-- table header -->
+        <fo:table-header>
+          <fo:table-row text-align="center" vertical-align="top" font-weight="bold" keep-with-next="always">
 
-          <!-- 6) Subgroups -->
-          <xsl:if test="./@varGrp">
-            <fo:table-row>
-              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                <fo:block>
-                  <xsl:value-of select="$strings/*/entry[@key='Subgroups']"/>
-                </fo:block>
-              </fo:table-cell>
+            <!-- #-character -->
+            <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+              <fo:block>
+                <xsl:text>#</xsl:text>
+              </fo:block>
+            </fo:table-cell>
+
+            <!-- Name -->
+            <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+              <fo:block>
+                <xsl:value-of select="$i18n-Name"/>
+              </fo:block>
+            </fo:table-cell>
+
+            <!-- Label -->
+            <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+              <fo:block>
+                <xsl:value-of select="$i18n-Label"/>
+              </fo:block>
+            </fo:table-cell>
+
+            <!-- Question -->
+            <xsl:if test="$show-variables-list-question">
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <!-- loop over groups in codeBook that are in this sequence -->
-                  <xsl:variable name="list" select="concat(./@varGrp,' ')"/>
-                  <!-- add a space at the end of the list for matching purposes -->
-                  <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp[contains($list,concat(@ID,' '))]">
-                    <!-- add a space to the ID to avoid partial match -->
-                    <xsl:if test="position()&gt;1">,</xsl:if>
-                    <xsl:value-of select="./ddi:labl"/>
-                  </xsl:for-each>
+                  <xsl:value-of select="$i18n-Question"/>
                 </fo:block>
               </fo:table-cell>
-            </fo:table-row>
-          </xsl:if>
+            </xsl:if>
+
+          </fo:table-row>
+        </fo:table-header>
+
+        <!-- table body -->
+        <fo:table-body>
+          <xsl:variable name="list" select="concat(./@var,' ')"/>
+          <xsl:apply-templates select="/codeBook/dataDscr/var[ contains($list, concat(@ID,' ')) ]" mode="variables-list"/>
         </fo:table-body>
       </fo:table>
 
-
-      <!-- ======================= -->
-      <!-- [table] Variables table -->
-      <!-- ======================= -->
-      <xsl:if test="./@var"> <!-- Look for variables in this group -->
-        <fo:table id="varlist-{@ID}" table-layout="fixed" width="100%" font-size="8pt" space-after="0.0in">
-
-            <fo:table-column column-width="proportional-column-width( 5)"/>
-            <fo:table-column column-width="proportional-column-width(12)"/>
-            <fo:table-column column-width="proportional-column-width(20)"/>
-
-
-            <xsl:if test="$show-variables-list-question">
-                <fo:table-column column-width="proportional-column-width(27)"/>
-            </xsl:if>
-
-          <!-- table header -->
-          <fo:table-header>
-    <fo:table-row text-align="center" vertical-align="top" font-weight="bold" keep-with-next="always">
-
-      <!-- #-character -->
-      <fo:table-cell border="0.5pt solid black" padding="3pt">
-        <fo:block>#</fo:block>
-      </fo:table-cell>
-
-      <!-- Name -->
-      <fo:table-cell border="0.5pt solid black" padding="3pt">
-        <fo:block>
-          <xsl:value-of select="$strings/*/entry[@key='Name']"/>
-        </fo:block>
-      </fo:table-cell>
-
-      <!-- Label -->
-      <fo:table-cell border="0.5pt solid black" padding="3pt">
-        <fo:block>
-          <xsl:value-of select="$strings/*/entry[@key='Label']"/>
-        </fo:block>
-      </fo:table-cell>
-
-      <!-- Question -->
-      <xsl:if test="$show-variables-list-question">
-        <fo:table-cell border="0.5pt solid black" padding="3pt">
-          <fo:block>
-            <xsl:value-of select="$strings/*/entry[@key='Question']"/>
-          </fo:block>
-        </fo:table-cell>
-      </xsl:if>
-
-    </fo:table-row>
-
-          </fo:table-header>
-
-          <!-- table body -->
-          <fo:table-body>
-
-
-            <xsl:variable name="list" select="concat(./@var,' ')"/>
-            <!-- add a space at the end of the list for matching purposes -->
-            <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:var[ contains($list,concat(@ID,' ')) ]" mode="variables-list"/>
-            <!-- add a space to the ID to avoid partial match -->
-          </fo:table-body>
-        </fo:table>
-      </xsl:if>
     </xsl:if>
+
+  </xsl:if>
     
 </xsl:template>
 
   <!-- ==================================== -->
   <!-- named templates                      -->
   <!-- ==================================== -->
-  <!-- =================== --><!-- name: date          --><!-- value: string       --><!-- =================== --><!-- Uses an EXSLT extension to determine the date --><!-- read: --><!-- $date-time [param] --><!-- $date:date-time --><!-- set: --><!-- $neg, $dt-no-neg, $dt-no-neg-length, $timezone, --><!-- $tz, $date, $dt-length, $dt                     --><!-- functions: --><!-- substring(), starts-with(), not(), string(), number() [Xpath 1.0] --><!-- function-available(), date:date-time() [XSLT 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="date" xml:base="templates/named/date.xsl">
+  <!-- =================== --><!-- name: date          --><!-- value: string       --><!-- =================== --><!-- Uses an EXSLT extension to determine the date --><!-- read: --><!-- $date-time [param] --><!-- $date:date-time --><!-- set: --><!-- $neg, $dt-no-neg, $dt-no-neg-length, $timezone, --><!-- $tz, $date, $dt-length, $dt                     --><!-- functions: --><!-- substring(), starts-with(), not(), string(), number() [Xpath 1.0] --><!-- function-available(), date:date-time() [XSLT 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="date" version="1.0" xml:base="templates/named/date.xsl">
 
     <!-- params -->
     <xsl:param name="date-time">
@@ -3682,10 +3543,10 @@
     </xsl:if>
 
 </xsl:template>
-  <!-- ===================== --><!-- name: isodate-long    --><!-- value: string         --><!-- ===================== --><!-- converts an ISO date string to a "prettier" format --><!-- read: --><!-- $isodate [param] --><!-- $language-code --><!-- set: --><!-- $month --><!-- functions: --><!-- number(), substring(), contains() [Xpath 1.0] --><!-- called: --><!-- isodate-month --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-long" xml:base="templates/named/isodate-long.xsl">
+  <!-- ===================== --><!-- name: isodate-long    --><!-- value: string         --><!-- ===================== --><!-- converts an ISO date string to a "prettier" format --><!-- read: --><!-- $isodate [param] --><!-- $language-code --><!-- set: --><!-- $month --><!-- functions: --><!-- number(), substring(), contains() [Xpath 1.0] --><!-- called: --><!-- isodate-month --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-long" version="1.0" xml:base="templates/named/isodate-long.xsl">
 
     <!-- params -->
-    <xsl:param name="isodate" select=" '2005-12-31' "/>
+    <xsl:param name="isodate" select="'2005-12-31'"/>
 
     <!-- variables -->
     <!-- determine name of month in date string -->
@@ -3845,7 +3706,7 @@
 
     <!-- perform trimming (from right)-->
     <xsl:call-template name="rtrim">
-      <xsl:with-param name="s" select="concat(substring(translate($s ,' &#9;&#10;&#13;',''), 1, 1), substring-after($s, substring(translate($s, ' &#9;&#10;&#13;', ''), 1, 1)))"/>
+      <xsl:with-param name="s" select="concat(substring(translate($s ,' &#9;&#10;&#13;',''), 1, 1),                                        substring-after($s, substring(translate($s, ' &#9;&#10;&#13;', ''), 1, 1)))"/>
     </xsl:call-template>
 
 </xsl:template>
@@ -3854,7 +3715,9 @@
   
   <fo:static-content flow-name="after">
     <fo:block font-size="{$footer-font-size}" text-align="center" space-before="0.3in">
-      - <fo:page-number/> -
+      <xsl:text>- </xsl:text>
+      <fo:page-number/>
+      <xsl:text> -</xsl:text>
     </fo:block>
   </fo:static-content>
   

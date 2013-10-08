@@ -14,20 +14,8 @@
 <!-- functions: -->
 <!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] -->
 
-<!--  Overview                      [block] -->
-<!--  Scope and Coverage            [block] -->
-<!--  Producers and Sponsors        [block] -->
-<!--  Sampling                      [block] -->
-<!--  Data Collection               [block] -->
-<!--  Data Processing and Appraisal [block] -->
-<!--  Accessibility                 [block] -->
-<!--  Rights and Disclaimer         [block] -->
-<!--  Files and Description         [block] -->
-<!--  Variables List                [block] -->
-<!--  Variable Groups               [block] -->
-<!--  Variables Description         [block] -->
-
 <xsl:if test="$show-toc = 1"
+        xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
@@ -151,13 +139,13 @@
               <fo:page-number-citation ref-id="files-description" />
             </fo:basic-link>
 
-            <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
+            <xsl:for-each select="/codeBook/fileDscr">
               <fo:block margin-left="0.7in" font-size="{$font-size}" text-align-last="justify">
-                <fo:basic-link internal-destination="file-{ddi:fileTxt/ddi:fileName/@ID}"
+                <fo:basic-link internal-destination="file-{fileTxt/fileName/@ID}"
                                text-decoration="underline" color="blue">
-                  <xsl:apply-templates select="ddi:fileTxt/ddi:fileName" />
+                  <xsl:apply-templates select="fileTxt/fileName" />
                   <fo:leader leader-pattern="dots" />
-                  <fo:page-number-citation ref-id="file-{ddi:fileTxt/ddi:fileName/@ID}" />
+                  <fo:page-number-citation ref-id="file-{fileTxt/fileName/@ID}" />
                 </fo:basic-link>
               </fo:block>
             </xsl:for-each>
@@ -174,13 +162,13 @@
               <fo:leader leader-pattern="dots"/>
               <fo:page-number-citation ref-id="variables-list" />
             </fo:basic-link>
-            <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
+            <xsl:for-each select="/codeBook/fileDscr">
               <fo:block margin-left="0.7in" font-size="{$font-size}" text-align-last="justify">
-                <fo:basic-link internal-destination="varlist-{ddi:fileTxt/ddi:fileName/@ID}"
+                <fo:basic-link internal-destination="varlist-{fileTxt/fileName/@ID}"
                                text-decoration="underline" color="blue">
-                  <xsl:apply-templates select="ddi:fileTxt/ddi:fileName" />
+                  <xsl:apply-templates select="fileTxt/fileName" />
                   <fo:leader leader-pattern="dots" />
-                  <fo:page-number-citation ref-id="varlist-{ddi:fileTxt/ddi:fileName/@ID}" />
+                  <fo:page-number-citation ref-id="varlist-{fileTxt/fileName/@ID}" />
                 </fo:basic-link>
               </fo:block>
             </xsl:for-each>
@@ -196,12 +184,12 @@
               <fo:page-number-citation ref-id="variables-groups" />
             </fo:basic-link>
 
-            <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp">
+            <xsl:for-each select="/codeBook/dataDscr/varGrp">
               <!-- Show group if its part of subset OR no subset is defined -->
               <xsl:if test="contains($subset-groups, concat(',' ,@ID, ',')) or string-length($subset-groups) = 0">
                 <fo:block margin-left="0.7in" font-size="{$font-size}" text-align-last="justify">
                   <fo:basic-link internal-destination="vargrp-{@ID}" text-decoration="underline" color="blue">
-                    <xsl:value-of select="normalize-space(ddi:labl)" />
+                    <xsl:value-of select="normalize-space(labl)" />
                     <fo:leader leader-pattern="dots" />
                     <fo:page-number-citation ref-id="vargrp-{@ID}" />
                   </fo:basic-link>
@@ -221,13 +209,13 @@
               <fo:page-number-citation ref-id="variables-description" />
             </fo:basic-link>
 
-            <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
+            <xsl:for-each select="/codeBook/fileDscr">
               <fo:block margin-left="0.7in" font-size="{$font-size}" text-align-last="justify">
-                <fo:basic-link internal-destination="vardesc-{ddi:fileTxt/ddi:fileName/@ID}"
+                <fo:basic-link internal-destination="vardesc-{fileTxt/fileName/@ID}"
                                text-decoration="underline" color="blue">
-                  <xsl:apply-templates select="ddi:fileTxt/ddi:fileName" />
+                  <xsl:apply-templates select="fileTxt/fileName" />
                   <fo:leader leader-pattern="dots" />
-                  <fo:page-number-citation ref-id="vardesc-{ddi:fileTxt/ddi:fileName/@ID}" />
+                  <fo:page-number-citation ref-id="vardesc-{fileTxt/fileName/@ID}" />
                 </fo:basic-link>
               </fo:block>
             </xsl:for-each>

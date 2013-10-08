@@ -13,6 +13,7 @@
 <!-- proportional-column-width() [FO] -->
 
 <xsl:if test="$show-overview = 1"
+        xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
@@ -27,7 +28,8 @@
 
     <fo:static-content flow-name="before">
       <fo:block font-size="{$header-font-size}" text-align="center">
-        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl" /> -
+        <xsl:value-of select="/codeBook/stdyDscr/citation/titlStmt/titl" />
+        <xsl:text> - </xsl:text>
         <xsl:value-of select="$i18n-Overview" />
       </fo:block>
     </fo:static-content>
@@ -57,9 +59,9 @@
               </fo:block>
 
               <!-- parTitl -->
-              <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:parTitl">
+              <xsl:if test="/codeBook/stdyDscr/citation/titlStmt/parTitl">
                 <fo:block font-size="12pt" font-weight="bold" font-style="italic">
-                  <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:parTitl" />
+                  <xsl:value-of select="/codeBook/stdyDscr/citation/titlStmt/parTitl" />
                 </fo:block>
               </xsl:if>
 
@@ -87,7 +89,7 @@
           </fo:table-row>
 
           <!-- Type  -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serName">
+          <xsl:if test="/codeBook/stdyDscr/citation/serStmt/serName">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -95,13 +97,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serName" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/serStmt/serName" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Identification -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:IDNo">
+          <xsl:if test="/codeBook/stdyDscr/citation/titlStmt/IDNo">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -109,13 +111,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:IDNo" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/titlStmt/IDNo" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Version -->
-          <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:verStmt/ddi:version">
+          <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/version">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -126,7 +128,7 @@
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
 
                 <!-- 5.1) Production_Date -->
-                <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:verStmt/ddi:version">
+                <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/version">
                   <xsl:if test="@date">
                     <fo:block>
                       <xsl:value-of select="$i18n-Production_Date" />:
@@ -137,7 +139,7 @@
                 </xsl:for-each>
 
                 <!-- 5.2) Notes -->
-                <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:verStmt/ddi:notes">
+                <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/notes">
                   <fo:block text-decoration="underline">
                     <xsl:value-of select="$i18n-Notes" />
                   </fo:block>
@@ -149,7 +151,7 @@
           </xsl:for-each>
 
           <!-- Series -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serInfo">
+          <xsl:if test="/codeBook/stdyDscr/citation/serStmt/serInfo">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -157,25 +159,25 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:serStmt/ddi:serInfo" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/serStmt/serInfo" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Abstract -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:abstract">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/abstract">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Abstract"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:abstract" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/abstract" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Kind_of_Data -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:dataKind">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/dataKind">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -183,13 +185,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:dataKind" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/dataKind" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Unit_of_Analysis  -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:anlyUnit">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/anlyUnit">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -197,7 +199,7 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:anlyUnit" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/anlyUnit" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -225,19 +227,19 @@
           </xsl:if>
 
           <!-- Scope -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:notes">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/notes">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                    <xsl:value-of select="$i18n-Scope"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:notes" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/notes" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Keywords -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:keyword">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/subject/keyword">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -246,7 +248,7 @@
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:keyword">
+                  <xsl:for-each select="/codeBook/stdyDscr/stdyInfo/subject/keyword">
                     <xsl:if test="position()&gt;1">, </xsl:if>
                     <xsl:value-of select="normalize-space(.)" />
                   </xsl:for-each>
@@ -256,7 +258,7 @@
           </xsl:if>
 
           <!-- Topics -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:topcClas">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/subject/topcClas">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -265,7 +267,7 @@
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:topcClas">
+                  <xsl:for-each select="/codeBook/stdyDscr/stdyInfo/subject/topcClas">
                     <xsl:if test="position()&gt;1">, </xsl:if>
                     <xsl:value-of select="normalize-space(.)" />
                   </xsl:for-each>
@@ -315,25 +317,25 @@
           </fo:table-row>
 
           <!-- Geographic_Coverage -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:geogCover">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/geogCover">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Geographic_Coverage" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:geogCover" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/geogCover" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Universe -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:universe">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/universe">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Universe" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:universe" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/universe" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -361,7 +363,7 @@
           </xsl:if>
 
           <!-- Primary Investigator(s) -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">
+          <xsl:if test="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -369,13 +371,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/rspStmt/AuthEnty" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
-          <!-- Other Producer(s) -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:producer">
+          <!-- Other_Producers -->
+          <xsl:if test="/codeBook/stdyDscr/citation/prodStmt/producer">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -383,13 +385,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:producer" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/prodStmt/producer" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Funding_Agencies -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:fundAg">
+          <xsl:if test="/codeBook/stdyDscr/citation/prodStmt/fundAg">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -397,13 +399,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:fundAg" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/prodStmt/fundAg" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Other Acknowledgements -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:othId">
+          <xsl:if test="/codeBook/stdyDscr/citation/rspStmt/othId">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -411,7 +413,7 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:othId" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/rspStmt/othId" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -439,49 +441,49 @@
           </xsl:if>
 
           <!-- Sampling_Procedure -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:sampProc">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/sampProc">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Sampling_Procedure" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:sampProc" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/sampProc" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Deviations_from_Sample_Design -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:deviat">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/deviat">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Deviations_from_Sample_Design" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:deviat" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/deviat" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Response_Rate -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:respRate">
+          <xsl:if test="/codeBook/stdyDscr/method/anlyInfo/respRate">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Response_Rate" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:respRate" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/anlyInfo/respRate" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Weighting -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:weight">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/weight">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Weighting" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:weight" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/weight" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -509,7 +511,7 @@
           </xsl:if>
 
           <!-- Data Collection Dates -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/collDate">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -517,13 +519,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/collDate" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Time Periods -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd">
+          <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -531,13 +533,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data_Collection_Mode -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collMode">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/collMode">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -545,73 +547,73 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collMode" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/collMode" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data_Collection_Notes -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']">
+          <xsl:if test="/codeBook/stdyDscr/method/notes[@subject='collection']">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Data_Collection_Notes" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject='collection']" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data_Processing_Notes -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='processing']">
+          <xsl:if test="/codeBook/stdyDscr/method/notes[@subject='processing']">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                    <xsl:value-of select="$i18n-Data_Processing_Notes" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject='collection']" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data_Cleaning_Notes -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='cleaning']">
+          <xsl:if test="/codeBook/stdyDscr/method/notes[@subject='cleaning']">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Data_Cleaning_Notes" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject='collection']" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data_Collection_Notes -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collSitu">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/collSitu">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                    <xsl:value-of select="$i18n-Data_Collection_Notes" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collSitu" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/collSitu" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Questionnaires -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:resInstru">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/resInstru">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Questionnaires" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:resInstru" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/resInstru" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data_Collectors -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:dataCollector">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/dataCollector">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -619,19 +621,19 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:dataCollector" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/dataCollector" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Supervision -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:actMin">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/actMin">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Supervision" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:actMin" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/actMin" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -659,49 +661,49 @@
           </xsl:if>
 
           <!-- Data_Editing -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:cleanOps">
+          <xsl:if test="/codeBook/stdyDscr/method/dataColl/cleanOps">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Data_Editing" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:cleanOps" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/cleanOps" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Other_Processing -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes">
+          <xsl:if test="/codeBook/stdyDscr/method/notes">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Other_Processing" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Estimates_of_Sampling_Error -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:EstSmpErr">
+          <xsl:if test="/codeBook/stdyDscr/method/anlyInfo/EstSmpErr">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Estimates_of_Sampling_Error" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:EstSmpErr" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/anlyInfo/EstSmpErr" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Other_Forms_of_Data_Appraisal -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:dataAppr">
+          <xsl:if test="/codeBook/stdyDscr/method/anlyInfo/dataAppr">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                    <xsl:value-of select="$i18n-Other_Forms_of_Data_Appraisal" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:dataAppr" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/anlyInfo/dataAppr" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -729,7 +731,7 @@
           </xsl:if>
 
           <!-- Access Authority -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:contact">
+          <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/contact">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -737,13 +739,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:contact" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/contact" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Contacts -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:contact">
+          <xsl:if test="/codeBook/stdyDscr/citation/distStmt/contact">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -751,13 +753,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:contact" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/distStmt/contact" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Distributors -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:distrbtr">
+          <xsl:if test="/codeBook/stdyDscr/citation/distStmt/distrbtr">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -765,13 +767,13 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:distrbtr" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/distStmt/distrbtr" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Depositors (DDP) -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:depositr">
+          <xsl:if test="/codeBook/stdyDscr/citation/distStmt/depositr">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -779,43 +781,43 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:depositr" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/distStmt/depositr" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Confidentiality -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:confDec">
+          <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/confDec">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Confidentiality"/>
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:confDec" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/confDec" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Access Conditions -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:conditions">
+          <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/conditions">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Access_Conditions" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:conditions" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/conditions" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Citation Requierments -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:citReq">
+          <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/citReq">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                    <xsl:value-of select="$i18n-Citation_Requirements" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:citReq" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/citReq" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -843,19 +845,19 @@
           </xsl:if>
 
           <!-- Disclaimer -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:disclaimer">
+          <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/disclaimer">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
                   <xsl:value-of select="$i18n-Disclaimer" />
                 </fo:block>
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:disclaimer" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/disclaimer" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Copyright -->
-          <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:copyright">
+          <xsl:if test="/codeBook/stdyDscr/citation/prodStmt/copyright">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
@@ -863,7 +865,7 @@
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <xsl:apply-templates select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:copyright" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/citation/prodStmt/copyright" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
