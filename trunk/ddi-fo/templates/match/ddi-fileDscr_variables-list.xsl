@@ -1,19 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- Match: ddi:fileDsrc / variables-list  -->
-<!-- Value: fo:table -->
+<!-- ===================================== -->
+<!-- match: ddi:fileDsrc (variables-list)  -->
+<!-- Value: <fo:table>                     -->
+<!-- ===================================== -->
 
-<!--
-    Variables read:
-    msg, default-border, cell-padding
+<!-- read: -->
+<!-- $strings, $default-border, $cell-padding -->
 
-    Variables set:
-    fileId
+<!-- set: -->
+<!-- $fileId -->
 
-    Functions/templates called:
-    variables-table-col-width, variables-table-col-header
--->
-
-<xsl:template match="ddi:fileDscr" mode="variables-list"
+<xsl:template match="ddi:fileDscr"
+              mode="variables-list"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 

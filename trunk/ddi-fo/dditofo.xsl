@@ -64,7 +64,7 @@
 <!-- 2013-05-29: Including config in main file -->
 <!-- Future changelogs can be read from the SVN repo at googlecode -->
 
-<xsl:transform version="1.0"
+<xsl:transform version="2.0"
                extension-element-prefixes="date exsl str"
                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                xmlns:fo="http://www.w3.org/1999/XSL/Format"
@@ -83,8 +83,7 @@
                xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
                xmlns:fn="http://www.w3.org/2005/xpath-functions">
 
-  <xsl:output version="1.0"
-              method="xml"
+  <xsl:output method="xml"
               encoding="UTF-8"
               indent="no"
               omit-xml-declaration="no" />
@@ -381,6 +380,7 @@
   <xsl:variable name="i18n-Data_Processing_Notes" select="$strings/*/entry[@key='Data_Collection']" />
   <xsl:variable name="i18n-Data_Processing_and_Appraisal" select="$strings/*/entry[@key='Data_Processing_and_Appraisal']" />
   <xsl:variable name="i18n-Dataset_contains" select="$strings/*/entry[@key='Dataset_contains']" />
+  <xsl:variable name="i18n-Definition" select="$strings/*/entry[@key='Definitions']" />
   <xsl:variable name="i18n-Depositors" select="$strings/*/entry[@key='Depositors']" />
   <xsl:variable name="i18n-Deviations_from_Sample_Design" select="$strings/*/entry[@key='Deviations_from_Sample_Design']" />
   <xsl:variable name="i18n-Distributors" select="$strings/*/entry[@key='Distributors']" />
@@ -390,13 +390,16 @@
   <xsl:variable name="i18n-Files_Description" select="$strings/*/entry[@key='Files_Description']" />
   <xsl:variable name="i18n-Funding_Agencies" select="$strings/*/entry[@key='Funding_Agencies']" />
   <xsl:variable name="i18n-Geographic_Coverage" select="$strings/*/entry[@key='Geographic_Coverage']" />
+  <xsl:variable name="i18n-Group" select="$strings/*/entry[@key='Group']" />
   <xsl:variable name="i18n-groups" select="$strings/*/entry[@key='groups']" />
   <xsl:variable name="i18n-Identification" select="$strings/*/entry[@key='Identification']" />
   <xsl:variable name="i18n-Information" select="$strings/*/entry[@key='Information']" />
   <xsl:variable name="i18n-Keywords" select="$strings/*/entry[@key='Keywords']" />
   <xsl:variable name="i18n-Kind_of_Data" select="$strings/*/entry[@key='Kind_of_Data']" />
+  <xsl:variable name="i18n-Label" select="$strings/*/entry[@key='Label']" />
   <xsl:variable name="i18n-Metadata_Production" select="$strings/*/entry[@key='Metadata_Production']" />
   <xsl:variable name="i18n-Metadata_Producers" select="$strings/*/entry[@key='Metadata_Producers']" />
+  <xsl:variable name="i18n-Name" select="$strings/*/entry[@key='Name']" />
   <xsl:variable name="i18n-Notes" select="$strings/*/entry[@key='Notes']" />
   <xsl:variable name="i18n-Other_Acknowledgements" select="$strings/*/entry[@key='Other_Acknowledgements']" />
   <xsl:variable name="i18n-Other_Forms_of_Data_Appraisal" select="$strings/*/entry[@key='Other_Forms_of_Data_Appraisal']" />
@@ -406,6 +409,7 @@
   <xsl:variable name="i18n-Primary_Investigators" select="$strings/*/entry[@key='Primary_Investigators']" /> 
   <xsl:variable name="i18n-Producers_and_Sponsors" select="$strings/*/entry[@key='Producers_and_Sponsors']" />
   <xsl:variable name="i18n-Production_Date" select="$strings/*/entry[@key='Production_Date']" />
+  <xsl:variable name="i18n-Question" select="$strings/*/entry[@key='Question']" />
   <xsl:variable name="i18n-Questionnaires" select="$strings/*/entry[@key='Questionnaires']" />
   <xsl:variable name="i18n-Response_Rate" select="$strings/*/entry[@key='Response_Rate']" />
   <xsl:variable name="i18n-Rights_and_Disclaimer" select="$strings/*/entry[@key='Rights_and_Disclaimer']" />
@@ -415,6 +419,7 @@
   <xsl:variable name="i18n-Scope_and_Coverage" select="$strings/*/entry[@key='Scope_and_Coverage']" />
   <xsl:variable name="i18n-Series" select="$strings/*/entry[@key='Series']" />
   <xsl:variable name="i18n-ShowingSubset" select="$strings/*/entry[@key='ShowingSubset']" />
+  <xsl:variable name="i18n-Subgroups" select="$strings/*/entry[@key='Subgroups']" />
   <xsl:variable name="i18n-Supervision" select="$strings/*/entry[@key='Supervision']" />
   <xsl:variable name="i18n-Table_of_Contents" select="$strings/*/entry[@key='Table_of_Contents']" />
   <xsl:variable name="i18n-Time_Periods" select="$strings/*/entry[@key='Time_Periods']" />

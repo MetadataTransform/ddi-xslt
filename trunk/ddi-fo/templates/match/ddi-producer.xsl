@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- Match: ddi:producer -->
-<!-- Value: <fo:block> -->
+<!-- ========================== -->
+<!-- match: ddi:producer        -->
+<!-- value: <fo:block>          -->
+<!-- ========================== -->
 
-<!--
-  Functions/templates called:
-  trim
--->
+<!-- called: -->
+<!-- trim -->
 
 <xsl:template match="ddi:producer"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

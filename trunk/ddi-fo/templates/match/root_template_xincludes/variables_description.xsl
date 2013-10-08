@@ -23,7 +23,8 @@
     <!-- =========================================== -->
     <fo:static-content flow-name="before">
       <fo:block font-size="{$header-font-size}" text-align="center">
-        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl" /> -
+        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl" />
+        <xsl:text> - </xsl:text>
         <xsl:value-of select="$i18n-Variables_Description" />
       </fo:block>
     </fo:static-content>

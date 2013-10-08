@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- match: ddi:dataCollector -->
-<!-- value: <fo:block> -->
+<!-- ============================== -->
+<!-- match: ddi:dataCollector       -->
+<!-- value: <fo:block>              -->
+<!-- ============================== -->
 
-<!--
-  Functions/templates called:
-  trim
--->
+<!-- called: -->
+<!-- trim -->
 
 <xsl:template match="ddi:dataCollector"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -20,7 +20,9 @@
 
     <!-- abbr -->
     <xsl:if test="@abbr">
-      (<xsl:value-of select="@abbr"/>)
+      <xsl:text>(</xsl:text>
+      <xsl:value-of select="@abbr"/>
+      <xsl:text>)</xsl:text>
     </xsl:if>
 
     <!-- affiliation -->

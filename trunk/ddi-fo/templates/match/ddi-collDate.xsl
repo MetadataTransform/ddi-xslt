@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- match: ddi:collDate -->
-<!-- value: fo:block -->
+<!-- ============================ -->
+<!-- match: ddi:collDate          -->
+<!-- value: <fo:block>            -->
+<!-- ============================ -->
 
 <xsl:template match="ddi:collDate"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- Match: ddi:fileName -->
-<!-- Value: filename minus .NSDstat extension -->
+<!-- ==================================================== -->
+<!-- match: ddi:fileName                                  -->
+<!-- value: string (filename minus .NSDstat extension)    -->
+<!-- ==================================================== -->
 
-<!--
-  Variables set:
-  filename
+<!-- set: -->
+<!-- $filename -->
 
-  Functions/templates called:
-  contains(), normalize-space(), string-length(), substring()
--->
+<!-- functions: -->
+<!-- contains(), normalize-space(), string-length(), substring() [xpath 1.0] -->
 
 <xsl:template match="ddi:fileName"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

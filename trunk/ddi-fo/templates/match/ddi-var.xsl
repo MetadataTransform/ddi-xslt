@@ -1,45 +1,29 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- Match: ddi:var -->
-<!-- Value: <fo:table-row> -->
+<!-- ================================== -->
+<!-- match: ddi:var                     -->
+<!-- value: <xsl:if> <fo:table-row>     -->
+<!-- ================================== -->
 
-<!--
-  Parameters used:
-  fileId
+<!-- read: -->
+<!-- $fileId [params]                                          -->
+<!-- $strings, $cell-padding, $color-gray1, $default-border,   -->
+<!-- $show-variables-description-categories-max, $subset-vars, -->
 
-  Variables read:
-  msg, cell-padding,  color-gray1, default-border,
-  show-variables-description-categories-max, subset-vars,
+<!-- set: -->
+<!-- $statistics, $type, $label, $category-count, $is-weighted,  -->
+<!-- $catgry-freq-nodes, $catgry-sum-freq, $catgry-sum-freq-wgtd,-->
+<!-- $catgry-max-freq, $catgry-max-freq-wgtd,                    -->
+<!-- $bar-column-width, $catgry-freq                             -->
 
-  Variables set:
-  statistics, type, label, category-count, is-weighted,
-  catgry-freq-nodes, catgry-sum-freq, catgry-sum-freq-wgtd,
-  catgry-max-freq, catgry-max-freq-wgtd, bar-column-width, catgry-freq
+<!-- functions: -->
+<!-- concat(), contains(), string-length(), normalize-space(), -->
+<!-- number(), position(), string() [Xpath 1.0]                -->
 
-  Functions/templates called:
-  concat(), contains(), string-length(), normalize-space(), number(),
-  position(), string() [Xpath 1.0]
-  math:max, trim
--->
-
-<!--
-  1: Information                table-row
-  2: Statistics                 table-row
-  3: Definition                 table-row
-  4: Universe                   table-row
-  5: Source                     table-row
-  6: Pre-Question               table-row
-  7: Question                   table-row
-  8: Post-Question              table-row
-  9: Interviewer Instructions   table-row
-  10: Imputation                table-row
-  11: Recoding                  table-row
-  12: Security                  table-row
-  13: Concepts                  table-row
-  14: Notes                     table-row
-  15: Categories                table-row
--->
+<!-- called: -->
+<!-- math:max, trim -->
 
 <xsl:template match="ddi:var"
+              version="1.0"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 

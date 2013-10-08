@@ -1,31 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- match: ddi:fileDsrc / default -->
-<!-- value: <fo:table> -->
+<!-- =========================== -->
+<!-- match: ddi:fileDsrc         -->
+<!-- value: <fo:table>           -->
+<!-- =========================== -->
 
-<!--
-  Variables read:
-  msg, color-gray1, default-border, cell-padding
+<!-- read: -->
+<!-- $strings, $color-gray1, $default-border, $cell-padding -->
 
-  Variables set:
-  fileId, list
+<!-- set: -->
+<!-- $fileId, $list -->
 
-  Functions/templates called:
-  concat(), contains(), normalize-space(), position() [Xpath 1.0]
-  proportional-column-width() [FO]
--->
-
-<!--
-  1: Filename                 [table-row]
-  2: Cases                    [table-row]
-  3: Variables                [table-row]
-  4: File Structure           [table-row]
-  5: File Content             [table-row]
-  6: File Producer            [table-row]
-  7: File Version             [table-row]
-  8: File Processing Checks   [table-row]
-  9: File Missing Data        [table-row]
-  10: File Notes              [table-row]
--->
+<!-- functions: -->
+<!-- concat(), contains(), normalize-space(), position() [Xpath 1.0] -->
+<!-- proportional-column-width() [FO] -->
 
 <xsl:template match="ddi:fileDscr"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

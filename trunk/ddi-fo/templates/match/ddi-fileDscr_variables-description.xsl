@@ -1,28 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
-
 <!-- =========================================== -->
-<!-- match: ddi:fileDsrc / variables-description -->
-<!-- fo:page-sequence (multiple)                 -->
+<!-- match: ddi:fileDsrc (variables-description) -->
+<!-- value: <xsl:for-each> <fo:page-sequence>    -->
 <!-- =========================================== -->
 
-<!--
-  global vars read:
-  $strings, $chunk-size, $font-family, $default-border
+<!-- read: -->
+<!-- $strings, $chunk-size, $font-family, $default-border -->
 
-  local vars set:
-  $fileId, $fileName
+<!-- set: -->
+<!-- $fileId, $fileName -->
 
-  XPath 1.0 functions called:
-  position()
+<!-- functions: -->
+<!-- position() [xpath 1.0] -->
+<!-- proportional-column-width() [fo] -->
 
-  FO functions called:
-  proportional-column-width()
-
-  templates called:
-  [footer]
--->
-
-<xsl:template match="ddi:fileDscr" mode="variables-description"
+<xsl:template match="ddi:fileDscr"
+              mode="variables-description"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
