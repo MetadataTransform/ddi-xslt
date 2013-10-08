@@ -44,8 +44,7 @@
 
     <!-- ================================ -->
     <!-- Other sections                   -->
-    <!-- ================================ -->
-
+    <!-- ================================ -->    
     <xi:include href='root_template_xincludes/bookmarks.xsl' />
     <xi:include href='root_template_xincludes/cover_page.xsl' />
     <xi:include href='root_template_xincludes/metadata_information.xsl' />

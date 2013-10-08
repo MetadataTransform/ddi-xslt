@@ -24,7 +24,7 @@
     <fo:static-content flow-name="before">
       <fo:block font-size="{$header-font-size}" text-align="center">
         <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl" /> -
-        <xsl:value-of select="$strings/*/entry[@key='Variables_Groups']" />
+        <xsl:value-of select="$i18n-Variables_Groups" />
       </fo:block>
     </fo:static-content>
   
@@ -37,18 +37,18 @@
 
       <!-- heading -->
       <fo:block id="variables-groups" font-size="18pt" font-weight="bold" space-after="0.1in">
-        <xsl:value-of select="$strings/*/entry[@key='Variables_Groups']" />
+        <xsl:value-of select="$i18n-Variables_Groups" />
       </fo:block>
 
       <!-- number of variables in data set -->
       <fo:block font-weight="bold">
-        <xsl:value-of select="$strings/*/entry[@key='Dataset_contains']" />
+        <xsl:value-of select="$i18n-Dataset_contains" />
         <xsl:text> </xsl:text>
         <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp)" />
         <xsl:text> </xsl:text>
-        <xsl:value-of select="$strings/*/entry[@key='groups']" />
+        <xsl:value-of select="$i18n-groups" />
         <xsl:if test="string-length($subset-vars)&gt;0">
-          <xsl:value-of select="$strings/*/entry[@key='ShowingSubset']" />
+          <xsl:value-of select="$i18n-ShowingSubset" />
           <xsl:value-of select="$number-of-groups" />
         </xsl:if>
       </fo:block>

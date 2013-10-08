@@ -24,7 +24,7 @@
     <fo:static-content flow-name="before">
       <fo:block font-size="{$header-font-size}" text-align="center">
         <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl" /> -
-        <xsl:value-of select="$strings/*/entry[@key='Variables_List']" />
+        <xsl:value-of select="$i18n-Variables_List" />
       </fo:block>
     </fo:static-content>
 
@@ -38,16 +38,16 @@
       <!-- Heading -->
       <fo:block id="variables-list" font-size="18pt"
                 font-weight="bold" space-after="0.1in">
-        <xsl:value-of select="$strings/*/entry[@key='Variables_List']" />
+        <xsl:value-of select="$i18n-Variables_List" />
       </fo:block>
 
       <!-- number of groups in data set -->
       <fo:block font-weight="bold">
-        <xsl:value-of select="$strings/*/entry[@key='Dataset_contains']" />
+        <xsl:value-of select="$i18n-Dataset_contains" />
         <xsl:text> </xsl:text>
         <xsl:value-of select="count(/ddi:codeBook/ddi:dataDscr/ddi:var)" />
         <xsl:text> </xsl:text>
-        <xsl:value-of select="$strings/*/entry[@key='variables']" />
+        <xsl:value-of select="$i18n-variables" />
       </fo:block>
 
       <!-- the actual tables -->
