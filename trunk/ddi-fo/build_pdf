@@ -5,6 +5,7 @@
 # 2013-04-26	Better file extension on generated file
 # 2013-04-30    Using only fop for transformation
 # 2013-05-28    Use xinclude insted of xsl:include (mostly)
+# 2013-10-09    Removed old FOP/Xalan structure, moved to Saxon+FOP
 
 # requierments: fop
 # usage: ./build_pdf [-h] [-l LANGUAGE] input_file.xml 
@@ -30,11 +31,6 @@ shift $(($OPTIND - 1)) # shift argument to position 1
 
 FILENAME="${1%.*}" # remove file extension from DDI input file
 
-# params for fop
-#PARAMS="-param paper.type A4 \
-#        -param fop1.extensions 1 \
-#        -param translations-file ./i18n/$LANGUAGE_STRING.xml"
-
 # parameters for Saxon and FOP
 PARAMS="paper.type=A4 \
         fop1.extensions=1 \
@@ -47,8 +43,8 @@ PARAMS="paper.type=A4 \
 echo "Using language: $LANGUAGE_STRING"
 
 # run xincludes
-#echo "[process_xincludes] Assembling dditofo_complete.xsl"
-#./process_xincludes
+echo "[process_xincludes] Assembling dditofo_complete.xsl"
+./process_xincludes
 
 # transform codebook to fo using saxon
 echo "[Saxon] Transforming $1 to FO..."
@@ -60,5 +56,3 @@ echo "[FOP] Rendering $FILENAME.fo to PDF..."
 fop -fo $FILENAME.fo -pdf $FILENAME.pdf
 echo "[FOP] $FILENAME.pdf generated."
 
-# transformation with fop/xalan (one step)
-#fop -xml $1 -xsl dditofo_complete.xsl -pdf $FILENAME.pdf $FOP_PARAMS
