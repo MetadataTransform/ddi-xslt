@@ -467,6 +467,7 @@
   <xi:include href="templates/named/rtrim.xsl" />
   <xi:include href="templates/named/trim.xsl" />
   
+  <xi:include href="templates/named/page_header.xsl" />
   <xi:include href="templates/named/page_footer.xsl" />
   
 
