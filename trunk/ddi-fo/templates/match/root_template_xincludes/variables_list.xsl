@@ -21,12 +21,9 @@
     <!-- =========================================== -->
     <!-- page header                                 -->
     <!-- =========================================== -->
-    <fo:static-content flow-name="before">
-      <fo:block font-size="{$header-font-size}" text-align="center">
-        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl" /> -
-        <xsl:value-of select="$i18n-Variables_List" />
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_header">
+      <xsl:with-param name="section_name" select="$i18n-Variables_List" />
+    </xsl:call-template>
 
     <xsl:call-template name="page_footer" />
 

@@ -26,13 +26,9 @@
     <!-- page header and footer                      -->
     <!-- =========================================== -->
 
-    <fo:static-content flow-name="before">
-      <fo:block font-size="{$header-font-size}" text-align="center">
-        <xsl:value-of select="/codeBook/stdyDscr/citation/titlStmt/titl" />
-        <xsl:text> - </xsl:text>
-        <xsl:value-of select="$i18n-Overview" />
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_header">
+      <xsl:with-param name="section_name" select="$i18n-Overview" />
+    </xsl:call-template>
 
     <xsl:call-template name="page_footer" />
 

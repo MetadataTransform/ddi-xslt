@@ -967,13 +967,9 @@
     <!-- page header and footer                      -->
     <!-- =========================================== -->
 
-    <fo:static-content flow-name="before">
-      <fo:block font-size="{$header-font-size}" text-align="center">
-        <xsl:value-of select="/codeBook/stdyDscr/citation/titlStmt/titl"/>
-        <xsl:text> - </xsl:text>
-        <xsl:value-of select="$i18n-Overview"/>
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_header">
+      <xsl:with-param name="section_name" select="$i18n-Overview"/>
+    </xsl:call-template>
 
     <xsl:call-template name="page_footer"/>
 
@@ -1823,12 +1819,9 @@
     <!-- =========================================== -->
     <!-- page header and footer                      -->
     <!-- =========================================== -->
-    <fo:static-content flow-name="before">
-      <fo:block font-size="{$header-font-size}" text-align="center">
-        <xsl:value-of select="/codeBook/stdyDscr/citation/titlStmt/titl"/> -
-        <xsl:value-of select="$i18n-Files_Description"/>
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_header">
+      <xsl:with-param name="section_name" select="$i18n-Files_Description"/>
+    </xsl:call-template>
 
     <xsl:call-template name="page_footer"/>
 
@@ -1864,12 +1857,9 @@
     <!-- =========================================== -->
     <!-- page header                                 -->
     <!-- =========================================== -->
-    <fo:static-content flow-name="before">
-      <fo:block font-size="{$header-font-size}" text-align="center">
-        <xsl:value-of select="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl"/> -
-        <xsl:value-of select="$i18n-Variables_List"/>
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_header">
+      <xsl:with-param name="section_name" select="$i18n-Variables_List"/>
+    </xsl:call-template>
 
     <xsl:call-template name="page_footer"/>
 
@@ -1905,13 +1895,9 @@
     <!-- =========================================== -->
     <!-- page header and footer                      -->
     <!-- =========================================== -->
-    <fo:static-content flow-name="before">
-      <fo:block font-size="{$header-font-size}" text-align="center">
-        <xsl:value-of select="/codeBook/stdyDscr/citation/titlStmt/titl"/>
-        <xsl:text> - </xsl:text>
-        <xsl:value-of select="$i18n-Variables_Groups"/>
-      </fo:block>
-    </fo:static-content>
+    <xsl:call-template name="page_header">
+      <xsl:with-param name="section_name" select="$i18n-Variables_Groups"/>
+    </xsl:call-template>
   
     <xsl:call-template name="page_footer"/>
 
@@ -3701,16 +3687,62 @@
 </xsl:template>
   <!-- =================== --><!-- name: trim          --><!-- value: string       --><!-- =================== --><!-- read: --><!-- $string [param] --><!-- functions: --><!-- concat(), substring(), translate(), substring-after() [Xpath 1.0] --><!-- called: --><!-- rtrim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="trim" xml:base="templates/named/trim.xsl">
 
-    <!-- params -->
-    <xsl:param name="s"/>
+  <!-- ====== -->
+  <!-- params -->
+  <!-- ====== -->
+  <xsl:param name="s"/>
 
-    <!-- perform trimming (from right)-->
-    <xsl:call-template name="rtrim">
-      <xsl:with-param name="s" select="concat(substring(translate($s ,' &#9;&#10;&#13;',''), 1, 1),                                        substring-after($s, substring(translate($s, ' &#9;&#10;&#13;', ''), 1, 1)))"/>
-    </xsl:call-template>
+  <!-- ========= -->
+  <!-- variables -->
+  <!-- ========= -->
+
+  <!-- &#x9; TAB-character -->
+  <!-- &#xA; LF-character -->
+  <!-- &#xD; CR-character -->
+
+  <!-- replace TAB, LF and CR and with '' -->
+  <xsl:variable name="translated" select="translate($s, '&#9;&#10;&#13;', '')"/>
+  
+  <!-- extract all characters in string after the first one -->
+  <xsl:variable name="tmp1" select="substring($translated, 1, 1)"/>
+  <!-- extract all character in string after found string -->
+  <xsl:variable name="tmp2" select="substring-after($s, $tmp1)"/>
+  <!-- -->
+  <xsl:variable name="tmp3" select="concat($tmp1, $tmp2)"/>
+
+   <!-- select="concat(substring(translate($s ,' &#x9;&#xA;&#xD;',''), 1, 1),
+      substring-after($s, substring(translate($s, ' &#x9;&#xA;&#xD;', ''), 1, 1)))" -->
+
+  <!-- ======= -->
+  <!-- content -->
+  <!-- ======= -->
+
+  <!-- perform trimming (from right)-->
+  <xsl:call-template name="rtrim">
+    <xsl:with-param name="s" select="$tmp3"/>
+  </xsl:call-template>
 
 </xsl:template>
   
+  <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="page_header" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/named/page_header.xsl">
+  
+  <!-- ====== -->
+  <!-- params -->
+  <!-- ====== -->
+  <xsl:param name="section_name"/>
+  
+  <!-- ======= -->
+  <!-- content -->
+  <!-- ======= -->
+  <fo:static-content flow-name="before">
+    <fo:block font-size="{$header-font-size}" text-align="center">
+      <xsl:value-of select="/codeBook/stdyDscr/citation/titlStmt/titl"/>
+      <xsl:text> - </xsl:text>
+      <xsl:value-of select="$section_name"/>
+    </fo:block>
+  </fo:static-content>
+  
+</xsl:template>
   <!-- ==================================================== --><!-- name: page_footer                                    --><!-- value: <fo:static-content>                           --><!-- ==================================================== --><!-- read: --><!-- $header-font-size --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="page_footer" xml:base="templates/named/page_footer.xsl">
   
   <fo:static-content flow-name="after">
