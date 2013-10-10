@@ -6,11 +6,14 @@
   <xsl:import href="ddi3_1.xsl"/>
 
   <!--  svn version -->
-  <xsl:param name="svn-revision">Revision: 390</xsl:param>
+  <xsl:param name="svn-revision">Revision: 395</xsl:param>
 
   <!-- show frequencies on numeric variable with missing values -->
   <xsl:param name="show-numeric-var-frequence">true</xsl:param>
 
+  <!-- show Messure -->
+  <xsl:param name="show-messure">false</xsl:param>
+  
   <!-- upper lower case translations-->
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyzæøå'"/>
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'"/>
@@ -280,15 +283,17 @@
       </p>
     </xsl:for-each>
     <!-- code -->
-    <!--<xsl:for-each select="l:Representation/l:CodeRepresentation">
-      <xsl:if test="@classificationLevel">
-        <p>
-          <xsl:value-of select="util:i18n('Messure')"/>
-          <xsl:text>: </xsl:text>
-          <xsl:value-of select="@classificationLevel"/>
-        </p>
-      </xsl:if>
-    </xsl:for-each>-->
+    <xsl:if test="$show-messure='true'">
+      <xsl:for-each select="l:Representation/l:CodeRepresentation">
+        <xsl:if test="@classificationLevel">
+          <p>
+            <xsl:value-of select="util:i18n('Messure')"/>
+            <xsl:text>: </xsl:text>
+            <xsl:value-of select="@classificationLevel"/>
+          </p>
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:if>
     <!--: other -->
     <xsl:for-each select="l:Representation/l:CategoryRepresentation | 
       l:Representation/l:GeographicRepresentation | 
