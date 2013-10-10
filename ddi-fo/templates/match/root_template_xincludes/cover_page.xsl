@@ -72,6 +72,7 @@
                   <xsl:value-of select="." />
                 </xsl:with-param>
               </xsl:call-template>
+
               <xsl:if test="@affiliation">,
                 <xsl:value-of select="@affiliation" />
               </xsl:if>

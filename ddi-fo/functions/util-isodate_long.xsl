@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ===================== -->
-<!-- name: isodate-long    -->
-<!-- value: string         -->
-<!-- ===================== -->
+<!-- ================================ -->
+<!-- xs:string util:isodate-long()    -->
+<!-- param: isodate as xs:date        -->
+<!-- ================================ -->
 
 <!-- converts an ISO date string to a "prettier" format -->
 
@@ -17,17 +17,14 @@
 <!-- number(), substring(), contains() [Xpath 1.0] -->
 <!-- util:get_month_date() [local] -->
 
-<!-- called: -->
-<!-- isodate-month -->
 
-<xsl:template name="isodate-long"
-              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<xsl:function name="util:isodate_long" as="xs:string"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <!-- ====== -->
   <!-- params -->
   <!-- ====== -->
-  <xsl:param name="isodate" select="'2000-01-01'"/>
+  <xsl:param name="isodate" as="xs:string" />
 
   <!-- ========= -->
   <!-- variables -->
@@ -42,7 +39,7 @@
         <xsl:value-of select="number(substring($isodate, 9, 2))"/>
         <xsl:text> </xsl:text>
         <!-- <xsl:value-of select="$month" /> -->
-        <xsl:value-of select="util:get_month_name($report-date)" />
+        <xsl:value-of select="util:isodate_month_name($isodate)" />
         <xsl:text> </xsl:text>
         <xsl:value-of select="substring($isodate, 1, 4)"/>
       </xsl:when>
@@ -55,7 +52,7 @@
       <!-- english format -->
       <xsl:otherwise>
         <!-- <xsl:value-of select="$month"/> -->
-        <xsl:value-of select="util:get_month_name($report-date)" />
+        <xsl:value-of select="util:isodate_month_name($isodate)" />
         <xsl:text> </xsl:text>
         <xsl:value-of select="number(substring($isodate, 9, 2))"/>
         <xsl:text>, </xsl:text>
@@ -70,4 +67,4 @@
   <!-- ======= -->
   <xsl:value-of select="$date_string" />
 
-</xsl:template>
+</xsl:function>

@@ -40,7 +40,7 @@ PARAMS="paper.type=A4 \
 # Process file
 # ============
 
-echo "Using language: $LANGUAGE_STRING"
+echo "[build_pdf] Using language: $LANGUAGE_STRING"
 
 # run xincludes
 echo "[process_xincludes] Assembling dditofo_complete.xsl"
@@ -56,3 +56,6 @@ echo "[FOP] Rendering $FILENAME.fo to PDF..."
 fop -fo $FILENAME.fo -pdf $FILENAME.pdf
 echo "[FOP] $FILENAME.pdf generated."
 
+# cleanup
+echo "[build_pdf] Removing .fo file"
+rm $FILENAME.fo
