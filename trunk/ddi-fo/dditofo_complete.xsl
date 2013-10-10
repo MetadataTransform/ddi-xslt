@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- Overview --><!-- =================================================================================== --><!-- Transforms DDI-XML into XSL-FO to produce study documentation in PDF format         --><!-- Developed for DDI documents produced by the International Household Survey Network  --><!-- Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and            --><!-- Central Survey Catalog (http://www.surveynetwork.org/surveys)                       --><!-- =================================================================================== --><!-- Authors --><!-- ==================================================== --><!-- Pascal Heus (pascal.heus@gmail.com)                  --><!-- Version: July 2006                                   --><!-- Platform: XSL 1.0, Apache FOP 0.20.5                 --><!--                                                      --><!-- Oistein Kristiansen (oistein.kristiansen@nsd.uib.no) --><!-- Version: 2010                                        --><!-- Updated for FOP 0.93 2010                            --><!--                                                      --><!-- Akira Olsbänning (akira.olsbanning@snd.gu.se)        --><!-- Current version (2012-2013)                          --><!-- ==================================================== --><!-- License --><!-- ================================================================================================ --><!-- Copyright 2006 Pascal Heus (pascal.heus@gmail.com)                                               --><!--                                                                                                  --><!-- This program is free software; you can redistribute it and/or modify it under the terms of the   --><!-- GNU Lesser General Public License as published by the Free Software Foundation; either version   --><!-- 2.1 of the License, or (at your option) any later version.                                       --><!--                                                                                                  --><!-- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;        --><!-- without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.        --><!-- See the GNU Lesser General Public License for more details.                                      --><!--                                                                                                  --><!-- The full text of the license is available at http://www.gnu.org/copyleft/lesser.html             --><!-- ================================================================================================ --><!-- References --><!-- ========================================================= --><!-- XSL-FO:                                                   --><!--   http://www.w3.org/Style/XSL/                            --><!--   http://www.w3schools.com/xslfo/xslfo_reference.asp      --><!--   http://www.xslfo.info/                                  --><!-- Apache FOP:                                               --><!--   http://xmlgraphics.apache.org/fop/                      --><!-- XSL-FO Tutorials:                                         --><!--   http://www.renderx.com/tutorial.html                    --><!--   http://www.antennahouse.com/XSLsample/XSLsample.htm     --><!-- String trimming:                                          --><!--  http://skew.org/xml                                      --><!-- ========================================================= --><!-- Changelog: --><!-- 2006-04: Added multilingual support and French translation --><!-- 2006-06: Added Spanish and new elements to match IHSN Template v1.2 --><!-- 2006-07: Minor fixes and typos --><!-- 2006-07: Added option parameters to hide producers in cover page and questions in variables list page --><!-- 2010-03: Made FOP 0.93 compatible --><!-- 2012-11-01: Broken up into parts using xsl:include --><!-- 2013-01-22: Changing the file names to match template names better --><!-- 2013-05-28: Using xincludes instead of xsl:includes --><!-- 2013-05-29: Including config in main file --><!-- Future changelogs can be read from the SVN repo at googlecode --><xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:ddi="http://www.icpsr.umich.edu/DDI" xmlns:n1="http://www.icpsr.umich.edu/DDI" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:date="http://exslt.org/dates-and-times" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:exsl="http://exslt.org/common" xmlns:math="http://exslt.org/math" xmlns:str="http://exslt.org/strings" xmlns:doc="http://www.icpsr.umich.edu/doc" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:fn="http://www.w3.org/2005/xpath-functions" version="2.0" extension-element-prefixes="date exsl str">
+<!-- Overview --><!-- =================================================================================== --><!-- Transforms DDI-XML into XSL-FO to produce study documentation in PDF format         --><!-- Developed for DDI documents produced by the International Household Survey Network  --><!-- Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and            --><!-- Central Survey Catalog (http://www.surveynetwork.org/surveys)                       --><!-- =================================================================================== --><!-- Authors --><!-- ==================================================== --><!-- Pascal Heus (pascal.heus@gmail.com)                  --><!-- Version: July 2006                                   --><!-- Platform: XSL 1.0, Apache FOP 0.20.5                 --><!--                                                      --><!-- Oistein Kristiansen (oistein.kristiansen@nsd.uib.no) --><!-- Version: 2010                                        --><!-- Updated for FOP 0.93 2010                            --><!--                                                      --><!-- Akira Olsbänning (akira.olsbanning@snd.gu.se)        --><!-- Current version (2012-2013)                          --><!-- ==================================================== --><!-- License --><!-- ================================================================================================ --><!-- Copyright 2006 Pascal Heus (pascal.heus@gmail.com)                                               --><!--                                                                                                  --><!-- This program is free software; you can redistribute it and/or modify it under the terms of the   --><!-- GNU Lesser General Public License as published by the Free Software Foundation; either version   --><!-- 2.1 of the License, or (at your option) any later version.                                       --><!--                                                                                                  --><!-- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;        --><!-- without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.        --><!-- See the GNU Lesser General Public License for more details.                                      --><!--                                                                                                  --><!-- The full text of the license is available at http://www.gnu.org/copyleft/lesser.html             --><!-- ================================================================================================ --><!-- References --><!-- ========================================================= --><!-- XSL-FO:                                                   --><!--   http://www.w3.org/Style/XSL/                            --><!--   http://www.w3schools.com/xslfo/xslfo_reference.asp      --><!--   http://www.xslfo.info/                                  --><!-- Apache FOP:                                               --><!--   http://xmlgraphics.apache.org/fop/                      --><!-- XSL-FO Tutorials:                                         --><!--   http://www.renderx.com/tutorial.html                    --><!--   http://www.antennahouse.com/XSLsample/XSLsample.htm     --><!-- String trimming:                                          --><!--  http://skew.org/xml                                      --><!-- ========================================================= --><!-- Changelog: --><!-- 2006-04: Added multilingual support and French translation --><!-- 2006-06: Added Spanish and new elements to match IHSN Template v1.2 --><!-- 2006-07: Minor fixes and typos --><!-- 2006-07: Added option parameters to hide producers in cover page and questions in variables list page --><!-- 2010-03: Made FOP 0.93 compatible --><!-- 2012-11-01: Broken up into parts using xsl:include --><!-- 2013-01-22: Changing the file names to match template names better --><!-- 2013-05-28: Using xincludes instead of xsl:includes --><!-- 2013-05-29: Including config in main file --><!-- Future changelogs can be read from the SVN repo at googlecode --><xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:ddi="http://www.icpsr.umich.edu/DDI" xmlns:n1="http://www.icpsr.umich.edu/DDI" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:date="http://exslt.org/dates-and-times" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:exsl="http://exslt.org/common" xmlns:math="http://exslt.org/math" xmlns:str="http://exslt.org/strings" xmlns:doc="http://www.icpsr.umich.edu/doc" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:util="https://code.google.com/p/ddixslt/#util" version="2.0" extension-element-prefixes="date exsl str" exclude-result-prefixes="util">
 
   <xsl:output method="xml" encoding="UTF-8" indent="no" omit-xml-declaration="no"/>
 
@@ -54,10 +54,10 @@
   <xsl:param name="subset-vars"/>
 
   <!-- Report date, from parameter or EXSLT date:date-time() if available -->
-  <xsl:variable name="calculated-date">
-    <xsl:call-template name="date"/>
+  <!-- <xsl:variable name="calculated-date">
+    <xsl:call-template name="date" />
   </xsl:variable>
-  <xsl:param name="report-date" select="$calculated-date"/>
+  <xsl:param name="report-date" select="$calculated-date" /> -->
 
   <!-- Start page number, used by Overview -->
   <!-- (useful if running multi-survey reports) -->
@@ -634,6 +634,7 @@
                   <xsl:value-of select="."/>
                 </xsl:with-param>
               </xsl:call-template>
+
               <xsl:if test="@affiliation">,
                 <xsl:value-of select="@affiliation"/>
               </xsl:if>
@@ -691,10 +692,8 @@
                   </fo:block>
                 </fo:table-cell>
                 <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                  <fo:block>
-                    <xsl:call-template name="isodate-long">
-                      <xsl:with-param name="isodate" select="normalize-space(/codeBook/docDscr/citation/prodStmt/prodDate)"/>
-                    </xsl:call-template>
+                  <fo:block>                  
+                    <xsl:value-of select="util:isodate_long(normalize-space(/codeBook/docDscr/citation/prodStmt/prodDate))"/>
                   </fo:block>
                 </fo:table-cell>
               </fo:table-row>
@@ -3464,176 +3463,9 @@
   <!-- ==================================== -->
   <!-- named templates                      -->
   <!-- ==================================== -->
-  <!-- =================== --><!-- name: date          --><!-- value: string       --><!-- =================== --><!-- Uses an EXSLT extension to determine the date --><!-- read: --><!-- $date-time [param] --><!-- $date:date-time --><!-- set: --><!-- $neg, $dt-no-neg, $dt-no-neg-length, $timezone, --><!-- $tz, $date, $dt-length, $dt                     --><!-- functions: --><!-- substring(), starts-with(), not(), string(), number() [Xpath 1.0] --><!-- function-available(), date:date-time() [XSLT 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="date" version="1.0" xml:base="templates/named/date.xsl">
-
-    <!-- params -->
-    <xsl:param name="date-time">
-      <xsl:choose>
-        <!-- use EXSLT date:date-time() if available -->
-        <xsl:when test="function-available('date:date-time')">
-          <xsl:value-of select="date:date-time()"/>
-        </xsl:when>
-        <!-- fallback value -->
-        <xsl:otherwise>
-          <xsl:value-of select="'2000-01-01T00:00:00Z'"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:param>
-
-    <!-- variables -->
-    <xsl:variable name="neg" select="starts-with($date-time, '-')"/>
-
-    <xsl:variable name="dt-no-neg">
-      <xsl:choose>
-        <xsl:when test="$neg or starts-with($date-time, '+')">
-          <xsl:value-of select="substring($date-time, 2)"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="$date-time"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-
-    <xsl:variable name="dt-no-neg-length" select="string-length($dt-no-neg)"/>
-
-    <xsl:variable name="timezone">
-      <xsl:choose>
-        <xsl:when test="substring($dt-no-neg, $dt-no-neg-length) = 'Z'">Z</xsl:when>
-        <xsl:otherwise>
-          <xsl:variable name="tz" select="substring($dt-no-neg, $dt-no-neg-length - 5)"/>
-          <xsl:if test="(substring($tz, 1, 1) = '-' or substring($tz, 1, 1) = '+') and substring($tz, 4, 1) = ':'">
-            <xsl:value-of select="$tz"/>
-          </xsl:if>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-
-    <xsl:variable name="date">
-      <xsl:if test="not(string($timezone)) or $timezone = 'Z' or (substring($timezone, 2, 2) &lt;= 23 and substring($timezone, 5, 2) &lt;= 59)">
-        <xsl:variable name="dt" select="substring($dt-no-neg, 1, $dt-no-neg-length - string-length($timezone))"/>
-        <xsl:variable name="dt-length" select="string-length($dt)"/>
-
-        <xsl:if test="number(substring($dt, 1, 4)) and substring($dt, 5, 1) = '-' and substring($dt, 6, 2) &lt;= 12 and substring($dt, 8, 1) = '-' and substring($dt, 9, 2) &lt;= 31 and ($dt-length = 10 or (substring($dt, 11, 1) = 'T' and substring($dt, 12, 2) &lt;= 23 and substring($dt, 14, 1) = ':' and substring($dt, 15, 2) &lt;= 59 and substring($dt, 17, 1) = ':' and substring($dt, 18) &lt;= 60))">
-          <xsl:value-of select="substring($dt, 1, 10)"/>
-        </xsl:if>
-
-      </xsl:if>
-    </xsl:variable>
-
-    <!-- content -->
-    <!-- the formated date string -->
-    <xsl:if test="string($date)">
-      <xsl:if test="$neg">-</xsl:if>
-      <xsl:value-of select="$date"/>
-      <xsl:value-of select="$timezone"/>
-    </xsl:if>
-
-</xsl:template>
-  <!-- ===================== --><!-- name: isodate-long    --><!-- value: string         --><!-- ===================== --><!-- converts an ISO date string to a "prettier" format --><!-- read: --><!-- $isodate [param] --><!-- $language-code --><!-- set: --><!-- $month --><!-- functions: --><!-- number(), substring(), contains() [Xpath 1.0] --><!-- called: --><!-- isodate-month --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-long" version="1.0" xml:base="templates/named/isodate-long.xsl">
-
-    <!-- params -->
-    <xsl:param name="isodate" select="'2005-12-31'"/>
-
-    <!-- variables -->
-    <!-- determine name of month in date string -->
-    <xsl:variable name="month">
-      <xsl:call-template name="isodate-month">
-        <xsl:with-param name="isodate" select="$report-date"/>
-      </xsl:call-template>
-    </xsl:variable>
-
-    <!-- content -->
-    <!-- return date in relevant format -->
-    <xsl:choose>
-
-      <!-- european format -->
-      <xsl:when test="contains('fr es',$language-code)">
-        <xsl:value-of select="number(substring($isodate,9,2))"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="$month"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="substring($isodate,1,4)"/>
-      </xsl:when>
-
-      <!-- japanese format -->
-      <xsl:when test="contains('ja',$language-code)">
-        <xsl:value-of select="$isodate"/>
-      </xsl:when>
-
-      <!-- english format -->
-      <xsl:otherwise>
-        <xsl:value-of select="$month"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="number(substring($isodate,9,2))"/>
-        <xsl:text>, </xsl:text>
-        <xsl:value-of select="substring($isodate,1,4)"/>
-      </xsl:otherwise>
-
-    </xsl:choose>
-
-</xsl:template>
-  <!-- ========================== --><!-- name: isodate-month        --><!-- value: string              --><!-- ========================== --><!-- read: --><!-- $isodate [param] --><!-- $strings --><!-- set: --><!-- $month --><!-- functions: --><!-- number(), substring() [xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="isodate-month" xml:base="templates/named/isodate-month.xsl">
-
-    <!-- params -->
-    <xsl:param name="isodate" select=" '2005-12-31' "/>
-
-    <!-- variables -->
-    <xsl:variable name="month" select="number(substring($isodate,6,2))"/>
-
-    <!-- content -->
-    <!-- determine month name -->
-    <xsl:choose>
-
-      <xsl:when test="$month=1">
-        <xsl:value-of select="$strings/*/entry[@key='January']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=2">
-        <xsl:value-of select="$strings/*/entry[@key='February']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=3">
-        <xsl:value-of select="$strings/*/entry[@key='March']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=4">
-        <xsl:value-of select="$strings/*/entry[@key='April']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=5">
-        <xsl:value-of select="$strings/*/entry[@key='May']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=6">
-        <xsl:value-of select="$strings/*/entry[@key='June']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=7">
-        <xsl:value-of select="$strings/*/entry[@key='July']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=8">
-        <xsl:value-of select="$strings/*/entry[@key='August']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=9">
-        <xsl:value-of select="$strings/*/entry[@key='September']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=10">
-        <xsl:value-of select="$strings/*/entry[@key='October']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=11">
-        <xsl:value-of select="$strings/*/entry[@key='November']"/>
-      </xsl:when>
-
-      <xsl:when test="$month=12">
-        <xsl:value-of select="$strings/*/entry[@key='December']"/>
-      </xsl:when>
-    </xsl:choose>
-
-</xsl:template>
+  <!-- <xi:include href="templates/named/date.xsl" /> -->
+  <!-- <xi:include href="templates/named/isodate-long.xsl" /> -->
+  <!-- <xi:include href="templates/named/isodate-month.xsl" /> -->
   <!-- ===================== --><!-- name: math:max        --><!-- value: string         --><!-- ===================== --><!-- read: --><!-- $nodes [param] --><!-- functions: --><!-- not(), number(), position() [Xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="math:max" xml:base="templates/named/math-max.xsl">
 
     <!-- params -->
@@ -3658,34 +3490,8 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- ================= --><!-- name: rtrim       --><!-- value: string     --><!-- ================= --><!-- perform right trim on text through recursion --><!-- read: --><!-- $string, $index [param] --><!-- functions: --><!-- substring(), string-length(), translate() [Xpath 1.0] --><!-- called: --><!-- rtrim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="rtrim" xml:base="templates/named/rtrim.xsl">
-
-    <!-- params -->
-    <xsl:param name="s"/>
-    <xsl:param name="i" select="string-length($s)"/>
-
-    <!-- is further trimming needed?-->
-    <xsl:choose>
-
-      <xsl:when test="translate(substring($s, $i, 1), ' &#9;&#10;&#13;', '')">
-        <xsl:value-of select="substring($s, 1, $i)"/>
-      </xsl:when>
-
-      <!-- case: string less than 2 (do nothing) -->
-      <xsl:when test="$i &lt; 2"/>
-
-      <!-- call this template -->
-      <xsl:otherwise>
-        <xsl:call-template name="rtrim">
-          <xsl:with-param name="s" select="$s"/>
-          <xsl:with-param name="i" select="$i - 1"/>
-        </xsl:call-template>
-      </xsl:otherwise>
-
-    </xsl:choose>
-
-</xsl:template>
-  <!-- =================== --><!-- name: trim          --><!-- value: string       --><!-- =================== --><!-- read: --><!-- $string [param] --><!-- functions: --><!-- concat(), substring(), translate(), substring-after() [Xpath 1.0] --><!-- called: --><!-- rtrim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="trim" xml:base="templates/named/trim.xsl">
+  <!-- <xi:include href="templates/named/rtrim.xsl" /> -->
+  <!-- =================== --><!-- name: trim          --><!-- value: string       --><!-- =================== --><!-- read: --><!-- $s [param] --><!-- functions: --><!-- concat(), substring(), translate(), substring-after() [Xpath 1.0] --><!-- util:rtrim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="trim" xml:base="templates/named/trim.xsl">
 
   <!-- ====== -->
   <!-- params -->
@@ -3702,25 +3508,18 @@
 
   <!-- replace TAB, LF and CR and with '' -->
   <xsl:variable name="translated" select="translate($s, '&#9;&#10;&#13;', '')"/>
-  
   <!-- extract all characters in string after the first one -->
   <xsl:variable name="tmp1" select="substring($translated, 1, 1)"/>
   <!-- extract all character in string after found string -->
   <xsl:variable name="tmp2" select="substring-after($s, $tmp1)"/>
-  <!-- -->
+  
   <xsl:variable name="tmp3" select="concat($tmp1, $tmp2)"/>
-
-   <!-- select="concat(substring(translate($s ,' &#x9;&#xA;&#xD;',''), 1, 1),
-      substring-after($s, substring(translate($s, ' &#x9;&#xA;&#xD;', ''), 1, 1)))" -->
 
   <!-- ======= -->
   <!-- content -->
   <!-- ======= -->
-
-  <!-- perform trimming (from right)-->
-  <xsl:call-template name="rtrim">
-    <xsl:with-param name="s" select="$tmp3"/>
-  </xsl:call-template>
+  
+  <xsl:value-of select="util:rtrim($tmp3, string-length($tmp3))"/>
 
 </xsl:template>
   
@@ -3755,5 +3554,154 @@
   
 </xsl:template>
   
+  <!-- ==================================== -->
+  <!-- functions                            -->
+  <!-- ==================================== -->
+  <!-- ===================================== --><!-- xs:string util:isodate_month_name()   --><!-- param: xs:string isodate              --><!-- ===================================== --><!-- returns month name from a ISO-format date string --><!-- read: --><!-- $isodate [param] --><!-- set: --><!-- $month, $month_string --><!-- functions: --><!-- number(), substring(), contains() [Xpath 1.0] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:isodate_month_name" as="xs:string" xml:base="functions/util-isodate_month_name.xsl">
 
+  <!-- ========= -->
+  <!-- params    -->
+  <!-- ========= -->
+  <xsl:param name="isodate" as="xs:string"/> 
+  
+  <!-- ========= -->
+  <!-- variables -->
+  <!-- ========= -->
+  <!-- extract month number from date string -->
+  <xsl:variable name="month" select="number(substring($isodate, 6, 2))"/>
+  
+  <!-- determine month name -->
+  <xsl:variable name="month_string">
+    <xsl:choose>
+      <xsl:when test="$month=1">
+        <xsl:value-of select="$strings/*/entry[@key='January']"/>
+      </xsl:when>
+      <xsl:when test="$month=2">
+        <xsl:value-of select="$strings/*/entry[@key='February']"/>
+      </xsl:when>
+      <xsl:when test="$month=3">
+        <xsl:value-of select="$strings/*/entry[@key='March']"/>
+      </xsl:when>
+      <xsl:when test="$month=4">
+        <xsl:value-of select="$strings/*/entry[@key='April']"/>
+      </xsl:when>
+      <xsl:when test="$month=5">
+        <xsl:value-of select="$strings/*/entry[@key='May']"/>
+      </xsl:when>
+      <xsl:when test="$month=6">
+        <xsl:value-of select="$strings/*/entry[@key='June']"/>
+      </xsl:when>
+      <xsl:when test="$month=7">
+        <xsl:value-of select="$strings/*/entry[@key='July']"/>
+      </xsl:when>
+      <xsl:when test="$month=8">
+        <xsl:value-of select="$strings/*/entry[@key='August']"/>
+      </xsl:when>
+      <xsl:when test="$month=9">
+        <xsl:value-of select="$strings/*/entry[@key='September']"/>
+      </xsl:when>
+      <xsl:when test="$month=10">
+        <xsl:value-of select="$strings/*/entry[@key='October']"/>
+      </xsl:when>
+      <xsl:when test="$month=11">
+        <xsl:value-of select="$strings/*/entry[@key='November']"/>
+      </xsl:when>
+      <xsl:when test="$month=12">
+        <xsl:value-of select="$strings/*/entry[@key='December']"/>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- ======= -->
+  <!-- content -->
+  <!-- ======= -->
+  <xsl:value-of select="$month_string"/>
+  
+</xsl:function>
+  <!-- ================================ --><!-- xs:string util:isodate-long()    --><!-- param: isodate as xs:date        --><!-- ================================ --><!-- converts an ISO date string to a "prettier" format --><!-- read: --><!-- $isodate [param] --><!-- $language-code --><!-- set: --><!-- $date_string --><!-- functions: --><!-- number(), substring(), contains() [Xpath 1.0] --><!-- util:get_month_date() [local] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:isodate_long" as="xs:string" xml:base="functions/util-isodate_long.xsl">
+
+  <!-- ====== -->
+  <!-- params -->
+  <!-- ====== -->
+  <xsl:param name="isodate" as="xs:string"/>
+
+  <!-- ========= -->
+  <!-- variables -->
+  <!-- ========= -->
+
+  <!-- get date in relevant format -->
+  <xsl:variable name="date_string"> 
+    <xsl:choose>
+
+      <!-- european format -->
+      <xsl:when test="contains('fr es', $language-code)">
+        <xsl:value-of select="number(substring($isodate, 9, 2))"/>
+        <xsl:text> </xsl:text>
+        <!-- <xsl:value-of select="$month" /> -->
+        <xsl:value-of select="util:isodate_month_name($isodate)"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="substring($isodate, 1, 4)"/>
+      </xsl:when>
+
+      <!-- japanese format -->
+      <xsl:when test="contains('ja', $language-code)">
+        <xsl:value-of select="$isodate"/>
+      </xsl:when>
+
+      <!-- english format -->
+      <xsl:otherwise>
+        <!-- <xsl:value-of select="$month"/> -->
+        <xsl:value-of select="util:isodate_month_name($isodate)"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="number(substring($isodate, 9, 2))"/>
+        <xsl:text>, </xsl:text>
+        <xsl:value-of select="substring($isodate, 1, 4)"/>
+      </xsl:otherwise>
+
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- ======= -->
+  <!-- content -->
+  <!-- ======= -->
+  <xsl:value-of select="$date_string"/>
+
+</xsl:function>
+  <!-- ======================= --><!-- xs:string util:rtrim()  --><!-- params: $s, $i          --><!-- ======================= --><!-- perform right trim on text through recursion --><!-- read: --><!-- $s, $i [param] --><!-- functions: --><!-- substring(), string-length(), translate() [Xpath 1.0] --><!-- util:rtrim() [local] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:rtrim" as="xs:string" xml:base="functions/util-rtrim.xsl">
+
+  <!-- ====== -->
+  <!-- params -->
+  <!-- ====== -->
+  <xsl:param name="s"/>
+  <xsl:param name="i"/>
+
+  <!-- ========= -->
+  <!-- variables -->
+  <!-- ========= -->
+  
+  <!-- is further trimming needed?-->
+  <xsl:variable name="tmp">
+    <xsl:choose>
+
+      <xsl:when test="translate(substring($s, $i, 1), ' &#9;&#10;&#13;', '')">
+        <xsl:value-of select="substring($s, 1, $i)"/>
+      </xsl:when>
+
+      <!-- case: string less than 2 (do nothing) -->
+      <xsl:when test="$i &lt; 2"/>
+
+      <!-- recurse -->
+      <xsl:otherwise>
+        <xsl:value-of select="util:rtrim($s, $i - 1)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- ======= -->
+  <!-- content -->
+  <!-- ======= -->
+  <xsl:value-of select="$tmp"/>
+
+</xsl:function>
+  
 </xsl:transform>

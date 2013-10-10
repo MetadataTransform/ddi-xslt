@@ -76,11 +76,8 @@
                   </fo:block>
                 </fo:table-cell>
                 <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                  <fo:block>
-                    <xsl:call-template name="isodate-long">
-                      <xsl:with-param name="isodate"
-                                      select="normalize-space(/codeBook/docDscr/citation/prodStmt/prodDate)" />
-                    </xsl:call-template>
+                  <fo:block>                  
+                    <xsl:value-of select="util:isodate_long(normalize-space(/codeBook/docDscr/citation/prodStmt/prodDate))" />
                   </fo:block>
                 </fo:table-cell>
               </fo:table-row>

@@ -66,6 +66,7 @@
 
 <xsl:transform version="2.0"
                extension-element-prefixes="date exsl str"
+               exclude-result-prefixes="util"
                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                xmlns:fo="http://www.w3.org/1999/XSL/Format"
                xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -81,7 +82,8 @@
                xmlns:doc="http://www.icpsr.umich.edu/doc"
                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
-               xmlns:fn="http://www.w3.org/2005/xpath-functions">
+               xmlns:fn="http://www.w3.org/2005/xpath-functions"
+               xmlns:util="https://code.google.com/p/ddixslt/#util">
 
   <xsl:output method="xml"
               encoding="UTF-8"
@@ -139,10 +141,10 @@
   <xsl:param name="subset-vars" />
 
   <!-- Report date, from parameter or EXSLT date:date-time() if available -->
-  <xsl:variable name="calculated-date">
+  <!-- <xsl:variable name="calculated-date">
     <xsl:call-template name="date" />
   </xsl:variable>
-  <xsl:param name="report-date" select="$calculated-date" />
+  <xsl:param name="report-date" select="$calculated-date" /> -->
 
   <!-- Start page number, used by Overview -->
   <!-- (useful if running multi-survey reports) -->
@@ -460,15 +462,21 @@
   <!-- ==================================== -->
   <!-- named templates                      -->
   <!-- ==================================== -->
-  <xi:include href="templates/named/date.xsl" />
-  <xi:include href="templates/named/isodate-long.xsl" />
-  <xi:include href="templates/named/isodate-month.xsl" />
+  <!-- <xi:include href="templates/named/date.xsl" /> -->
+  <!-- <xi:include href="templates/named/isodate-long.xsl" /> -->
+  <!-- <xi:include href="templates/named/isodate-month.xsl" /> -->
   <xi:include href="templates/named/math-max.xsl" />
-  <xi:include href="templates/named/rtrim.xsl" />
+  <!-- <xi:include href="templates/named/rtrim.xsl" /> -->
   <xi:include href="templates/named/trim.xsl" />
   
   <xi:include href="templates/named/page_header.xsl" />
   <xi:include href="templates/named/page_footer.xsl" />
   
-
+  <!-- ==================================== -->
+  <!-- functions                            -->
+  <!-- ==================================== -->
+  <xi:include href="functions/util-isodate_month_name.xsl" />
+  <xi:include href="functions/util-isodate_long.xsl" />
+  <xi:include href="functions/util-rtrim.xsl" />
+  
 </xsl:transform>
