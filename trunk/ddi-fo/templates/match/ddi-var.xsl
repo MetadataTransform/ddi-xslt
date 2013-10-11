@@ -483,18 +483,23 @@
                               <!-- catValue -->
                               <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
                                 <fo:block>
-                                  <xsl:call-template name="trim">
+                                  <!-- <xsl:call-template name="trim">
                                     <xsl:with-param name="s" select="ddi:catValu" />
-                                  </xsl:call-template>
+                                  </xsl:call-template> -->
+                                  
+                                  <xsl:value-of select="util:trim(ddi:catValu)"/>
+                                  
                                 </fo:block>
                               </fo:table-cell>
 
                               <!-- Label -->
                               <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
                                 <fo:block>
-                                  <xsl:call-template name="trim">
+                                  <!-- <xsl:call-template name="trim">
                                     <xsl:with-param name="s" select="ddi:labl" />
-                                  </xsl:call-template>
+                                  </xsl:call-template> -->
+                                  
+                                  <xsl:value-of select="util:trim(ddi:labl)"/>
                                 </fo:block>
                               </fo:table-cell>
 
@@ -502,9 +507,11 @@
                               <xsl:variable name="catgry-freq" select="ddi:catStat[@type='freq' and not(@wgtd='wgtd') ]"/>
                               <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
                                 <fo:block>
-                                  <xsl:call-template name="trim">
+                                  <!-- <xsl:call-template name="trim">
                                     <xsl:with-param name="s" select="$catgry-freq" />
-                                  </xsl:call-template>
+                                  </xsl:call-template> -->
+                                  
+                                  <xsl:value-of select="util:trim(ddi:p)"/>
                                 </fo:block>
                               </fo:table-cell>
 
@@ -513,9 +520,11 @@
                               <xsl:if test="$is-weighted">
                                 <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
                                   <fo:block>
-                                    <xsl:call-template name="trim">
+                                    <!-- <xsl:call-template name="trim">
                                       <xsl:with-param name="s" select="format-number($catgry-freq-wgtd,'0.0')" />
-                                    </xsl:call-template>
+                                    </xsl:call-template> -->
+                                    
+                                    <xsl:value-of select="util:trim(format-number($catgry-freq-wgtd, '0.0'))"/>
                                   </fo:block>
                                 </fo:table-cell>
                               </xsl:if>

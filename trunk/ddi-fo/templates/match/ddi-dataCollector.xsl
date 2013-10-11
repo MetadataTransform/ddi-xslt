@@ -14,9 +14,11 @@
   <fo:block>
 
     <!-- trim current node -->
-    <xsl:call-template name="trim">
+    <!-- <xsl:call-template name="trim">
       <xsl:with-param name="s" select="." />
-    </xsl:call-template>
+    </xsl:call-template> -->
+    
+    <xsl:value-of select="util:trim(.)" />
 
     <!-- abbr -->
     <xsl:if test="@abbr">

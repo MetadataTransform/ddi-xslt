@@ -15,11 +15,13 @@
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
   <!-- variables -->
-  <xsl:variable name="trimmed">
+  <!-- <xsl:variable name="trimmed">
     <xsl:call-template name="trim">
       <xsl:with-param name="s" select="." />
     </xsl:call-template>
-  </xsl:variable>
+  </xsl:variable> -->
+  
+  <xsl:variable name="trimmed" select="util:trim(.)" />
 
   <!-- content -->
   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0in">

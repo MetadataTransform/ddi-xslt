@@ -212,9 +212,12 @@
                     <xsl:apply-templates select="@name" />
                     <xsl:if test="normalize-space(ddi:labl)">
                       <xsl:text>: </xsl:text>
-                      <xsl:call-template name="trim">
+                      <!-- <xsl:call-template name="trim">
                         <xsl:with-param name="s" select="ddi:labl" />
-                      </xsl:call-template>
+                      </xsl:call-template> -->
+                      
+                      <xsl:value-of select="util:trim(ddi:labl)" />
+                      
                     </xsl:if>
                   </fo:bookmark-title>
                 </fo:bookmark>
