@@ -14,9 +14,11 @@
   <fo:block>
 
     <!-- trim ddi:p -->
-    <xsl:call-template name="trim">
+    <!-- <xsl:call-template name="trim">
       <xsl:with-param name="s" select="ddi:p"/>
-    </xsl:call-template>
+    </xsl:call-template> -->
+    
+    <xsl:value-of select="util:trim(ddi:p)"/>
 
     <!-- role -->
     <xsl:if test="@role"> ,

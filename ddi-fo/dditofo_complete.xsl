@@ -565,9 +565,12 @@
                     <xsl:apply-templates select="@name"/>
                     <xsl:if test="normalize-space(ddi:labl)">
                       <xsl:text>: </xsl:text>
-                      <xsl:call-template name="trim">
-                        <xsl:with-param name="s" select="ddi:labl"/>
-                      </xsl:call-template>
+                      <!-- <xsl:call-template name="trim">
+                        <xsl:with-param name="s" select="ddi:labl" />
+                      </xsl:call-template> -->
+                      
+                      <xsl:value-of select="util:trim(ddi:labl)"/>
+                      
                     </xsl:if>
                   </fo:bookmark-title>
                 </fo:bookmark>
@@ -626,11 +629,13 @@
         <xsl:if test="$show-cover-page-producer = 1">
           <xsl:for-each select="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">
             <fo:block font-size="14pt" font-weight="bold" space-before="0.0in" text-align="center" space-after="0.0in">
-              <xsl:call-template name="trim">
+              <!-- <xsl:call-template name="trim">
                 <xsl:with-param name="s">
-                  <xsl:value-of select="."/>
+                  <xsl:value-of select="." />
                 </xsl:with-param>
-              </xsl:call-template>
+              </xsl:call-template> -->
+
+              <xsl:value-of select="util:trim(.)"/>
 
               <xsl:if test="@affiliation">,
                 <xsl:value-of select="@affiliation"/>
@@ -1980,9 +1985,11 @@
   <fo:block>
 
     <!-- trim current node -->
-    <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="."/>
-    </xsl:call-template>
+    <!-- <xsl:call-template name="trim">
+      <xsl:with-param name="s" select="." />
+    </xsl:call-template> -->
+    
+    <xsl:value-of select="util:trim(.)"/>
 
     <!-- affiliation -->
     <xsl:if test="@affiliation">,
@@ -2047,9 +2054,11 @@
   <fo:block>
 
     <!-- trim current node -->
-    <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="."/>
-    </xsl:call-template>
+    <!-- <xsl:call-template name="trim">
+      <xsl:with-param name="s" select="." />
+    </xsl:call-template> -->
+    
+    <xsl:value-of select="util:trim(.)"/>
 
     <!-- abbr -->
     <xsl:if test="@abbr">
@@ -2069,11 +2078,13 @@
   <!-- ============================== --><!-- match: ddi:*|text()            --><!-- value: <fo:block>              --><!-- ============================== --><!-- set: --><!-- $trimmed --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:*|text()" xml:base="templates/match/ddi_default_text.xsl">
 
   <!-- variables -->
-  <xsl:variable name="trimmed">
+  <!-- <xsl:variable name="trimmed">
     <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="."/>
+      <xsl:with-param name="s" select="." />
     </xsl:call-template>
-  </xsl:variable>
+  </xsl:variable> -->
+  
+  <xsl:variable name="trimmed" select="util:trim(.)"/>
 
   <!-- content -->
   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0in">
@@ -2507,9 +2518,11 @@
   <fo:block>
 
     <!-- trim current node -->
-    <xsl:call-template name="trim">
+    <!-- <xsl:call-template name="trim">
       <xsl:with-param name="s" select="."/>
-    </xsl:call-template>
+    </xsl:call-template> -->
+    
+    <xsl:value-of select="util:trim(.)"/>
 
     <!-- @abbr -->
     <xsl:if test="@abbr">
@@ -2534,9 +2547,11 @@
     </xsl:if>
 
     <!-- trim current node -->
-    <xsl:call-template name="trim">
+    <!-- <xsl:call-template name="trim">
       <xsl:with-param name="s" select="."/>
-    </xsl:call-template>
+    </xsl:call-template> -->
+    
+    <xsl:value-of select="util:trim(.)"/>
 
   </fo:block>
 
@@ -2546,9 +2561,11 @@
   <fo:block>
 
     <!-- trim ddi:p -->
-    <xsl:call-template name="trim">
+    <!-- <xsl:call-template name="trim">
       <xsl:with-param name="s" select="ddi:p"/>
-    </xsl:call-template>
+    </xsl:call-template> -->
+    
+    <xsl:value-of select="util:trim(ddi:p)"/>
 
     <!-- role -->
     <xsl:if test="@role"> ,
@@ -2568,9 +2585,11 @@
   <fo:block>
 
     <!-- trim current node -->
-    <xsl:call-template name="trim">
+    <!-- <xsl:call-template name="trim">
       <xsl:with-param name="s" select="."/>
-    </xsl:call-template>
+    </xsl:call-template> -->
+    
+    <xsl:value-of select="util:trim(.)"/>
 
     <!-- abbreviation -->
     <xsl:if test="@abbr">
@@ -3068,18 +3087,23 @@
                               <!-- catValue -->
                               <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
                                 <fo:block>
-                                  <xsl:call-template name="trim">
-                                    <xsl:with-param name="s" select="ddi:catValu"/>
-                                  </xsl:call-template>
+                                  <!-- <xsl:call-template name="trim">
+                                    <xsl:with-param name="s" select="ddi:catValu" />
+                                  </xsl:call-template> -->
+                                  
+                                  <xsl:value-of select="util:trim(ddi:catValu)"/>
+                                  
                                 </fo:block>
                               </fo:table-cell>
 
                               <!-- Label -->
                               <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
                                 <fo:block>
-                                  <xsl:call-template name="trim">
-                                    <xsl:with-param name="s" select="ddi:labl"/>
-                                  </xsl:call-template>
+                                  <!-- <xsl:call-template name="trim">
+                                    <xsl:with-param name="s" select="ddi:labl" />
+                                  </xsl:call-template> -->
+                                  
+                                  <xsl:value-of select="util:trim(ddi:labl)"/>
                                 </fo:block>
                               </fo:table-cell>
 
@@ -3087,9 +3111,11 @@
                               <xsl:variable name="catgry-freq" select="ddi:catStat[@type='freq' and not(@wgtd='wgtd') ]"/>
                               <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
                                 <fo:block>
-                                  <xsl:call-template name="trim">
-                                    <xsl:with-param name="s" select="$catgry-freq"/>
-                                  </xsl:call-template>
+                                  <!-- <xsl:call-template name="trim">
+                                    <xsl:with-param name="s" select="$catgry-freq" />
+                                  </xsl:call-template> -->
+                                  
+                                  <xsl:value-of select="util:trim(ddi:p)"/>
                                 </fo:block>
                               </fo:table-cell>
 
@@ -3098,9 +3124,11 @@
                               <xsl:if test="$is-weighted">
                                 <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
                                   <fo:block>
-                                    <xsl:call-template name="trim">
-                                      <xsl:with-param name="s" select="format-number($catgry-freq-wgtd,'0.0')"/>
-                                    </xsl:call-template>
+                                    <!-- <xsl:call-template name="trim">
+                                      <xsl:with-param name="s" select="format-number($catgry-freq-wgtd,'0.0')" />
+                                    </xsl:call-template> -->
+                                    
+                                    <xsl:value-of select="util:trim(format-number($catgry-freq-wgtd, '0.0'))"/>
                                   </fo:block>
                                 </fo:table-cell>
                               </xsl:if>
@@ -3694,6 +3722,36 @@
   <!-- content -->
   <!-- ======= -->
   <xsl:value-of select="$tmp"/>
+
+</xsl:function>
+  <!-- =================== --><!-- xs:string trim()    --><!-- param: $s           --><!-- =================== --><!-- read: --><!-- $s [param] --><!-- functions: --><!-- concat(), substring(), translate(), substring-after() [Xpath 1.0] --><!-- util:rtrim() [local] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:trim" as="xs:string" xml:base="functions/util-trim.xsl">
+
+  <!-- ====== -->
+  <!-- params -->
+  <!-- ====== -->
+  <xsl:param name="s"/>
+
+  <!-- ========= -->
+  <!-- variables -->
+  <!-- ========= -->
+
+  <!-- &#x9; TAB-character -->
+  <!-- &#xA; LF-character -->
+  <!-- &#xD; CR-character -->
+
+  <!-- replace TAB, LF and CR and with '' -->
+  <xsl:variable name="translated" select="translate($s, '&#9;&#10;&#13;', '')"/>
+  <!-- extract all characters in string after the first one -->
+  <xsl:variable name="tmp1" select="substring($translated, 1, 1)"/>
+  <!-- extract all character in string after found string -->
+  <xsl:variable name="tmp2" select="substring-after($s, $tmp1)"/>
+  
+  <xsl:variable name="tmp3" select="concat($tmp1, $tmp2)"/>
+
+  <!-- ======= -->
+  <!-- content -->
+  <!-- ======= -->
+  <xsl:value-of select="util:rtrim($tmp3, string-length($tmp3))"/>
 
 </xsl:function>
   

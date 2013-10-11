@@ -491,5 +491,6 @@
   <xi:include href="functions/util-isodate_month_name.xsl" />
   <xi:include href="functions/util-isodate_long.xsl" />
   <xi:include href="functions/util-rtrim.xsl" />
+  <xi:include href="functions/util-trim.xsl" />
   
 </xsl:transform>
