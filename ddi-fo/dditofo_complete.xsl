@@ -53,12 +53,6 @@
   <xsl:param name="subset-groups"/>
   <xsl:param name="subset-vars"/>
 
-  <!-- Report date, from parameter or EXSLT date:date-time() if available -->
-  <!-- <xsl:variable name="calculated-date">
-    <xsl:call-template name="date" />
-  </xsl:variable>
-  <xsl:param name="report-date" select="$calculated-date" /> -->
-
   <!-- Start page number, used by Overview -->
   <!-- (useful if running multi-survey reports) -->
   <xsl:param name="report-start-page-number" select="4"/>
@@ -121,16 +115,18 @@
   <!-- ==================================== -->
 
   <!-- survey title -->
-  <xsl:variable name="survey-title">
-    <xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:titl)"/>
-    <xsl:if test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:altTitl">
-      (<xsl:value-of select="normalize-space(/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:titlStmt/ddi:altTitl)"/>)
+  <xsl:variable name="survey-title" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
+    <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/titl)"/>
+    <xsl:if test="/codeBook/stdyDscr/citation/titlStmt/altTitl">
+      <xsl:text>(</xsl:text>
+      <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/altTitl)"/>
+      <xsl:text>)</xsl:text>
     </xsl:if>
   </xsl:variable>
 
   <!-- geography -->
-  <xsl:variable name="geography">
-    <xsl:for-each select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:nation">
+  <xsl:variable name="geography" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
+    <xsl:for-each select="/codeBook/stdyDscr/stdyInfo/sumDscr/nation">
       <xsl:if test="position() &gt; 1">
         <xsl:text>, </xsl:text>
       </xsl:if>
@@ -139,16 +135,16 @@
   </xsl:variable>
 
   <!-- If timeperiods returns empty, use timePrd instead -->
-  <xsl:variable name="time-produced" select="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd/@date"/>
+  <xsl:variable name="time-produced" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd/@date"/>
 
   <!-- ========================================= -->
   <!-- conditional boolean vars (co-dependant)   -->
   <!-- ========================================= -->
 
   <!-- Show variable groups only if there are any -->
-  <xsl:variable name="show-variable-groups">
+  <xsl:variable name="show-variable-groups" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="count(/ddi:codeBook/ddi:dataDscr/ddi:varGrp) &gt; 0">1</xsl:when>
+      <xsl:when test="count(/codeBook/dataDscr/varGrp) &gt; 0">1</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
@@ -163,9 +159,9 @@
 
   <!-- If totalt amount of variables or given subsetamount       -->
   <!-- exceeds given max, then dont show extensive variable desc -->
-  <xsl:variable name="show-variables-description">
+  <xsl:variable name="show-variables-description" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="(count(/ddi:codeBook/ddi:dataDscr/ddi:var) = 0)">0</xsl:when>
+      <xsl:when test="(count(/codeBook/dataDscr/var) = 0)">0</xsl:when>
       <xsl:otherwise>1</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
@@ -174,78 +170,78 @@
   <!-- conditional boolean vars (direct)    -->
   <!-- ==================================== -->
 
-  <xsl:variable name="show-scope-and-coverage">
+  <xsl:variable name="show-scope-and-coverage" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:notes">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:subject/ddi:keyword">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:geogCover">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:universe">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/stdyInfo/notes">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/stdyInfo/subject/keyword">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/geogCover">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/universe">1</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
-  <xsl:variable name="show-producers-and-sponsors">
+  <xsl:variable name="show-producers-and-sponsors" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:AuthEnty">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:producer">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:fundAg">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:rspStmt/ddi:othId">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/prodStmt/producer">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/prodStmt/fundAg">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/rspStmt/othId">1</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
-  <xsl:variable name="show-sampling">
+  <xsl:variable name="show-sampling" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='sampling']">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:sampProc">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:deviat">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:respRate">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:weight">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='sampling']">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/sampProc">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/deviat">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/anlyInfo/respRate">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/weight">1</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
-  <xsl:variable name="show-data-collection">
+  <xsl:variable name="show-data-collection" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:timePrd">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collMode">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='collection']">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='processing']">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:notes[@subject='cleaning']">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:collSitu">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:resInstru">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:dataCollector">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:actMin">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/collDate">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/collMode">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='collection']">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='processing']">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='cleaning']">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/collSitu">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/resInstru">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/dataCollector">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/actMin">1</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
-  <xsl:variable name="show-data-processing-and-appraisal">
+  <xsl:variable name="show-data-processing-and-appraisal" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:dataColl/ddi:cleanOps">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:EstSmpErr">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:method/ddi:anlyInfo/ddi:dataAppr">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/cleanOps">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/anlyInfo/EstSmpErr">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/anlyInfo/dataAppr">1</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
-  <xsl:variable name="show-accessibility">
+  <xsl:variable name="show-accessibility" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:contact">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:distrbtr">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:distStmt/ddi:contact">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:confDec">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:conditions">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:citReq">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/contact">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/distStmt/distrbtr">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/distStmt/contact">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/confDec">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/conditions">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/citReq">1</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
-  <xsl:variable name="show-rights-and-disclaimer">
+  <xsl:variable name="show-rights-and-disclaimer" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:dataAccs/ddi:useStmt/ddi:disclaimer">1</xsl:when>
-      <xsl:when test="/ddi:codeBook/ddi:stdyDscr/ddi:citation/ddi:prodStmt/ddi:copyright">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/disclaimer">1</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/prodStmt/copyright">1</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
@@ -255,10 +251,11 @@
   <!-- ================================================== -->
 
   <!-- year-from - the first data collection mode element with a 'start' event -->
-  <xsl:variable name="year-from" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='start'][1]/@date, 1, 4)"/>
+  <xsl:variable name="year-from" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='start'][1]/@date, 1, 4)"/>
+
   <!-- year to is the last data collection mode element with an 'end' event -->
-  <xsl:variable name="year-to-count" select="count(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='end'])"/>
-  <xsl:variable name="year-to" select="substring(/ddi:codeBook/ddi:stdyDscr/ddi:stdyInfo/ddi:sumDscr/ddi:collDate[@event='end'][$year-to-count]/@date, 1, 4)"/>
+  <xsl:variable name="year-to-count" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="count(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='end'])"/>
+  <xsl:variable name="year-to" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='end'][$year-to-count]/@date, 1, 4)"/>
 
   <xsl:variable name="time">
     <xsl:if test="$year-from">
@@ -3463,9 +3460,6 @@
   <!-- ==================================== -->
   <!-- named templates                      -->
   <!-- ==================================== -->
-  <!-- <xi:include href="templates/named/date.xsl" /> -->
-  <!-- <xi:include href="templates/named/isodate-long.xsl" /> -->
-  <!-- <xi:include href="templates/named/isodate-month.xsl" /> -->
   <!-- ===================== --><!-- name: math:max        --><!-- value: string         --><!-- ===================== --><!-- read: --><!-- $nodes [param] --><!-- functions: --><!-- not(), number(), position() [Xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="math:max" xml:base="templates/named/math-max.xsl">
 
     <!-- params -->
@@ -3518,7 +3512,6 @@
   <!-- ======= -->
   <!-- content -->
   <!-- ======= -->
-  
   <xsl:value-of select="util:rtrim($tmp3, string-length($tmp3))"/>
 
 </xsl:template>
