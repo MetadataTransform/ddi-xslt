@@ -33,7 +33,7 @@
   <!-- Misc                                                      -->
   <!-- ========================================================= -->
 
-  <!-- used in isodate-long template -->
+  <!-- used in util:isodate-long() -->
   <xsl:param name="language-code" select="en"/>
 
   <!-- translation file (path)-->
@@ -61,17 +61,17 @@
   <!-- ========================================================== -->
 
   <!-- To avoid empty pages; use a huge chunksize for subsets -->
-  <xsl:variable name="chunk-size">50</xsl:variable>
+  <xsl:variable name="chunk-size" select="50"/>
 
   <!-- path to front page logo -->
-  <xsl:param name="logo-file">http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png</xsl:param>
+  <xsl:param name="logo-file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png'"/>
 
   <!-- Style and page layout -->
-  <xsl:param name="page-layout">A4-page</xsl:param>
-  <xsl:param name="font-family">Times</xsl:param>
-  <xsl:param name="font-size">10</xsl:param>
-  <xsl:param name="header-font-size">6</xsl:param>
-  <xsl:param name="footer-font-size">6</xsl:param>
+  <xsl:param name="page-layout" select="'A4-page'"/>
+  <xsl:param name="font-family" select="'Times'"/>
+  <xsl:param name="font-size" select="10"/>
+  <xsl:param name="header-font-size" select="6"/>
+  <xsl:param name="footer-font-size" select="6"/>
 
   <xsl:variable name="cell-padding" select="'3pt'"/>
   <xsl:variable name="default-border" select="'0.5pt solid black'"/>
@@ -89,18 +89,18 @@
 
   <!-- main sections of root template -->
   <!-- <xsl:param name="show-bookmarks" select="1" /> -->
-  <xsl:param name="show-bookmarks">1</xsl:param>
-  <xsl:param name="show-cover-page">1</xsl:param>
-  <xsl:param name="show-metadata-info">1</xsl:param> 
-  <xsl:param name="show-toc">1</xsl:param>
-  <xsl:param name="show-overview">1</xsl:param>
-  <xsl:param name="show-files-description">1</xsl:param>
+  <xsl:param name="show-bookmarks" select="1"/>
+  <xsl:param name="show-cover-page" select="1"/>
+  <xsl:param name="show-metadata-info" select="1"/> 
+  <xsl:param name="show-toc" select="1"/>
+  <xsl:param name="show-overview" select="1"/>
+  <xsl:param name="show-files-description" select="1"/>
 
   <!-- parts of cover page -->
-  <xsl:param name="show-logo">1</xsl:param>
-  <xsl:param name="show-geography">0</xsl:param>
-  <xsl:param name="show-cover-page-producer">1</xsl:param>
-  <xsl:param name="show-report-subtitle">0</xsl:param>
+  <xsl:param name="show-logo" select="1"/>
+  <xsl:param name="show-geography" select="0"/>
+  <xsl:param name="show-cover-page-producer" select="1"/>
+  <xsl:param name="show-report-subtitle" select="0"/>
 
   <!-- misc -->
   <xsl:param name="show-metadata-production" select="1"/>
@@ -342,7 +342,8 @@
   <xsl:variable name="i18n-Variables_Description" select="$strings/*/entry[@key='Variables_Description']"/>
   <xsl:variable name="i18n-Version" select="$strings/*/entry[@key='Version']"/>
   <xsl:variable name="i18n-Weighting" select="$strings/*/entry[@key='Weighting']"/>
-  
+
+
 
   <!-- ===================================== -->
   <!-- matching templates                    -->
@@ -581,7 +582,7 @@
 
   </fo:bookmark-tree>
 </xsl:if>
-    <!-- ========================= --><!-- <xsl:if> cover page       --><!-- value: <fo:page-sequence> --><!-- ========================= --><!-- read: --><!-- show-logo, show-geography, show-cover-page-producer, --><!-- show-report-subtitle                                 --><!-- functions: --><!-- normalize-space() [Xpath 1.0] --><!-- called: --><!-- trim, isodate-long --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/cover_page.xsl">
+    <!-- ========================= --><!-- <xsl:if> cover page       --><!-- value: <fo:page-sequence> --><!-- ========================= --><!-- read: --><!-- show-logo, show-geography, show-cover-page-producer, --><!-- show-report-subtitle                                 --><!-- functions: --><!-- normalize-space() [Xpath 1.0]            --><!-- util:trim() [local] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/cover_page.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="Helvetica" font-size="{$font-size}">
 
@@ -626,12 +627,6 @@
         <xsl:if test="$show-cover-page-producer = 1">
           <xsl:for-each select="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">
             <fo:block font-size="14pt" font-weight="bold" space-before="0.0in" text-align="center" space-after="0.0in">
-              <!-- <xsl:call-template name="trim">
-                <xsl:with-param name="s">
-                  <xsl:value-of select="." />
-                </xsl:with-param>
-              </xsl:call-template> -->
-
               <xsl:value-of select="util:trim(.)"/>
 
               <xsl:if test="@affiliation">,
@@ -1980,11 +1975,6 @@
   <!-- ========================= --><!-- match: ddi:AuthEnty       --><!-- value: <fo:block>         --><!-- ========================= --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:AuthEnty" xml:base="templates/match/ddi-AuthEnty.xsl">
 
   <fo:block>
-
-    <!-- trim current node -->
-    <!-- <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="." />
-    </xsl:call-template> -->
     
     <xsl:value-of select="util:trim(.)"/>
 
@@ -2026,7 +2016,9 @@
 
       <!-- affiliation -->
       <xsl:if test="@affiliation">
-        (<xsl:value-of select="@affiliation"/>)
+        <xsl:text>(</xsl:text>
+        <xsl:value-of select="@affiliation"/>
+        <xsl:text>)</xsl:text>
       </xsl:if>
 
       <!-- URI -->
@@ -2048,13 +2040,7 @@
 </xsl:template>
   <!-- ============================== --><!-- match: ddi:dataCollector       --><!-- value: <fo:block>              --><!-- ============================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:dataCollector" xml:base="templates/match/ddi-dataCollector.xsl">
 
-  <fo:block>
-
-    <!-- trim current node -->
-    <!-- <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="." />
-    </xsl:call-template> -->
-    
+  <fo:block>  
     <xsl:value-of select="util:trim(.)"/>
 
     <!-- abbr -->
@@ -2626,13 +2612,13 @@
 
   </fo:block>
 </xsl:template>
-  <!-- ================================== --><!-- match: ddi:var                     --><!-- value: <xsl:if> <fo:table-row>     --><!-- ================================== --><!-- read: --><!-- $fileId [params]                                          --><!-- $strings, $cell-padding, $color-gray1, $default-border,   --><!-- $show-variables-description-categories-max, $subset-vars, --><!-- set: --><!-- $statistics, $type, $label, $category-count, $is-weighted,  --><!-- $catgry-freq-nodes, $catgry-sum-freq, $catgry-sum-freq-wgtd,--><!-- $catgry-max-freq, $catgry-max-freq-wgtd,                    --><!-- $bar-column-width, $catgry-freq                             --><!-- functions: --><!-- concat(), contains(), string-length(), normalize-space(), --><!-- number(), position(), string() [Xpath 1.0]                --><!-- called: --><!-- math:max, trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" version="1.0" xml:base="templates/match/ddi-var.xsl">
+  <!-- ================================== --><!-- match: ddi:var                     --><!-- value: <xsl:if> <fo:table-row>     --><!-- ================================== --><!-- read: --><!-- $fileId [params]                                          --><!-- $strings, $cell-padding, $color-gray1, $default-border,   --><!-- $show-variables-description-categories-max, $subset-vars, --><!-- set: --><!-- $statistics, $type, $label, $category-count, $is-weighted,  --><!-- $catgry-freq-nodes, $catgry-sum-freq, $catgry-sum-freq-wgtd,--><!-- $catgry-max-freq, $catgry-max-freq-wgtd,                    --><!-- $bar-column-width, $catgry-freq                             --><!-- functions: --><!-- concat(), contains(), string-length(), normalize-space(), --><!-- number(), position(), string() [Xpath 1.0]                --><!-- util:trim(), util:math_max() [local]                      --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" version="1.0" xml:base="templates/match/ddi-var.xsl">
 
   <!-- params -->
   <xsl:param name="fileId" select="./@files"/> <!-- use first file in @files if not specified) -->
 
   <!-- content -->
-  <xsl:if test="contains($subset-vars, concat(',',@ID,',')) or string-length($subset-vars) = 0 ">
+  <xsl:if test="contains($subset-vars, concat(',' ,@ID, ','))                 or string-length($subset-vars) = 0 ">
 
     <fo:table-row text-align="center" vertical-align="top">
       <fo:table-cell>
@@ -2645,7 +2631,8 @@
             <fo:table-row background-color="{$color-gray1}" text-align="center" vertical-align="top">
               <fo:table-cell number-columns-spanned="2" font-size="10pt" font-weight="bold" text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <fo:inline font-size="8pt" font-weight="normal" vertical-align="text-top">#
+                  <fo:inline font-size="8pt" font-weight="normal" vertical-align="text-top">
+                    <xsl:text>#</xsl:text>
                     <xsl:value-of select="./@id"/>
                     <xsl:text> </xsl:text>
                   </fo:inline>
@@ -2680,7 +2667,8 @@
                   <!-- 1.1) Information: Type -->
                   <xsl:if test="normalize-space(@intrvl)">
                     <xsl:text> [</xsl:text>
-                    <xsl:value-of select="$strings/*/entry[@key='Type']"/>=
+                    <xsl:value-of select="$strings/*/entry[@key='Type']"/>
+                    <xsl:text>=</xsl:text>
                     <xsl:choose>
                       <xsl:when test="@intrvl='discrete'">
                         <xsl:value-of select="$strings/*/entry[@key='discrete']"/>
@@ -2695,7 +2683,8 @@
                   <!-- 1.2) Information: Format -->
                   <xsl:for-each select="ddi:varFormat">
                     <xsl:text> [</xsl:text>
-                    <xsl:value-of select="$strings/*/entry[@key='Format']"/>=
+                    <xsl:value-of select="$strings/*/entry[@key='Format']"/>
+                    <xsl:text>=</xsl:text>
                     <xsl:value-of select="@type"/>
                     <xsl:if test="normalize-space(ddi:location/@width)">
                       <xsl:text>-</xsl:text>
@@ -2711,7 +2700,8 @@
                   <!-- 1.3) Information: Range -->
                   <xsl:for-each select="ddi:valrng/ddi:range">
                     <xsl:text> [</xsl:text>
-                    <xsl:value-of select="$strings/*/entry[@key='Range']"/>=
+                    <xsl:value-of select="$strings/*/entry[@key='Range']"/>
+                    <xsl:text>=</xsl:text>
                     <xsl:value-of select="@min"/>-
                     <xsl:value-of select="@max"/>
                     <xsl:text>] </xsl:text>
@@ -3078,7 +3068,9 @@
                               <fo:block font-weight="bold">
                                 <xsl:value-of select="$strings/*/entry[@key='Percentage']"/>
                                 <xsl:if test="$is-weighted">
-                                  (<xsl:value-of select="$strings/*/entry[@key='Weighted']"/>)
+                                  <xsl:text>(</xsl:text>
+                                  <xsl:value-of select="$strings/*/entry[@key='Weighted']"/>
+                                  <xsl:text>)</xsl:text>
                                 </xsl:if>
                               </fo:block>
                             </fo:table-cell>
@@ -3092,23 +3084,14 @@
 
                               <!-- catValue -->
                               <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
-                                <fo:block>
-                                  <!-- <xsl:call-template name="trim">
-                                    <xsl:with-param name="s" select="ddi:catValu" />
-                                  </xsl:call-template> -->
-                                  
+                                <fo:block>                                  
                                   <xsl:value-of select="util:trim(ddi:catValu)"/>
-                                  
                                 </fo:block>
                               </fo:table-cell>
 
                               <!-- Label -->
                               <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
-                                <fo:block>
-                                  <!-- <xsl:call-template name="trim">
-                                    <xsl:with-param name="s" select="ddi:labl" />
-                                  </xsl:call-template> -->
-                                  
+                                <fo:block>                                
                                   <xsl:value-of select="util:trim(ddi:labl)"/>
                                 </fo:block>
                               </fo:table-cell>
@@ -3116,11 +3099,7 @@
                               <!-- Frequency -->
                               <xsl:variable name="catgry-freq" select="ddi:catStat[@type='freq' and not(@wgtd='wgtd') ]"/>
                               <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
-                                <fo:block>
-                                  <!-- <xsl:call-template name="trim">
-                                    <xsl:with-param name="s" select="$catgry-freq" />
-                                  </xsl:call-template> -->
-                                  
+                                <fo:block>                                
                                   <xsl:value-of select="util:trim(ddi:p)"/>
                                 </fo:block>
                               </fo:table-cell>
@@ -3130,10 +3109,6 @@
                               <xsl:if test="$is-weighted">
                                 <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
                                   <fo:block>
-                                    <!-- <xsl:call-template name="trim">
-                                      <xsl:with-param name="s" select="format-number($catgry-freq-wgtd,'0.0')" />
-                                    </xsl:call-template> -->
-                                    
                                     <xsl:value-of select="util:trim(format-number($catgry-freq-wgtd, '0.0'))"/>
                                   </fo:block>
                                 </fo:table-cell>
@@ -3203,7 +3178,7 @@
                         </fo:table-body>
                       </fo:table>
 
-                      <!-- [fo:block] Warning about summary of statistics? -->
+                      <!-- Warning about summary of statistics? -->
                       <fo:block font-weight="bold" color="#400000" font-size="6pt" font-style="italic">
                         <xsl:value-of select="$strings/*/entry[@key='SumStat_Warning']"/>
                       </fo:block>
@@ -3218,10 +3193,11 @@
                     <fo:table-cell background-color="{$color-gray1}" text-align="center" font-style="italic" border="{$default-border}" number-columns-spanned="2" padding="{$cell-padding}">
                       <fo:block>
                         <xsl:value-of select="$strings/*/entry[@key='Frequency_table_not_shown']"/>
-                        <xsl:text> </xsl:text>(
+                        <xsl:text> (</xsl:text>
                         <xsl:value-of select="$category-count"/>
                         <xsl:text> </xsl:text>
-                        <xsl:value-of select="$strings/*/entry[@key='Modalities']"/>)
+                        <xsl:value-of select="$strings/*/entry[@key='Modalities']"/>
+                        <xsl:text>)</xsl:text>
                       </fo:block>
                     </fo:table-cell>
                   </xsl:otherwise>
@@ -3494,31 +3470,6 @@
   <!-- ==================================== -->
   <!-- named templates                      -->
   <!-- ==================================== -->
-  <!-- ===================== --><!-- name: math:max        --><!-- value: string         --><!-- ===================== --><!-- read: --><!-- $nodes [param] --><!-- functions: --><!-- not(), number(), position() [Xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="math:max" xml:base="templates/named/math-max.xsl">
-
-    <!-- params -->
-    <xsl:param name="nodes" select="/.."/>
-
-    <!-- content -->
-    <!-- count number of nodes -->
-    <xsl:choose>
-
-      <!-- Case: Not a Number -->
-      <xsl:when test="not($nodes)">NaN</xsl:when>
-
-      <!-- Actually a number -->
-      <xsl:otherwise>
-        <xsl:for-each select="$nodes">
-          <xsl:sort data-type="number" order="descending"/>
-          <xsl:if test="position() = 1">
-            <xsl:value-of select="number(.)"/>
-          </xsl:if>
-        </xsl:for-each>
-      </xsl:otherwise>
-    </xsl:choose>
-
-</xsl:template>
-  
   <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="page_header" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/named/page_header.xsl">
   
   <!-- ====== -->
@@ -3549,7 +3500,8 @@
   </fo:static-content>
   
 </xsl:template>
-  
+  <!-- <xi:include href="templates/named/math-max.xsl" /> -->
+    
   <!-- ==================================== -->
   <!-- functions                            -->
   <!-- ==================================== -->
@@ -3663,6 +3615,36 @@
   <xsl:value-of select="$date_string"/>
 
 </xsl:function>
+  <!-- =================== --><!-- xs:string trim()    --><!-- param: $s           --><!-- =================== --><!-- read: --><!-- $s [param] --><!-- functions: --><!-- concat(), substring(), translate(), substring-after() [Xpath 1.0] --><!-- util:rtrim() [local] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:trim" as="xs:string" xml:base="functions/util-trim.xsl">
+
+  <!-- ====== -->
+  <!-- params -->
+  <!-- ====== -->
+  <xsl:param name="s"/>
+
+  <!-- ========= -->
+  <!-- variables -->
+  <!-- ========= -->
+
+  <!-- &#x9; TAB-character -->
+  <!-- &#xA; LF-character -->
+  <!-- &#xD; CR-character -->
+
+  <!-- replace TAB, LF and CR and with '' -->
+  <xsl:variable name="translated" select="translate($s, '&#9;&#10;&#13;', '')"/>
+  <!-- extract all characters in string after the first one -->
+  <xsl:variable name="tmp1" select="substring($translated, 1, 1)"/>
+  <!-- extract all character in string after found string -->
+  <xsl:variable name="tmp2" select="substring-after($s, $tmp1)"/>
+  
+  <xsl:variable name="tmp3" select="concat($tmp1, $tmp2)"/>
+
+  <!-- ======= -->
+  <!-- content -->
+  <!-- ======= -->
+  <xsl:value-of select="util:rtrim($tmp3, string-length($tmp3))"/>
+
+</xsl:function>
   <!-- ======================= --><!-- xs:string util:rtrim()  --><!-- params: $s, $i          --><!-- ======================= --><!-- perform right trim on text through recursion --><!-- read: --><!-- $s, $i [param] --><!-- functions: --><!-- substring(), string-length(), translate() [Xpath 1.0] --><!-- util:rtrim() [local] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:rtrim" as="xs:string" xml:base="functions/util-rtrim.xsl">
 
   <!-- ====== -->
@@ -3697,36 +3679,6 @@
   <!-- content -->
   <!-- ======= -->
   <xsl:value-of select="$tmp"/>
-
-</xsl:function>
-  <!-- =================== --><!-- xs:string trim()    --><!-- param: $s           --><!-- =================== --><!-- read: --><!-- $s [param] --><!-- functions: --><!-- concat(), substring(), translate(), substring-after() [Xpath 1.0] --><!-- util:rtrim() [local] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:trim" as="xs:string" xml:base="functions/util-trim.xsl">
-
-  <!-- ====== -->
-  <!-- params -->
-  <!-- ====== -->
-  <xsl:param name="s"/>
-
-  <!-- ========= -->
-  <!-- variables -->
-  <!-- ========= -->
-
-  <!-- &#x9; TAB-character -->
-  <!-- &#xA; LF-character -->
-  <!-- &#xD; CR-character -->
-
-  <!-- replace TAB, LF and CR and with '' -->
-  <xsl:variable name="translated" select="translate($s, '&#9;&#10;&#13;', '')"/>
-  <!-- extract all characters in string after the first one -->
-  <xsl:variable name="tmp1" select="substring($translated, 1, 1)"/>
-  <!-- extract all character in string after found string -->
-  <xsl:variable name="tmp2" select="substring-after($s, $tmp1)"/>
-  
-  <xsl:variable name="tmp3" select="concat($tmp1, $tmp2)"/>
-
-  <!-- ======= -->
-  <!-- content -->
-  <!-- ======= -->
-  <xsl:value-of select="util:rtrim($tmp3, string-length($tmp3))"/>
 
 </xsl:function>
   <!-- ===================== --><!-- util:math_max()       --><!-- param: $nodes         --><!-- ===================== --><!-- read: --><!-- $nodes [param] --><!-- functions: --><!-- not(), number(), position() [Xpath 1.0] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:math_max" xml:base="functions/util-math_max.xsl">

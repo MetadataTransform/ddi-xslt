@@ -120,7 +120,7 @@
   <!-- Misc                                                      -->
   <!-- ========================================================= -->
 
-  <!-- used in isodate-long template -->
+  <!-- used in util:isodate-long() -->
   <xsl:param name="language-code" select="en" />
 
   <!-- translation file (path)-->
@@ -148,17 +148,17 @@
   <!-- ========================================================== -->
 
   <!-- To avoid empty pages; use a huge chunksize for subsets -->
-  <xsl:variable name="chunk-size">50</xsl:variable>
+  <xsl:variable name="chunk-size" select="50" />
 
   <!-- path to front page logo -->
-  <xsl:param name="logo-file">http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png</xsl:param>
+  <xsl:param name="logo-file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png'" />
 
   <!-- Style and page layout -->
-  <xsl:param name="page-layout">A4-page</xsl:param>
-  <xsl:param name="font-family">Times</xsl:param>
-  <xsl:param name="font-size">10</xsl:param>
-  <xsl:param name="header-font-size">6</xsl:param>
-  <xsl:param name="footer-font-size">6</xsl:param>
+  <xsl:param name="page-layout" select="'A4-page'" />
+  <xsl:param name="font-family" select="'Times'" />
+  <xsl:param name="font-size" select="10" />
+  <xsl:param name="header-font-size" select="6" />
+  <xsl:param name="footer-font-size" select="6" />
 
   <xsl:variable name="cell-padding" select="'3pt'" />
   <xsl:variable name="default-border" select="'0.5pt solid black'" />
@@ -176,18 +176,18 @@
 
   <!-- main sections of root template -->
   <!-- <xsl:param name="show-bookmarks" select="1" /> -->
-  <xsl:param name="show-bookmarks" >1</xsl:param>
-  <xsl:param name="show-cover-page" >1</xsl:param>
-  <xsl:param name="show-metadata-info" >1</xsl:param> 
-  <xsl:param name="show-toc" >1</xsl:param>
-  <xsl:param name="show-overview" >1</xsl:param>
-  <xsl:param name="show-files-description" >1</xsl:param>
+  <xsl:param name="show-bookmarks" select="1" />
+  <xsl:param name="show-cover-page" select="1" />
+  <xsl:param name="show-metadata-info" select="1" /> 
+  <xsl:param name="show-toc" select="1" />
+  <xsl:param name="show-overview" select="1" />
+  <xsl:param name="show-files-description" select="1" />
 
   <!-- parts of cover page -->
-  <xsl:param name="show-logo" >1</xsl:param>
-  <xsl:param name="show-geography" >0</xsl:param>
-  <xsl:param name="show-cover-page-producer" >1</xsl:param>
-  <xsl:param name="show-report-subtitle" >0</xsl:param>
+  <xsl:param name="show-logo" select="1" />
+  <xsl:param name="show-geography" select="0" />
+  <xsl:param name="show-cover-page-producer" select="1" />
+  <xsl:param name="show-report-subtitle" select="0" />
 
   <!-- misc -->
   <xsl:param name="show-metadata-production" select="1" />
@@ -448,7 +448,8 @@
   <xsl:variable name="i18n-Variables_Description" select="$strings/*/entry[@key='Variables_Description']" />
   <xsl:variable name="i18n-Version" select="$strings/*/entry[@key='Version']" />
   <xsl:variable name="i18n-Weighting" select="$strings/*/entry[@key='Weighting']" />
-  
+
+
 
   <!-- ===================================== -->
   <!-- matching templates                    -->
@@ -475,18 +476,17 @@
   <!-- ==================================== -->
   <!-- named templates                      -->
   <!-- ==================================== -->
-  <xi:include href="templates/named/math-max.xsl" />
-  
   <xi:include href="templates/named/page_header.xsl" />
   <xi:include href="templates/named/page_footer.xsl" />
-  
+  <!-- <xi:include href="templates/named/math-max.xsl" /> -->
+    
   <!-- ==================================== -->
   <!-- functions                            -->
   <!-- ==================================== -->
   <xi:include href="functions/util-isodate_month_name.xsl" />
   <xi:include href="functions/util-isodate_long.xsl" />
-  <xi:include href="functions/util-rtrim.xsl" />
   <xi:include href="functions/util-trim.xsl" />
+  <xi:include href="functions/util-rtrim.xsl" />
   <xi:include href="functions/util-math_max.xsl" />
   
 </xsl:transform>
