@@ -94,9 +94,6 @@
   <!-- count(), normalize-space(), position(), substring() [Xpath 1.0] -->
   <!-- document() [XSLT 1.0] -->
   
-  <!-- called: -->
-  <!-- date -->
-
   <!-- =============================================================== -->
   <!-- Main "sections" of the root template and their show/hide vars   -->
   <!-- fo:layout-master-set    n/a                                     -->
@@ -479,8 +476,6 @@
   <!-- named templates                      -->
   <!-- ==================================== -->
   <xi:include href="templates/named/math-max.xsl" />
-  <!-- <xi:include href="templates/named/rtrim.xsl" /> -->
-  <xi:include href="templates/named/trim.xsl" />
   
   <xi:include href="templates/named/page_header.xsl" />
   <xi:include href="templates/named/page_footer.xsl" />
@@ -492,5 +487,6 @@
   <xi:include href="functions/util-isodate_long.xsl" />
   <xi:include href="functions/util-rtrim.xsl" />
   <xi:include href="functions/util-trim.xsl" />
+  <xi:include href="functions/util-math_max.xsl" />
   
 </xsl:transform>
