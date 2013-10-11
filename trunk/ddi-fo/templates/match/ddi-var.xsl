@@ -410,17 +410,26 @@
                       <xsl:variable name="catgry-sum-freq" select="sum($catgry-freq-nodes[ not(@wgtd='wgtd') ])" />
                       <xsl:variable name="catgry-sum-freq-wgtd" select="sum($catgry-freq-nodes[ @wgtd='wgtd'])" />
 
-                      <xsl:variable name="catgry-max-freq">
+                      <!-- <xsl:variable name="catgry-max-freq">
                         <xsl:call-template name="math:max">
                           <xsl:with-param name="nodes" select="$catgry-freq-nodes[ not(@wgtd='wgtd') ]" />
                         </xsl:call-template>
+                      </xsl:variable> -->
+                      
+                      <xsl:variable name="catgry-max-freq">
+                        <xsl:value-of select="util:math_max($catgry-freq-nodes[ not(@wgtd='wgtd') ])" />
                       </xsl:variable>
 
-                      <xsl:variable name="catgry-max-freq-wgtd">
+                      <!-- <xsl:variable name="catgry-max-freq-wgtd">
                         <xsl:call-template name="math:max">
                           <xsl:with-param name="nodes" select="$catgry-freq-nodes[@type='freq' and @wgtd='wgtd' ]" />
                         </xsl:call-template>
+                      </xsl:variable> -->
+                      
+                      <xsl:variable name="catgry-max-freq-wgtd">
+                        <xsl:value-of select="util:math_max($catgry-freq-nodes[@type='freq' and @wgtd='wgtd' ])"/>
                       </xsl:variable>
+                        
 
                       <!-- Render table -->
                       <fo:table id="var-{@ID}-cat" table-layout="fixed" width="100%" font-size="8pt">

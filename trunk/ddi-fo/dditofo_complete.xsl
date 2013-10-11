@@ -7,9 +7,6 @@
   <!-- count(), normalize-space(), position(), substring() [Xpath 1.0] -->
   <!-- document() [XSLT 1.0] -->
   
-  <!-- called: -->
-  <!-- date -->
-
   <!-- =============================================================== -->
   <!-- Main "sections" of the root template and their show/hide vars   -->
   <!-- fo:layout-master-set    n/a                                     -->
@@ -3014,17 +3011,26 @@
                       <xsl:variable name="catgry-sum-freq" select="sum($catgry-freq-nodes[ not(@wgtd='wgtd') ])"/>
                       <xsl:variable name="catgry-sum-freq-wgtd" select="sum($catgry-freq-nodes[ @wgtd='wgtd'])"/>
 
-                      <xsl:variable name="catgry-max-freq">
+                      <!-- <xsl:variable name="catgry-max-freq">
                         <xsl:call-template name="math:max">
-                          <xsl:with-param name="nodes" select="$catgry-freq-nodes[ not(@wgtd='wgtd') ]"/>
+                          <xsl:with-param name="nodes" select="$catgry-freq-nodes[ not(@wgtd='wgtd') ]" />
                         </xsl:call-template>
+                      </xsl:variable> -->
+                      
+                      <xsl:variable name="catgry-max-freq">
+                        <xsl:value-of select="util:math_max($catgry-freq-nodes[ not(@wgtd='wgtd') ])"/>
                       </xsl:variable>
 
-                      <xsl:variable name="catgry-max-freq-wgtd">
+                      <!-- <xsl:variable name="catgry-max-freq-wgtd">
                         <xsl:call-template name="math:max">
-                          <xsl:with-param name="nodes" select="$catgry-freq-nodes[@type='freq' and @wgtd='wgtd' ]"/>
+                          <xsl:with-param name="nodes" select="$catgry-freq-nodes[@type='freq' and @wgtd='wgtd' ]" />
                         </xsl:call-template>
+                      </xsl:variable> -->
+                      
+                      <xsl:variable name="catgry-max-freq-wgtd">
+                        <xsl:value-of select="util:math_max($catgry-freq-nodes[@type='freq' and @wgtd='wgtd' ])"/>
                       </xsl:variable>
+                        
 
                       <!-- Render table -->
                       <fo:table id="var-{@ID}-cat" table-layout="fixed" width="100%" font-size="8pt">
@@ -3512,37 +3518,6 @@
     </xsl:choose>
 
 </xsl:template>
-  <!-- <xi:include href="templates/named/rtrim.xsl" /> -->
-  <!-- =================== --><!-- name: trim          --><!-- value: string       --><!-- =================== --><!-- read: --><!-- $s [param] --><!-- functions: --><!-- concat(), substring(), translate(), substring-after() [Xpath 1.0] --><!-- util:rtrim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="trim" xml:base="templates/named/trim.xsl">
-
-  <!-- ====== -->
-  <!-- params -->
-  <!-- ====== -->
-  <xsl:param name="s"/>
-
-  <!-- ========= -->
-  <!-- variables -->
-  <!-- ========= -->
-
-  <!-- &#x9; TAB-character -->
-  <!-- &#xA; LF-character -->
-  <!-- &#xD; CR-character -->
-
-  <!-- replace TAB, LF and CR and with '' -->
-  <xsl:variable name="translated" select="translate($s, '&#9;&#10;&#13;', '')"/>
-  <!-- extract all characters in string after the first one -->
-  <xsl:variable name="tmp1" select="substring($translated, 1, 1)"/>
-  <!-- extract all character in string after found string -->
-  <xsl:variable name="tmp2" select="substring-after($s, $tmp1)"/>
-  
-  <xsl:variable name="tmp3" select="concat($tmp1, $tmp2)"/>
-
-  <!-- ======= -->
-  <!-- content -->
-  <!-- ======= -->
-  <xsl:value-of select="util:rtrim($tmp3, string-length($tmp3))"/>
-
-</xsl:template>
   
   <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="page_header" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/named/page_header.xsl">
   
@@ -3752,6 +3727,41 @@
   <!-- content -->
   <!-- ======= -->
   <xsl:value-of select="util:rtrim($tmp3, string-length($tmp3))"/>
+
+</xsl:function>
+  <!-- ===================== --><!-- util:math_max()       --><!-- param: $nodes         --><!-- ===================== --><!-- read: --><!-- $nodes [param] --><!-- functions: --><!-- not(), number(), position() [Xpath 1.0] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:math_max" xml:base="functions/util-math_max.xsl">
+
+  <!-- ====== -->
+  <!-- params -->
+  <!-- ====== -->
+  <xsl:param name="nodes"/>
+
+  <!-- ========= -->
+  <!-- variables -->
+  <!-- ========= -->
+  <!-- count number of nodes -->
+  <xsl:variable name="tmp">
+    <xsl:choose>
+
+      <!-- Case: Not a Number -->
+      <xsl:when test="not($nodes)">NaN</xsl:when>
+
+      <!-- Actually a number -->
+      <xsl:otherwise>
+        <xsl:for-each select="$nodes">
+          <xsl:sort data-type="number" order="descending"/>
+          <xsl:if test="position() = 1">
+            <xsl:value-of select="number(.)"/>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- ======= -->
+  <!-- content -->
+  <!-- ======= -->
+  <xsl:value-of select="$tmp"/>
 
 </xsl:function>
   
