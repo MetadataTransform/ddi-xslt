@@ -9,10 +9,8 @@
 <!-- show-report-subtitle                                 -->
 
 <!-- functions: -->
-<!-- normalize-space() [Xpath 1.0] -->
-
-<!-- called: -->
-<!-- trim, isodate-long -->
+<!-- normalize-space() [Xpath 1.0]            -->
+<!-- util:trim() [local] -->
 
 <xsl:if test="$show-cover-page = 1"
         xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
@@ -67,12 +65,6 @@
         <xsl:if test="$show-cover-page-producer = 1">
           <xsl:for-each select="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">
             <fo:block font-size="14pt" font-weight="bold" space-before="0.0in" text-align="center" space-after="0.0in">
-              <!-- <xsl:call-template name="trim">
-                <xsl:with-param name="s">
-                  <xsl:value-of select="." />
-                </xsl:with-param>
-              </xsl:call-template> -->
-
               <xsl:value-of select="util:trim(.)"/>
 
               <xsl:if test="@affiliation">,

@@ -18,9 +18,7 @@
 <!-- functions: -->
 <!-- concat(), contains(), string-length(), normalize-space(), -->
 <!-- number(), position(), string() [Xpath 1.0]                -->
-
-<!-- called: -->
-<!-- math:max, trim -->
+<!-- util:trim(), util:math_max() [local]                      -->
 
 <xsl:template match="ddi:var"
               version="1.0"
@@ -31,7 +29,8 @@
   <xsl:param name="fileId" select="./@files"/> <!-- use first file in @files if not specified) -->
 
   <!-- content -->
-  <xsl:if test="contains($subset-vars, concat(',',@ID,',')) or string-length($subset-vars) = 0 ">
+  <xsl:if test="contains($subset-vars, concat(',' ,@ID, ','))
+                or string-length($subset-vars) = 0 ">
 
     <fo:table-row text-align="center" vertical-align="top">
       <fo:table-cell>
@@ -42,9 +41,11 @@
           <!-- table Header -->
           <fo:table-header>
             <fo:table-row background-color="{$color-gray1}" text-align="center" vertical-align="top">
-              <fo:table-cell number-columns-spanned="2" font-size="10pt" font-weight="bold" text-align="left" border="{$default-border}" padding="{$cell-padding}">
+              <fo:table-cell number-columns-spanned="2" font-size="10pt" font-weight="bold"
+                             text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <fo:inline font-size="8pt" font-weight="normal" vertical-align="text-top">#
+                  <fo:inline font-size="8pt" font-weight="normal" vertical-align="text-top">
+                    <xsl:text>#</xsl:text>
                     <xsl:value-of select="./@id" />
                     <xsl:text> </xsl:text>
                   </fo:inline>
@@ -79,7 +80,8 @@
                   <!-- 1.1) Information: Type -->
                   <xsl:if test="normalize-space(@intrvl)">
                     <xsl:text> [</xsl:text>
-                    <xsl:value-of select="$strings/*/entry[@key='Type']" />=
+                    <xsl:value-of select="$strings/*/entry[@key='Type']" />
+                    <xsl:text>=</xsl:text>
                     <xsl:choose>
                       <xsl:when test="@intrvl='discrete'">
                         <xsl:value-of select="$strings/*/entry[@key='discrete']" />
@@ -94,7 +96,8 @@
                   <!-- 1.2) Information: Format -->
                   <xsl:for-each select="ddi:varFormat">
                     <xsl:text> [</xsl:text>
-                    <xsl:value-of select="$strings/*/entry[@key='Format']" />=
+                    <xsl:value-of select="$strings/*/entry[@key='Format']" />
+                    <xsl:text>=</xsl:text>
                     <xsl:value-of select="@type" />
                     <xsl:if test="normalize-space(ddi:location/@width)">
                       <xsl:text>-</xsl:text>
@@ -110,7 +113,8 @@
                   <!-- 1.3) Information: Range -->
                   <xsl:for-each select="ddi:valrng/ddi:range">
                     <xsl:text> [</xsl:text>
-                    <xsl:value-of select="$strings/*/entry[@key='Range']" />=
+                    <xsl:value-of select="$strings/*/entry[@key='Range']" />
+                    <xsl:text>=</xsl:text>
                     <xsl:value-of select="@min" />-
                     <xsl:value-of select="@max" />
                     <xsl:text>] </xsl:text>
@@ -477,7 +481,9 @@
                               <fo:block font-weight="bold">
                                 <xsl:value-of select="$strings/*/entry[@key='Percentage']" />
                                 <xsl:if test="$is-weighted">
-                                  (<xsl:value-of select="$strings/*/entry[@key='Weighted']" />)
+                                  <xsl:text>(</xsl:text>
+                                  <xsl:value-of select="$strings/*/entry[@key='Weighted']" />
+                                  <xsl:text>)</xsl:text>
                                 </xsl:if>
                               </fo:block>
                             </fo:table-cell>
@@ -491,23 +497,14 @@
 
                               <!-- catValue -->
                               <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
-                                <fo:block>
-                                  <!-- <xsl:call-template name="trim">
-                                    <xsl:with-param name="s" select="ddi:catValu" />
-                                  </xsl:call-template> -->
-                                  
+                                <fo:block>                                  
                                   <xsl:value-of select="util:trim(ddi:catValu)"/>
-                                  
                                 </fo:block>
                               </fo:table-cell>
 
                               <!-- Label -->
                               <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
-                                <fo:block>
-                                  <!-- <xsl:call-template name="trim">
-                                    <xsl:with-param name="s" select="ddi:labl" />
-                                  </xsl:call-template> -->
-                                  
+                                <fo:block>                                
                                   <xsl:value-of select="util:trim(ddi:labl)"/>
                                 </fo:block>
                               </fo:table-cell>
@@ -515,11 +512,7 @@
                               <!-- Frequency -->
                               <xsl:variable name="catgry-freq" select="ddi:catStat[@type='freq' and not(@wgtd='wgtd') ]"/>
                               <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
-                                <fo:block>
-                                  <!-- <xsl:call-template name="trim">
-                                    <xsl:with-param name="s" select="$catgry-freq" />
-                                  </xsl:call-template> -->
-                                  
+                                <fo:block>                                
                                   <xsl:value-of select="util:trim(ddi:p)"/>
                                 </fo:block>
                               </fo:table-cell>
@@ -529,10 +522,6 @@
                               <xsl:if test="$is-weighted">
                                 <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
                                   <fo:block>
-                                    <!-- <xsl:call-template name="trim">
-                                      <xsl:with-param name="s" select="format-number($catgry-freq-wgtd,'0.0')" />
-                                    </xsl:call-template> -->
-                                    
                                     <xsl:value-of select="util:trim(format-number($catgry-freq-wgtd, '0.0'))"/>
                                   </fo:block>
                                 </fo:table-cell>
@@ -602,7 +591,7 @@
                         </fo:table-body>
                       </fo:table>
 
-                      <!-- [fo:block] Warning about summary of statistics? -->
+                      <!-- Warning about summary of statistics? -->
                       <fo:block font-weight="bold" color="#400000" font-size="6pt" font-style="italic">
                         <xsl:value-of select="$strings/*/entry[@key='SumStat_Warning']" />
                       </fo:block>
@@ -617,10 +606,11 @@
                     <fo:table-cell background-color="{$color-gray1}" text-align="center" font-style="italic" border="{$default-border}" number-columns-spanned="2" padding="{$cell-padding}">
                       <fo:block>
                         <xsl:value-of select="$strings/*/entry[@key='Frequency_table_not_shown']" />
-                        <xsl:text> </xsl:text>(
+                        <xsl:text> (</xsl:text>
                         <xsl:value-of select="$category-count"/>
                         <xsl:text> </xsl:text>
-                        <xsl:value-of select="$strings/*/entry[@key='Modalities']" />)
+                        <xsl:value-of select="$strings/*/entry[@key='Modalities']" />
+                        <xsl:text>)</xsl:text>
                       </fo:block>
                     </fo:table-cell>
                   </xsl:otherwise>

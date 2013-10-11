@@ -11,13 +11,7 @@
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-  <fo:block>
-
-    <!-- trim current node -->
-    <!-- <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="." />
-    </xsl:call-template> -->
-    
+  <fo:block>  
     <xsl:value-of select="util:trim(.)" />
 
     <!-- abbr -->
