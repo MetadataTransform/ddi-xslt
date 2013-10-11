@@ -38,22 +38,22 @@
 
         <!-- geography -->
         <xsl:if test="$show-geography = 1">
-          <fo:block font-size="14pt" font-weight="bold" space-before="0.5in"
-                    text-align="center" space-after="0.2in">
+          <fo:block font-size="14pt" font-weight="bold" space-before="12mm"
+                    text-align="center" space-after="5mm">
             <xsl:value-of select="$geography" />
           </fo:block>
         </xsl:if>
 
         <!-- title -->
-        <fo:block font-size="18pt" font-weight="bold" space-before="0.5in"
-                  text-align="center" space-after="0.0in">
+        <fo:block font-size="18pt" font-weight="bold" space-before="12mm"
+                  text-align="center" space-after="0.0mm">
           <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/titl)" />
         </fo:block>
         
         <!-- $report-title (actually report subtitle) -->
         <xsl:if test="show-report-subtitle">
-          <fo:block font-size="16pt" font-weight="bold" space-before="1.0in"
-                    text-align="center" space-after="0.0in">
+          <fo:block font-size="16pt" font-weight="bold" space-before="1.0mm"
+                    text-align="center" space-after="0.0mm">
             <xsl:value-of select="$report-title" />
           </fo:block>
         </xsl:if>
@@ -64,13 +64,19 @@
         <!-- responsible party -->
         <xsl:if test="$show-cover-page-producer = 1">
           <xsl:for-each select="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">
-            <fo:block font-size="14pt" font-weight="bold" space-before="0.0in" text-align="center" space-after="0.0in">
+            <fo:block font-size="14pt" font-weight="bold" space-before="0.0mm"
+                      text-align="center" space-after="0.0mm">
               <xsl:value-of select="util:trim(.)"/>
-
-              <xsl:if test="@affiliation">,
-                <xsl:value-of select="@affiliation" />
-              </xsl:if>
             </fo:block>
+
+              <xsl:if test="@affiliation">
+                <fo:block font-size="12pt" text-align="center">
+                  <xsl:value-of select="@affiliation" />
+                </fo:block>
+              </xsl:if>           
+            
+            <fo:block white-space-treatment="preserve" font-size="5pt"> &#x00A0; </fo:block>
+            
           </xsl:for-each>
         </xsl:if>
 
