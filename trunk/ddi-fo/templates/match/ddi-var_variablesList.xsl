@@ -51,7 +51,7 @@
         <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
           <fo:block>
             <xsl:choose>
-              <xsl:when test="$show-variables-list = 1">
+              <xsl:when test="$show-variables-list = 'True'">
                 <fo:basic-link internal-destination="var-{@ID}" text-decoration="underline" color="blue">
                   <xsl:if test="string-length(@name) &gt; 10">
                     <xsl:value-of select="substring(./@name, 0, $variable-name-length)" /> ..

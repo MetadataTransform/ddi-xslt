@@ -12,7 +12,7 @@
 <!-- nomalize-space(), position() [Xpath] -->
 <!-- proportional-column-width() [FO] -->
 
-<xsl:if test="$show-overview = 1"
+<xsl:if test="$show-overview = 'True'"
         xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
@@ -212,7 +212,7 @@
           <!-- =========================== -->
           <!-- Scope_and_Coverage          -->
           <!-- =========================== -->               
-          <xsl:if test="$show-scope-and-coverage = 1">
+          <xsl:if test="$show-scope-and-coverage = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="scope-and-coverage" font-size="12pt" font-weight="bold">
@@ -348,7 +348,7 @@
           <!-- ====================== -->
           <!-- Producers_and_Sponsors -->
           <!-- ====================== -->
-          <xsl:if test="$show-producers-and-sponsors = 1">
+          <xsl:if test="$show-producers-and-sponsors = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="producers-and-sponsors" font-size="12pt" font-weight="bold">
@@ -426,7 +426,7 @@
           <!-- ======== -->
           <!-- Sampling -->
           <!-- ======== -->
-          <xsl:if test="$show-sampling = 1">
+          <xsl:if test="$show-sampling = 'True'">
             <fo:table-row background-color="{$color-gray1}">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="sampling" font-size="12pt" font-weight="bold">
@@ -496,7 +496,7 @@
           <!-- =============== -->
           <!-- Data Collection -->
           <!-- =============== -->
-          <xsl:if test="$show-data-collection = 1">
+          <xsl:if test="$show-data-collection = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="data-collection" font-size="12pt" font-weight="bold">
@@ -646,7 +646,7 @@
           <!-- ============================= -->
           <!-- Data Processing and Appraisal -->
           <!-- ============================= -->
-          <xsl:if test="$show-data-processing-and-appraisal = 1">
+          <xsl:if test="$show-data-processing-and-appraisal = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="data-processing-and-appraisal" font-size="12pt" font-weight="bold">
@@ -716,7 +716,7 @@
           <!-- ============ -->
           <!-- Accesibility -->
           <!-- ============ -->
-          <xsl:if test="$show-accessibility = 1">
+          <xsl:if test="$show-accessibility = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="accessibility" font-size="12pt" font-weight="bold">
@@ -830,7 +830,7 @@
           <!-- ===================== -->
           <!-- Rights and Disclaimer -->
           <!-- ===================== -->
-          <xsl:if test="$show-rights-and-disclaimer = 1">
+          <xsl:if test="$show-rights-and-disclaimer = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="rights-and-disclaimer" font-size="12pt" font-weight="bold">

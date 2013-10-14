@@ -10,7 +10,7 @@
 <!-- functions: -->
 <!-- count() [Xpath 1.0] -->
 
-<xsl:if test="$show-variables-list = 1"
+<xsl:if test="$show-variables-list = 'True'"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
 

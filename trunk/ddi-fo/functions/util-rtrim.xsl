@@ -19,8 +19,8 @@
   <!-- ====== -->
   <!-- params -->
   <!-- ====== -->
-  <xsl:param name="s" />
-  <xsl:param name="i" />
+  <xsl:param name="s" as="xs:string"/>
+  <xsl:param name="i" as="xs:integer"/>
 
   <!-- ========= -->
   <!-- variables -->
