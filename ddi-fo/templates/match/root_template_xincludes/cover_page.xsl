@@ -12,7 +12,7 @@
 <!-- normalize-space() [Xpath 1.0]            -->
 <!-- util:trim() [local] -->
 
-<xsl:if test="$show-cover-page = 1"
+<xsl:if test="$show-cover-page = 'True'"
         xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
@@ -30,14 +30,14 @@
       <fo:block id="cover-page">
 
         <!-- logo graphic -->
-        <xsl:if test="$show-logo = 1" >
+        <xsl:if test="$show-logo = 'True'" >
           <fo:block text-align="center">
             <fo:external-graphic src="{$logo-file}" />
           </fo:block>
         </xsl:if>
 
         <!-- geography -->
-        <xsl:if test="$show-geography = 1">
+        <xsl:if test="$show-geography = 'True'">
           <fo:block font-size="14pt" font-weight="bold" space-before="12mm"
                     text-align="center" space-after="5mm">
             <xsl:value-of select="$geography" />
@@ -62,7 +62,7 @@
         <fo:block white-space-treatment="preserve"> &#x00A0; </fo:block>
 
         <!-- responsible party -->
-        <xsl:if test="$show-cover-page-producer = 1">
+        <xsl:if test="$show-cover-page-producer = 'True'">
           <xsl:for-each select="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">
             <fo:block font-size="14pt" font-weight="bold" space-before="0.0mm"
                       text-align="center" space-after="0.0mm">

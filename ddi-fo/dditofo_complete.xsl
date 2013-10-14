@@ -34,7 +34,7 @@
   <!-- ========================================================= -->
 
   <!-- used in util:isodate-long() -->
-  <xsl:param name="language-code" select="en"/>
+  <xsl:param name="language-code" select="'en'"/>
 
   <!-- translation file (path)-->
   <xsl:param name="translations-file"/>
@@ -89,23 +89,23 @@
 
   <!-- main sections of root template -->
   <!-- <xsl:param name="show-bookmarks" select="1" /> -->
-  <xsl:param name="show-bookmarks" select="1"/>
-  <xsl:param name="show-cover-page" select="1"/>
-  <xsl:param name="show-metadata-info" select="1"/> 
-  <xsl:param name="show-toc" select="1"/>
-  <xsl:param name="show-overview" select="1"/>
-  <xsl:param name="show-files-description" select="1"/>
+  <xsl:param name="show-bookmarks" select="'True'"/>
+  <xsl:param name="show-cover-page" select="'True'"/>
+  <xsl:param name="show-metadata-info" select="'True'"/> 
+  <xsl:param name="show-toc" select="'True'"/>
+  <xsl:param name="show-overview" select="'True'"/>
+  <xsl:param name="show-files-description" select="'True'"/>
 
   <!-- parts of cover page -->
-  <xsl:param name="show-logo" select="1"/>
-  <xsl:param name="show-geography" select="0"/>
-  <xsl:param name="show-cover-page-producer" select="1"/>
-  <xsl:param name="show-report-subtitle" select="0"/>
+  <xsl:param name="show-logo" select="'True'"/>
+  <xsl:param name="show-geography" select="'False'"/>
+  <xsl:param name="show-cover-page-producer" select="'True'"/>
+  <xsl:param name="show-report-subtitle" select="'False'"/>
 
   <!-- misc -->
-  <xsl:param name="show-metadata-production" select="1"/>
-  <xsl:param name="show-variables-list-question" select="1"/>
-  <xsl:param name="show-variables-description-categories" select="1"/>
+  <xsl:param name="show-metadata-production" select="'True'"/>
+  <xsl:param name="show-variables-list-question" select="'True'"/>
+  <xsl:param name="show-variables-description-categories" select="'True'"/>
 
   <!-- ==================================== -->
   <!-- string vars                          -->
@@ -141,16 +141,16 @@
   <!-- Show variable groups only if there are any -->
   <xsl:variable name="show-variable-groups" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="count(/codeBook/dataDscr/varGrp) &gt; 0">1</xsl:when>
-      <xsl:otherwise>0</xsl:otherwise>
+      <xsl:when test="count(/codeBook/dataDscr/varGrp) &gt; 0">True</xsl:when>
+      <xsl:otherwise>False</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <!-- Show variable list if showing groups are disabled -->
   <xsl:variable name="show-variables-list">
     <xsl:choose>
-      <xsl:when test="$show-variable-groups = 1">0</xsl:when>
-      <xsl:otherwise>1</xsl:otherwise>
+      <xsl:when test="$show-variable-groups = 'True'">False</xsl:when>
+      <xsl:otherwise>True</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
@@ -158,8 +158,8 @@
   <!-- exceeds given max, then dont show extensive variable desc -->
   <xsl:variable name="show-variables-description" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="(count(/codeBook/dataDscr/var) = 0)">0</xsl:when>
-      <xsl:otherwise>1</xsl:otherwise>
+      <xsl:when test="(count(/codeBook/dataDscr/var) = 0)">False</xsl:when>
+      <xsl:otherwise>True</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
@@ -169,77 +169,77 @@
 
   <xsl:variable name="show-scope-and-coverage" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/stdyInfo/notes">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/stdyInfo/subject/keyword">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/geogCover">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/universe">1</xsl:when>
-      <xsl:otherwise>0</xsl:otherwise>
+      <xsl:when test="/codeBook/stdyDscr/stdyInfo/notes">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/stdyInfo/subject/keyword">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/geogCover">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/universe">True</xsl:when>
+      <xsl:otherwise>False</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="show-producers-and-sponsors" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/citation/prodStmt/producer">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/citation/prodStmt/fundAg">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/citation/rspStmt/othId">1</xsl:when>
-      <xsl:otherwise>0</xsl:otherwise>
+      <xsl:when test="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/prodStmt/producer">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/prodStmt/fundAg">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/rspStmt/othId">True</xsl:when>
+      <xsl:otherwise>False</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="show-sampling" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='sampling']">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/sampProc">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/deviat">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/anlyInfo/respRate">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/weight">1</xsl:when>
-      <xsl:otherwise>0</xsl:otherwise>
+      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='sampling']">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/sampProc">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/deviat">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/anlyInfo/respRate">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/weight">True</xsl:when>
+      <xsl:otherwise>False</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="show-data-collection" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/collDate">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/collMode">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='collection']">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='processing']">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='cleaning']">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/collSitu">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/resInstru">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/dataCollector">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/actMin">1</xsl:when>
-      <xsl:otherwise>0</xsl:otherwise>
+      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/collDate">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/collMode">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='collection']">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='processing']">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='cleaning']">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/collSitu">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/resInstru">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/dataCollector">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/actMin">True</xsl:when>
+      <xsl:otherwise>False</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="show-data-processing-and-appraisal" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/cleanOps">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/anlyInfo/EstSmpErr">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/anlyInfo/dataAppr">1</xsl:when>
-      <xsl:otherwise>0</xsl:otherwise>
+      <xsl:when test="/codeBook/stdyDscr/method/dataColl/cleanOps">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/anlyInfo/EstSmpErr">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/method/anlyInfo/dataAppr">True</xsl:when>
+      <xsl:otherwise>False</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="show-accessibility" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/contact">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/citation/distStmt/distrbtr">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/citation/distStmt/contact">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/confDec">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/conditions">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/citReq">1</xsl:when>
-      <xsl:otherwise>0</xsl:otherwise>
+      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/contact">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/distStmt/distrbtr">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/distStmt/contact">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/confDec">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/conditions">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/citReq">True</xsl:when>
+      <xsl:otherwise>False</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="show-rights-and-disclaimer" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/disclaimer">1</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/citation/prodStmt/copyright">1</xsl:when>
-      <xsl:otherwise>0</xsl:otherwise>
+      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/disclaimer">True</xsl:when>
+      <xsl:when test="/codeBook/stdyDscr/citation/prodStmt/copyright">True</xsl:when>
+      <xsl:otherwise>False</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
@@ -370,12 +370,12 @@
     <!-- ================================ -->
     <!-- Other sections                   -->
     <!-- ================================ -->    
-    <!-- =========================================== --><!-- <xls:if> bookmarks                          --><!-- value: <fo:bookmark-tree>                   --><!-- =========================================== --><!-- read: --><!-- show-cover-page, show-metadata-info, show-toc, show-overview             --><!-- show-scope-and-coverage, show-producers-and-sponsors,                    --><!-- show-sampling, show-data-collection, show-data-processing-and-appraisal, --><!-- show-accessibility, show-rights-and-disclaimer, show-files-description,  --><!-- show-variable-groups, show-variables-list, show-variables-description    --><!-- functions: --><!-- nomalize-space(), contains(), concat(), string-length() [xpath 1.0] --><!-- called: --><!-- trim --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-bookmarks = 1" xml:base="root_template_xincludes/bookmarks.xsl">
+    <!-- =========================================== --><!-- <xls:if> bookmarks                          --><!-- value: <fo:bookmark-tree>                   --><!-- =========================================== --><!-- read: --><!-- show-cover-page, show-metadata-info, show-toc, show-overview             --><!-- show-scope-and-coverage, show-producers-and-sponsors,                    --><!-- show-sampling, show-data-collection, show-data-processing-and-appraisal, --><!-- show-accessibility, show-rights-and-disclaimer, show-files-description,  --><!-- show-variable-groups, show-variables-list, show-variables-description    --><!-- functions: --><!-- nomalize-space(), contains(), concat(), string-length() [xpath 1.0] --><!-- called: --><!-- trim --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-bookmarks = 'True'" xml:base="root_template_xincludes/bookmarks.xsl">
 
   <fo:bookmark-tree>
 
     <!-- Cover_Page -->
-    <xsl:if test="$show-cover-page = 1">
+    <xsl:if test="$show-cover-page = 'True'">
       <fo:bookmark internal-destination="cover-page">
         <fo:bookmark-title>
           <xsl:value-of select="$strings/*/entry[@key='Cover_Page']"/>
@@ -384,7 +384,7 @@
     </xsl:if>
 
     <!-- Document_Information -->
-    <xsl:if test="$show-metadata-info = 1">
+    <xsl:if test="$show-metadata-info = 'True'">
       <fo:bookmark internal-destination="metadata-info">
         <fo:bookmark-title>
           <xsl:value-of select="$strings/*/entry[@key='Document_Information']"/>
@@ -393,7 +393,7 @@
     </xsl:if>
 
     <!-- Table_of_Contents -->
-    <xsl:if test="$show-toc = 1">
+    <xsl:if test="$show-toc = 'True'">
       <fo:bookmark internal-destination="toc">
         <fo:bookmark-title>
           <xsl:value-of select="$strings/*/entry[@key = 'Table_of_Contents']"/>
@@ -405,7 +405,7 @@
     <!-- Overview      -->
     <!-- ============= -->
 
-    <xsl:if test="$show-overview = 1">
+    <xsl:if test="$show-overview = 'True'">
 
       <fo:bookmark internal-destination="overview">
         <fo:bookmark-title>
@@ -413,7 +413,7 @@
         </fo:bookmark-title>
 
         <!-- Scope_and_Coverage -->
-        <xsl:if test="$show-scope-and-coverage = 1">
+        <xsl:if test="$show-scope-and-coverage = 'True'">
           <fo:bookmark internal-destination="scope-and-coverage">
             <fo:bookmark-title>
               <xsl:value-of select="$strings/*/entry[@key='Scope_and_Coverage']"/>
@@ -422,7 +422,7 @@
         </xsl:if>
 
         <!-- Producers_and_Sponsors -->
-        <xsl:if test="$show-producers-and-sponsors = 1">
+        <xsl:if test="$show-producers-and-sponsors = 'True'">
           <fo:bookmark internal-destination="producers-and-sponsors">
             <fo:bookmark-title>
               <xsl:value-of select="$strings/*/entry[@key='Producers_and_Sponsors']"/>
@@ -431,7 +431,7 @@
         </xsl:if>
 
         <!-- Sampling -->
-        <xsl:if test="$show-sampling = 1">
+        <xsl:if test="$show-sampling = 'True'">
           <fo:bookmark internal-destination="sampling">
             <fo:bookmark-title>
               <xsl:value-of select="$strings/*/entry[@key='Sampling']"/>
@@ -440,7 +440,7 @@
         </xsl:if>
 
         <!-- Data_Collection -->
-        <xsl:if test="$show-data-collection = 1">
+        <xsl:if test="$show-data-collection = 'True'">
           <fo:bookmark internal-destination="data-collection">
             <fo:bookmark-title>
               <xsl:value-of select="$strings/*/entry[@key='Data_Collection']"/>
@@ -449,7 +449,7 @@
         </xsl:if>
 
         <!-- Data_Processing_and_Appraisal -->
-        <xsl:if test="$show-data-processing-and-appraisal = 1">
+        <xsl:if test="$show-data-processing-and-appraisal = 'True'">
           <fo:bookmark internal-destination="data-processing-and-appraisal">
             <fo:bookmark-title>
               <xsl:value-of select="$strings/*/entry[@key='Data_Processing_and_Appraisal']"/>
@@ -458,7 +458,7 @@
         </xsl:if>
 
         <!-- Accessibility -->
-        <xsl:if test="$show-accessibility= 1">
+        <xsl:if test="$show-accessibility= 'True'">
           <fo:bookmark internal-destination="accessibility">
             <fo:bookmark-title>
               <xsl:value-of select="$strings/*/entry[@key='Accessibility']"/>
@@ -467,7 +467,7 @@
         </xsl:if>
 
         <!-- Rights_and_Disclaimer -->
-        <xsl:if test="$show-rights-and-disclaimer = 1">
+        <xsl:if test="$show-rights-and-disclaimer = 'True'">
           <fo:bookmark internal-destination="rights-and-disclaimer">
             <fo:bookmark-title>
               <xsl:value-of select="$strings/*/entry[@key='Rights_and_Disclaimer']"/>
@@ -479,7 +479,7 @@
     </xsl:if>
 
     <!-- Files_Description -->
-    <xsl:if test="$show-files-description = 1">
+    <xsl:if test="$show-files-description = 'True'">
       <fo:bookmark internal-destination="files-description">
 
         <fo:bookmark-title>
@@ -497,7 +497,7 @@
     </xsl:if>
 
     <!-- Variables_Groups -->
-    <xsl:if test="$show-variable-groups = 1">
+    <xsl:if test="$show-variable-groups = 'True'">
       <fo:bookmark internal-destination="variables-groups">
         <fo:bookmark-title>
           <xsl:value-of select="$strings/*/entry[@key='Variables_Groups']"/>
@@ -516,7 +516,7 @@
     </xsl:if>
 
     <!-- Variables_List -->
-    <xsl:if test="$show-variables-list = 1">
+    <xsl:if test="$show-variables-list = 'True'">
       <fo:bookmark internal-destination="variables-list">
         <fo:bookmark-title>
           <xsl:value-of select="$strings/*/entry[@key='Variables_List']"/>
@@ -533,7 +533,7 @@
     </xsl:if>
 
     <!-- Variables_Description -->
-    <xsl:if test="$show-variables-description= 1">
+    <xsl:if test="$show-variables-description= 'True'">
       <fo:bookmark internal-destination="variables-description">
         <fo:bookmark-title>
           <xsl:value-of select="$strings/*/entry[@key='Variables_Description']"/>
@@ -563,9 +563,7 @@
                     <xsl:apply-templates select="@name"/>
                     <xsl:if test="normalize-space(ddi:labl)">
                       <xsl:text>: </xsl:text>
-                      <!-- <xsl:call-template name="trim">
-                        <xsl:with-param name="s" select="ddi:labl" />
-                      </xsl:call-template> -->
+
                       
                       <xsl:value-of select="util:trim(ddi:labl)"/>
                       
@@ -582,7 +580,7 @@
 
   </fo:bookmark-tree>
 </xsl:if>
-    <!-- ========================= --><!-- <xsl:if> cover page       --><!-- value: <fo:page-sequence> --><!-- ========================= --><!-- read: --><!-- show-logo, show-geography, show-cover-page-producer, --><!-- show-report-subtitle                                 --><!-- functions: --><!-- normalize-space() [Xpath 1.0]            --><!-- util:trim() [local] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/cover_page.xsl">
+    <!-- ========================= --><!-- <xsl:if> cover page       --><!-- value: <fo:page-sequence> --><!-- ========================= --><!-- read: --><!-- show-logo, show-geography, show-cover-page-producer, --><!-- show-report-subtitle                                 --><!-- functions: --><!-- normalize-space() [Xpath 1.0]            --><!-- util:trim() [local] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/cover_page.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="Helvetica" font-size="{$font-size}">
 
@@ -595,14 +593,14 @@
       <fo:block id="cover-page">
 
         <!-- logo graphic -->
-        <xsl:if test="$show-logo = 1">
+        <xsl:if test="$show-logo = 'True'">
           <fo:block text-align="center">
             <fo:external-graphic src="{$logo-file}"/>
           </fo:block>
         </xsl:if>
 
         <!-- geography -->
-        <xsl:if test="$show-geography = 1">
+        <xsl:if test="$show-geography = 'True'">
           <fo:block font-size="14pt" font-weight="bold" space-before="12mm" text-align="center" space-after="5mm">
             <xsl:value-of select="$geography"/>
           </fo:block>
@@ -624,7 +622,7 @@
         <fo:block white-space-treatment="preserve">   </fo:block>
 
         <!-- responsible party -->
-        <xsl:if test="$show-cover-page-producer = 1">
+        <xsl:if test="$show-cover-page-producer = 'True'">
           <xsl:for-each select="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">
             <fo:block font-size="14pt" font-weight="bold" space-before="0.0mm" text-align="center" space-after="0.0mm">
               <xsl:value-of select="util:trim(.)"/>
@@ -645,7 +643,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ================================================= --><!-- <xsl:if> metadata information                     --><!-- value: <fo:page-sequence>                         --><!-- ================================================= --><!-- read: --><!-- $strings, $font-family, $show-metadata-production, --><!-- $default-border, $cell-padding                     --><!-- functions: --><!-- boolean(), normalize-space() [Xpath 1.0] --><!-- proportional-column-width() [FO]         --><!-- called: --><!-- isodate-long --><!-- Metadata production        [table]      --><!--   Metadata producers       [table-row]  --><!--   Metadata Production Date [table-row]  --><!--   Metadata Version         [table-row]  --><!--   Metadata ID              [table-row]  --><!--   Spacer                   [table-row]  --><!-- Report Acknowledgements    [block]      --><!-- Report Notes               [block]      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/metadata_information.xsl">
+    <!-- ================================================= --><!-- <xsl:if> metadata information                     --><!-- value: <fo:page-sequence>                         --><!-- ================================================= --><!-- read: --><!-- $strings, $font-family, $show-metadata-production, --><!-- $default-border, $cell-padding                     --><!-- functions: --><!-- boolean(), normalize-space() [Xpath 1.0] --><!-- proportional-column-width() [FO]         --><!-- called: --><!-- isodate-long --><!-- Metadata production        [table]      --><!--   Metadata producers       [table-row]  --><!--   Metadata Production Date [table-row]  --><!--   Metadata Version         [table-row]  --><!--   Metadata ID              [table-row]  --><!--   Spacer                   [table-row]  --><!-- Report Acknowledgements    [block]      --><!-- Report Notes               [block]      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/metadata_information.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -753,7 +751,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ============================================== --><!-- <xsl:if> table of contents                     --><!-- value: <fo:page-sequence>                      --><!-- ============================================== --><!-- read: --><!-- $font-family, $strings, $show-overview, $show-scope-and-coverage,   --><!-- $show-producers-and-sponsors, $show-sampling, $show-data-collection --><!-- $show-data-processing-and-appraisal, $show-accessibility,           --><!-- $show-rights-and-disclaimer, $show-files-description,               --><!-- $show-variables-list, $show-variable-groups, $subset-groups         --><!-- functions: --><!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/table_of_contents.xsl">
+    <!-- ============================================== --><!-- <xsl:if> table of contents                     --><!-- value: <fo:page-sequence>                      --><!-- ============================================== --><!-- read: --><!-- $font-family, $strings, $show-overview, $show-scope-and-coverage,   --><!-- $show-producers-and-sponsors, $show-sampling, $show-data-collection --><!-- $show-data-processing-and-appraisal, $show-accessibility,           --><!-- $show-rights-and-disclaimer, $show-files-description,               --><!-- $show-variables-list, $show-variable-groups, $subset-groups         --><!-- functions: --><!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/table_of_contents.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -775,7 +773,7 @@
       <fo:block margin-left="0.5in" margin-right="0.5in">
 
         <!-- Overview -->
-        <xsl:if test="$show-overview = 1">
+        <xsl:if test="$show-overview = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="overview" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Overview"/>
@@ -786,7 +784,7 @@
         </xsl:if>
 
         <!-- Scope_and_Coverage -->
-        <xsl:if test="$show-scope-and-coverage = 1">
+        <xsl:if test="$show-scope-and-coverage = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="scope-and-coverage" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Scope_and_Coverage"/>
@@ -797,7 +795,7 @@
         </xsl:if>
 
         <!-- Producers_and_Sponsors -->
-        <xsl:if test="$show-producers-and-sponsors = 1">
+        <xsl:if test="$show-producers-and-sponsors = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="producers-and-sponsors" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Producers_and_Sponsors"/>
@@ -808,7 +806,7 @@
         </xsl:if>
 
         <!-- Sampling -->
-        <xsl:if test="$show-sampling = 1">
+        <xsl:if test="$show-sampling = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="sampling" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Sampling"/>
@@ -819,7 +817,7 @@
         </xsl:if>
 
         <!-- Data_Collection -->
-        <xsl:if test="$show-data-collection = 1">
+        <xsl:if test="$show-data-collection = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="data-collection" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Data_Collection"/>
@@ -830,7 +828,7 @@
         </xsl:if>
 
         <!-- Data_Processing_and_Appraisal -->
-        <xsl:if test="$show-data-processing-and-appraisal = 1">
+        <xsl:if test="$show-data-processing-and-appraisal = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="data-processing-and-appraisal" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Data_Processing_and_Appraisal"/>
@@ -841,7 +839,7 @@
         </xsl:if>
 
         <!-- Accessibility -->
-        <xsl:if test="$show-accessibility= 1">
+        <xsl:if test="$show-accessibility= 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="accessibility" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Accessibility"/>
@@ -852,7 +850,7 @@
         </xsl:if>
 
         <!-- Rights_and_Disclaimer -->
-        <xsl:if test="$show-rights-and-disclaimer = 1">
+        <xsl:if test="$show-rights-and-disclaimer = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="rights-and-disclaimer" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Rights_and_Disclaimer"/>
@@ -863,7 +861,7 @@
         </xsl:if>
 
         <!-- Files_Description, fileName -->
-        <xsl:if test="$show-files-description = 1">
+        <xsl:if test="$show-files-description = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
 
             <fo:basic-link internal-destination="files-description" text-decoration="underline" color="blue">
@@ -886,7 +884,7 @@
         </xsl:if>
 
         <!-- Variables_List, fileName -->
-        <xsl:if test="$show-variables-list = 1">
+        <xsl:if test="$show-variables-list = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="variables-list" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Variables_List"/>
@@ -907,7 +905,7 @@
         </xsl:if>
 
         <!-- Variable_Groups -->
-        <xsl:if test="$show-variable-groups = 1">
+        <xsl:if test="$show-variable-groups = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="variables-groups" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Variables_Groups"/>
@@ -931,7 +929,7 @@
         </xsl:if>
 
         <!-- Variables_Description, fileDscr/fileName -->
-        <xsl:if test="$show-variables-description = 1">
+        <xsl:if test="$show-variables-description = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
 
             <fo:basic-link internal-destination="variables-description" text-decoration="underline" color="blue">
@@ -957,7 +955,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- =========================================== --><!-- <xsl:if> overview                           --><!-- value: <fo:page-sequence>                   --><!-- =========================================== --><!-- read: --><!-- $strings, $report-start-page-number, $font-family, $color-gray3   --><!-- $default-border, $cell-padding, $survey-title, $color-gray1, $time --><!-- functions: --><!-- nomalize-space(), position() [Xpath] --><!-- proportional-column-width() [FO] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-overview = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/overview.xsl">
+    <!-- =========================================== --><!-- <xsl:if> overview                           --><!-- value: <fo:page-sequence>                   --><!-- =========================================== --><!-- read: --><!-- $strings, $report-start-page-number, $font-family, $color-gray3   --><!-- $default-border, $cell-padding, $survey-title, $color-gray1, $time --><!-- functions: --><!-- nomalize-space(), position() [Xpath] --><!-- proportional-column-width() [FO] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-overview = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/overview.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" initial-page-number="{$report-start-page-number}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -1151,7 +1149,7 @@
           <!-- =========================== -->
           <!-- Scope_and_Coverage          -->
           <!-- =========================== -->               
-          <xsl:if test="$show-scope-and-coverage = 1">
+          <xsl:if test="$show-scope-and-coverage = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="scope-and-coverage" font-size="12pt" font-weight="bold">
@@ -1287,7 +1285,7 @@
           <!-- ====================== -->
           <!-- Producers_and_Sponsors -->
           <!-- ====================== -->
-          <xsl:if test="$show-producers-and-sponsors = 1">
+          <xsl:if test="$show-producers-and-sponsors = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="producers-and-sponsors" font-size="12pt" font-weight="bold">
@@ -1365,7 +1363,7 @@
           <!-- ======== -->
           <!-- Sampling -->
           <!-- ======== -->
-          <xsl:if test="$show-sampling = 1">
+          <xsl:if test="$show-sampling = 'True'">
             <fo:table-row background-color="{$color-gray1}">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="sampling" font-size="12pt" font-weight="bold">
@@ -1435,7 +1433,7 @@
           <!-- =============== -->
           <!-- Data Collection -->
           <!-- =============== -->
-          <xsl:if test="$show-data-collection = 1">
+          <xsl:if test="$show-data-collection = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="data-collection" font-size="12pt" font-weight="bold">
@@ -1585,7 +1583,7 @@
           <!-- ============================= -->
           <!-- Data Processing and Appraisal -->
           <!-- ============================= -->
-          <xsl:if test="$show-data-processing-and-appraisal = 1">
+          <xsl:if test="$show-data-processing-and-appraisal = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="data-processing-and-appraisal" font-size="12pt" font-weight="bold">
@@ -1655,7 +1653,7 @@
           <!-- ============ -->
           <!-- Accesibility -->
           <!-- ============ -->
-          <xsl:if test="$show-accessibility = 1">
+          <xsl:if test="$show-accessibility = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="accessibility" font-size="12pt" font-weight="bold">
@@ -1769,7 +1767,7 @@
           <!-- ===================== -->
           <!-- Rights and Disclaimer -->
           <!-- ===================== -->
-          <xsl:if test="$show-rights-and-disclaimer = 1">
+          <xsl:if test="$show-rights-and-disclaimer = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="rights-and-disclaimer" font-size="12pt" font-weight="bold">
@@ -1810,7 +1808,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ============================= --><!-- <xsl:if> files description    --><!-- value: <fo:page-sequence>     --><!-- ============================= --><!-- read: --><!-- $page-layout, $strings, $font-family, $font-size, $header-font-size --><!-- functions --><!-- count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-files-description = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/files_description.xsl">
+    <!-- ============================= --><!-- <xsl:if> files description    --><!-- value: <fo:page-sequence>     --><!-- ============================= --><!-- read: --><!-- $page-layout, $strings, $font-family, $font-size, $header-font-size --><!-- functions --><!-- count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-files-description = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/files_description.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -1848,7 +1846,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ===================================== --><!-- <xsl:if> variables list               --><!-- value: <fo:page-sequence>             --><!-- ===================================== --><!-- read: --><!-- $strings, $show-variables-list-layout, $font-family --><!-- functions: --><!-- count() [Xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-list = 1" xml:base="root_template_xincludes/variables_list.xsl">
+    <!-- ===================================== --><!-- <xsl:if> variables list               --><!-- value: <fo:page-sequence>             --><!-- ===================================== --><!-- read: --><!-- $strings, $show-variables-list-layout, $font-family --><!-- functions: --><!-- count() [Xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-list = 'True'" xml:base="root_template_xincludes/variables_list.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -1886,7 +1884,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ================================================ --><!-- <xsl:if> variable groups                         --><!-- value: <fo:page-sequence>                        --><!-- ================================================ --><!-- read: --><!-- $strings, $font-family, $number-of-groups --><!-- functions: --><!-- string-length(), count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 1" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/variable_groups.xsl">
+    <!-- ================================================ --><!-- <xsl:if> variable groups                         --><!-- value: <fo:page-sequence>                        --><!-- ================================================ --><!-- read: --><!-- $strings, $font-family, $number-of-groups --><!-- functions: --><!-- string-length(), count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/variable_groups.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
     
@@ -1928,7 +1926,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ==================================================== --><!-- <xsl:if> variables description                       --><!-- value: <fo:page-sequence>                            --><!-- ==================================================== --><!-- read: --><!-- $strings, $font-family --><!-- functions: --><!-- count(), string-length() [Xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-description = 1" xml:base="root_template_xincludes/variables_description.xsl">
+    <!-- ==================================================== --><!-- <xsl:if> variables description                       --><!-- value: <fo:page-sequence>                            --><!-- ==================================================== --><!-- read: --><!-- $strings, $font-family --><!-- functions: --><!-- count(), string-length() [Xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-description = 'True'" xml:base="root_template_xincludes/variables_description.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -3262,7 +3260,7 @@
         <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
           <fo:block>
             <xsl:choose>
-              <xsl:when test="$show-variables-list = 1">
+              <xsl:when test="$show-variables-list = 'True'">
                 <fo:basic-link internal-destination="var-{@ID}" text-decoration="underline" color="blue">
                   <xsl:if test="string-length(@name) &gt; 10">
                     <xsl:value-of select="substring(./@name, 0, $variable-name-length)"/> ..
@@ -3655,8 +3653,8 @@
   <!-- ====== -->
   <!-- params -->
   <!-- ====== -->
-  <xsl:param name="s"/>
-  <xsl:param name="i"/>
+  <xsl:param name="s" as="xs:string"/>
+  <xsl:param name="i" as="xs:integer"/>
 
   <!-- ========= -->
   <!-- variables -->

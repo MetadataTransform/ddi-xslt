@@ -14,7 +14,7 @@
 <!-- functions: -->
 <!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] -->
 
-<xsl:if test="$show-toc = 1"
+<xsl:if test="$show-toc = 'True'"
         xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
@@ -42,7 +42,7 @@
       <fo:block margin-left="0.5in" margin-right="0.5in">
 
         <!-- Overview -->
-        <xsl:if test="$show-overview = 1">
+        <xsl:if test="$show-overview = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="overview" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Overview" />
@@ -53,7 +53,7 @@
         </xsl:if>
 
         <!-- Scope_and_Coverage -->
-        <xsl:if test="$show-scope-and-coverage = 1">
+        <xsl:if test="$show-scope-and-coverage = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="scope-and-coverage" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Scope_and_Coverage" />
@@ -64,7 +64,7 @@
         </xsl:if>
 
         <!-- Producers_and_Sponsors -->
-        <xsl:if test="$show-producers-and-sponsors = 1">
+        <xsl:if test="$show-producers-and-sponsors = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="producers-and-sponsors" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Producers_and_Sponsors" />
@@ -75,7 +75,7 @@
         </xsl:if>
 
         <!-- Sampling -->
-        <xsl:if test="$show-sampling = 1">
+        <xsl:if test="$show-sampling = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="sampling" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Sampling" />
@@ -86,7 +86,7 @@
         </xsl:if>
 
         <!-- Data_Collection -->
-        <xsl:if test="$show-data-collection = 1">
+        <xsl:if test="$show-data-collection = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="data-collection" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Data_Collection" />
@@ -97,7 +97,7 @@
         </xsl:if>
 
         <!-- Data_Processing_and_Appraisal -->
-        <xsl:if test="$show-data-processing-and-appraisal = 1">
+        <xsl:if test="$show-data-processing-and-appraisal = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="data-processing-and-appraisal" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Data_Processing_and_Appraisal" />
@@ -108,7 +108,7 @@
         </xsl:if>
 
         <!-- Accessibility -->
-        <xsl:if test="$show-accessibility= 1">
+        <xsl:if test="$show-accessibility= 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="accessibility" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Accessibility" />
@@ -119,7 +119,7 @@
         </xsl:if>
 
         <!-- Rights_and_Disclaimer -->
-        <xsl:if test="$show-rights-and-disclaimer = 1">
+        <xsl:if test="$show-rights-and-disclaimer = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="rights-and-disclaimer" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Rights_and_Disclaimer" />
@@ -130,7 +130,7 @@
         </xsl:if>
 
         <!-- Files_Description, fileName -->
-        <xsl:if test="$show-files-description = 1">
+        <xsl:if test="$show-files-description = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
 
             <fo:basic-link internal-destination="files-description" text-decoration="underline" color="blue">
@@ -154,7 +154,7 @@
         </xsl:if>
 
         <!-- Variables_List, fileName -->
-        <xsl:if test="$show-variables-list = 1">
+        <xsl:if test="$show-variables-list = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="variables-list" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Variables_List" />
@@ -176,7 +176,7 @@
         </xsl:if>
 
         <!-- Variable_Groups -->
-        <xsl:if test="$show-variable-groups = 1">
+        <xsl:if test="$show-variable-groups = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="variables-groups" text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Variables_Groups" />
@@ -200,7 +200,7 @@
         </xsl:if>
 
         <!-- Variables_Description, fileDscr/fileName -->
-        <xsl:if test="$show-variables-description = 1">
+        <xsl:if test="$show-variables-description = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
 
             <fo:basic-link internal-destination="variables-description" text-decoration="underline" color="blue">

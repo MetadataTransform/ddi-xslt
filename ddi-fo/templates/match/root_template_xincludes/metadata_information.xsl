@@ -25,7 +25,7 @@
 <!-- Report Notes               [block]      -->
 
 
-<xsl:if test="$show-metadata-info = 1"
+<xsl:if test="$show-metadata-info = 'True'"
         xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
