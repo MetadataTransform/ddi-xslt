@@ -395,8 +395,10 @@
               </fo:table-row>
             </xsl:if>
 
-            <!-- 15) categories -->
-            <xsl:if test="$show-variables-description-categories=1 and normalize-space(./ddi:catgry)">
+            <!-- ========================== -->
+            <!-- Variable contents and bars -->
+            <!-- ========================== -->
+            <xsl:if test="$show-variables-description-categories = 'True' and normalize-space(./ddi:catgry)">
               <xsl:variable name="category-count" select="count(ddi:catgry)" />
 
               <fo:table-row text-align="center" vertical-align="top">
