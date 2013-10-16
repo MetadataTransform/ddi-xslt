@@ -115,26 +115,6 @@
         </fo:table>
       </xsl:if>
 
-      <!-- Acknowledgements -->
-      <xsl:if test="normalize-space($report-acknowledgments)">
-        <fo:block font-size="18pt" font-weight="bold" space-after="0.1in">
-          <xsl:value-of select="$i18n-Acknowledgments"/>
-        </fo:block>
-        <fo:block font-size="10pt" space-after="0.2in">
-          <xsl:value-of select="$report-acknowledgments" />
-        </fo:block>
-      </xsl:if>
-
-      <!-- Notes -->
-      <xsl:if test="normalize-space($report-notes)">
-        <fo:block font-size="18pt" font-weight="bold" space-after="0.1in">
-          <xsl:value-of select="$i18n-Notes"/>
-        </fo:block>
-        <fo:block font-size="10pt" space-after="0.2in">
-          <xsl:value-of select="$report-notes" />
-        </fo:block>
-      </xsl:if>
-
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>

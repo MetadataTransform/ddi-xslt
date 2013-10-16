@@ -45,10 +45,6 @@
         <xsl:value-of select="count(/codeBook/dataDscr/varGrp)" />
         <xsl:text> </xsl:text>
         <xsl:value-of select="$i18n-groups" />
-        <xsl:if test="string-length($subset-vars) &gt; 0">
-          <xsl:value-of select="$i18n-ShowingSubset" />
-          <xsl:value-of select="$number-of-groups" />
-        </xsl:if>
       </fo:block>
 
       <!-- the actual variable groups table -->

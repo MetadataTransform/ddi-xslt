@@ -12,14 +12,15 @@
 <!-- ==================================================== -->
 <!-- Pascal Heus (pascal.heus@gmail.com)                  -->
 <!-- Version: July 2006                                   -->
-<!-- Platform: XSL 1.0, Apache FOP 0.20.5                 -->
+<!-- Platform: XSLT 1.0, Apache FOP 0.20.5                -->
 <!--                                                      -->
 <!-- Oistein Kristiansen (oistein.kristiansen@nsd.uib.no) -->
 <!-- Version: 2010                                        -->
-<!-- Updated for FOP 0.93 2010                            -->
+<!-- Platform: updated for FOP 0.93 2010                  -->
 <!--                                                      -->
 <!-- Akira Olsbänning (akira.olsbanning@snd.gu.se)        -->
 <!-- Current version (2012-2013)                          -->
+<!-- Platform: updated to XSLT 2.0                        -->
 <!-- ==================================================== -->
 
 <!-- License -->
@@ -123,22 +124,14 @@
   <!-- used in util:isodate-long() -->
   <xsl:param name="language-code" select="'en'" />
 
-  <!-- translation file (path)-->
+  <!-- translation file path-->
   <xsl:param name="translations-file" />
-  <xsl:variable name="strings" select="document($translations-file)" />
-
-  <!-- optional text -->
-  <xsl:param name="report-title" select="'Study Documentation'" />
-  <xsl:param name="report-acknowledgments" />
-  <xsl:param name="report-notes" />
 
   <!-- params from OutputServlet.java -->
-  <xsl:param name="number-of-groups" />
+  <!-- never used, will be removed -->
   <xsl:param name="subset-groups" />
   <xsl:param name="subset-vars" />
 
-  <!-- Start page number, used by Overview -->
-  <!-- (useful if running multi-survey reports) -->
   <xsl:param name="report-start-page-number" select="4" />
   <xsl:param name="show-variables-description-categories-max" select="1000" />
   <xsl:param name="variable-name-length" select="14" />
@@ -175,19 +168,12 @@
   <!-- ============================================================= -->
 
   <!-- main sections of root template -->
-  <!-- <xsl:param name="show-bookmarks" select="1" /> -->
   <xsl:param name="show-bookmarks" select="'True'" />
   <xsl:param name="show-cover-page" select="'True'" />
   <xsl:param name="show-metadata-info" select="'True'" /> 
   <xsl:param name="show-toc" select="'True'" />
   <xsl:param name="show-overview" select="'True'" />
   <xsl:param name="show-files-description" select="'True'" />
-
-  <!-- parts of cover page -->
-  <xsl:param name="show-logo" select="'True'" />
-  <xsl:param name="show-geography" select="'False'" />
-  <xsl:param name="show-cover-page-producer" select="'True'" />
-  <xsl:param name="show-report-subtitle" select="'False'" />
 
   <!-- misc -->
   <xsl:param name="show-metadata-production" select="'True'" />
@@ -375,6 +361,8 @@
   <!-- i18n strings                          -->
   <!-- ===================================== -->
 
+  <xsl:variable name="strings" select="document($translations-file)" />
+
   <xsl:variable name="i18n-Abstract" select="$strings/*/entry[@key='Abstract']" />
   <xsl:variable name="i18n-Abbrev_NotWeighted" select="$strings/*/entry[@key='Abbrev_NotWeighted']" />
   <xsl:variable name="i18n-Abbrev_Weighted" select="$strings/*/entry[@key='Abbrev_Weighted']" />
@@ -477,7 +465,6 @@
   <xsl:variable name="i18n-Weighted" select="$strings/*/entry[@key='Weighted']" />
   <xsl:variable name="i18n-Weighting" select="$strings/*/entry[@key='Weighting']" />
 
-
   <!-- ===================================== -->
   <!-- matching templates                    -->
   <!-- ===================================== -->
@@ -505,7 +492,6 @@
   <!-- ==================================== -->
   <xi:include href="templates/named/page_header.xsl" />
   <xi:include href="templates/named/page_footer.xsl" />
-  <!-- <xi:include href="templates/named/math-max.xsl" /> -->
     
   <!-- ==================================== -->
   <!-- functions                            -->
