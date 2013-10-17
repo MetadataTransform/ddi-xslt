@@ -18,6 +18,7 @@
 <!-- trim -->
 
 <xsl:if test="$show-bookmarks = 'True'"
+        xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
@@ -27,7 +28,7 @@
     <xsl:if test = "$show-cover-page = 'True'">
       <fo:bookmark internal-destination = "cover-page">
         <fo:bookmark-title>
-          <xsl:value-of select="$strings/*/entry[@key='Cover_Page']" />
+          <xsl:value-of select="$i18n-Cover_Page" />
         </fo:bookmark-title>
       </fo:bookmark>
     </xsl:if>
@@ -36,7 +37,7 @@
     <xsl:if test="$show-metadata-info = 'True'">
       <fo:bookmark internal-destination="metadata-info">
         <fo:bookmark-title>
-          <xsl:value-of select="$strings/*/entry[@key='Document_Information']" />
+          <xsl:value-of select="$i18n-Document_Information" />
         </fo:bookmark-title>
       </fo:bookmark>
     </xsl:if>
@@ -45,7 +46,7 @@
     <xsl:if test="$show-toc = 'True'">
       <fo:bookmark internal-destination="toc">
         <fo:bookmark-title>
-          <xsl:value-of select="$strings/*/entry[@key = 'Table_of_Contents']" />
+          <xsl:value-of select="$i18n-Table_of_Contents" />
         </fo:bookmark-title>
       </fo:bookmark>
     </xsl:if>
@@ -58,14 +59,14 @@
 
       <fo:bookmark internal-destination="overview">
         <fo:bookmark-title>
-          <xsl:value-of select="$strings/*/entry[@key='Overview']" />
+          <xsl:value-of select="$i18n-Overview" />
         </fo:bookmark-title>
 
         <!-- Scope_and_Coverage -->
         <xsl:if test="$show-scope-and-coverage = 'True'">
           <fo:bookmark internal-destination="scope-and-coverage">
             <fo:bookmark-title>
-              <xsl:value-of select="$strings/*/entry[@key='Scope_and_Coverage']" />
+              <xsl:value-of select="$i18n-Scope_and_Coverage" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -74,7 +75,7 @@
         <xsl:if test="$show-producers-and-sponsors = 'True'">
           <fo:bookmark internal-destination="producers-and-sponsors">
             <fo:bookmark-title>
-              <xsl:value-of select="$strings/*/entry[@key='Producers_and_Sponsors']" />
+              <xsl:value-of select="$i18n-Producers_and_Sponsors" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -83,7 +84,7 @@
         <xsl:if test="$show-sampling = 'True'">
           <fo:bookmark internal-destination="sampling">
             <fo:bookmark-title>
-              <xsl:value-of select="$strings/*/entry[@key='Sampling']" />
+              <xsl:value-of select="$i18n-Sampling" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -92,7 +93,7 @@
         <xsl:if test="$show-data-collection = 'True'">
           <fo:bookmark internal-destination="data-collection">
             <fo:bookmark-title>
-              <xsl:value-of select="$strings/*/entry[@key='Data_Collection']" />
+              <xsl:value-of select="$i18n-Data_Collection" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -101,7 +102,7 @@
         <xsl:if test="$show-data-processing-and-appraisal = 'True'">
           <fo:bookmark internal-destination="data-processing-and-appraisal">
             <fo:bookmark-title>
-              <xsl:value-of select="$strings/*/entry[@key='Data_Processing_and_Appraisal']" />
+              <xsl:value-of select="$i18n-Data_Processing_and_Appraisal" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -110,7 +111,7 @@
         <xsl:if test="$show-accessibility= 'True'">
           <fo:bookmark internal-destination="accessibility">
             <fo:bookmark-title>
-              <xsl:value-of select="$strings/*/entry[@key='Accessibility']" />
+              <xsl:value-of select="$i18n-Accessibility" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -119,7 +120,7 @@
         <xsl:if test="$show-rights-and-disclaimer = 'True'">
           <fo:bookmark internal-destination="rights-and-disclaimer">
             <fo:bookmark-title>
-              <xsl:value-of select="$strings/*/entry[@key='Rights_and_Disclaimer']" />
+              <xsl:value-of select="$i18n-Rights_and_Disclaimer" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -132,13 +133,13 @@
       <fo:bookmark internal-destination="files-description">
 
         <fo:bookmark-title>
-          <xsl:value-of select="$strings/*/entry[@key='Files_Description']" />
+          <xsl:value-of select="$i18n-Files_Description" />
         </fo:bookmark-title>
 
-        <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
-          <fo:bookmark internal-destination="file-{ddi:fileTxt/ddi:fileName/@ID}">
+        <xsl:for-each select="/codeBook/fileDscr">
+          <fo:bookmark internal-destination="file-{fileTxt/fileName/@ID}">
             <fo:bookmark-title>
-              <xsl:apply-templates select="ddi:fileTxt/ddi:fileName" />
+              <xsl:apply-templates select="fileTxt/fileName" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:for-each>
@@ -149,14 +150,15 @@
     <xsl:if test="$show-variable-groups = 'True'">
       <fo:bookmark internal-destination="variables-groups">
         <fo:bookmark-title>
-          <xsl:value-of select="$strings/*/entry[@key='Variables_Groups']" />
+          <xsl:value-of select="$i18n-Variables_Groups" />
         </fo:bookmark-title>
 
-        <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:varGrp">
-          <xsl:if test="contains($subset-groups, concat(',',@ID,',')) or string-length($subset-groups)=0">
+        <xsl:for-each select="/codeBook/dataDscr/varGrp">
+          <xsl:if test="contains($subset-groups, concat(',', @ID, ','))
+                        or string-length($subset-groups) = 0">
             <fo:bookmark internal-destination="vargrp-{@ID}">
               <fo:bookmark-title>
-                <xsl:value-of select="normalize-space(ddi:labl)" />
+                <xsl:value-of select="normalize-space(labl)" />
               </fo:bookmark-title>
             </fo:bookmark>
           </xsl:if>
@@ -168,13 +170,13 @@
     <xsl:if test="$show-variables-list = 'True'">
       <fo:bookmark internal-destination="variables-list">
         <fo:bookmark-title>
-          <xsl:value-of select="$strings/*/entry[@key='Variables_List']" />
+          <xsl:value-of select="$i18n-Variables_List" />
         </fo:bookmark-title>
 
-        <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
-          <fo:bookmark internal-destination="varlist-{ddi:fileTxt/ddi:fileName/@ID}">
+        <xsl:for-each select="/codeBook/fileDscr">
+          <fo:bookmark internal-destination="varlist-{fileTxt/fileName/@ID}">
             <fo:bookmark-title>
-              <xsl:apply-templates select="ddi:fileTxt/ddi:fileName" />
+              <xsl:apply-templates select="fileTxt/fileName" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:for-each>
@@ -185,19 +187,19 @@
     <xsl:if test="$show-variables-description= 'True'">
       <fo:bookmark internal-destination="variables-description">
         <fo:bookmark-title>
-          <xsl:value-of select="$strings/*/entry[@key='Variables_Description']" />
+          <xsl:value-of select="$i18n-Variables_Description" />
         </fo:bookmark-title>
 
-        <xsl:for-each select="/ddi:codeBook/ddi:fileDscr">
-          <fo:bookmark internal-destination="vardesc-{ddi:fileTxt/ddi:fileName/@ID}">
+        <xsl:for-each select="/codeBook/fileDscr">
+          <fo:bookmark internal-destination="vardesc-{fileTxt/fileName/@ID}">
             <fo:bookmark-title>
-              <xsl:apply-templates select="ddi:fileTxt/ddi:fileName" />
+              <xsl:apply-templates select="fileTxt/fileName" />
             </fo:bookmark-title>
 
             <xsl:variable name="fileId">
               <xsl:choose>
-                <xsl:when test="ddi:fileTxt/ddi:fileName/@ID">
-                  <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID" />
+                <xsl:when test="fileTxt/fileName/@ID">
+                  <xsl:value-of select="fileTxt/fileName/@ID" />
                 </xsl:when>
                 <xsl:when test="@ID">
                   <xsl:value-of select="@ID"/>
@@ -205,17 +207,15 @@
               </xsl:choose>
             </xsl:variable>
 
-            <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId]">
-              <xsl:if test="contains($subset-vars, concat(',',@ID,',')) or string-length($subset-vars)=0 ">
+            <xsl:for-each select="/codeBook/dataDscr/var[@files=$fileId]">
+              <xsl:if test="contains($subset-vars, concat(',',@ID,','))
+                            or string-length($subset-vars) = 0 ">
                 <fo:bookmark internal-destination="var-{@ID}">
                   <fo:bookmark-title>
                     <xsl:apply-templates select="@name" />
-                    <xsl:if test="normalize-space(ddi:labl)">
-                      <xsl:text>: </xsl:text>
-
-                      
-                      <xsl:value-of select="util:trim(ddi:labl)" />
-                      
+                    <xsl:if test="normalize-space(labl)">
+                      <xsl:text>: </xsl:text>                      
+                      <xsl:value-of select="util:trim(labl)" />                      
                     </xsl:if>
                   </fo:bookmark-title>
                 </fo:bookmark>

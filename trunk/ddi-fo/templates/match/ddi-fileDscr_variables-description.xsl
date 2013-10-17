@@ -14,8 +14,7 @@
 <!-- position() [xpath 1.0] -->
 <!-- proportional-column-width() [fo] -->
 
-<xsl:template match="ddi:fileDscr"
-              mode="variables-description"
+<xsl:template match="ddi:fileDscr" mode="variables-description"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
@@ -50,11 +49,7 @@
         <!-- =========== -->
         <!-- page footer -->
         <!-- =========== -->
-        <fo:static-content flow-name="after">
-          <fo:block font-size="6" text-align="center" space-before="0.3in">
-            - <fo:page-number /> -
-          </fo:block>
-        </fo:static-content>
+        <xsl:call-template name="page_footer" />
 
         <!-- =========== -->
         <!-- page body   -->
@@ -74,7 +69,7 @@
                 <fo:table-row text-align="center" vertical-align="top">
                   <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                     <fo:block font-size="14pt" font-weight="bold">
-                      <xsl:value-of select="$strings/*/entry[@key='File']"/>
+                      <xsl:value-of select="$i18n-File" />
                       <xsl:text> : </xsl:text>
                       <xsl:apply-templates select="$fileName"/>
                     </fo:block>
@@ -98,7 +93,7 @@
           </xsl:if>
 
           <!-- [fo:table] Variables -->
-          <xsl:if test="position()&gt;1">
+          <xsl:if test="position() &gt; 1">
             <fo:table table-layout="fixed" width="100%" font-size="8pt">
               <fo:table-body>
                 <!-- needed in case of subset -->

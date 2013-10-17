@@ -33,8 +33,6 @@
         <fo:table-row>
           <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
             <fo:block font-size="12pt" font-weight="bold">
-              <xsl:value-of select="$i18n-Group" />
-              <xsl:text> </xsl:text>
               <xsl:value-of select="normalize-space(labl)"/>
             </fo:block>
           </fo:table-cell>
@@ -122,11 +120,8 @@
         <fo:table-column column-width="proportional-column-width( 5)"/>
         <fo:table-column column-width="proportional-column-width(12)"/>
         <fo:table-column column-width="proportional-column-width(20)"/>
-
-        <xsl:if test="$show-variables-list-question">
-          <fo:table-column column-width="proportional-column-width(27)"/>
-        </xsl:if>
-
+        <fo:table-column column-width="proportional-column-width(27)"/>
+        
         <!-- table header -->
         <fo:table-header>
           <fo:table-row text-align="center" vertical-align="top"
@@ -154,13 +149,11 @@
             </fo:table-cell>
 
             <!-- Question -->
-            <xsl:if test="$show-variables-list-question">
-              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                <fo:block>
-                  <xsl:value-of select="$i18n-Question" />
-                </fo:block>
-              </fo:table-cell>
-            </xsl:if>
+            <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+              <fo:block>
+                <xsl:value-of select="$i18n-Question" />
+              </fo:block>
+            </fo:table-cell>         
 
           </fo:table-row>
         </fo:table-header>

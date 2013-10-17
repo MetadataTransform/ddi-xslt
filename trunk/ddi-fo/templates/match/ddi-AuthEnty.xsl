@@ -4,8 +4,8 @@
 <!-- value: <fo:block>         -->
 <!-- ========================= -->
 
-<!-- called: -->
-<!-- trim -->
+<!-- functions: -->
+<!-- util:trim() [local] -->
 
 <xsl:template match="ddi:AuthEnty"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

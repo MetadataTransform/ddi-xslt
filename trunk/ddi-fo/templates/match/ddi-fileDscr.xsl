@@ -15,6 +15,7 @@
 <!-- proportional-column-width() [FO] -->
 
 <xsl:template match="ddi:fileDscr"
+              xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format"> 
 
@@ -24,8 +25,8 @@
     <xsl:variable name="fileId">
       <xsl:choose>
 
-        <xsl:when test="ddi:fileTxt/ddi:fileName/@ID">
-          <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID"/>
+        <xsl:when test="fileTxt/fileName/@ID">
+          <xsl:value-of select="fileTxt/fileName/@ID"/>
         </xsl:when>
 
         <xsl:when test="@ID">
@@ -49,13 +50,13 @@
         <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
           <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
             <fo:block font-size="12pt" font-weight="bold">
-              <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+              <xsl:apply-templates select="fileTxt/fileName"/>
             </fo:block>
           </fo:table-cell>
         </fo:table-row>
 
         <!-- Cases -->
-        <xsl:if test="ddi:fileTxt/ddi:dimensns/ddi:caseQnty">
+        <xsl:if test="fileTxt/dimensns/caseQnty">
           <fo:table-row>
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
               <fo:block>
@@ -63,13 +64,13 @@
               </fo:block>
             </fo:table-cell>
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-              <xsl:apply-templates select="ddi:fileTxt/ddi:dimensns/ddi:caseQnty"/>
+              <xsl:apply-templates select="fileTxt/dimensns/caseQnty"/>
             </fo:table-cell>
           </fo:table-row>
         </xsl:if>
 
         <!-- Variables -->
-        <xsl:if test="ddi:fileTxt/ddi:dimensns/ddi:varQnty">
+        <xsl:if test="fileTxt/dimensns/varQnty">
           <fo:table-row>
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
               <fo:block>
@@ -77,13 +78,13 @@
               </fo:block>
             </fo:table-cell>
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-              <xsl:apply-templates select="ddi:fileTxt/ddi:dimensns/ddi:varQnty"/>
+              <xsl:apply-templates select="fileTxt/dimensns/varQnty"/>
             </fo:table-cell>
           </fo:table-row>
         </xsl:if>
 
         <!-- File structure -->
-        <xsl:if test="ddi:fileTxt/ddi:fileStrc">
+        <xsl:if test="fileTxt/fileStrc">
           <fo:table-row>
 
             <!-- 4.1) File_Structure -->
@@ -95,30 +96,30 @@
 
             <!-- 4.2) Type -->
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-              <xsl:if test="ddi:fileTxt/ddi:fileStrc/@type">
+              <xsl:if test="fileTxt/fileStrc/@type">
                 <fo:block>
                   <xsl:value-of select="$i18n-Type" />
                   <xsl:text>:</xsl:text>
-                  <xsl:value-of select="ddi:fileTxt/ddi:fileStrc/@type"/>
+                  <xsl:value-of select="fileTxt/fileStrc/@type"/>
                 </fo:block>
               </xsl:if>
 
-              <xsl:if test="ddi:fileTxt/ddi:fileStrc/ddi:recGrp/@keyvar">
+              <xsl:if test="fileTxt/fileStrc/recGrp/@keyvar">
                 <fo:block>
                   <xsl:value-of select="$i18n-Keys" />
                   <xsl:text>:&#160;</xsl:text>
-                  <xsl:variable name="list" select="concat(ddi:fileTxt/ddi:fileStrc/ddi:recGrp/@keyvar,' ')" />
+                  <xsl:variable name="list" select="concat(fileTxt/fileStrc/recGrp/@keyvar,' ')" />
 
                   <!-- add a space at the end of the list for matching puspose -->
-                  <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[contains($list,concat(@ID,' '))]">
+                  <xsl:for-each select="/codeBook/dataDscr/var[contains($list, concat(@ID,' '))]">
                     <!-- add a space to the variable ID to avoid partial match -->
                     <xsl:if test="position() &gt; 1">
                       <xsl:text>,&#160;</xsl:text>
                     </xsl:if>
                     <xsl:value-of select="./@name"/>
-                    <xsl:if test="normalize-space(./ddi:labl)">
+                    <xsl:if test="normalize-space(./labl)">
 											<xsl:text>&#160;(</xsl:text>
-                      <xsl:value-of select="normalize-space(./ddi:labl)"/>
+                      <xsl:value-of select="normalize-space(./labl)"/>
                       <xsl:text>)</xsl:text>
                     </xsl:if>
                   </xsl:for-each>
@@ -130,7 +131,7 @@
         </xsl:if>
 
         <!-- File_Content -->
-        <xsl:for-each select="ddi:fileTxt/ddi:fileCont">
+        <xsl:for-each select="fileTxt/fileCont">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
@@ -142,7 +143,7 @@
         </xsl:for-each>
 
         <!-- Producer -->
-        <xsl:for-each select="ddi:fileTxt/ddi:filePlac">
+        <xsl:for-each select="fileTxt/filePlac">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
@@ -154,7 +155,7 @@
         </xsl:for-each>
 
         <!-- Version -->
-        <xsl:for-each select="ddi:fileTxt/ddi:verStmt">
+        <xsl:for-each select="fileTxt/verStmt">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
@@ -166,7 +167,7 @@
         </xsl:for-each>
 
         <!-- Processing_Checks -->
-        <xsl:for-each select="ddi:fileTxt/ddi:dataChck">
+        <xsl:for-each select="fileTxt/dataChck">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
@@ -178,7 +179,7 @@
         </xsl:for-each>
 
         <!-- Missing_Data -->
-        <xsl:for-each select="ddi:fileTxt/ddi:dataMsng">
+        <xsl:for-each select="fileTxt/dataMsng">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
@@ -190,7 +191,7 @@
         </xsl:for-each>
 
         <!-- Notes -->
-        <xsl:for-each select="ddi:notes">
+        <xsl:for-each select="notes">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
