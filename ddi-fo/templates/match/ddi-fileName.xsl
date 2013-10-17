@@ -21,7 +21,7 @@
   <xsl:choose>
 
     <!-- case: filename contains .NSDstat-->
-    <xsl:when test=" contains( $filename , '.NSDstat' )">
+    <xsl:when test="contains($filename , '.NSDstat')">
       <xsl:value-of select="substring($filename, 1, string-length($filename)-8)" />
     </xsl:when>
 

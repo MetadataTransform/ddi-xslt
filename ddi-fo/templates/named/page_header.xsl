@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:template name="page_header"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:fo="http://www.w3.org/1999/XSL/Format"
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
+              xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
   
   <!-- ====== -->
   <!-- params -->

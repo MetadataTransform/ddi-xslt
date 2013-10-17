@@ -63,7 +63,6 @@
   <xsl:param name="font-family" select="'Times'"/>
   <xsl:param name="font-size" select="10"/>
   <xsl:param name="header-font-size" select="6"/>
-  <xsl:param name="footer-font-size" select="6"/>
 
   <xsl:variable name="cell-padding" select="'3pt'"/>
   <xsl:variable name="default-border" select="'0.5pt solid black'"/>
@@ -617,10 +616,15 @@
         </fo:block>      
 
         <!-- title -->
-        <fo:block font-size="18pt" font-weight="bold" space-before="12mm" text-align="center" space-after="0.0mm">
+        <fo:block font-size="18pt" font-weight="bold" space-before="5mm" text-align="center" space-after="0.0mm">
           <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/titl)"/>
         </fo:block>
-        
+
+        <!-- ID-number -->
+        <!-- <fo:block font-size="15pt" text-align="center" space-before="5mm">
+          <xsl:value-of select="/codeBook/docDscr/docSrc/titlStmt/IDNo" />
+        </fo:block> -->
+
         <!-- blank line (&#x00A0; is the equivalent of HTML &nbsp;) -->
         <fo:block white-space-treatment="preserve">   </fo:block>
 
@@ -1986,7 +1990,6 @@
 
     <fo:block>
 
-      <!-- current node -->
       <xsl:value-of select="."/>
 
       <!-- affiliation -->
@@ -2013,7 +2016,7 @@
     </fo:block>
 
 </xsl:template>
-  <!-- ============================== --><!-- match: ddi:dataCollector       --><!-- value: <fo:block>              --><!-- ============================== --><!-- functions: --><!-- util:trim() --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:dataCollector" xml:base="templates/match/ddi-dataCollector.xsl">
+  <!-- ============================== --><!-- match: ddi:dataCollector       --><!-- value: <fo:block>              --><!-- ============================== --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:dataCollector" xml:base="templates/match/ddi-dataCollector.xsl">
 
   <fo:block>  
     <xsl:value-of select="util:trim(.)"/>
@@ -2033,20 +2036,14 @@
   </fo:block>
 
 </xsl:template>
-  <!-- ============================== --><!-- match: ddi:*|text()            --><!-- value: <fo:block>              --><!-- ============================== --><!-- set: --><!-- $trimmed --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:*|text()" xml:base="templates/match/ddi_default_text.xsl">
-
-  <!-- variables -->
-  <!-- <xsl:variable name="trimmed">
-    <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="." />
-    </xsl:call-template>
-  </xsl:variable> -->
+  <!-- ============================== --><!-- match: ddi:*|text()            --><!-- value: <fo:block>              --><!-- ============================== --><!-- set: --><!-- $trimmed --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:*|text()" xml:base="templates/match/ddi_default_text.xsl">
   
-  <xsl:variable name="trimmed" select="util:trim(.)"/>
+  <!-- <xsl:variable name="trimmed" select="util:trim(.)" /> -->
 
   <!-- content -->
   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0in">
-    <xsl:value-of select="$trimmed"/>
+    <!-- <xsl:value-of select="$trimmed"/> -->
+    <xsl:value-of select="util:trim(.)"/>
   </fo:block>
 
 </xsl:template>
@@ -2457,7 +2454,7 @@
   <xsl:choose>
 
     <!-- case: filename contains .NSDstat-->
-    <xsl:when test=" contains( $filename , '.NSDstat' )">
+    <xsl:when test="contains($filename , '.NSDstat')">
       <xsl:value-of select="substring($filename, 1, string-length($filename)-8)"/>
     </xsl:when>
 
@@ -2469,31 +2466,29 @@
   </xsl:choose>
 
 </xsl:template>
-  <!-- ========================== --><!-- match: ddi:fundAg          --><!-- value: <fo:block>          --><!-- ========================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fundAg" xml:base="templates/match/ddi-fundAg.xsl">
+  <!-- ========================== --><!-- match: ddi:fundAg          --><!-- value: <fo:block>          --><!-- ========================== --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fundAg" xml:base="templates/match/ddi-fundAg.xsl">
 
   <fo:block>
-
-    <!-- trim current node -->
-    <!-- <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="."/>
-    </xsl:call-template> -->
     
     <xsl:value-of select="util:trim(.)"/>
 
     <!-- @abbr -->
     <xsl:if test="@abbr">
-      (<xsl:value-of select="@abbr"/>)
+      <xsl:text>(</xsl:text>
+      <xsl:value-of select="@abbr"/>
+      <xsl:text>)</xsl:text>
     </xsl:if>
 
     <!-- @role -->
-    <xsl:if test="@role"> ,
+    <xsl:if test="@role">
+      <xsl:text> ,</xsl:text>
       <xsl:value-of select="@role"/>
     </xsl:if>
 
   </fo:block>
 
 </xsl:template>
-  <!-- ==================== --><!-- match: ddi:IDNo      --><!-- value: <fo:block>    --><!-- ==================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:IDNo" xml:base="templates/match/ddi-IDNo.xsl">
+  <!-- ==================== --><!-- match: ddi:IDNo      --><!-- value: <fo:block>    --><!-- ==================== --><!-- functions: --><!-- util:trim() --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:IDNo" xml:base="templates/match/ddi-IDNo.xsl">
 
   <fo:block>
 
@@ -2501,11 +2496,6 @@
     <xsl:if test="@agency">
       <xsl:value-of select="@agency"/>:
     </xsl:if>
-
-    <!-- trim current node -->
-    <!-- <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="."/>
-    </xsl:call-template> -->
     
     <xsl:value-of select="util:trim(.)"/>
 
@@ -2515,11 +2505,6 @@
   <!-- =================== --><!-- match: ddi:othId    --><!-- value: <fo:block>   --><!-- =================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:othId" xml:base="templates/match/ddi-othId.xsl">
 
   <fo:block>
-
-    <!-- trim ddi:p -->
-    <!-- <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="ddi:p"/>
-    </xsl:call-template> -->
     
     <xsl:value-of select="util:trim(ddi:p)"/>
 
@@ -2539,11 +2524,6 @@
   <!-- ========================== --><!-- match: ddi:producer        --><!-- value: <fo:block>          --><!-- ========================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:producer" xml:base="templates/match/ddi-producer.xsl">
 
   <fo:block>
-
-    <!-- trim current node -->
-    <!-- <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="."/>
-    </xsl:call-template> -->
     
     <xsl:value-of select="util:trim(.)"/>
 
@@ -3436,7 +3416,7 @@
   <!-- ==================================================== --><!-- name: page_footer                                    --><!-- value: <fo:static-content>                           --><!-- ==================================================== --><!-- read: --><!-- $header-font-size --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" name="page_footer" xml:base="templates/named/page_footer.xsl">
   
   <fo:static-content flow-name="after">
-    <fo:block font-size="{$footer-font-size}" text-align="center" space-before="0.3in">
+    <fo:block font-size="7" text-align="center" space-before="0.3in">
       <xsl:text>- </xsl:text>
       <fo:page-number/>
       <xsl:text> -</xsl:text>

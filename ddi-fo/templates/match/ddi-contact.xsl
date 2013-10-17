@@ -13,8 +13,7 @@
 
     <fo:block>
 
-      <!-- current node -->
-      <xsl:value-of select="."/>
+      <xsl:value-of select="." />
 
       <!-- affiliation -->
       <xsl:if test="@affiliation">

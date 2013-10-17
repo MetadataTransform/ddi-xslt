@@ -4,8 +4,8 @@
 <!-- value: <fo:block>    -->
 <!-- ==================== -->
 
-<!-- called: -->
-<!-- trim -->
+<!-- functions: -->
+<!-- util:trim() -->
 
 <xsl:template match="ddi:IDNo"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -17,11 +17,6 @@
     <xsl:if test="@agency">
       <xsl:value-of select="@agency"/>:
     </xsl:if>
-
-    <!-- trim current node -->
-    <!-- <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="."/>
-    </xsl:call-template> -->
     
     <xsl:value-of select="util:trim(.)" />
 
