@@ -263,6 +263,7 @@
   <xsl:variable name="i18n-Access_Authority" select="$strings/*/entry[@key='Access_Authority']"/>
   <xsl:variable name="i18n-Access_Conditions" select="$strings/*/entry[@key='Access_Conditions']"/>
   <xsl:variable name="i18n-Acknowledgments" select="$strings/*/entry[@key='Acknowledgments']"/>
+  <xsl:variable name="i18n-Cases" select="$strings/*/entry[@key='Cases']"/>
   <xsl:variable name="i18n-Cases_Abbreviation" select="$strings/*/entry[@key='Cases_Abbreviation']"/>
   <xsl:variable name="i18n-Citation_Requirements" select="$strings/*/entry[@key='Citation_Requirements']"/>
   <xsl:variable name="i18n-Concepts" select="$strings/*/entry[@key='Concepts']"/>
@@ -290,7 +291,9 @@
   <xsl:variable name="i18n-Estimates_of_Sampling_Error" select="$strings/*/entry[@key='Estimates_of_Sampling_Error']"/>
   <xsl:variable name="i18n-files" select="$strings/*/entry[@key='files']"/>
   <xsl:variable name="i18n-Files_Description" select="$strings/*/entry[@key='Files_Description']"/>
+  <xsl:variable name="i18n-File_Structure" select="$strings/*/entry[@key='File_Structure']"/>
   <xsl:variable name="i18n-Format" select="$strings/*/entry[@key='Format']"/>
+  <xsl:variable name="i18n-File_Content" select="$strings/*/entry[@key='File_Content']"/>
   <xsl:variable name="i18n-Frequency_table_not_shown" select="$strings/*/entry[@key='Frequency_table_not_shown']"/>
   <xsl:variable name="i18n-Funding_Agencies" select="$strings/*/entry[@key='Funding_Agencies']"/>
   <xsl:variable name="i18n-Geographic_Coverage" select="$strings/*/entry[@key='Geographic_Coverage']"/>
@@ -301,6 +304,7 @@
   <xsl:variable name="i18n-Information" select="$strings/*/entry[@key='Information']"/>
   <xsl:variable name="i18n-Interviewers_instructions" select="$strings/*/entry[@key='Interviewers_instructions']"/>
   <xsl:variable name="i18n-Invalid" select="$strings/*/entry[@key='Invalid']"/>
+  <xsl:variable name="i18n-Keys" select="$strings/*/entry[@key='Keys']"/>
   <xsl:variable name="i18n-Keywords" select="$strings/*/entry[@key='Keywords']"/>
   <xsl:variable name="i18n-Kind_of_Data" select="$strings/*/entry[@key='Kind_of_Data']"/>
   <xsl:variable name="i18n-Label" select="$strings/*/entry[@key='Label']"/>
@@ -309,6 +313,7 @@
   <xsl:variable name="i18n-Metadata_Production" select="$strings/*/entry[@key='Metadata_Production']"/>
   <xsl:variable name="i18n-Metadata_Producers" select="$strings/*/entry[@key='Metadata_Producers']"/>
   <xsl:variable name="i18n-Missing" select="$strings/*/entry[@key='Missing']"/>
+  <xsl:variable name="i18n-Missing_Data" select="$strings/*/entry[@key='Missing_Data']"/>
   <xsl:variable name="i18n-Modalities" select="$strings/*/entry[@key='Modalities']"/>
   <xsl:variable name="i18n-Name" select="$strings/*/entry[@key='Name']"/>
   <xsl:variable name="i18n-Notes" select="$strings/*/entry[@key='Notes']"/>
@@ -320,7 +325,9 @@
   <xsl:variable name="i18n-Percentage" select="$strings/*/entry[@key='Percentage']"/>
   <xsl:variable name="i18n-Post-question" select="$strings/*/entry[@key='Post-question']"/>
   <xsl:variable name="i18n-Pre-question" select="$strings/*/entry[@key='Pre-question']"/>
-  <xsl:variable name="i18n-Primary_Investigators" select="$strings/*/entry[@key='Primary_Investigators']"/> 
+  <xsl:variable name="i18n-Primary_Investigators" select="$strings/*/entry[@key='Primary_Investigators']"/>
+  <xsl:variable name="i18n-Processing_Checks" select="$strings/*/entry[@key='Processing_Checks']"/>
+  <xsl:variable name="i18n-Producer" select="$strings/*/entry[@key='Producer']"/>
   <xsl:variable name="i18n-Producers_and_Sponsors" select="$strings/*/entry[@key='Producers_and_Sponsors']"/>
   <xsl:variable name="i18n-Production_Date" select="$strings/*/entry[@key='Production_Date']"/>
   <xsl:variable name="i18n-Question" select="$strings/*/entry[@key='Question']"/>
@@ -351,6 +358,7 @@
   <xsl:variable name="i18n-Valid" select="$strings/*/entry[@key='Valid']"/>
   <xsl:variable name="i18n-Value" select="$strings/*/entry[@key='Value']"/>
   <xsl:variable name="i18n-variables" select="$strings/*/entry[@key='variables']"/>
+  <xsl:variable name="i18n-Variables" select="$strings/*/entry[@key='Variables']"/>
   <xsl:variable name="i18n-Variables_List" select="$strings/*/entry[@key='Variables_List']"/>
   <xsl:variable name="i18n-Variables_Groups" select="$strings/*/entry[@key='Variables_Groups']"/>
   <xsl:variable name="i18n-Variables_Description" select="$strings/*/entry[@key='Variables_Description']"/>
@@ -2049,7 +2057,7 @@
   </fo:block>
 
 </xsl:template>
-  <!-- =========================== --><!-- match: ddi:fileDsrc         --><!-- value: <fo:table>           --><!-- =========================== --><!-- read: --><!-- $strings, $color-gray1, $default-border, $cell-padding --><!-- set: --><!-- $fileId, $list --><!-- functions: --><!-- concat(), contains(), normalize-space(), position() [Xpath 1.0] --><!-- proportional-column-width() [FO] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" xml:base="templates/match/ddi-fileDscr.xsl">
+  <!-- =========================== --><!-- match: ddi:fileDsrc         --><!-- value: <fo:table>           --><!-- =========================== --><!-- read: --><!-- $color-gray1, $default-border, $cell-padding --><!-- set: --><!-- $fileId, $list --><!-- functions: --><!-- concat(), contains(), normalize-space(), position() [Xpath 1.0] --><!-- proportional-column-width() [FO] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" xml:base="templates/match/ddi-fileDscr.xsl"> 
 
     <!-- ===================== -->
     <!-- variables             -->
@@ -2077,7 +2085,7 @@
 
       <fo:table-body>
 
-        <!-- 1) Filename -->
+        <!-- Filename -->
         <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
           <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
             <fo:block font-size="12pt" font-weight="bold">
@@ -2086,12 +2094,12 @@
           </fo:table-cell>
         </fo:table-row>
 
-        <!-- 2) Cases -->
+        <!-- Cases -->
         <xsl:if test="ddi:fileTxt/ddi:dimensns/ddi:caseQnty">
           <fo:table-row>
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-              <fo:block>#
-                <xsl:value-of select="$strings/*/entry[@key='Cases']"/>
+              <fo:block>
+                <xsl:value-of select="$i18n-Cases"/>
               </fo:block>
             </fo:table-cell>
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -2100,12 +2108,12 @@
           </fo:table-row>
         </xsl:if>
 
-        <!-- 3) Variables -->
+        <!-- Variables -->
         <xsl:if test="ddi:fileTxt/ddi:dimensns/ddi:varQnty">
           <fo:table-row>
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-              <fo:block>#
-                <xsl:value-of select="$strings/*/entry[@key='Variables']"/>
+              <fo:block>
+                <xsl:value-of select="$i18n-Variables"/>
               </fo:block>
             </fo:table-cell>
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -2114,14 +2122,14 @@
           </fo:table-row>
         </xsl:if>
 
-        <!-- 4) File structure -->
+        <!-- File structure -->
         <xsl:if test="ddi:fileTxt/ddi:fileStrc">
           <fo:table-row>
 
             <!-- 4.1) File_Structure -->
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
               <fo:block>
-                <xsl:value-of select="$strings/*/entry[@key='File_Structure']"/>
+                <xsl:value-of select="$i18n-File_Structure"/>
               </fo:block>
             </fo:table-cell>
 
@@ -2129,23 +2137,29 @@
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
               <xsl:if test="ddi:fileTxt/ddi:fileStrc/@type">
                 <fo:block>
-                  <xsl:value-of select="$strings/*/entry[@key='Type']"/>:
+                  <xsl:value-of select="$i18n-Type"/>
+                  <xsl:text>:</xsl:text>
                   <xsl:value-of select="ddi:fileTxt/ddi:fileStrc/@type"/>
                 </fo:block>
               </xsl:if>
 
               <xsl:if test="ddi:fileTxt/ddi:fileStrc/ddi:recGrp/@keyvar">
                 <fo:block>
-                  <xsl:value-of select="$strings/*/entry[@key='Keys']"/>: 
+                  <xsl:value-of select="$i18n-Keys"/>
+                  <xsl:text>: </xsl:text>
                   <xsl:variable name="list" select="concat(ddi:fileTxt/ddi:fileStrc/ddi:recGrp/@keyvar,' ')"/>
+
                   <!-- add a space at the end of the list for matching puspose -->
                   <xsl:for-each select="/ddi:codeBook/ddi:dataDscr/ddi:var[contains($list,concat(@ID,' '))]">
                     <!-- add a space to the variable ID to avoid partial match -->
-                    <xsl:if test="position()&gt;1">, </xsl:if>
+                    <xsl:if test="position() &gt; 1">
+                      <xsl:text>, </xsl:text>
+                    </xsl:if>
                     <xsl:value-of select="./@name"/>
                     <xsl:if test="normalize-space(./ddi:labl)">
-											 (
-                      <xsl:value-of select="normalize-space(./ddi:labl)"/>)
+											<xsl:text> (</xsl:text>
+                      <xsl:value-of select="normalize-space(./ddi:labl)"/>
+                      <xsl:text>)</xsl:text>
                     </xsl:if>
                   </xsl:for-each>
                 </fo:block>
@@ -2155,72 +2169,72 @@
           </fo:table-row>
         </xsl:if>
 
-        <!-- 5) File_Content -->
+        <!-- File_Content -->
         <xsl:for-each select="ddi:fileTxt/ddi:fileCont">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$strings/*/entry[@key='File_Content']"/>
+                <xsl:value-of select="$i18n-File_Content"/>
               </fo:block>
               <xsl:apply-templates select="."/>
             </fo:table-cell>
           </fo:table-row>
         </xsl:for-each>
 
-        <!-- 6) Producer -->
+        <!-- Producer -->
         <xsl:for-each select="ddi:fileTxt/ddi:filePlac">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$strings/*/entry[@key='Producer']"/>
+                <xsl:value-of select="$i18n-Producer"/>
               </fo:block>
               <xsl:apply-templates select="."/>
             </fo:table-cell>
           </fo:table-row>
         </xsl:for-each>
 
-        <!-- 7) Version -->
+        <!-- Version -->
         <xsl:for-each select="ddi:fileTxt/ddi:verStmt">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$strings/*/entry[@key='Version']"/>
+                 <xsl:value-of select="$i18n-Version"/>
               </fo:block>
               <xsl:apply-templates select="."/>
             </fo:table-cell>
           </fo:table-row>
         </xsl:for-each>
 
-        <!-- 8) Processing_Checks -->
+        <!-- Processing_Checks -->
         <xsl:for-each select="ddi:fileTxt/ddi:dataChck">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$strings/*/entry[@key='Processing_Checks']"/>
+                <xsl:value-of select="$i18n-Processing_Checks"/>
               </fo:block>
               <xsl:apply-templates select="."/>
             </fo:table-cell>
           </fo:table-row>
         </xsl:for-each>
 
-        <!-- 9) Missing_Data -->
+        <!-- Missing_Data -->
         <xsl:for-each select="ddi:fileTxt/ddi:dataMsng">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$strings/*/entry[@key='Missing_Data']"/>
+                <xsl:value-of select="$i18n-Missing_Data"/>
               </fo:block>
               <xsl:apply-templates select="."/>
             </fo:table-cell>
           </fo:table-row>
         </xsl:for-each>
 
-        <!-- 10) Notes -->
+        <!-- Notes -->
         <xsl:for-each select="ddi:notes">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$strings/*/entry[@key='Notes']"/>
+                <xsl:value-of select="$i18n-Notes"/>
               </fo:block>
               <xsl:apply-templates select="."/>
             </fo:table-cell>
@@ -2449,25 +2463,25 @@
     </fo:table>
 
 </xsl:template>
-  <!-- ==================================================== --><!-- match: ddi:fileName                                  --><!-- value: string (filename minus .NSDstat extension)    --><!-- ==================================================== --><!-- set: --><!-- $filename --><!-- functions: --><!-- contains(), normalize-space(), string-length(), substring() [xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileName" xml:base="templates/match/ddi-fileName.xsl">
+  <!-- ===================== --><!-- match: ddi:fileName   --><!-- value: string         --><!-- ===================== --><!-- set: --><!-- $filename --><!-- functions: --><!-- contains(), normalize-space(), string-length(), substring() [xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileName" xml:base="templates/match/ddi-fileName.xsl">
 
-    <!-- variables -->
-    <xsl:variable name="filename" select="normalize-space(.)"/>
+  <!-- variables -->
+  <xsl:variable name="filename" select="normalize-space(.)"/>
 
-    <!-- content -->
-    <xsl:choose>
+  <!-- content -->
+  <xsl:choose>
 
-      <!-- case: filename contains .NSDstat-->
-      <xsl:when test=" contains( $filename , '.NSDstat' )">
-        <xsl:value-of select="substring($filename, 1, string-length($filename)-8)"/>
-      </xsl:when>
+    <!-- case: filename contains .NSDstat-->
+    <xsl:when test=" contains( $filename , '.NSDstat' )">
+      <xsl:value-of select="substring($filename, 1, string-length($filename)-8)"/>
+    </xsl:when>
 
-      <!-- does not contain .NSDstat -->
-      <xsl:otherwise>
-        <xsl:value-of select="$filename"/>
-      </xsl:otherwise>
+    <!-- does not contain .NSDstat -->
+    <xsl:otherwise>
+      <xsl:value-of select="$filename"/>
+    </xsl:otherwise>
 
-    </xsl:choose>
+  </xsl:choose>
 
 </xsl:template>
   <!-- ========================== --><!-- match: ddi:fundAg          --><!-- value: <fo:block>          --><!-- ========================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fundAg" xml:base="templates/match/ddi-fundAg.xsl">
