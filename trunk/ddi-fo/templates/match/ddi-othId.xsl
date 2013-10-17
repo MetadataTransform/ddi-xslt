@@ -12,11 +12,6 @@
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
   <fo:block>
-
-    <!-- trim ddi:p -->
-    <!-- <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="ddi:p"/>
-    </xsl:call-template> -->
     
     <xsl:value-of select="util:trim(ddi:p)"/>
 

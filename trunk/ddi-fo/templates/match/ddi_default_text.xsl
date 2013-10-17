@@ -7,25 +7,19 @@
 <!-- set: -->
 <!-- $trimmed -->
 
-<!-- called: -->
-<!-- trim -->
+<!-- functions: -->
+<!-- util:trim() [local] -->
 
 <xsl:template match="ddi:*|text()"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
-
-  <!-- variables -->
-  <!-- <xsl:variable name="trimmed">
-    <xsl:call-template name="trim">
-      <xsl:with-param name="s" select="." />
-    </xsl:call-template>
-  </xsl:variable> -->
   
-  <xsl:variable name="trimmed" select="util:trim(.)" />
+  <!-- <xsl:variable name="trimmed" select="util:trim(.)" /> -->
 
   <!-- content -->
   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0in">
-    <xsl:value-of select="$trimmed"/>
+    <!-- <xsl:value-of select="$trimmed"/> -->
+    <xsl:value-of select="util:trim(.)"/>
   </fo:block>
 
 </xsl:template>

@@ -151,7 +151,6 @@
   <xsl:param name="font-family" select="'Times'" />
   <xsl:param name="font-size" select="10" />
   <xsl:param name="header-font-size" select="6" />
-  <xsl:param name="footer-font-size" select="6" />
 
   <xsl:variable name="cell-padding" select="'3pt'" />
   <xsl:variable name="default-border" select="'0.5pt solid black'" />

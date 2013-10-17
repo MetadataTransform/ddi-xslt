@@ -31,11 +31,16 @@
         </fo:block>      
 
         <!-- title -->
-        <fo:block font-size="18pt" font-weight="bold" space-before="12mm"
+        <fo:block font-size="18pt" font-weight="bold" space-before="5mm"
                   text-align="center" space-after="0.0mm">
           <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/titl)" />
         </fo:block>
-        
+
+        <!-- ID-number -->
+        <!-- <fo:block font-size="15pt" text-align="center" space-before="5mm">
+          <xsl:value-of select="/codeBook/docDscr/docSrc/titlStmt/IDNo" />
+        </fo:block> -->
+
         <!-- blank line (&#x00A0; is the equivalent of HTML &nbsp;) -->
         <fo:block white-space-treatment="preserve"> &#x00A0; </fo:block>
 
