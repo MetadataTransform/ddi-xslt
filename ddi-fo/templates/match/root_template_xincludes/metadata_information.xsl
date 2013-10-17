@@ -5,8 +5,8 @@
 <!-- ================================================= -->
 
 <!-- read: -->
-<!-- $strings, $font-family, $show-metadata-production, -->
-<!-- $default-border, $cell-padding                     -->
+<!-- $strings, $font-family -->
+<!-- $default-border, $cell-padding -->
 
 <!-- functions: -->
 <!-- boolean(), normalize-space() [Xpath 1.0] -->
@@ -42,30 +42,29 @@
       <fo:block id="metadata-info" />
 
       <!-- Metadata_Poduction -->
-      <xsl:if test="boolean($show-metadata-production)">
-        <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="0.1in">
-          <xsl:value-of select="$i18n-Metadata_Production"/>
-        </fo:block>
+      <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="0.1in">
+        <xsl:value-of select="$i18n-Metadata_Production"/>
+      </fo:block>
 
-        <fo:table table-layout="fixed" width="100%" space-before="0.0in" space-after="0.2in">
-          <fo:table-column column-width="proportional-column-width(20)" />
-          <fo:table-column column-width="proportional-column-width(80)" />
+      <fo:table table-layout="fixed" width="100%" space-before="0.0in" space-after="0.2in">
+        <fo:table-column column-width="proportional-column-width(20)" />
+        <fo:table-column column-width="proportional-column-width(80)" />
 
-          <fo:table-body>
+        <fo:table-body>
 
-            <!-- Metadata_Producers -->
-            <xsl:if test="/codeBook/docDscr/citation/prodStmt/producer">
-              <fo:table-row>
-                <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                  <fo:block>
-                    <xsl:value-of select="$i18n-Metadata_Producers"/>
-                  </fo:block>
-                </fo:table-cell>
-                <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                  <xsl:apply-templates select="/codeBook/docDscr/citation/prodStmt/producer" />
-                </fo:table-cell>
-              </fo:table-row>
-            </xsl:if>
+          <!-- Metadata_Producers -->
+          <xsl:if test="/codeBook/docDscr/citation/prodStmt/producer">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$i18n-Metadata_Producers"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/codeBook/docDscr/citation/prodStmt/producer" />
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
 
             <!-- Production_Date -->
             <xsl:if test="/codeBook/docDscr/citation/prodStmt/prodDate">
@@ -113,7 +112,7 @@
 
           </fo:table-body>
         </fo:table>
-      </xsl:if>
+      
 
     </fo:flow>
   </fo:page-sequence>

@@ -10,8 +10,7 @@
 <!-- set: -->
 <!-- $fileId -->
 
-<xsl:template match="ddi:fileDscr"
-              mode="variables-list"
+<xsl:template match="ddi:fileDscr" mode="variables-list"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
@@ -42,11 +41,8 @@
     <fo:table-column column-width="proportional-column-width(10)"/>
     <fo:table-column column-width="proportional-column-width( 8)"/>
     <fo:table-column column-width="proportional-column-width( 8)"/>
-
-    <xsl:if test="$show-variables-list-question">
-      <fo:table-column column-width="proportional-column-width(27)"/>
-    </xsl:if>
-
+    <fo:table-column column-width="proportional-column-width(27)"/>
+ 
     <!-- [fo:table-header] -->
     <fo:table-header>
       <fo:table-row text-align="center" vertical-align="top" keep-with-next="always">
@@ -111,13 +107,12 @@
       </fo:table-cell>
 
       <!-- Question -->
-      <xsl:if test="$show-variables-list-question">
-        <fo:table-cell border="0.5pt solid black" padding="3pt">
-          <fo:block>
-            <xsl:value-of select="$strings/*/entry[@key='Question']" />
-          </fo:block>
-        </fo:table-cell>
-      </xsl:if>
+      <fo:table-cell border="0.5pt solid black" padding="3pt">
+        <fo:block>
+          <xsl:value-of select="$strings/*/entry[@key='Question']" />
+        </fo:block>
+      </fo:table-cell>
+      
 
     </fo:table-row>
       </fo:table-header>

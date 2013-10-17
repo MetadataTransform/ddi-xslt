@@ -4,8 +4,8 @@
 <!-- value: <fo:block>              -->
 <!-- ============================== -->
 
-<!-- called: -->
-<!-- trim -->
+<!-- functions: -->
+<!-- util:trim() -->
 
 <xsl:template match="ddi:dataCollector"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

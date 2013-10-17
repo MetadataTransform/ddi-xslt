@@ -176,8 +176,6 @@
   <xsl:param name="show-files-description" select="'True'" />
 
   <!-- misc -->
-  <xsl:param name="show-metadata-production" select="'True'" />
-  <xsl:param name="show-variables-list-question" select="'True'" />
   <xsl:param name="show-variables-description-categories" select="'True'" />
   
   <!-- ==================================== -->
@@ -379,6 +377,7 @@
   <xsl:variable name="i18n-Copyright" select="$strings/*/entry[@key='Copyright']" />
   <xsl:variable name="i18n-Countries" select="$strings/*/entry[@key='Countries']" />
   <xsl:variable name="i18n-continuous" select="$strings/*/entry[@key='continuous']" />
+  <xsl:variable name="i18n-Cover_Page" select="$strings/*/entry[@key='Cover_Page']" />
   <xsl:variable name="i18n-Data_Collection" select="$strings/*/entry[@key='Data_Collection']" />
   <xsl:variable name="i18n-Data_Collectors" select="$strings/*/entry[@key='Data_Collectors']" />
   <xsl:variable name="i18n-Data_Collection_Dates" select="$strings/*/entry[@key='Data_Collection_Dates']" /> 
@@ -395,11 +394,13 @@
   <xsl:variable name="i18n-Distributors" select="$strings/*/entry[@key='Distributors']" />
   <xsl:variable name="i18n-Disclaimer" select="$strings/*/entry[@key='Disclaimer']" />
   <xsl:variable name="i18n-discrete" select="$strings/*/entry[@key='discrete']" />
+  <xsl:variable name="i18n-Document_Information" select="$strings/*/entry[@key='Document_Information']" />
   <xsl:variable name="i18n-Estimates_of_Sampling_Error" select="$strings/*/entry[@key='Estimates_of_Sampling_Error']" />
   <xsl:variable name="i18n-files" select="$strings/*/entry[@key='files']" />
   <xsl:variable name="i18n-Files_Description" select="$strings/*/entry[@key='Files_Description']" />
   <xsl:variable name="i18n-File_Structure" select="$strings/*/entry[@key='File_Structure']" />
   <xsl:variable name="i18n-Format" select="$strings/*/entry[@key='Format']" />
+  <xsl:variable name="i18n-File" select="$strings/*/entry[@key='File']" />
   <xsl:variable name="i18n-File_Content" select="$strings/*/entry[@key='File_Content']" />
   <xsl:variable name="i18n-Frequency_table_not_shown" select="$strings/*/entry[@key='Frequency_table_not_shown']" />
   <xsl:variable name="i18n-Funding_Agencies" select="$strings/*/entry[@key='Funding_Agencies']" />
