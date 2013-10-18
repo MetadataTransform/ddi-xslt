@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- cover_page.xsl -->
 <!-- ========================= -->
 <!-- <xsl:if> cover page       -->
 <!-- value: <fo:page-sequence> -->

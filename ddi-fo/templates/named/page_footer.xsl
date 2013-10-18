@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- page_footer.xsl -->
 <!-- ==================================================== -->
 <!-- name: page_footer                                    -->
 <!-- value: <fo:static-content>                           -->
 <!-- ==================================================== -->
-
-<!-- read: -->
-<!-- $header-font-size -->
 
 <xsl:template name="page_footer"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- overview.xsl -->
 <!-- =========================================== -->
 <!-- <xsl:if> overview                           -->
 <!-- value: <fo:page-sequence>                   -->
@@ -273,7 +274,7 @@
           </xsl:if>
 
           <!-- Time_Periods -->
-          <xsl:if test="string-length($time) &gt; 3 or string-length($time-produced) &gt; 3">
+          <xsl:if version="1.0" test="string-length($time) &gt; 3 or string-length($time-produced) &gt; 3">
             <fo:table-row>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">

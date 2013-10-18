@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!-- ddi_varGrp.xsl -->
 <!-- ================================================== -->
 <!-- match: ddi:varGrp                                  -->
 <!-- value: <xsl:if> [<fo:table> + <xsl:if> <fo:table>] -->

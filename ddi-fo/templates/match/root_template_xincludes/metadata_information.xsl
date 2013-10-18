@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- metadata_information.xsl -->
 <!-- ================================================= -->
 <!-- <xsl:if> metadata information                     -->
 <!-- value: <fo:page-sequence>                         -->
