@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- variable_groups.xsl -->
 <!-- ================================================ -->
 <!-- <xsl:if> variable groups                         -->
 <!-- value: <fo:page-sequence>                        -->

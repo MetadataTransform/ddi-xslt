@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- files_description.xsl -->
 <!-- ============================= -->
 <!-- <xsl:if> files description    -->
 <!-- value: <fo:page-sequence>     -->

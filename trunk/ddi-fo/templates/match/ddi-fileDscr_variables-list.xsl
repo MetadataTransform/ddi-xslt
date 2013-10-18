@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!-- ddi-fileDscr_variables-list.xsl -->
 <!-- ===================================== -->
 <!-- match: ddi:fileDsrc (variables-list)  -->
 <!-- Value: <fo:table>                     -->

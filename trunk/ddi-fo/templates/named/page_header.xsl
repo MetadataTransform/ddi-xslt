@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- page_header.xsl -->
 
 <xsl:template name="page_header"
               xpath-default-namespace="http://www.icpsr.umich.edu/DDI"

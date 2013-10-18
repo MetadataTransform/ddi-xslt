@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!-- util-rtrim.xsl -->
 <!-- ======================= -->
 <!-- xs:string util:rtrim()  -->
 <!-- params: $s, $i          -->

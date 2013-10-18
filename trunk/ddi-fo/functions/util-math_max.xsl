@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!-- util-math_max.xsl -->
 <!-- ===================== -->
 <!-- util:math_max()       -->
 <!-- param: $nodes         -->

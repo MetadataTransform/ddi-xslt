@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- variables_description.xsl -->
 <!-- ==================================================== -->
 <!-- <xsl:if> variables description                       -->
 <!-- value: <fo:page-sequence>                            -->

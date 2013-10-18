@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<!-- table_of_contents.xsl -->
 <!-- ============================================== -->
 <!-- <xsl:if> table of contents                     -->
 <!-- value: <fo:page-sequence>                      -->
