@@ -5,12 +5,12 @@
 <!-- ================================== -->
 
 <!-- read: -->
-<!-- $subserVars, $color-white, $default-border, $cell-padding, -->
-<!-- $show-variables-list, $variable-name-length                -->
+<!-- $color-white, $default-border, $cell-padding, -->
+<!-- $show-variables-list, $variable-name-length -->
 
 <!-- functions: -->
 <!-- concat(), contains(), count(), position(), normalize-space(), -->
-<!-- string-length(), substring() [xpath 1.0]                      -->
+<!-- string-length(), substring() [xpath 1.0] -->
 
 <xsl:template match="ddi:var" mode="variables-list"
               xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
@@ -18,8 +18,6 @@
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
     <!-- content -->
-    <xsl:if test="contains($subset-vars, concat(',' ,@ID, ','))
-                  or string-length($subset-vars) = 0 ">
       <fo:table-row text-align="center" vertical-align="top">
 
         <!-- Variable Position -->
@@ -80,6 +78,6 @@
         
 
       </fo:table-row>
-    </xsl:if>
+    
 
 </xsl:template>

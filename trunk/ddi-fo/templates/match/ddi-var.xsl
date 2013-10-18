@@ -6,7 +6,7 @@
 
 <!-- read: -->
 <!-- $cell-padding, $color-gray1, $default-border, -->
-<!-- $show-variables-description-categories-max, $subset-vars, -->
+<!-- $show-variables-description-categories-max -->
 
 <!-- set: -->
 <!-- $statistics, $type, $label, $category-count, $is-weighted,  -->
@@ -24,9 +24,6 @@
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
   <!-- content -->
-  <xsl:if test="contains($subset-vars, concat(',' ,@ID, ','))
-                or string-length($subset-vars) = 0 ">
-
     <fo:table-row text-align="center" vertical-align="top">
       <fo:table-cell>
         <fo:table id="var-{@ID}" table-layout="fixed" width="100%" font-size="8pt" space-after="0.3in">
@@ -629,6 +626,6 @@
       </fo:table-cell>
     </fo:table-row>
 
-  </xsl:if>
+  
 
 </xsl:template>

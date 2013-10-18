@@ -39,11 +39,6 @@
   <!-- translation file path-->
   <xsl:param name="translations-file"/>
 
-  <!-- params from OutputServlet.java -->
-  <!-- never used, will be removed -->
-  <xsl:param name="subset-groups"/>
-  <xsl:param name="subset-vars"/>
-
   <xsl:param name="report-start-page-number" select="4"/>
   <xsl:param name="show-variables-description-categories-max" select="1000"/>
   <xsl:param name="variable-name-length" select="14"/>
@@ -525,13 +520,11 @@
         </fo:bookmark-title>
 
         <xsl:for-each select="/codeBook/dataDscr/varGrp">
-          <xsl:if test="contains($subset-groups, concat(',', @ID, ','))                         or string-length($subset-groups) = 0">
             <fo:bookmark internal-destination="vargrp-{@ID}">
               <fo:bookmark-title>
                 <xsl:value-of select="normalize-space(labl)"/>
               </fo:bookmark-title>
-            </fo:bookmark>
-          </xsl:if>
+            </fo:bookmark>          
         </xsl:for-each>
       </fo:bookmark>
     </xsl:if>
@@ -578,7 +571,6 @@
             </xsl:variable>
 
             <xsl:for-each select="/codeBook/dataDscr/var[@files=$fileId]">
-              <xsl:if test="contains($subset-vars, concat(',',@ID,','))                             or string-length($subset-vars) = 0 ">
                 <fo:bookmark internal-destination="var-{@ID}">
                   <fo:bookmark-title>
                     <xsl:apply-templates select="@name"/>
@@ -587,8 +579,7 @@
                       <xsl:value-of select="util:trim(labl)"/>                      
                     </xsl:if>
                   </fo:bookmark-title>
-                </fo:bookmark>
-              </xsl:if>
+                </fo:bookmark>            
             </xsl:for-each>
 
           </fo:bookmark>
@@ -648,7 +639,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ================================================= --><!-- <xsl:if> metadata information                     --><!-- value: <fo:page-sequence>                         --><!-- ================================================= --><!-- read: --><!-- $strings, $font-family --><!-- $default-border, $cell-padding --><!-- functions: --><!-- boolean(), normalize-space() [Xpath 1.0] --><!-- proportional-column-width() [FO]         --><!-- called: --><!-- isodate-long --><!-- Metadata production        [table]      --><!--   Metadata producers       [table-row]  --><!--   Metadata Production Date [table-row]  --><!--   Metadata Version         [table-row]  --><!--   Metadata ID              [table-row]  --><!--   Spacer                   [table-row]  --><!-- Report Acknowledgements    [block]      --><!-- Report Notes               [block]      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/metadata_information.xsl">
+    <!-- ================================================= --><!-- <xsl:if> metadata information                     --><!-- value: <fo:page-sequence>                         --><!-- ================================================= --><!-- read: --><!-- $strings, $font-family --><!-- $default-border, $cell-padding --><!-- functions: --><!-- boolean(), normalize-space() [Xpath 1.0] --><!-- proportional-column-width() [FO]         --><!-- util:isodate_long() [functions] --><!-- Metadata production        [table]      --><!--   Metadata producers       [table-row]  --><!--   Metadata Production Date [table-row]  --><!--   Metadata Version         [table-row]  --><!--   Metadata ID              [table-row]  --><!--   Spacer                   [table-row]  --><!-- Report Acknowledgements    [block]      --><!-- Report Notes               [block]      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/metadata_information.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -735,7 +726,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ============================================== --><!-- <xsl:if> table of contents                     --><!-- value: <fo:page-sequence>                      --><!-- ============================================== --><!-- read: --><!-- $font-family, $strings, $show-overview, $show-scope-and-coverage,   --><!-- $show-producers-and-sponsors, $show-sampling, $show-data-collection --><!-- $show-data-processing-and-appraisal, $show-accessibility,           --><!-- $show-rights-and-disclaimer, $show-files-description,               --><!-- $show-variables-list, $show-variable-groups, $subset-groups         --><!-- functions: --><!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/table_of_contents.xsl">
+    <!-- ============================================== --><!-- <xsl:if> table of contents                     --><!-- value: <fo:page-sequence>                      --><!-- ============================================== --><!-- read: --><!-- $font-family, $show-overview, $show-scope-and-coverage, --><!-- $show-producers-and-sponsors, $show-sampling, $show-data-collection --><!-- $show-data-processing-and-appraisal, $show-accessibility, --><!-- $show-rights-and-disclaimer, $show-files-description, --><!-- $show-variables-list, $show-variable-groups --><!-- functions: --><!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/table_of_contents.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -898,16 +889,13 @@
             </fo:basic-link>
 
             <xsl:for-each select="/codeBook/dataDscr/varGrp">
-              <!-- Show group if its part of subset OR no subset is defined -->
-              <xsl:if test="contains($subset-groups, concat(',' ,@ID, ',')) or string-length($subset-groups) = 0">
                 <fo:block margin-left="0.7in" font-size="{$font-size}" text-align-last="justify">
                   <fo:basic-link internal-destination="vargrp-{@ID}" text-decoration="underline" color="blue">
                     <xsl:value-of select="normalize-space(labl)"/>
                     <fo:leader leader-pattern="dots"/>
                     <fo:page-number-citation ref-id="vargrp-{@ID}"/>
                   </fo:basic-link>
-                </fo:block>
-              </xsl:if>
+                </fo:block>              
             </xsl:for-each>
           </fo:block>
         </xsl:if>
@@ -1868,7 +1856,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- ================================================ --><!-- <xsl:if> variable groups                         --><!-- value: <fo:page-sequence>                        --><!-- ================================================ --><!-- read: --><!-- $strings, $font-family, $number-of-groups --><!-- functions: --><!-- string-length(), count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/variable_groups.xsl">
+    <!-- ================================================ --><!-- <xsl:if> variable groups                         --><!-- value: <fo:page-sequence>                        --><!-- ================================================ --><!-- read: --><!-- $font-family, $number-of-groups --><!-- functions: --><!-- string-length(), count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/variable_groups.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
     
@@ -1936,9 +1924,6 @@
         <xsl:value-of select="count(/codeBook/dataDscr/var)"/>
         <xsl:text> </xsl:text>
         <xsl:value-of select="$i18n-variables"/>
-        <xsl:if test="string-length($subset-vars) &gt; 0">
-          <xsl:value-of select="$i18n-ShowingSubset"/>
-        </xsl:if>
       </fo:block>
 
     </fo:flow>
@@ -2565,11 +2550,9 @@
 
   </fo:block>
 </xsl:template>
-  <!-- ================================== --><!-- match: ddi:var                     --><!-- value: <xsl:if> <fo:table-row>     --><!-- ================================== --><!-- read: --><!-- $cell-padding, $color-gray1, $default-border, --><!-- $show-variables-description-categories-max, $subset-vars, --><!-- set: --><!-- $statistics, $type, $label, $category-count, $is-weighted,  --><!-- $catgry-freq-nodes, $catgry-sum-freq, $catgry-sum-freq-wgtd,--><!-- $catgry-max-freq, $catgry-max-freq-wgtd, --><!-- $bar-column-width, $catgry-freq --><!-- functions: --><!-- concat(), contains(), string-length(), normalize-space(), --><!-- number(), position(), string() [Xpath 1.0] --><!-- util:trim(), util:math_max() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" xml:base="templates/match/ddi-var.xsl">
+  <!-- ================================== --><!-- match: ddi:var                     --><!-- value: <xsl:if> <fo:table-row>     --><!-- ================================== --><!-- read: --><!-- $cell-padding, $color-gray1, $default-border, --><!-- $show-variables-description-categories-max --><!-- set: --><!-- $statistics, $type, $label, $category-count, $is-weighted,  --><!-- $catgry-freq-nodes, $catgry-sum-freq, $catgry-sum-freq-wgtd,--><!-- $catgry-max-freq, $catgry-max-freq-wgtd, --><!-- $bar-column-width, $catgry-freq --><!-- functions: --><!-- concat(), contains(), string-length(), normalize-space(), --><!-- number(), position(), string() [Xpath 1.0] --><!-- util:trim(), util:math_max() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" xml:base="templates/match/ddi-var.xsl">
 
   <!-- content -->
-  <xsl:if test="contains($subset-vars, concat(',' ,@ID, ','))                 or string-length($subset-vars) = 0 ">
-
     <fo:table-row text-align="center" vertical-align="top">
       <fo:table-cell>
         <fo:table id="var-{@ID}" table-layout="fixed" width="100%" font-size="8pt" space-after="0.3in">
@@ -3171,13 +3154,12 @@
       </fo:table-cell>
     </fo:table-row>
 
-  </xsl:if>
+  
 
 </xsl:template>
-  <!-- ================================== --><!-- match: ddi:var (variables-list)    --><!-- value: <xsl:if> <fo:table-row>     --><!-- ================================== --><!-- read: --><!-- $subserVars, $color-white, $default-border, $cell-padding, --><!-- $show-variables-list, $variable-name-length                --><!-- functions: --><!-- concat(), contains(), count(), position(), normalize-space(), --><!-- string-length(), substring() [xpath 1.0]                      --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" mode="variables-list" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi-var_variablesList.xsl">
+  <!-- ================================== --><!-- match: ddi:var (variables-list)    --><!-- value: <xsl:if> <fo:table-row>     --><!-- ================================== --><!-- read: --><!-- $color-white, $default-border, $cell-padding, --><!-- $show-variables-list, $variable-name-length --><!-- functions: --><!-- concat(), contains(), count(), position(), normalize-space(), --><!-- string-length(), substring() [xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" mode="variables-list" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi-var_variablesList.xsl">
 
     <!-- content -->
-    <xsl:if test="contains($subset-vars, concat(',' ,@ID, ','))                   or string-length($subset-vars) = 0 ">
       <fo:table-row text-align="center" vertical-align="top">
 
         <!-- Variable Position -->
@@ -3238,12 +3220,10 @@
         
 
       </fo:table-row>
-    </xsl:if>
+    
 
 </xsl:template>
-  <!-- ================================================== --><!-- match: ddi:varGrp                                  --><!-- value: <xsl:if> [<fo:table> + <xsl:if> <fo:table>] --><!-- ================================================== --><!-- read --><!-- $subset-groups, $default-border, $cell-padding --><!-- set --><!-- $list --><!-- functions --><!-- contains(), concat(), position(), string-length(), --><!-- normalize-space() [Xpath 1.0]                      --><!-- proportional-column-width() [fo]                   --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:varGrp" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi-varGrp.xsl">
-
-  <xsl:if test="contains($subset-groups, concat(',', @ID, ','))                 or string-length($subset-groups) = 0">
+  <!-- ================================================== --><!-- match: ddi:varGrp                                  --><!-- value: <xsl:if> [<fo:table> + <xsl:if> <fo:table>] --><!-- ================================================== --><!-- read --><!-- $default-border, $cell-padding --><!-- set --><!-- $list --><!-- functions --><!-- contains(), concat(), position(), string-length(), --><!-- normalize-space() [Xpath 1.0]                      --><!-- proportional-column-width() [fo]                   --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:varGrp" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi-varGrp.xsl">
 
     <fo:table id="vargrp-{@ID}" table-layout="fixed" width="100%" space-before="0.2in">
       <fo:table-column column-width="proportional-column-width(20)"/>
@@ -3387,7 +3367,7 @@
 
     </xsl:if>
 
-  </xsl:if>
+  
     
 </xsl:template>
 

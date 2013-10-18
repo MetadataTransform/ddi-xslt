@@ -154,14 +154,11 @@
         </fo:bookmark-title>
 
         <xsl:for-each select="/codeBook/dataDscr/varGrp">
-          <xsl:if test="contains($subset-groups, concat(',', @ID, ','))
-                        or string-length($subset-groups) = 0">
             <fo:bookmark internal-destination="vargrp-{@ID}">
               <fo:bookmark-title>
                 <xsl:value-of select="normalize-space(labl)" />
               </fo:bookmark-title>
-            </fo:bookmark>
-          </xsl:if>
+            </fo:bookmark>          
         </xsl:for-each>
       </fo:bookmark>
     </xsl:if>
@@ -208,8 +205,6 @@
             </xsl:variable>
 
             <xsl:for-each select="/codeBook/dataDscr/var[@files=$fileId]">
-              <xsl:if test="contains($subset-vars, concat(',',@ID,','))
-                            or string-length($subset-vars) = 0 ">
                 <fo:bookmark internal-destination="var-{@ID}">
                   <fo:bookmark-title>
                     <xsl:apply-templates select="@name" />
@@ -218,8 +213,7 @@
                       <xsl:value-of select="util:trim(labl)" />                      
                     </xsl:if>
                   </fo:bookmark-title>
-                </fo:bookmark>
-              </xsl:if>
+                </fo:bookmark>            
             </xsl:for-each>
 
           </fo:bookmark>

@@ -5,11 +5,11 @@
 <!-- ============================================== -->
 
 <!-- read: -->
-<!-- $font-family, $strings, $show-overview, $show-scope-and-coverage,   -->
+<!-- $font-family, $show-overview, $show-scope-and-coverage, -->
 <!-- $show-producers-and-sponsors, $show-sampling, $show-data-collection -->
-<!-- $show-data-processing-and-appraisal, $show-accessibility,           -->
-<!-- $show-rights-and-disclaimer, $show-files-description,               -->
-<!-- $show-variables-list, $show-variable-groups, $subset-groups         -->
+<!-- $show-data-processing-and-appraisal, $show-accessibility, -->
+<!-- $show-rights-and-disclaimer, $show-files-description, -->
+<!-- $show-variables-list, $show-variable-groups -->
 
 <!-- functions: -->
 <!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] -->
@@ -185,16 +185,13 @@
             </fo:basic-link>
 
             <xsl:for-each select="/codeBook/dataDscr/varGrp">
-              <!-- Show group if its part of subset OR no subset is defined -->
-              <xsl:if test="contains($subset-groups, concat(',' ,@ID, ',')) or string-length($subset-groups) = 0">
                 <fo:block margin-left="0.7in" font-size="{$font-size}" text-align-last="justify">
                   <fo:basic-link internal-destination="vargrp-{@ID}" text-decoration="underline" color="blue">
                     <xsl:value-of select="normalize-space(labl)" />
                     <fo:leader leader-pattern="dots" />
                     <fo:page-number-citation ref-id="vargrp-{@ID}" />
                   </fo:basic-link>
-                </fo:block>
-              </xsl:if>
+                </fo:block>              
             </xsl:for-each>
           </fo:block>
         </xsl:if>

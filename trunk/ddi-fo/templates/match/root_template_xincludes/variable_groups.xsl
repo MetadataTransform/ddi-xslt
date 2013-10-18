@@ -5,7 +5,7 @@
 <!-- ================================================ -->
 
 <!-- read: -->
-<!-- $strings, $font-family, $number-of-groups -->
+<!-- $font-family, $number-of-groups -->
 
 <!-- functions: -->
 <!-- string-length(), count() [xpath 1.0] -->

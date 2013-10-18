@@ -5,7 +5,7 @@
 <!-- ================================================== -->
 
 <!-- read -->
-<!-- $subset-groups, $default-border, $cell-padding -->
+<!-- $default-border, $cell-padding -->
 
 <!-- set -->
 <!-- $list -->
@@ -19,9 +19,6 @@
               xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
-
-  <xsl:if test="contains($subset-groups, concat(',', @ID, ','))
-                or string-length($subset-groups) = 0">
 
     <fo:table id="vargrp-{@ID}" table-layout="fixed" width="100%" space-before="0.2in">
       <fo:table-column column-width="proportional-column-width(20)"/>
@@ -168,6 +165,6 @@
 
     </xsl:if>
 
-  </xsl:if>
+  
     
 </xsl:template>

@@ -46,9 +46,6 @@
         <xsl:value-of select="count(/codeBook/dataDscr/var)" />
         <xsl:text> </xsl:text>
         <xsl:value-of select="$i18n-variables" />
-        <xsl:if test="string-length($subset-vars) &gt; 0">
-          <xsl:value-of select="$i18n-ShowingSubset" />
-        </xsl:if>
       </fo:block>
 
     </fo:flow>

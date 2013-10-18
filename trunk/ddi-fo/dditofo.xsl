@@ -127,11 +127,6 @@
   <!-- translation file path-->
   <xsl:param name="translations-file" />
 
-  <!-- params from OutputServlet.java -->
-  <!-- never used, will be removed -->
-  <xsl:param name="subset-groups" />
-  <xsl:param name="subset-vars" />
-
   <xsl:param name="report-start-page-number" select="4" />
   <xsl:param name="show-variables-description-categories-max" select="1000" />
   <xsl:param name="variable-name-length" select="14" />

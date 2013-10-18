@@ -11,9 +11,8 @@
 <!-- functions: -->
 <!-- boolean(), normalize-space() [Xpath 1.0] -->
 <!-- proportional-column-width() [FO]         -->
+<!-- util:isodate_long() [functions] -->
 
-<!-- called: -->
-<!-- isodate-long -->
 
 <!-- Metadata production        [table]      -->
 <!--   Metadata producers       [table-row]  -->
