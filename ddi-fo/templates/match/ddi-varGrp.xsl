@@ -21,7 +21,8 @@
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-    <fo:table id="vargrp-{@ID}" table-layout="fixed" width="100%" space-before="0.2in">
+    <fo:table id="vargrp-{@ID}" table-layout="fixed"
+              width="100%" space-before="0.2in">
       <fo:table-column column-width="proportional-column-width(20)"/>
       <fo:table-column column-width="proportional-column-width(80)"/>
 

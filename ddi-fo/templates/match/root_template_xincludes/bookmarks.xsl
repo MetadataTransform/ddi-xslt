@@ -18,7 +18,7 @@
 <!-- called: -->
 <!-- trim -->
 
-<xsl:if test="$show-bookmarks = 'True'"
+<xsl:if test="$show-bookmarks='True'"
         xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
@@ -26,8 +26,8 @@
   <fo:bookmark-tree>
 
     <!-- Cover_Page -->
-    <xsl:if test = "$show-cover-page = 'True'">
-      <fo:bookmark internal-destination = "cover-page">
+    <xsl:if test="$show-cover-page='True'">
+      <fo:bookmark internal-destination="cover-page">
         <fo:bookmark-title>
           <xsl:value-of select="$i18n-Cover_Page" />
         </fo:bookmark-title>

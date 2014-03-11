@@ -164,7 +164,8 @@
   <!-- main sections of root template -->
   <xsl:param name="show-bookmarks" select="'True'" />
   <xsl:param name="show-cover-page" select="'True'" />
-  <xsl:param name="show-metadata-info" select="'True'" /> 
+  <!-- <xsl:param name="show-metadata-info" select="'True'" /> --> 
+  <xsl:param name="show-metadata-info" select="'False'" /> 
   <xsl:param name="show-toc" select="'True'" />
   <xsl:param name="show-overview" select="'True'" />
   <xsl:param name="show-files-description" select="'True'" />
@@ -219,7 +220,7 @@
   <!-- Show variable list if showing groups are disabled -->
   <xsl:variable name="show-variables-list">
     <xsl:choose>
-      <xsl:when test="$show-variable-groups = 'True'">False</xsl:when>
+      <xsl:when test="$show-variable-groups='True'">False</xsl:when>
       <xsl:otherwise>True</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
