@@ -36,7 +36,7 @@
         margin-left="20mm" margin-right="20mm"
         margin-top="20mm" margin-bottom="20mm">
         
-        <fo:region-body region-name="body" margin-top="10mm" margin-bottom="10mm" />
+        <fo:region-body region-name="body" margin-top="10mm" margin-bottom="10mm" />      
         <fo:region-before region-name="before" extent="10mm" />
         <fo:region-after region-name="after" extent="10mm" />
       </fo:simple-page-master>
