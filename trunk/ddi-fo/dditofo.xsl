@@ -164,8 +164,7 @@
   <!-- main sections of root template -->
   <xsl:param name="show-bookmarks" select="'True'" />
   <xsl:param name="show-cover-page" select="'True'" />
-  <!-- <xsl:param name="show-metadata-info" select="'True'" /> --> 
-  <xsl:param name="show-metadata-info" select="'False'" /> 
+  <xsl:param name="show-metadata-info" select="'True'" />
   <xsl:param name="show-toc" select="'True'" />
   <xsl:param name="show-overview" select="'True'" />
   <xsl:param name="show-files-description" select="'True'" />
