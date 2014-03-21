@@ -46,15 +46,15 @@
     <!-- ================================ -->
     <!-- Other sections                   -->
     <!-- ================================ -->    
-    <xi:include href='root_template_xincludes/bookmarks.xsl' />
-    <xi:include href='root_template_xincludes/cover_page.xsl' />
-    <xi:include href='root_template_xincludes/metadata_information.xsl' />
-    <xi:include href='root_template_xincludes/table_of_contents.xsl' />
-    <xi:include href='root_template_xincludes/overview.xsl' />
-    <xi:include href='root_template_xincludes/files_description.xsl' />
-    <xi:include href='root_template_xincludes/variables_list.xsl' />
-    <xi:include href='root_template_xincludes/variable_groups.xsl' />
-    <xi:include href='root_template_xincludes/variables_description.xsl' />
+    <xi:include href='root_template_xincludes/section-bookmarks.xsl' />
+    <xi:include href='root_template_xincludes/section-cover_page.xsl' />
+    <xi:include href='root_template_xincludes/section-metadata_information.xsl' />
+    <xi:include href='root_template_xincludes/section-table_of_contents.xsl' />
+    <xi:include href='root_template_xincludes/section-overview.xsl' />
+    <xi:include href='root_template_xincludes/section-files_description.xsl' />
+    <xi:include href='root_template_xincludes/section-variables_list.xsl' />
+    <xi:include href='root_template_xincludes/section-variable_groups.xsl' />
+    <xi:include href='root_template_xincludes/section-variables_description.xsl' />
 
   </fo:root>
 
