@@ -43,7 +43,7 @@
 
       <!-- Metadata_Poduction -->
       <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="0.1in">
-        <xsl:value-of select="$i18n-Metadata_Production"/>
+        <xsl:value-of select="$i18n-Metadata_Production" />
       </fo:block>
 
       <fo:table table-layout="fixed" width="100%" space-before="0.0in" space-after="0.2in">
@@ -83,7 +83,7 @@
             </xsl:if>
 
             <!-- Version -->
-            <xsl:if test="/codeBook/docDscr/citation/verStmt/version">
+            <!-- <xsl:if test="/codeBook/docDscr/citation/verStmt/version">
               <fo:table-row>
                 <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                   <fo:block>
@@ -94,7 +94,7 @@
                   <xsl:apply-templates select="/codeBook/docDscr/citation/verStmt/version" />
                 </fo:table-cell>
               </fo:table-row>
-            </xsl:if>
+            </xsl:if> -->
 
             <!-- Identification -->
             <xsl:if test="/codeBook/docDscr/citation/titlStmt/IDNo">
