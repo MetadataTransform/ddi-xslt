@@ -88,8 +88,8 @@
 
   <xsl:output method="xml"
               encoding="UTF-8"
-              indent="no"
-              omit-xml-declaration="no" />
+              indent="yes"
+              omit-xml-declaration="no"/>
 
   <!-- functions: -->
   <!-- count(), normalize-space(), position(), substring() [Xpath 1.0] -->
@@ -501,12 +501,10 @@
   <!-- ==================================== -->
   <!-- functions                            -->
   <!-- ==================================== -->
-
   <xi:include href="functions/util/isodate_month_name.xsl" />
   <xi:include href="functions/util/isodate_long.xsl" />
   <xi:include href="functions/util/trim.xsl" />
   <xi:include href="functions/util/rtrim.xsl" />
   <xi:include href="functions/util/math_max.xsl" />
-
 
 </xsl:transform>

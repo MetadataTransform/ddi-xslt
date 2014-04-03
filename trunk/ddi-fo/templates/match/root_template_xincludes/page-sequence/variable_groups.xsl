@@ -35,7 +35,7 @@
     <fo:flow flow-name="body">
 
       <!-- heading -->
-      <fo:block id="variables-groups" font-size="18pt" font-weight="bold" space-after="0.1in">
+      <fo:block id="variables-groups" font-size="18pt" font-weight="bold" space-after="2.5mm">
         <xsl:value-of select="$i18n-Variables_Groups" />
       </fo:block>
 

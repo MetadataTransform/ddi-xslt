@@ -18,7 +18,7 @@
   <!-- <xsl:variable name="trimmed" select="util:trim(.)" /> -->
 
   <!-- content -->
-  <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0in">
+  <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
     <!-- <xsl:value-of select="$trimmed"/> -->
     <xsl:value-of select="util:trim(.)"/>
   </fo:block>

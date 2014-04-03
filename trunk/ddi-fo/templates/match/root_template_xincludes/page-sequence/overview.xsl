@@ -418,7 +418,7 @@
           <!-- ============================= -->
           <!-- Space                         -->
           <!-- ============================= -->
-          <fo:table-row height="0.2in">
+          <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block/>
             </fo:table-cell>
@@ -488,7 +488,7 @@
           <!-- ============================= -->
           <!-- Space                         -->
           <!-- ============================= -->
-          <fo:table-row height="0.2in">
+          <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block/>
             </fo:table-cell>
@@ -638,7 +638,7 @@
           <!-- ============================= -->
           <!-- Space                         -->
           <!-- ============================= -->
-          <fo:table-row height="0.2in">
+          <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block/>
             </fo:table-cell>
@@ -708,7 +708,7 @@
           <!-- ============================= -->
           <!-- Space                         -->
           <!-- ============================= -->
-          <fo:table-row height="0.2in">
+          <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block/>
             </fo:table-cell>
@@ -822,7 +822,7 @@
           <!-- ============================= -->
           <!-- Space                         -->
           <!-- ============================= -->
-          <fo:table-row height="0.2in">
+          <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block/>
             </fo:table-cell>

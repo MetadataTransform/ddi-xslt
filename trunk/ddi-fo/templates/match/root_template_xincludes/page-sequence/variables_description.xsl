@@ -36,7 +36,7 @@
 
       <!-- heading -->
       <fo:block id="variables-description" font-size="18pt"
-                font-weight="bold" space-after="0.1in">
+                font-weight="bold" space-after="2.5mm">
         <xsl:value-of select="$i18n-Variables_Description" />
       </fo:block>
 

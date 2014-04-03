@@ -42,11 +42,11 @@
       <fo:block id="metadata-info" />
 
       <!-- Metadata_Poduction -->
-      <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="0.1in">
+      <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="2.5mm">
         <xsl:value-of select="$i18n-Metadata_Production" />
       </fo:block>
 
-      <fo:table table-layout="fixed" width="100%" space-before="0.0in" space-after="0.2in">
+      <fo:table table-layout="fixed" width="100%" space-before="0.0in" space-after="5mm">
         <fo:table-column column-width="proportional-column-width(20)" />
         <fo:table-column column-width="proportional-column-width(80)" />
 

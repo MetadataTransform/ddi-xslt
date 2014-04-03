@@ -51,31 +51,31 @@
 
       <!-- Variable Label -->
       <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-          <fo:block>
-            <xsl:choose>
-              <xsl:when test="normalize-space(./labl)">
-                <xsl:value-of select="normalize-space(./labl)" />
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:text>-</xsl:text>
-              </xsl:otherwise>
-            </xsl:choose>
-          </fo:block>
-        </fo:table-cell>
+        <fo:block>
+          <xsl:choose>
+            <xsl:when test="normalize-space(./labl)">
+              <xsl:value-of select="normalize-space(./labl)" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:text>-</xsl:text>
+            </xsl:otherwise>
+          </xsl:choose>
+        </fo:block>
+      </fo:table-cell>
 
       <!-- Variable literal question -->
       <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
-            <fo:block>
-              <xsl:choose>
-                <xsl:when test="normalize-space(./qstn/qstnLit)">
-                  <xsl:value-of select="normalize-space(./qstn/qstnLit)" />
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:text>-</xsl:text>
-                </xsl:otherwise>
-              </xsl:choose>
-            </fo:block>
-          </fo:table-cell>
+        <fo:block>
+          <xsl:choose>
+            <xsl:when test="normalize-space(./qstn/qstnLit)">
+              <xsl:value-of select="normalize-space(./qstn/qstnLit)" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:text>-</xsl:text>
+            </xsl:otherwise>
+          </xsl:choose>
+        </fo:block>
+      </fo:table-cell>
         
     </fo:table-row>
 
