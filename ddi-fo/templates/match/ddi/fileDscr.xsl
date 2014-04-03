@@ -131,7 +131,7 @@
           </fo:table-row>
         </xsl:if>
 
-        <!-- File_Content -->
+        <!-- File Content -->
         <xsl:for-each select="fileTxt/fileCont">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -167,7 +167,7 @@
           </fo:table-row>
         </xsl:for-each>
 
-        <!-- Processing_Checks -->
+        <!-- Processing Checks -->
         <xsl:for-each select="fileTxt/dataChck">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -179,7 +179,7 @@
           </fo:table-row>
         </xsl:for-each>
 
-        <!-- Missing_Data -->
+        <!-- Missing Data -->
         <xsl:for-each select="fileTxt/dataMsng">
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">

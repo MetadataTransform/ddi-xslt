@@ -2,7 +2,7 @@
 <!-- varGrp.xsl -->
 <!-- ================================================== -->
 <!-- match: varGrp                                      -->
-<!-- value: <xsl:if> [<fo:table> + <xsl:if> <fo:table>] -->
+<!-- value: <fo:table> + [<xsl:if> <fo:table>] -->
 <!-- ================================================== -->
 
 <!-- read -->
@@ -21,7 +21,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:fo="http://www.w3.org/1999/XSL/Format">
   
-  <fo:table id="vargrp-{@ID}" table-layout="fixed" width="100%" space-before="0.2in">
+  <fo:table id="vargrp-{@ID}" table-layout="fixed" width="100%" space-before="5mm">
     <fo:table-column column-width="proportional-column-width(20)"/>
     <fo:table-column column-width="proportional-column-width(80)"/>
     
@@ -120,7 +120,9 @@
       <fo:table-column column-width="proportional-column-width(20)"/>
       <fo:table-column column-width="proportional-column-width(27)"/>
       
+      <!-- ============ -->
       <!-- table header -->
+      <!-- ============ -->
       <fo:table-header>
         <fo:table-row text-align="center" vertical-align="top"
           font-weight="bold" keep-with-next="always">
@@ -156,16 +158,16 @@
         </fo:table-row>
       </fo:table-header>
       
+      <!-- ========== -->
       <!-- table body -->
+      <!-- ========== -->
       <fo:table-body>
         <xsl:variable name="list" select="concat(./@var,' ')" />
         <xsl:apply-templates select="/codeBook/dataDscr/var[ contains($list, concat(@ID,' ')) ]"
-          mode="variables-list"/>
+                             mode="variables-list"/>
       </fo:table-body>
     </fo:table>
     
   </xsl:if>
-  
-  
-  
+
 </xsl:template>

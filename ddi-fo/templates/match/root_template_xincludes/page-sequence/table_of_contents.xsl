@@ -42,6 +42,10 @@
 
       <fo:block margin-left="12mm" margin-right="12mm">
 
+        <!-- ============ -->
+        <!-- Static lines -->
+        <!-- ============ -->
+
         <!-- Overview -->
         <xsl:if test="$show-overview = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
@@ -53,7 +57,7 @@
           </fo:block>
         </xsl:if>
 
-        <!-- Scope_and_Coverage -->
+        <!-- Scope and Coverage -->
         <xsl:if test="$show-scope-and-coverage = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="scope-and-coverage" text-decoration="underline" color="blue">
@@ -64,7 +68,7 @@
           </fo:block>
         </xsl:if>
 
-        <!-- Producers_and_Sponsors -->
+        <!-- Producers and Sponsors -->
         <xsl:if test="$show-producers-and-sponsors = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="producers-and-sponsors" text-decoration="underline" color="blue">
@@ -86,7 +90,7 @@
           </fo:block>
         </xsl:if>
 
-        <!-- Data_Collection -->
+        <!-- Data Collection -->
         <xsl:if test="$show-data-collection = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="data-collection" text-decoration="underline" color="blue">
@@ -97,7 +101,7 @@
           </fo:block>
         </xsl:if>
 
-        <!-- Data_Processing_and_Appraisal -->
+        <!-- Data Processing and Appraisal -->
         <xsl:if test="$show-data-processing-and-appraisal = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="data-processing-and-appraisal" text-decoration="underline" color="blue">
@@ -119,7 +123,7 @@
           </fo:block>
         </xsl:if>
 
-        <!-- Rights_and_Disclaimer -->
+        <!-- Rights and Disclaimer -->
         <xsl:if test="$show-rights-and-disclaimer = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
             <fo:basic-link internal-destination="rights-and-disclaimer" text-decoration="underline" color="blue">
@@ -130,11 +134,17 @@
           </fo:block>
         </xsl:if>
 
-        <!-- Files_Description, fileName -->
+
+        <!-- ============= -->
+        <!-- Dynamic lines -->
+        <!-- ============= -->
+
+        <!-- Files Description -->
         <xsl:if test="$show-files-description = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
 
-            <fo:basic-link internal-destination="files-description" text-decoration="underline" color="blue">
+            <fo:basic-link internal-destination="files-description"
+                           text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Files_Description" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="files-description" />
@@ -150,17 +160,17 @@
                 </fo:basic-link>
               </fo:block>
             </xsl:for-each>
-
           </fo:block>
         </xsl:if>
 
-        <!-- Variables_List, fileName -->
+        <!-- Variables List -->
         <xsl:if test="$show-variables-list = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
-            <fo:basic-link internal-destination="variables-list" text-decoration="underline" color="blue">
+            <fo:basic-link internal-destination="variables-list"
+                           text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Variables_List" />
               
-              <fo:leader leader-pattern="dots"/>
+              <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="variables-list" />
             </fo:basic-link>
             <xsl:for-each select="/codeBook/fileDscr">
@@ -176,10 +186,11 @@
           </fo:block>
         </xsl:if>
 
-        <!-- Variable_Groups -->
+        <!-- Variables Groups -->
         <xsl:if test="$show-variable-groups = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
-            <fo:basic-link internal-destination="variables-groups" text-decoration="underline" color="blue">
+            <fo:basic-link internal-destination="variables-groups"
+                           text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Variables_Groups" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="variables-groups" />
@@ -187,7 +198,8 @@
 
             <xsl:for-each select="/codeBook/dataDscr/varGrp">
                 <fo:block margin-left="0.7in" font-size="{$font-size}" text-align-last="justify">
-                  <fo:basic-link internal-destination="vargrp-{@ID}" text-decoration="underline" color="blue">
+                  <fo:basic-link internal-destination="vargrp-{@ID}"
+                                 text-decoration="underline" color="blue">
                     <xsl:value-of select="normalize-space(labl)" />
                     <fo:leader leader-pattern="dots" />
                     <fo:page-number-citation ref-id="vargrp-{@ID}" />
@@ -197,11 +209,12 @@
           </fo:block>
         </xsl:if>
 
-        <!-- Variables_Description, fileDscr/fileName -->
+        <!-- Variables_Description -->
         <xsl:if test="$show-variables-description = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
 
-            <fo:basic-link internal-destination="variables-description" text-decoration="underline" color="blue">
+            <fo:basic-link internal-destination="variables-description"
+                           text-decoration="underline" color="blue">
               <xsl:value-of select="$i18n-Variables_Description" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="variables-description" />
@@ -217,7 +230,6 @@
                 </fo:basic-link>
               </fo:block>
             </xsl:for-each>
-
           </fo:block>
         </xsl:if>
 

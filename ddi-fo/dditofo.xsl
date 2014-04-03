@@ -19,7 +19,7 @@
 <!-- Platform: updated for FOP 0.93 2010                  -->
 <!--                                                      -->
 <!-- Akira Olsbänning (akira.olsbanning@snd.gu.se)        -->
-<!-- Current version (2012-2013)                          -->
+<!-- Current version 2012-                                -->
 <!-- Platform: updated to XSLT 2.0                        -->
 <!-- ==================================================== -->
 
@@ -117,9 +117,10 @@
   <!-- translation-file (http://xml.snd.gu.se/xsl/ddi2/i18n/{$lang}.xml) -->
   <!-- show-variables-list-question, show-cover-page                     -->
 
-  <!-- ========================================================= -->
-  <!-- Misc                                                      -->
-  <!-- ========================================================= -->
+
+  <!-- ################################################### -->
+  <!-- ### global parameters                           ### -->
+  <!-- ################################################### -->
 
   <!-- used in util:isodate-long() -->
   <xsl:param name="language-code" select="'en'" />
@@ -131,13 +132,6 @@
   <xsl:param name="show-variables-description-categories-max" select="1000" />
   <xsl:param name="variable-name-length" select="14" />
 
-  <!-- ========================================================== -->
-  <!-- Layout and style                                           -->
-  <!-- ========================================================== -->
-
-  <!-- To avoid empty pages; use a huge chunksize for subsets -->
-  <xsl:variable name="chunk-size" select="50" />
-
   <!-- path to front page logo -->
   <xsl:param name="logo-file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png'" />
 
@@ -147,9 +141,30 @@
   <xsl:param name="font-size" select="10" />
   <xsl:param name="header-font-size" select="6" />
 
+  <!-- toggle main sections of root template -->
+  <xsl:param name="show-bookmarks" select="'True'" />
+  <xsl:param name="show-cover-page" select="'True'" />
+  <xsl:param name="show-metadata-info" select="'True'" />
+  <xsl:param name="show-toc" select="'True'" />
+  <xsl:param name="show-overview" select="'True'" />
+  <xsl:param name="show-files-description" select="'True'" />
+  
+  <!-- misc -->
+  <xsl:param name="show-variables-description-categories" select="'True'" />
+
+
+  <!-- #################################################### -->
+  <!-- ### layout and style                             ### -->
+  <!-- #################################################### -->
+
+  <!-- To avoid empty pages; use a huge chunksize for subsets -->
+  <xsl:variable name="chunk-size" select="50" />
+
+  <!-- table cells -->
   <xsl:variable name="cell-padding" select="'3pt'" />
   <xsl:variable name="default-border" select="'0.5pt solid black'" />
   
+  <!-- colors -->
   <xsl:variable name="color-white" select="'#ffffff'" />
   <xsl:variable name="color-gray0" select="'#f8f8f8'" />
   <xsl:variable name="color-gray1" select="'#f0f0f0'" />
@@ -157,25 +172,11 @@
   <xsl:variable name="color-gray3" select="'#d0d0d0'" />
   <xsl:variable name="color-gray4" select="'#c0c0c0'" />
 
-  <!-- ============================================================= -->
-  <!-- Layout and style params - show or hide                        -->
-  <!-- ============================================================= -->
 
-  <!-- main sections of root template -->
-  <xsl:param name="show-bookmarks" select="'True'" />
-  <xsl:param name="show-cover-page" select="'True'" />
-  <xsl:param name="show-metadata-info" select="'True'" />
-  <xsl:param name="show-toc" select="'True'" />
-  <xsl:param name="show-overview" select="'True'" />
-  <xsl:param name="show-files-description" select="'True'" />
-
-  <!-- misc -->
-  <xsl:param name="show-variables-description-categories" select="'True'" />
+  <!-- #################################################### -->
+  <!-- ### gather some info                             ### -->
+  <!-- #################################################### -->
   
-  <!-- ==================================== -->
-  <!-- string vars                          -->
-  <!-- ==================================== -->
-
   <!-- survey title -->
   <xsl:variable name="survey-title"
                 xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
@@ -198,146 +199,28 @@
     </xsl:for-each>
   </xsl:variable>
 
-  <!-- If timeperiods returns empty, use timePrd instead -->
+  <!-- time period -->
   <xsl:variable name="time-produced"
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-                select="/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd/@date" />
-
-  <!-- ========================================= -->
-  <!-- conditional boolean vars (co-dependant)   -->
-  <!-- ========================================= -->
-
-  <!-- Show variable groups only if there are any -->
-  <xsl:variable name="show-variable-groups"
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
-    <xsl:choose>
-      <xsl:when test="count(/codeBook/dataDscr/varGrp) &gt; 0">True</xsl:when>
-      <xsl:otherwise>False</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <!-- Show variable list if showing groups are disabled -->
-  <xsl:variable name="show-variables-list">
-    <xsl:choose>
-      <xsl:when test="$show-variable-groups='True'">False</xsl:when>
-      <xsl:otherwise>True</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <!-- If totalt amount of variables or given subsetamount       -->
-  <!-- exceeds given max, then dont show extensive variable desc -->
-  <xsl:variable name="show-variables-description"
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
-    <xsl:choose>
-      <xsl:when test="(count(/codeBook/dataDscr/var) = 0)">False</xsl:when>
-      <xsl:otherwise>True</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <!-- ==================================== -->
-  <!-- conditional boolean vars (direct)    -->
-  <!-- ==================================== -->
-
-  <xsl:variable name="show-scope-and-coverage"
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
-    <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/stdyInfo/notes">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/stdyInfo/subject/keyword">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/geogCover">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/universe">True</xsl:when>
-      <xsl:otherwise>False</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <xsl:variable name="show-producers-and-sponsors"
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
-    <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/citation/prodStmt/producer">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/citation/prodStmt/fundAg">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/citation/rspStmt/othId">True</xsl:when>
-      <xsl:otherwise>False</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <xsl:variable name="show-sampling"
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
-    <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='sampling']">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/sampProc">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/deviat">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/anlyInfo/respRate">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/weight">True</xsl:when>
-      <xsl:otherwise>False</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <xsl:variable name="show-data-collection"
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
-    <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/collDate">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/collMode">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='collection']">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='processing']">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/notes[@subject='cleaning']">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/collSitu">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/resInstru">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/dataCollector">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/actMin">True</xsl:when>
-      <xsl:otherwise>False</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <xsl:variable name="show-data-processing-and-appraisal"
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
-    <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/method/dataColl/cleanOps">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/anlyInfo/EstSmpErr">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/method/anlyInfo/dataAppr">True</xsl:when>
-      <xsl:otherwise>False</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <xsl:variable name="show-accessibility"
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
-    <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/contact">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/citation/distStmt/distrbtr">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/citation/distStmt/contact">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/confDec">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/conditions">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/citReq">True</xsl:when>
-      <xsl:otherwise>False</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <xsl:variable name="show-rights-and-disclaimer"
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
-    <xsl:choose>
-      <xsl:when test="/codeBook/stdyDscr/dataAccs/useStmt/disclaimer">True</xsl:when>
-      <xsl:when test="/codeBook/stdyDscr/citation/prodStmt/copyright">True</xsl:when>
-      <xsl:otherwise>False</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd/@date" />
 
   <!-- ================================================== -->
   <!-- time and date related                              -->
   <!-- ================================================== -->
-
+  
   <!-- year-from - the first data collection mode element with a 'start' event -->
   <xsl:variable name="year-from"
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-                select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='start'][1]/@date, 1, 4)" />
-
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='start'][1]/@date, 1, 4)" />
+  
   <!-- year to is the last data collection mode element with an 'end' event -->
   <xsl:variable name="year-to-count" 
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-                select="count(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='end'])" />
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="count(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='end'])" />
   <xsl:variable name="year-to" 
-                xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-                select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='end'][$year-to-count]/@date, 1, 4)" />
-
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='end'][$year-to-count]/@date, 1, 4)" />
+  
   <xsl:variable name="time">
     <xsl:if test="$year-from">
       <xsl:value-of select="$year-from" />
@@ -349,12 +232,105 @@
   </xsl:variable>
 
 
-  <!-- ===================================== -->
-  <!-- i18n strings                          -->
-  <!-- ===================================== -->
+  <!-- #################################################### -->
+  <!-- ### toggle parts of document                     ### -->
+  <!-- #################################################### -->
 
+  <!-- Show variable groups only if there are any -->
+  <xsl:variable name="show-variable-groups"
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="if (count(/codeBook/dataDscr/varGrp) > 0) then
+              'True'
+            else
+              'False' "/>
+
+  <!-- Show variable list if showing variable groups are disabled -->
+  <xsl:variable name="show-variables-list"
+    select="if ($show-variable-groups = 'True') then
+              'False'
+            else
+              'True' "/>
+
+  <!-- If totalt amount of variables or given subsetamount       -->
+  <!-- exceeds given max, then dont show extensive variable desc -->
+  <xsl:variable name="show-variables-description"
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="if (count(/codeBook/dataDscr/var) = 0) then
+              'False'
+            else
+              'True' "/>
+      
+  <xsl:variable name="show-scope-and-coverage"
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="if (/codeBook/stdyDscr/stdyInfo/notes) then 'True'
+            else if (/codeBook/stdyDscr/stdyInfo/subject/keyword) then 'True'
+            else if (/codeBook/stdyDscr/stdyInfo/sumDscr/geogCover) then 'True'
+            else if (/codeBook/stdyDscr/stdyInfo/sumDscr/universe) then 'True'
+            else 'False' "/>
+
+  <xsl:variable name="show-producers-and-sponsors"
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="if (/codeBook/stdyDscr/citation/rspStmt/AuthEnty) then 'True'
+            else if (/codeBook/stdyDscr/citation/prodStmt/producer) then 'True'
+            else if (/codeBook/stdyDscr/citation/prodStmt/fundAg) then 'True'
+            else if (/codeBook/stdyDscr/citation/rspStmt/othId) then 'True'
+            else 'False' "/>
+
+  <xsl:variable name="show-sampling"
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="if (/codeBook/stdyDscr/method/notes[@subject='sampling']) then 'True'
+            else if (/codeBook/stdyDscr/method/dataColl/sampProc) then 'True'
+            else if (/codeBook/stdyDscr/method/dataColl/deviat) then 'True'
+            else if (/codeBook/stdyDscr/method/anlyInfo/respRate) then 'True'
+            else if (/codeBook/stdyDscr/method/dataColl/weight) then 'True'
+            else 'False' "/>    
+
+  <xsl:variable name="show-data-collection"
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="if (/codeBook/stdyDscr/stdyInfo/sumDscr/collDate) then 'True'
+            else if (/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd) then 'True'
+            else if (/codeBook/stdyDscr/method/dataColl/collMode) then 'True'
+            else if (/codeBook/stdyDscr/method/notes[@subject='collection']) then 'True'
+            else if (/codeBook/stdyDscr/method/notes[@subject='processing']) then 'True'
+            else if (/codeBook/stdyDscr/method/notes[@subject='cleaning']) then 'True'
+            else if (/codeBook/stdyDscr/method/dataColl/collSitu) then 'True'
+            else if (/codeBook/stdyDscr/method/dataColl/resInstru) then 'True'
+            else if (/codeBook/stdyDscr/method/dataColl/dataCollector) then 'True'
+            else if (/codeBook/stdyDscr/method/dataColl/actMin) then 'True'
+            else 'False' "/>
+    
+  <xsl:variable name="show-data-processing-and-appraisal"
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="if (/codeBook/stdyDscr/method/dataColl/cleanOps) then 'True'
+            else if (/codeBook/stdyDscr/method/anlyInfo/EstSmpErr) then 'True'
+            else if (/codeBook/stdyDscr/method/anlyInfo/dataAppr) then 'True'
+            else 'False' "/>
+    
+  <xsl:variable name="show-accessibility"
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="if (/codeBook/stdyDscr/dataAccs/useStmt/contact) then 'True'
+            else if (/codeBook/stdyDscr/citation/distStmt/distrbtr) then 'True'
+            else if (/codeBook/stdyDscr/citation/distStmt/contact) then 'True'
+            else if (/codeBook/stdyDscr/dataAccs/useStmt/confDec) then 'True'
+            else if (/codeBook/stdyDscr/dataAccs/useStmt/conditions) then 'True'
+            else if (/codeBook/stdyDscr/dataAccs/useStmt/citReq) then 'True'
+            else 'False' "/>
+
+  <xsl:variable name="show-rights-and-disclaimer"
+    xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+    select="if (/codeBook/stdyDscr/dataAccs/useStmt/disclaimer) then 'True'
+            else if (/codeBook/stdyDscr/citation/prodStmt/copyright) then 'True'
+            else 'False' "/>
+
+
+  <!-- #################################################### -->
+  <!-- ### i18n strings                                 ### -->
+  <!-- #################################################### -->
+
+  <!-- read strings from selected translations file-->
   <xsl:variable name="strings" select="document($translations-file)" />
 
+  <!-- put i18n strings in separate variables -->
   <xsl:variable name="i18n-Abstract" select="$strings/*/entry[@key='Abstract']" />
   <xsl:variable name="i18n-Abbrev_NotWeighted" select="$strings/*/entry[@key='Abbrev_NotWeighted']" />
   <xsl:variable name="i18n-Abbrev_Weighted" select="$strings/*/entry[@key='Abbrev_Weighted']" />
@@ -468,11 +444,15 @@
   <xsl:variable name="i18n-Weighted" select="$strings/*/entry[@key='Weighted']" />
   <xsl:variable name="i18n-Weighting" select="$strings/*/entry[@key='Weighting']" />
 
-  <!-- ===================================== -->
-  <!-- matching templates                    -->
-  <!-- ===================================== -->
-  <xi:include href="templates/match/root.xsl" />
 
+  <!-- #################################################### -->
+  <!-- ### xinclude other files                         ### -->
+  <!-- #################################################### -->
+  
+  <!-- ================== -->
+  <!-- matching templates -->
+  <!-- ================== -->
+  <xi:include href="templates/match/root.xsl" />
   <xi:include href="templates/match/ddi/AuthEnty.xsl" />
   <xi:include href="templates/match/ddi/collDate.xsl" />
   <xi:include href="templates/match/ddi/contact.xsl" />
@@ -489,18 +469,17 @@
   <xi:include href="templates/match/ddi/var.xsl" />
   <xi:include href="templates/match/ddi/var_variablesList.xsl" />
   <xi:include href="templates/match/ddi/varGrp.xsl" />
-
   <xi:include href="templates/match/default_text.xsl" />
 
-  <!-- ==================================== -->
-  <!-- named templates                      -->
-  <!-- ==================================== -->
+  <!-- =============== -->
+  <!-- named templates -->
+  <!-- =============== -->
   <xi:include href="templates/named/page_header.xsl" />
   <xi:include href="templates/named/page_footer.xsl" />
     
-  <!-- ==================================== -->
-  <!-- functions                            -->
-  <!-- ==================================== -->
+  <!-- ========= -->
+  <!-- functions -->
+  <!-- ========= -->
   <xi:include href="functions/util/isodate_month_name.xsl" />
   <xi:include href="functions/util/isodate_long.xsl" />
   <xi:include href="functions/util/trim.xsl" />

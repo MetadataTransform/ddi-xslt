@@ -29,30 +29,30 @@
         xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
-
+  
   <fo:page-sequence master-reference="{$page-layout}"
-                    font-family="{$font-family}"
-                    font-size="{$font-size}">
-
+    font-family="{$font-family}"
+    font-size="{$font-size}">
+    
     <!-- =========================================== -->
     <!-- page content                                -->
     <!-- =========================================== -->
-
+    
     <fo:flow flow-name="body">
       <fo:block id="metadata-info" />
-
-      <!-- Metadata_Poduction -->
+      
+      <!-- Title -->
       <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="2.5mm">
         <xsl:value-of select="$i18n-Metadata_Production" />
       </fo:block>
-
+      
       <fo:table table-layout="fixed" width="100%" space-before="0.0in" space-after="5mm">
         <fo:table-column column-width="proportional-column-width(20)" />
         <fo:table-column column-width="proportional-column-width(80)" />
-
+        
         <fo:table-body>
-
-          <!-- Metadata_Producers -->
+          
+          <!-- Metadata Producers -->
           <xsl:if test="/codeBook/docDscr/citation/prodStmt/producer">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
@@ -65,55 +65,54 @@
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
-
-            <!-- Production_Date -->
-            <xsl:if test="/codeBook/docDscr/citation/prodStmt/prodDate">
-              <fo:table-row>
-                <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                  <fo:block>
-                    <xsl:value-of select="$i18n-Production_Date"/>
-                  </fo:block>
-                </fo:table-cell>
-                <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                  <fo:block>                  
-                    <xsl:value-of select="util:isodate_long(normalize-space(/codeBook/docDscr/citation/prodStmt/prodDate))" />
-                  </fo:block>
-                </fo:table-cell>
-              </fo:table-row>
-            </xsl:if>
-
-            <!-- Version -->
-            <!-- <xsl:if test="/codeBook/docDscr/citation/verStmt/version">
-              <fo:table-row>
-                <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                  <fo:block>
-                    <xsl:value-of select="$i18n-Version"/>
-                  </fo:block>
-                </fo:table-cell>
-                <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                  <xsl:apply-templates select="/codeBook/docDscr/citation/verStmt/version" />
-                </fo:table-cell>
-              </fo:table-row>
+          
+          <!-- Production Date -->
+          <xsl:if test="/codeBook/docDscr/citation/prodStmt/prodDate">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$i18n-Production_Date"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>                  
+                  <xsl:value-of select="util:isodate_long(normalize-space(/codeBook/docDscr/citation/prodStmt/prodDate))" />
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
+          
+          <!-- Version -->
+          <!-- <xsl:if test="/codeBook/docDscr/citation/verStmt/version">
+            <fo:table-row>
+            <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+            <fo:block>
+            <xsl:value-of select="$i18n-Version"/>
+            </fo:block>
+            </fo:table-cell>
+            <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+            <xsl:apply-templates select="/codeBook/docDscr/citation/verStmt/version" />
+            </fo:table-cell>
+            </fo:table-row>
             </xsl:if> -->
-
-            <!-- Identification -->
-            <xsl:if test="/codeBook/docDscr/citation/titlStmt/IDNo">
-              <fo:table-row>
-                <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
-                  <fo:block>
-                    <xsl:value-of select="$i18n-Identification"/>
-                  </fo:block>
-                </fo:table-cell>
-                <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-                  <xsl:apply-templates select="/codeBook/docDscr/citation/titlStmt/IDNo" />
-                </fo:table-cell>
-              </fo:table-row>
-            </xsl:if>
-
-          </fo:table-body>
-        </fo:table>
+          
+          <!-- Identification -->
+          <xsl:if test="/codeBook/docDscr/citation/titlStmt/IDNo">
+            <fo:table-row>
+              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+                <fo:block>
+                  <xsl:value-of select="$i18n-Identification"/>
+                </fo:block>
+              </fo:table-cell>
+              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+                <xsl:apply-templates select="/codeBook/docDscr/citation/titlStmt/IDNo" />
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
+          
+        </fo:table-body>
+      </fo:table>
       
-
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
