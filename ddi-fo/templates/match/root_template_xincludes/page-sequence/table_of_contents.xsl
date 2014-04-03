@@ -30,8 +30,8 @@
       <!-- TOC heading                            -->
       <!-- ====================================== -->
 
-      <fo:block id="toc" font-size="18pt" font-weight="bold" space-before="0.5in"
-                         text-align="center" space-after="0.1in">
+      <fo:block id="toc" font-size="18pt" font-weight="bold" space-before="12mm"
+                         text-align="center" space-after="2.5mm">
         <xsl:value-of select="$i18n-Table_of_Contents" />
       </fo:block>
 
@@ -40,7 +40,7 @@
       <!-- actual TOC lines                       -->
       <!-- ====================================== -->
 
-      <fo:block margin-left="0.5in" margin-right="0.5in">
+      <fo:block margin-left="12mm" margin-right="12mm">
 
         <!-- Overview -->
         <xsl:if test="$show-overview = 'True'">

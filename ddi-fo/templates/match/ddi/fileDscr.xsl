@@ -41,7 +41,7 @@
     <!-- content             -->
     <!-- =================== -->
     <fo:table id="file-{$fileId}" table-layout="fixed"
-              width="100%" space-before="0.2in" space-after="0.2in">
+              width="100%" space-before="5mm" space-after="5mm">
       <fo:table-column column-width="proportional-column-width(20)" />
       <fo:table-column column-width="proportional-column-width(80)" />
 

@@ -34,7 +34,7 @@
   <!-- content -->
   <fo:table id="varlist-{fileTxt/fileName/@ID}" table-layout="fixed"
             width="100%" font-size="8pt"
-            space-before="0.2in" space-after="0.2in">
+            space-before="5mm" space-after="5mm">
 
     <fo:table-column column-width="proportional-column-width( 5)"/>
     <fo:table-column column-width="proportional-column-width(12)"/>

@@ -10,7 +10,7 @@
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
   
   <fo:static-content flow-name="after">
-    <fo:block font-size="7" text-align="center" space-before="0.3in">
+    <fo:block font-size="7" text-align="center" space-before="7.5mm">
       <xsl:text>- </xsl:text>
       <fo:page-number />
       <xsl:text> -</xsl:text>
