@@ -364,26 +364,7 @@
   <!-- ===================================== -->
   <!-- matching templates                    -->
   <!-- ===================================== -->
- <!-- <xi:include href="templates/match/root.xsl" />
-  <xi:include href="templates/match/ddi-AuthEnty.xsl" />
-  <xi:include href="templates/match/ddi-collDate.xsl" />
-  <xi:include href="templates/match/ddi-contact.xsl" />
-  <xi:include href="templates/match/ddi-dataCollector.xsl" />
-  <xi:include href="templates/match/ddi_default_text.xsl" />
-  <xi:include href="templates/match/ddi-fileDscr.xsl" />
-  <xi:include href="templates/match/ddi-fileDscr_variables-description.xsl" />
-  <xi:include href="templates/match/ddi-fileDscr_variables-list.xsl" />
-  <xi:include href="templates/match/ddi-fileName.xsl" />
-  <xi:include href="templates/match/ddi-fundAg.xsl" />
-  <xi:include href="templates/match/ddi-IDNo.xsl" />
-  <xi:include href="templates/match/ddi-othId.xsl" />
-  <xi:include href="templates/match/ddi-producer.xsl" />
-  <xi:include href="templates/match/ddi-timePrd.xsl" />
-  <xi:include href="templates/match/ddi-var.xsl" />
-  <xi:include href="templates/match/ddi-var_variablesList.xsl" />
-  <xi:include href="templates/match/ddi-varGrp.xsl" /> -->
-  
-  <!-- root.xsl --><!-- ========================== --><!-- match: /                   --><!-- value: <fo:root>           --><!-- ========================== --><!-- ============================================================= --><!-- Setup page sizes and layouts     [layout-master-set]          --><!-- Outline / Bookmarks              [bookmark-tree]              --><!-- Cover page                       [page-sequence]              --><!-- Metadata information             [page-sequence] with [table] --><!-- Table of contents                [page-sequence]              --><!-- Overview                         [page-sequence] with [table] --><!-- Files Description                [page-sequence]              --><!-- Variables List                   [page-sequence]              --><!-- Variable Groups                  [page-sequence]              --><!-- Variables Description            [page-sequence]              --><!-- ============================================================= --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" match="/" xml:base="templates/match/ddi/root.xsl">
+  <!-- root.xsl --><!-- ========================== --><!-- match: /                   --><!-- value: <fo:root>           --><!-- ========================== --><!-- ============================================================= --><!-- Setup page sizes and layouts     [layout-master-set]          --><!-- Outline / Bookmarks              [bookmark-tree]              --><!-- Cover page                       [page-sequence]              --><!-- Metadata information             [page-sequence] with [table] --><!-- Table of contents                [page-sequence]              --><!-- Overview                         [page-sequence] with [table] --><!-- Files Description                [page-sequence]              --><!-- Variables List                   [page-sequence]              --><!-- Variable Groups                  [page-sequence]              --><!-- Variables Description            [page-sequence]              --><!-- ============================================================= --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" match="/" xml:base="templates/match/root.xsl">
   <fo:root>
 
     <!-- ================================ -->
@@ -405,7 +386,7 @@
     <!-- ================================ -->
     <!-- Other sections                   -->
     <!-- ================================ -->    
-    <!-- bookmarks.xsl --><!-- =========================================== --><!-- <xls:if> bookmarks                          --><!-- value: <fo:bookmark-tree>                   --><!-- =========================================== --><!-- read: --><!-- show-cover-page, show-metadata-info, show-toc, show-overview             --><!-- show-scope-and-coverage, show-producers-and-sponsors,                    --><!-- show-sampling, show-data-collection, show-data-processing-and-appraisal, --><!-- show-accessibility, show-rights-and-disclaimer, show-files-description,  --><!-- show-variable-groups, show-variables-list, show-variables-description    --><!-- functions: --><!-- nomalize-space(), contains(), concat(), string-length() [xpath 1.0] --><!-- called: --><!-- trim --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-bookmarks='True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/section-bookmarks.xsl">
+    <!-- bookmarks.xsl --><!-- =========================================== --><!-- <xls:if> bookmarks                          --><!-- value: <fo:bookmark-tree>                   --><!-- =========================================== --><!-- read: --><!-- show-cover-page, show-metadata-info, show-toc, show-overview             --><!-- show-scope-and-coverage, show-producers-and-sponsors,                    --><!-- show-sampling, show-data-collection, show-data-processing-and-appraisal, --><!-- show-accessibility, show-rights-and-disclaimer, show-files-description,  --><!-- show-variable-groups, show-variables-list, show-variables-description    --><!-- functions: --><!-- nomalize-space(), contains(), concat(), string-length() [xpath 1.0] --><!-- called: --><!-- trim --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-bookmarks='True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/bookmark-tree.xsl">
 
   <fo:bookmark-tree>
 
@@ -607,8 +588,8 @@
     </xsl:if>
 
   </fo:bookmark-tree>
-</xsl:if>
-    <!-- cover_page.xsl --><!-- ========================= --><!-- <xsl:if> cover page       --><!-- value: <fo:page-sequence> --><!-- ========================= --><!-- functions: --><!-- normalize-space() [Xpath 1.0] --><!-- util:trim() [local]           --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/section-cover_page.xsl">
+</xsl:if>    
+    <!-- cover_page.xsl --><!-- ========================= --><!-- <xsl:if> cover page       --><!-- value: <fo:page-sequence> --><!-- ========================= --><!-- functions: --><!-- normalize-space() [Xpath 1.0] --><!-- util:trim() [local]           --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-cover-page = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/page-sequence/cover_page.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="Helvetica" font-size="{$font-size}">
 
@@ -658,7 +639,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- metadata_information.xsl --><!-- ================================================= --><!-- <xsl:if> metadata information                     --><!-- value: <fo:page-sequence>                         --><!-- ================================================= --><!-- read: --><!-- $strings, $font-family --><!-- $default-border, $cell-padding --><!-- functions: --><!-- boolean(), normalize-space() [Xpath 1.0] --><!-- proportional-column-width() [FO]         --><!-- util:isodate_long() [functions] --><!-- Metadata production        [table]      --><!--   Metadata producers       [table-row]  --><!--   Metadata Production Date [table-row]  --><!--   Metadata Version         [table-row]  --><!--   Metadata ID              [table-row]  --><!--   Spacer                   [table-row]  --><!-- Report Acknowledgements    [block]      --><!-- Report Notes               [block]      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/section-metadata_information.xsl">
+    <!-- metadata_information.xsl --><!-- ================================================= --><!-- <xsl:if> metadata information                     --><!-- value: <fo:page-sequence>                         --><!-- ================================================= --><!-- read: --><!-- $strings, $font-family --><!-- $default-border, $cell-padding --><!-- functions: --><!-- boolean(), normalize-space() [Xpath 1.0] --><!-- proportional-column-width() [FO]         --><!-- util:isodate_long() [functions] --><!-- Metadata production        [table]      --><!--   Metadata producers       [table-row]  --><!--   Metadata Production Date [table-row]  --><!--   Metadata Version         [table-row]  --><!--   Metadata ID              [table-row]  --><!--   Spacer                   [table-row]  --><!-- Report Acknowledgements    [block]      --><!-- Report Notes               [block]      --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-metadata-info = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/page-sequence/metadata_information.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -745,7 +726,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- table_of_contents.xsl --><!-- ============================================== --><!-- <xsl:if> table of contents                     --><!-- value: <fo:page-sequence>                      --><!-- ============================================== --><!-- read: --><!-- $font-family, $show-overview, $show-scope-and-coverage, --><!-- $show-producers-and-sponsors, $show-sampling, $show-data-collection --><!-- $show-data-processing-and-appraisal, $show-accessibility, --><!-- $show-rights-and-disclaimer, $show-files-description, --><!-- $show-variables-list, $show-variable-groups --><!-- functions: --><!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/section-table_of_contents.xsl">
+    <!-- table_of_contents.xsl --><!-- ============================================== --><!-- <xsl:if> table of contents                     --><!-- value: <fo:page-sequence>                      --><!-- ============================================== --><!-- read: --><!-- $font-family, $show-overview, $show-scope-and-coverage, --><!-- $show-producers-and-sponsors, $show-sampling, $show-data-collection --><!-- $show-data-processing-and-appraisal, $show-accessibility, --><!-- $show-rights-and-disclaimer, $show-files-description, --><!-- $show-variables-list, $show-variable-groups --><!-- functions: --><!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-toc = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/page-sequence/table_of_contents.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -946,7 +927,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- overview.xsl --><!-- =========================================== --><!-- <xsl:if> overview                           --><!-- value: <fo:page-sequence>                   --><!-- =========================================== --><!-- read: --><!-- $strings, $report-start-page-number, $font-family, $color-gray3   --><!-- $default-border, $cell-padding, $survey-title, $color-gray1, $time --><!-- functions: --><!-- nomalize-space(), position() [Xpath] --><!-- proportional-column-width() [FO] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-overview = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/section-overview.xsl">
+    <!-- overview.xsl --><!-- =========================================== --><!-- <xsl:if> overview                           --><!-- value: <fo:page-sequence>                   --><!-- =========================================== --><!-- read: --><!-- $strings, $report-start-page-number, $font-family, $color-gray3   --><!-- $default-border, $cell-padding, $survey-title, $color-gray1, $time --><!-- functions: --><!-- nomalize-space(), position() [Xpath] --><!-- proportional-column-width() [FO] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-overview = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/page-sequence/overview.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" initial-page-number="{$report-start-page-number}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -1799,7 +1780,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- files_description.xsl --><!-- ============================= --><!-- <xsl:if> files description    --><!-- value: <fo:page-sequence>     --><!-- ============================= --><!-- read: --><!-- $page-layout, $strings, $font-family, $font-size, $header-font-size --><!-- functions --><!-- count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-files-description = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/section-files_description.xsl">
+    <!-- files_description.xsl --><!-- ============================= --><!-- <xsl:if> files description    --><!-- value: <fo:page-sequence>     --><!-- ============================= --><!-- read: --><!-- $page-layout, $strings, $font-family, $font-size, $header-font-size --><!-- functions --><!-- count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-files-description = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/page-sequence/files_description.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -1837,7 +1818,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- variables_list.xsl --><!-- ===================================== --><!-- <xsl:if> variables list               --><!-- value: <fo:page-sequence>             --><!-- ===================================== --><!-- read: --><!-- $strings, $show-variables-list-layout, $font-family --><!-- functions: --><!-- count() [Xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-list = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/section-variables_list.xsl">
+    <!-- variables_list.xsl --><!-- ===================================== --><!-- <xsl:if> variables list               --><!-- value: <fo:page-sequence>             --><!-- ===================================== --><!-- read: --><!-- $strings, $show-variables-list-layout, $font-family --><!-- functions: --><!-- count() [Xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-list = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/page-sequence/variables_list.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -1875,7 +1856,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- variable_groups.xsl --><!-- ================================================ --><!-- <xsl:if> variable groups                         --><!-- value: <fo:page-sequence>                        --><!-- ================================================ --><!-- read: --><!-- $font-family, $number-of-groups --><!-- functions: --><!-- string-length(), count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/section-variable_groups.xsl">
+    <!-- variable_groups.xsl --><!-- ================================================ --><!-- <xsl:if> variable groups                         --><!-- value: <fo:page-sequence>                        --><!-- ================================================ --><!-- read: --><!-- $font-family, $number-of-groups --><!-- functions: --><!-- string-length(), count() [xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variable-groups = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/page-sequence/variable_groups.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
     
@@ -1913,7 +1894,7 @@
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
-    <!-- variables_description.xsl --><!-- ==================================================== --><!-- <xsl:if> variables description                       --><!-- value: <fo:page-sequence>                            --><!-- ==================================================== --><!-- read: --><!-- $font-family --><!-- functions: --><!-- count(), string-length() [Xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-description = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/section-variables_description.xsl">
+    <!-- variables_description.xsl --><!-- ==================================================== --><!-- <xsl:if> variables description                       --><!-- value: <fo:page-sequence>                            --><!-- ==================================================== --><!-- read: --><!-- $font-family --><!-- functions: --><!-- count(), string-length() [Xpath 1.0] --><xsl:if xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" test="$show-variables-description = 'True'" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="root_template_xincludes/page-sequence/variables_description.xsl">
 
   <fo:page-sequence master-reference="{$page-layout}" font-family="{$font-family}" font-size="{$font-size}">
 
@@ -1955,6 +1936,7 @@
   </fo:root>
 
 </xsl:template>
+
   <!-- AuthEntry.xsl --><!-- ========================= --><!-- match: AuthEnty       --><!-- value: <fo:block>         --><!-- ========================= --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="AuthEnty" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/AuthEnty.xsl">
 
   <fo:block>
@@ -2037,17 +2019,6 @@
       <xsl:value-of select="@affiliation"/>
     </xsl:if>
 
-  </fo:block>
-
-</xsl:template>
-  <!-- default_text.xsl --><!-- ============================== --><!-- match: *|text()                --><!-- value: <fo:block>              --><!-- ============================== --><!-- set: --><!-- $trimmed --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="*|text()" xml:base="templates/match/ddi/default_text.xsl">
-  
-  <!-- <xsl:variable name="trimmed" select="util:trim(.)" /> -->
-
-  <!-- content -->
-  <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0in">
-    <!-- <xsl:value-of select="$trimmed"/> -->
-    <xsl:value-of select="util:trim(.)"/>
   </fo:block>
 
 </xsl:template>
@@ -3346,6 +3317,18 @@
     
 </xsl:template>
 
+  <!-- ddi_default_text.xsl --><!-- ============================== --><!-- match: ddi:*|text()            --><!-- value: <fo:block>              --><!-- ============================== --><!-- set: --><!-- $trimmed --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="*|text()" xml:base="templates/match/default_text.xsl">
+  
+  <!-- <xsl:variable name="trimmed" select="util:trim(.)" /> -->
+
+  <!-- content -->
+  <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0in">
+    <!-- <xsl:value-of select="$trimmed"/> -->
+    <xsl:value-of select="util:trim(.)"/>
+  </fo:block>
+
+</xsl:template>
+
   <!-- ==================================== -->
   <!-- named templates                      -->
   <!-- ==================================== -->
@@ -3383,11 +3366,6 @@
   <!-- ==================================== -->
   <!-- functions                            -->
   <!-- ==================================== -->
-  <!-- <xi:include href="functions/util-isodate_month_name.xsl" />
-  <xi:include href="functions/util-isodate_long.xsl" />
-  <xi:include href="functions/util-trim.xsl" />
-  <xi:include href="functions/util-rtrim.xsl" />
-  <xi:include href="functions/util-math_max.xsl" /> -->
 
   <!-- util-isodate_month_name.xsl --><!-- ===================================== --><!-- xs:string util:isodate_month_name()   --><!-- param: xs:string isodate              --><!-- ===================================== --><!-- returns month name from a ISO-format date string --><!-- read: --><!-- $isodate [param] --><!-- set: --><!-- $month, $month_string --><!-- functions: --><!-- number(), substring(), contains() [Xpath 1.0] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:isodate_month_name" as="xs:string" xml:base="functions/util/isodate_month_name.xsl">
 

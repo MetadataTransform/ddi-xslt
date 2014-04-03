@@ -471,31 +471,12 @@
   <!-- ===================================== -->
   <!-- matching templates                    -->
   <!-- ===================================== -->
- <!-- <xi:include href="templates/match/root.xsl" />
-  <xi:include href="templates/match/ddi-AuthEnty.xsl" />
-  <xi:include href="templates/match/ddi-collDate.xsl" />
-  <xi:include href="templates/match/ddi-contact.xsl" />
-  <xi:include href="templates/match/ddi-dataCollector.xsl" />
-  <xi:include href="templates/match/ddi_default_text.xsl" />
-  <xi:include href="templates/match/ddi-fileDscr.xsl" />
-  <xi:include href="templates/match/ddi-fileDscr_variables-description.xsl" />
-  <xi:include href="templates/match/ddi-fileDscr_variables-list.xsl" />
-  <xi:include href="templates/match/ddi-fileName.xsl" />
-  <xi:include href="templates/match/ddi-fundAg.xsl" />
-  <xi:include href="templates/match/ddi-IDNo.xsl" />
-  <xi:include href="templates/match/ddi-othId.xsl" />
-  <xi:include href="templates/match/ddi-producer.xsl" />
-  <xi:include href="templates/match/ddi-timePrd.xsl" />
-  <xi:include href="templates/match/ddi-var.xsl" />
-  <xi:include href="templates/match/ddi-var_variablesList.xsl" />
-  <xi:include href="templates/match/ddi-varGrp.xsl" /> -->
-  
-  <xi:include href="templates/match/ddi/root.xsl" />
+  <xi:include href="templates/match/root.xsl" />
+
   <xi:include href="templates/match/ddi/AuthEnty.xsl" />
   <xi:include href="templates/match/ddi/collDate.xsl" />
   <xi:include href="templates/match/ddi/contact.xsl" />
   <xi:include href="templates/match/ddi/dataCollector.xsl" />
-  <xi:include href="templates/match/ddi/default_text.xsl" />
   <xi:include href="templates/match/ddi/fileDscr.xsl" />
   <xi:include href="templates/match/ddi/fileDscr_variables-description.xsl" />
   <xi:include href="templates/match/ddi/fileDscr_variables-list.xsl" />
@@ -509,6 +490,8 @@
   <xi:include href="templates/match/ddi/var_variablesList.xsl" />
   <xi:include href="templates/match/ddi/varGrp.xsl" />
 
+  <xi:include href="templates/match/default_text.xsl" />
+
   <!-- ==================================== -->
   <!-- named templates                      -->
   <!-- ==================================== -->
@@ -518,11 +501,6 @@
   <!-- ==================================== -->
   <!-- functions                            -->
   <!-- ==================================== -->
-  <!-- <xi:include href="functions/util-isodate_month_name.xsl" />
-  <xi:include href="functions/util-isodate_long.xsl" />
-  <xi:include href="functions/util-trim.xsl" />
-  <xi:include href="functions/util-rtrim.xsl" />
-  <xi:include href="functions/util-math_max.xsl" /> -->
 
   <xi:include href="functions/util/isodate_month_name.xsl" />
   <xi:include href="functions/util/isodate_long.xsl" />
