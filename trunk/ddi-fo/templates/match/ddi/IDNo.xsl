@@ -9,19 +9,19 @@
 <!-- util:trim() -->
 
 <xsl:template match="IDNo"
-              xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-              xmlns:fo="http://www.w3.org/1999/XSL/Format">
-
+  xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:fo="http://www.w3.org/1999/XSL/Format">
+  
   <fo:block>
-
-    <!-- agency -->
-    <xsl:if test="@agency">
-      <xsl:value-of select="@agency"/>:
-    </xsl:if>
+    
+    <!-- agency -->    
+    <xsl:value-of select="if (@agency) then
+                            @agency
+                          else () "/>
     
     <xsl:value-of select="util:trim(.)" />
-
+    
   </fo:block>
-
+  
 </xsl:template>

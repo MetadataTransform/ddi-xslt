@@ -20,19 +20,12 @@
   <xsl:variable name="filename" select="normalize-space(.)" />
 
   <!-- content -->
-  <xsl:choose>
-
-    <!-- case: filename contains .NSDstat-->
-    <xsl:when test="contains($filename , '.NSDstat')">
-      <xsl:value-of select="substring($filename, 1, string-length($filename)-8)" />
-    </xsl:when>
-
-    <!-- does not contain .NSDstat -->
-    <xsl:otherwise>
-      <xsl:value-of select="$filename" />
-    </xsl:otherwise>
-
-  </xsl:choose>
+  <xsl:value-of select="if (contains($filename, '.NSDstat')) then
+                          (: filename contains string '.NSDstat' :)
+                          substring($filename, 1, string-length($filename) - 8)
+                        else
+                          (: filename does not contain '.NSDstat':)
+                          $filename "/>
 
 </xsl:template>
 

@@ -39,7 +39,7 @@
         <xsl:value-of select="$i18n-Variables_Groups" />
       </fo:block>
 
-      <!-- number of variables in data set -->
+      <!-- number of variable groups in data set -->
       <fo:block font-weight="bold">
         <xsl:value-of select="$i18n-Dataset_contains" />
         <xsl:text> </xsl:text>

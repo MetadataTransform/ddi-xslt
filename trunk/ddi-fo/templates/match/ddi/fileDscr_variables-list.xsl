@@ -17,39 +17,34 @@
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
   <!-- variables -->
-  <xsl:variable name="fileId">
-    <xsl:choose>
-
-      <xsl:when test="fileTxt/fileName/@ID">
-        <xsl:value-of select="fileTxt/fileName/@ID" />
-      </xsl:when>
-
-      <xsl:when test="@ID">
-        <xsl:value-of select="@ID"/>
-      </xsl:when>
-
-    </xsl:choose>
-  </xsl:variable>
+  <xsl:variable name="fileId"
+    select="if (fileTxt/fileName/@ID) then
+              fileTxt/fileName/@ID
+            else if (@ID) then
+              @ID
+            else () "/>
 
   <!-- content -->
   <fo:table id="varlist-{fileTxt/fileName/@ID}" table-layout="fixed"
             width="100%" font-size="8pt"
             space-before="5mm" space-after="5mm">
 
-    <fo:table-column column-width="proportional-column-width( 5)"/>
-    <fo:table-column column-width="proportional-column-width(12)"/>
-    <fo:table-column column-width="proportional-column-width(20)"/>
-    <fo:table-column column-width="proportional-column-width(27)"/>
+    <fo:table-column column-width="proportional-column-width( 5)" />
+    <fo:table-column column-width="proportional-column-width(12)" />
+    <fo:table-column column-width="proportional-column-width(20)" />
+    <fo:table-column column-width="proportional-column-width(27)" />
  
-    <!-- [fo:table-header] -->
+    <!-- =========================== -->
+    <!-- variables list table header -->
+    <!-- =========================== -->
     <fo:table-header>
       <fo:table-row text-align="center" vertical-align="top" keep-with-next="always">
         <fo:table-cell text-align="left" number-columns-spanned="4"
                        border="{$default-border}" padding="{$cell-padding}">
           <fo:block font-size="12pt" font-weight="bold">
-            <xsl:value-of select="$strings/*/entry[@key='File']"/>
+            <xsl:value-of select="$strings/*/entry[@key='File']" />
             <xsl:text> </xsl:text>
-            <xsl:apply-templates select="fileTxt/fileName"/>
+            <xsl:apply-templates select="fileTxt/fileName" />
           </fo:block>
         </fo:table-cell>
       </fo:table-row>
@@ -86,7 +81,9 @@
       </fo:table-row>
     </fo:table-header>
 
-    <!-- [fo:table-body] -->
+    <!-- ========================= -->
+    <!-- variables list table body -->
+    <!-- ========================= -->
     <fo:table-body>
       <xsl:apply-templates select="/codeBook/dataDscr/var[@files=$fileId]"
                            mode="variables-list"/>

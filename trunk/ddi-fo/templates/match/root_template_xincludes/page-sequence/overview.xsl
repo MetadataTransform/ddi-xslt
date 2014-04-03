@@ -50,25 +50,19 @@
           <!-- ========================= -->
           <fo:table-row background-color="{$color-gray3}">
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-
               <fo:block font-size="14pt" font-weight="bold">
                 <xsl:value-of select="$survey-title" />
               </fo:block>
-
-              <!-- parTitl -->
               <xsl:if test="/codeBook/stdyDscr/citation/titlStmt/parTitl">
                 <fo:block font-size="12pt" font-weight="bold" font-style="italic">
                   <xsl:value-of select="/codeBook/stdyDscr/citation/titlStmt/parTitl" />
                 </fo:block>
               </xsl:if>
-
             </fo:table-cell>
           </fo:table-row>
 
-          <!-- ============================= -->
-          <!-- Space                         -->
-          <!-- ============================= -->
-          <fo:table-row height="0.2in">
+          <!-- Space -->
+          <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block />
             </fo:table-cell>
@@ -77,6 +71,7 @@
           <!-- ========================= -->
           <!-- Overview                  -->
           <!-- ========================= -->
+          <!-- Heading (two col) -->
           <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block id="overview" font-size="12pt" font-weight="bold">
@@ -124,7 +119,7 @@
 
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
 
-                <!-- 5.1) Production_Date -->
+                <!-- Production_Date -->
                 <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/version">
                   <xsl:if test="@date">
                     <fo:block>
@@ -135,7 +130,7 @@
                   <xsl:apply-templates select="." />
                 </xsl:for-each>
 
-                <!-- 5.2) Notes -->
+                <!-- Notes -->
                 <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/notes">
                   <fo:block text-decoration="underline">
                     <xsl:value-of select="$i18n-Notes" />
@@ -173,7 +168,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Kind_of_Data -->
+          <!-- Kind of Data -->
           <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/dataKind">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
@@ -187,7 +182,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Unit_of_Analysis  -->
+          <!-- Unit of Analysis  -->
           <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/anlyUnit">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
@@ -201,10 +196,8 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- ============================= -->
-          <!-- Space                         -->
-          <!-- ============================= -->
-          <fo:table-row height="0.2in">
+          <!-- Space -->
+          <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block/>
             </fo:table-cell>
@@ -212,7 +205,8 @@
 
           <!-- =========================== -->
           <!-- Scope_and_Coverage          -->
-          <!-- =========================== -->               
+          <!-- =========================== -->    
+          <!-- heading (two col) -->
           <xsl:if test="$show-scope-and-coverage = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -337,18 +331,17 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- ============================= -->
-          <!-- Space                         -->
-          <!-- ============================= -->
-          <fo:table-row height="0.2in">
+          <!-- Space -->
+          <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block/>
             </fo:table-cell>
           </fo:table-row>
 
           <!-- ====================== -->
-          <!-- Producers_and_Sponsors -->
+          <!-- Producers and Sponsors -->
           <!-- ====================== -->
+          <!-- heading (two col) -->
           <xsl:if test="$show-producers-and-sponsors = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -415,9 +408,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- ============================= -->
-          <!-- Space                         -->
-          <!-- ============================= -->
+          <!-- Space -->
           <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block/>
@@ -427,6 +418,7 @@
           <!-- ======== -->
           <!-- Sampling -->
           <!-- ======== -->
+          <!-- heading (two col) -->
           <xsl:if test="$show-sampling = 'True'">
             <fo:table-row background-color="{$color-gray1}">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -437,7 +429,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Sampling_Procedure -->
+          <!-- Sampling Procedure -->
           <xsl:if test="/codeBook/stdyDscr/method/dataColl/sampProc">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -485,9 +477,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- ============================= -->
-          <!-- Space                         -->
-          <!-- ============================= -->
+          <!-- Space -->
           <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block/>
@@ -497,6 +487,7 @@
           <!-- =============== -->
           <!-- Data Collection -->
           <!-- =============== -->
+          <!-- heading (two col) -->
           <xsl:if test="$show-data-collection = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -535,7 +526,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Data_Collection_Mode -->
+          <!-- Data Collection Mode -->
           <xsl:if test="/codeBook/stdyDscr/method/dataColl/collMode">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
@@ -549,7 +540,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Data_Collection_Notes -->
+          <!-- Data Collection Notes -->
           <xsl:if test="/codeBook/stdyDscr/method/notes[@subject='collection']">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -561,7 +552,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Data_Processing_Notes -->
+          <!-- Data Processing Notes -->
           <xsl:if test="/codeBook/stdyDscr/method/notes[@subject='processing']">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -573,7 +564,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Data_Cleaning_Notes -->
+          <!-- Data Cleaning Notes -->
           <xsl:if test="/codeBook/stdyDscr/method/notes[@subject='cleaning']">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -585,7 +576,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Data_Collection_Notes -->
+          <!-- Data Collection Notes -->
           <xsl:if test="/codeBook/stdyDscr/method/dataColl/collSitu">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -609,7 +600,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Data_Collectors -->
+          <!-- Data Collectors -->
           <xsl:if test="/codeBook/stdyDscr/method/dataColl/dataCollector">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
@@ -635,9 +626,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- ============================= -->
-          <!-- Space                         -->
-          <!-- ============================= -->
+          <!-- Space -->
           <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block/>
@@ -647,6 +636,7 @@
           <!-- ============================= -->
           <!-- Data Processing and Appraisal -->
           <!-- ============================= -->
+          <!-- heading (two col) -->
           <xsl:if test="$show-data-processing-and-appraisal = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -657,7 +647,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Data_Editing -->
+          <!-- Data Editing -->
           <xsl:if test="/codeBook/stdyDscr/method/dataColl/cleanOps">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -669,7 +659,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Other_Processing -->
+          <!-- Other Processing -->
           <xsl:if test="/codeBook/stdyDscr/method/notes">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -681,7 +671,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Estimates_of_Sampling_Error -->
+          <!-- Estimates of Sampling Error -->
           <xsl:if test="/codeBook/stdyDscr/method/anlyInfo/EstSmpErr">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -693,7 +683,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- Other_Forms_of_Data_Appraisal -->
+          <!-- Other Forms of Data Appraisal -->
           <xsl:if test="/codeBook/stdyDscr/method/anlyInfo/dataAppr">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -705,9 +695,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- ============================= -->
-          <!-- Space                         -->
-          <!-- ============================= -->
+          <!-- Space -->
           <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block/>
@@ -717,6 +705,7 @@
           <!-- ============ -->
           <!-- Accesibility -->
           <!-- ============ -->
+          <!-- heading (2 col) -->
           <xsl:if test="$show-accessibility = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
@@ -819,9 +808,7 @@
             </fo:table-row>
           </xsl:if>
 
-          <!-- ============================= -->
-          <!-- Space                         -->
-          <!-- ============================= -->
+          <!-- Space -->
           <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block/>
@@ -831,6 +818,7 @@
           <!-- ===================== -->
           <!-- Rights and Disclaimer -->
           <!-- ===================== -->
+          <!-- heading (2 col) -->
           <xsl:if test="$show-rights-and-disclaimer = 'True'">
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
