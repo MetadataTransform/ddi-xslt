@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-fundAg.xsl -->
+<!-- fundAg.xsl -->
 <!-- ========================== -->
-<!-- match: ddi:fundAg          -->
+<!-- match: fundAg          -->
 <!-- value: <fo:block>          -->
 <!-- ========================== -->
 
 <!-- functions: -->
 <!-- util:trim() [local] -->
 
-<xsl:template match="ddi:fundAg"
+<xsl:template match="fundAg"
               xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">

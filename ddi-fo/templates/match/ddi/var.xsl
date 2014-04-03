@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-var.xsl -->
+<!-- var.xsl -->
 <!-- ================================== -->
-<!-- match: ddi:var                     -->
+<!-- match: var                         -->
 <!-- value: <xsl:if> <fo:table-row>     -->
 <!-- ================================== -->
 

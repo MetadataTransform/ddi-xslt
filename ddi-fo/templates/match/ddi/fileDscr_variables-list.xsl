@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-fileDscr_variables-list.xsl -->
+<!-- fileDscr_variables-list.xsl -->
 <!-- ===================================== -->
-<!-- match: ddi:fileDsrc (variables-list)  -->
+<!-- match: fileDsrc (variables-list)      -->
 <!-- Value: <fo:table>                     -->
 <!-- ===================================== -->
 
@@ -20,8 +20,8 @@
   <xsl:variable name="fileId">
     <xsl:choose>
 
-      <xsl:when test="ddi:fileTxt/ddi:fileName/@ID">
-        <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID" />
+      <xsl:when test="fileTxt/fileName/@ID">
+        <xsl:value-of select="fileTxt/fileName/@ID" />
       </xsl:when>
 
       <xsl:when test="@ID">
@@ -32,7 +32,7 @@
   </xsl:variable>
 
   <!-- content -->
-  <fo:table id="varlist-{ddi:fileTxt/ddi:fileName/@ID}" table-layout="fixed"
+  <fo:table id="varlist-{fileTxt/fileName/@ID}" table-layout="fixed"
             width="100%" font-size="8pt"
             space-before="0.2in" space-after="0.2in">
 
@@ -49,7 +49,7 @@
           <fo:block font-size="12pt" font-weight="bold">
             <xsl:value-of select="$strings/*/entry[@key='File']"/>
             <xsl:text> </xsl:text>
-            <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+            <xsl:apply-templates select="fileTxt/fileName"/>
           </fo:block>
         </fo:table-cell>
       </fo:table-row>
@@ -88,7 +88,7 @@
 
     <!-- [fo:table-body] -->
     <fo:table-body>
-      <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId]"
+      <xsl:apply-templates select="/codeBook/dataDscr/var[@files=$fileId]"
                            mode="variables-list"/>
     </fo:table-body>
 

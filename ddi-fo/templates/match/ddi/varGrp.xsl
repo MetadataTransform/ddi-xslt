@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi_varGrp.xsl -->
+<!-- varGrp.xsl -->
 <!-- ================================================== -->
-<!-- match: ddi:varGrp                                  -->
+<!-- match: varGrp                                      -->
 <!-- value: <xsl:if> [<fo:table> + <xsl:if> <fo:table>] -->
 <!-- ================================================== -->
 

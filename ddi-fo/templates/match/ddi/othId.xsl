@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-othId.xsl -->
+<!-- othId.xsl -->
 <!-- =================== -->
-<!-- match: ddi:othId    -->
+<!-- match: othId        -->
 <!-- value: <fo:block>   -->
 <!-- =================== -->
 

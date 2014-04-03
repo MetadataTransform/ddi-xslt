@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-fileName.xsl -->
+<!-- fileName.xsl -->
 <!-- ===================== -->
-<!-- match: ddi:fileName   -->
+<!-- match: fileName       -->
 <!-- value: string         -->
 <!-- ===================== -->
 
@@ -11,7 +11,7 @@
 <!-- functions: -->
 <!-- contains(), normalize-space(), string-length(), substring() [xpath 1.0] -->
 
-<xsl:template match="ddi:fileName"
+<xsl:template match="fileName"
               xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">

@@ -5,7 +5,7 @@
 <!-- value: <fo:block>        -->
 <!-- ======================== -->
 
-<xsl:template match="ddi:timePrd"
+<xsl:template match="timePrd"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
