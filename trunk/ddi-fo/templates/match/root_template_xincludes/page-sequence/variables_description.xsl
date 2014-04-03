@@ -41,18 +41,21 @@
       </fo:block>
 
       <!-- number of variables in data set -->
-      <fo:block font-weight="bold">
+      <!-- <fo:block font-weight="bold">
         <xsl:value-of select="$i18n-Dataset_contains" />
         <xsl:text> </xsl:text>
         <xsl:value-of select="count(/codeBook/dataDscr/var)" />
         <xsl:text> </xsl:text>
         <xsl:value-of select="$i18n-variables" />
+      </fo:block> -->
+
+      <fo:block font-weight="bold">
+        <xsl:value-of select="string-join(($i18n-Dataset_contains, ' ', xs:string(count(/codeBook/dataDscr/var)), ' ', $i18n-variables), '') "/>       
       </fo:block>
 
     </fo:flow>
   </fo:page-sequence>
 
   <!-- fileDscr -->
-  <xsl:apply-templates select="/codeBook/fileDscr"
-                       mode="variables-description" />
+  <xsl:apply-templates select="/codeBook/fileDscr" mode="variables-description" />
 </xsl:if>

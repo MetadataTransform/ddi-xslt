@@ -17,16 +17,22 @@
     <xsl:value-of select="util:trim(.)" />
 
     <!-- abbr -->
-    <xsl:if test="@abbr">
+    <!-- <xsl:if test="@abbr">
       <xsl:text>(</xsl:text>
       <xsl:value-of select="@abbr"/>
       <xsl:text>)</xsl:text>
-    </xsl:if>
+    </xsl:if> -->
+
+    <xsl:value-of select="if (@abbr) then
+                            string-join(('(', @abbr, ')'), '')
+                          else () "/>
 
     <!-- affiliation -->
-    <xsl:if test="@affiliation"> ,
+    <!-- <xsl:if test="@affiliation"> ,
       <xsl:value-of select="@affiliation" />
-    </xsl:if>
+    </xsl:if> -->
+
+    <xsl:value-of select="if (@affiliation) then @affiliation else () "/>
 
   </fo:block>
 

@@ -23,7 +23,7 @@
     <!-- ===================== -->
     <!-- variables             -->
     <!-- ===================== -->
-    <xsl:variable name="fileId">
+    <!-- <xsl:variable name="fileId">
       <xsl:choose>
 
         <xsl:when test="fileTxt/fileName/@ID">
@@ -35,7 +35,14 @@
         </xsl:when>
 
       </xsl:choose>
-    </xsl:variable>
+    </xsl:variable> -->
+
+    <xsl:variable name="fileId"
+      select="if (fileTxt/fileName/@ID) then
+                fileTxt/fileName/@ID
+              else if (@ID) then
+                @ID
+              else () "/>
 
     <!-- =================== -->
     <!-- content             -->

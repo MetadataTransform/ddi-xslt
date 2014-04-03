@@ -14,13 +14,8 @@
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
   <fo:block>
-    
-    <xsl:value-of select="util:trim(.)" />
-
-    <!-- affiliation -->
-    <xsl:if test="@affiliation">,
-      <xsl:value-of select="@affiliation" />
-    </xsl:if>
-
+    <xsl:value-of select="util:trim(.)" />    
+    <xsl:value-of select="if (@affiliation) then @affiliation else () "/>
   </fo:block>
+
 </xsl:template>

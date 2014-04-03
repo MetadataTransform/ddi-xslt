@@ -17,7 +17,7 @@
   <!-- ======= -->  
   <fo:static-content flow-name="before">
     <fo:block font-size="{$header-font-size}" text-align="center">
-      <xsl:value-of select="string-join( (/codeBook/stdyDscr/citation/titlStmt/titl, ' - ', $section_name), '') "/>   
+      <xsl:value-of select="string-join((/codeBook/stdyDscr/citation/titlStmt/titl, ' - ', $section_name), '') "/>   
     </fo:block>
   </fo:static-content>  
 

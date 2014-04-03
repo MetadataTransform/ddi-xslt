@@ -39,15 +39,11 @@
         <xsl:value-of select="$i18n-Variables_Groups" />
       </fo:block>
 
-      <!-- number of variable groups in data set -->
+      <!-- number of variable groups in data set -->      
       <fo:block font-weight="bold">
-        <xsl:value-of select="$i18n-Dataset_contains" />
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="count(/codeBook/dataDscr/varGrp)" />
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="$i18n-groups" />
+        <xsl:value-of select="string-join(($i18n-Dataset_contains, ' ', xs:string(count(/codeBook/dataDscr/varGrp)), ' ', $i18n-groups), '') "/>       
       </fo:block>
-
+      
       <!-- the actual variable groups table -->
       <xsl:apply-templates select="/codeBook/dataDscr/varGrp" />
 

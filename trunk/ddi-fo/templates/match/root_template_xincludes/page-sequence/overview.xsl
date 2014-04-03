@@ -123,8 +123,10 @@
                 <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/version">
                   <xsl:if test="@date">
                     <fo:block>
-                      <xsl:value-of select="$i18n-Production_Date" />:
-                      <xsl:value-of select="@date" />
+                      <!-- <xsl:value-of select="$i18n-Production_Date" />:
+                      <xsl:value-of select="@date" /> -->
+                      
+                      <xsl:value-of select="string-join(($i18n-Production_Date, @date), '')" />
                     </fo:block>
                   </xsl:if>
                   <xsl:apply-templates select="." />
@@ -259,7 +261,8 @@
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
                   <xsl:for-each select="/codeBook/stdyDscr/stdyInfo/subject/topcClas">
-                    <xsl:if test="position()&gt;1">, </xsl:if>
+                    <!-- <xsl:if test="position()&gt;1">, </xsl:if> -->
+                    <xsl:value-of select="if (position() > 1) then ', ' else ()"  />                    
                     <xsl:value-of select="normalize-space(.)" />
                   </xsl:for-each>
                 </fo:block>

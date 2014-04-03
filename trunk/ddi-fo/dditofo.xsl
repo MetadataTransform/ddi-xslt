@@ -181,20 +181,16 @@
   <xsl:variable name="survey-title"
                 xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/titl)" />
-    <xsl:if test="/codeBook/stdyDscr/citation/titlStmt/altTitl">
-      <xsl:text>(</xsl:text>
-      <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/altTitl)" />
-      <xsl:text>)</xsl:text>
-    </xsl:if>
+    <xsl:value-of select="if (/codeBook/stdyDscr/citation/titlStmt/altTitl) then
+                            string-join(('(', /codeBook/stdyDscr/citation/titlStmt/altTitl, ')'), '')
+                          else () " />
   </xsl:variable>
 
   <!-- geography -->
   <xsl:variable name="geography"
                 xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:for-each select="/codeBook/stdyDscr/stdyInfo/sumDscr/nation">
-      <xsl:if test="position() &gt; 1">
-        <xsl:text>, </xsl:text>
-      </xsl:if>
+      <xsl:value-of select="if (position() > 1) then ', ' else ()" />
       <xsl:value-of select="normalize-space(.)" />
     </xsl:for-each>
   </xsl:variable>
@@ -216,21 +212,21 @@
   <!-- year to is the last data collection mode element with an 'end' event -->
   <xsl:variable name="year-to-count" 
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-    select="count(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='end'])" />
+    select="count(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event = 'end'])" />
+
   <xsl:variable name="year-to" 
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-    select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='end'][$year-to-count]/@date, 1, 4)" />
+    select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event = 'end'][$year-to-count]/@date, 1, 4)" />
   
   <xsl:variable name="time">
     <xsl:if test="$year-from">
       <xsl:value-of select="$year-from" />
-      <xsl:if test="$year-to &gt; $year-from">
-        <xsl:text>-</xsl:text>
-        <xsl:value-of select="$year-to" />
-      </xsl:if>
+      <xsl:value-of select="if ($year-to > $year-from) then
+                              string-join(('-', $year-from), '')
+                            else () " />
     </xsl:if>
   </xsl:variable>
-
+  
 
   <!-- #################################################### -->
   <!-- ### toggle parts of document                     ### -->
@@ -239,26 +235,17 @@
   <!-- Show variable groups only if there are any -->
   <xsl:variable name="show-variable-groups"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-    select="if (count(/codeBook/dataDscr/varGrp) > 0) then
-              'True'
-            else
-              'False' "/>
+    select="if (count(/codeBook/dataDscr/varGrp) > 0) then 'True' else 'False' "/>
 
   <!-- Show variable list if showing variable groups are disabled -->
   <xsl:variable name="show-variables-list"
-    select="if ($show-variable-groups = 'True') then
-              'False'
-            else
-              'True' "/>
+    select="if ($show-variable-groups = 'True') then 'False' else 'True' "/>
 
   <!-- If totalt amount of variables or given subsetamount       -->
   <!-- exceeds given max, then dont show extensive variable desc -->
   <xsl:variable name="show-variables-description"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-    select="if (count(/codeBook/dataDscr/var) = 0) then
-              'False'
-            else
-              'True' "/>
+    select="if (count(/codeBook/dataDscr/var) = 0) then 'False' else 'True' "/>
       
   <xsl:variable name="show-scope-and-coverage"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
