@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-fileDscr.xsl -->
+<!-- fileDscr.xsl -->
 <!-- =========================== -->
-<!-- match: ddi:fileDsrc         -->
+<!-- match: fileDsrc             -->
 <!-- value: <fo:table>           -->
 <!-- =========================== -->
 

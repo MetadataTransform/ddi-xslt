@@ -1,16 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-collDate.xsl -->
-<!-- ============================ -->
-<!-- match: ddi:collDate          -->
-<!-- value: <fo:block>            -->
-<!-- ============================ -->
+<!-- timePrd.xsl -->
+<!-- ======================== -->
+<!-- match: timePrd           -->
+<!-- value: <fo:block>        -->
+<!-- ======================== -->
 
-<xsl:template match="collDate"
-              xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+<xsl:template match="timePrd"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-    <fo:block>
+  <fo:block>
 
       <!-- cycle -->
       <xsl:if test="@cycle">
@@ -27,6 +26,5 @@
       <!-- date -->
       <xsl:value-of select="@date"/>
 
-    </fo:block>
-
+  </fo:block>
 </xsl:template>

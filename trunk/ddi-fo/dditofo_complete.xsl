@@ -364,7 +364,26 @@
   <!-- ===================================== -->
   <!-- matching templates                    -->
   <!-- ===================================== -->
-  <!-- root.xsl --><!-- ========================== --><!-- match: /                   --><!-- value: <fo:root>           --><!-- ========================== --><!-- ============================================================= --><!-- Setup page sizes and layouts     [layout-master-set]          --><!-- Outline / Bookmarks              [bookmark-tree]              --><!-- Cover page                       [page-sequence]              --><!-- Metadata information             [page-sequence] with [table] --><!-- Table of contents                [page-sequence]              --><!-- Overview                         [page-sequence] with [table] --><!-- Files Description                [page-sequence]              --><!-- Variables List                   [page-sequence]              --><!-- Variable Groups                  [page-sequence]              --><!-- Variables Description            [page-sequence]              --><!-- ============================================================= --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" match="/" xml:base="templates/match/root.xsl">
+ <!-- <xi:include href="templates/match/root.xsl" />
+  <xi:include href="templates/match/ddi-AuthEnty.xsl" />
+  <xi:include href="templates/match/ddi-collDate.xsl" />
+  <xi:include href="templates/match/ddi-contact.xsl" />
+  <xi:include href="templates/match/ddi-dataCollector.xsl" />
+  <xi:include href="templates/match/ddi_default_text.xsl" />
+  <xi:include href="templates/match/ddi-fileDscr.xsl" />
+  <xi:include href="templates/match/ddi-fileDscr_variables-description.xsl" />
+  <xi:include href="templates/match/ddi-fileDscr_variables-list.xsl" />
+  <xi:include href="templates/match/ddi-fileName.xsl" />
+  <xi:include href="templates/match/ddi-fundAg.xsl" />
+  <xi:include href="templates/match/ddi-IDNo.xsl" />
+  <xi:include href="templates/match/ddi-othId.xsl" />
+  <xi:include href="templates/match/ddi-producer.xsl" />
+  <xi:include href="templates/match/ddi-timePrd.xsl" />
+  <xi:include href="templates/match/ddi-var.xsl" />
+  <xi:include href="templates/match/ddi-var_variablesList.xsl" />
+  <xi:include href="templates/match/ddi-varGrp.xsl" /> -->
+  
+  <!-- root.xsl --><!-- ========================== --><!-- match: /                   --><!-- value: <fo:root>           --><!-- ========================== --><!-- ============================================================= --><!-- Setup page sizes and layouts     [layout-master-set]          --><!-- Outline / Bookmarks              [bookmark-tree]              --><!-- Cover page                       [page-sequence]              --><!-- Metadata information             [page-sequence] with [table] --><!-- Table of contents                [page-sequence]              --><!-- Overview                         [page-sequence] with [table] --><!-- Files Description                [page-sequence]              --><!-- Variables List                   [page-sequence]              --><!-- Variable Groups                  [page-sequence]              --><!-- Variables Description            [page-sequence]              --><!-- ============================================================= --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" match="/" xml:base="templates/match/ddi/root.xsl">
   <fo:root>
 
     <!-- ================================ -->
@@ -1936,7 +1955,7 @@
   </fo:root>
 
 </xsl:template>
-  <!-- ddi-AuthEntry.xsl --><!-- ========================= --><!-- match: ddi:AuthEnty       --><!-- value: <fo:block>         --><!-- ========================= --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:AuthEnty" xml:base="templates/match/ddi-AuthEnty.xsl">
+  <!-- AuthEntry.xsl --><!-- ========================= --><!-- match: AuthEnty       --><!-- value: <fo:block>         --><!-- ========================= --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="AuthEnty" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/AuthEnty.xsl">
 
   <fo:block>
     
@@ -1949,7 +1968,7 @@
 
   </fo:block>
 </xsl:template>
-  <!-- ddi-collDate.xsl --><!-- ============================ --><!-- match: ddi:collDate          --><!-- value: <fo:block>            --><!-- ============================ --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:collDate" xml:base="templates/match/ddi-collDate.xsl">
+  <!-- collDate.xsl --><!-- ============================ --><!-- match: collDate              --><!-- value: <fo:block>            --><!-- ============================ --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="collDate" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/collDate.xsl">
 
     <fo:block>
 
@@ -1971,7 +1990,7 @@
     </fo:block>
 
 </xsl:template>
-  <!-- ddi-contact.xsl --><!-- ========================= --><!-- match: ddi:contact        --><!-- value: <fo:block>         --><!-- ========================= --><!-- functions: --><!-- url() [FO] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:contact" xml:base="templates/match/ddi-contact.xsl">
+  <!-- contact.xsl --><!-- ========================= --><!-- match: contact            --><!-- value: <fo:block>         --><!-- ========================= --><!-- functions: --><!-- url() [FO] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="contact" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/contact.xsl">
 
     <fo:block>
 
@@ -2001,7 +2020,7 @@
     </fo:block>
 
 </xsl:template>
-  <!-- ddi-dataCollector.xsl --><!-- ============================== --><!-- match: ddi:dataCollector       --><!-- value: <fo:block>              --><!-- ============================== --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:dataCollector" xml:base="templates/match/ddi-dataCollector.xsl">
+  <!-- dataCollector.xsl --><!-- ============================== --><!-- match: dataCollector           --><!-- value: <fo:block>              --><!-- ============================== --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="dataCollector" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/dataCollector.xsl">
 
   <fo:block>  
     <xsl:value-of select="util:trim(.)"/>
@@ -2021,7 +2040,7 @@
   </fo:block>
 
 </xsl:template>
-  <!-- ddi_default_text.xsl --><!-- ============================== --><!-- match: ddi:*|text()            --><!-- value: <fo:block>              --><!-- ============================== --><!-- set: --><!-- $trimmed --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:*|text()" xml:base="templates/match/ddi_default_text.xsl">
+  <!-- default_text.xsl --><!-- ============================== --><!-- match: *|text()                --><!-- value: <fo:block>              --><!-- ============================== --><!-- set: --><!-- $trimmed --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="*|text()" xml:base="templates/match/ddi/default_text.xsl">
   
   <!-- <xsl:variable name="trimmed" select="util:trim(.)" /> -->
 
@@ -2032,7 +2051,7 @@
   </fo:block>
 
 </xsl:template>
-  <!-- ddi-fileDscr.xsl --><!-- =========================== --><!-- match: ddi:fileDsrc         --><!-- value: <fo:table>           --><!-- =========================== --><!-- read: --><!-- $color-gray1, $default-border, $cell-padding --><!-- set: --><!-- $fileId, $list --><!-- functions: --><!-- concat(), contains(), normalize-space(), position() [Xpath 1.0] --><!-- proportional-column-width() [FO] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi-fileDscr.xsl"> 
+  <!-- fileDscr.xsl --><!-- =========================== --><!-- match: fileDsrc             --><!-- value: <fo:table>           --><!-- =========================== --><!-- read: --><!-- $color-gray1, $default-border, $cell-padding --><!-- set: --><!-- $fileId, $list --><!-- functions: --><!-- concat(), contains(), normalize-space(), position() [Xpath 1.0] --><!-- proportional-column-width() [FO] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="fileDscr" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/fileDscr.xsl"> 
 
     <!-- ===================== -->
     <!-- variables             -->
@@ -2220,7 +2239,7 @@
     </fo:table>
 
 </xsl:template>
-  <!-- ddi-fileDscr_variables_description.xsl --><!-- =========================================== --><!-- match: ddi:fileDsrc (variables-description) --><!-- value: <xsl:for-each> <fo:page-sequence>    --><!-- =========================================== --><!-- read: --><!-- $strings, $chunk-size, $font-family, $default-border --><!-- set: --><!-- $fileId, $fileName --><!-- functions: --><!-- position() [xpath 1.0] --><!-- proportional-column-width() [fo] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" mode="variables-description" xml:base="templates/match/ddi-fileDscr_variables-description.xsl">
+  <!-- fileDscr-variables_description.xsl --><!-- =========================================== --><!-- match: fileDsrc (variables-description)     --><!-- value: <xsl:for-each> <fo:page-sequence>    --><!-- =========================================== --><!-- read: --><!-- $strings, $chunk-size, $font-family, $default-border --><!-- set: --><!-- $fileId, $fileName --><!-- functions: --><!-- position() [xpath 1.0] --><!-- proportional-column-width() [fo] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="fileDscr" mode="variables-description" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/fileDscr_variables-description.xsl">
 
     <!-- ================== -->
     <!-- variables          -->
@@ -2314,14 +2333,14 @@
     </xsl:for-each>
 
 </xsl:template>
-  <!-- ddi-fileDscr_variables-list.xsl --><!-- ===================================== --><!-- match: ddi:fileDsrc (variables-list)  --><!-- Value: <fo:table>                     --><!-- ===================================== --><!-- read: --><!-- $strings, $default-border, $cell-padding --><!-- set: --><!-- $fileId --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileDscr" mode="variables-list" xml:base="templates/match/ddi-fileDscr_variables-list.xsl">
+  <!-- fileDscr_variables-list.xsl --><!-- ===================================== --><!-- match: fileDsrc (variables-list)      --><!-- Value: <fo:table>                     --><!-- ===================================== --><!-- read: --><!-- $strings, $default-border, $cell-padding --><!-- set: --><!-- $fileId --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="fileDscr" mode="variables-list" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/fileDscr_variables-list.xsl">
 
   <!-- variables -->
   <xsl:variable name="fileId">
     <xsl:choose>
 
-      <xsl:when test="ddi:fileTxt/ddi:fileName/@ID">
-        <xsl:value-of select="ddi:fileTxt/ddi:fileName/@ID"/>
+      <xsl:when test="fileTxt/fileName/@ID">
+        <xsl:value-of select="fileTxt/fileName/@ID"/>
       </xsl:when>
 
       <xsl:when test="@ID">
@@ -2332,7 +2351,7 @@
   </xsl:variable>
 
   <!-- content -->
-  <fo:table id="varlist-{ddi:fileTxt/ddi:fileName/@ID}" table-layout="fixed" width="100%" font-size="8pt" space-before="0.2in" space-after="0.2in">
+  <fo:table id="varlist-{fileTxt/fileName/@ID}" table-layout="fixed" width="100%" font-size="8pt" space-before="0.2in" space-after="0.2in">
 
     <fo:table-column column-width="proportional-column-width( 5)"/>
     <fo:table-column column-width="proportional-column-width(12)"/>
@@ -2346,7 +2365,7 @@
           <fo:block font-size="12pt" font-weight="bold">
             <xsl:value-of select="$strings/*/entry[@key='File']"/>
             <xsl:text> </xsl:text>
-            <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+            <xsl:apply-templates select="fileTxt/fileName"/>
           </fo:block>
         </fo:table-cell>
       </fo:table-row>
@@ -2384,13 +2403,13 @@
 
     <!-- [fo:table-body] -->
     <fo:table-body>
-      <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId]" mode="variables-list"/>
+      <xsl:apply-templates select="/codeBook/dataDscr/var[@files=$fileId]" mode="variables-list"/>
     </fo:table-body>
 
   </fo:table>
 
 </xsl:template>
-  <!-- ddi-fileName.xsl --><!-- ===================== --><!-- match: ddi:fileName   --><!-- value: string         --><!-- ===================== --><!-- set: --><!-- $filename --><!-- functions: --><!-- contains(), normalize-space(), string-length(), substring() [xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fileName" xml:base="templates/match/ddi-fileName.xsl">
+  <!-- fileName.xsl --><!-- ===================== --><!-- match: fileName       --><!-- value: string         --><!-- ===================== --><!-- set: --><!-- $filename --><!-- functions: --><!-- contains(), normalize-space(), string-length(), substring() [xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="fileName" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/fileName.xsl">
 
   <!-- variables -->
   <xsl:variable name="filename" select="normalize-space(.)"/>
@@ -2411,7 +2430,7 @@
   </xsl:choose>
 
 </xsl:template>
-  <!-- ddi-fundAg.xsl --><!-- ========================== --><!-- match: ddi:fundAg          --><!-- value: <fo:block>          --><!-- ========================== --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:fundAg" xml:base="templates/match/ddi-fundAg.xsl">
+  <!-- fundAg.xsl --><!-- ========================== --><!-- match: fundAg          --><!-- value: <fo:block>          --><!-- ========================== --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="fundAg" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/fundAg.xsl">
 
   <fo:block>
     
@@ -2433,7 +2452,7 @@
   </fo:block>
 
 </xsl:template>
-  <!-- ddi-IDNo.xsl --><!-- ==================== --><!-- match: ddi:IDNo      --><!-- value: <fo:block>    --><!-- ==================== --><!-- functions: --><!-- util:trim() --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:IDNo" xml:base="templates/match/ddi-IDNo.xsl">
+  <!-- IDNo.xsl --><!-- ==================== --><!-- match: IDNo          --><!-- value: <fo:block>    --><!-- ==================== --><!-- functions: --><!-- util:trim() --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="IDNo" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/IDNo.xsl">
 
   <fo:block>
 
@@ -2447,7 +2466,7 @@
   </fo:block>
 
 </xsl:template>
-  <!-- ddi-othId.xsl --><!-- =================== --><!-- match: ddi:othId    --><!-- value: <fo:block>   --><!-- =================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:othId" xml:base="templates/match/ddi-othId.xsl">
+  <!-- othId.xsl --><!-- =================== --><!-- match: othId        --><!-- value: <fo:block>   --><!-- =================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="othId" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/othId.xsl">
 
   <fo:block>
     
@@ -2466,7 +2485,7 @@
   </fo:block>
 
 </xsl:template>
-  <!-- ddi-producer.xsl --><!-- ========================== --><!-- match: ddi:producer        --><!-- value: <fo:block>          --><!-- ========================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:producer" xml:base="templates/match/ddi-producer.xsl">
+  <!-- producer.xsl --><!-- ========================== --><!-- match: producer            --><!-- value: <fo:block>          --><!-- ========================== --><!-- called: --><!-- trim --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="producer" xml:base="templates/match/ddi/producer.xsl">
 
   <fo:block>
     
@@ -2489,7 +2508,7 @@
 
   </fo:block>
 </xsl:template>
-  <!-- ddi-timePrd.xsl --><!-- ======================== --><!-- match: ddi:timePrd       --><!-- value: <fo:block>        --><!-- ======================== --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:timePrd" xml:base="templates/match/ddi-timePrd.xsl">
+  <!-- timePrd.xsl --><!-- ======================== --><!-- match: timePrd           --><!-- value: <fo:block>        --><!-- ======================== --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="timePrd" xml:base="templates/match/ddi/timePrd.xsl">
 
   <fo:block>
 
@@ -2510,7 +2529,7 @@
 
   </fo:block>
 </xsl:template>
-  <!-- ddi-var.xsl --><!-- ================================== --><!-- match: ddi:var                     --><!-- value: <xsl:if> <fo:table-row>     --><!-- ================================== --><!-- read: --><!-- $cell-padding, $color-gray1, $default-border, --><!-- $show-variables-description-categories-max --><!-- set: --><!-- $statistics, $type, $label, $category-count, $is-weighted,  --><!-- $catgry-freq-nodes, $catgry-sum-freq, $catgry-sum-freq-wgtd,--><!-- $catgry-max-freq, $catgry-max-freq-wgtd, --><!-- $bar-column-width, $catgry-freq --><!-- functions: --><!-- concat(), contains(), string-length(), normalize-space(), --><!-- number(), position(), string() [Xpath 1.0] --><!-- util:trim(), util:math_max() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" xml:base="templates/match/ddi-var.xsl">
+  <!-- var.xsl --><!-- ================================== --><!-- match: var                         --><!-- value: <xsl:if> <fo:table-row>     --><!-- ================================== --><!-- read: --><!-- $cell-padding, $color-gray1, $default-border, --><!-- $show-variables-description-categories-max --><!-- set: --><!-- $statistics, $type, $label, $category-count, $is-weighted,  --><!-- $catgry-freq-nodes, $catgry-sum-freq, $catgry-sum-freq-wgtd,--><!-- $catgry-max-freq, $catgry-max-freq-wgtd, --><!-- $bar-column-width, $catgry-freq --><!-- functions: --><!-- concat(), contains(), string-length(), normalize-space(), --><!-- number(), position(), string() [Xpath 1.0] --><!-- util:trim(), util:math_max() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="var" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/var.xsl">
 
   <fo:table-row text-align="center" vertical-align="top">
     <fo:table-cell>
@@ -3115,7 +3134,7 @@
   
 
 </xsl:template>
-  <!-- ddi-var_variables_list.xsl --><!-- ================================== --><!-- match: ddi:var (variables-list)    --><!-- value: <xsl:if> <fo:table-row>     --><!-- ================================== --><!-- read: --><!-- $color-white, $default-border, $cell-padding, --><!-- $show-variables-list, $variable-name-length --><!-- functions: --><!-- concat(), contains(), count(), position(), normalize-space(), --><!-- string-length(), substring() [xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:var" mode="variables-list" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi-var_variablesList.xsl">
+  <!-- var-variables_list.xsl --><!-- ================================== --><!-- match: var (variables-list)        --><!-- value: <xsl:if> <fo:table-row>     --><!-- ================================== --><!-- read: --><!-- $color-white, $default-border, $cell-padding, --><!-- $show-variables-list, $variable-name-length --><!-- functions: --><!-- concat(), contains(), count(), position(), normalize-space(), --><!-- string-length(), substring() [xpath 1.0] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="var" mode="variables-list" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/var_variablesList.xsl">
 
     <!-- content -->
     <fo:table-row text-align="center" vertical-align="top">
@@ -3179,7 +3198,7 @@
     </fo:table-row>
 
 </xsl:template>
-  <!-- ddi_varGrp.xsl --><!-- ================================================== --><!-- match: ddi:varGrp                                  --><!-- value: <xsl:if> [<fo:table> + <xsl:if> <fo:table>] --><!-- ================================================== --><!-- read --><!-- $default-border, $cell-padding --><!-- set --><!-- $list --><!-- functions --><!-- contains(), concat(), position(), string-length(), --><!-- normalize-space() [Xpath 1.0]                      --><!-- proportional-column-width() [fo]                   --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="ddi:varGrp" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi-varGrp.xsl">
+  <!-- varGrp.xsl --><!-- ================================================== --><!-- match: varGrp                                      --><!-- value: <xsl:if> [<fo:table> + <xsl:if> <fo:table>] --><!-- ================================================== --><!-- read --><!-- $default-border, $cell-padding --><!-- set --><!-- $list --><!-- functions --><!-- contains(), concat(), position(), string-length(), --><!-- normalize-space() [Xpath 1.0]                      --><!-- proportional-column-width() [fo]                   --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="varGrp" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/varGrp.xsl">
 
     <fo:table id="vargrp-{@ID}" table-layout="fixed" width="100%" space-before="0.2in">
       <fo:table-column column-width="proportional-column-width(20)"/>
@@ -3364,7 +3383,13 @@
   <!-- ==================================== -->
   <!-- functions                            -->
   <!-- ==================================== -->
-  <!-- util-isodate_month_name.xsl --><!-- ===================================== --><!-- xs:string util:isodate_month_name()   --><!-- param: xs:string isodate              --><!-- ===================================== --><!-- returns month name from a ISO-format date string --><!-- read: --><!-- $isodate [param] --><!-- set: --><!-- $month, $month_string --><!-- functions: --><!-- number(), substring(), contains() [Xpath 1.0] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:isodate_month_name" as="xs:string" xml:base="functions/util-isodate_month_name.xsl">
+  <!-- <xi:include href="functions/util-isodate_month_name.xsl" />
+  <xi:include href="functions/util-isodate_long.xsl" />
+  <xi:include href="functions/util-trim.xsl" />
+  <xi:include href="functions/util-rtrim.xsl" />
+  <xi:include href="functions/util-math_max.xsl" /> -->
+
+  <!-- util-isodate_month_name.xsl --><!-- ===================================== --><!-- xs:string util:isodate_month_name()   --><!-- param: xs:string isodate              --><!-- ===================================== --><!-- returns month name from a ISO-format date string --><!-- read: --><!-- $isodate [param] --><!-- set: --><!-- $month, $month_string --><!-- functions: --><!-- number(), substring(), contains() [Xpath 1.0] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:isodate_month_name" as="xs:string" xml:base="functions/util/isodate_month_name.xsl">
 
   <!-- ========= -->
   <!-- params    -->
@@ -3425,7 +3450,7 @@
   <xsl:value-of select="$month_string"/>
   
 </xsl:function>
-  <!-- util-isodate_long.xsl --><!-- ================================ --><!-- xs:string util:isodate-long()    --><!-- param: isodate as xs:date        --><!-- ================================ --><!-- converts an ISO date string to a "prettier" format --><!-- read: --><!-- $isodate [param] --><!-- $language-code --><!-- set: --><!-- $date_string --><!-- functions: --><!-- number(), substring(), contains() [Xpath 1.0] --><!-- util:get_month_date() [local] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:isodate_long" as="xs:string" xml:base="functions/util-isodate_long.xsl">
+  <!-- util-isodate_long.xsl --><!-- ================================ --><!-- xs:string util:isodate-long()    --><!-- param: isodate as xs:date        --><!-- ================================ --><!-- converts an ISO date string to a "prettier" format --><!-- read: --><!-- $isodate [param] --><!-- $language-code --><!-- set: --><!-- $date_string --><!-- functions: --><!-- number(), substring(), contains() [Xpath 1.0] --><!-- util:get_month_date() [local] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:isodate_long" as="xs:string" xml:base="functions/util/isodate_long.xsl">
 
   <!-- ====== -->
   <!-- params -->
@@ -3474,7 +3499,7 @@
   <xsl:value-of select="$date_string"/>
 
 </xsl:function>
-  <!-- util-trim.xsl --><!-- =================== --><!-- xs:string trim()    --><!-- param: $s           --><!-- =================== --><!-- read: --><!-- $s [param] --><!-- functions: --><!-- concat(), substring(), translate(), substring-after() [Xpath 1.0] --><!-- util:rtrim() [local] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:trim" as="xs:string" xml:base="functions/util-trim.xsl">
+  <!-- util-trim.xsl --><!-- =================== --><!-- xs:string trim()    --><!-- param: $s           --><!-- =================== --><!-- read: --><!-- $s [param] --><!-- functions: --><!-- concat(), substring(), translate(), substring-after() [Xpath 1.0] --><!-- util:rtrim() [local] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:trim" as="xs:string" xml:base="functions/util/trim.xsl">
 
   <!-- ====== -->
   <!-- params -->
@@ -3504,7 +3529,7 @@
   <xsl:value-of select="util:rtrim($tmp3, string-length($tmp3))"/>
 
 </xsl:function>
-  <!-- util-rtrim.xsl --><!-- ======================= --><!-- xs:string util:rtrim()  --><!-- params: $s, $i          --><!-- ======================= --><!-- perform right trim on text through recursion --><!-- read: --><!-- $s, $i [param] --><!-- functions: --><!-- substring(), string-length(), translate() [Xpath 1.0] --><!-- util:rtrim() [local] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:rtrim" as="xs:string" xml:base="functions/util-rtrim.xsl">
+  <!-- util-rtrim.xsl --><!-- ======================= --><!-- xs:string util:rtrim()  --><!-- params: $s, $i          --><!-- ======================= --><!-- perform right trim on text through recursion --><!-- read: --><!-- $s, $i [param] --><!-- functions: --><!-- substring(), string-length(), translate() [Xpath 1.0] --><!-- util:rtrim() [local] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:rtrim" as="xs:string" xml:base="functions/util/rtrim.xsl">
 
   <!-- ====== -->
   <!-- params -->
@@ -3540,7 +3565,7 @@
   <xsl:value-of select="$tmp"/>
 
 </xsl:function>
-  <!-- util-math_max.xsl --><!-- ===================== --><!-- util:math_max()       --><!-- param: $nodes         --><!-- ===================== --><!-- read: --><!-- $nodes [param] --><!-- functions: --><!-- not(), number(), position() [Xpath 1.0] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:math_max" xml:base="functions/util-math_max.xsl">
+  <!-- util-math_max.xsl --><!-- ===================== --><!-- util:math_max()       --><!-- param: $nodes         --><!-- ===================== --><!-- read: --><!-- $nodes [param] --><!-- functions: --><!-- not(), number(), position() [Xpath 1.0] --><xsl:function xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="util:math_max" xml:base="functions/util/math_max.xsl">
 
   <!-- ====== -->
   <!-- params -->
@@ -3575,5 +3600,6 @@
   <xsl:value-of select="$tmp"/>
 
 </xsl:function>
-  
+
+
 </xsl:transform>

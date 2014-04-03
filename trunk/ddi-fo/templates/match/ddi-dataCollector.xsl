@@ -8,7 +8,8 @@
 <!-- functions: -->
 <!-- util:trim() [local] -->
 
-<xsl:template match="ddi:dataCollector"
+<xsl:template match="dataCollector"
+              xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 

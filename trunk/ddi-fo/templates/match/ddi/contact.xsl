@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-contact.xsl -->
+<!-- contact.xsl -->
 <!-- ========================= -->
-<!-- match: ddi:contact        -->
+<!-- match: contact            -->
 <!-- value: <fo:block>         -->
 <!-- ========================= -->
 

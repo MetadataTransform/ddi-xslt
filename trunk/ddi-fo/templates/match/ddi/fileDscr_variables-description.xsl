@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-fileDscr_variables_description.xsl -->
+<!-- fileDscr-variables_description.xsl -->
 <!-- =========================================== -->
-<!-- match: ddi:fileDsrc (variables-description) -->
+<!-- match: fileDsrc (variables-description)     -->
 <!-- value: <xsl:for-each> <fo:page-sequence>    -->
 <!-- =========================================== -->
 

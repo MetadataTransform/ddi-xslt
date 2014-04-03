@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-AuthEntry.xsl -->
+<!-- AuthEntry.xsl -->
 <!-- ========================= -->
-<!-- match: ddi:AuthEnty       -->
+<!-- match: AuthEnty       -->
 <!-- value: <fo:block>         -->
 <!-- ========================= -->
 

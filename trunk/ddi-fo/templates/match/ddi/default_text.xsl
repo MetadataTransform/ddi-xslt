@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi_default_text.xsl -->
+<!-- default_text.xsl -->
 <!-- ============================== -->
-<!-- match: ddi:*|text()            -->
+<!-- match: *|text()                -->
 <!-- value: <fo:block>              -->
 <!-- ============================== -->
 

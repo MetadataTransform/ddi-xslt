@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- ddi-producer.xsl -->
+<!-- producer.xsl -->
 <!-- ========================== -->
-<!-- match: ddi:producer        -->
+<!-- match: producer            -->
 <!-- value: <fo:block>          -->
 <!-- ========================== -->
 
