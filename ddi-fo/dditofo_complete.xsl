@@ -92,19 +92,13 @@
   <!-- survey title -->
   <xsl:variable name="survey-title" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/titl)"/>
-    <xsl:if test="/codeBook/stdyDscr/citation/titlStmt/altTitl">
-      <xsl:text>(</xsl:text>
-      <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/altTitl)"/>
-      <xsl:text>)</xsl:text>
-    </xsl:if>
+    <xsl:value-of select="if (/codeBook/stdyDscr/citation/titlStmt/altTitl) then                             string-join(('(', /codeBook/stdyDscr/citation/titlStmt/altTitl, ')'), '')                           else () "/>
   </xsl:variable>
 
   <!-- geography -->
   <xsl:variable name="geography" xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:for-each select="/codeBook/stdyDscr/stdyInfo/sumDscr/nation">
-      <xsl:if test="position() &gt; 1">
-        <xsl:text>, </xsl:text>
-      </xsl:if>
+      <xsl:value-of select="if (position() &gt; 1) then ', ' else ()"/>
       <xsl:value-of select="normalize-space(.)"/>
     </xsl:for-each>
   </xsl:variable>
@@ -120,33 +114,31 @@
   <xsl:variable name="year-from" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='start'][1]/@date, 1, 4)"/>
   
   <!-- year to is the last data collection mode element with an 'end' event -->
-  <xsl:variable name="year-to-count" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="count(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='end'])"/>
-  <xsl:variable name="year-to" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='end'][$year-to-count]/@date, 1, 4)"/>
+  <xsl:variable name="year-to-count" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="count(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event = 'end'])"/>
+
+  <xsl:variable name="year-to" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event = 'end'][$year-to-count]/@date, 1, 4)"/>
   
   <xsl:variable name="time">
     <xsl:if test="$year-from">
       <xsl:value-of select="$year-from"/>
-      <xsl:if test="$year-to &gt; $year-from">
-        <xsl:text>-</xsl:text>
-        <xsl:value-of select="$year-to"/>
-      </xsl:if>
+      <xsl:value-of select="if ($year-to &gt; $year-from) then                               string-join(('-', $year-from), '')                             else () "/>
     </xsl:if>
   </xsl:variable>
-
+  
 
   <!-- #################################################### -->
   <!-- ### toggle parts of document                     ### -->
   <!-- #################################################### -->
 
   <!-- Show variable groups only if there are any -->
-  <xsl:variable name="show-variable-groups" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="if (count(/codeBook/dataDscr/varGrp) &gt; 0) then               'True'             else               'False' "/>
+  <xsl:variable name="show-variable-groups" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="if (count(/codeBook/dataDscr/varGrp) &gt; 0) then 'True' else 'False' "/>
 
   <!-- Show variable list if showing variable groups are disabled -->
-  <xsl:variable name="show-variables-list" select="if ($show-variable-groups = 'True') then               'False'             else               'True' "/>
+  <xsl:variable name="show-variables-list" select="if ($show-variable-groups = 'True') then 'False' else 'True' "/>
 
   <!-- If totalt amount of variables or given subsetamount       -->
   <!-- exceeds given max, then dont show extensive variable desc -->
-  <xsl:variable name="show-variables-description" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="if (count(/codeBook/dataDscr/var) = 0) then               'False'             else               'True' "/>
+  <xsl:variable name="show-variables-description" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="if (count(/codeBook/dataDscr/var) = 0) then 'False' else 'True' "/>
       
   <xsl:variable name="show-scope-and-coverage" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" select="if (/codeBook/stdyDscr/stdyInfo/notes) then 'True'             else if (/codeBook/stdyDscr/stdyInfo/subject/keyword) then 'True'             else if (/codeBook/stdyDscr/stdyInfo/sumDscr/geogCover) then 'True'             else if (/codeBook/stdyDscr/stdyInfo/sumDscr/universe) then 'True'             else 'False' "/>
 
@@ -402,7 +394,7 @@
         </xsl:if>
 
         <!-- Accessibility -->
-        <xsl:if test="$show-accessibility= 'True'">
+        <xsl:if test="$show-accessibility = 'True'">
           <fo:bookmark internal-destination="accessibility">
             <fo:bookmark-title>
               <xsl:value-of select="$i18n-Accessibility"/>
@@ -475,7 +467,7 @@
     </xsl:if>
 
     <!-- Variables_Description -->
-    <xsl:if test="$show-variables-description= 'True'">
+    <xsl:if test="$show-variables-description = 'True'">
       <fo:bookmark internal-destination="variables-description">
         <fo:bookmark-title>
           <xsl:value-of select="$i18n-Variables_Description"/>
@@ -487,25 +479,15 @@
               <xsl:apply-templates select="fileTxt/fileName"/>
             </fo:bookmark-title>
 
-            <xsl:variable name="fileId">
-              <xsl:choose>
-                <xsl:when test="fileTxt/fileName/@ID">
-                  <xsl:value-of select="fileTxt/fileName/@ID"/>
-                </xsl:when>
-                <xsl:when test="@ID">
-                  <xsl:value-of select="@ID"/>
-                </xsl:when>
-              </xsl:choose>
-            </xsl:variable>
+            <xsl:variable name="fileId" select="if (fileTxt/fileName/@ID) then fileTxt/fileName/@ID                       else if (@ID) then @ID                       else () "/>
 
             <xsl:for-each select="/codeBook/dataDscr/var[@files=$fileId]">
                 <fo:bookmark internal-destination="var-{@ID}">
                   <fo:bookmark-title>
                     <xsl:apply-templates select="@name"/>
-                    <xsl:if test="normalize-space(labl)">
-                      <xsl:text>: </xsl:text>                      
-                      <xsl:value-of select="util:trim(labl)"/>                      
-                    </xsl:if>
+
+                    <xsl:value-of select="if (normalize-space(labl)) then                                             string-join((': ', util:trim(labl)), '')                                           else () "/>
+
                   </fo:bookmark-title>
                 </fo:bookmark>            
             </xsl:for-each>
@@ -965,8 +947,10 @@
                 <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/version">
                   <xsl:if test="@date">
                     <fo:block>
-                      <xsl:value-of select="$i18n-Production_Date"/>:
-                      <xsl:value-of select="@date"/>
+                      <!-- <xsl:value-of select="$i18n-Production_Date" />:
+                      <xsl:value-of select="@date" /> -->
+                      
+                      <xsl:value-of select="string-join(($i18n-Production_Date, @date), '')"/>
                     </fo:block>
                   </xsl:if>
                   <xsl:apply-templates select="."/>
@@ -1101,7 +1085,8 @@
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
                   <xsl:for-each select="/codeBook/stdyDscr/stdyInfo/subject/topcClas">
-                    <xsl:if test="position()&gt;1">, </xsl:if>
+                    <!-- <xsl:if test="position()&gt;1">, </xsl:if> -->
+                    <xsl:value-of select="if (position() &gt; 1) then ', ' else ()"/>                    
                     <xsl:value-of select="normalize-space(.)"/>
                   </xsl:for-each>
                 </fo:block>
@@ -1727,11 +1712,7 @@
 
       <!-- number of files in data set -->
       <fo:block font-weight="bold">
-        <xsl:value-of select="$i18n-Dataset_contains"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="count(/codeBook/fileDscr)"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="$i18n-files"/>
+        <xsl:value-of select="string-join(($i18n-Dataset_contains, ' ', xs:string(count(/codeBook/fileDscr)), ' ', $i18n-files), '') "/>
       </fo:block>
 
       <!-- fileDscr -->
@@ -1764,12 +1745,16 @@
       </fo:block>
 
       <!-- number of groups in data set -->
+      <!-- <fo:block font-weight="bold">
+        <xsl:value-of select="$i18n-Dataset_contains" />
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="count(/codeBook/dataDscr/var)" />
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$i18n-variables" />
+      </fo:block> -->
+      
       <fo:block font-weight="bold">
-        <xsl:value-of select="$i18n-Dataset_contains"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="count(/codeBook/dataDscr/var)"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="$i18n-variables"/>
+        <xsl:value-of select="string-join(($i18n-Dataset_contains, ' ', xs:string(count(/codeBook/dataDscr/var)), ' ', $i18n-variables), '') "/>       
       </fo:block>
 
       <!-- the actual tables -->
@@ -1801,15 +1786,11 @@
         <xsl:value-of select="$i18n-Variables_Groups"/>
       </fo:block>
 
-      <!-- number of variable groups in data set -->
+      <!-- number of variable groups in data set -->      
       <fo:block font-weight="bold">
-        <xsl:value-of select="$i18n-Dataset_contains"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="count(/codeBook/dataDscr/varGrp)"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="$i18n-groups"/>
+        <xsl:value-of select="string-join(($i18n-Dataset_contains, ' ', xs:string(count(/codeBook/dataDscr/varGrp)), ' ', $i18n-groups), '') "/>       
       </fo:block>
-
+      
       <!-- the actual variable groups table -->
       <xsl:apply-templates select="/codeBook/dataDscr/varGrp"/>
 
@@ -1840,12 +1821,16 @@
       </fo:block>
 
       <!-- number of variables in data set -->
+      <!-- <fo:block font-weight="bold">
+        <xsl:value-of select="$i18n-Dataset_contains" />
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="count(/codeBook/dataDscr/var)" />
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$i18n-variables" />
+      </fo:block> -->
+
       <fo:block font-weight="bold">
-        <xsl:value-of select="$i18n-Dataset_contains"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="count(/codeBook/dataDscr/var)"/>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="$i18n-variables"/>
+        <xsl:value-of select="string-join(($i18n-Dataset_contains, ' ', xs:string(count(/codeBook/dataDscr/var)), ' ', $i18n-variables), '') "/>       
       </fo:block>
 
     </fo:flow>
@@ -1861,31 +1846,30 @@
   <!-- AuthEntry.xsl --><!-- ========================= --><!-- match: AuthEnty       --><!-- value: <fo:block>         --><!-- ========================= --><!-- functions: --><!-- util:trim() [local] --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="AuthEnty" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/AuthEnty.xsl">
 
   <fo:block>
-    
-    <xsl:value-of select="util:trim(.)"/>
-
-    <!-- affiliation -->
-    <xsl:if test="@affiliation">,
-      <xsl:value-of select="@affiliation"/>
-    </xsl:if>
-
+    <xsl:value-of select="util:trim(.)"/>    
+    <xsl:value-of select="if (@affiliation) then @affiliation else () "/>
   </fo:block>
+
 </xsl:template>
   <!-- collDate.xsl --><!-- ============================ --><!-- match: collDate              --><!-- value: <fo:block>            --><!-- ============================ --><xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" match="collDate" xpath-default-namespace="http://www.icpsr.umich.edu/DDI" xml:base="templates/match/ddi/collDate.xsl">
 
     <fo:block>
 
       <!-- cycle -->
-      <xsl:if test="@cycle">
+      <!-- <xsl:if test="@cycle">
         <xsl:value-of select="@cycle"/>
         <xsl:text>: </xsl:text>
-      </xsl:if>
+      </xsl:if> -->
+      
+      <xsl:value-of select="if (@cycle) then string-join((@cycle, ': '), '') else () "/>
 
       <!-- event -->
-      <xsl:if test="@event">
+      <!-- <xsl:if test="@event">
         <xsl:value-of select="@event"/>
         <xsl:text> </xsl:text>
-      </xsl:if>
+      </xsl:if> -->
+      
+      <xsl:value-of select="if (@event) then string-join((@event, ' '), '') else () "/>
 
       <!-- date -->
       <xsl:value-of select="@date"/>
@@ -1900,11 +1884,13 @@
       <xsl:value-of select="."/>
 
       <!-- affiliation -->
-      <xsl:if test="@affiliation">
+      <!-- <xsl:if test="@affiliation">
         <xsl:text>(</xsl:text>
         <xsl:value-of select="@affiliation"/>
         <xsl:text>)</xsl:text>
-      </xsl:if>
+      </xsl:if> -->
+      
+      <xsl:value-of select="if (@affiliation) then                               string-join(('(', @affiliation, ')'), '')                             else () "/>
 
       <!-- URI -->
       <xsl:if test="@URI"> ,
@@ -1929,16 +1915,20 @@
     <xsl:value-of select="util:trim(.)"/>
 
     <!-- abbr -->
-    <xsl:if test="@abbr">
+    <!-- <xsl:if test="@abbr">
       <xsl:text>(</xsl:text>
       <xsl:value-of select="@abbr"/>
       <xsl:text>)</xsl:text>
-    </xsl:if>
+    </xsl:if> -->
+
+    <xsl:value-of select="if (@abbr) then                             string-join(('(', @abbr, ')'), '')                           else () "/>
 
     <!-- affiliation -->
-    <xsl:if test="@affiliation"> ,
-      <xsl:value-of select="@affiliation"/>
-    </xsl:if>
+    <!-- <xsl:if test="@affiliation"> ,
+      <xsl:value-of select="@affiliation" />
+    </xsl:if> -->
+
+    <xsl:value-of select="if (@affiliation) then @affiliation else () "/>
 
   </fo:block>
 
@@ -1948,7 +1938,7 @@
     <!-- ===================== -->
     <!-- variables             -->
     <!-- ===================== -->
-    <xsl:variable name="fileId">
+    <!-- <xsl:variable name="fileId">
       <xsl:choose>
 
         <xsl:when test="fileTxt/fileName/@ID">
@@ -1960,7 +1950,9 @@
         </xsl:when>
 
       </xsl:choose>
-    </xsl:variable>
+    </xsl:variable> -->
+
+    <xsl:variable name="fileId" select="if (fileTxt/fileName/@ID) then                 fileTxt/fileName/@ID               else if (@ID) then                 @ID               else () "/>
 
     <!-- =================== -->
     <!-- content             -->
@@ -2149,7 +2141,7 @@
     </xsl:choose>
   </xsl:variable> -->
   
-  <xsl:variable name="fileId" select="if (fileTxt/fileName/@ID) then               fileTxt/fileName/@ID             else if (@ID) then               @ID             else               () "/>
+  <xsl:variable name="fileId" select="if (fileTxt/fileName/@ID) then               fileTxt/fileName/@ID             else if (@ID) then               @ID             else () "/>
   
   <xsl:variable name="fileName" select="fileTxt/fileName"/>
   
@@ -3181,7 +3173,7 @@
   <!-- ======= -->  
   <fo:static-content flow-name="before">
     <fo:block font-size="{$header-font-size}" text-align="center">
-      <xsl:value-of select="string-join( (/codeBook/stdyDscr/citation/titlStmt/titl, ' - ', $section_name), '') "/>   
+      <xsl:value-of select="string-join((/codeBook/stdyDscr/citation/titlStmt/titl, ' - ', $section_name), '') "/>   
     </fo:block>
   </fo:static-content>  
 
@@ -3360,16 +3352,22 @@
       <xsl:when test="translate(substring($s, $i, 1), ' &#9;&#10;&#13;', '')">
         <xsl:value-of select="substring($s, 1, $i)"/>
       </xsl:when>
-
       <!-- case: string less than 2 (do nothing) -->
       <xsl:when test="$i &lt; 2"/>
-
       <!-- recurse -->
       <xsl:otherwise>
         <xsl:value-of select="util:rtrim($s, $i - 1)"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
+
+  <!-- <xsl:variable name="tmp"
+    select="if (translate(substring($s, $i, 1), ' &#x9;&#xA;&#xD;', '')) then
+              substring($s, 1, $i)
+            (: case: string less than 2 (do nothing) :)
+            else if ($1 &lt; 2) then ()
+            (: recurse :)
+            else util:rtrim($s, $i - 1) " /> -->
 
   <!-- ======= -->
   <!-- content -->

@@ -34,16 +34,22 @@
       <xsl:when test="translate(substring($s, $i, 1), ' &#x9;&#xA;&#xD;', '')">
         <xsl:value-of select="substring($s, 1, $i)" />
       </xsl:when>
-
       <!-- case: string less than 2 (do nothing) -->
       <xsl:when test="$i &lt; 2" />
-
       <!-- recurse -->
       <xsl:otherwise>
         <xsl:value-of select="util:rtrim($s, $i - 1)" />
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
+
+  <!-- <xsl:variable name="tmp"
+    select="if (translate(substring($s, $i, 1), ' &#x9;&#xA;&#xD;', '')) then
+              substring($s, 1, $i)
+            (: case: string less than 2 (do nothing) :)
+            else if ($1 &lt; 2) then ()
+            (: recurse :)
+            else util:rtrim($s, $i - 1) " /> -->
 
   <!-- ======= -->
   <!-- content -->

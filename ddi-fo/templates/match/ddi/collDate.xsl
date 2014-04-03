@@ -13,16 +13,20 @@
     <fo:block>
 
       <!-- cycle -->
-      <xsl:if test="@cycle">
+      <!-- <xsl:if test="@cycle">
         <xsl:value-of select="@cycle"/>
         <xsl:text>: </xsl:text>
-      </xsl:if>
+      </xsl:if> -->
+      
+      <xsl:value-of select="if (@cycle) then string-join((@cycle, ': '), '') else () "/>
 
       <!-- event -->
-      <xsl:if test="@event">
+      <!-- <xsl:if test="@event">
         <xsl:value-of select="@event"/>
         <xsl:text> </xsl:text>
-      </xsl:if>
+      </xsl:if> -->
+      
+      <xsl:value-of select="if (@event) then string-join((@event, ' '), '') else () "/>
 
       <!-- date -->
       <xsl:value-of select="@date"/>

@@ -41,11 +41,7 @@
 
       <!-- number of files in data set -->
       <fo:block font-weight="bold">
-        <xsl:value-of select="$i18n-Dataset_contains" />
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="count(/codeBook/fileDscr)" />
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="$i18n-files" />
+        <xsl:value-of select="string-join(($i18n-Dataset_contains, ' ', xs:string(count(/codeBook/fileDscr)), ' ', $i18n-files), '') "/>
       </fo:block>
 
       <!-- fileDscr -->

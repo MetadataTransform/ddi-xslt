@@ -18,11 +18,15 @@
       <xsl:value-of select="." />
 
       <!-- affiliation -->
-      <xsl:if test="@affiliation">
+      <!-- <xsl:if test="@affiliation">
         <xsl:text>(</xsl:text>
         <xsl:value-of select="@affiliation"/>
         <xsl:text>)</xsl:text>
-      </xsl:if>
+      </xsl:if> -->
+      
+      <xsl:value-of select="if (@affiliation) then
+                              string-join(('(', @affiliation, ')'), '')
+                            else () "/>
 
       <!-- URI -->
       <xsl:if test="@URI"> ,

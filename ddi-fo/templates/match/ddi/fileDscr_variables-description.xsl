@@ -41,8 +41,7 @@
               fileTxt/fileName/@ID
             else if (@ID) then
               @ID
-            else
-              () "/>
+            else () "/>
   
   <xsl:variable name="fileName" select="fileTxt/fileName"/>
   

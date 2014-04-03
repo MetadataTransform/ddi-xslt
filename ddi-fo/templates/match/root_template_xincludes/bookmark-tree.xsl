@@ -109,7 +109,7 @@
         </xsl:if>
 
         <!-- Accessibility -->
-        <xsl:if test="$show-accessibility= 'True'">
+        <xsl:if test="$show-accessibility = 'True'">
           <fo:bookmark internal-destination="accessibility">
             <fo:bookmark-title>
               <xsl:value-of select="$i18n-Accessibility" />
@@ -182,7 +182,7 @@
     </xsl:if>
 
     <!-- Variables_Description -->
-    <xsl:if test="$show-variables-description= 'True'">
+    <xsl:if test="$show-variables-description = 'True'">
       <fo:bookmark internal-destination="variables-description">
         <fo:bookmark-title>
           <xsl:value-of select="$i18n-Variables_Description" />
@@ -194,25 +194,20 @@
               <xsl:apply-templates select="fileTxt/fileName" />
             </fo:bookmark-title>
 
-            <xsl:variable name="fileId">
-              <xsl:choose>
-                <xsl:when test="fileTxt/fileName/@ID">
-                  <xsl:value-of select="fileTxt/fileName/@ID" />
-                </xsl:when>
-                <xsl:when test="@ID">
-                  <xsl:value-of select="@ID"/>
-                </xsl:when>
-              </xsl:choose>
-            </xsl:variable>
+            <xsl:variable name="fileId"
+              select="if (fileTxt/fileName/@ID) then fileTxt/fileName/@ID
+                      else if (@ID) then @ID
+                      else () " />
 
             <xsl:for-each select="/codeBook/dataDscr/var[@files=$fileId]">
                 <fo:bookmark internal-destination="var-{@ID}">
                   <fo:bookmark-title>
                     <xsl:apply-templates select="@name" />
-                    <xsl:if test="normalize-space(labl)">
-                      <xsl:text>: </xsl:text>                      
-                      <xsl:value-of select="util:trim(labl)" />                      
-                    </xsl:if>
+
+                    <xsl:value-of select="if (normalize-space(labl)) then
+                                            string-join((': ', util:trim(labl)), '')
+                                          else () "/>
+
                   </fo:bookmark-title>
                 </fo:bookmark>            
             </xsl:for-each>
