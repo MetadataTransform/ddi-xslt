@@ -43,7 +43,8 @@
       
       <!-- Title -->
       <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="2.5mm">
-        <xsl:value-of select="$i18n-Metadata_Production" />
+        <!-- <xsl:value-of select="$i18n-Metadata_Production" /> -->
+        <xsl:value-of select="i18n:get('Metadata_Production')"/>
       </fo:block>
       
       <fo:table table-layout="fixed" width="100%" space-before="0.0in" space-after="5mm">
@@ -57,7 +58,8 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Metadata_Producers"/>
+                  <!-- <xsl:value-of select="$i18n-Metadata_Producers"/> -->
+                  <xsl:value-of select="i18n:get('Metadata_Producers')"/>
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -71,7 +73,8 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Production_Date"/>
+                  <!-- <xsl:value-of select="$i18n-Production_Date"/> -->
+                  <xsl:value-of select="i18n:get('Production_Date')"/>
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -101,7 +104,8 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Identification"/>
+                  <!-- <xsl:value-of select="$i18n-Identification"/> -->
+                  <xsl:value-of select="i18n:get('Identification')"/>
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">

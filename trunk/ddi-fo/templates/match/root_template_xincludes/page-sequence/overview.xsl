@@ -28,7 +28,7 @@
     <!-- =========================================== -->
 
     <xsl:call-template name="page_header">
-      <xsl:with-param name="section_name" select="$i18n-Overview" />
+      <xsl:with-param name="section_name" select="i18n:get('Overview')" />
     </xsl:call-template>
 
     <xsl:call-template name="page_footer" />
@@ -75,7 +75,7 @@
           <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block id="overview" font-size="12pt" font-weight="bold">
-                <xsl:value-of select="$i18n-Overview" />
+                <xsl:value-of select="i18n:get('Overview')" />
               </fo:block>
             </fo:table-cell>
           </fo:table-row>
@@ -85,7 +85,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Type" />                 
+                  <xsl:value-of select="i18n:get('Type')" />                 
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -99,7 +99,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Identification" />
+                  <xsl:value-of select="i18n:get('Identification')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -113,7 +113,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Version" />
+                  <xsl:value-of select="i18n:get('Version')" />
                 </fo:block>
               </fo:table-cell>
 
@@ -122,11 +122,8 @@
                 <!-- Production_Date -->
                 <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/version">
                   <xsl:if test="@date">
-                    <fo:block>
-                      <!-- <xsl:value-of select="$i18n-Production_Date" />:
-                      <xsl:value-of select="@date" /> -->
-                      
-                      <xsl:value-of select="string-join(($i18n-Production_Date, @date), '')" />
+                    <fo:block>                      
+                      <xsl:value-of select="string-join((i18n:get('Production_Date'), @date), '')" />
                     </fo:block>
                   </xsl:if>
                   <xsl:apply-templates select="." />
@@ -135,7 +132,7 @@
                 <!-- Notes -->
                 <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/notes">
                   <fo:block text-decoration="underline">
-                    <xsl:value-of select="$i18n-Notes" />
+                    <xsl:value-of select="i18n:get('Notes')" />
                   </fo:block>
                   <xsl:apply-templates select="." />
                 </xsl:for-each>
@@ -149,7 +146,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                   <xsl:value-of select="$i18n-Series" />
+                   <xsl:value-of select="i18n:get('Series')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -163,7 +160,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Abstract"/>
+                  <xsl:value-of select="i18n:get('Abstract')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/abstract" />
               </fo:table-cell>
@@ -175,7 +172,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Kind_of_Data" />
+                  <xsl:value-of select="i18n:get('Kind_of_Data')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -189,7 +186,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Unit_of_Analysis" />
+                  <xsl:value-of select="i18n:get('Unit_of_Analysis')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -213,7 +210,7 @@
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="scope-and-coverage" font-size="12pt" font-weight="bold">
-                  <xsl:value-of select="$i18n-Scope_and_Coverage" />
+                  <xsl:value-of select="i18n:get('Scope_and_Coverage')" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
@@ -224,7 +221,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                   <xsl:value-of select="$i18n-Scope"/>
+                  <xsl:value-of select="i18n:get('Scope')"/>
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/notes" />
               </fo:table-cell>
@@ -236,13 +233,13 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                   <xsl:value-of select="$i18n-Keywords" />
+                  <xsl:value-of select="i18n:get('Keywords')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
                   <xsl:for-each select="/codeBook/stdyDscr/stdyInfo/subject/keyword">
-                    <xsl:if test="position()&gt;1">, </xsl:if>
+                    <xsl:if test="position() &gt; 1">, </xsl:if>
                     <xsl:value-of select="normalize-space(.)" />
                   </xsl:for-each>
                 </fo:block>
@@ -255,13 +252,12 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Topics"/>
+                  <xsl:value-of select="i18n:get('Topics')"/>
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
                   <xsl:for-each select="/codeBook/stdyDscr/stdyInfo/subject/topcClas">
-                    <!-- <xsl:if test="position()&gt;1">, </xsl:if> -->
                     <xsl:value-of select="if (position() > 1) then ', ' else ()"  />                    
                     <xsl:value-of select="normalize-space(.)" />
                   </xsl:for-each>
@@ -271,11 +267,11 @@
           </xsl:if>
 
           <!-- Time_Periods -->
-          <xsl:if version="1.0" test="string-length($time) &gt; 3 or string-length($time-produced) &gt; 3">
+          <xsl:if version="2.0" test="string-length($time) &gt; 3 or string-length($time-produced) &gt; 3">
             <fo:table-row>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Time_Periods" />
+                  <xsl:value-of select="i18n:get('Time_Periods')" />
                 </fo:block>
               </fo:table-cell>
 
@@ -300,7 +296,7 @@
           <fo:table-row>
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$i18n-Countries" />
+                <xsl:value-of select="i18n:get('Countries')" />
               </fo:block>
             </fo:table-cell>
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -315,7 +311,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Geographic_Coverage" />
+                  <xsl:value-of select="i18n:get('Geographic_Coverage')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/geogCover" />
               </fo:table-cell>
@@ -327,7 +323,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Universe" />
+                   <xsl:value-of select="i18n:get('Universe')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/stdyInfo/sumDscr/universe" />
               </fo:table-cell>
@@ -349,7 +345,7 @@
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="producers-and-sponsors" font-size="12pt" font-weight="bold">
-                  <xsl:value-of select="$i18n-Producers_and_Sponsors" />
+                  <xsl:value-of select="i18n:get('Producers_and_Sponsors')" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
@@ -360,7 +356,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Primary_Investigators" />
+                  <xsl:value-of select="i18n:get('Primary_Investigators')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -374,7 +370,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Other_Producers" />
+                  <xsl:value-of select="i18n:get('Other_Producers')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -388,7 +384,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Funding_Agencies" />
+                  <xsl:value-of select="i18n:get('Funding_Agencies')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -402,7 +398,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Other_Acknowledgements" />
+                  <xsl:value-of select="i18n:get('Other_Acknowledgements')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -426,7 +422,7 @@
             <fo:table-row background-color="{$color-gray1}">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="sampling" font-size="12pt" font-weight="bold">
-                  <xsl:value-of select="$i18n-Sampling" />
+                  <xsl:value-of select="i18n:get('Sampling')" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
@@ -437,7 +433,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Sampling_Procedure" />
+                  <xsl:value-of select="i18n:get('Sampling_Procedure')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/sampProc" />
               </fo:table-cell>
@@ -449,7 +445,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Deviations_from_Sample_Design" />
+                  <xsl:value-of select="i18n:get('Deviations_from_Sample_Design')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/deviat" />
               </fo:table-cell>
@@ -461,7 +457,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Response_Rate" />
+                  <xsl:value-of select="i18n:get('Response_Rate')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/method/anlyInfo/respRate" />
               </fo:table-cell>
@@ -473,7 +469,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Weighting" />
+                  <xsl:value-of select="i18n:get('Weighting')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/weight" />
               </fo:table-cell>
@@ -495,7 +491,7 @@
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="data-collection" font-size="12pt" font-weight="bold">
-                   <xsl:value-of select="$i18n-Data_Collection" />
+                  <xsl:value-of select="i18n:get('Data_Collection')" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
@@ -506,7 +502,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Data_Collection_Dates" />
+                  <xsl:value-of select="i18n:get('Data_Collection_Dates')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -520,7 +516,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Time_Periods" />
+                  <xsl:value-of select="i18n:get('Time_Periods')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -534,7 +530,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                   <xsl:value-of select="$i18n-Data_Collection_Mode" />
+                  <xsl:value-of select="i18n:get('Data_Collection_Mode')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -544,37 +540,37 @@
           </xsl:if>
 
           <!-- Data Collection Notes -->
-          <xsl:if test="/codeBook/stdyDscr/method/notes[@subject='collection']">
+          <xsl:if test="/codeBook/stdyDscr/method/notes[@subject = 'collection']">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Data_Collection_Notes" />
+                  <xsl:value-of select="i18n:get('Data_Collection_Notes')" />
                 </fo:block>
-                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject='collection']" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject = 'collection']" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data Processing Notes -->
-          <xsl:if test="/codeBook/stdyDscr/method/notes[@subject='processing']">
+          <xsl:if test="/codeBook/stdyDscr/method/notes[@subject = 'processing']">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                   <xsl:value-of select="$i18n-Data_Processing_Notes" />
+                   <xsl:value-of select="i18n:get('Data_Processing_Notes')" />
                 </fo:block>
-                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject='collection']" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject = 'collection']" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
 
           <!-- Data Cleaning Notes -->
-          <xsl:if test="/codeBook/stdyDscr/method/notes[@subject='cleaning']">
+          <xsl:if test="/codeBook/stdyDscr/method/notes[@subject = 'cleaning']">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Data_Cleaning_Notes" />
+                  <xsl:value-of select="i18n:get('Data_Cleaning_Notes')" />
                 </fo:block>
-                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject='collection']" />
+                <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject = 'collection']" />
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
@@ -584,7 +580,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                   <xsl:value-of select="$i18n-Data_Collection_Notes" />
+                   <xsl:value-of select="i18n:get('Data_Collection_Notes')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/collSitu" />
               </fo:table-cell>
@@ -596,7 +592,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Questionnaires" />
+                  <xsl:value-of select="i18n:get('Questionnaires')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/resInstru" />
               </fo:table-cell>
@@ -608,7 +604,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Data_Collectors" />
+                  <xsl:value-of select="i18n:get('Data_Collectors')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -622,7 +618,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Supervision" />
+                  <xsl:value-of select="i18n:get('Supervision')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/actMin" />
               </fo:table-cell>
@@ -644,7 +640,7 @@
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="data-processing-and-appraisal" font-size="12pt" font-weight="bold">
-                  <xsl:value-of select="i18n-Data_Processing_and_Appraisal" />
+                  <xsl:value-of select="i18n:get('Data_Processing_and_Appraisal')" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
@@ -655,7 +651,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Data_Editing" />
+                  <xsl:value-of select="i18n:get('Data_Editing')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/method/dataColl/cleanOps" />
               </fo:table-cell>
@@ -667,7 +663,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Other_Processing" />
+                  <xsl:value-of select="i18n:get('Other_Processing')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/method/notes" />
               </fo:table-cell>
@@ -679,7 +675,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Estimates_of_Sampling_Error" />
+                  <xsl:value-of select="i18n:get('Estimates_of_Sampling_Error')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/method/anlyInfo/EstSmpErr" />
               </fo:table-cell>
@@ -691,7 +687,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                   <xsl:value-of select="$i18n-Other_Forms_of_Data_Appraisal" />
+                   <xsl:value-of select="i18n:get('Other_Forms_of_Data_Appraisal')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/method/anlyInfo/dataAppr" />
               </fo:table-cell>
@@ -713,7 +709,7 @@
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="accessibility" font-size="12pt" font-weight="bold">
-                  <xsl:value-of select="$i18n-Accessibility" />
+                  <xsl:value-of select="i18n:get('Accessibility')" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
@@ -724,7 +720,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Access_Authority" />
+                  <xsl:value-of select="i18n:get('Access_Authority')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -738,7 +734,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                   <xsl:value-of select="$i18n-Contacts"/>
+                   <xsl:value-of select="i18n:get('Contacts')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -752,7 +748,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Distributors" />
+                  <xsl:value-of select="i18n:get('Distributors')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -766,7 +762,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Depositors" />
+                  <xsl:value-of select="i18n:get('Depositors')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
@@ -780,7 +776,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Confidentiality"/>
+                  <xsl:value-of select="i18n:get('Confidentiality')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/confDec" />
               </fo:table-cell>
@@ -792,7 +788,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Access_Conditions" />
+                  <xsl:value-of select="i18n:get('Access_Conditions')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/conditions" />
               </fo:table-cell>
@@ -804,7 +800,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                   <xsl:value-of select="$i18n-Citation_Requirements" />
+                   <xsl:value-of select="i18n:get('Citation_Requirements')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/citReq" />
               </fo:table-cell>
@@ -826,7 +822,7 @@
             <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block id="rights-and-disclaimer" font-size="12pt" font-weight="bold">
-                  <xsl:value-of select="$i18n-Rights_and_Disclaimer" />
+                  <xsl:value-of select="i18n:get('Rights_and_Disclaimer')" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
@@ -837,7 +833,7 @@
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold" text-decoration="underline">
-                  <xsl:value-of select="$i18n-Disclaimer" />
+                  <xsl:value-of select="i18n:get('Disclaimer')" />
                 </fo:block>
                 <xsl:apply-templates select="/codeBook/stdyDscr/dataAccs/useStmt/disclaimer" />
               </fo:table-cell>
@@ -849,7 +845,7 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Copyright" />
+                  <xsl:value-of select="i18n:get('Copyright')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$default-border}" padding="{$cell-padding}">

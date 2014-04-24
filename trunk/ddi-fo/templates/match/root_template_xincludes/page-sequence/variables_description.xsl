@@ -24,7 +24,7 @@
     <!-- page header                                 -->
     <!-- =========================================== -->
     <xsl:call-template name="page_header">
-      <xsl:with-param name="section_name" select="$i18n-Variables_Description" />
+      <xsl:with-param name="section_name" select="i18n:get('Variables_Description')" />
     </xsl:call-template>
 
     <xsl:call-template name="page_footer" />
@@ -37,7 +37,7 @@
       <!-- heading -->
       <fo:block id="variables-description" font-size="18pt"
                 font-weight="bold" space-after="2.5mm">
-        <xsl:value-of select="$i18n-Variables_Description" />
+        <xsl:value-of select="i18n:get('Variables_Description')" />
       </fo:block>
 
       <!-- number of variables in data set -->
@@ -50,7 +50,7 @@
       </fo:block> -->
 
       <fo:block font-weight="bold">
-        <xsl:value-of select="string-join(($i18n-Dataset_contains, ' ', xs:string(count(/codeBook/dataDscr/var)), ' ', $i18n-variables), '') "/>       
+        <xsl:value-of select="string-join((i18n:get('Dataset_contains'), ' ', xs:string(count(/codeBook/dataDscr/var)), ' ', i18n:get('variables')), '') "/>       
       </fo:block>
 
     </fo:flow>

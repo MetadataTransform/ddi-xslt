@@ -6,7 +6,7 @@
 <!-- =========================================== -->
 
 <!-- read: -->
-<!-- $strings, $chunk-size, $font-family, $default-border -->
+<!-- $chunk-size, $font-family, $default-border -->
 
 <!-- set: -->
 <!-- $fileId, $fileName -->
@@ -69,18 +69,18 @@
         <!--	 (only written if at the start of file -->
         <xsl:if test="position() = 1">
           <fo:table id="vardesc-{$fileId}" table-layout="fixed" width="100%" font-size="8pt">
-            <fo:table-column column-width="proportional-column-width(100)"/> <!-- column width -->
+            <fo:table-column column-width="proportional-column-width(100)" /> <!-- column width -->
             
             <!-- [fo:table-header] -->
-            <fo:table-header space-after="0.2in">
+            <fo:table-header space-after="5mm">
               
               <!-- [fo:table-row] File identification -->
               <fo:table-row text-align="center" vertical-align="top">
                 <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                   <fo:block font-size="14pt" font-weight="bold">
-                    <xsl:value-of select="$i18n-File" />
+                    <xsl:value-of select="i18n:get('File')" />
                     <xsl:text> : </xsl:text>
-                    <xsl:apply-templates select="$fileName"/>
+                    <xsl:apply-templates select="$fileName" />
                   </fo:block>
                 </fo:table-cell>
               </fo:table-row>

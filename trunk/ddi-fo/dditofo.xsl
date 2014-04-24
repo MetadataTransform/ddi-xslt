@@ -84,12 +84,13 @@
                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
                xmlns:fn="http://www.w3.org/2005/xpath-functions"
-               xmlns:util="https://code.google.com/p/ddixslt/#util">
+               xmlns:util="https://code.google.com/p/ddixslt/#util"
+               xmlns:i18n="https://code.google.com/p/ddixslt/#i18n">
 
   <xsl:output method="xml"
               encoding="UTF-8"
               indent="yes"
-              omit-xml-declaration="no"/>
+              omit-xml-declaration="no" />
 
   <!-- functions: -->
   <!-- count(), normalize-space(), position(), substring() [Xpath 1.0] -->
@@ -207,7 +208,7 @@
   <!-- year-from - the first data collection mode element with a 'start' event -->
   <xsl:variable name="year-from"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-    select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event='start'][1]/@date, 1, 4)" />
+    select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event = 'start'][1]/@date, 1, 4)" />
   
   <!-- year to is the last data collection mode element with an 'end' event -->
   <xsl:variable name="year-to-count" 
@@ -318,7 +319,7 @@
   <xsl:variable name="strings" select="document($translations-file)" />
 
   <!-- put i18n strings in separate variables -->
-  <xsl:variable name="i18n-Abstract" select="$strings/*/entry[@key='Abstract']" />
+  <!-- <xsl:variable name="i18n-Abstract" select="$strings/*/entry[@key='Abstract']" />
   <xsl:variable name="i18n-Abbrev_NotWeighted" select="$strings/*/entry[@key='Abbrev_NotWeighted']" />
   <xsl:variable name="i18n-Abbrev_Weighted" select="$strings/*/entry[@key='Abbrev_Weighted']" />
   <xsl:variable name="i18n-Accessibility" select="$strings/*/entry[@key='Accessibility']" />
@@ -429,7 +430,7 @@
   <xsl:variable name="i18n-Variables_Description" select="$strings/*/entry[@key='Variables_Description']" />
   <xsl:variable name="i18n-Version" select="$strings/*/entry[@key='Version']" />
   <xsl:variable name="i18n-Weighted" select="$strings/*/entry[@key='Weighted']" />
-  <xsl:variable name="i18n-Weighting" select="$strings/*/entry[@key='Weighting']" />
+  <xsl:variable name="i18n-Weighting" select="$strings/*/entry[@key='Weighting']" /> -->
 
 
   <!-- #################################################### -->
@@ -472,5 +473,6 @@
   <xi:include href="functions/util/trim.xsl" />
   <xi:include href="functions/util/rtrim.xsl" />
   <xi:include href="functions/util/math_max.xsl" />
-
+  <xi:include href="functions/i18n/get.xsl" />
+    
 </xsl:transform>

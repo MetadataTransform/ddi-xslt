@@ -31,7 +31,7 @@
       <fo:table-row>
         <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
           <fo:block font-size="12pt" font-weight="bold">
-            <xsl:value-of select="normalize-space(labl)"/>
+            <xsl:value-of select="normalize-space(labl)" />
           </fo:block>
         </fo:table-cell>
       </fo:table-row>
@@ -40,7 +40,7 @@
       <xsl:for-each select="txt">
         <fo:table-row>
           <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
-            <xsl:apply-templates select="."/>
+            <xsl:apply-templates select="." />
           </fo:table-cell>
         </fo:table-row>
       </xsl:for-each>
@@ -50,9 +50,9 @@
         <fo:table-row>
           <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
             <fo:block font-weight="bold" text-decoration="underline">
-              <xsl:value-of select="$i18n-Definition" />
+              <xsl:value-of select="i18n:get('Definition')" />
             </fo:block>
-            <xsl:apply-templates select="."/>
+            <xsl:apply-templates select="." />
           </fo:table-cell>
         </fo:table-row>
       </xsl:for-each>
@@ -62,7 +62,7 @@
         <fo:table-row>
           <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
             <fo:block font-weight="bold" text-decoration="underline">
-              <xsl:value-of select="$i18n-Universe" />
+              <xsl:value-of select="i18n:get('Universe')" />
             </fo:block>
             <xsl:apply-templates select="." />
           </fo:table-cell>
@@ -74,9 +74,9 @@
         <fo:table-row>
           <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
             <fo:block font-weight="bold" text-decoration="underline">
-              <xsl:value-of select="$i18n-Notes" />
+              <xsl:value-of select="i18n:get('Notes')" />
             </fo:block>
-            <xsl:apply-templates select="."/>
+            <xsl:apply-templates select="." />
           </fo:table-cell>
         </fo:table-row>
       </xsl:for-each>
@@ -86,20 +86,20 @@
         <fo:table-row>
           <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
             <fo:block>
-              <xsl:value-of select="$i18n-Subgroups" />
+              <xsl:value-of select="i18n:get('Subgroups')" />
             </fo:block>
           </fo:table-cell>
           <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
             <fo:block>
               <!-- loop over groups in codeBook that are in this sequence -->
-              <xsl:variable name="list" select="concat(./@varGrp,' ')"/>
+              <xsl:variable name="list" select="concat(./@varGrp,' ')" />
               <!-- add a space at the end of the list for matching purposes -->
               <xsl:for-each select="/codeBook/dataDscr/varGrp[contains($list, concat(@ID,' '))]">
                 <!-- add a space to the ID to avoid partial match -->
                 <xsl:if test="position() &gt; 1">
                   <xsl:text>,</xsl:text>
                 </xsl:if>
-                <xsl:value-of select="./labl"/>
+                <xsl:value-of select="./labl" />
               </xsl:for-each>
             </fo:block>
           </fo:table-cell>
@@ -137,21 +137,21 @@
           <!-- Name -->
           <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
             <fo:block>
-              <xsl:value-of select="$i18n-Name" />
+              <xsl:value-of select="i18n:get('Name')" />
             </fo:block>
           </fo:table-cell>
           
           <!-- Label -->
           <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
             <fo:block>
-              <xsl:value-of select="$i18n-Label" />
+              <xsl:value-of select="i18n:get('Label')" />
             </fo:block>
           </fo:table-cell>
           
           <!-- Question -->
           <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
             <fo:block>
-              <xsl:value-of select="$i18n-Question" />
+              <xsl:value-of select="i18n:get('Question')" />
             </fo:block>
           </fo:table-cell>         
           
