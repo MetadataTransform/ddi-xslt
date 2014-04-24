@@ -24,18 +24,7 @@
   <!-- variables          -->
   <!-- ================== -->
   
-  <!-- fileName ID attribute / ID attribute -->
-  <!-- <xsl:variable name="fileId">
-    <xsl:choose>
-      <xsl:when test="fileTxt/fileName/@ID">
-        <xsl:value-of select="fileTxt/fileName/@ID"/>
-      </xsl:when>
-      <xsl:when test="@ID">
-        <xsl:value-of select="@ID"/>
-      </xsl:when>
-    </xsl:choose>
-  </xsl:variable> -->
-  
+  <!-- fileName ID attribute / ID attribute -->  
   <xsl:variable name="fileId"
     select="if (fileTxt/fileName/@ID) then
               fileTxt/fileName/@ID

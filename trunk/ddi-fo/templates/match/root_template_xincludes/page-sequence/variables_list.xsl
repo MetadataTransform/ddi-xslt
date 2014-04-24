@@ -36,15 +36,13 @@
     <fo:flow flow-name="body">
 
       <!-- Heading -->
-      <fo:block id="variables-list" font-size="18pt"
-                font-weight="bold" space-after="2.5mm">
-        <xsl:value-of select="i18n:get('Variables_List')" />
-        
+      <fo:block id="variables-list" font-size="18pt" font-weight="bold" space-after="2.5mm">
+        <xsl:value-of select="i18n:get('Variables_List')" />        
       </fo:block>
 
       <!-- number of groups in data set -->      
       <fo:block font-weight="bold">
-        <xsl:value-of select="string-join((i18n:get('Dataset_contains'), ' ', xs:string(count(/codeBook/dataDscr/var)), ' ', i18n:get('variables')), '') "/>       
+        <xsl:value-of select="concat(i18n:get('Dataset_contains'), ' ', xs:string(count(/codeBook/dataDscr/var)), ' ', i18n:get('variables')) "/>       
       </fo:block>
 
       <!-- the actual tables -->

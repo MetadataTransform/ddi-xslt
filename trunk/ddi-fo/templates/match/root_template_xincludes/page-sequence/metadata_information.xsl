@@ -6,7 +6,7 @@
 <!-- ================================================= -->
 
 <!-- read: -->
-<!-- $strings, $font-family -->
+<!-- $font-family -->
 <!-- $default-border, $cell-padding -->
 
 <!-- functions: -->
@@ -43,7 +43,6 @@
       
       <!-- Title -->
       <fo:block id="metadata-production" font-size="18pt" font-weight="bold" space-after="2.5mm">
-        <!-- <xsl:value-of select="$i18n-Metadata_Production" /> -->
         <xsl:value-of select="i18n:get('Metadata_Production')"/>
       </fo:block>
       
@@ -58,7 +57,6 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <!-- <xsl:value-of select="$i18n-Metadata_Producers"/> -->
                   <xsl:value-of select="i18n:get('Metadata_Producers')"/>
                 </fo:block>
               </fo:table-cell>
@@ -73,7 +71,6 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <!-- <xsl:value-of select="$i18n-Production_Date"/> -->
                   <xsl:value-of select="i18n:get('Production_Date')"/>
                 </fo:block>
               </fo:table-cell>
@@ -104,7 +101,6 @@
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <!-- <xsl:value-of select="$i18n-Identification"/> -->
                   <xsl:value-of select="i18n:get('Identification')"/>
                 </fo:block>
               </fo:table-cell>

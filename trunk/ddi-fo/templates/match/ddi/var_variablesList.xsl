@@ -52,18 +52,14 @@
       <!-- Variable Label -->
       <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
         <fo:block>
-          <xsl:value-of select="if (normalize-space(./labl)) then
-                                  normalize-space(./labl)
-                                else '-' "/>          
+          <xsl:value-of select="if (normalize-space(./labl)) then normalize-space(./labl) else '-' "/>          
         </fo:block>
       </fo:table-cell>
 
       <!-- Variable literal question -->
       <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
         <fo:block>
-          <xsl:value-of select="if (normalize-space(./qstn/qstnLit)) then
-                                  normalize-space(./qstn/qstnLit)
-                                else '-' "/>
+          <xsl:value-of select="if (normalize-space(./qstn/qstnLit)) then normalize-space(./qstn/qstnLit) else '-' "/>
         </fo:block>
       </fo:table-cell>
         

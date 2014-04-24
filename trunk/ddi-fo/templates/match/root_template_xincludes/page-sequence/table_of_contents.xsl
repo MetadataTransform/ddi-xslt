@@ -16,36 +16,34 @@
 <!-- normalize-space(), string-length(), contains(), concat() [xpath 1.0] -->
 
 <xsl:if test="$show-toc = 'True'"
-        xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        xmlns:fo="http://www.w3.org/1999/XSL/Format">
-
+  xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:fo="http://www.w3.org/1999/XSL/Format">
+  
   <fo:page-sequence master-reference="{$page-layout}"
-                    font-family="{$font-family}"
-                    font-size="{$font-size}">
-
+    font-family="{$font-family}"
+    font-size="{$font-size}">
+    
     <fo:flow flow-name="body">
-
+      
       <!-- ====================================== -->
       <!-- TOC heading                            -->
       <!-- ====================================== -->
-
-      <fo:block id="toc" font-size="18pt" font-weight="bold" space-before="12mm"
-                         text-align="center" space-after="2.5mm">
+      
+      <fo:block id="toc" font-size="18pt" font-weight="bold" space-before="12mm" text-align="center" space-after="2.5mm">
         <xsl:value-of select="i18n:get('Table_of_Contents')" />
       </fo:block>
-
-
+      
       <!-- ====================================== -->
       <!-- actual TOC lines                       -->
       <!-- ====================================== -->
-
+      
       <fo:block margin-left="12mm" margin-right="12mm">
-
+        
         <!-- ============ -->
         <!-- Static lines -->
         <!-- ============ -->
-
+        
         <!-- Overview -->
         <xsl:if test="$show-overview = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
@@ -56,7 +54,7 @@
             </fo:basic-link>
           </fo:block>
         </xsl:if>
-
+        
         <!-- Scope and Coverage -->
         <xsl:if test="$show-scope-and-coverage = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
@@ -67,7 +65,7 @@
             </fo:basic-link>
           </fo:block>
         </xsl:if>
-
+        
         <!-- Producers and Sponsors -->
         <xsl:if test="$show-producers-and-sponsors = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
@@ -78,7 +76,7 @@
             </fo:basic-link>
           </fo:block>
         </xsl:if>
-
+        
         <!-- Sampling -->
         <xsl:if test="$show-sampling = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
@@ -89,7 +87,7 @@
             </fo:basic-link>
           </fo:block>
         </xsl:if>
-
+        
         <!-- Data Collection -->
         <xsl:if test="$show-data-collection = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
@@ -100,7 +98,7 @@
             </fo:basic-link>
           </fo:block>
         </xsl:if>
-
+        
         <!-- Data Processing and Appraisal -->
         <xsl:if test="$show-data-processing-and-appraisal = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
@@ -111,7 +109,7 @@
             </fo:basic-link>
           </fo:block>
         </xsl:if>
-
+        
         <!-- Accessibility -->
         <xsl:if test="$show-accessibility = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
@@ -122,7 +120,7 @@
             </fo:basic-link>
           </fo:block>
         </xsl:if>
-
+        
         <!-- Rights and Disclaimer -->
         <xsl:if test="$show-rights-and-disclaimer = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
@@ -133,27 +131,25 @@
             </fo:basic-link>
           </fo:block>
         </xsl:if>
-
-
+        
+        
         <!-- ============= -->
         <!-- Dynamic lines -->
         <!-- ============= -->
-
+        
         <!-- Files Description -->
         <xsl:if test="$show-files-description = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
-
-            <fo:basic-link internal-destination="files-description"
-                           text-decoration="underline" color="blue">
+            
+            <fo:basic-link internal-destination="files-description" text-decoration="underline" color="blue">
               <xsl:value-of select="i18n:get('Files_Description')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="files-description" />
             </fo:basic-link>
-
+            
             <xsl:for-each select="/codeBook/fileDscr">
               <fo:block margin-left="17mm" font-size="{$font-size}" text-align-last="justify">
-                <fo:basic-link internal-destination="file-{fileTxt/fileName/@ID}"
-                               text-decoration="underline" color="blue">
+                <fo:basic-link internal-destination="file-{fileTxt/fileName/@ID}" text-decoration="underline" color="blue">
                   <xsl:apply-templates select="fileTxt/fileName" />
                   <fo:leader leader-pattern="dots" />
                   <fo:page-number-citation ref-id="file-{fileTxt/fileName/@ID}" />
@@ -162,12 +158,11 @@
             </xsl:for-each>
           </fo:block>
         </xsl:if>
-
+        
         <!-- Variables List -->
         <xsl:if test="$show-variables-list = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
-            <fo:basic-link internal-destination="variables-list"
-                           text-decoration="underline" color="blue">
+            <fo:basic-link internal-destination="variables-list" text-decoration="underline" color="blue">
               <xsl:value-of select="i18n:get('Variables_List')" />
               
               <fo:leader leader-pattern="dots" />
@@ -175,8 +170,7 @@
             </fo:basic-link>
             <xsl:for-each select="/codeBook/fileDscr">
               <fo:block margin-left="17mm" font-size="{$font-size}" text-align-last="justify">
-                <fo:basic-link internal-destination="varlist-{fileTxt/fileName/@ID}"
-                               text-decoration="underline" color="blue">
+                <fo:basic-link internal-destination="varlist-{fileTxt/fileName/@ID}" text-decoration="underline" color="blue">
                   <xsl:apply-templates select="fileTxt/fileName" />
                   <fo:leader leader-pattern="dots" />
                   <fo:page-number-citation ref-id="varlist-{fileTxt/fileName/@ID}" />
@@ -185,45 +179,41 @@
             </xsl:for-each>
           </fo:block>
         </xsl:if>
-
+        
         <!-- Variables Groups -->
         <xsl:if test="$show-variable-groups = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
-            <fo:basic-link internal-destination="variables-groups"
-                           text-decoration="underline" color="blue">
+            <fo:basic-link internal-destination="variables-groups" text-decoration="underline" color="blue">
               <xsl:value-of select="i18n:get('Variables_Groups')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="variables-groups" />
             </fo:basic-link>
-
+            
             <xsl:for-each select="/codeBook/dataDscr/varGrp">
-                <fo:block margin-left="17mm" font-size="{$font-size}" text-align-last="justify">
-                  <fo:basic-link internal-destination="vargrp-{@ID}"
-                                 text-decoration="underline" color="blue">
-                    <xsl:value-of select="normalize-space(labl)" />
-                    <fo:leader leader-pattern="dots" />
-                    <fo:page-number-citation ref-id="vargrp-{@ID}" />
-                  </fo:basic-link>
-                </fo:block>              
+              <fo:block margin-left="17mm" font-size="{$font-size}" text-align-last="justify">
+                <fo:basic-link internal-destination="vargrp-{@ID}" text-decoration="underline" color="blue">
+                  <xsl:value-of select="normalize-space(labl)" />
+                  <fo:leader leader-pattern="dots" />
+                  <fo:page-number-citation ref-id="vargrp-{@ID}" />
+                </fo:basic-link>
+              </fo:block>              
             </xsl:for-each>
           </fo:block>
         </xsl:if>
-
+        
         <!-- Variables_Description -->
         <xsl:if test="$show-variables-description = 'True'">
           <fo:block font-size="{$font-size}" text-align-last="justify">
-
-            <fo:basic-link internal-destination="variables-description"
-                           text-decoration="underline" color="blue">
+            
+            <fo:basic-link internal-destination="variables-description" text-decoration="underline" color="blue">
               <xsl:value-of select="i18n:get('Variables_Description')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="variables-description" />
             </fo:basic-link>
-
+            
             <xsl:for-each select="/codeBook/fileDscr">
               <fo:block margin-left="17mm" font-size="{$font-size}" text-align-last="justify">
-                <fo:basic-link internal-destination="vardesc-{fileTxt/fileName/@ID}"
-                               text-decoration="underline" color="blue">
+                <fo:basic-link internal-destination="vardesc-{fileTxt/fileName/@ID}" text-decoration="underline" color="blue">
                   <xsl:apply-templates select="fileTxt/fileName" />
                   <fo:leader leader-pattern="dots" />
                   <fo:page-number-citation ref-id="vardesc-{fileTxt/fileName/@ID}" />
@@ -232,7 +222,7 @@
             </xsl:for-each>
           </fo:block>
         </xsl:if>
-
+        
       </fo:block>
     </fo:flow>
   </fo:page-sequence>

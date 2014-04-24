@@ -10,27 +10,11 @@
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-    <fo:block>
-
-      <!-- cycle -->
-      <!-- <xsl:if test="@cycle">
-        <xsl:value-of select="@cycle"/>
-        <xsl:text>: </xsl:text>
-      </xsl:if> -->
-      
-      <xsl:value-of select="if (@cycle) then string-join((@cycle, ': '), '') else () "/>
-
-      <!-- event -->
-      <!-- <xsl:if test="@event">
-        <xsl:value-of select="@event"/>
-        <xsl:text> </xsl:text>
-      </xsl:if> -->
-      
-      <xsl:value-of select="if (@event) then string-join((@event, ' '), '') else () "/>
-
-      <!-- date -->
-      <xsl:value-of select="@date"/>
-
+    <fo:block>      
+      <xsl:value-of select="if (@cycle) then concat(@cycle, ': ') else () "/>      
+      <xsl:value-of select="if (@event) then concat(@event, ' ') else () "/>
+      <xsl:value-of select="if (@event) then concat(@event, ' ') else () "/>
+      <xsl:value-of select="@date" />
     </fo:block>
 
 </xsl:template>

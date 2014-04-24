@@ -13,23 +13,10 @@
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-  <fo:block>
-    
+  <fo:block>    
     <xsl:value-of select="util:trim(.)" />
-
-    <!-- @abbr -->
-    <xsl:if test="@abbr">
-      <xsl:text>(</xsl:text>
-      <xsl:value-of select="@abbr"/>
-      <xsl:text>)</xsl:text>
-    </xsl:if>
-
-    <!-- @role -->
-    <xsl:if test="@role">
-      <xsl:text> ,</xsl:text>
-      <xsl:value-of select="@role"/>
-    </xsl:if>
-
+    <xsl:value-of select="if (@abbr) then concat('(', @abbr, ')') else () "/> 
+    <xsl:value-of select="if (@role) then concat(',', @role) else () "/>
   </fo:block>
 
 </xsl:template>

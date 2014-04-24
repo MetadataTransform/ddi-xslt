@@ -35,22 +35,13 @@
     <fo:flow flow-name="body">
 
       <!-- heading -->
-      <fo:block id="variables-description" font-size="18pt"
-                font-weight="bold" space-after="2.5mm">
+      <fo:block id="variables-description" font-size="18pt" font-weight="bold" space-after="2.5mm">
         <xsl:value-of select="i18n:get('Variables_Description')" />
       </fo:block>
 
       <!-- number of variables in data set -->
-      <!-- <fo:block font-weight="bold">
-        <xsl:value-of select="$i18n-Dataset_contains" />
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="count(/codeBook/dataDscr/var)" />
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="$i18n-variables" />
-      </fo:block> -->
-
       <fo:block font-weight="bold">
-        <xsl:value-of select="string-join((i18n:get('Dataset_contains'), ' ', xs:string(count(/codeBook/dataDscr/var)), ' ', i18n:get('variables')), '') "/>       
+        <xsl:value-of select="concat(i18n:get('Dataset_contains'), ' ', xs:string(count(/codeBook/dataDscr/var)), ' ', i18n:get('variables')) "/>       
       </fo:block>
 
     </fo:flow>

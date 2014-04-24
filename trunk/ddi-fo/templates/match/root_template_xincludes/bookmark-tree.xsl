@@ -203,11 +203,7 @@
                 <fo:bookmark internal-destination="var-{@ID}">
                   <fo:bookmark-title>
                     <xsl:apply-templates select="@name" />
-
-                    <xsl:value-of select="if (normalize-space(labl)) then
-                                            string-join((': ', util:trim(labl)), '')
-                                          else () "/>
-
+                    <xsl:value-of select="if (normalize-space(labl)) then concat(': ', util:trim(labl)) else () "/>
                   </fo:bookmark-title>
                 </fo:bookmark>            
             </xsl:for-each>
