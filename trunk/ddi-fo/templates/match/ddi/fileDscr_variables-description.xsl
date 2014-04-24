@@ -6,7 +6,7 @@
 <!-- =========================================== -->
 
 <!-- read: -->
-<!-- $chunk-size, $font-family, $default-border -->
+<!-- $layout.chunk_size, $layout.font_family, $layout.tables.border -->
 
 <!-- set: -->
 <!-- $fileId, $fileName -->
@@ -38,11 +38,11 @@
   <!-- content               -->
   <!-- ===================== -->
   
-  <xsl:for-each select="/codeBook/dataDscr/var[@files=$fileId][position() mod $chunk-size = 1]">
+  <xsl:for-each select="/codeBook/dataDscr/var[@files = $fileId][position() mod $layout.chunk_size = 1]">
     
-    <fo:page-sequence master-reference="{$page-layout}"
-      font-family="{$font-family}"
-      font-size="{$font-size}">
+    <fo:page-sequence master-reference="{$layout.page_master}"
+      font-family="{$layout.font_family}"
+      font-size="{$layout.font_size}">
       
       <!-- =========== -->
       <!-- page footer -->
@@ -65,7 +65,7 @@
               
               <!-- [fo:table-row] File identification -->
               <fo:table-row text-align="center" vertical-align="top">
-                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                   <fo:block font-size="14pt" font-weight="bold">
                     <xsl:value-of select="i18n:get('File')" />
                     <xsl:text> : </xsl:text>
@@ -84,7 +84,7 @@
                   <fo:block />
                 </fo:table-cell>
               </fo:table-row>
-              <xsl:apply-templates select=".|following-sibling::var[@files=$fileId][$chunk-size &gt; position()]"/>
+              <xsl:apply-templates select=".|following-sibling::var[@files=$fileId][$layout.chunk_size &gt; position()]"/>
             </fo:table-body>
             
           </fo:table>
@@ -100,7 +100,7 @@
                   <fo:block/>
                 </fo:table-cell>
               </fo:table-row>
-              <xsl:apply-templates select=".|following-sibling::var[@files=$fileId][$chunk-size &gt; position()]"/>
+              <xsl:apply-templates select=".|following-sibling::var[@files=$fileId][$layout.chunk_size &gt; position()]"/>
             </fo:table-body>
           </fo:table>
         </xsl:if>

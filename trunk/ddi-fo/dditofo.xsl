@@ -123,52 +123,36 @@
   <!-- ### global parameters                           ### -->
   <!-- ################################################### -->
 
-  <!-- used in util:isodate-long() -->
-  <xsl:param name="language-code" select="'en'" />  
-  <!-- <xsl:param name="i18n.language_code" select="'en'" /> -->
+  <!-- used in util:isodate-long() -->  
+  <xsl:param name="i18n.language_code" select="'en'" />
 
   <!-- translation file path-->
-  <xsl:param name="translations-file" />
-  <!-- <xsl:param name="i18n.translation_file" /> -->
+  <xsl:param name="i18n.translation_file" />
 
-  <xsl:param name="report-start-page-number" select="4" />
-  <!-- <xsl:param name="layout.start_page_number" select="4" /> -->
+  <xsl:param name="layout.start_page_number" select="4" />
   
-  <xsl:param name="show-variables-description-categories-max" select="1000" />
-  <xsl:param name="variable-name-length" select="14" />
+  <xsl:param name="limits.variables_description_categories_max" select="1000" />
+  <xsl:param name="limits.variable_name_length" select="14" />
 
   <!-- path to front page logo -->
-  <xsl:param name="logo-file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png'" />  
-  <!-- <xsl:param name="layout.logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png'" /> -->
+  <xsl:param name="layout.logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png'" />
 
   <!-- Style and page layout -->
-  <xsl:param name="page-layout" select="'A4-page'" />
-  <!-- <xsl:param name="layout.page_master" select="'A4-page'" /> -->  
-  <xsl:param name="font-family" select="'Times'" />
-  <!-- <xsl:param name="layout.font_family" select="'Times'" /> -->
-  <xsl:param name="font-size" select="10" />
-  <!-- <xsl:param name="layout.font_size" select="10" /> -->
-  <xsl:param name="header-font-size" select="6" />
-  <!-- <xsl:param name="layout.header_size" select="6" /> -->
+  <xsl:param name="layout.page_master" select="'A4-page'" /> 
+  <xsl:param name="layout.font_family" select="'Times'" />
+  <xsl:param name="layout.font_size" select="10" />
+  <xsl:param name="layout.header_font_size" select="6" />
  
   <!-- toggle main sections of root template -->
-  <xsl:param name="show-bookmarks" select="'True'" />
-  <!-- <xsl:param name="section.page.bookmarks" select="'True'" /> -->
-  <xsl:param name="show-cover-page" select="'True'" />
-  <!-- <xsl:param name="section.page.cover" select="'True'" /> -->
-  <xsl:param name="show-metadata-info" select="'True'" />
-  <!-- <xsl:param name="section.page.metadata_info" select="'True'" /> -->
-  <xsl:param name="show-toc" select="'True'" />
-  <!-- <xsl:param name="section.page.toc" select="'True'" /> -->
-  <xsl:param name="show-overview" select="'True'" />
-  <!-- <xsl:param name="section.page.overview" select="'True'" /> -->
-  <xsl:param name="show-files-description" select="'True'" />
-  <!-- <xsl:param name="section.page.files_description" select="'True'" /> -->
-  
-  
+  <xsl:param name="bookmarks.show" select="'True'" />
+  <xsl:param name="page.cover.show" select="'True'" />
+  <xsl:param name="page.metadata_info.show" select="'True'" />
+  <xsl:param name="page.table_of_contents.show" select="'True'" />
+  <xsl:param name="page.overview.show" select="'True'" />
+  <xsl:param name="page.files_description.show" select="'True'" />
+    
   <!-- misc -->
-  <xsl:param name="show-variables-description-categories" select="'True'" />
-  <!-- <xsl:param name="section.variables_description_categories" select="'True'" /> -->
+  <xsl:param name="section.variables_description_categories.show" select="'True'" />
 
 
   <!-- #################################################### -->
@@ -176,45 +160,34 @@
   <!-- #################################################### -->
 
   <!-- To avoid empty pages; use a huge chunksize for subsets -->
-  <xsl:variable name="chunk-size" select="50" />
+  <xsl:variable name="layout.chunk_size" select="50" />
+  
 
   <!-- table cells -->
-  <xsl:variable name="cell-padding" select="'3pt'" /> 
-  <!-- <xsl:variable name="layout.tables.cellpadding" select="'3pt'"/> -->  
-  <xsl:variable name="default-border" select="'0.5pt solid black'" />
-  <!-- <xsl:variable name="layout.tables.border" select="'0.5pt solid black'" /> --> 
+  <xsl:variable name="layout.tables.cellpadding" select="'3pt'"/>
+  <xsl:variable name="layout.tables.border" select="'0.5pt solid black'" />
     
-  <!-- colors -->
-  <xsl:variable name="color-white" select="'#ffffff'" />
-  <xsl:variable name="color-gray0" select="'#f8f8f8'" />
-  <xsl:variable name="color-gray1" select="'#f0f0f0'" />
-  <xsl:variable name="color-gray2" select="'#e0e0e0'" />
-  <xsl:variable name="color-gray3" select="'#d0d0d0'" />
-  <xsl:variable name="color-gray4" select="'#c0c0c0'" />
-  
-  <!-- 
-  <xsl:variable name="layout.color.white" select="'#ffffff'" />
-  <xsl:variable name="layout.color.gray0" select="'#f8f8f8'" />
+  <!-- colors -->  
+  <!-- <xsl:variable name="layout.color.gray0" select="'#f8f8f8'" /> -->
   <xsl:variable name="layout.color.gray1" select="'#f0f0f0'" />
   <xsl:variable name="layout.color.gray2" select="'#e0e0e0'" />
   <xsl:variable name="layout.color.gray3" select="'#d0d0d0'" />
-  <xsl:variable name="layout.color.gray4" select="'#c0c0c0'" /> -->
+  <xsl:variable name="layout.color.gray4" select="'#c0c0c0'" />
 
   
-
   <!-- #################################################### -->
   <!-- ### i18n strings                                 ### -->
   <!-- #################################################### -->
 
   <!-- read strings from selected translations file-->
-  <xsl:variable name="i18n_strings" select="document($translations-file)" />
+  <xsl:variable name="i18n.strings" select="document($i18n.translation_file)" />
 
   <!-- #################################################### -->
   <!-- ### gather some info                             ### -->
   <!-- #################################################### -->
   
   <!-- survey title -->
-  <xsl:variable name="survey-title"
+  <xsl:variable name="study.title"
                 xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/titl)" />
     <xsl:value-of select="if (/codeBook/stdyDscr/citation/titlStmt/altTitl) then
@@ -223,7 +196,7 @@
   </xsl:variable>
 
   <!-- geography -->
-  <xsl:variable name="geography"
+  <xsl:variable name="study.geography"
                 xpath-default-namespace="http://www.icpsr.umich.edu/DDI">
     <xsl:for-each select="/codeBook/stdyDscr/stdyInfo/sumDscr/nation">
       <xsl:value-of select="if (position() > 1) then ', ' else ()" />
@@ -231,8 +204,8 @@
     </xsl:for-each>
   </xsl:variable>
 
-  <!-- time period -->
-  <xsl:variable name="time-produced"
+  <!-- time period -->  
+  <xsl:variable name="study.time_produced"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd/@date" />
 
@@ -241,24 +214,24 @@
   <!-- ================================================== -->
   
   <!-- year-from - the first data collection mode element with a 'start' event -->
-  <xsl:variable name="year-from"
+  <xsl:variable name="time.year_from"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event = 'start'][1]/@date, 1, 4)" />
   
   <!-- year to is the last data collection mode element with an 'end' event -->
-  <xsl:variable name="year-to-count" 
+  <xsl:variable name="time.year_to_count" 
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="count(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event = 'end'])" />
 
-  <xsl:variable name="year-to" 
+  <xsl:variable name="time.year_to" 
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-    select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event = 'end'][$year-to-count]/@date, 1, 4)" />
+    select="substring(/codeBook/stdyDscr/stdyInfo/sumDscr/collDate[@event = 'end'][$time.year_to_count]/@date, 1, 4)" />
   
   <xsl:variable name="time">
-    <xsl:if test="$year-from">
-      <xsl:value-of select="$year-from" />
-      <xsl:value-of select="if ($year-to > $year-from)
-                            then concat('-', $year-from)
+    <xsl:if test="$time.year_from">
+      <xsl:value-of select="$time.year_from" />
+      <xsl:value-of select="if ($time.year_to > $time.year_from)
+                            then concat('-', $time.year_from)
                             else () " />
     </xsl:if>
   </xsl:variable>
@@ -269,21 +242,25 @@
   <!-- #################################################### -->
 
   <!-- Show variable groups only if there are any -->
-  <xsl:variable name="show-variable-groups"
+  <xsl:variable name="page.variable_groups.show"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="if (count(/codeBook/dataDscr/varGrp) > 0) then 'True' else 'False' "/>
 
   <!-- Show variable list if showing variable groups are disabled -->
-  <xsl:variable name="show-variables-list"
-    select="if ($show-variable-groups = 'True') then 'False' else 'True' "/>
+  <xsl:variable name="page.variables_list.show"
+    select="if ($page.variable_groups.show = 'True') then 'False' else 'True' "/>
 
   <!-- If totalt amount of variables or given subsetamount       -->
   <!-- exceeds given max, then dont show extensive variable desc -->
-  <xsl:variable name="show-variables-description"
+  <xsl:variable name="page.variables_description.show"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="if (count(/codeBook/dataDscr/var) = 0) then 'False' else 'True' "/>
-      
-  <xsl:variable name="show-scope-and-coverage"
+    
+  <!-- ======== -->
+  <!-- Sections -->  
+  <!-- ======== -->
+  
+  <xsl:variable name="section.scope_and_coverage.show"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="if (/codeBook/stdyDscr/stdyInfo/notes) then 'True'
             else if (/codeBook/stdyDscr/stdyInfo/subject/keyword) then 'True'
@@ -291,7 +268,7 @@
             else if (/codeBook/stdyDscr/stdyInfo/sumDscr/universe) then 'True'
             else 'False' "/>
 
-  <xsl:variable name="show-producers-and-sponsors"
+  <xsl:variable name="section.producers_and_sponsors.show"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="if (/codeBook/stdyDscr/citation/rspStmt/AuthEnty) then 'True'
             else if (/codeBook/stdyDscr/citation/prodStmt/producer) then 'True'
@@ -299,7 +276,7 @@
             else if (/codeBook/stdyDscr/citation/rspStmt/othId) then 'True'
             else 'False' "/>
 
-  <xsl:variable name="show-sampling"
+  <xsl:variable name="section.sampling.show"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="if (/codeBook/stdyDscr/method/notes[@subject='sampling']) then 'True'
             else if (/codeBook/stdyDscr/method/dataColl/sampProc) then 'True'
@@ -308,28 +285,28 @@
             else if (/codeBook/stdyDscr/method/dataColl/weight) then 'True'
             else 'False' "/>    
 
-  <xsl:variable name="show-data-collection"
+  <xsl:variable name="section.data_collection.show"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="if (/codeBook/stdyDscr/stdyInfo/sumDscr/collDate) then 'True'
             else if (/codeBook/stdyDscr/stdyInfo/sumDscr/timePrd) then 'True'
             else if (/codeBook/stdyDscr/method/dataColl/collMode) then 'True'
-            else if (/codeBook/stdyDscr/method/notes[@subject='collection']) then 'True'
-            else if (/codeBook/stdyDscr/method/notes[@subject='processing']) then 'True'
-            else if (/codeBook/stdyDscr/method/notes[@subject='cleaning']) then 'True'
+            else if (/codeBook/stdyDscr/method/notes[@subject = 'collection']) then 'True'
+            else if (/codeBook/stdyDscr/method/notes[@subject = 'processing']) then 'True'
+            else if (/codeBook/stdyDscr/method/notes[@subject = 'cleaning']) then 'True'
             else if (/codeBook/stdyDscr/method/dataColl/collSitu) then 'True'
             else if (/codeBook/stdyDscr/method/dataColl/resInstru) then 'True'
             else if (/codeBook/stdyDscr/method/dataColl/dataCollector) then 'True'
             else if (/codeBook/stdyDscr/method/dataColl/actMin) then 'True'
             else 'False' "/>
     
-  <xsl:variable name="show-data-processing-and-appraisal"
+  <xsl:variable name="section.data_processing_and_appraisal.show"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="if (/codeBook/stdyDscr/method/dataColl/cleanOps) then 'True'
             else if (/codeBook/stdyDscr/method/anlyInfo/EstSmpErr) then 'True'
             else if (/codeBook/stdyDscr/method/anlyInfo/dataAppr) then 'True'
             else 'False' "/>
     
-  <xsl:variable name="show-accessibility"
+  <xsl:variable name="section.accessibility.show"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="if (/codeBook/stdyDscr/dataAccs/useStmt/contact) then 'True'
             else if (/codeBook/stdyDscr/citation/distStmt/distrbtr) then 'True'
@@ -339,11 +316,13 @@
             else if (/codeBook/stdyDscr/dataAccs/useStmt/citReq) then 'True'
             else 'False' "/>
 
-  <xsl:variable name="show-rights-and-disclaimer"
+  <xsl:variable name="section.rights_and_disclaimer.show"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="if (/codeBook/stdyDscr/dataAccs/useStmt/disclaimer) then 'True'
             else if (/codeBook/stdyDscr/citation/prodStmt/copyright) then 'True'
             else 'False' "/>
+  
+  
 
 
   <!-- #################################################### -->

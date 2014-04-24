@@ -13,8 +13,8 @@
 
 
   <!-- return value -->
-  <!-- <xsl:value-of select="$strings/*/entry[@key = $english_string]" /> -->
-  <xsl:value-of select="$i18n_strings/*/entry[@key = $english_string]" />
+  <!-- <xsl:value-of select="$i18n_strings/*/entry[@key = $english_string]" /> -->
+  <xsl:value-of select="$i18n.strings/*/entry[@key = $english_string]" />
   
   
 </xsl:function>

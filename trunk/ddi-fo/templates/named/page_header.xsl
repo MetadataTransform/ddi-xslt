@@ -11,7 +11,7 @@
 
   <!-- content -->
   <fo:static-content flow-name="before">
-    <fo:block font-size="{$header-font-size}" text-align="center">
+    <fo:block font-size="{$layout.header_font_size}" text-align="center">
       <xsl:value-of select="concat(/codeBook/stdyDscr/citation/titlStmt/titl, ' - ', $section_name)"/>   
     </fo:block>
   </fo:static-content>  

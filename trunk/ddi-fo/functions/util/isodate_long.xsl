@@ -23,10 +23,10 @@
   <!-- determine local date-format from $language-code string -->
   <xsl:value-of select="
     (: european format :)
-    if (contains('fr es', $language-code)) then
+    if (contains('fr es', $i18n.language_code)) then
       concat(substring($isodate, 9, 2), ' ', util:isodate_month_name($isodate), ' ', substring($isodate, 1, 4))
     (: japanese format :)
-    else if (contains('ja', $language-code)) then
+    else if (contains('ja', $i18n.language_code)) then
       $isodate
     (: english format :)
     else concat(util:isodate_month_name($isodate), ' ', substring($isodate, 9, 2), ' ', substring($isodate, 1, 4)) "/>
