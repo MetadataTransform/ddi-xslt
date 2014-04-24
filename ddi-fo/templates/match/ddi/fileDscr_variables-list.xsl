@@ -6,7 +6,7 @@
 <!-- ===================================== -->
 
 <!-- read: -->
-<!-- $strings, $default-border, $cell-padding -->
+<!-- $strings, $layout.tables.border, $layout.tables.cellpadding -->
 
 <!-- set: -->
 <!-- $fileId -->
@@ -40,7 +40,7 @@
     <fo:table-header>
       <fo:table-row text-align="center" vertical-align="top" keep-with-next="always">
         <fo:table-cell text-align="left" number-columns-spanned="4"
-                       border="{$default-border}" padding="{$cell-padding}">
+                       border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
           <fo:block font-size="12pt" font-weight="bold">
             <xsl:value-of select="i18n:get('File')"/>
             <xsl:text> </xsl:text>

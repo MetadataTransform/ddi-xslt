@@ -7,7 +7,7 @@
 
 <!-- read: -->
 <!-- $font-family -->
-<!-- $default-border, $cell-padding -->
+<!-- $layout.tables.border, $layout.tables.cellpadding -->
 
 <!-- functions: -->
 <!-- boolean(), normalize-space() [Xpath 1.0] -->
@@ -25,14 +25,14 @@
 <!-- Report Notes               [block]      -->
 
 
-<xsl:if test="$show-metadata-info = 'True'"
+<xsl:if test="$page.metadata_info.show = 'True'"
         xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
   
-  <fo:page-sequence master-reference="{$page-layout}"
-    font-family="{$font-family}"
-    font-size="{$font-size}">
+  <fo:page-sequence master-reference="{$layout.page_master}"
+                    font-family="{$layout.font_family}"
+                    font-size="{$layout.font_size}">
     
     <!-- =========================================== -->
     <!-- page content                                -->
@@ -46,7 +46,7 @@
         <xsl:value-of select="i18n:get('Metadata_Production')"/>
       </fo:block>
       
-      <fo:table table-layout="fixed" width="100%" space-before="0.0in" space-after="5mm">
+      <fo:table table-layout="fixed" width="100%" space-before="0.0mm" space-after="5mm">
         <fo:table-column column-width="proportional-column-width(20)" />
         <fo:table-column column-width="proportional-column-width(80)" />
         
@@ -55,12 +55,12 @@
           <!-- Metadata Producers -->
           <xsl:if test="/codeBook/docDscr/citation/prodStmt/producer">
             <fo:table-row>
-              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+              <fo:table-cell font-weight="bold" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <fo:block>
                   <xsl:value-of select="i18n:get('Metadata_Producers')"/>
                 </fo:block>
               </fo:table-cell>
-              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+              <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <xsl:apply-templates select="/codeBook/docDscr/citation/prodStmt/producer" />
               </fo:table-cell>
             </fo:table-row>
@@ -69,12 +69,12 @@
           <!-- Production Date -->
           <xsl:if test="/codeBook/docDscr/citation/prodStmt/prodDate">
             <fo:table-row>
-              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+              <fo:table-cell font-weight="bold" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <fo:block>
                   <xsl:value-of select="i18n:get('Production_Date')"/>
                 </fo:block>
               </fo:table-cell>
-              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+              <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <fo:block>                  
                   <xsl:value-of select="util:isodate_long(normalize-space(/codeBook/docDscr/citation/prodStmt/prodDate))" />
                 </fo:block>
@@ -85,12 +85,12 @@
           <!-- Version -->
           <!-- <xsl:if test="/codeBook/docDscr/citation/verStmt/version">
             <fo:table-row>
-            <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+            <fo:table-cell font-weight="bold" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
             <fo:block>
             <xsl:value-of select="$i18n-Version"/>
             </fo:block>
             </fo:table-cell>
-            <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+            <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
             <xsl:apply-templates select="/codeBook/docDscr/citation/verStmt/version" />
             </fo:table-cell>
             </fo:table-row>
@@ -99,12 +99,12 @@
           <!-- Identification -->
           <xsl:if test="/codeBook/docDscr/citation/titlStmt/IDNo">
             <fo:table-row>
-              <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
+              <fo:table-cell font-weight="bold" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <fo:block>
                   <xsl:value-of select="i18n:get('Identification')"/>
                 </fo:block>
               </fo:table-cell>
-              <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
+              <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <xsl:apply-templates select="/codeBook/docDscr/citation/titlStmt/IDNo" />
               </fo:table-cell>
             </fo:table-row>

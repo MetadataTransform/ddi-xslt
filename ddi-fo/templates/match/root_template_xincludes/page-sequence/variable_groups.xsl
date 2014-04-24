@@ -11,14 +11,14 @@
 <!-- functions: -->
 <!-- string-length(), count() [xpath 1.0] -->
 
-<xsl:if test="$show-variable-groups = 'True'"
+<xsl:if test="$page.variable_groups.show = 'True'"
         xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-  <fo:page-sequence master-reference="{$page-layout}"
-                    font-family="{$font-family}"
-                    font-size="{$font-size}">
+  <fo:page-sequence master-reference="{$layout.page_master}"
+                    font-family="{$layout.font_family}"
+                    font-size="{$layout.font_size}">
     
     <!-- =========================================== -->
     <!-- page header and footer                      -->

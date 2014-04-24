@@ -18,7 +18,7 @@
 <!-- called: -->
 <!-- trim -->
 
-<xsl:if test="$show-bookmarks='True'"
+<xsl:if test="$bookmarks.show = 'True'"
         xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
@@ -26,7 +26,7 @@
   <fo:bookmark-tree>
 
     <!-- Cover_Page -->
-    <xsl:if test="$show-cover-page='True'">
+    <xsl:if test="$page.cover.show ='True'">
       <fo:bookmark internal-destination="cover-page">
         <fo:bookmark-title>
           <xsl:value-of select="i18n:get('Cover_Page')" />
@@ -35,7 +35,7 @@
     </xsl:if>
 
     <!-- Document_Information -->
-    <xsl:if test="$show-metadata-info = 'True'">
+    <xsl:if test="$page.metadata_info.show = 'True'">
       <fo:bookmark internal-destination="metadata-info">
         <fo:bookmark-title>
           <xsl:value-of select="i18n:get('Document_Information')" />
@@ -44,7 +44,7 @@
     </xsl:if>
 
     <!-- Table_of_Contents -->
-    <xsl:if test="$show-toc = 'True'">
+    <xsl:if test="$page.table_of_contents.show = 'True'">
       <fo:bookmark internal-destination="toc">
         <fo:bookmark-title>
           <xsl:value-of select="i18n:get('Table_of_Contents')" />
@@ -56,7 +56,7 @@
     <!-- Overview      -->
     <!-- ============= -->
 
-    <xsl:if test="$show-overview = 'True'">
+    <xsl:if test="$page.overview.show = 'True'">
 
       <fo:bookmark internal-destination="overview">
         <fo:bookmark-title>
@@ -64,7 +64,7 @@
         </fo:bookmark-title>
 
         <!-- Scope_and_Coverage -->
-        <xsl:if test="$show-scope-and-coverage = 'True'">
+        <xsl:if test="$section.scope_and_coverage.show = 'True'">
           <fo:bookmark internal-destination="scope-and-coverage">
             <fo:bookmark-title>
               <xsl:value-of select="i18n:get('Scope_and_Coverage')" />
@@ -73,7 +73,7 @@
         </xsl:if>
 
         <!-- Producers_and_Sponsors -->
-        <xsl:if test="$show-producers-and-sponsors = 'True'">
+        <xsl:if test="$section.producers_and_sponsors.show = 'True'">
           <fo:bookmark internal-destination="producers-and-sponsors">
             <fo:bookmark-title>
               <xsl:value-of select="i18n:get('Producers_and_Sponsors')" />
@@ -82,7 +82,7 @@
         </xsl:if>
 
         <!-- Sampling -->
-        <xsl:if test="$show-sampling = 'True'">
+        <xsl:if test="$section.sampling.show = 'True'">
           <fo:bookmark internal-destination="sampling">
             <fo:bookmark-title>
               <xsl:value-of select="i18n:get('Sampling')" />
@@ -91,7 +91,7 @@
         </xsl:if>
 
         <!-- Data_Collection -->
-        <xsl:if test="$show-data-collection = 'True'">
+        <xsl:if test="$section.data_collection.show = 'True'">
           <fo:bookmark internal-destination="data-collection">
             <fo:bookmark-title>
               <xsl:value-of select="i18n:get('Data_Collection')" />
@@ -100,7 +100,7 @@
         </xsl:if>
 
         <!-- Data_Processing_and_Appraisal -->
-        <xsl:if test="$show-data-processing-and-appraisal = 'True'">
+        <xsl:if test="$section.data_processing_and_appraisal.show = 'True'">
           <fo:bookmark internal-destination="data-processing-and-appraisal">
             <fo:bookmark-title>
               <xsl:value-of select="i18n:get('Data_Processing_and_Appraisal')" />
@@ -109,7 +109,7 @@
         </xsl:if>
 
         <!-- Accessibility -->
-        <xsl:if test="$show-accessibility = 'True'">
+        <xsl:if test="$section.accessibility.show = 'True'">
           <fo:bookmark internal-destination="accessibility">
             <fo:bookmark-title>
               <xsl:value-of select="i18n:get('Accessibility')" />
@@ -118,7 +118,7 @@
         </xsl:if>
 
         <!-- Rights_and_Disclaimer -->
-        <xsl:if test="$show-rights-and-disclaimer = 'True'">
+        <xsl:if test="$section.rights_and_disclaimer.show = 'True'">
           <fo:bookmark internal-destination="rights-and-disclaimer">
             <fo:bookmark-title>
               <xsl:value-of select="i18n:get('Rights_and_Disclaimer')" />
@@ -130,7 +130,7 @@
     </xsl:if>
 
     <!-- Files_Description -->
-    <xsl:if test="$show-files-description = 'True'">
+    <xsl:if test="$page.files_description.show = 'True'">
       <fo:bookmark internal-destination="files-description">
 
         <fo:bookmark-title>
@@ -148,7 +148,7 @@
     </xsl:if>
 
     <!-- Variables_Groups -->
-    <xsl:if test="$show-variable-groups = 'True'">
+    <xsl:if test="$page.variable_groups.show = 'True'">
       <fo:bookmark internal-destination="variables-groups">
         <fo:bookmark-title>
           <xsl:value-of select="i18n:get('Variables_Groups')" />
@@ -165,7 +165,7 @@
     </xsl:if>
 
     <!-- Variables_List -->
-    <xsl:if test="$show-variables-list = 'True'">
+    <xsl:if test="$page.variables_list.show = 'True'">
       <fo:bookmark internal-destination="variables-list">
         <fo:bookmark-title>
           <xsl:value-of select="i18n:get('Variables_List')" />
@@ -182,7 +182,7 @@
     </xsl:if>
 
     <!-- Variables_Description -->
-    <xsl:if test="$show-variables-description = 'True'">
+    <xsl:if test="$page.variables_description.show = 'True'">
       <fo:bookmark internal-destination="variables-description">
         <fo:bookmark-title>
           <xsl:value-of select="i18n:get('Variables_Description')" />

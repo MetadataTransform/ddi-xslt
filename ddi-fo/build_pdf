@@ -32,9 +32,13 @@ shift $(($OPTIND - 1)) # shift argument to position 1
 FILENAME="${1%.*}" # remove file extension from DDI input file
 
 # parameters for Saxon and FOP
+#PARAMS="paper.type=A4 \
+#        fop1.extensions=1 \
+#        translations-file=./i18n/$LANGUAGE_STRING.xml"
+
 PARAMS="paper.type=A4 \
         fop1.extensions=1 \
-        translations-file=./i18n/$LANGUAGE_STRING.xml"
+        i18n.translation_file=./i18n/$LANGUAGE_STRING.xml"
 
 # ============
 # Process file

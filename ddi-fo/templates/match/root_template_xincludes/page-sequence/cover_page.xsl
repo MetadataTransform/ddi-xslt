@@ -9,14 +9,14 @@
 <!-- normalize-space() [Xpath 1.0] -->
 <!-- util:trim() [local]           -->
 
-<xsl:if test="$show-cover-page = 'True'"
+<xsl:if test="$page.cover.show = 'True'"
         xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-  <fo:page-sequence master-reference="{$page-layout}"
+  <fo:page-sequence master-reference="{$layout.page_master}"
                     font-family="Helvetica"
-                    font-size="{$font-size}">
+                    font-size="{$layout.font_size}">
 
     <!-- =========================================== -->
     <!-- page content                                -->
@@ -28,7 +28,7 @@
 
         <!-- logo graphic -->
         <fo:block text-align="center">
-          <fo:external-graphic src="{$logo-file}" />
+          <fo:external-graphic src="{$layout.logo_file}" />
         </fo:block>      
 
         <!-- title -->
