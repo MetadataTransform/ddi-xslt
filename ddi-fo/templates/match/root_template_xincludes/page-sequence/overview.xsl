@@ -123,7 +123,7 @@
                 <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/version">
                   <xsl:if test="@date">
                     <fo:block>                      
-                      <xsl:value-of select="string-join((i18n:get('Production_Date'), @date), '')" />
+                      <xsl:value-of select="concat(i18n:get('Production_Date'), @date)" />
                     </fo:block>
                   </xsl:if>
                   <xsl:apply-templates select="." />

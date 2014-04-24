@@ -1,12 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!-- util-trim.xsl -->
 <!-- =================== -->
-<!-- xs:string trim()    -->
-<!-- param: $s           -->
+<!-- xs:string trim(s)    -->
 <!-- =================== -->
-
-<!-- read: -->
-<!-- $s [param] -->
 
 <!-- functions: -->
 <!-- concat(), substring(), translate(), substring-after() [Xpath 1.0] -->
@@ -14,15 +10,10 @@
 
 <xsl:function name="util:trim" as="xs:string"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-  <!-- ====== -->
-  <!-- params -->
-  <!-- ====== -->
   <xsl:param name="s" />
 
-  <!-- ========= -->
-  <!-- variables -->
-  <!-- ========= -->
+
+  <!-- perform trimming -->
 
   <!-- &#x9; TAB-character -->
   <!-- &#xA; LF-character -->
@@ -37,9 +28,10 @@
   
   <xsl:variable name="tmp3" select="concat($tmp1, $tmp2)" />
 
-  <!-- ======= -->
-  <!-- content -->
-  <!-- ======= -->
-  <xsl:value-of select="util:rtrim($tmp3, string-length($tmp3))" />
+  <xsl:variable name="tmp4" select="util:rtrim($tmp3, string-length($tmp3))" />
+
+
+  <!-- return value -->
+  <xsl:value-of select="$tmp4" />
 
 </xsl:function>

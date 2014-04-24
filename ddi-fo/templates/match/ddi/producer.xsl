@@ -13,24 +13,11 @@
               xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
   <fo:block>
-    
     <xsl:value-of select="util:trim(.)"/>
-
-    <!-- abbreviation -->
-    <xsl:if test="@abbr">
-      (<xsl:value-of select="@abbr"/>)
-    </xsl:if>
-
-    <!-- affiliation -->
-    <xsl:if test="@affiliation"> ,
-      <xsl:value-of select="@affiliation"/>
-    </xsl:if>
-
-    <!-- role -->
-    <xsl:if test="@role"> ,
-      <xsl:value-of select="@role"/>
-    </xsl:if>
-
+    <xsl:value-of select="if (@abbr) then concat('(', @abbr, ')') else () "/>     
+    <xsl:value-of select="if (@affiliation) then @affiliation else () "/> 
+    <xsl:value-of select="if (@role) then @role else () "/> 
   </fo:block>
+  
 </xsl:template>
 

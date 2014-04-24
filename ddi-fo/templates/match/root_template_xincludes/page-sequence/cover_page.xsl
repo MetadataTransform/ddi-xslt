@@ -32,8 +32,7 @@
         </fo:block>      
 
         <!-- title -->
-        <fo:block font-size="18pt" font-weight="bold" space-before="5mm"
-                  text-align="center" space-after="0.0mm">
+        <fo:block font-size="18pt" font-weight="bold" space-before="5mm" text-align="center" space-after="0.0mm">
           <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/titl)" />
         </fo:block>
 
@@ -47,9 +46,8 @@
 
         <!-- responsible party(ies) -->      
         <xsl:for-each select="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">
-          <fo:block font-size="14pt" font-weight="bold" space-before="0.0mm"
-                    text-align="center" space-after="0.0mm">
-            <xsl:value-of select="util:trim(.)"/>
+          <fo:block font-size="14pt" font-weight="bold" space-before="0.0mm" text-align="center" space-after="0.0mm">
+            <xsl:value-of select="util:trim(.)" />
           </fo:block>
 
           <xsl:if test="@affiliation">

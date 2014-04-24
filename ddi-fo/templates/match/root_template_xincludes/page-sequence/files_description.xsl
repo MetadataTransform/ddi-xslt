@@ -40,9 +40,8 @@
       </fo:block>
 
       <!-- number of files in data set -->
-      <fo:block font-weight="bold">
-        <!-- <xsl:value-of select="string-join(($i18n-Dataset_contains, ' ', xs:string(count(/codeBook/fileDscr)), ' ', $i18n-files), '') "/> -->
-        <xsl:value-of select="string-join((i18n:get('Dataset_contains'), ' ', xs:string(count(/codeBook/fileDscr)), ' ', i18n:get('files')), '') "/>        
+      <fo:block font-weight="bold">        
+        <xsl:value-of select="concat(i18n:get('Dataset_contains'), ' ', xs:string(count(/codeBook/fileDscr)), ' ', i18n:get('files')) "/>        
       </fo:block>
 
       <!-- fileDscr -->

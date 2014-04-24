@@ -13,15 +13,9 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:fo="http://www.w3.org/1999/XSL/Format">
   
-  <fo:block>
-    
-    <!-- agency -->    
-    <xsl:value-of select="if (@agency) then
-                            @agency
-                          else () "/>
-    
+  <fo:block> 
+    <xsl:value-of select="if (@agency) then @agency else () "/>    
     <xsl:value-of select="util:trim(.)" />
-    
   </fo:block>
   
 </xsl:template>

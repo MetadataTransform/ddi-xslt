@@ -41,7 +41,7 @@
 
       <!-- number of variable groups in data set -->      
       <fo:block font-weight="bold">
-        <xsl:value-of select="string-join((i18n:get('Dataset_contains'), ' ', xs:string(count(/codeBook/dataDscr/varGrp)), ' ', i18n:get('groups')), '') "/>       
+        <xsl:value-of select="concat(i18n:get('Dataset_contains'), ' ', xs:string(count(/codeBook/dataDscr/varGrp)), ' ', i18n:get('groups')) "/>       
       </fo:block>
       
       <!-- the actual variable groups table -->

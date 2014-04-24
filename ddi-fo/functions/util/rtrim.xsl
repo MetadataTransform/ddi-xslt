@@ -1,31 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!-- util-rtrim.xsl -->
-<!-- ======================= -->
-<!-- xs:string util:rtrim()  -->
-<!-- params: $s, $i          -->
-<!-- ======================= -->
+<!-- rtrim.xsl -->
+
+<!-- ================================================ -->
+<!-- xs:string util:rtrim(xs:string s, xs:integer i)  -->
+<!-- ================================================ -->
 
 <!-- perform right trim on text through recursion -->
 
-<!-- read: -->
-<!-- $s, $i [param] -->
-
-<!-- functions: -->
+<!-- called: -->
 <!-- substring(), string-length(), translate() [Xpath 1.0] -->
-<!-- util:rtrim() [local] -->
+<!-- self [local] -->
 
 <xsl:function name="util:rtrim" as="xs:string"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-  <!-- ====== -->
-  <!-- params -->
-  <!-- ====== -->
   <xsl:param name="s" as="xs:string"/>
   <xsl:param name="i" as="xs:integer"/>
 
-  <!-- ========= -->
-  <!-- variables -->
-  <!-- ========= -->
+  <!-- ====================== -->
+  <!-- perform right-trimming -->
+  <!-- ====================== -->
   
   <!-- is further trimming needed?-->
   <xsl:variable name="tmp">
@@ -34,7 +27,6 @@
       <xsl:when test="translate(substring($s, $i, 1), ' &#x9;&#xA;&#xD;', '')">
         <xsl:value-of select="substring($s, 1, $i)" />
       </xsl:when>
-      <!-- case: string less than 2 (do nothing) -->
       <xsl:when test="$i &lt; 2" />
       <!-- recurse -->
       <xsl:otherwise>
@@ -51,9 +43,7 @@
             (: recurse :)
             else util:rtrim($s, $i - 1) " /> -->
 
-  <!-- ======= -->
-  <!-- content -->
-  <!-- ======= -->
+  <!-- return value -->
   <xsl:value-of select="$tmp" />
 
 </xsl:function>

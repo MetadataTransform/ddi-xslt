@@ -13,15 +13,9 @@
 
 <xsl:function name="util:math_max"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-  <!-- ====== -->
-  <!-- params -->
-  <!-- ====== -->
   <xsl:param name="nodes" />
 
-  <!-- ========= -->
-  <!-- variables -->
-  <!-- ========= -->
+
   <!-- count number of nodes -->
   <xsl:variable name="tmp">
     <xsl:choose>
@@ -41,9 +35,8 @@
     </xsl:choose>
   </xsl:variable>
 
-  <!-- ======= -->
-  <!-- content -->
-  <!-- ======= -->
+
+  <!-- return value -->
   <xsl:value-of select="$tmp" />
 
 </xsl:function>

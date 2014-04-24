@@ -42,7 +42,6 @@
         <fo:table-cell text-align="left" number-columns-spanned="4"
                        border="{$default-border}" padding="{$cell-padding}">
           <fo:block font-size="12pt" font-weight="bold">
-            <!-- <xsl:value-of select="$strings/*/entry[@key = 'File']" /> -->
             <xsl:value-of select="i18n:get('File')"/>
             <xsl:text> </xsl:text>
             <xsl:apply-templates select="fileTxt/fileName" />
@@ -61,7 +60,6 @@
         <!-- Name -->
         <fo:table-cell border="0.5pt solid black" padding="3pt">
           <fo:block>
-            <!-- <xsl:value-of select="$strings/*/entry[@key='Name']" /> -->
             <xsl:value-of select="i18n:get('Name')" />
           </fo:block>
         </fo:table-cell>
@@ -69,7 +67,6 @@
         <!-- Label -->
         <fo:table-cell border="0.5pt solid black" padding="3pt">
           <fo:block>
-            <!-- <xsl:value-of select="$strings/*/entry[@key='Label']" /> -->
             <xsl:value-of select="i18n:get('Label')" />
           </fo:block>
         </fo:table-cell>
@@ -77,7 +74,6 @@
         <!-- Question -->
         <fo:table-cell border="0.5pt solid black" padding="3pt">
           <fo:block>
-            <!-- <xsl:value-of select="$strings/*/entry[@key='Question']" /> -->
             <xsl:value-of select="i18n:get('Question')" />
           </fo:block>
         </fo:table-cell>
