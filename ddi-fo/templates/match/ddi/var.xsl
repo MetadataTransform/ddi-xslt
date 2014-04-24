@@ -67,7 +67,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold">
-                  <xsl:value-of select="$i18n-Definition" />
+                  <xsl:value-of select="i18n:get('Definition')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
@@ -83,7 +83,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold">
-                  <xsl:value-of select="$i18n-Universe" />
+                  <xsl:value-of select="i18n:get('Universe')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
@@ -99,7 +99,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold">
-                  <xsl:value-of select="$i18n-Source"/>
+                  <xsl:value-of select="i18n:get('Source')"/>
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
@@ -115,7 +115,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold">
-                  <xsl:value-of select="$i18n-Pre-question" />
+                  <xsl:value-of select="i18n:get('Pre-question')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
@@ -131,7 +131,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold">
-                  <xsl:value-of select="$i18n-Literal_question"/>
+                  <xsl:value-of select="i18n:get('Literal_question')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
@@ -147,7 +147,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold">
-                  <xsl:value-of select="$i18n-Post-question"/>
+                  <xsl:value-of select="i18n:get('Post-question')"/>
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
@@ -163,7 +163,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold">
-                  <xsl:value-of select="$i18n-Interviewers_instructions" />
+                  <xsl:value-of select="i18n:get('Interviewers_instructions')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
@@ -179,7 +179,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold">
-                  <xsl:value-of select="$i18n-Imputation" />
+                  <xsl:value-of select="i18n:get('Imputation')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
@@ -195,7 +195,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold">
-                  <xsl:value-of select="$i18n-Recoding_and_Derivation" />
+                  <xsl:value-of select="i18n:get('Recoding_and_Derivation')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
@@ -211,7 +211,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold">
-                  <xsl:value-of select="$i18n-Security" />
+                  <xsl:value-of select="i18n:get('Security')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
@@ -227,7 +227,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold">
-                  <xsl:value-of select="$i18n-Concepts" />
+                  <xsl:value-of select="i18n:get('Concepts')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
@@ -248,7 +248,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block font-weight="bold">
-                  <xsl:value-of select="$i18n-Notes" />
+                  <xsl:value-of select="i18n:get('Notes')" />
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
@@ -314,32 +314,32 @@
                         <fo:table-row background-color="{$color-gray1}" text-align="left" vertical-align="top">
                           <fo:table-cell border="0.5pt solid white" padding="{$cell-padding}">
                             <fo:block font-weight="bold">
-                              <xsl:value-of select="$i18n-Value" />
+                              <xsl:value-of select="i18n:get('Value')" />
                             </fo:block>
                           </fo:table-cell>
                           <fo:table-cell border="0.5pt solid white" padding="{$cell-padding}">
                             <fo:block font-weight="bold">
-                              <xsl:value-of select="$i18n-Label" />
+                              <xsl:value-of select="i18n:get('Label')" />
                             </fo:block>
                           </fo:table-cell>
                           <fo:table-cell border="0.4pt solid white" padding="{$cell-padding}" text-align="center">
                             <fo:block font-weight="bold">
-                              <xsl:value-of select="$i18n-Cases_Abbreviation" />
+                              <xsl:value-of select="i18n:get('Cases_Abbreviation')" />
                             </fo:block>
                           </fo:table-cell>
                           <xsl:if test="$is-weighted">
                             <fo:table-cell border="0.4pt solid white" padding="{$cell-padding}" text-align="center">
                               <fo:block font-weight="bold">
-                                <xsl:value-of select="$i18n-Weighted" />
+                                <xsl:value-of select="i18n:get('Weighted')" />
                               </fo:block>
                             </fo:table-cell>
                           </xsl:if>
                           <fo:table-cell border="0.4pt solid white" padding="{$cell-padding}" text-align="center">
                             <fo:block font-weight="bold">
-                              <xsl:value-of select="$i18n-Percentage" />
+                              <xsl:value-of select="i18n:get('Percentage')" />
                               <xsl:if test="$is-weighted">
                                 <xsl:text>(</xsl:text>
-                                <xsl:value-of select="$i18n-Weighted" />
+                                <xsl:value-of select="i18n:get('Weighted')" />
                                 <xsl:text>)</xsl:text>
                               </xsl:if>
                             </fo:block>
@@ -441,7 +441,7 @@
                     
                     <!-- Warning about summary of statistics? -->
                     <fo:block font-weight="bold" color="#400000" font-size="6pt" font-style="italic">
-                      <xsl:value-of select="$i18n-SumStat_Warning" />
+                      <xsl:value-of select="i18n:get('SumStat_Warning')" />
                     </fo:block>
                     
                   </fo:table-cell>
@@ -454,11 +454,11 @@
                   <fo:table-cell background-color="{$color-gray1}" text-align="center" font-style="italic"
                     border="{$default-border}" number-columns-spanned="2" padding="{$cell-padding}">
                     <fo:block>
-                      <xsl:value-of select="$i18n-Frequency_table_not_shown" />
+                      <xsl:value-of select="i18n:get('Frequency_table_not_shown')" />
                       <xsl:text> (</xsl:text>
                       <xsl:value-of select="$category-count"/>
                       <xsl:text> </xsl:text>
-                      <xsl:value-of select="$i18n-Modalities" />
+                      <xsl:value-of select="i18n:get('Modalities')" />
                       <xsl:text>)</xsl:text>
                     </fo:block>
                   </fo:table-cell>
@@ -477,7 +477,7 @@
             
             <fo:table-cell font-weight="bold" text-align="left" border="{$default-border}" padding="{$cell-padding}">
               <fo:block>
-                <xsl:value-of select="$i18n-Information" />
+                <xsl:value-of select="i18n:get('Information')" />
               </fo:block>
             </fo:table-cell>
             
@@ -487,13 +487,13 @@
                 <!-- Information: Type -->
                 <xsl:if test="normalize-space(@intrvl)">
                   <xsl:text> [</xsl:text>
-                  <xsl:value-of select="$i18n-Type" />
+                  <xsl:value-of select="i18n:get('Type')" />
                   <xsl:text>: </xsl:text>
 
-                  <xsl:value-of select="if (@intrvl='discrete') then
-                                          $i18n-discrete
-                                        else if (@intrvl='contin') then
-                                          $i18n-continuous 
+                  <xsl:value-of select="if (@intrvl = 'discrete') then
+                                          i18n:get('discrete')
+                                        else if (@intrvl = 'contin') then
+                                          i18n:get('continuous') 
                                         else () "/>
 
                   <xsl:text>] </xsl:text>
@@ -502,7 +502,7 @@
                 <!-- Information: Format -->
                 <xsl:for-each select="varFormat">
                   <xsl:text> [</xsl:text>
-                  <xsl:value-of select="$i18n-Format" />
+                  <xsl:value-of select="i18n:get('Format')" />
                   <xsl:text>: </xsl:text>
                   <xsl:value-of select="@type" />
                   <xsl:if test="normalize-space(location/@width)">
@@ -519,7 +519,7 @@
                 <!-- Information: Range -->
                 <xsl:for-each select="valrng/range">
                   <xsl:text> [</xsl:text>
-                  <xsl:value-of select="$i18n-Range" />
+                  <xsl:value-of select="i18n:get('Range')" />
                   <xsl:text>: </xsl:text>
                   <xsl:value-of select="@min" />-
                   <xsl:value-of select="@max" />
@@ -528,7 +528,7 @@
                 
                 <!-- Information: Missing -->
                 <xsl:text> [</xsl:text>
-                <xsl:value-of select="$i18n-Missing" />
+                <xsl:value-of select="i18n:get('Missing')" />
                 <xsl:text>: *</xsl:text>
                 <xsl:for-each select="invalrng/item">
                   <xsl:text>/</xsl:text>
@@ -546,11 +546,11 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell font-weight="bold" text-align="left" border="{$default-border}" padding="{$cell-padding}">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Statistics" />
+                  <xsl:value-of select="i18n:get('Statistics')" />
                   <xsl:text> [</xsl:text>
-                  <xsl:value-of select="$i18n-Abbrev_NotWeighted" />
+                  <xsl:value-of select="i18n:get('Abbrev_NotWeighted')" />
                   <xsl:text>/ </xsl:text>
-                  <xsl:value-of select="$i18n-Abbrev_Weighted" />
+                  <xsl:value-of select="i18n:get('Abbrev_Weighted')" />
                   <xsl:text>]</xsl:text>
                 </fo:block>
               </fo:table-cell>
@@ -564,13 +564,13 @@
                     
                     <xsl:variable name="label"
                       select="if (@type = 'vald') then
-                                $i18n-Valid
+                                i18n:get('Valid')
                               else if (@type = 'invd') then
-                                $i18n-Invalid
+                                i18n:get('Invalid')
                               else if (@type = 'mean') then
-                                $i18n-Mean
+                                i18n:get('Mean')
                               else if (@type = 'stdev') then
-                                $i18n-StdDev
+                                i18n:get('StdDev')
                               else
                                 @type "/>
 
@@ -595,7 +595,7 @@
           </xsl:if>
           
           <!-- separate the individual variable tables to improve readability -->
-          <fo:table-row height="0.2in">
+          <fo:table-row height="5mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block />
             </fo:table-cell>

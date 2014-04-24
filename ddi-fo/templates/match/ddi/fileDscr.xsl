@@ -58,7 +58,7 @@
         <fo:table-row background-color="{$color-gray1}" keep-with-next="always">
           <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
             <fo:block font-size="12pt" font-weight="bold">
-              <xsl:apply-templates select="fileTxt/fileName"/>
+              <xsl:apply-templates select="fileTxt/fileName" />
             </fo:block>
           </fo:table-cell>
         </fo:table-row>
@@ -68,11 +68,11 @@
           <fo:table-row>
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
               <fo:block>
-                <xsl:value-of select="$i18n-Cases" />
+                <xsl:value-of select="i18n:get('Cases')" />
               </fo:block>
             </fo:table-cell>
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-              <xsl:apply-templates select="fileTxt/dimensns/caseQnty"/>
+              <xsl:apply-templates select="fileTxt/dimensns/caseQnty" />
             </fo:table-cell>
           </fo:table-row>
         </xsl:if>
@@ -82,11 +82,11 @@
           <fo:table-row>
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
               <fo:block>
-                <xsl:value-of select="$i18n-Variables" />
+                <xsl:value-of select="i18n:get('Variables')" />
               </fo:block>
             </fo:table-cell>
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
-              <xsl:apply-templates select="fileTxt/dimensns/varQnty"/>
+              <xsl:apply-templates select="fileTxt/dimensns/varQnty" />
             </fo:table-cell>
           </fo:table-row>
         </xsl:if>
@@ -98,7 +98,7 @@
             <!-- 4.1) File_Structure -->
             <fo:table-cell font-weight="bold" border="{$default-border}" padding="{$cell-padding}">
               <fo:block>
-                <xsl:value-of select="$i18n-File_Structure" />
+                <xsl:value-of select="i18n:get('File_Structure')" />
               </fo:block>
             </fo:table-cell>
 
@@ -106,15 +106,15 @@
             <fo:table-cell border="{$default-border}" padding="{$cell-padding}">
               <xsl:if test="fileTxt/fileStrc/@type">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Type" />
+                  <xsl:value-of select="i18n:get('Type')" />
                   <xsl:text>:</xsl:text>
-                  <xsl:value-of select="fileTxt/fileStrc/@type"/>
+                  <xsl:value-of select="fileTxt/fileStrc/@type" />
                 </fo:block>
               </xsl:if>
 
               <xsl:if test="fileTxt/fileStrc/recGrp/@keyvar">
                 <fo:block>
-                  <xsl:value-of select="$i18n-Keys" />
+                  <xsl:value-of select="i18n:get('Keys')" />
                   <xsl:text>:&#160;</xsl:text>
                   <xsl:variable name="list" select="concat(fileTxt/fileStrc/recGrp/@keyvar,' ')" />
 
@@ -127,7 +127,7 @@
                     <xsl:value-of select="./@name"/>
                     <xsl:if test="normalize-space(./labl)">
 											<xsl:text>&#160;(</xsl:text>
-                      <xsl:value-of select="normalize-space(./labl)"/>
+                      <xsl:value-of select="normalize-space(./labl)" />
                       <xsl:text>)</xsl:text>
                     </xsl:if>
                   </xsl:for-each>
@@ -143,9 +143,9 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$i18n-File_Content" />
+                <xsl:value-of select="i18n:get('File_Content')" />
               </fo:block>
-              <xsl:apply-templates select="."/>
+              <xsl:apply-templates select="." />
             </fo:table-cell>
           </fo:table-row>
         </xsl:for-each>
@@ -155,9 +155,9 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$i18n-Producer" />
+                <xsl:value-of select="i18n:get('Producer')" />
               </fo:block>
-              <xsl:apply-templates select="."/>
+              <xsl:apply-templates select="." />
             </fo:table-cell>
           </fo:table-row>
         </xsl:for-each>
@@ -167,9 +167,9 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                 <xsl:value-of select="$i18n-Version" />
+                <xsl:value-of select="i18n:get('Version')" />
               </fo:block>
-              <xsl:apply-templates select="."/>
+              <xsl:apply-templates select="." />
             </fo:table-cell>
           </fo:table-row>
         </xsl:for-each>
@@ -179,9 +179,9 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$i18n-Processing_Checks" />
+                <xsl:value-of select="i18n:get('Processing_Checks')" />
               </fo:block>
-              <xsl:apply-templates select="."/>
+              <xsl:apply-templates select="." />
             </fo:table-cell>
           </fo:table-row>
         </xsl:for-each>
@@ -191,9 +191,9 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$i18n-Missing_Data" />
+                <xsl:value-of select="i18n:get('Missing_Data')" />
               </fo:block>
-              <xsl:apply-templates select="."/>
+              <xsl:apply-templates select="." />
             </fo:table-cell>
           </fo:table-row>
         </xsl:for-each>
@@ -203,9 +203,9 @@
           <fo:table-row>
             <fo:table-cell number-columns-spanned="2" border="{$default-border}" padding="{$cell-padding}">
               <fo:block font-weight="bold" text-decoration="underline">
-                <xsl:value-of select="$i18n-Notes" />
+                <xsl:value-of select="i18n:get('Notes')" />
               </fo:block>
-              <xsl:apply-templates select="."/>
+              <xsl:apply-templates select="." />
             </fo:table-cell>
           </fo:table-row>
         </xsl:for-each>

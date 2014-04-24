@@ -29,7 +29,7 @@
     <xsl:if test="$show-cover-page='True'">
       <fo:bookmark internal-destination="cover-page">
         <fo:bookmark-title>
-          <xsl:value-of select="$i18n-Cover_Page" />
+          <xsl:value-of select="i18n:get('Cover_Page')" />
         </fo:bookmark-title>
       </fo:bookmark>
     </xsl:if>
@@ -38,7 +38,7 @@
     <xsl:if test="$show-metadata-info = 'True'">
       <fo:bookmark internal-destination="metadata-info">
         <fo:bookmark-title>
-          <xsl:value-of select="$i18n-Document_Information" />
+          <xsl:value-of select="i18n:get('Document_Information')" />
         </fo:bookmark-title>
       </fo:bookmark>
     </xsl:if>
@@ -47,7 +47,7 @@
     <xsl:if test="$show-toc = 'True'">
       <fo:bookmark internal-destination="toc">
         <fo:bookmark-title>
-          <xsl:value-of select="$i18n-Table_of_Contents" />
+          <xsl:value-of select="i18n:get('Table_of_Contents')" />
         </fo:bookmark-title>
       </fo:bookmark>
     </xsl:if>
@@ -60,14 +60,14 @@
 
       <fo:bookmark internal-destination="overview">
         <fo:bookmark-title>
-          <xsl:value-of select="$i18n-Overview" />
+          <xsl:value-of select="i18n:get('Overview')" />
         </fo:bookmark-title>
 
         <!-- Scope_and_Coverage -->
         <xsl:if test="$show-scope-and-coverage = 'True'">
           <fo:bookmark internal-destination="scope-and-coverage">
             <fo:bookmark-title>
-              <xsl:value-of select="$i18n-Scope_and_Coverage" />
+              <xsl:value-of select="i18n:get('Scope_and_Coverage')" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -76,7 +76,7 @@
         <xsl:if test="$show-producers-and-sponsors = 'True'">
           <fo:bookmark internal-destination="producers-and-sponsors">
             <fo:bookmark-title>
-              <xsl:value-of select="$i18n-Producers_and_Sponsors" />
+              <xsl:value-of select="i18n:get('Producers_and_Sponsors')" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -85,7 +85,7 @@
         <xsl:if test="$show-sampling = 'True'">
           <fo:bookmark internal-destination="sampling">
             <fo:bookmark-title>
-              <xsl:value-of select="$i18n-Sampling" />
+              <xsl:value-of select="i18n:get('Sampling')" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -94,7 +94,7 @@
         <xsl:if test="$show-data-collection = 'True'">
           <fo:bookmark internal-destination="data-collection">
             <fo:bookmark-title>
-              <xsl:value-of select="$i18n-Data_Collection" />
+              <xsl:value-of select="i18n:get('Data_Collection')" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -103,7 +103,7 @@
         <xsl:if test="$show-data-processing-and-appraisal = 'True'">
           <fo:bookmark internal-destination="data-processing-and-appraisal">
             <fo:bookmark-title>
-              <xsl:value-of select="$i18n-Data_Processing_and_Appraisal" />
+              <xsl:value-of select="i18n:get('Data_Processing_and_Appraisal')" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -112,7 +112,7 @@
         <xsl:if test="$show-accessibility = 'True'">
           <fo:bookmark internal-destination="accessibility">
             <fo:bookmark-title>
-              <xsl:value-of select="$i18n-Accessibility" />
+              <xsl:value-of select="i18n:get('Accessibility')" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -121,7 +121,7 @@
         <xsl:if test="$show-rights-and-disclaimer = 'True'">
           <fo:bookmark internal-destination="rights-and-disclaimer">
             <fo:bookmark-title>
-              <xsl:value-of select="$i18n-Rights_and_Disclaimer" />
+              <xsl:value-of select="i18n:get('Rights_and_Disclaimer')" />
             </fo:bookmark-title>
           </fo:bookmark>
         </xsl:if>
@@ -134,7 +134,7 @@
       <fo:bookmark internal-destination="files-description">
 
         <fo:bookmark-title>
-          <xsl:value-of select="$i18n-Files_Description" />
+          <xsl:value-of select="i18n:get('Files_Description')" />
         </fo:bookmark-title>
 
         <xsl:for-each select="/codeBook/fileDscr">
@@ -151,7 +151,7 @@
     <xsl:if test="$show-variable-groups = 'True'">
       <fo:bookmark internal-destination="variables-groups">
         <fo:bookmark-title>
-          <xsl:value-of select="$i18n-Variables_Groups" />
+          <xsl:value-of select="i18n:get('Variables_Groups')" />
         </fo:bookmark-title>
 
         <xsl:for-each select="/codeBook/dataDscr/varGrp">
@@ -168,7 +168,7 @@
     <xsl:if test="$show-variables-list = 'True'">
       <fo:bookmark internal-destination="variables-list">
         <fo:bookmark-title>
-          <xsl:value-of select="$i18n-Variables_List" />
+          <xsl:value-of select="i18n:get('Variables_List')" />
         </fo:bookmark-title>
 
         <xsl:for-each select="/codeBook/fileDscr">
@@ -185,7 +185,7 @@
     <xsl:if test="$show-variables-description = 'True'">
       <fo:bookmark internal-destination="variables-description">
         <fo:bookmark-title>
-          <xsl:value-of select="$i18n-Variables_Description" />
+          <xsl:value-of select="i18n:get('Variables_Description')" />
         </fo:bookmark-title>
 
         <xsl:for-each select="/codeBook/fileDscr">
@@ -199,7 +199,7 @@
                       else if (@ID) then @ID
                       else () " />
 
-            <xsl:for-each select="/codeBook/dataDscr/var[@files=$fileId]">
+            <xsl:for-each select="/codeBook/dataDscr/var[@files = $fileId]">
                 <fo:bookmark internal-destination="var-{@ID}">
                   <fo:bookmark-title>
                     <xsl:apply-templates select="@name" />
