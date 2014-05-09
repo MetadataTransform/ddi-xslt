@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:ddicb="http://www.icpsr.umich.edu/DDI" xmlns:skosclass="http://ddialliance.org/ontologies/skosclass" xmlns:ddi="http://ddialliance.org/data/" xmlns:si="http://www.w3schools.com/rdf/" xmlns:ddionto="http://ddialliance.org/def#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
-<ddionto:Study>
-<dc:title>National Population and Housing Census, 1980</dc:title>
-<dc:abstract>IPUMS-International is an effort to inventory, preserve, harmonize, and disseminate census microdata from around the world. The project has collected the world's largest archive of publicly available census samples. The data are coded and documented consistently across countries and over time to facillitate comparative research. IPUMS-International makes these data available to qualified researchers free of charge through a web dissemination system.
-
-The IPUMS project is a collaboration of the Minnesota Population Center, National Statistical Offices, and international data archives. Major funding is provided by the U.S. National Science Foundation and the Demographic and Behavioral Sciences Branch of the National Institute of Child Health and Human Development. Additional support is provided by the University of Minnesota Office of the Vice President for Research, the Minnesota Population Center, and Sun Microsystems.</dc:abstract>
-</ddionto:Study>
-</rdf:RDF>
