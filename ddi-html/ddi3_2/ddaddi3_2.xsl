@@ -3,7 +3,7 @@
   xmlns:cm="ddi:comparative:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:r="ddi:reusable:3_1" xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1" xmlns:util="https://code.google.com/p/ddixslt/#util" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd" version="2.0">
 
-  <xsl:import href="ddi3_1.xsl"/>
+  <xsl:import href="ddi3_2.xsl"/>
 
   <!--  svn version -->
   <xsl:param name="svn-revision">Revision: 395</xsl:param>

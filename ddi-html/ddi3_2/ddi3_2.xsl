@@ -4,10 +4,10 @@
     xmlns:util="https://code.google.com/p/ddixslt/#util" version="2.0" xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd">
 
     <!-- imports -->
-    <xsl:import href="ddi3_1_util.xsl"/>
-    <xsl:import href="ddi3_1_datacollection.xsl"/>
-    <xsl:import href="ddi3_1_logicalproduct.xsl"/>
-    <xsl:import href="ddi3_1_conceptualcomponent.xsl"/>
+    <xsl:import href="ddi3_2_util.xsl"/>
+    <xsl:import href="ddi3_2_datacollection.xsl"/>
+    <xsl:import href="ddi3_2_logicalproduct.xsl"/>
+    <xsl:import href="ddi3_2_conceptualcomponent.xsl"/>
 
     <!--  SVN version -->
     <xsl:param name="svn-revision">$Revision: 103 $</xsl:param>
