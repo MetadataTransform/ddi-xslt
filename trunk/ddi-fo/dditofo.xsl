@@ -96,27 +96,39 @@
   <!-- count(), normalize-space(), position(), substring() [Xpath 1.0] -->
   <!-- document() [XSLT 1.0] -->
   
-  <!-- =============================================================== -->
-  <!-- Main "sections" of the root template and their show/hide vars   -->
-  <!-- fo:layout-master-set    n/a                                     -->
-  <!-- fo:bookmark-tree        show-bookmarks                param   1 -->
-  <!-- Cover page:             show-cover-page               param   1 -->
-  <!-- Metadata info:          show-metadata-info            param   1 -->
-  <!-- Table of Contents:      show-toc                      param   1 -->
-  <!-- Overview:               show-overview                 param   1 -->
-  <!-- Files Description:      show-files-description        param   1 -->
-  <!-- Variable List:          show-variables-list           spec*     -->
-  <!-- Variable Groups:        show-variable-groups          spec**    -->
-  <!-- Variables Description:  show-variables-description    file      -->
-  <!--                                                                 -->
-  <!-- *  If show-variable-groups is 1, this is set to 0               -->
-  <!-- ** Both parameter and DDI file                                  -->
-  <!-- =============================================================== -->
+  <!-- ==================================================================== -->
+  <!-- Main "sections" of the root template and their show/hide vars        -->
+  <!-- fo:bookmark-tree        bookmarks.show                  param 'True' -->
+  <!-- Cover page:             page.cover_page.show            param 'True' -->
+  <!-- Metadata info:          page.metadata_info.show         param 'True' -->
+  <!-- Table of Contents:      page.toc.show                   param 'True' -->
+  <!-- Overview:               page.overview.show              param 'True' -->
+  <!-- Files Description:      page.files_description.show     param 'True' -->
+  <!-- Variable List:          page.variables_list.show        dependent*   -->
+  <!-- Variable Groups:        page.variable_groups.show       dependent**  -->
+  <!-- Variables Description:  page.variables_description.show file         -->
+  <!--                                                                      -->
+  <!-- *  If page.variable_groups.show is 'True', this is set to 'False'    -->
+  <!-- ** Both parameter and DDI file                                       -->
+  <!-- ==================================================================== -->
 
   <!-- params supplied by XSLT engine -->
   <!-- language-code. report-title, font-family.                         -->
   <!-- translation-file (http://xml.snd.gu.se/xsl/ddi2/i18n/{$lang}.xml) -->
   <!-- show-variables-list-question, show-cover-page                     -->
+
+
+  <!-- global variables/parameters and their purpose  -->
+  <!-- i18n.*           translations                       -->
+  <!-- layout.*         look and feel of the document      -->
+  <!-- layout.color.*   useful color names                 -->
+  <!-- layout.tables.*  table look and feel                -->
+  <!-- study.*          misc. useful info from input file  -->
+  <!-- time.*           creation dates, etc                -->
+  <!-- bookmarks.*      <fo:bookmark-tree>                 -->
+  <!-- limits.*         some useful max values             -->
+  <!-- page.*           <fo:page-sequence>                 -->
+  <!-- section.*        sections/areas of the document     -->
 
 
   <!-- ################################################### -->
@@ -135,7 +147,8 @@
   <xsl:param name="limits.variable_name_length" select="14" />
 
   <!-- path to front page logo -->
-  <xsl:param name="layout.logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png'" />
+  <!-- <xsl:param name="layout.logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png'" /> -->
+  <xsl:param name="layout.logo_file" select="'../images/placeholder_logo.png'" />
 
   <!-- Style and page layout -->
   <xsl:param name="layout.page_master" select="'A4-page'" /> 
@@ -168,7 +181,6 @@
   <xsl:variable name="layout.tables.border" select="'0.5pt solid black'" />
     
   <!-- colors -->  
-  <!-- <xsl:variable name="layout.color.gray0" select="'#f8f8f8'" /> -->
   <xsl:variable name="layout.color.gray1" select="'#f0f0f0'" />
   <xsl:variable name="layout.color.gray2" select="'#e0e0e0'" />
   <xsl:variable name="layout.color.gray3" select="'#d0d0d0'" />
