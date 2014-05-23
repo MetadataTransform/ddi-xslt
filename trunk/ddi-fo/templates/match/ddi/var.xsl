@@ -43,8 +43,7 @@
               <fo:block>
                 <fo:inline font-size="8pt" font-weight="normal" vertical-align="text-top">                 
                   <xsl:value-of select="concat('#', ./@id, ' ')"  />                  
-                </fo:inline>
-                
+                </fo:inline>                
                 <xsl:value-of select="./@name" />                                
                 <xsl:value-of select="if (normalize-space(./labl)) then concat(': ', normalize-space(./labl)) else ()" />                
               </fo:block>
@@ -269,30 +268,25 @@
                 <!-- Case 1)            -->
                 <!-- ================== -->
                 <xsl:when test="number($limits.variables_description_categories_max) &gt;= $category-count">
-                  <fo:table-cell text-align="left" border="{$layout.tables.border}" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">
-                    
-                    <!-- ========= -->
-                    <!-- Variables -->
-                    <!-- ========= -->
-                    <xsl:variable name="is-weighted" select="count(catgry/catStat[@type ='freq' and @wgtd = 'wgtd' ]) &gt; 0"/>
-                    <xsl:variable name="catgry-freq-nodes" select="catgry[not(@missing = 'Y')]/catStat[@type='freq']" />
-                    <xsl:variable name="catgry-sum-freq" select="sum($catgry-freq-nodes[ not(@wgtd = 'wgtd') ])" />
-                    <xsl:variable name="catgry-sum-freq-wgtd" select="sum($catgry-freq-nodes[ @wgtd = 'wgtd'])" />
-                    
-                    <xsl:variable name="catgry-max-freq">
-                      <xsl:value-of select="util:math_max($catgry-freq-nodes[ not(@wgtd = 'wgtd') ])" />
-                    </xsl:variable>
-                    
-                    <xsl:variable name="catgry-max-freq-wgtd">
-                      <xsl:value-of select="util:math_max($catgry-freq-nodes[@type='freq' and @wgtd ='wgtd' ])"/>
-                    </xsl:variable>
-                    
-                    <xsl:variable name="bar-column-width" select="2.5" />
-                    
-                    <!-- ========= -->
-                    <!-- Content   -->
-                    <!-- ========= -->
+
+                  <!-- ========= -->
+                  <!-- Variables -->
+                  <!-- ========= -->
+                  <xsl:variable name="is-weighted" select="count(catgry/catStat[@type ='freq' and @wgtd = 'wgtd' ]) &gt; 0"/>
+                  <xsl:variable name="catgry-freq-nodes" select="catgry[not(@missing = 'Y')]/catStat[@type='freq']" />
+                  <xsl:variable name="catgry-sum-freq" select="sum($catgry-freq-nodes[ not(@wgtd = 'wgtd') ])" />
+                  <xsl:variable name="catgry-sum-freq-wgtd" select="sum($catgry-freq-nodes[ @wgtd = 'wgtd'])" />                 
+                  <xsl:variable name="catgry-max-freq" select="util:math_max($catgry-freq-nodes[ not(@wgtd = 'wgtd') ])" />       
+                  <xsl:variable name="catgry-max-freq-wgtd" select="util:math_max($catgry-freq-nodes[@type='freq' and @wgtd ='wgtd' ])" />                  
+                  <xsl:variable name="bar-column-width" select="2.5" />
+
+                  <!-- ========= -->
+                  <!-- Content   -->
+                  <!-- ========= -->
+                  <fo:table-cell text-align="left" border="{$layout.tables.border}" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">                                      
                     <fo:table id="var-{@ID}-cat" table-layout="fixed" width="100%" font-size="8pt">
+                      
+                      <!-- table colums -->
                       <fo:table-column column-width="proportional-column-width(12)" />
                       <xsl:choose>
                         <xsl:when test="$is-weighted">
@@ -304,9 +298,7 @@
                           <fo:table-column column-width="proportional-column-width(45)" />
                           <fo:table-column column-width="proportional-column-width(8)" />
                         </xsl:otherwise>
-                      </xsl:choose>
-                      
-                      
+                      </xsl:choose>                                            
                       <fo:table-column column-width="{$bar-column-width}in" />
                       
                       <!-- table header -->
@@ -337,10 +329,8 @@
                           <fo:table-cell border="0.4pt solid white" padding="{$layout.tables.cellpadding}" text-align="center">
                             <fo:block font-weight="bold">
                               <xsl:value-of select="i18n:get('Percentage')" />
-                              <xsl:if test="$is-weighted">
-                                <xsl:text>(</xsl:text>
-                                <xsl:value-of select="i18n:get('Weighted')" />
-                                <xsl:text>)</xsl:text>
+                              <xsl:if test="$is-weighted">                                
+                                <xsl:value-of select="concat('(', i18n:get('Weighted'), ')')" />
                               </xsl:if>
                             </fo:block>
                           </fo:table-cell>
@@ -425,7 +415,7 @@
                                       <fo:table-cell background-color="{$layout.color.gray4}">
                                         <fo:block> </fo:block>
                                       </fo:table-cell>
-                                      <fo:table-cell margin-left="0.05in">
+                                      <fo:table-cell margin-left="1.5mm">
                                         <fo:block>
                                           <xsl:value-of select="format-number($catgry-pct , '#0.0%')" />
                                         </fo:block>
@@ -436,6 +426,7 @@
                                 <!-- end bar table -->
                               </fo:table-cell>
                             </xsl:if>
+                            
                           </fo:table-row>
                         </xsl:for-each>
                       </fo:table-body>
@@ -454,14 +445,9 @@
                 <!-- =================================== -->
                 <xsl:otherwise>
                   <fo:table-cell background-color="{$layout.color.gray1}" text-align="center" font-style="italic"
-                    border="{$layout.tables.border}" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">
-                    <fo:block>
-                      <xsl:value-of select="i18n:get('Frequency_table_not_shown')" />
-                      <xsl:text> (</xsl:text>
-                      <xsl:value-of select="$category-count"/>
-                      <xsl:text> </xsl:text>
-                      <xsl:value-of select="i18n:get('Modalities')" />
-                      <xsl:text>)</xsl:text>
+                                 border="{$layout.tables.border}" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">
+                    <fo:block>                      
+                      <xsl:value-of select="concat(i18n:get('Frequency_table_not_shown'), ' (', $category-count, ' ', i18n:get('Modalities'), ')')"  />
                     </fo:block>
                   </fo:table-cell>
                 </xsl:otherwise>
@@ -488,49 +474,28 @@
                 
                 <!-- Information: Type -->
                 <xsl:if test="normalize-space(@intrvl)">
-                  <!-- <xsl:text> [</xsl:text>
-                  <xsl:value-of select="i18n:get('Type')" />
-                  <xsl:text>: </xsl:text> -->
-
                   <xsl:value-of select="concat(' [', i18n:get('Type'), ': ')"  />
                   <xsl:value-of select="if (@intrvl = 'discrete') then i18n:get('discrete')
                                         else if (@intrvl = 'contin') then i18n:get('continuous') 
                                         else () "/>
-
                   <xsl:text>] </xsl:text>
                 </xsl:if>
                 
                 <!-- Information: Format -->
-                <xsl:for-each select="varFormat">
-                  <xsl:text> [</xsl:text>
-                  <xsl:value-of select="i18n:get('Format')" />
-                  <xsl:text>: </xsl:text>
-                  <xsl:value-of select="@type" />
-                  <xsl:if test="normalize-space(location/@width)">
-                    <xsl:text>-</xsl:text>
-                    <xsl:value-of select="location/@width" />
-                  </xsl:if>
-                  <xsl:if test="normalize-space(@dcml)">
-                    <xsl:text>.</xsl:text>
-                    <xsl:value-of select="@dcml" />
-                  </xsl:if>
+                <xsl:for-each select="varFormat">                  
+                  <xsl:value-of select="concat(' [', i18n:get('Format'), ': ', @type)" />                   
+                  <xsl:value-of select="if (normalize-space(location/@width)) then concat('-', location/@width) else ()" />
+                  <xsl:value-of select="if (normalize-space(@dcml)) then concat('.', @dcml) else ()" />
                   <xsl:text>] </xsl:text>
                 </xsl:for-each>
                 
                 <!-- Information: Range -->
-                <xsl:for-each select="valrng/range">
-                  <xsl:text> [</xsl:text>
-                  <xsl:value-of select="i18n:get('Range')" />
-                  <xsl:text>: </xsl:text>
-                  <xsl:value-of select="@min" />-
-                  <xsl:value-of select="@max" />
-                  <xsl:text>] </xsl:text>
+                <xsl:for-each select="valrng/range">                  
+                  <xsl:value-of select="concat(' [', i18n:get('Range'), ': ', @min, '-', @max, '] ') "/>               
                 </xsl:for-each>
                 
                 <!-- Information: Missing -->
-                <xsl:text> [</xsl:text>
-                <xsl:value-of select="i18n:get('Missing')" />
-                <xsl:text>: *</xsl:text>
+                <xsl:value-of select="concat(' [', i18n:get('Missing'), ': *')" />
                 <xsl:for-each select="invalrng/item">
                   <xsl:value-of select="concat('/', @VALUE)"/>                 
                 </xsl:for-each>
