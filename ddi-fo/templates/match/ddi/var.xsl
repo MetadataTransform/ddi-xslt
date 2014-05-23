@@ -26,6 +26,8 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:fo="http://www.w3.org/1999/XSL/Format">
   
+  <xsl:variable name="statistics" select="sumStat[contains('vald invd mean stdev',@type)]" />
+  
   <fo:table-row text-align="center" vertical-align="top">
     <fo:table-cell>
       <fo:table id="var-{@ID}" table-layout="fixed" width="100%" font-size="8pt" space-after="7.5mm">
@@ -269,7 +271,9 @@
                 <xsl:when test="number($limits.variables_description_categories_max) &gt;= $category-count">
                   <fo:table-cell text-align="left" border="{$layout.tables.border}" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">
                     
+                    <!-- ========= -->
                     <!-- Variables -->
+                    <!-- ========= -->
                     <xsl:variable name="is-weighted" select="count(catgry/catStat[@type ='freq' and @wgtd = 'wgtd' ]) &gt; 0"/>
                     <xsl:variable name="catgry-freq-nodes" select="catgry[not(@missing = 'Y')]/catStat[@type='freq']" />
                     <xsl:variable name="catgry-sum-freq" select="sum($catgry-freq-nodes[ not(@wgtd = 'wgtd') ])" />
@@ -283,7 +287,11 @@
                       <xsl:value-of select="util:math_max($catgry-freq-nodes[@type='freq' and @wgtd ='wgtd' ])"/>
                     </xsl:variable>
                     
-                    <!-- Render table -->
+                    <xsl:variable name="bar-column-width" select="2.5" />
+                    
+                    <!-- ========= -->
+                    <!-- Content   -->
+                    <!-- ========= -->
                     <fo:table id="var-{@ID}-cat" table-layout="fixed" width="100%" font-size="8pt">
                       <fo:table-column column-width="proportional-column-width(12)" />
                       <xsl:choose>
@@ -297,7 +305,7 @@
                           <fo:table-column column-width="proportional-column-width(8)" />
                         </xsl:otherwise>
                       </xsl:choose>
-                      <xsl:variable name="bar-column-width" select="2.5" />
+                      
                       
                       <fo:table-column column-width="{$bar-column-width}in" />
                       
@@ -342,36 +350,62 @@
                       <!-- table body -->
                       <fo:table-body>
                         <xsl:for-each select="catgry">
+
+                          <!-- ========= -->
+                          <!-- Variables -->
+                          <!-- ========= -->
+                          <xsl:variable name="catgry-freq" select="catStat[@type='freq' and not(@wgtd='wgtd') ]"/>
+                          <xsl:variable name="catgry-freq-wgtd" select="catStat[@type ='freq' and @wgtd ='wgtd' ]" />
+
+                          <!-- percentage -->                            
+                          <xsl:variable name="catgry-pct"
+                            select="if ($is-weighted) then $catgry-freq-wgtd div $catgry-sum-freq-wgtd
+                            else $catgry-freq div $catgry-sum-freq "/>
+                          
+                          <!-- bar width (percentage of highest value minus --> 
+                          <!-- some space to display the percentage value) -->                            
+                          <xsl:variable name="tmp-col-width-1"
+                            select="if ($is-weighted) then ($catgry-freq-wgtd div $catgry-max-freq-wgtd) * ($bar-column-width - 0.5)
+                            else ($catgry-freq div $catgry-max-freq) * ($bar-column-width - 0.5) " />
+                          
+                          <xsl:variable name="col-width-1"
+                            select="if (string(number($tmp-col-width-1)) != 'NaN') then $tmp-col-width-1
+                            else 0 "/>
+                          
+                          <!-- remaining space for second column -->
+                          <xsl:variable name="col-width-2" select="$bar-column-width - $col-width-1" />
+
+                          <!-- ========= -->
+                          <!-- Content   -->
+                          <!-- ========= -->
                           <fo:table-row background-color="{$layout.color.gray2}" text-align="center" vertical-align="top">
                             
                             <!-- catValue -->
                             <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
                               <fo:block>                                  
-                                <xsl:value-of select="util:trim(catValu)"/>
+                                <xsl:value-of select="util:trim(catValu)" />
                               </fo:block>
                             </fo:table-cell>
                             
                             <!-- Label -->
                             <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
                               <fo:block>                                
-                                <xsl:value-of select="util:trim(labl)"/>
+                                <xsl:value-of select="util:trim(labl)" />
                               </fo:block>
                             </fo:table-cell>
                             
-                            <!-- Frequency -->
-                            <xsl:variable name="catgry-freq" select="catStat[@type='freq' and not(@wgtd='wgtd') ]"/>
+                            <!-- Frequency -->                            
                             <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
                               <fo:block>                                
-                                <xsl:value-of select="util:trim(catStat)"/>
+                                <xsl:value-of select="util:trim(catStat)" />
                               </fo:block>
                             </fo:table-cell>
                             
-                            <!-- Weighted frequency -->
-                            <xsl:variable name="catgry-freq-wgtd" select="catStat[@type ='freq' and @wgtd ='wgtd' ]" />
+                            <!-- Weighted frequency -->                            
                             <xsl:if test="$is-weighted">
                               <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
                                 <fo:block>
-                                  <xsl:value-of select="util:trim(format-number($catgry-freq-wgtd, '0.0'))"/>
+                                  <xsl:value-of select="util:trim(format-number($catgry-freq-wgtd, '0.0'))" />
                                 </fo:block>
                               </fo:table-cell>
                             </xsl:if>
@@ -379,25 +413,7 @@
                             <!-- ============== -->
                             <!-- Percentage Bar -->
                             <!-- ============== -->
-                            
-                            <!-- compute percentage -->                            
-                            <xsl:variable name="catgry-pct"
-                              select="if ($is-weighted) then $catgry-freq-wgtd div $catgry-sum-freq-wgtd
-                                      else $catgry-freq div $catgry-sum-freq "/>
-                            
-                            <!-- compute bar width (percentage of highest value minus --> 
-                            <!-- some space to display the percentage value) -->                            
-                            <xsl:variable name="tmp-col-width-1"
-                              select="if ($is-weighted) then ($catgry-freq-wgtd div $catgry-max-freq-wgtd) * ($bar-column-width - 0.5)
-                                      else ($catgry-freq div $catgry-max-freq) * ($bar-column-width - 0.5) " />
-                                                                                   
-                            <xsl:variable name="col-width-1"
-                              select="if (string(number($tmp-col-width-1)) != 'NaN') then $tmp-col-width-1
-                                      else 0 "/>
-
-                            <!-- compute remaining space for second column -->
-                            <xsl:variable name="col-width-2" select="$bar-column-width - $col-width-1" />
-                            
+                                                        
                             <!-- display the bar but not for missing values or if there was a problem computing the width -->
                             <xsl:if test="not(@missing = 'Y') and $col-width-1 &gt; 0">
                               <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
@@ -524,8 +540,7 @@
             </fo:table-cell>
           </fo:table-row>
           
-          <!-- Statistics -->
-          <xsl:variable name="statistics" select="sumStat[contains('vald invd mean stdev',@type)]" />
+          <!-- Statistics -->          
           <xsl:if test="$statistics">
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell font-weight="bold" text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
@@ -539,6 +554,10 @@
                   
                   <!-- Summary statistics -->
                   <xsl:for-each select="$statistics[not(@wgtd)]">
+
+                    <!-- ========= -->
+                    <!-- Variables -->
+                    <!-- ========= -->
                     <xsl:variable name="type" select="@type" />                    
                     <xsl:variable name="label"
                       select="if (@type = 'vald') then i18n:get('Valid')
@@ -547,6 +566,9 @@
                               else if (@type = 'stdev') then i18n:get('StdDev')
                               else @type "/>
 
+                    <!-- ========= -->
+                    <!-- Content   -->
+                    <!-- ========= -->                    
                     <xsl:value-of select="concat(' [', $label, ': ', normalize-space(.), ' /')"  />
                     <xsl:value-of select="if (following-sibling::sumStat[1]/@type = $type and following-sibling::sumStat[1]/@wgtd) then
                                             following-sibling::sumStat[1]
