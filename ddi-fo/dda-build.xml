@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<project basedir="." default="deploy-to-ddieditor-ui" name="ddi-html">
+	<!-- directories -->
+	<property name="ddixslt-cpdf.dir" value="${basedir}/../ddieditor-ui/bin/resources/ddixslt-cpdf" />
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- clean                                       -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<target name="clean" description="Clean up">
+		<delete quiet="true" dir="${ddixslt-cpdf.dir}" />
+	</target>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- deploy-to-ddieditor-ui                      -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<target name="deploy-to-ddieditor-ui" depends="clean" description="Copies style sheet to ddieditor-ui/bin/ddixslt-cpdf dir">
+		<mkdir dir="${ddixslt-cpdf.dir}" />
+		<!-- style sheet files -->
+		<echo>Copy style sheet files from ddi-fo to ddieditor-ui: ${ddixslt-cpdf.dir}</echo>
+		<copy todir="${ddixslt-cpdf.dir}" overwrite="yes">
+			<fileset dir="${basedir}">
+				<include name="**/*.xsl" />
+			</fileset>
+		</copy>
+		<!-- i18n -->
+		<copy todir="${ddixslt-cpdf.dir}">
+			<fileset dir="${basedir}" includes="**/i18n/*" />
+		</copy>
+	</target>
+</project>
