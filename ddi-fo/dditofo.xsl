@@ -96,21 +96,21 @@
   <!-- count(), normalize-space(), position(), substring() [Xpath 1.0] -->
   <!-- document() [XSLT 1.0] -->
   
-  <!-- ==================================================================== -->
-  <!-- Main "sections" of the root template and their show/hide vars        -->
-  <!-- fo:bookmark-tree        bookmarks.show                  param 'True' -->
-  <!-- Cover page:             page.cover_page.show            param 'True' -->
-  <!-- Metadata info:          page.metadata_info.show         param 'True' -->
-  <!-- Table of Contents:      page.toc.show                   param 'True' -->
-  <!-- Overview:               page.overview.show              param 'True' -->
-  <!-- Files Description:      page.files_description.show     param 'True' -->
-  <!-- Variable List:          page.variables_list.show        dependent*   -->
-  <!-- Variable Groups:        page.variable_groups.show       dependent**  -->
-  <!-- Variables Description:  page.variables_description.show file         -->
-  <!--                                                                      -->
-  <!-- *  If page.variable_groups.show is 'True', this is set to 'False'    -->
-  <!-- ** Both parameter and DDI file                                       -->
-  <!-- ==================================================================== -->
+  <!-- ============================================================================================== -->
+  <!-- Main "sections" of the root template and their show/hide vars                                  -->
+  <!-- fo:bookmark-tree        bookmarks.show                  param 'True' bookmark.tree.xsl         -->
+  <!-- Cover page:             page.cover_page.show            param 'True' cover_page.xsl            -->
+  <!-- Metadata info:          page.metadata_info.show         param 'True' metadata_info.xsl         -->
+  <!-- Table of Contents:      page.toc.show                   param 'True' table_of_contents.xsl     -->
+  <!-- Overview:               page.overview.show              param 'True' overview.xsl              -->
+  <!-- Files Description:      page.files_description.show     param 'True' files_description.xsl     -->
+  <!-- Variable List:          page.variables_list.show        dependent*   variables_list.xsl        -->
+  <!-- Variable Groups:        page.variable_groups.show       dependent**  variable_groups.xsl       -->
+  <!-- Variables Description:  page.variables_description.show file         variables_description.xsl -->
+  <!--                                                                                                -->
+  <!-- *  If page.variable_groups.show is 'True', this gets set to 'False'                            -->
+  <!-- ** Both parameter and DDI file                                                                 -->
+  <!-- ============================================================================================== -->
 
   <!-- params supplied by XSLT engine -->
   <!-- language-code. report-title, font-family.                         -->
@@ -175,10 +175,9 @@
   <!-- To avoid empty pages; use a huge chunksize for subsets -->
   <xsl:variable name="layout.chunk_size" select="50" />
   
-
   <!-- table cells -->
   <xsl:variable name="layout.tables.cellpadding" select="'3pt'"/>
-  <xsl:variable name="layout.tables.border" select="'0.5pt solid black'" />
+  <xsl:variable name="layout.tables.border" select="'0.5pt'" />
     
   <!-- colors -->  
   <xsl:variable name="layout.color.gray1" select="'#f0f0f0'" />
@@ -193,6 +192,7 @@
 
   <!-- read strings from selected translations file-->
   <xsl:variable name="i18n.strings" select="document($i18n.translation_file)" />
+
 
   <!-- #################################################### -->
   <!-- ### gather some info                             ### -->
@@ -253,24 +253,32 @@
   <!-- ### toggle parts of document                     ### -->
   <!-- #################################################### -->
 
-  <!-- Show variable groups only if there are any -->
+  <!-- ======================================= -->
+  <!-- Show variable groups or variables list? -->
+  <!-- ======================================= -->
+
+  <!-- if there are any variable groups, render the variable groups page-sequence -->
   <xsl:variable name="page.variable_groups.show"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="if (count(/codeBook/dataDscr/varGrp) > 0) then 'True' else 'False' "/>
 
-  <!-- Show variable list if showing variable groups are disabled -->
+  <!-- if rendering variable groups page-sequence is enabled -->
+  <!-- do not also render variable list page-sequence -->
   <xsl:variable name="page.variables_list.show"
     select="if ($page.variable_groups.show = 'True') then 'False' else 'True' "/>
 
-  <!-- If totalt amount of variables or given subsetamount       -->
-  <!-- exceeds given max, then dont show extensive variable desc -->
+  <!-- =========================== -->
+  <!-- Show variables description? -->
+  <!-- =========================== -->
+
+  <!-- If there are no variables, don't render the variable description page-sequence -->
   <xsl:variable name="page.variables_description.show"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
     select="if (count(/codeBook/dataDscr/var) = 0) then 'False' else 'True' "/>
     
-  <!-- ======== -->
-  <!-- Sections -->  
-  <!-- ======== -->
+  <!-- =============================== -->
+  <!-- Show specific page subsections? -->  
+  <!-- =============================== -->
   
   <xsl:variable name="section.scope_and_coverage.show"
     xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
@@ -335,8 +343,6 @@
             else 'False' "/>
   
   
-
-
   <!-- #################################################### -->
   <!-- ### xinclude other files                         ### -->
   <!-- #################################################### -->
@@ -349,9 +355,9 @@
   <xi:include href="templates/match/ddi/collDate.xsl" />
   <xi:include href="templates/match/ddi/contact.xsl" />
   <xi:include href="templates/match/ddi/dataCollector.xsl" />
-  <xi:include href="templates/match/ddi/fileDscr.xsl" />
+<!--  <xi:include href="templates/match/ddi/fileDscr.xsl" />-->
   <xi:include href="templates/match/ddi/fileDscr_variables-description.xsl" />
-  <xi:include href="templates/match/ddi/fileDscr_variables-list.xsl" />
+<!--  <xi:include href="templates/match/ddi/fileDscr_variables-list.xsl" />-->
   <xi:include href="templates/match/ddi/fileName.xsl" />
   <xi:include href="templates/match/ddi/fundAg.xsl" />
   <xi:include href="templates/match/ddi/IDNo.xsl" />

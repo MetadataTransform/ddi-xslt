@@ -42,27 +42,29 @@
       <fo:table-row background-color="{$layout.color.gray1}" keep-with-next="always">
         <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
           <fo:block font-size="12pt" font-weight="bold">
-            <xsl:apply-templates select="fileTxt/fileName" />
+            <xsl:apply-templates select="/codeBook/fileDscr/fileTxt/fileName" />
           </fo:block>
         </fo:table-cell>
       </fo:table-row>
       
       <!-- Cases -->
-      <xsl:if test="fileTxt/dimensns/caseQnty">
+      <xsl:if test="/codeBook/fileDscr/fileTxt/dimensns/caseQnty">
         <fo:table-row>
           <fo:table-cell font-weight="bold" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
             <fo:block>
               <xsl:value-of select="i18n:get('Cases')" />
             </fo:block>
           </fo:table-cell>
-          <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-            <xsl:apply-templates select="fileTxt/dimensns/caseQnty" />
+          <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">           
+            <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
+              <xsl:value-of select="util:trim(/codeBook/fileDscr/fileTxt/dimensns/caseQnty)" />
+            </fo:block>            
           </fo:table-cell>
         </fo:table-row>
       </xsl:if>
       
       <!-- Variables -->
-      <xsl:if test="fileTxt/dimensns/varQnty">
+      <xsl:if test="/codeBook/fileDscr/fileTxt/dimensns/varQnty">
         <fo:table-row>
           <fo:table-cell font-weight="bold" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
             <fo:block>
@@ -70,37 +72,39 @@
             </fo:block>
           </fo:table-cell>
           <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-            <xsl:apply-templates select="fileTxt/dimensns/varQnty" />
+            <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
+              <xsl:value-of select="util:trim(/codeBook/fileDscr/fileTxt/dimensns/varQnty)" />
+            </fo:block>            
           </fo:table-cell>
         </fo:table-row>
       </xsl:if>
       
       <!-- File structure -->
-      <xsl:if test="fileTxt/fileStrc">
+      <xsl:if test="/codeBook/fileDscr/fileTxt/fileStrc">
         <fo:table-row>
           
-          <!-- 4.1) File_Structure -->
+          <!-- File_Structure -->
           <fo:table-cell font-weight="bold" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
             <fo:block>
               <xsl:value-of select="i18n:get('File_Structure')" />
             </fo:block>
           </fo:table-cell>
           
-          <!-- 4.2) Type -->
+          <!-- Type -->
           <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-            <xsl:if test="fileTxt/fileStrc/@type">
+            <xsl:if test="/codeBook/fileDscr/fileTxt/fileStrc/@type">
               <fo:block>
                 <xsl:value-of select="i18n:get('Type')" />
                 <xsl:text>:</xsl:text>
-                <xsl:value-of select="fileTxt/fileStrc/@type" />
+                <xsl:value-of select="/codeBook/fileDscr/fileTxt/fileStrc/@type" />
               </fo:block>
             </xsl:if>
             
-            <xsl:if test="fileTxt/fileStrc/recGrp/@keyvar">
+            <xsl:if test="/codeBook/fileDscr/fileTxt/fileStrc/recGrp/@keyvar">
               <fo:block>
                 <xsl:value-of select="i18n:get('Keys')" />
                 <xsl:text>:&#160;</xsl:text>
-                <xsl:variable name="list" select="concat(fileTxt/fileStrc/recGrp/@keyvar,' ')" />
+                <xsl:variable name="list" select="concat(/codeBook/fileDscr/fileTxt/fileStrc/recGrp/@keyvar,' ')" />
                 
                 <!-- add a space at the end of the list for matching puspose -->
                 <xsl:for-each select="/codeBook/dataDscr/var[contains($list, concat(@ID,' '))]">
@@ -123,7 +127,7 @@
       </xsl:if>
       
       <!-- File Content -->
-      <xsl:for-each select="fileTxt/fileCont">
+      <xsl:for-each select="/codeBook/fileDscr/fileTxt/fileCont">
         <fo:table-row>
           <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
             <fo:block font-weight="bold" text-decoration="underline">
@@ -135,7 +139,7 @@
       </xsl:for-each>
       
       <!-- Producer -->
-      <xsl:for-each select="fileTxt/filePlac">
+      <xsl:for-each select="/codeBook/fileDscr/fileTxt/filePlac">
         <fo:table-row>
           <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
             <fo:block font-weight="bold" text-decoration="underline">
@@ -147,7 +151,7 @@
       </xsl:for-each>
       
       <!-- Version -->
-      <xsl:for-each select="fileTxt/verStmt">
+      <xsl:for-each select="/codeBook/fileDscr/fileTxt/verStmt">
         <fo:table-row>
           <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
             <fo:block font-weight="bold" text-decoration="underline">
@@ -159,7 +163,7 @@
       </xsl:for-each>
       
       <!-- Processing Checks -->
-      <xsl:for-each select="fileTxt/dataChck">
+      <xsl:for-each select="/codeBook/fileDscr/fileTxt/dataChck">
         <fo:table-row>
           <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
             <fo:block font-weight="bold" text-decoration="underline">
@@ -171,7 +175,7 @@
       </xsl:for-each>
       
       <!-- Missing Data -->
-      <xsl:for-each select="fileTxt/dataMsng">
+      <xsl:for-each select="/codeBook/fileDscr/fileTxt/dataMsng">
         <fo:table-row>
           <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
             <fo:block font-weight="bold" text-decoration="underline">

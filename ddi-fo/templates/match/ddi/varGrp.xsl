@@ -127,10 +127,10 @@
         <fo:table-row text-align="center" vertical-align="top"
           font-weight="bold" keep-with-next="always">
           
-          <!-- #-character -->
+          <!-- blank character -->
           <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
             <fo:block>
-              <xsl:text>#</xsl:text>
+              <xsl:text/>
             </fo:block>
           </fo:table-cell>
           

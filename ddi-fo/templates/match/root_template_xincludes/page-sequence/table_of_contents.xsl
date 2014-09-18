@@ -133,9 +133,10 @@
         </xsl:if>
         
         
-        <!-- ============= -->
-        <!-- Dynamic lines -->
-        <!-- ============= -->
+        <!-- ============================================================== -->
+        <!-- Dynamic lines                                                  -->
+        <!-- only one of variable list and variable groups will be rendered -->
+        <!-- ============================================================== -->
         
         <!-- Files Description -->
         <xsl:if test="$page.files_description.show = 'True'">
@@ -201,7 +202,7 @@
           </fo:block>
         </xsl:if>
         
-        <!-- Variables_Description -->
+        <!-- Variables Description -->
         <xsl:if test="$page.variables_description.show = 'True'">
           <fo:block font-size="{$layout.font_size}" text-align-last="justify">
             

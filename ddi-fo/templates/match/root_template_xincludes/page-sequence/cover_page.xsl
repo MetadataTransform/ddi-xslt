@@ -41,7 +41,7 @@
           <xsl:value-of select="/codeBook/docDscr/docSrc/titlStmt/IDNo" />
         </fo:block> -->
 
-        <!-- blank line (&#x00A0; is the equivalent of HTML &nbsp;) -->
+        <!-- blank line ('&#x00A0;' is the equivalent of HTML '&nbsp;') -->
         <fo:block white-space-treatment="preserve"> &#x00A0; </fo:block>
 
         <!-- responsible party(ies) -->      

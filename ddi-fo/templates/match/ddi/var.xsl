@@ -21,6 +21,44 @@
 <!-- number(), position(), string() [Xpath 1.0] -->
 <!-- util:trim(), util:math_max() [local] -->
 
+
+<!--
+  =========================================
+  FO structure generated from this template
+  =========================================
+  
+  <table-row>
+  <table-cell>
+  <table>
+  <table-column />
+  <table-column />
+  <table-header></table-header>
+  <table-body>
+  
+  == Meta-information ==
+  <table-row> (multiple <if> dep)       
+  
+  == Variable content and bars ==
+  Choice 1:
+  <table-row>      
+  
+  Choice 2:
+  <table-cell>
+  
+  == Variable related information and descriptions == 
+  <table-row>
+  <table-cell> x2
+  
+  dep: <table-row>
+  <table-cell> x2
+  
+  </table-body>
+  </table>
+  </table-cell>
+  </table-row>
+-->
+
+
 <xsl:template match="var"
   xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -38,12 +76,10 @@
         <!-- table Header -->
         <!-- ============ -->
         <fo:table-header>
-          <fo:table-row background-color="{$layout.color.gray1}" text-align="center" vertical-align="top">
-            <fo:table-cell number-columns-spanned="2" font-size="10pt" font-weight="bold" text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-              <fo:block>
-                <fo:inline font-size="8pt" font-weight="normal" vertical-align="text-top">                 
-                  <xsl:value-of select="concat('#', ./@id, ' ')"  />                  
-                </fo:inline>                
+          <fo:table-row text-align="center" vertical-align="top">
+            <fo:table-cell number-columns-spanned="2" font-size="12pt" font-weight="bold" text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
+              <fo:block>                
+                <xsl:value-of select="concat(./@id, ' ')"  />                                  
                 <xsl:value-of select="./@name" />                                
                 <xsl:value-of select="if (normalize-space(./labl)) then concat(': ', normalize-space(./labl)) else ()" />                
               </fo:block>
@@ -56,168 +92,139 @@
         <!-- ================================================== -->
         <fo:table-body>
           
-          <!-- Definition  -->
-          <xsl:if test="normalize-space(./txt)">
+          <!-- ========================= -->
+          <!-- Part 1) Information       -->
+          <!-- ========================= -->
+          
+          <!-- Definition  -->           
+          <xsl:if test="./txt">
             <fo:table-row text-align="center" vertical-align="top">
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold">
-                  <xsl:value-of select="i18n:get('Definition')" />
+              <fo:table-cell text-align="left" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
+                <fo:block>
+                  <fo:inline font-weight="bold">
+                    <xsl:value-of select="concat(i18n:get('Definition'), ': ')" />
+                  </fo:inline>
+                  <xsl:value-of select="util:trim(./txt)" />
                 </fo:block>
               </fo:table-cell>
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
+            </fo:table-row>
+          </xsl:if>
+                                          
+          <!-- Source -->          
+          <xsl:if test="./respUnit">
+            <fo:table-row text-align="center" vertical-align="top">
+              <fo:table-cell text-align="left" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
                 <fo:block>
-                  <xsl:apply-templates select="./txt" />
+                  <fo:inline font-weight="bold">
+                    <xsl:value-of select="concat(i18n:get('Source'), ': ')" />
+                  </fo:inline>
+                  <xsl:value-of select="util:trim(./respUnit)" />
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
+                    
+          <!-- Pre-Question -->                   
+          <xsl:if test="./qstn/preQTxt">
+            <fo:table-row text-align="center" vertical-align="top">
+              <fo:table-cell text-align="left" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
+                <fo:block>
+                  <fo:inline font-weight="bold">
+                    <xsl:value-of select="concat(i18n:get('Pre-question'), ': ')" />
+                  </fo:inline>
+                  <xsl:value-of select="util:trim(./qstn/preQTxt)" />
+                </fo:block>
+              </fo:table-cell>
+            </fo:table-row>
+          </xsl:if>
+                    
+          <!-- Literal_Question -->          
+          <xsl:if test="./qstn/qstnLit">
+            <fo:table-row text-align="center" vertical-align="top">
+              <fo:table-cell text-align="left" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
+                <fo:block>
+                  <fo:inline font-weight="bold">
+                    <xsl:value-of select="concat(i18n:get('Literal_question'), ': ')" />
+                  </fo:inline>
+                  <xsl:value-of select="util:trim(./qstn/qstnLit)" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
           
-          <!-- Universe  -->
-          <xsl:if test="normalize-space(./universe)">
+          
+          <!-- Post-question -->          
+          <xsl:if test="./qstn/postQTxt">
             <fo:table-row text-align="center" vertical-align="top">
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold">
-                  <xsl:value-of select="i18n:get('Universe')" />
-                </fo:block>
-              </fo:table-cell>
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
+              <fo:table-cell text-align="left" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
                 <fo:block>
-                  <xsl:apply-templates select="./universe" />
+                  <fo:inline font-weight="bold">
+                    <xsl:value-of select="concat(i18n:get('Post-question'), ': ')" />
+                  </fo:inline>
+                  <xsl:value-of select="util:trim(./qstn/postQTxt)" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
           
-          <!-- Source -->
-          <xsl:if test="normalize-space(./respUnit)">
+          <!-- Interviewer_instructions -->          
+          <xsl:if test="./qstn/ivuInstr">
             <fo:table-row text-align="center" vertical-align="top">
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold">
-                  <xsl:value-of select="i18n:get('Source')"/>
-                </fo:block>
-              </fo:table-cell>
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
+              <fo:table-cell text-align="left" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
                 <fo:block>
-                  <xsl:apply-templates select="./respUnit" />
+                  <fo:inline font-weight="bold">
+                    <xsl:value-of select="concat(i18n:get('Interviewers_instructions'), ': ')" />
+                  </fo:inline>
+                  <xsl:value-of select="util:trim(./qstn/ivuInstr)" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
           
-          <!-- Pre-Question -->
-          <xsl:if test="normalize-space(./qstn/preQTxt)">
+          <!-- Imputation -->          
+          <xsl:if test="./qstn/imputation">
             <fo:table-row text-align="center" vertical-align="top">
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold">
-                  <xsl:value-of select="i18n:get('Pre-question')" />
-                </fo:block>
-              </fo:table-cell>
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
+              <fo:table-cell text-align="left" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
                 <fo:block>
-                  <xsl:apply-templates select="./qstn/preQTxt" />
+                  <fo:inline font-weight="bold">
+                    <xsl:value-of select="concat(i18n:get('imputation'), ': ')" />
+                  </fo:inline>
+                  <xsl:value-of select="util:trim(./qstn/imputation)" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
           
-          <!-- Literal_Question -->
-          <xsl:if test="normalize-space(./qstn/qstnLit)">
+          <!-- Recoding_and_Derivation -->          
+          <xsl:if test="./codInstr">
             <fo:table-row text-align="center" vertical-align="top">
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold">
-                  <xsl:value-of select="i18n:get('Literal_question')" />
-                </fo:block>
-              </fo:table-cell>
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
+              <fo:table-cell text-align="left" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
                 <fo:block>
-                  <xsl:apply-templates select="./qstn/qstnLit" />
+                  <fo:inline font-weight="bold">
+                    <xsl:value-of select="concat(i18n:get('Recoding_and_Derivation'), ': ')" />
+                  </fo:inline>
+                  <xsl:value-of select="util:trim(./codInstr)" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
           
-          <!-- Post-question -->
-          <xsl:if test="normalize-space(./qstn/postQTxt)">
+          <!-- Security -->          
+          <xsl:if test="./security">
             <fo:table-row text-align="center" vertical-align="top">
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold">
-                  <xsl:value-of select="i18n:get('Post-question')"/>
-                </fo:block>
-              </fo:table-cell>
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
+              <fo:table-cell text-align="left" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
                 <fo:block>
-                  <xsl:apply-templates select="./qstn/postQTxt" />
-                </fo:block>
-              </fo:table-cell>
-            </fo:table-row>
-          </xsl:if>
-          
-          <!-- Interviewer_instructions -->
-          <xsl:if test="normalize-space(./qstn/ivuInstr)">
-            <fo:table-row text-align="center" vertical-align="top">
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold">
-                  <xsl:value-of select="i18n:get('Interviewers_instructions')" />
-                </fo:block>
-              </fo:table-cell>
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block>
-                  <xsl:apply-templates select="./qstn/ivuInstr" />
-                </fo:block>
-              </fo:table-cell>
-            </fo:table-row>
-          </xsl:if>
-          
-          <!-- Imputation -->
-          <xsl:if test="normalize-space(./imputation)">
-            <fo:table-row text-align="center" vertical-align="top">
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold">
-                  <xsl:value-of select="i18n:get('Imputation')" />
-                </fo:block>
-              </fo:table-cell>
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block>
-                  <xsl:apply-templates select="./imputation" />
-                </fo:block>
-              </fo:table-cell>
-            </fo:table-row>
-          </xsl:if>
-          
-          <!-- Recoding_and_Derivation -->
-          <xsl:if test="normalize-space(./codInstr)">
-            <fo:table-row text-align="center" vertical-align="top">
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold">
-                  <xsl:value-of select="i18n:get('Recoding_and_Derivation')" />
-                </fo:block>
-              </fo:table-cell>
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block>
-                  <xsl:apply-templates select="./codInstr" />
-                </fo:block>
-              </fo:table-cell>
-            </fo:table-row>
-          </xsl:if>
-          
-          <!-- Security -->
-          <xsl:if test="normalize-space(./security)">
-            <fo:table-row text-align="center" vertical-align="top">
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold">
-                  <xsl:value-of select="i18n:get('Security')" />
-                </fo:block>
-              </fo:table-cell>
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block>
-                  <xsl:apply-templates select="./security" />
+                  <fo:inline font-weight="bold">
+                    <xsl:value-of select="concat(i18n:get('Security'), ': ')" />
+                  </fo:inline>
+                  <xsl:value-of select="util:trim(./security)" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
           
           <!-- Concepts -->
-          <xsl:if test="normalize-space(./concept)">
+          <xsl:if test="./concept">
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <fo:block font-weight="bold">
@@ -237,28 +244,26 @@
             </fo:table-row>
           </xsl:if>
           
-          <!-- Notes -->
-          <xsl:if test="normalize-space(./notes)">
+          <!-- Notes -->          
+          <xsl:if test="./notes">
             <fo:table-row text-align="center" vertical-align="top">
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold">
-                  <xsl:value-of select="i18n:get('Notes')" />
-                </fo:block>
-              </fo:table-cell>
-              <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
+              <fo:table-cell text-align="left" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
                 <fo:block>
-                  <xsl:apply-templates select="./notes" />
+                  <fo:inline font-weight="bold">
+                    <xsl:value-of select="concat(i18n:get('Notes'), ': ')" />
+                  </fo:inline>
+                  <xsl:value-of select="util:trim(./notes)" />
                 </fo:block>
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
           
-          <!-- ========================== -->
-          <!-- Variable contents and bars -->
-          <!-- ========================== -->
-                    
+          <!-- ================================== -->
+          <!-- Part 2) Variable contents and bars -->
+          <!-- ================================== -->
+          
           <xsl:if test="$section.variables_description_categories.show = 'True' and normalize-space(./catgry[1])">
-
+            
             <xsl:variable name="category-count" select="count(catgry)" />
             
             <fo:table-row text-align="center" vertical-align="top">
@@ -268,7 +273,7 @@
                 <!-- Case 1)            -->
                 <!-- ================== -->
                 <xsl:when test="number($limits.variables_description_categories_max) &gt;= $category-count">
-
+                  
                   <!-- ========= -->
                   <!-- Variables -->
                   <!-- ========= -->
@@ -279,11 +284,11 @@
                   <xsl:variable name="catgry-max-freq" select="util:math_max($catgry-freq-nodes[ not(@wgtd = 'wgtd') ])" />       
                   <xsl:variable name="catgry-max-freq-wgtd" select="util:math_max($catgry-freq-nodes[@type='freq' and @wgtd ='wgtd' ])" />                  
                   <xsl:variable name="bar-column-width" select="2.5" />
-
+                  
                   <!-- ========= -->
                   <!-- Content   -->
                   <!-- ========= -->
-                  <fo:table-cell text-align="left" border="{$layout.tables.border}" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">                                      
+                  <fo:table-cell text-align="left" border="0.2pt solid black" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
                     <fo:table id="var-{@ID}-cat" table-layout="fixed" width="100%" font-size="8pt">
                       
                       <!-- table colums -->
@@ -303,7 +308,7 @@
                       
                       <!-- table header -->
                       <fo:table-header>
-                        <fo:table-row background-color="{$layout.color.gray1}" text-align="left" vertical-align="top">
+                        <fo:table-row text-align="left" vertical-align="top">
                           <fo:table-cell border="0.5pt solid white" padding="{$layout.tables.cellpadding}">
                             <fo:block font-weight="bold">
                               <xsl:value-of select="i18n:get('Value')" />
@@ -314,7 +319,7 @@
                               <xsl:value-of select="i18n:get('Label')" />
                             </fo:block>
                           </fo:table-cell>
-                          <fo:table-cell border="0.4pt solid white" padding="{$layout.tables.cellpadding}" text-align="center">
+                          <fo:table-cell border="0.4pt solid white" padding="{$layout.tables.cellpadding}" text-align="right">
                             <fo:block font-weight="bold">
                               <xsl:value-of select="i18n:get('Cases_Abbreviation')" />
                             </fo:block>
@@ -340,13 +345,13 @@
                       <!-- table body -->
                       <fo:table-body>
                         <xsl:for-each select="catgry">
-
+                          
                           <!-- ========= -->
                           <!-- Variables -->
                           <!-- ========= -->
                           <xsl:variable name="catgry-freq" select="catStat[@type='freq' and not(@wgtd='wgtd') ]"/>
                           <xsl:variable name="catgry-freq-wgtd" select="catStat[@type ='freq' and @wgtd ='wgtd' ]" />
-
+                          
                           <!-- percentage -->                            
                           <xsl:variable name="catgry-pct"
                             select="if ($is-weighted) then $catgry-freq-wgtd div $catgry-sum-freq-wgtd
@@ -364,11 +369,11 @@
                           
                           <!-- remaining space for second column -->
                           <xsl:variable name="col-width-2" select="$bar-column-width - $col-width-1" />
-
+                          
                           <!-- ========= -->
                           <!-- Content   -->
-                          <!-- ========= -->
-                          <fo:table-row background-color="{$layout.color.gray2}" text-align="center" vertical-align="top">
+                          <!-- ========= -->                          
+                          <fo:table-row text-align="center" vertical-align="top">
                             
                             <!-- catValue -->
                             <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
@@ -385,7 +390,7 @@
                             </fo:table-cell>
                             
                             <!-- Frequency -->                            
-                            <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
+                            <fo:table-cell text-align="right" border="0.5pt solid white" padding="2pt">
                               <fo:block>                                
                                 <xsl:value-of select="util:trim(catStat)" />
                               </fo:block>
@@ -403,7 +408,7 @@
                             <!-- ============== -->
                             <!-- Percentage Bar -->
                             <!-- ============== -->
-                                                        
+                            
                             <!-- display the bar but not for missing values or if there was a problem computing the width -->
                             <xsl:if test="not(@missing = 'Y') and $col-width-1 &gt; 0">
                               <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
@@ -433,9 +438,9 @@
                     </fo:table>
                     
                     <!-- Warning about summary of statistics? -->
-                    <fo:block font-weight="bold" color="#400000" font-size="6pt" font-style="italic">
+                    <!--<fo:block font-weight="bold" color="#400000" font-size="6pt" font-style="italic">
                       <xsl:value-of select="i18n:get('SumStat_Warning')" />
-                    </fo:block>
+                      </fo:block>-->
                     
                   </fo:table-cell>
                 </xsl:when>
@@ -445,7 +450,7 @@
                 <!-- =================================== -->
                 <xsl:otherwise>
                   <fo:table-cell background-color="{$layout.color.gray1}" text-align="center" font-style="italic"
-                                 border="{$layout.tables.border}" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">
+                    border="{$layout.tables.border}" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">
                     <fo:block>                      
                       <xsl:value-of select="concat(i18n:get('Frequency_table_not_shown'), ' (', $category-count, ' ', i18n:get('Modalities'), ')')"  />
                     </fo:block>
@@ -455,17 +460,17 @@
               </xsl:choose>
             </fo:table-row>
           </xsl:if>
-                    
-          <!-- ============================================= -->
-          <!-- Variable related information and descriptions -->
-          <!-- ============================================= -->
+          
+          <!-- ===================================================== -->
+          <!-- Part 3) Variable related information and descriptions -->
+          <!-- ===================================================== -->
           
           <!-- Information -->
           <fo:table-row text-align="center" vertical-align="top">
             
             <fo:table-cell font-weight="bold" text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
               <fo:block>
-                <xsl:value-of select="i18n:get('Information')" />
+                <xsl:value-of select="concat(i18n:get('Information'), ':')" />
               </fo:block>
             </fo:table-cell>
             
@@ -476,8 +481,8 @@
                 <xsl:if test="normalize-space(@intrvl)">
                   <xsl:value-of select="concat(' [', i18n:get('Type'), ': ')"  />
                   <xsl:value-of select="if (@intrvl = 'discrete') then i18n:get('discrete')
-                                        else if (@intrvl = 'contin') then i18n:get('continuous') 
-                                        else () "/>
+                    else if (@intrvl = 'contin') then i18n:get('continuous') 
+                    else () "/>
                   <xsl:text>] </xsl:text>
                 </xsl:if>
                 
@@ -510,7 +515,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell font-weight="bold" text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <fo:block>                  
-                  <xsl:value-of select="concat(i18n:get('Statistics'), ' [', i18n:get('Abbrev_NotWeighted'), '/ ', i18n:get('Abbrev_Weighted'), ']')" />                 
+                  <xsl:value-of select="concat(i18n:get('Statistics'), ' [', i18n:get('Abbrev_NotWeighted'), '/ ', i18n:get('Abbrev_Weighted'), ']', ':')" />                 
                 </fo:block>
               </fo:table-cell>
               
@@ -519,25 +524,25 @@
                   
                   <!-- Summary statistics -->
                   <xsl:for-each select="$statistics[not(@wgtd)]">
-
+                    
                     <!-- ========= -->
                     <!-- Variables -->
                     <!-- ========= -->
                     <xsl:variable name="type" select="@type" />                    
                     <xsl:variable name="label"
                       select="if (@type = 'vald') then i18n:get('Valid')
-                              else if (@type = 'invd') then i18n:get('Invalid')
-                              else if (@type = 'mean') then i18n:get('Mean')
-                              else if (@type = 'stdev') then i18n:get('StdDev')
-                              else @type "/>
-
+                      else if (@type = 'invd') then i18n:get('Invalid')
+                      else if (@type = 'mean') then i18n:get('Mean')
+                      else if (@type = 'stdev') then i18n:get('StdDev')
+                      else @type "/>
+                    
                     <!-- ========= -->
                     <!-- Content   -->
                     <!-- ========= -->                    
                     <xsl:value-of select="concat(' [', $label, ': ', normalize-space(.), ' /')"  />
                     <xsl:value-of select="if (following-sibling::sumStat[1]/@type = $type and following-sibling::sumStat[1]/@wgtd) then
-                                            following-sibling::sumStat[1]
-                                          else '-' "/>
+                      following-sibling::sumStat[1]
+                      else '-' "/>
                     <xsl:text>] </xsl:text>
                   </xsl:for-each>
                 </fo:block>
@@ -546,15 +551,33 @@
             </fo:table-row>
           </xsl:if>
           
+          <!-- ========================== -->
+          <!-- Part 4) misc layout things  -->
+          <!-- ========================== -->
+          
           <!-- separate the individual variable tables to improve readability -->
-          <fo:table-row height="5mm">
+          <fo:table-row height="4mm">
             <fo:table-cell number-columns-spanned="2">
-              <fo:block />
+              <fo:block/>
             </fo:table-cell>
           </fo:table-row>
           
+          <fo:table-row height="1mm">
+            <fo:table-cell number-columns-spanned="2">
+              <fo:block border-top-style="solid" />
+            </fo:table-cell>
+          </fo:table-row>
+          
+          <fo:table-row height="4mm">
+            <fo:table-cell number-columns-spanned="2">
+              <fo:block/>
+            </fo:table-cell>
+          </fo:table-row>
+          
+          
+          
         </fo:table-body>
-      </fo:table> <!-- end of variable table -->
+      </fo:table>
       
     </fo:table-cell>
   </fo:table-row>

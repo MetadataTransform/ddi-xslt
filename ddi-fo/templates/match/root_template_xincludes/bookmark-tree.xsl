@@ -25,6 +25,10 @@
 
   <fo:bookmark-tree>
 
+    <!-- ============= -->
+    <!-- 1) Intro      -->
+    <!-- ============= -->
+
     <!-- Cover_Page -->
     <xsl:if test="$page.cover.show ='True'">
       <fo:bookmark internal-destination="cover-page">
@@ -53,7 +57,7 @@
     </xsl:if>
 
     <!-- ============= -->
-    <!-- Overview      -->
+    <!-- 2) Overview   -->
     <!-- ============= -->
 
     <xsl:if test="$page.overview.show = 'True'">
@@ -128,6 +132,10 @@
 
       </fo:bookmark>
     </xsl:if>
+
+    <!-- ============= -->
+    <!-- 3) Details    -->
+    <!-- ============= -->
 
     <!-- Files_Description -->
     <xsl:if test="$page.files_description.show = 'True'">

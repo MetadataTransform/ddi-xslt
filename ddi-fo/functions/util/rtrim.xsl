@@ -13,35 +13,26 @@
 
 <xsl:function name="util:rtrim" as="xs:string"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:param name="s" as="xs:string"/>
-  <xsl:param name="i" as="xs:integer"/>
+  <xsl:param name="input_string" as="xs:string"/>
+  <xsl:param name="length" as="xs:integer"/>
 
-  <!-- ====================== -->
-  <!-- perform right-trimming -->
-  <!-- ====================== -->
-  
-  <!-- is further trimming needed?-->
   <xsl:variable name="tmp">
     <xsl:choose>
 
-      <xsl:when test="translate(substring($s, $i, 1), ' &#x9;&#xA;&#xD;', '')">
-        <xsl:value-of select="substring($s, 1, $i)" />
+      <!-- 1) what? -->
+      <xsl:when test="translate(substring($input_string, $length, 1), ' &#x9;&#xA;&#xD;', '')">
+        <xsl:value-of select="substring($input_string, 1, $length)" />
       </xsl:when>
-      <xsl:when test="$i &lt; 2" />
-      <!-- recurse -->
+
+      <!-- 2) -->
+      <xsl:when test="$length &lt; 2" />
+
+      <!-- 3) recurse -->
       <xsl:otherwise>
-        <xsl:value-of select="util:rtrim($s, $i - 1)" />
+        <xsl:value-of select="util:rtrim($input_string, $length - 1)" />
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-
-  <!-- <xsl:variable name="tmp"
-    select="if (translate(substring($s, $i, 1), ' &#x9;&#xA;&#xD;', '')) then
-              substring($s, 1, $i)
-            (: case: string less than 2 (do nothing) :)
-            else if ($1 &lt; 2) then ()
-            (: recurse :)
-            else util:rtrim($s, $i - 1) " /> -->
 
   <!-- return value -->
   <xsl:value-of select="$tmp" />

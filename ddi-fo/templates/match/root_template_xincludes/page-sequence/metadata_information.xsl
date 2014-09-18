@@ -51,13 +51,13 @@
         <fo:table-column column-width="proportional-column-width(80)" />
         
         <fo:table-body>
-          
+              
           <!-- Metadata Producers -->
           <xsl:if test="/codeBook/docDscr/citation/prodStmt/producer">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <fo:block>
-                  <xsl:value-of select="i18n:get('Metadata_Producers')"/>
+                  <xsl:value-of select="concat(i18n:get('Metadata_Producers'), ':')"/>
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
@@ -65,13 +65,14 @@
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
-          
+    
+    
           <!-- Production Date -->
           <xsl:if test="/codeBook/docDscr/citation/prodStmt/prodDate">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <fo:block>
-                  <xsl:value-of select="i18n:get('Production_Date')"/>
+                  <xsl:value-of select="concat(i18n:get('Production_Date'), ':')"/>
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
@@ -95,13 +96,13 @@
             </fo:table-cell>
             </fo:table-row>
             </xsl:if> -->
-          
+                    
           <!-- Identification -->
           <xsl:if test="/codeBook/docDscr/citation/titlStmt/IDNo">
             <fo:table-row>
               <fo:table-cell font-weight="bold" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <fo:block>
-                  <xsl:value-of select="i18n:get('Identification')"/>
+                  <xsl:value-of select="concat(i18n:get('Identification'), ':')"/>
                 </fo:block>
               </fo:table-cell>
               <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
@@ -109,6 +110,7 @@
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
+          
           
         </fo:table-body>
       </fo:table>

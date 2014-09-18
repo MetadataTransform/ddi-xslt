@@ -13,7 +13,6 @@
     <fo:block>      
       <xsl:value-of select="if (@cycle) then concat(@cycle, ': ') else () "/>      
       <xsl:value-of select="if (@event) then concat(@event, ' ') else () "/>
-      <xsl:value-of select="if (@event) then concat(@event, ' ') else () "/>
       <xsl:value-of select="@date" />
     </fo:block>
 

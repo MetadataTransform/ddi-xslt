@@ -35,7 +35,8 @@
             <xsl:when test="$page.variables_list.show = 'True'">
               <fo:basic-link internal-destination="var-{@ID}" text-decoration="underline" color="blue">
                 <xsl:if test="string-length(@name) &gt; 10">
-                  <xsl:value-of select="substring(./@name, 0, $limits.variable_name_length)" /> ..
+                  <xsl:value-of select="substring(./@name, 0, $limits.variable_name_length)" />
+                  <xsl:text> ..</xsl:text>
                 </xsl:if>
                 <xsl:if test="11 &gt; string-length(@name)">
                   <xsl:value-of select="./@name" />
@@ -52,14 +53,15 @@
       <!-- Variable Label -->
       <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
         <fo:block>
-          <xsl:value-of select="if (normalize-space(./labl)) then normalize-space(./labl) else '-' "/>          
+<!--          <xsl:value-of select="if (normalize-space(./labl)) then normalize-space(./labl) else '-' "/>-->
+          <xsl:value-of select="if (./labl) then normalize-space(./labl) else '-' "/> 
         </fo:block>
       </fo:table-cell>
 
       <!-- Variable literal question -->
       <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
         <fo:block>
-          <xsl:value-of select="if (normalize-space(./qstn/qstnLit)) then normalize-space(./qstn/qstnLit) else '-' "/>
+          <xsl:value-of select="if (./qstn/qstnLit) then normalize-space(./qstn/qstnLit) else '-' "/>
         </fo:block>
       </fo:table-cell>
         

@@ -19,6 +19,8 @@
   <!-- &#xA; LF-character -->
   <!-- &#xD; CR-character -->
 
+<!--  <xsl:value-of select="normalize-space($s)" />-->
+
   <!-- replace TAB, LF and CR and with '' -->
   <xsl:variable name="translated" select="translate($s, '&#x9;&#xA;&#xD;', '')" />
   <!-- extract all characters in string after the first one -->

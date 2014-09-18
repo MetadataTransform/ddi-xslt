@@ -26,10 +26,8 @@
   
   <!-- fileName ID attribute / ID attribute -->  
   <xsl:variable name="fileId"
-    select="if (fileTxt/fileName/@ID) then
-              fileTxt/fileName/@ID
-            else if (@ID) then
-              @ID
+    select="if (fileTxt/fileName/@ID) then fileTxt/fileName/@ID
+            else if (@ID) then @ID
             else () "/>
   
   <xsl:variable name="fileName" select="fileTxt/fileName"/>
@@ -55,7 +53,7 @@
       <fo:flow flow-name="body">
         
         <!-- [fo:table] Header -->
-        <!--	 (only written if at the start of file -->
+        <!-- (only written if at the start of file) -->
         <xsl:if test="position() = 1">
           <fo:table id="vardesc-{$fileId}" table-layout="fixed" width="100%" font-size="8pt">
             <fo:table-column column-width="proportional-column-width(100)" /> <!-- column width -->
