@@ -681,15 +681,15 @@
               <fo:page-number-citation ref-id="files-description"/>
             </fo:basic-link>
             
-            <xsl:for-each select="/codeBook/fileDscr">
+<!--            <xsl:for-each select="/codeBook/fileDscr">
               <fo:block margin-left="17mm" font-size="{$layout.font_size}" text-align-last="justify">
                 <fo:basic-link internal-destination="file-{fileTxt/fileName/@ID}" text-decoration="underline" color="blue">
-                  <xsl:apply-templates select="fileTxt/fileName"/>
-                  <fo:leader leader-pattern="dots"/>
-                  <fo:page-number-citation ref-id="file-{fileTxt/fileName/@ID}"/>
+                  <xsl:apply-templates select="fileTxt/fileName" />
+                  <fo:leader leader-pattern="dots" />
+                  <fo:page-number-citation ref-id="file-{fileTxt/fileName/@ID}" />
                 </fo:basic-link>
               </fo:block>
-            </xsl:for-each>
+            </xsl:for-each>-->
           </fo:block>
         </xsl:if>
         
@@ -745,15 +745,15 @@
               <fo:page-number-citation ref-id="variables-description"/>
             </fo:basic-link>
             
-            <xsl:for-each select="/codeBook/fileDscr">
+<!--            <xsl:for-each select="/codeBook/fileDscr">
               <fo:block margin-left="17mm" font-size="{$layout.font_size}" text-align-last="justify">
                 <fo:basic-link internal-destination="vardesc-{fileTxt/fileName/@ID}" text-decoration="underline" color="blue">
-                  <xsl:apply-templates select="fileTxt/fileName"/>
-                  <fo:leader leader-pattern="dots"/>
-                  <fo:page-number-citation ref-id="vardesc-{fileTxt/fileName/@ID}"/>
+                  <xsl:apply-templates select="fileTxt/fileName" />
+                  <fo:leader leader-pattern="dots" />
+                  <fo:page-number-citation ref-id="vardesc-{fileTxt/fileName/@ID}" />
                 </fo:basic-link>
               </fo:block>
-            </xsl:for-each>
+            </xsl:for-each>-->
           </fo:block>
         </xsl:if>
         
@@ -1035,7 +1035,7 @@
             </xsl:if>
             
             <!-- Time_Periods -->
-            <xsl:if version="2.0" test="string-length($time) &gt; 3 or string-length($study.time_produced) &gt; 3">
+            <xsl:if version="1.0" test="string-length($time) &gt; 3 or string-length($study.time_produced) &gt; 3">
               <fo:table-row>
                 <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                   <fo:block font-weight="bold" text-decoration="underline">

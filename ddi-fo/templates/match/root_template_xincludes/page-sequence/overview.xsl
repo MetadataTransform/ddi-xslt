@@ -294,7 +294,7 @@
             </xsl:if>
             
             <!-- Time_Periods -->
-            <xsl:if version="2.0" test="string-length($time) &gt; 3 or string-length($study.time_produced) &gt; 3">
+            <xsl:if version="1.0" test="string-length($time) &gt; 3 or string-length($study.time_produced) &gt; 3">
               <fo:table-row>
                 <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                   <fo:block font-weight="bold" text-decoration="underline">
