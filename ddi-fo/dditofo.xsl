@@ -148,7 +148,8 @@
 
   <!-- path to front page logo -->
   <!-- <xsl:param name="layout.logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png'" /> -->
-  <xsl:param name="layout.logo_file" select="'../images/placeholder_logo.png'" />
+  <!-- <xsl:param name="layout.logo_file" select="'../images/placeholder_logo.png'" /> -->
+  <xsl:param name="layout.logo_file" select="'../images/snd_logo_grayscale.png'" />
 
   <!-- Style and page layout -->
   <xsl:param name="layout.page_master" select="'A4-page'" /> 
