@@ -31,9 +31,10 @@
           <fo:external-graphic src="{$layout.logo_file}" />
         </fo:block>
 
-        <!-- This is the small logos in the lower left and right corner: -->
+        <!-- These are the small logos in the lower left and right corner: -->
         <!-- either replace them or remove/comment them out. You can -->
-        <!-- uncomment the placeholder logos for experimenting. -->
+        <!-- uncomment the placeholder logos for experimenting with  -->
+        <!-- moving them around, etc. -->
                
         <!-- left corner logo (using Swedish Research Council graphic) -->
         <fo:block-container absolute-position="fixed" top="248mm" left="20mm">
