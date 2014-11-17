@@ -64,6 +64,7 @@
 <!-- 2013-05-28: Using xincludes instead of xsl:includes -->
 <!-- 2013-05-29: Including config in main file -->
 <!-- Future changelogs can be read from the SVN repo at googlecode -->
+<!-- 2014 Update: we are now at GitHub instead -->
 
 <xsl:transform version="2.0"
                extension-element-prefixes="date exsl str"
@@ -147,9 +148,15 @@
   <xsl:param name="limits.variable_name_length" select="14" />
 
   <!-- path to front page logo -->
-  <!-- <xsl:param name="layout.logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png'" /> -->
+  <xsl:param name="layout.logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_grayscale.png'" />
+  <!-- <xsl:param name="layout.logo_file" select="'../images/snd_logo_grayscale.png'" /> -->
   <!-- <xsl:param name="layout.logo_file" select="'../images/placeholder_logo.png'" /> -->
-  <xsl:param name="layout.logo_file" select="'../images/snd_logo_grayscale.png'" />
+  
+  <!-- path to small bottom left/right side logos -->
+  <xsl:param name="layout.left_bottom_logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/vr_logo.png'" />
+  <!-- <xsl:param name="layout.left_bottom_logo_file" select="'../images/vr_logo.png'" /> -->
+  <xsl:param name="layout.right_bottom_logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/gu_logo.png'" />
+  <!-- <xsl:param name="layout.left_bottom_logo_file" select="'../images/gu_logo.png'" /> -->
 
   <!-- Style and page layout -->
   <xsl:param name="layout.page_master" select="'A4-page'" /> 

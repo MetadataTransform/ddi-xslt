@@ -33,21 +33,19 @@
 
         <!-- This is the small logos in the lower left and right corner: -->
         <!-- either replace them or remove/comment them out. You can -->
-        <!-- uncomment the placeholder logos for experimenting. Since -->
-        <!-- not all users of this software might need the corner logos, -->
-        <!-- there are no parameters for them, unlike the top logo -->
-        
+        <!-- uncomment the placeholder logos for experimenting. -->
+               
         <!-- left corner logo (using Swedish Research Council graphic) -->
         <fo:block-container absolute-position="fixed" top="248mm" left="20mm">
-          <fo:block>
-            <fo:external-graphic src="../images/vr_logo.png" content-height="33mm" scaling="uniform"/>
+          <fo:block>            
+            <fo:external-graphic src="{$layout.left_bottom_logo_file}" content-height="33mm" scaling="uniform"/>
           </fo:block>        
         </fo:block-container>
         
         <!-- right corner logo (using Gothenburg University graphic) -->
         <fo:block-container absolute-position="fixed" top="250mm" left="150mm">
           <fo:block>
-            <fo:external-graphic src="../images/gu_logo.png" content-height="25mm" scaling="uniform"/>
+            <fo:external-graphic src="{$layout.right_bottom_logo_file}" content-height="25mm" scaling="uniform"/>
           </fo:block>
         </fo:block-container>
 
