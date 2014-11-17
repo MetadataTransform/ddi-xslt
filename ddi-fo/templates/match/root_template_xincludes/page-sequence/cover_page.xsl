@@ -64,15 +64,15 @@
         </fo:block-container> -->
  
         <!-- blank line ('&#x00A0;' is the equivalent of HTML '&nbsp;') -->
-        <fo:block white-space-treatment="preserve" font-size="20pt"> &#x00A0; </fo:block>
+        <fo:block white-space-treatment="preserve" font-size="60pt"> &#x00A0; </fo:block>
 
         <!-- title -->
-        <fo:block font-size="18pt" font-weight="bold" space-before="5mm" text-align="center" space-after="0.0mm">
+        <fo:block font-size="20pt" font-weight="bold" space-before="5mm" text-align="center" space-after="0.0mm">
           <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/titl)" />
         </fo:block>
 
         <!-- blank line -->
-        <fo:block white-space-treatment="preserve"> &#x00A0; </fo:block>
+        <fo:block white-space-treatment="preserve" font-size="25pt"> &#x00A0; </fo:block>
 
         <!-- responsible part(ies) -->      
         <xsl:for-each select="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">

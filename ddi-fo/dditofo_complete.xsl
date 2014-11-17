@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!-- Overview --><!-- =================================================================================== --><!-- Transforms DDI-XML into XSL-FO to produce study documentation in PDF format         --><!-- Developed for DDI documents produced by the International Household Survey Network  --><!-- Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and            --><!-- Central Survey Catalog (http://www.surveynetwork.org/surveys)                       --><!-- =================================================================================== --><!-- Authors --><!-- ==================================================== --><!-- Pascal Heus (pascal.heus@gmail.com)                  --><!-- Version: July 2006                                   --><!-- Platform: XSLT 1.0, Apache FOP 0.20.5                --><!--                                                      --><!-- Oistein Kristiansen (oistein.kristiansen@nsd.uib.no) --><!-- Version: 2010                                        --><!-- Platform: updated for FOP 0.93 2010                  --><!--                                                      --><!-- Akira Olsbänning (akira.olsbanning@snd.gu.se)        --><!-- Current version 2012-                                --><!-- Platform: updated to XSLT 2.0                        --><!-- ==================================================== --><!-- License --><!-- ================================================================================================ --><!-- Copyright 2006 Pascal Heus (pascal.heus@gmail.com)                                               --><!--                                                                                                  --><!-- This program is free software; you can redistribute it and/or modify it under the terms of the   --><!-- GNU Lesser General Public License as published by the Free Software Foundation; either version   --><!-- 2.1 of the License, or (at your option) any later version.                                       --><!--                                                                                                  --><!-- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;        --><!-- without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.        --><!-- See the GNU Lesser General Public License for more details.                                      --><!--                                                                                                  --><!-- The full text of the license is available at http://www.gnu.org/copyleft/lesser.html             --><!-- ================================================================================================ --><!-- References --><!-- ========================================================= --><!-- XSL-FO:                                                   --><!--   http://www.w3.org/Style/XSL/                            --><!--   http://www.w3schools.com/xslfo/xslfo_reference.asp      --><!--   http://www.xslfo.info/                                  --><!-- Apache FOP:                                               --><!--   http://xmlgraphics.apache.org/fop/                      --><!-- XSL-FO Tutorials:                                         --><!--   http://www.renderx.com/tutorial.html                    --><!--   http://www.antennahouse.com/XSLsample/XSLsample.htm     --><!-- String trimming:                                          --><!--  http://skew.org/xml                                      --><!-- ========================================================= --><!-- Changelog: --><!-- 2006-04: Added multilingual support and French translation --><!-- 2006-06: Added Spanish and new elements to match IHSN Template v1.2 --><!-- 2006-07: Minor fixes and typos --><!-- 2006-07: Added option parameters to hide producers in cover page and questions in variables list page --><!-- 2010-03: Made FOP 0.93 compatible --><!-- 2012-11-01: Broken up into parts using xsl:include --><!-- 2013-01-22: Changing the file names to match template names better --><!-- 2013-05-28: Using xincludes instead of xsl:includes --><!-- 2013-05-29: Including config in main file --><!-- Future changelogs can be read from the SVN repo at googlecode --><xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:ddi="http://www.icpsr.umich.edu/DDI" xmlns:n1="http://www.icpsr.umich.edu/DDI" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:date="http://exslt.org/dates-and-times" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:exsl="http://exslt.org/common" xmlns:math="http://exslt.org/math" xmlns:str="http://exslt.org/strings" xmlns:doc="http://www.icpsr.umich.edu/doc" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:util="https://code.google.com/p/ddixslt/#util" xmlns:i18n="https://code.google.com/p/ddixslt/#i18n" version="2.0" extension-element-prefixes="date exsl str" exclude-result-prefixes="util">
+<!-- Overview --><!-- =================================================================================== --><!-- Transforms DDI-XML into XSL-FO to produce study documentation in PDF format         --><!-- Developed for DDI documents produced by the International Household Survey Network  --><!-- Microdata Managemenet Toolkit (http://www.surveynetwork.org/toolkit) and            --><!-- Central Survey Catalog (http://www.surveynetwork.org/surveys)                       --><!-- =================================================================================== --><!-- Authors --><!-- ==================================================== --><!-- Pascal Heus (pascal.heus@gmail.com)                  --><!-- Version: July 2006                                   --><!-- Platform: XSLT 1.0, Apache FOP 0.20.5                --><!--                                                      --><!-- Oistein Kristiansen (oistein.kristiansen@nsd.uib.no) --><!-- Version: 2010                                        --><!-- Platform: updated for FOP 0.93 2010                  --><!--                                                      --><!-- Akira Olsbänning (akira.olsbanning@snd.gu.se)        --><!-- Current version 2012-                                --><!-- Platform: updated to XSLT 2.0                        --><!-- ==================================================== --><!-- License --><!-- ================================================================================================ --><!-- Copyright 2006 Pascal Heus (pascal.heus@gmail.com)                                               --><!--                                                                                                  --><!-- This program is free software; you can redistribute it and/or modify it under the terms of the   --><!-- GNU Lesser General Public License as published by the Free Software Foundation; either version   --><!-- 2.1 of the License, or (at your option) any later version.                                       --><!--                                                                                                  --><!-- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;        --><!-- without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.        --><!-- See the GNU Lesser General Public License for more details.                                      --><!--                                                                                                  --><!-- The full text of the license is available at http://www.gnu.org/copyleft/lesser.html             --><!-- ================================================================================================ --><!-- References --><!-- ========================================================= --><!-- XSL-FO:                                                   --><!--   http://www.w3.org/Style/XSL/                            --><!--   http://www.w3schools.com/xslfo/xslfo_reference.asp      --><!--   http://www.xslfo.info/                                  --><!-- Apache FOP:                                               --><!--   http://xmlgraphics.apache.org/fop/                      --><!-- XSL-FO Tutorials:                                         --><!--   http://www.renderx.com/tutorial.html                    --><!--   http://www.antennahouse.com/XSLsample/XSLsample.htm     --><!-- String trimming:                                          --><!--  http://skew.org/xml                                      --><!-- ========================================================= --><!-- Changelog: --><!-- 2006-04: Added multilingual support and French translation --><!-- 2006-06: Added Spanish and new elements to match IHSN Template v1.2 --><!-- 2006-07: Minor fixes and typos --><!-- 2006-07: Added option parameters to hide producers in cover page and questions in variables list page --><!-- 2010-03: Made FOP 0.93 compatible --><!-- 2012-11-01: Broken up into parts using xsl:include --><!-- 2013-01-22: Changing the file names to match template names better --><!-- 2013-05-28: Using xincludes instead of xsl:includes --><!-- 2013-05-29: Including config in main file --><!-- Future changelogs can be read from the SVN repo at googlecode --><!-- 2014 Update: we are now at GitHub instead --><xsl:transform xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:ddi="http://www.icpsr.umich.edu/DDI" xmlns:n1="http://www.icpsr.umich.edu/DDI" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:date="http://exslt.org/dates-and-times" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:exsl="http://exslt.org/common" xmlns:math="http://exslt.org/math" xmlns:str="http://exslt.org/strings" xmlns:doc="http://www.icpsr.umich.edu/doc" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:util="https://code.google.com/p/ddixslt/#util" xmlns:i18n="https://code.google.com/p/ddixslt/#i18n" version="2.0" extension-element-prefixes="date exsl str" exclude-result-prefixes="util">
 
   <xsl:output method="xml" encoding="UTF-8" indent="yes" omit-xml-declaration="no"/>
 
@@ -58,8 +58,15 @@
   <xsl:param name="limits.variable_name_length" select="14"/>
 
   <!-- path to front page logo -->
-  <!-- <xsl:param name="layout.logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_sv.png'" /> -->
-  <xsl:param name="layout.logo_file" select="'../images/placeholder_logo.png'"/>
+  <xsl:param name="layout.logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/snd_logo_grayscale.png'"/>
+  <!-- <xsl:param name="layout.logo_file" select="'../images/snd_logo_grayscale.png'" /> -->
+  <!-- <xsl:param name="layout.logo_file" select="'../images/placeholder_logo.png'" /> -->
+  
+  <!-- path to small bottom left/right side logos -->
+  <xsl:param name="layout.left_bottom_logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/vr_logo.png'"/>
+  <!-- <xsl:param name="layout.left_bottom_logo_file" select="'../images/vr_logo.png'" /> -->
+  <xsl:param name="layout.right_bottom_logo_file" select="'http://xml.snd.gu.se/xsl/ddi2/ddi-fo/images/gu_logo.png'"/>
+  <!-- <xsl:param name="layout.left_bottom_logo_file" select="'../images/gu_logo.png'" /> -->
 
   <!-- Style and page layout -->
   <xsl:param name="layout.page_master" select="'A4-page'"/> 
@@ -427,25 +434,55 @@
 
       <fo:block id="cover-page">
 
-        <!-- logo graphic -->
+        <!-- top logo -->
         <fo:block text-align="center">
           <fo:external-graphic src="{$layout.logo_file}"/>
-        </fo:block>      
+        </fo:block>
+
+        <!-- This is the small logos in the lower left and right corner: -->
+        <!-- either replace them or remove/comment them out. You can -->
+        <!-- uncomment the placeholder logos for experimenting. -->
+               
+        <!-- left corner logo (using Swedish Research Council graphic) -->
+        <fo:block-container absolute-position="fixed" top="248mm" left="20mm">
+          <fo:block>            
+            <fo:external-graphic src="{$layout.left_bottom_logo_file}" content-height="33mm" scaling="uniform"/>
+          </fo:block>        
+        </fo:block-container>
+        
+        <!-- right corner logo (using Gothenburg University graphic) -->
+        <fo:block-container absolute-position="fixed" top="250mm" left="150mm">
+          <fo:block>
+            <fo:external-graphic src="{$layout.right_bottom_logo_file}" content-height="25mm" scaling="uniform"/>
+          </fo:block>
+        </fo:block-container>
+
+        <!-- left corner logo (using placeholder graphic) -->
+        <!-- <fo:block-container absolute-position="fixed" top="250mm" left="20mm">
+          <fo:block>
+            <fo:external-graphic src="../images/placeholder_corner_logo.png" content-height="33mm" scaling="uniform"/>
+          </fo:block>        
+        </fo:block-container> -->
+        
+        <!-- right corner logo (using placeholder graphic) -->
+        <!-- <fo:block-container absolute-position="fixed" top="250mm" left="150mm">
+          <fo:block>
+            <fo:external-graphic src="../images/placeholder_corner_logo.png" content-height="33mm" scaling="uniform"/>
+          </fo:block>
+        </fo:block-container> -->
+ 
+        <!-- blank line ('&#x00A0;' is the equivalent of HTML '&nbsp;') -->
+        <fo:block white-space-treatment="preserve" font-size="60pt">   </fo:block>
 
         <!-- title -->
-        <fo:block font-size="18pt" font-weight="bold" space-before="5mm" text-align="center" space-after="0.0mm">
+        <fo:block font-size="20pt" font-weight="bold" space-before="5mm" text-align="center" space-after="0.0mm">
           <xsl:value-of select="normalize-space(/codeBook/stdyDscr/citation/titlStmt/titl)"/>
         </fo:block>
 
-        <!-- ID-number -->
-        <!-- <fo:block font-size="15pt" text-align="center" space-before="5mm">
-          <xsl:value-of select="/codeBook/docDscr/docSrc/titlStmt/IDNo" />
-        </fo:block> -->
+        <!-- blank line -->
+        <fo:block white-space-treatment="preserve" font-size="25pt">   </fo:block>
 
-        <!-- blank line ('&#x00A0;' is the equivalent of HTML '&nbsp;') -->
-        <fo:block white-space-treatment="preserve">   </fo:block>
-
-        <!-- responsible party(ies) -->      
+        <!-- responsible part(ies) -->      
         <xsl:for-each select="/codeBook/stdyDscr/citation/rspStmt/AuthEnty">
           <fo:block font-size="14pt" font-weight="bold" space-before="0.0mm" text-align="center" space-after="0.0mm">
             <xsl:value-of select="util:trim(.)"/>
@@ -456,12 +493,14 @@
               <xsl:value-of select="@affiliation"/>
             </fo:block>
           </xsl:if>           
-            
+          
+          <!-- blank line -->
           <fo:block white-space-treatment="preserve" font-size="5pt">   </fo:block>
             
         </xsl:for-each>
         
       </fo:block>
+                     
     </fo:flow>
   </fo:page-sequence>
 </xsl:if>
