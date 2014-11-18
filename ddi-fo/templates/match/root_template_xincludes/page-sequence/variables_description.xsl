@@ -76,6 +76,11 @@
         <!-- =========== -->
         <!-- page footer -->
         <!-- =========== -->
+        
+        <xsl:call-template name="page_header">
+          <xsl:with-param name="section_name" select="i18n:get('Variables_Description')" />
+        </xsl:call-template>
+                
         <xsl:call-template name="page_footer" />
         
         <!-- =========== -->
