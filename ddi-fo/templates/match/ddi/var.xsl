@@ -479,32 +479,32 @@
                 
                 <!-- Information: Type -->
                 <xsl:if test="normalize-space(@intrvl)">
-                  <xsl:value-of select="concat(' [', i18n:get('Type'), ': ')"  />
+                  <xsl:value-of select="concat(i18n:get('Type'), ': ')"  />
                   <xsl:value-of select="if (@intrvl = 'discrete') then i18n:get('discrete')
                     else if (@intrvl = 'contin') then i18n:get('continuous') 
                     else () "/>
-                  <xsl:text>] </xsl:text>
+                  <xsl:text>, </xsl:text>
                 </xsl:if>
                 
                 <!-- Information: Format -->
                 <xsl:for-each select="varFormat">                  
-                  <xsl:value-of select="concat(' [', i18n:get('Format'), ': ', @type)" />                   
+                  <xsl:value-of select="concat(i18n:get('Format'), ': ', @type)" />                   
                   <xsl:value-of select="if (normalize-space(location/@width)) then concat('-', location/@width) else ()" />
                   <xsl:value-of select="if (normalize-space(@dcml)) then concat('.', @dcml) else ()" />
-                  <xsl:text>] </xsl:text>
+                  <xsl:text>, </xsl:text>
                 </xsl:for-each>
                 
                 <!-- Information: Range -->
                 <xsl:for-each select="valrng/range">                  
-                  <xsl:value-of select="concat(' [', i18n:get('Range'), ': ', @min, '-', @max, '] ') "/>               
+                  <xsl:value-of select="concat(i18n:get('Range'), ': ', @min, '-', @max, ', ') "/>               
                 </xsl:for-each>
                 
                 <!-- Information: Missing -->
-                <xsl:value-of select="concat(' [', i18n:get('Missing'), ': *')" />
+                <xsl:value-of select="concat(i18n:get('Missing'), ': *')" />
                 <xsl:for-each select="invalrng/item">
                   <xsl:value-of select="concat('/', @VALUE)"/>                 
                 </xsl:for-each>
-                <xsl:text>] </xsl:text>
+                <!-- <xsl:text>, </xsl:text> -->
                 
               </fo:block>
             </fo:table-cell>
@@ -515,7 +515,7 @@
             <fo:table-row text-align="center" vertical-align="top">
               <fo:table-cell font-weight="bold" text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <fo:block>                  
-                  <xsl:value-of select="concat(i18n:get('Statistics'), ' [', i18n:get('Abbrev_NotWeighted'), '/ ', i18n:get('Abbrev_Weighted'), ']', ':')" />                 
+                  <xsl:value-of select="concat(i18n:get('Statistics'), ' (', i18n:get('Abbrev_NotWeighted'), '/ ', i18n:get('Abbrev_Weighted'), ')', ':')" />                 
                 </fo:block>
               </fo:table-cell>
               
@@ -539,11 +539,11 @@
                     <!-- ========= -->
                     <!-- Content   -->
                     <!-- ========= -->                    
-                    <xsl:value-of select="concat(' [', $label, ': ', normalize-space(.), ' /')"  />
+                    <xsl:value-of select="concat($label, ': (', normalize-space(.), ' /')"  />
                     <xsl:value-of select="if (following-sibling::sumStat[1]/@type = $type and following-sibling::sumStat[1]/@wgtd) then
                       following-sibling::sumStat[1]
-                      else '-' "/>
-                    <xsl:text>] </xsl:text>
+                      else ' -' "/>
+                    <xsl:text>) </xsl:text>
                   </xsl:for-each>
                 </fo:block>
               </fo:table-cell>
