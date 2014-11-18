@@ -162,7 +162,8 @@
   <xsl:param name="layout.page_master" select="'A4-page'" /> 
   <xsl:param name="layout.font_family" select="'Times'" />
   <xsl:param name="layout.font_size" select="10" />
-  <xsl:param name="layout.header_font_size" select="6" />
+  <xsl:param name="layout.header_font_size" select="10" />
+  <xsl:param name="layout.footer_font_size" select="10" />
  
   <!-- toggle main sections of root template -->
   <xsl:param name="bookmarks.show" select="'True'" />
