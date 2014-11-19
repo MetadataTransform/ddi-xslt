@@ -140,10 +140,9 @@
         <!-- Variables table         -->
         <!-- ======================= -->
         <xsl:if test="./@var"> <!-- Look for variables in this group -->
-          <fo:table id="varlist-{@ID}" table-layout="fixed"
-            width="100%" font-size="8pt" space-after="0.0mm">
+          <fo:table id="varlist-{@ID}" table-layout="fixed" width="100%" font-size="10pt" space-after="0.0mm">
             
-            <fo:table-column column-width="proportional-column-width( 5)" />
+            <!-- <fo:table-column column-width="proportional-column-width( 5)" /> -->
             <fo:table-column column-width="proportional-column-width(12)" />
             <fo:table-column column-width="proportional-column-width(20)" />
             <fo:table-column column-width="proportional-column-width(27)" />
@@ -152,15 +151,14 @@
             <!-- table header -->
             <!-- ============ -->
             <fo:table-header>
-              <fo:table-row text-align="center" vertical-align="top"
-                font-weight="bold" keep-with-next="always">
+              <fo:table-row text-align="left" vertical-align="top" font-weight="bold" keep-with-next="always" background-color="{$layout.color.gray1}">
                 
                 <!-- blank character -->
-                <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
+<!--                <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                   <fo:block>
                     <xsl:text/>
                   </fo:block>
-                </fo:table-cell>
+                </fo:table-cell>-->
                 
                 <!-- Name -->
                 <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
@@ -199,11 +197,11 @@
                 <fo:table-row text-align="center" vertical-align="top">
                   
                   <!-- Row 1: Variable Position -->
-                  <fo:table-cell text-align="center" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
+<!--                  <fo:table-cell text-align="center" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                     <fo:block>
                       <xsl:value-of select="position()" />
                     </fo:block>
-                  </fo:table-cell>
+                  </fo:table-cell>-->
                   
                   <!-- Row 2: Variable Name-->
                   <fo:table-cell text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
