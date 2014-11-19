@@ -26,13 +26,13 @@
 
 
 <xsl:if test="$page.metadata_info.show = 'True'"
-        xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
-        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        xmlns:fo="http://www.w3.org/1999/XSL/Format">
+  xpath-default-namespace="http://www.icpsr.umich.edu/DDI"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:fo="http://www.w3.org/1999/XSL/Format">
   
   <fo:page-sequence master-reference="{$layout.page_master}"
-                    font-family="{$layout.font_family}"
-                    font-size="{$layout.font_size}">
+    font-family="{$layout.font_family}"
+    font-size="{$layout.font_size}">
     
     <!-- =========================================== -->
     <!-- page content                                -->
@@ -46,12 +46,12 @@
         <xsl:value-of select="i18n:get('Metadata_Production')"/>
       </fo:block>
       
-      <fo:table table-layout="fixed" width="100%" space-before="0.0mm" space-after="5mm">
-        <fo:table-column column-width="proportional-column-width(20)" />
-        <fo:table-column column-width="proportional-column-width(80)" />
+      <fo:table table-layout="fixed" width="100%" space-before="0.0mm" space-after="5mm" font-size="12">
+        <fo:table-column column-width="proportional-column-width(25)" />
+        <fo:table-column column-width="proportional-column-width(75)" />
         
         <fo:table-body>
-              
+          
           <!-- Metadata Producers -->
           <xsl:if test="/codeBook/docDscr/citation/prodStmt/producer">
             <fo:table-row>
@@ -65,8 +65,8 @@
               </fo:table-cell>
             </fo:table-row>
           </xsl:if>
-    
-    
+          
+          
           <!-- Production Date -->
           <xsl:if test="/codeBook/docDscr/citation/prodStmt/prodDate">
             <fo:table-row>
@@ -96,7 +96,7 @@
             </fo:table-cell>
             </fo:table-row>
             </xsl:if> -->
-                    
+          
           <!-- Identification -->
           <xsl:if test="/codeBook/docDscr/citation/titlStmt/IDNo">
             <fo:table-row>
