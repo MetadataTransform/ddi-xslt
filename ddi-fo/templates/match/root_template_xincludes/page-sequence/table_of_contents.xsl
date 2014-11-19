@@ -30,7 +30,7 @@
       <!-- TOC heading                            -->
       <!-- ====================================== -->
       
-      <fo:block id="toc" font-size="18pt" font-weight="bold" space-before="12mm" text-align="center" space-after="2.5mm">
+      <fo:block id="toc" font-size="18pt" font-weight="bold" space-before="12mm" text-align="left" space-after="2.5mm" margin-left="12mm">
         <xsl:value-of select="i18n:get('Table_of_Contents')" />
       </fo:block>
       
@@ -46,8 +46,8 @@
         
         <!-- Overview -->
         <xsl:if test="$page.overview.show = 'True'">
-          <fo:block font-size="{$layout.font_size}" text-align-last="justify">
-            <fo:basic-link internal-destination="overview" text-decoration="underline" color="blue">
+          <fo:block font-size="{$layout.toc_font_size}" text-align-last="justify">
+            <fo:basic-link internal-destination="overview" text-decoration="none" color="{$layout.toc_font_color}">            
               <xsl:value-of select="i18n:get('Overview')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="overview" />
@@ -57,8 +57,8 @@
         
         <!-- Scope and Coverage -->
         <xsl:if test="$section.scope_and_coverage.show = 'True'">
-          <fo:block font-size="{$layout.font_size}" text-align-last="justify">
-            <fo:basic-link internal-destination="scope-and-coverage" text-decoration="underline" color="blue">
+          <fo:block font-size="{$layout.toc_font_size}" text-align-last="justify">
+            <fo:basic-link internal-destination="scope-and-coverage" text-decoration="none" color="{$layout.toc_font_color}">
               <xsl:value-of select="i18n:get('Scope_and_Coverage')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="scope-and-coverage" />
@@ -68,8 +68,8 @@
         
         <!-- Producers and Sponsors -->
         <xsl:if test="$section.producers_and_sponsors.show = 'True'">
-          <fo:block font-size="{$layout.font_size}" text-align-last="justify">
-            <fo:basic-link internal-destination="producers-and-sponsors" text-decoration="underline" color="blue">
+          <fo:block font-size="{$layout.toc_font_size}" text-align-last="justify">
+            <fo:basic-link internal-destination="producers-and-sponsors" text-decoration="none" color="{$layout.toc_font_color}">
               <xsl:value-of select="i18n:get('Producers_and_Sponsors')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="producers-and-sponsors" />
@@ -79,8 +79,8 @@
         
         <!-- Sampling -->
         <xsl:if test="$section.sampling.show = 'True'">
-          <fo:block font-size="{$layout.font_size}" text-align-last="justify">
-            <fo:basic-link internal-destination="sampling" text-decoration="underline" color="blue">
+          <fo:block font-size="{$layout.toc_font_size}" text-align-last="justify">
+            <fo:basic-link internal-destination="sampling" text-decoration="none" color="{$layout.toc_font_color}">
               <xsl:value-of select="i18n:get('Sampling')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="sampling" />
@@ -90,8 +90,8 @@
         
         <!-- Data Collection -->
         <xsl:if test="$section.data_collection.show = 'True'">
-          <fo:block font-size="{$layout.font_size}" text-align-last="justify">
-            <fo:basic-link internal-destination="data-collection" text-decoration="underline" color="blue">
+          <fo:block font-size="{$layout.toc_font_size}" text-align-last="justify">
+            <fo:basic-link internal-destination="data-collection" text-decoration="none" color="{$layout.toc_font_color}">
               <xsl:value-of select="i18n:get('Data_Collection')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="data-collection" />
@@ -101,8 +101,8 @@
         
         <!-- Data Processing and Appraisal -->
         <xsl:if test="$section.data_processing_and_appraisal.show = 'True'">
-          <fo:block font-size="{$layout.font_size}" text-align-last="justify">
-            <fo:basic-link internal-destination="data-processing-and-appraisal" text-decoration="underline" color="blue">
+          <fo:block font-size="{$layout.toc_font_size}" text-align-last="justify">
+            <fo:basic-link internal-destination="data-processing-and-appraisal" text-decoration="none" color="{$layout.toc_font_color}">
               <xsl:value-of select="i18n:get('Data_Processing_and_Appraisal')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="data-processing-and-appraisal" />
@@ -112,8 +112,8 @@
         
         <!-- Accessibility -->
         <xsl:if test="$section.accessibility.show = 'True'">
-          <fo:block font-size="{$layout.font_size}" text-align-last="justify">
-            <fo:basic-link internal-destination="accessibility" text-decoration="underline" color="blue">
+          <fo:block font-size="{$layout.toc_font_size}" text-align-last="justify">
+            <fo:basic-link internal-destination="accessibility" text-decoration="none" color="{$layout.toc_font_color}">
               <xsl:value-of select="i18n:get('Accessibility')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="accessibility" />
@@ -123,8 +123,8 @@
         
         <!-- Rights and Disclaimer -->
         <xsl:if test="$section.rights_and_disclaimer.show = 'True'">
-          <fo:block font-size="{$layout.font_size}" text-align-last="justify">
-            <fo:basic-link internal-destination="rights-and-disclaimer" text-decoration="underline" color="blue">
+          <fo:block font-size="{$layout.toc_font_size}" text-align-last="justify">
+            <fo:basic-link internal-destination="rights-and-disclaimer" text-decoration="none" color="{$layout.toc_font_color}">
               <xsl:value-of select="i18n:get('Rights_and_Disclaimer')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="rights-and-disclaimer" />
@@ -140,9 +140,9 @@
         
         <!-- Files Description -->
         <xsl:if test="$page.files_description.show = 'True'">
-          <fo:block font-size="{$layout.font_size}" text-align-last="justify">
+          <fo:block font-size="{$layout.toc_font_size}" text-align-last="justify">
             
-            <fo:basic-link internal-destination="files-description" text-decoration="underline" color="blue">
+            <fo:basic-link internal-destination="files-description" text-decoration="none" color="{$layout.toc_font_color}">
               <xsl:value-of select="i18n:get('Files_Description')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="files-description" />
@@ -162,16 +162,16 @@
         
         <!-- Variables List -->
         <xsl:if test="$page.variables_list.show = 'True'">
-          <fo:block font-size="{$layout.font_size}" text-align-last="justify">
-            <fo:basic-link internal-destination="variables-list" text-decoration="underline" color="blue">
+          <fo:block font-size="{$layout.toc_font_size}" text-align-last="justify">
+            <fo:basic-link internal-destination="variables-list" text-decoration="none" color="{$layout.toc_font_color}">
               <xsl:value-of select="i18n:get('Variables_List')" />
               
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="variables-list" />
             </fo:basic-link>
             <xsl:for-each select="/codeBook/fileDscr">
-              <fo:block margin-left="17mm" font-size="{$layout.font_size}" text-align-last="justify">
-                <fo:basic-link internal-destination="varlist-{fileTxt/fileName/@ID}" text-decoration="underline" color="blue">
+              <fo:block margin-left="17mm" font-size="{$layout.toc_font_size}" text-align-last="justify">
+                <fo:basic-link internal-destination="varlist-{fileTxt/fileName/@ID}" text-decoration="none" color="{$layout.toc_font_color}">
                   <xsl:apply-templates select="fileTxt/fileName" />
                   <fo:leader leader-pattern="dots" />
                   <fo:page-number-citation ref-id="varlist-{fileTxt/fileName/@ID}" />
@@ -183,16 +183,16 @@
         
         <!-- Variables Groups -->
         <xsl:if test="$page.variable_groups.show = 'True'">
-          <fo:block font-size="{$layout.font_size}" text-align-last="justify">
-            <fo:basic-link internal-destination="variables-groups" text-decoration="underline" color="blue">
+          <fo:block font-size="{$layout.toc_font_size}" text-align-last="justify">
+            <fo:basic-link internal-destination="variables-groups" text-decoration="none" color="{$layout.toc_font_color}">
               <xsl:value-of select="i18n:get('Variables_Groups')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="variables-groups" />
             </fo:basic-link>
             
             <xsl:for-each select="/codeBook/dataDscr/varGrp">
-              <fo:block margin-left="17mm" font-size="{$layout.font_size}" text-align-last="justify">
-                <fo:basic-link internal-destination="vargrp-{@ID}" text-decoration="underline" color="blue">
+              <fo:block margin-left="17mm" font-size="{$layout.toc_font_size}" text-align-last="justify">
+                <fo:basic-link internal-destination="vargrp-{@ID}" text-decoration="none" color="{$layout.toc_font_color}">
                   <xsl:value-of select="normalize-space(labl)" />
                   <fo:leader leader-pattern="dots" />
                   <fo:page-number-citation ref-id="vargrp-{@ID}" />
@@ -204,9 +204,9 @@
         
         <!-- Variables Description -->
         <xsl:if test="$page.variables_description.show = 'True'">
-          <fo:block font-size="{$layout.font_size}" text-align-last="justify">
+          <fo:block font-size="{$layout.toc_font_size}" text-align-last="justify">
             
-            <fo:basic-link internal-destination="variables-description" text-decoration="underline" color="blue">
+            <fo:basic-link internal-destination="variables-description" text-decoration="none" color="{$layout.toc_font_color}">
               <xsl:value-of select="i18n:get('Variables_Description')" />
               <fo:leader leader-pattern="dots" />
               <fo:page-number-citation ref-id="variables-description" />
