@@ -136,7 +136,7 @@
                 
                 <!-- Notes -->
                 <xsl:for-each select="/codeBook/stdyDscr/citation/verStmt/notes">
-                  <fo:block text-decoration="underline">
+                  <fo:block text-decoration="none">
                     <xsl:value-of select="i18n:get('Notes')" />
                   </fo:block>
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -167,7 +167,7 @@
           <xsl:if test="/codeBook/stdyDscr/stdyInfo/abstract">
             <fo:table-row>
               <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold" text-decoration="underline">
+                <fo:block font-weight="bold" text-decoration="none">
                   <xsl:value-of select="i18n:get('Abstract')" />
                 </fo:block>              
                 <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -244,7 +244,7 @@
             <xsl:if test="/codeBook/stdyDscr/stdyInfo/notes">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Scope')"/>
                   </fo:block>               
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -297,7 +297,7 @@
             <xsl:if version="1.0" test="string-length($time) &gt; 3 or string-length($study.time_produced) &gt; 3">
               <fo:table-row>
                 <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Time_Periods')" />
                   </fo:block>
                 </fo:table-cell>
@@ -322,7 +322,7 @@
             <!-- Countries -->
             <fo:table-row>
               <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                <fo:block font-weight="bold" text-decoration="underline">
+                <fo:block font-weight="bold" text-decoration="none">
                   <xsl:value-of select="i18n:get('Countries')" />
                 </fo:block>
               </fo:table-cell>
@@ -337,7 +337,7 @@
             <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/geogCover">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Geographic_Coverage')" />
                   </fo:block>              
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -351,7 +351,7 @@
             <xsl:if test="/codeBook/stdyDscr/stdyInfo/sumDscr/universe">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Universe')" />
                   </fo:block>             
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -467,7 +467,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/dataColl/sampProc">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Sampling_Procedure')" />
                   </fo:block>              
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -481,7 +481,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/dataColl/deviat">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Deviations_from_Sample_Design')" />
                   </fo:block>               
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -495,7 +495,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/anlyInfo/respRate">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Response_Rate')" />
                   </fo:block>                
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -509,7 +509,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/dataColl/weight">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Weighting')" />
                   </fo:block>                
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -590,7 +590,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/notes[@subject = 'collection']">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Data_Collection_Notes')" />
                   </fo:block>
                   <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject = 'collection']" />
@@ -602,7 +602,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/notes[@subject = 'processing']">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Data_Processing_Notes')" />
                   </fo:block>
                   <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject = 'collection']" />
@@ -614,7 +614,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/notes[@subject = 'cleaning']">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Data_Cleaning_Notes')" />
                   </fo:block>
                   <xsl:apply-templates select="/codeBook/stdyDscr/method/notes[@subject = 'collection']" />
@@ -626,7 +626,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/dataColl/collSitu">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Data_Collection_Notes')" />
                   </fo:block>               
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -640,7 +640,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/dataColl/resInstru">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Questionnaires')" />
                   </fo:block>               
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -668,7 +668,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/dataColl/actMin">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Supervision')" />
                   </fo:block>               
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -705,7 +705,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/dataColl/cleanOps">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Data_Editing')" />
                   </fo:block>              
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -720,7 +720,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/notes">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Other_Processing')" />
                   </fo:block>               
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -734,7 +734,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/anlyInfo/EstSmpErr">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Estimates_of_Sampling_Error')" />
                   </fo:block>
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -748,7 +748,7 @@
             <xsl:if test="/codeBook/stdyDscr/method/anlyInfo/dataAppr">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Other_Forms_of_Data_Appraisal')" />
                   </fo:block>                
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -845,7 +845,7 @@
             <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/confDec">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Confidentiality')" />
                   </fo:block>
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -859,7 +859,7 @@
             <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/conditions">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Access_Conditions')" />
                   </fo:block>    
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -873,7 +873,7 @@
             <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/citReq">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Citation_Requirements')" />
                   </fo:block>
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
@@ -910,7 +910,7 @@
             <xsl:if test="/codeBook/stdyDscr/dataAccs/useStmt/disclaimer">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
-                  <fo:block font-weight="bold" text-decoration="underline">
+                  <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Disclaimer')" />
                   </fo:block>
                   <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
