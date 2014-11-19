@@ -189,7 +189,9 @@
   <!-- table cells -->
   <xsl:variable name="layout.tables.cellpadding" select="'3pt'"/>
   <xsl:variable name="layout.tables.border" select="'0.5pt'" />
-    
+
+  <xsl:variable name="layout.variable_table_border" select="'1pt solid white'" />
+
   <!-- colors -->  
   <xsl:variable name="layout.color.gray1" select="'#f0f0f0'" />
   <xsl:variable name="layout.color.gray2" select="'#e0e0e0'" />

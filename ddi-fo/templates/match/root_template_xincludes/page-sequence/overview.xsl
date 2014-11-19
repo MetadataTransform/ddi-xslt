@@ -49,7 +49,7 @@
           <!-- ========================= -->
           <!-- title header              -->
           <!-- ========================= -->
-          <fo:table-row background-color="{$layout.color.gray3}">
+          <fo:table-row background-color="{$layout.color.gray4}">
             <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
               <fo:block font-size="14pt" font-weight="bold">
                 <xsl:value-of select="$study.title" />

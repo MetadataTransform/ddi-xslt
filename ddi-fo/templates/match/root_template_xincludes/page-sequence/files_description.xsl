@@ -67,7 +67,7 @@
           <fo:table-body>
             
             <!-- Filename -->
-            <fo:table-row background-color="{$layout.color.gray1}" keep-with-next="always">
+            <fo:table-row background-color="{$layout.color.gray4}" keep-with-next="always">
               <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                 <fo:block font-size="12pt" font-weight="bold">
                   <xsl:apply-templates select="/codeBook/fileDscr/fileTxt/fileName" />

@@ -77,7 +77,7 @@
         <!-- ============ -->
         <fo:table-header>
           <fo:table-row text-align="center" vertical-align="top">
-            <fo:table-cell number-columns-spanned="2" font-size="12pt" font-weight="bold" text-align="left" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
+            <fo:table-cell number-columns-spanned="2" font-size="12pt" font-weight="bold" text-align="left" background-color="{$layout.color.gray4}" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
               <fo:block>                
                 <xsl:value-of select="concat(./@id, ' ')"  />                                  
                 <xsl:value-of select="./@name" />                                
@@ -288,7 +288,7 @@
                   <!-- ========= -->
                   <!-- Content   -->
                   <!-- ========= -->
-                  <fo:table-cell text-align="left" border="0.2pt solid black" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
+                  <fo:table-cell text-align="left" number-columns-spanned="2" padding="{$layout.tables.cellpadding}">  
                     <fo:table id="var-{@ID}-cat" table-layout="fixed" width="100%" font-size="8pt">
                       
                       <!-- table colums -->
@@ -307,7 +307,7 @@
                       <fo:table-column column-width="{$bar-column-width}in" />
                       
                       <!-- table header -->
-                      <fo:table-header>
+                      <fo:table-header background-color="white">
                         <fo:table-row text-align="left" vertical-align="top">
                           <fo:table-cell border="0.5pt solid white" padding="{$layout.tables.cellpadding}">
                             <fo:block font-weight="bold">
@@ -331,7 +331,7 @@
                               </fo:block>
                             </fo:table-cell>
                           </xsl:if>
-                          <fo:table-cell border="0.4pt solid white" padding="{$layout.tables.cellpadding}" text-align="center">
+                          <fo:table-cell border="0.4pt solid white" padding="{$layout.tables.cellpadding}" text-align="left">
                             <fo:block font-weight="bold">
                               <xsl:value-of select="i18n:get('Percentage')" />
                               <xsl:if test="$is-weighted">                                
@@ -343,7 +343,7 @@
                       </fo:table-header>
                       
                       <!-- table body -->
-                      <fo:table-body>
+                      <fo:table-body background-color="{$layout.color.gray1}">
                         <xsl:for-each select="catgry">
                           
                           <!-- ========= -->
@@ -376,21 +376,21 @@
                           <fo:table-row text-align="center" vertical-align="top">
                             
                             <!-- catValue -->
-                            <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
+                            <fo:table-cell text-align="left" border-bottom="{$layout.variable_table_border}"  padding="2pt">
                               <fo:block>                                  
                                 <xsl:value-of select="util:trim(catValu)" />
                               </fo:block>
                             </fo:table-cell>
                             
                             <!-- Label -->
-                            <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
+                            <fo:table-cell text-align="left" border-bottom="{$layout.variable_table_border}" padding="2pt">
                               <fo:block>                                
                                 <xsl:value-of select="util:trim(labl)" />
                               </fo:block>
                             </fo:table-cell>
                             
                             <!-- Frequency -->                            
-                            <fo:table-cell text-align="right" border="0.5pt solid white" padding="2pt">
+                            <fo:table-cell text-align="right" border-bottom="{$layout.variable_table_border}" padding="2pt">
                               <fo:block>                                
                                 <xsl:value-of select="util:trim(catStat)" />
                               </fo:block>
@@ -398,7 +398,7 @@
                             
                             <!-- Weighted frequency -->                            
                             <xsl:if test="$is-weighted">
-                              <fo:table-cell text-align="center" border="0.5pt solid white" padding="2pt">
+                              <fo:table-cell text-align="center" border-bottom="{$layout.variable_table_border}" padding="2pt">
                                 <fo:block>
                                   <xsl:value-of select="util:trim(format-number($catgry-freq-wgtd, '0.0'))" />
                                 </fo:block>
@@ -411,7 +411,7 @@
                             
                             <!-- display the bar but not for missing values or if there was a problem computing the width -->
                             <xsl:if test="not(@missing = 'Y') and $col-width-1 &gt; 0">
-                              <fo:table-cell text-align="left" border="0.5pt solid white" padding="2pt">
+                              <fo:table-cell text-align="left" border-bottom="{$layout.variable_table_border}" padding="2pt">
                                 <fo:table table-layout="fixed" width="100%">
                                   <fo:table-column column-width="{$col-width-1}in" />
                                   <fo:table-column column-width="{$col-width-2}in" />
@@ -562,11 +562,11 @@
             </fo:table-cell>
           </fo:table-row>
           
-          <fo:table-row height="1mm">
+<!--          <fo:table-row height="1mm">
             <fo:table-cell number-columns-spanned="2">
               <fo:block border-top-style="solid" />
             </fo:table-cell>
-          </fo:table-row>
+          </fo:table-row>-->
           
           <fo:table-row height="4mm">
             <fo:table-cell number-columns-spanned="2">

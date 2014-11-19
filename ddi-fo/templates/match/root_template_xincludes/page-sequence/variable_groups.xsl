@@ -151,7 +151,7 @@
             <!-- table header -->
             <!-- ============ -->
             <fo:table-header>
-              <fo:table-row text-align="left" vertical-align="top" font-weight="bold" keep-with-next="always" background-color="{$layout.color.gray1}">
+              <fo:table-row text-align="left" vertical-align="top" font-weight="bold" keep-with-next="always" background-color="{$layout.color.gray4}">
                 
                 <!-- blank character -->
 <!--                <fo:table-cell border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
