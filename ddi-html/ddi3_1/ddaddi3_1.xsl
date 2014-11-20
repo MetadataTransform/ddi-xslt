@@ -524,16 +524,23 @@
           </xsl:choose>
         </td>
         <td class="left">
+          <!-- local categories -->
           <xsl:for-each select="../../../../l:LogicalProduct/l:CategoryScheme/l:Category[@id=$categoryRef]">
             <xsl:call-template name="CreateLink"/>
             <xsl:call-template name="DisplayLabel"/>
           </xsl:for-each>
+          <!-- resource package categories -->
           <xsl:for-each select="../../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$categoryRef]">
             <xsl:call-template name="CreateLink"/>
             <resource>
               <xsl:call-template name="DisplayLabel"/>
             </resource>
           </xsl:for-each>
+          
+          <xsl:if test="$codeValue = '.'">
+            <!-- SYSMIS found - insert "Null" as Category Label -->
+            <xsl:text>Null</xsl:text>
+          </xsl:if>
 
           <!-- test for Missing Values -->
           <xsl:if test="normalize-space($codeValue) = $uoplyst">
