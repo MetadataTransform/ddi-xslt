@@ -16,36 +16,36 @@
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
-  <fo:page-sequence master-reference="{$layout.page_master}"
+<!--  <fo:page-sequence master-reference="{$layout.page_master}"
                     font-family="{$layout.font_family}"
                     font-size="{$layout.font_size}">
 
-    <!-- =========================================== -->
-    <!-- page header                                 -->
-    <!-- =========================================== -->
+    <!-\- =========================================== -\->
+    <!-\- page header                                 -\->
+    <!-\- =========================================== -\->
     <xsl:call-template name="page_header">
       <xsl:with-param name="section_name" select="i18n:get('Variables_Description')" />
     </xsl:call-template>
 
     <xsl:call-template name="page_footer" />
 
-    <!-- =========================================== -->
-    <!-- page content                                -->
-    <!-- =========================================== -->
+    <!-\- =========================================== -\->
+    <!-\- page content                                -\->
+    <!-\- =========================================== -\->
     <fo:flow flow-name="body">
 
-      <!-- heading -->
+      <!-\- heading -\->
       <fo:block id="variables-description" font-size="18pt" font-weight="bold" space-after="2.5mm">
         <xsl:value-of select="i18n:get('Variables_Description')" />
       </fo:block>
 
-      <!-- number of variables in data set -->
+      <!-\- number of variables in data set -\->
       <fo:block font-weight="bold">
         <xsl:value-of select="concat(i18n:get('Dataset_contains'), ' ', xs:string(count(/codeBook/dataDscr/var)), ' ', i18n:get('variables')) "/>       
       </fo:block>
 
     </fo:flow>
-  </fo:page-sequence>
+  </fo:page-sequence>-->
 
   <!-- fileDscr -->
 <!--  <xsl:apply-templates select="/codeBook/fileDscr" mode="variables-description" />-->
@@ -87,6 +87,15 @@
         <!-- page body   -->
         <!-- =========== -->
         <fo:flow flow-name="body">
+                    
+          <fo:block font-size="18pt" font-weight="bold" space-after="2.5mm">
+            <xsl:value-of select="i18n:get('Variables_Description')" />
+          </fo:block>
+          
+          <!-- number of variables in data set -->
+          <fo:block font-weight="bold" space-after="5mm">
+            <xsl:value-of select="concat(i18n:get('Dataset_contains'), ' ', xs:string(count(/codeBook/dataDscr/var)), ' ', i18n:get('variables')) "/>       
+          </fo:block>
           
           <!-- [fo:table] Header -->
           <!-- (only written if at the start of file) -->
