@@ -543,13 +543,13 @@
           </xsl:if>
 
           <!-- test for Missing Values -->
-          <xsl:if test="normalize-space($codeValue) = $uoplyst">
+          <xsl:if test="string-length($codeValue) > 0 and normalize-space($codeValue) = $uoplyst">
             <xsl:value-of select="util:i18n('Unknown')"/>
           </xsl:if>
-          <xsl:if test="normalize-space($codeValue) = $irrelevant">
+          <xsl:if test="string-length($codeValue) > 0 and normalize-space($codeValue) = $irrelevant">
             <xsl:value-of select="util:i18n('Irrelevant')"/>
           </xsl:if>
-          <xsl:if test="normalize-space($codeValue) = $deltagerIkke">
+          <xsl:if test="string-length($codeValue) > 0 and normalize-space($codeValue) = $deltagerIkke">
             <xsl:value-of select="util:i18n('NotParticipating')"/>
           </xsl:if>
         </td>
