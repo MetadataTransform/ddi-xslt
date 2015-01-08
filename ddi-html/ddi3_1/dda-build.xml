@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project basedir="." default="deploy-to-ddieditor-ui" name="ddi-html">
 	<!-- directories -->
-  <property name="ddixslt.dir" value="${basedir}/../../ddieditor-ui/bin/resources/ddixslt" />
+  <property name="ddixslt.dir" value="${basedir}/../../../ddieditor-ui/bin/resources/ddixslt" />
 
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!-- clean                                       -->
