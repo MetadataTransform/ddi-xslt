@@ -1,0 +1,5308 @@
+{
+  "group": "",
+  "collection": "",
+  "id": "1075",
+  "repository": "DDASOCIAL",
+  "kindofdata": "Survey",
+  "title": [
+    {
+      "da": "Efterspørgslen efter tandlægeydelser og sygeforsikring, 1985"
+    },
+    {
+      "en": "Demand for Dentists' Services and Health Insurance, 1985"
+    }
+  ],
+  "creator": [
+    "Eli Schwarz, Sundhedsstyrelsen",
+    "Kjeld Møller Pedersen, Institut for Sundhedstjenesteforskning, SDU - Odense"
+  ],
+  "startdate": "1985-01-01",
+  "enddate": "1985-12-30",
+  "subject": [
+    {
+      "da": "Sundhed: Sundhedsvæsen og lægefaglig/medicinsk behandling"
+    },
+    {
+      "en": "Health: Health care and medical treatment"
+    },
+    {
+      "da": "Samfund og kultur: Social adfærd og holdninger"
+    },
+    {
+      "en": "Society and culture: Social behaviour and attitudes"
+    }
+  ],
+  "keyword": [
+    {
+      "da": "Sygesikring"
+    },
+    {
+      "da": "Tandlægeydelse"
+    },
+    {
+      "da": "Tandpleje"
+    },
+    {
+      "en": "health insurance"
+    },
+    {
+      "en": "dentists' services"
+    },
+    {
+      "en": "insurance, health"
+    },
+    {
+      "en": "dental care"
+    },
+    {
+      "en": "Danmark, Health Insurance Society"
+    }
+  ],
+  "abstract": [
+    {
+      "da": "Undersøgelsens data er indsamlet af Gallup Markedsanalyse A/S som et tillæg i Gallups omnibus nr. 11, juni 1985.Materialet belyser determinanter for efterspørgsel efter tandlægeydelser blandt voksne danskere gennem oplysninger om tandplejevaner og benyttelsen af tandlægeydelser. Endvidere er medtaget oplysninger om sygeforsikring i fortsættelsessygekassen Danmark"
+    },
+    {
+      "en": "The data for this survey were collected by the Danish Gallup Institute as part of Omnibus no. 11, June 1985. #The survey examines determinants and demand for dental service and health insurance among adult Danes by means of information about dental care habits and use of dental services. In addition, the survey includes information about membership of the Health Insurance Society Danmark (Fortsættelsessygekassen Danmark)"
+    }
+  ],
+  "purpose": [
+    {
+      "da": "Se abstract"
+    },
+    {
+      "en": "See abstract"
+    }
+  ],
+  "variable": [
+    {
+      "id": "vari-5e001326-1c65-4e72-8cea-229737018f16:1.0.0",
+      "label": [
+        {
+          "da": "DDA STUDIENUMMER"
+        }
+      ],
+      "representation": "NUMERIC"
+    },
+    {
+      "id": "vari-75f9b0c6-97e7-4fc8-86da-be2b989408b1:1.0.0",
+      "label": [
+        {
+          "da": "SEKVENSNUMMER"
+        }
+      ],
+      "representation": "NUMERIC"
+    },
+    {
+      "id": "vari-20cb20a9-613c-4fa4-8dd0-c0b91a15c5b3:1.0.0",
+      "label": [
+        {
+          "da": "BUSNUMMER"
+        }
+      ],
+      "question": {
+        "id": "quei-f28f5ae8-e38a-446e-877c-dbb51ebd1035:1.0.0",
+        "label": [
+          {
+            "da": "Busnummer"
+          }
+        ]
+      },
+      "representation": "NUMERIC"
+    },
+    {
+      "id": "vari-5af8ccb4-ccbf-4c9c-9440-2fc1d2c4d490:1.0.0",
+      "label": [
+        {
+          "da": "SKEMANUMMER"
+        }
+      ],
+      "question": {
+        "id": "quei-eaab8bf1-41d1-4436-a243-d1ae597b27eb:1.0.0",
+        "label": [
+          {
+            "da": "Identifikationsnummer"
+          }
+        ]
+      },
+      "representation": "NUMERIC"
+    },
+    {
+      "id": "vari-81edb659-3a83-4a1a-9bb4-608e77542540:1.0.0",
+      "label": [
+        {
+          "da": "VÆGTE"
+        }
+      ],
+      "question": {
+        "id": "quei-bb2251d9-9d84-45e6-8ee9-03ed1039d65d:1.0.0",
+        "label": [
+          {
+            "da": "Vægte"
+          }
+        ]
+      },
+      "representation": "NUMERIC"
+    },
+    {
+      "id": "vari-391a0287-a1d3-4608-b14f-8dc227df980d:1.0.0",
+      "label": [
+        {
+          "da": "KØN"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-aae3e828-0878-4d2c-9177-ae0edc895987:1.0.0",
+        "label": [
+          {
+            "da": "446: Køn"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Mand"
+        },
+        {
+          "da": "Kvinde"
+        }
+      ]
+    },
+    {
+      "id": "vari-e39fc205-3261-45c8-befb-a34ac711a5ae:1.0.0",
+      "label": [
+        {
+          "da": "ALDER"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-c8811e30-2b48-4d03-94fe-f7c8a978ac63:1.0.0",
+        "label": [
+          {
+            "da": "447-448: Alder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "13-14 år"
+        },
+        {
+          "da": "15-17 år"
+        },
+        {
+          "da": "18-19 år"
+        },
+        {
+          "da": "20-24 år"
+        },
+        {
+          "da": "25-29 år"
+        },
+        {
+          "da": "30-39 år"
+        },
+        {
+          "da": "40-49 år"
+        },
+        {
+          "da": "50-59 år"
+        },
+        {
+          "da": "60-61 år"
+        },
+        {
+          "da": "62-64 år"
+        },
+        {
+          "da": "65 år"
+        },
+        {
+          "da": "66 år"
+        },
+        {
+          "da": "67-69 år"
+        },
+        {
+          "da": "70 år eller derover"
+        }
+      ]
+    },
+    {
+      "id": "vari-decd79e0-a2c8-4e67-9281-6480ec72f495:1.0.0",
+      "label": [
+        {
+          "da": "HUSFADERENS ALDER"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-bcbbec1b-977d-4252-aedd-ed81d7b28724:1.0.0",
+        "label": [
+          {
+            "da": "449: Husfaderens alder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Under 45 år"
+        },
+        {
+          "da": "45 år eller derover"
+        }
+      ]
+    },
+    {
+      "id": "vari-af9a3041-be83-4c11-b769-50893a8d6f85:1.0.0",
+      "label": [
+        {
+          "da": "BOLIGENS ART"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-d3887a47-bdbb-4f0b-a996-979ba929e4cf:1.0.0",
+        "label": [
+          {
+            "da": "450: Boligens art"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "En-families hus"
+        },
+        {
+          "da": "To families hus"
+        },
+        {
+          "da": "Gård"
+        },
+        {
+          "da": "Etageejendom, beboelsesejendom"
+        },
+        {
+          "da": "Værelse"
+        }
+      ]
+    },
+    {
+      "id": "vari-5e4f0164-a0b7-4cc6-a0db-e8f9ca11b166:1.0.0",
+      "label": [
+        {
+          "da": "EJER- ELLER LEJERBOLIG"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-df1fe769-29b9-4931-852a-49708c5101b4:1.0.0",
+        "label": [
+          {
+            "da": "451: Ejes boligen eller lejes boligen?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ejerbolig"
+        },
+        {
+          "da": "Andelsbolig"
+        },
+        {
+          "da": "Lejerbolig"
+        }
+      ]
+    },
+    {
+      "id": "vari-f3c680e4-9c41-424d-8bed-3ec23ec6da5c:1.0.0",
+      "label": [
+        {
+          "da": "STILLING I HUSSTANDEN"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-599fbbe6-b3a0-41be-b29c-d5e2177c35de:1.0.0",
+        "label": [
+          {
+            "da": "452: Svarpersonens stilling i husstanden"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Husfader"
+        },
+        {
+          "da": "Husmoder"
+        },
+        {
+          "da": "Anden voksen"
+        }
+      ]
+    },
+    {
+      "id": "vari-a36a6b3c-27e4-4f69-8319-e94a16fa2215:1.0.0",
+      "label": [
+        {
+          "da": "HUSFADER I HUSSTANDEN"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-76ca1f12-5b98-426f-aefa-00893f78b325:1.0.0",
+        "label": [
+          {
+            "da": "453: Er der en husfader i husstanden?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej - gå til spm. 457 (V15)"
+        }
+      ]
+    },
+    {
+      "id": "vari-989c6b89-be49-444a-af79-cbd78ba4bb62:1.0.0",
+      "label": [
+        {
+          "da": "HUSFADERS ERHVERV"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-d363f3cb-1ad6-4408-805a-fd1e831a14df:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 454-455: Husfaders erhverv"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Arbejder, ufaglært (ikke specialarbejder)"
+        },
+        {
+          "da": "Arbejder, ufaglært (specialarbejder)"
+        },
+        {
+          "da": "Arbejder, faglært"
+        },
+        {
+          "da": "Funktionær/tjenestemand, lavere"
+        },
+        {
+          "da": "Funktionær/tjenestemand, højere"
+        },
+        {
+          "da": "Selvstændig landbruger"
+        },
+        {
+          "da": "Selvstændig detailhandler/håndværksmester"
+        },
+        {
+          "da": "Selvstændig i øvrigt"
+        },
+        {
+          "da": "Lærling/elev/studerende"
+        },
+        {
+          "da": "Ude af erhverv (pensionist o.l.)"
+        },
+        {
+          "da": "Gift uden selverhverv"
+        },
+        {
+          "da": "Medhjælpende ægtefælle"
+        }
+      ]
+    },
+    {
+      "id": "vari-95bef994-afea-4e46-bd8f-4d356bd3dd09:1.0.0",
+      "label": [
+        {
+          "da": "HUSFADER OFF. EL. PRIVAT"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-56e76a87-8e75-40a9-9f39-b4a79bd4ebcc:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 456: Er husfaderen for tiden beskæftiget i offentlig eller privat virksomhed?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Industri og håndværk"
+        },
+        {
+          "da": "Handel og transport"
+        },
+        {
+          "da": "Serviceerhverv"
+        },
+        {
+          "da": "Landbrug, gartneri og fiskeri"
+        },
+        {
+          "da": "Forsvaret og politiet"
+        },
+        {
+          "da": "Offentlig administration (stat, amt, kommune)"
+        },
+        {
+          "da": "Sundhedsvæsen, socialinstitution"
+        },
+        {
+          "da": "Undervisning, kultur, daginstitution"
+        },
+        {
+          "da": "Offentlig virksomhed: DSB, Post, Vejvæsen, offentlige værker"
+        },
+        {
+          "da": "Ikke erhvervsmæssigt beskæftiget for tiden"
+        }
+      ]
+    },
+    {
+      "id": "vari-d2df940f-9095-4ec8-80df-e58f5a4803d8:1.0.0",
+      "label": [
+        {
+          "da": "HUSMODERENS ERHVERV"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-2e545f48-ea31-4cfc-9a37-5ea2d0a2bdb9:1.0.0",
+        "label": [
+          {
+            "da": "457: Husmoderens erhverv"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ingen kvindelig husmoder"
+        },
+        {
+          "da": "Husmoder uden selverhverv"
+        },
+        {
+          "da": "Husmoder med selverhverv, heltid"
+        },
+        {
+          "da": "Husmoder med selverhverv, deltid"
+        },
+        {
+          "da": "Medhjælpende hustru"
+        }
+      ]
+    },
+    {
+      "id": "vari-9253db1f-8dd6-4d88-8ced-269fa5fdc1fd:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL PERS. I HUSSTANDEN"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-2ea2fa28-2b2d-470d-bac9-c6b76caa3c43:1.0.0",
+        "label": [
+          {
+            "da": "458: Antal personer i husstanden"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "1 person"
+        },
+        {
+          "da": "2 personer"
+        },
+        {
+          "da": "3 personer"
+        },
+        {
+          "da": "4 personer"
+        },
+        {
+          "da": "5 personer"
+        },
+        {
+          "da": "6 personer eller flere"
+        }
+      ]
+    },
+    {
+      "id": "vari-36af4f1b-66a9-49fc-a9f3-a20e1ea3af95:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL VOKSNE I HUSSTAND"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-6870be46-0388-4e84-a500-f8a2cab149ec:1.0.0",
+        "label": [
+          {
+            "da": "459: Antal personer i husstanden 13 år eller derover"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "1 person"
+        },
+        {
+          "da": "2 personer"
+        },
+        {
+          "da": "3 personer"
+        },
+        {
+          "da": "4 personer"
+        },
+        {
+          "da": "5 personer"
+        },
+        {
+          "da": "6 personer eller flere"
+        }
+      ]
+    },
+    {
+      "id": "vari-cf8fb792-72c3-400d-8247-52151a265082:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL BØRN I HUSSTAND"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-fa29faff-a972-43aa-a5a7-df908f20c674:1.0.0",
+        "label": [
+          {
+            "da": "460: Antal personer i husstanden 12 år eller derunder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "0 personer"
+        },
+        {
+          "da": "1 person"
+        },
+        {
+          "da": "2 personer"
+        },
+        {
+          "da": "3 personer"
+        },
+        {
+          "da": "4 personer"
+        },
+        {
+          "da": "5 personer"
+        },
+        {
+          "da": "6 personer eller flere"
+        }
+      ]
+    },
+    {
+      "id": "vari-de1a7690-9f6e-440e-a87b-6862c9b40381:1.0.0",
+      "label": [
+        {
+          "da": "INGEN HJEMMEBOENDE BØRN"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-1223e0aa-a63d-4852-8595-49e9a4422639:1.0.0",
+        "label": [
+          {
+            "da": "461: Er der i husstanden hjemmeboende børn? Ingen børn"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Nævnt"
+        },
+        {
+          "da": "Ikke nævnt"
+        }
+      ]
+    },
+    {
+      "id": "vari-cee54c25-2cf8-49e9-90fd-a741b8284e7a:1.0.0",
+      "label": [
+        {
+          "da": "HJEMMEBOENDE BØRN 0-1 ÅR"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-46df0cbb-a963-4581-83c2-891fd84d2494:1.0.0",
+        "label": [
+          {
+            "da": "461: Er der i husstanden hjemmeboende børn? Børn 0-1 år"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Nævnt"
+        },
+        {
+          "da": "Ikke nævnt"
+        }
+      ]
+    },
+    {
+      "id": "vari-69a94e1e-6935-4b9b-99ab-a8fc2aef1c1a:1.0.0",
+      "label": [
+        {
+          "da": "HJEMMEBOENDE BØRN 2 ÅR"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-623a854a-6b7a-4bbf-880b-e640467df999:1.0.0",
+        "label": [
+          {
+            "da": "461: Er der i husstanden hjemmeboende børn? Børn 2 år"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Nævnt"
+        },
+        {
+          "da": "Ikke nævnt"
+        }
+      ]
+    },
+    {
+      "id": "vari-57c71815-749d-42e1-b16a-b97a4665be9f:1.0.0",
+      "label": [
+        {
+          "da": "HJEMMEBOENDE BØRN 3-5 ÅR"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-851abad3-bb7b-4052-afb3-fae51592e9dc:1.0.0",
+        "label": [
+          {
+            "da": "461: Er der i husstanden hjemmeboende børn? Børn 3-5 år"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Nævnt"
+        },
+        {
+          "da": "Ikke nævnt"
+        }
+      ]
+    },
+    {
+      "id": "vari-3d8f77b0-17ab-4a33-b731-262d80c8cbf2:1.0.0",
+      "label": [
+        {
+          "da": "HJEMMEBOENDE BØRN 6 ÅR"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-51b2f54a-7f77-4ccb-acd6-20327f9cfd4c:1.0.0",
+        "label": [
+          {
+            "da": "461: Er der i husstanden hjemmeboende børn? Børn 6 år"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Nævnt"
+        },
+        {
+          "da": "Ikke nævnt"
+        }
+      ]
+    },
+    {
+      "id": "vari-97b41923-c88b-48f1-b57a-2831a81b26fa:1.0.0",
+      "label": [
+        {
+          "da": "HJEMMEBOENDE BØRN 7-12"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-a187685e-a733-4ecb-b18c-0d4ae850ae9a:1.0.0",
+        "label": [
+          {
+            "da": "461: Er der i husstanden hjemmeboende børn? Børn 7-12 år"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Nævnt"
+        },
+        {
+          "da": "Ikke nævnt"
+        }
+      ]
+    },
+    {
+      "id": "vari-4277f7fa-acb9-4edc-930b-ccb0a963ca2e:1.0.0",
+      "label": [
+        {
+          "da": "HJEMMEBOENDE UNGE 13-19"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-b748461e-b18c-4905-b902-3e02d4eb5ddc:1.0.0",
+        "label": [
+          {
+            "da": "461: Er der i husstanden hjemmeboende børn? Unge 13-19 år"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Nævnt"
+        },
+        {
+          "da": "Ikke nævnt"
+        }
+      ]
+    },
+    {
+      "id": "vari-eb6f9815-c2c1-42c7-ae88-7f855765276c:1.0.0",
+      "label": [
+        {
+          "da": "HJEMMEBOENDE UNGE 20-30"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-5e5c83c1-12d6-4984-8292-f5d6ac4aca73:1.0.0",
+        "label": [
+          {
+            "da": "461: Er der i husstanden hjemmeboende børn? Unge 20-30 år"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Nævnt"
+        },
+        {
+          "da": "Ikke nævnt"
+        }
+      ]
+    },
+    {
+      "id": "vari-9d1d4af4-8cb8-488d-85bc-1c20adca3109:1.0.0",
+      "label": [
+        {
+          "da": "RESPONDENTENS SKOLEUDD."
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-d38f44bf-2356-492e-be95-f31bf24d1829:1.0.0",
+        "label": [
+          {
+            "da": "462: Egen skoleuddannelse"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "A: Folkeskole 7 år eller kortere"
+        },
+        {
+          "da": "B: Folkeskole 8 og 9 år"
+        },
+        {
+          "da": "C: Mellemskole-/realeksamen eller 10. klasse"
+        },
+        {
+          "da": "D: Studentereksamen/HF-eksamen"
+        }
+      ]
+    },
+    {
+      "id": "vari-85b60535-d788-4245-8e2e-a8b0d8f26028:1.0.0",
+      "label": [
+        {
+          "da": "RESPONDENTENS ERHV.UDD."
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-a10bf312-81bf-4c01-978c-3777bdad50eb:1.0.0",
+        "label": [
+          {
+            "da": "463: Egen erhvervsuddannelse/efteruddannelse"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "E: Grundlæggende erhvervsuddannelse"
+        },
+        {
+          "da": "F: Afsluttende erhvervsuddannelse"
+        },
+        {
+          "da": "G: Højere uddannelse af kort varighed"
+        },
+        {
+          "da": "H: Højere uddannelse af mellemlang varighed"
+        },
+        {
+          "da": "I: Højere uddannelse af lang varighed"
+        },
+        {
+          "da": "Ingen"
+        },
+        {
+          "da": "Vil ikke svare"
+        }
+      ]
+    },
+    {
+      "id": "vari-441f885b-5566-40b4-b085-1f7e93474c4f:1.0.0",
+      "label": [
+        {
+          "da": "RESPONDENTENS ERHVERV"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-55f3d604-8f99-42ea-aaa1-2ff4d3794c40:1.0.0",
+        "label": [
+          {
+            "da": "464-465: Svarpersonens erhverv"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Arbejder, ufaglært (ikke specialarbejder)"
+        },
+        {
+          "da": "Arbejder, ufaglært (specialarbejder)"
+        },
+        {
+          "da": "Arbejder, faglært"
+        },
+        {
+          "da": "Funktionær/tjenestemand, lavere"
+        },
+        {
+          "da": "Funktionær/tjenestemand, højere"
+        },
+        {
+          "da": "Selvstændig landbruger"
+        },
+        {
+          "da": "Selvstændig detailhandler/håndværksmester"
+        },
+        {
+          "da": "Selvstændig i øvrigt"
+        },
+        {
+          "da": "Lærling/elev/studerende"
+        },
+        {
+          "da": "Ude af erhverv (pensionist o.l.)"
+        },
+        {
+          "da": "Gift uden selverhverv"
+        },
+        {
+          "da": "Medhjælpende ægtefælle"
+        }
+      ]
+    },
+    {
+      "id": "vari-a000e4d0-2553-4703-bdda-ea97f49ba837:1.0.0",
+      "label": [
+        {
+          "da": "RESP. OFF. EL. PRIVAT"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-a8828f9a-3b85-4d47-b2f4-e4cb4c990b50:1.0.0",
+        "label": [
+          {
+            "da": "466: Er De for tiden beskæftiget i offentlig eller privat virksomhed?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Industri og håndværk"
+        },
+        {
+          "da": "Handel og transport"
+        },
+        {
+          "da": "Serviceerhverv"
+        },
+        {
+          "da": "Landbrug, gartneri og fiskeri"
+        },
+        {
+          "da": "Forsvaret og politiet"
+        },
+        {
+          "da": "Offentlig administration (stat, amt, kommune)"
+        },
+        {
+          "da": "Sundhedsvæsen, socialinstitution"
+        },
+        {
+          "da": "Undervisning, kultur, daginstitution"
+        },
+        {
+          "da": "Offentlig virksomhed: DSB, Post, Vejvæsen, offentlige værker"
+        },
+        {
+          "da": "Ikke erhvervsmæssigt beskæftiget for tiden"
+        }
+      ]
+    },
+    {
+      "id": "vari-17ca982b-7675-45b1-abc4-f5af77bcb7e2:1.0.0",
+      "label": [
+        {
+          "da": "RESP. BRUTTOINDKOMST"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-339ecda3-309a-4967-8a80-ed7bd7dd8448:1.0.0",
+        "label": [
+          {
+            "da": "467: Svarpersonens nuværende indkomst"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "A: Indtil 19.999 kr."
+        },
+        {
+          "da": "B: 20.000-69.999 kr."
+        },
+        {
+          "da": "C: 70.000-119.999 kr."
+        },
+        {
+          "da": "D: 120.000-149.999 kr."
+        },
+        {
+          "da": "E: 150.000-199.999 kr."
+        },
+        {
+          "da": "F: 200.000-249.999 kr."
+        },
+        {
+          "da": "G: 250.000-299.999 kr."
+        },
+        {
+          "da": "H: 300.000-399.999 kr."
+        },
+        {
+          "da": "I: 400.000 kr. og derover"
+        },
+        {
+          "da": "Ved ikke/vil ikke svare"
+        }
+      ]
+    },
+    {
+      "id": "vari-222bcbb4-d6de-40ca-8359-7a3feb5c93f3:1.0.0",
+      "label": [
+        {
+          "da": "HUSSTANDENS BRUTTOINDK."
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-c48a4911-925a-4b59-a3d0-6a4e088486e7:1.0.0",
+        "label": [
+          {
+            "da": "468: Husstandens samlede nuværende indkomst"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "A: Indtil 19.999 kr."
+        },
+        {
+          "da": "B: 20.000-69.999 kr."
+        },
+        {
+          "da": "C: 70.000-119.999 kr."
+        },
+        {
+          "da": "D: 120.000-149.999 kr."
+        },
+        {
+          "da": "E: 150.000-199.999 kr."
+        },
+        {
+          "da": "F: 200.000-249.999 kr."
+        },
+        {
+          "da": "G: 250.000-299.999 kr."
+        },
+        {
+          "da": "H: 300.000-399.999 kr."
+        },
+        {
+          "da": "I: 400.000 kr. og derover"
+        },
+        {
+          "da": "Ved ikke/vil ikke svare"
+        }
+      ]
+    },
+    {
+      "id": "vari-23be7728-79bd-4558-b7a5-e9f7ff0cce39:1.0.0",
+      "label": [
+        {
+          "da": "NUVÆRENDE CIVILSTAND"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-a9d03dc5-4980-4d17-9585-2d8ad59e7119:1.0.0",
+        "label": [
+          {
+            "da": "469: Nuværende civilstand"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ugift"
+        },
+        {
+          "da": "Gift"
+        },
+        {
+          "da": "Samlevende (papirløst)"
+        },
+        {
+          "da": "Skilt/separeret/tidligere samlevende"
+        },
+        {
+          "da": "Enke/enkemand"
+        }
+      ]
+    },
+    {
+      "id": "vari-b60c6bb9-9c24-421a-aaae-9b52b8664b8c:1.0.0",
+      "label": [
+        {
+          "da": "REGIONER"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-29ac7acc-0ba5-412f-b778-e79ef71dca3c:1.0.0",
+        "label": [
+          {
+            "da": "473: Regioner"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Hovedstadsområdet"
+        },
+        {
+          "da": "Øvrige Sjælland"
+        },
+        {
+          "da": "Lolland/Falster"
+        },
+        {
+          "da": "Bornholm"
+        },
+        {
+          "da": "Fyn"
+        },
+        {
+          "da": "Østjylland"
+        },
+        {
+          "da": "Nordjylland"
+        },
+        {
+          "da": "Vestjylland"
+        },
+        {
+          "da": "Sydjylland"
+        }
+      ]
+    },
+    {
+      "id": "vari-feab8b59-e056-4773-8baa-1c8700f466dc:1.0.0",
+      "label": [
+        {
+          "da": "URBANISERING"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-03e1d17e-49ba-4a58-817e-4cdd06db8b55:1.0.0",
+        "label": [
+          {
+            "da": "474: Urbanisering"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Provinsbyer over 50.000 indbyggere"
+        },
+        {
+          "da": "Provinsbyer 10.000-49.999 indbyggere"
+        },
+        {
+          "da": "Provinsbyer 1.000-9.999 indbyggere"
+        },
+        {
+          "da": "Landdistrikter"
+        },
+        {
+          "da": "København indre by"
+        },
+        {
+          "da": "Københavns nordlige forstæder"
+        },
+        {
+          "da": "Københavns sydlige/vestlige forstæder"
+        },
+        {
+          "da": "København ydre by"
+        }
+      ]
+    },
+    {
+      "id": "vari-0c4fb037-ea21-42a5-97e4-509fa846b186:1.0.0",
+      "label": [
+        {
+          "da": "KREDSTYPE"
+        }
+      ],
+      "concept": {
+        "id": "conc-0a72ee71-b8de-4c70-ae78-c9676993a596:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-8eb88cb4-d0d5-45ab-8b2a-77f743536154:1.0.0",
+        "label": [
+          {
+            "da": "Kredstype"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "København indre by"
+        },
+        {
+          "da": "Københavns nordlige forstæder"
+        },
+        {
+          "da": "Københavns sydlige/vestlige forstæder"
+        },
+        {
+          "da": "København ydre by"
+        },
+        {
+          "da": "Øvrige Sjælland, provinsbyer 10.000-49.999 indbyggere"
+        },
+        {
+          "da": "Øvrige Sjælland, provinsbyer 1.000-9.999 indbyggere"
+        },
+        {
+          "da": "Øvrige Sjælland, landdistrikter"
+        },
+        {
+          "da": "Lolland/Falster, provinsbyer 10.000-49.999 indbyggere"
+        },
+        {
+          "da": "Lolland/Falster, landdistrikter"
+        },
+        {
+          "da": "Bornholm, provinsbyer 10.000-49.999 indbyggere"
+        },
+        {
+          "da": "Bornholm, landdistrikter"
+        },
+        {
+          "da": "Fyn, provinsbyer over 50.000 indbyggere"
+        },
+        {
+          "da": "Fyn, provinsbyer 10.000-49.999 indbyggere"
+        },
+        {
+          "da": "Fyn, provinsbyer 1.000-9.999 indbyggere"
+        },
+        {
+          "da": "Fyn, landdistrikter"
+        },
+        {
+          "da": "Østjylland, provinsbyer over 50.000 indbyggere"
+        },
+        {
+          "da": "Østjylland, provinsbyer 10.000-49.999 indbyggere"
+        },
+        {
+          "da": "Østjylland, provinsbyer 1.000-9.999 indbyggere"
+        },
+        {
+          "da": "Østjylland, landdistrikter"
+        },
+        {
+          "da": "Nordjylland, provinsbyer over 50.000 indbyggere"
+        },
+        {
+          "da": "Nordjylland, provinsbyer 10.000-49.999 indbyggere"
+        },
+        {
+          "da": "Nordjylland, provinsbyer 1.000-9.999 indbyggere"
+        },
+        {
+          "da": "Nordjylland, landdistrikter"
+        },
+        {
+          "da": "Vestjylland, provinsbyer over 50.000 indbyggere"
+        },
+        {
+          "da": "Vestjylland, provinsbyer 10.000-49.999 indbyggere"
+        },
+        {
+          "da": "Vestjylland, provinsbyer 1.000-9.999 indbyggere"
+        },
+        {
+          "da": "Vestjylland, landdistrikter"
+        },
+        {
+          "da": "Sydjylland, provinsbyer 10.000-49.999 indbyggere"
+        },
+        {
+          "da": "Sydjylland, provinsbyer 1.000-9.999 indbyggere"
+        },
+        {
+          "da": "Sydjylland, landdistrikter"
+        }
+      ]
+    },
+    {
+      "id": "vari-d095088b-1925-483e-afd3-baeb37ede4e9:1.0.0",
+      "label": [
+        {
+          "da": "REGELMÆSSIG TANDPLEJE"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-ca196f16-b7d4-4211-9708-80b3cb820d8c:1.0.0",
+        "label": [
+          {
+            "da": "814: Sig mig først - gik De regelmæssigt (dvs. cirka 1 gang årligt) til tandlæge i Deres skoledage? Hvis ja: På alle klassetrin?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja, alle klassetrin"
+        },
+        {
+          "da": "Ja, nogle klassetrin"
+        },
+        {
+          "da": "Ved ikke - gå til spm. 816 (V39)"
+        },
+        {
+          "da": "Nej - gå til spm. 816 (V39)"
+        }
+      ]
+    },
+    {
+      "id": "vari-b02dea8e-0484-41d2-95ad-9c98365dd939:1.0.0",
+      "label": [
+        {
+          "da": "HVILKEN TANDLÆGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-2b1a59ba-8ea9-46ab-a17e-4a11e9e0a017:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 814: Sig mig først - gik De regelmæssigt (dvs. cirka 1 gang årligt) til tandlæge i Deres skoledage? Hvis ja: På alle klassetrin? 815: Hvis ja: Var det hos ... ?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Skoletandlæge"
+        },
+        {
+          "da": "Privat tandlæge uden for skolen"
+        },
+        {
+          "da": "Såvel skoletandlæge som privat tandlæge"
+        },
+        {
+          "da": "Ved ikke/husker ikke"
+        }
+      ]
+    },
+    {
+      "id": "vari-644b64ca-5cb1-42e9-a06b-c89a6af79592:1.0.0",
+      "label": [
+        {
+          "da": "TANDPLEJEVANER OVER TID"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-d6b208bb-563a-4e64-87f1-4f5158bfe6f6:1.0.0",
+        "label": [
+          {
+            "da": "816: Vil De se på dette kort og fortælle mig, hvad af dette De gjorde med Deres tænder i perioden fra De holdt op i folkeskolen, og til De var 20 år?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Jeg gik årligt (regelmæssigt) for at få set tænderne efter"
+        },
+        {
+          "da": "Jeg gik 1-3 gange for at få plomberet, når jeg fik ondt eller mærkede noget"
+        },
+        {
+          "da": "Jeg gik for at få trukket tænder ud, når det gjorde ondt"
+        },
+        {
+          "da": "Jeg var ikke hos tandlæge i de år"
+        },
+        {
+          "da": "Jeg kan ikke huske det"
+        },
+        {
+          "da": "Andet svar"
+        }
+      ]
+    },
+    {
+      "id": "vari-27c80e9a-4fb9-493b-b001-51d22e1bcd50:1.0.0",
+      "label": [
+        {
+          "da": "SIDST HOS TANDLÆGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-9ad94f47-5b83-4850-b2dc-53d6261821c6:1.0.0",
+        "label": [
+          {
+            "da": "817: Hvornår var De sidst hos tandlæge?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Inden for de sidste 12 måneder"
+        },
+        {
+          "da": "For 1-2 år siden"
+        },
+        {
+          "da": "For 2-5 år siden - gå til spm. 825 (V44)"
+        },
+        {
+          "da": "For 5-10 år siden - gå til spm. 829-832 (V48)"
+        },
+        {
+          "da": "For mere end 10 år siden - gå til spm. 829-832 (V48)"
+        },
+        {
+          "da": "Husker ikke - gå til spm. 829-832 (V48)"
+        },
+        {
+          "da": "Andet svar - gå til spm. 829-832 (V48)"
+        },
+        {
+          "da": "Har aldrig været hos tandlæge - gå til spm. 829-832 (V48)"
+        }
+      ]
+    },
+    {
+      "id": "vari-cd10dcec-2935-4c1a-9ba9-776b2d575e9d:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL TANDLÆGEBSØG"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-9eda4e0f-9fd2-4a1c-bb44-81cf9baccc0f:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 818-819: Mere nøjagtigt: Hvor mange gange har De været hos tandlæge i de sidste 2 år?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ved ikke/kan ikke huske"
+        },
+        {
+          "da": "1 gang"
+        },
+        {
+          "da": "2 gange"
+        },
+        {
+          "da": "3 gange"
+        },
+        {
+          "da": "4 gange"
+        },
+        {
+          "da": "5 gange"
+        },
+        {
+          "da": "6 gange"
+        },
+        {
+          "da": "7 gange"
+        },
+        {
+          "da": "8 gange"
+        },
+        {
+          "da": "9 gange"
+        },
+        {
+          "da": "10 gange"
+        },
+        {
+          "da": "12 gange"
+        },
+        {
+          "da": "15 gange"
+        },
+        {
+          "da": "20 gange"
+        }
+      ]
+    },
+    {
+      "id": "vari-473fff44-0d02-4f2f-ac0e-738682c0a64a:1.0.0",
+      "label": [
+        {
+          "da": "SIDSTE TANDLÆGEREGNING"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-84095a3f-13df-4f96-bb26-3eff22cb797a:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 820-824: Hvor meget lød Deres sidste tandlægeregning på, altså det De selv betalte til tandlægen?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ved ikke"
+        },
+        {
+          "da": "Under kr. 50,00"
+        },
+        {
+          "da": "Kr. 50,00-99,00"
+        },
+        {
+          "da": "Kr. 100,00-149,00"
+        },
+        {
+          "da": "Kr. 150,00-199,00"
+        },
+        {
+          "da": "Kr. 200,00-249,00"
+        },
+        {
+          "da": "Kr. 250,00-299,00"
+        },
+        {
+          "da": "Kr. 300,00 eller mere (kodet direkte i V43)"
+        },
+        {
+          "da": "Irrelevant"
+        }
+      ]
+    },
+    {
+      "id": "vari-959a0905-b14b-4c68-9ebc-101ad8b5bce3:1.0.0",
+      "label": [
+        {
+          "da": "TANDLÆGEREGNING OVER 300"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-10a52e4c-771a-422d-a8a7-76952cfa58f6:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 820-824: Hvor meget lød Deres sidste tandlægeregning på, altså det De selv betalte til tandlægen?"
+          }
+        ]
+      },
+      "representation": "NUMERIC"
+    },
+    {
+      "id": "vari-8cddeaf4-6d76-4930-b92c-26162d98f0fc:1.0.0",
+      "label": [
+        {
+          "da": "TIDSPUNKT TANDLÆGEBESØG"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-9e38a492-c454-4cbb-a376-d8cdf6d18613:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 825: Når De går til tandlæge, sker det da sædvanligvis i arbejdstiden eller i fritiden?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Arbejdstid"
+        },
+        {
+          "da": "Fritid - gå til spm. 828 (V47)"
+        }
+      ]
+    },
+    {
+      "id": "vari-21dc80f3-ceb6-4ae1-85f9-6ac7d72a12d1:1.0.0",
+      "label": [
+        {
+          "da": "TRUKKET I LØN"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-590f84f0-8e3b-4279-8f93-6a541e4239b6:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 826: Bliver der trukket i Deres løn, når De går til tandlæge i arbejdstiden?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        },
+        {
+          "da": "Ved ikke"
+        }
+      ]
+    },
+    {
+      "id": "vari-14d4b816-dc22-4e76-88a7-2f80a7f0650e:1.0.0",
+      "label": [
+        {
+          "da": "TIMER VÆK FRA ARBEJDE"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-698c8eab-c349-407a-a4d7-cabe9abf32e3:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 827: Omtrent hvor mange timer var De borte fra Deres arbejde, sidst De var hos tandlæge?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Under 1 time"
+        },
+        {
+          "da": "1-2 timer (mindre end 2 timer)"
+        },
+        {
+          "da": "2-3 timer (mindre end 3 timer)"
+        },
+        {
+          "da": "3-4 timer (mindre end 4 timer)"
+        },
+        {
+          "da": "4-5 timer (mindre end 5 timer)"
+        },
+        {
+          "da": "5-6 timer (mindre end 6 timer)"
+        },
+        {
+          "da": "6 timer eller mere"
+        },
+        {
+          "da": "Ved ikke/husker ikke"
+        }
+      ]
+    },
+    {
+      "id": "vari-e95d90d5-f20d-4785-ba32-f778ac1246ea:1.0.0",
+      "label": [
+        {
+          "da": "REGELMÆSSIGE EFTERSYN"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-fcd0f880-1632-46c8-9302-239fcc8888af:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 828: Har De gået til regelmæssige - mindst årlige eftersyn af tænderne i løbet af de sidste 5 år?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Nej, jeg har ikke været til tandlæge i de år"
+        },
+        {
+          "da": "Nej, jeg har kun gået for at få trukket tænder ud, når det gjorde ondt"
+        },
+        {
+          "da": "Nej, men har gået 1-2 gange, fået plomberet, når det gjorde ondt"
+        },
+        {
+          "da": "Nej, men har været 2-4 gange og fået set tænderne efter og plomberet"
+        },
+        {
+          "da": "Ja, jeg har været til tandlæge årligt - gå til spm. 833-838 (V50)"
+        },
+        {
+          "da": "Ved ikke - gå til spm. 833-838 (V50)"
+        },
+        {
+          "da": "Andet svar - gå til spm. 833-838 (V50)"
+        }
+      ]
+    },
+    {
+      "id": "vari-3377819d-7aa5-4a6b-948f-07ef4334eb79:1.0.0",
+      "label": [
+        {
+          "da": "ÅRSAG IKKE REGELMÆSSIG 1"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-4dbdf8ea-3343-47cc-9b8e-1b4258f97798:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 829-832: Kan De sige noget om, hvorfor De ikke har opsøgt tandlæge regelmæssigt de sidste 5 år? Vil De være venlig at nævne de to væsentligste grunde, den væsentligste først? 1. nævnt"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Har ikke haft råd"
+        },
+        {
+          "da": "Ønsker ikke at bruge penge på tandbehandling"
+        },
+        {
+          "da": "Slet og ret dovenskab"
+        },
+        {
+          "da": "Udsætter det så længe som muligt - vil helst undgå at sætte mig i tandlægestolen"
+        },
+        {
+          "da": "Har 'tandlægeskræk'"
+        },
+        {
+          "da": "Har ikke haft tid"
+        },
+        {
+          "da": "Har ikke kunnet få fri fra arbejde (hjemmet)"
+        },
+        {
+          "da": "Kunne ikke få tid hos tandlæge (lang ventetid)"
+        },
+        {
+          "da": "Har været dårlig, så jeg ikke kunne komme afsted"
+        },
+        {
+          "da": "For lang rejse til tandlæge"
+        },
+        {
+          "da": "Mine tænder er så gode, at det ikke er nødvendigt"
+        },
+        {
+          "da": "Har ingen tænder"
+        },
+        {
+          "da": "Har gebis/tandprotese"
+        },
+        {
+          "da": "Tænderne er så dårlige, at det ikke nytter"
+        },
+        {
+          "da": "Ved ikke"
+        },
+        {
+          "da": "Andet svar"
+        }
+      ]
+    },
+    {
+      "id": "vari-73f2fd8d-1759-45c8-9373-56936bcfb242:1.0.0",
+      "label": [
+        {
+          "da": "ÅRSAG IKKE REGELMÆSSIG 2"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-ec497e86-f8e5-40ed-a48d-2832b939d563:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 829-832: Kan De sige noget om, hvorfor De ikke har opsøgt tandlæge regelmæssigt de sidste 5 år? Vil De være venlig at nævne de to væsentligste grunde, den væsentligste først? 2. nævnt"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Har ikke haft råd"
+        },
+        {
+          "da": "Ønsker ikke at bruge penge på tandbehandling"
+        },
+        {
+          "da": "Slet og ret dovenskab"
+        },
+        {
+          "da": "Udsætter det så længe som muligt - vil helst undgå at sætte mig i tandlægestolen"
+        },
+        {
+          "da": "Har 'tandlægeskræk'"
+        },
+        {
+          "da": "Har ikke haft tid"
+        },
+        {
+          "da": "Har ikke kunnet få fri fra arbejde (hjemmet)"
+        },
+        {
+          "da": "Kunne ikke få tid hos tandlæge (lang ventetid)"
+        },
+        {
+          "da": "Har været dårlig, så jeg ikke kunne komme afsted"
+        },
+        {
+          "da": "For lang rejse til tandlæge"
+        },
+        {
+          "da": "Mine tænder er så gode, at det ikke er nødvendigt"
+        },
+        {
+          "da": "Har ingen tænder"
+        },
+        {
+          "da": "Har gebis/tandprotese"
+        },
+        {
+          "da": "Tænderne er så dårlige, at det ikke nytter"
+        },
+        {
+          "da": "Ved ikke"
+        },
+        {
+          "da": "Andet svar"
+        }
+      ]
+    },
+    {
+      "id": "vari-0cf2237e-0f04-4f2d-bfe4-7a27b703f50f:1.0.0",
+      "label": [
+        {
+          "da": "LAVET SIDST 1. SVAR"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-f41ed8ba-87b2-4ea9-8468-e196535f2ef9:1.0.0",
+        "label": [
+          {
+            "da": "833-838: Kan De huske, hvad De fik lavet sidste gang, De var til tandlæge? 1. nævnt"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Har aldrig været til tandlæge"
+        },
+        {
+          "da": "Husker ikke"
+        },
+        {
+          "da": "Fik lavet ny tandprotese/gebis"
+        },
+        {
+          "da": "Fik repareret tandprotese/gebis"
+        },
+        {
+          "da": "Fik trukket en eller flere tænder ud"
+        },
+        {
+          "da": "Fik plomberet en eller flere tænder"
+        },
+        {
+          "da": "Fik lavet guldkrone(r) - (porcelænskrone/stifttænder)"
+        },
+        {
+          "da": "Fik tandkøds- eller parodontosebehandling"
+        },
+        {
+          "da": "Fik kun foretaget en undersøgelse af tænderne (ingenting)/kun eftersyn"
+        },
+        {
+          "da": "Fik taget et eller flere røntgenbilleder"
+        },
+        {
+          "da": "Fik renset eller pudset tænder"
+        },
+        {
+          "da": "Anden behandling"
+        }
+      ]
+    },
+    {
+      "id": "vari-8f27d941-fef3-4714-9fa6-81657bc35f04:1.0.0",
+      "label": [
+        {
+          "da": "LAVET SIDST 2. SVAR"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-72c4eb5e-2633-4968-8fcf-01169e70ca17:1.0.0",
+        "label": [
+          {
+            "da": "833-838: Kan De huske, hvad De fik lavet sidste gang, De var til tandlæge? 2. nævnt"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Har aldrig været til tandlæge"
+        },
+        {
+          "da": "Husker ikke"
+        },
+        {
+          "da": "Fik lavet ny tandprotese/gebis"
+        },
+        {
+          "da": "Fik repareret tandprotese/gebis"
+        },
+        {
+          "da": "Fik trukket en eller flere tænder ud"
+        },
+        {
+          "da": "Fik plomberet en eller flere tænder"
+        },
+        {
+          "da": "Fik lavet guldkrone(r) - (porcelænskrone/stifttænder)"
+        },
+        {
+          "da": "Fik tandkøds- eller parodontosebehandling"
+        },
+        {
+          "da": "Fik kun foretaget en undersøgelse af tænderne (ingenting)/kun eftersyn"
+        },
+        {
+          "da": "Fik taget et eller flere røntgenbilleder"
+        },
+        {
+          "da": "Fik renset eller pudset tænder"
+        },
+        {
+          "da": "Anden behandling"
+        }
+      ]
+    },
+    {
+      "id": "vari-91d6d730-0c8e-4810-a4cb-d41bba1c20f3:1.0.0",
+      "label": [
+        {
+          "da": "LAVET SIDST 3. SVAR"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-b38a5106-7306-4e1c-8059-f9727b17083e:1.0.0",
+        "label": [
+          {
+            "da": "833-838: Kan De huske, hvad De fik lavet sidste gang, De var til tandlæge? 3. nævnt"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Har aldrig været til tandlæge"
+        },
+        {
+          "da": "Husker ikke"
+        },
+        {
+          "da": "Fik lavet ny tandprotese/gebis"
+        },
+        {
+          "da": "Fik repareret tandprotese/gebis"
+        },
+        {
+          "da": "Fik trukket en eller flere tænder ud"
+        },
+        {
+          "da": "Fik plomberet en eller flere tænder"
+        },
+        {
+          "da": "Fik lavet guldkrone(r) - (porcelænskrone/stifttænder)"
+        },
+        {
+          "da": "Fik tandkøds- eller parodontosebehandling"
+        },
+        {
+          "da": "Fik kun foretaget en undersøgelse af tænderne (ingenting)/kun eftersyn"
+        },
+        {
+          "da": "Fik taget et eller flere røntgenbilleder"
+        },
+        {
+          "da": "Fik renset eller pudset tænder"
+        },
+        {
+          "da": "Anden behandling"
+        }
+      ]
+    },
+    {
+      "id": "vari-06b767df-c91d-4545-89ee-829d852396ee:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL TÆNDER TILBAGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-9a1a9cd7-4a1f-4780-a5d7-0c412ebc56cf:1.0.0",
+        "label": [
+          {
+            "da": "839: Næsten alle voksne har fået trukket nogle tænder ud. Har De nogle af Deres egne tænder tilbage, og i så tilfælde hvor mange?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ingen tænder tilbage - gå til spm. 841-842 (V55)"
+        },
+        {
+          "da": "1-4 tænder tilbage - gå til spm. 841-842 (V55)"
+        },
+        {
+          "da": "5-9 tænder tilbage - gå til spm. 841-842 (V55)"
+        },
+        {
+          "da": "10-14 tænder tilbage"
+        },
+        {
+          "da": "15-19 tænder tilbage"
+        },
+        {
+          "da": "20 tænder eller flere tilbage"
+        }
+      ]
+    },
+    {
+      "id": "vari-2012e032-f504-4c19-97a4-a75c606d331c:1.0.0",
+      "label": [
+        {
+          "da": "VURDERING AF EGNE TÆNDER"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-3c63797a-3783-44bc-b684-f01c04d98562:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 840: Hvis De skulle bedømme Deres tænder, hvordan vil De så bedømme dem efter dette kort?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Meget gode"
+        },
+        {
+          "da": "Ret gode"
+        },
+        {
+          "da": "Hverken gode eller dårlige"
+        },
+        {
+          "da": "Ret dårlige"
+        },
+        {
+          "da": "Meget dårlige"
+        }
+      ]
+    },
+    {
+      "id": "vari-46d01394-9a32-4d2b-b5a6-bed17e84c1d0:1.0.0",
+      "label": [
+        {
+          "da": "TANDKØDET ER ØMT"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-98ac250c-c86f-480e-a368-811878fdf4e3:1.0.0",
+        "label": [
+          {
+            "da": "841-842: Når De børster tænder, føler De da, at tandkødet er ømt eller det bløder? Tandkødet er ømt"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja, ofte"
+        },
+        {
+          "da": "Ja, af og til"
+        },
+        {
+          "da": "Aldrig"
+        },
+        {
+          "da": "Har gebis/børster ikke tænder"
+        }
+      ]
+    },
+    {
+      "id": "vari-a81c4885-0a70-4083-a029-199f45c05ad7:1.0.0",
+      "label": [
+        {
+          "da": "TANDKØDET BLØDER"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-1befbedc-c6de-48f5-801b-d963ddad5227:1.0.0",
+        "label": [
+          {
+            "da": "841-842: Når De børster tænder, føler De da, at tandkødet er ømt eller det bløder? Tandkødet bløder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja, ofte"
+        },
+        {
+          "da": "Ja, af og til"
+        },
+        {
+          "da": "Aldrig"
+        },
+        {
+          "da": "Har gebis/børster ikke tænder"
+        }
+      ]
+    },
+    {
+      "id": "vari-b3107155-1c6b-490b-be57-ccf7912f9411:1.0.0",
+      "label": [
+        {
+          "da": "VEJLEDNING TANDBØRSTNING"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-3194ae36-1699-4473-b700-4516e6bcee7c:1.0.0",
+        "label": [
+          {
+            "da": "843: Har De inden for de sidste tolv måneder i forbindelse med et tandlægebesøg fået vejledning i korrekt tandbørstning eller brug af tandstikker eller tandtråd?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        },
+        {
+          "da": "Ved ikke/husker ikke"
+        }
+      ]
+    },
+    {
+      "id": "vari-9e6aad2e-2d4b-4b3e-abf6-c53f41b2c942:1.0.0",
+      "label": [
+        {
+          "da": "TANDPROTESE"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-56ccb769-8c90-4e56-b485-f930c15627db:1.0.0",
+        "label": [
+          {
+            "da": "844: Omkring halvdelen af befolkningen mellem 40 og 50 år har gebis (løs tandprotese). Har De fået tandprotese som erstatning for tænder, der er trukket ud - både i over- og undermunden, - kun i overmunden, - kun i undermunden, - eller har De ikke tandprotese?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Både i over- og undermund"
+        },
+        {
+          "da": "Kun i overmund"
+        },
+        {
+          "da": "Kun i undermund"
+        },
+        {
+          "da": "Jeg har ikke gebis/tandprotese - gå til spm. 852 (V67)"
+        }
+      ]
+    },
+    {
+      "id": "vari-29705556-8b89-4b1f-b41d-deee689e8d2a:1.0.0",
+      "label": [
+        {
+          "da": "HVORNÅR FØRSTE PROTESE"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-c7c585de-89b5-42b6-ad9b-16dae2e22bc3:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 845: Hvor lang tid siden er det, at De fik Deres første tandprotese?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Mindre end 1 år siden"
+        },
+        {
+          "da": "1-2 år siden (under 3 år)"
+        },
+        {
+          "da": "3-6 år siden (under 7 år)"
+        },
+        {
+          "da": "7-10 år siden (under 11 år)"
+        },
+        {
+          "da": "11-20 år siden (under 21 år)"
+        },
+        {
+          "da": "21 år eller længere siden"
+        },
+        {
+          "da": "Kan ikke huske"
+        }
+      ]
+    },
+    {
+      "id": "vari-318d1ab5-cdea-456b-8823-29b97efc97d2:1.0.0",
+      "label": [
+        {
+          "da": "HVORNÅR SIDSTE PROTESE"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-506bb2be-0462-4f5a-b3d3-6bc2c03e5edf:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 846: Hvor lang tid siden er det, at De fik Deres sidste tandprotese, det vil sige den De har nu?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Mindre end 1 år siden"
+        },
+        {
+          "da": "1-2 år siden (under 3 år)"
+        },
+        {
+          "da": "3-6 år siden (under 7 år)"
+        },
+        {
+          "da": "7-10 år siden (under 11 år)"
+        },
+        {
+          "da": "11-20 år siden (under 21 år)"
+        },
+        {
+          "da": "21 år eller længere siden"
+        },
+        {
+          "da": "Kan ikke huske"
+        }
+      ]
+    },
+    {
+      "id": "vari-1c87f796-75e9-4811-9a43-b9f42bbcc628:1.0.0",
+      "label": [
+        {
+          "da": "TANDLÆGE EL TANDTEKNIKER"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-d2f151d3-06f7-41df-898f-0ffab043a8ba:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 847: Kan De sige mig, om De har fået fremstillet den tandprotese De nu har hos en tandlæge eller hos en klinisk tandtekniker? (Der menes hermed den person, der indsatte protesen, ikke at forveksle med laboratorieteknikeren, som eventuelt teknisk fremstillede protesen)"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Hos tandlæge"
+        },
+        {
+          "da": "Hos klinisk tandtekniker"
+        },
+        {
+          "da": "Kan ikke huske - gå til spm. 851 (V66)"
+        },
+        {
+          "da": "Hos begge"
+        }
+      ]
+    },
+    {
+      "id": "vari-356ef9aa-0b51-4de1-81bd-ac31553dfece:1.0.0",
+      "label": [
+        {
+          "da": "ÅRSAG TANDLÆGE 1. SVAR"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-cc778cac-578c-4318-8d9e-111c06aca463:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 848-850: Kan De fortælle mig, hvorfor De er gået til netop en tandlæge/klinisk tandtekniker for at få fremstillet Deres tandprotese? Tandlæge, 1. svar"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Min faste tandlæge"
+        },
+        {
+          "da": "Efter tandudtrækning lavede tandlægen protesen"
+        },
+        {
+          "da": "På anbefaling/kender ham, hende"
+        },
+        {
+          "da": "Vanskelig mund"
+        },
+        {
+          "da": "Mere tillid til tandlægen"
+        },
+        {
+          "da": "Tilfældigt"
+        },
+        {
+          "da": "Det letteste"
+        },
+        {
+          "da": "Andre svar"
+        }
+      ]
+    },
+    {
+      "id": "vari-ece72850-85d0-4184-a414-3f2cf8c0102e:1.0.0",
+      "label": [
+        {
+          "da": "ÅRSAG TANDLÆGE 2. SVAR"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-13eee1c2-8224-4996-b33a-4c4a7b22b618:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 848-850: Kan De fortælle mig, hvorfor De er gået til netop en tandlæge/klinisk tandtekniker for at få fremstillet Deres tandprotese? Tandlæge, 2. svar"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Min faste tandlæge"
+        },
+        {
+          "da": "Efter tandudtrækning lavede tandlægen protesen"
+        },
+        {
+          "da": "På anbefaling/kender ham, hende"
+        },
+        {
+          "da": "Vanskelig mund"
+        },
+        {
+          "da": "Mere tillid til tandlægen"
+        },
+        {
+          "da": "Tilfældigt"
+        },
+        {
+          "da": "Det letteste"
+        },
+        {
+          "da": "Andre svar"
+        }
+      ]
+    },
+    {
+      "id": "vari-f49e0b1b-74da-4bac-a761-27ec31ccdbd1:1.0.0",
+      "label": [
+        {
+          "da": "ÅRSAG TANDTEKN. 1. SVAR"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-884456b2-ad86-42af-9818-a3c8cb4ecf57:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 848-850: Kan De fortælle mig, hvorfor De er gået til netop en tandlæge/klinisk tandtekniker for at få fremstillet Deres tandprotese? Klinisk tandtekniker, 1. svar"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "På anbefaling/kender ham, hende"
+        },
+        {
+          "da": "Tandudtrækning hos tandlæge, protese fra tandtekniker"
+        },
+        {
+          "da": "Bruges ikke"
+        },
+        {
+          "da": "Billigere"
+        },
+        {
+          "da": "Bedst/mere tillid/specialist på feltet"
+        },
+        {
+          "da": "Tandlægen lavede ikke proteser"
+        },
+        {
+          "da": "Dårlig erfaring med tandlæger"
+        },
+        {
+          "da": "Andet"
+        },
+        {
+          "da": "Lettere"
+        },
+        {
+          "da": "Mest almindeligt"
+        }
+      ]
+    },
+    {
+      "id": "vari-ad6e948b-74fb-408b-aa24-84213db862f1:1.0.0",
+      "label": [
+        {
+          "da": "ÅRSAG TANDTEKN. 2. SVAR"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-6918a4d3-1757-4173-bc25-9e08c8f490dd:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 848-850: Kan De fortælle mig, hvorfor De er gået til netop en tandlæge/klinisk tandtekniker for at få fremstillet Deres tandprotese? Klinisk tandtekniker, 2. svar"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "På anbefaling/kender ham, hende"
+        },
+        {
+          "da": "Tandudtrækning hos tandlæge, protese fra tandtekniker"
+        },
+        {
+          "da": "Bruges ikke"
+        },
+        {
+          "da": "Billigere"
+        },
+        {
+          "da": "Bedst/mere tillid/specialist på feltet"
+        },
+        {
+          "da": "Tandlægen lavede ikke proteser"
+        },
+        {
+          "da": "Dårlig erfaring med tandlæger"
+        },
+        {
+          "da": "Andet"
+        },
+        {
+          "da": "Lettere"
+        },
+        {
+          "da": "Mest almindeligt"
+        }
+      ]
+    },
+    {
+      "id": "vari-a0a3751e-675b-4088-8837-0ed3313c884c:1.0.0",
+      "label": [
+        {
+          "da": "BETALING AF PROTESE"
+        }
+      ],
+      "concept": {
+        "id": "conc-2e52b7fc-e637-41e8-9a64-95c3e5381be8:1.0.0",
+        "label": [
+          {
+            "da": "Tandpleje Jeg vil gerne s"
+          }
+        ],
+        "description": [
+          {
+            "da": "Tandpleje Jeg vil gerne stille Dem nogle spørgsmål om tandpleje og om sygeforsikring. Det er en videnskabelig undersøgelse, som har til formål bl.a. at klarlægge folks vaner med hensyn til tandpleje. - Der er ingen spørgsmål, der er rigtige eller forkerte; vi er kun interesseret i Deres mening, og hvad De faktisk gør, når det gælder tænderne og nogle enkelte andre sundhedsforhold."
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-ef020915-3f85-4658-9baa-7c3c7680be1b:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 851: Under normale omstændigheder kan man ikke opnå tilskud fra den offentlige sygesikring til tandprotesebehandling. Men i særlige tilfælde kan kommunen yde tilskud til tandprotesebehandling, hvis man er pensionist eller modtager social bistand eller lign. Da De sidste gang fik en tandprotese, hvorledes blev denne da betalt?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Jeg betalte selv hele udgiften uden at få tilskud og uden at få penge tilbage fra en forsikring eller Fortsættelsessygekassen Danmark"
+        },
+        {
+          "da": "Jeg betalte selv en del af udgiften og fik herudover betalt en del af kommunen (social- eller bistands- kontoret)"
+        },
+        {
+          "da": "Jeg betalte selv en del af udgiften og fik herudover betalt en del af såvel kommunen som af en privat for- sikring (f.eks. Danmark)"
+        },
+        {
+          "da": "Jeg fik hele udgiften dækket af kommunen"
+        },
+        {
+          "da": "Jeg fik hele udgiften dækket af privat forsikring (f.eks. Danmark)"
+        },
+        {
+          "da": "Jeg fik hele udgiften dækket af kommunen samt privat forsikring"
+        }
+      ]
+    },
+    {
+      "id": "vari-4add1a8b-c3b4-4030-9898-7b3db12e9b3a:1.0.0",
+      "label": [
+        {
+          "da": "MEDLEM AF DANMARK"
+        }
+      ],
+      "concept": {
+        "id": "conc-617be5ec-88df-438f-abca-89e0ff28299e:1.0.0",
+        "label": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ],
+        "description": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-77becdb2-89f5-4c5d-ba74-e7abb582aa51:1.0.0",
+        "label": [
+          {
+            "da": "852: Er De medlem af Fortsættelsessygekassen Danmark?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja, gruppe 1 medlem (kr. 194 i kvartalet)"
+        },
+        {
+          "da": "Ja, gruppe 2 medlem (kr. 306 i kvartalet)"
+        },
+        {
+          "da": "Ja, gruppe 5 medlem (kr. 102 i kvartalet)"
+        },
+        {
+          "da": "Nej - gå til spm. 912-938 (V79)"
+        }
+      ]
+    },
+    {
+      "id": "vari-6ac1df4c-a9b3-4b6a-b70e-19f5c89a0001:1.0.0",
+      "label": [
+        {
+          "da": "MEDLEMSKABETS VARIGHED"
+        }
+      ],
+      "concept": {
+        "id": "conc-617be5ec-88df-438f-abca-89e0ff28299e:1.0.0",
+        "label": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ],
+        "description": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-ef6d16f0-e6e0-43bb-a6bd-7f4707bc006b:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 853: Hvor længe har De været medlem (af Fortsættelsessygekassen Danmark)?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Under 1 år"
+        },
+        {
+          "da": "1-2 år"
+        },
+        {
+          "da": "3-4 år"
+        },
+        {
+          "da": "Mere end 4 år"
+        }
+      ]
+    },
+    {
+      "id": "vari-23032e5d-ebff-47ef-a524-2c51ff6c8968:1.0.0",
+      "label": [
+        {
+          "da": "ÅRSAG MEDLEMSKAB 1. SVAR"
+        }
+      ],
+      "concept": {
+        "id": "conc-617be5ec-88df-438f-abca-89e0ff28299e:1.0.0",
+        "label": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ],
+        "description": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-4fae488a-605b-4d31-80df-4e378638a97c:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 854-859: Hvorfor blev De medlem (af Fortsættelsessygekassen Danmark)? - Nævn 3 væsentligste begrundelser: 1. nævnt"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Var medlem af en fortsættelsessygekasse, da den nuværende sygesikringsordning trådte i kraft"
+        },
+        {
+          "da": "På grund af tilskud til medicin"
+        },
+        {
+          "da": "På grund af tilskud til tandlægebehandling"
+        },
+        {
+          "da": "På grund af tilskud til fysioterapeut"
+        },
+        {
+          "da": "På grund af tilskud til kiropraktor- behandling"
+        },
+        {
+          "da": "Fordi jeg kunne forudse stigende udgifter i forbindelse med sygdom"
+        },
+        {
+          "da": "Fordi det 'kan betale sig' (tilskud og skattefradrag)"
+        },
+        {
+          "da": "På grund af lægekonflikten i efteråret 1985"
+        },
+        {
+          "da": "Andet"
+        },
+        {
+          "da": "Tilskud til briller, kontaktlinser"
+        },
+        {
+          "da": "Familie, børn følger med"
+        },
+        {
+          "da": "Blev 16 år/forældre opfordrede"
+        },
+        {
+          "da": "Almindelig sikkerhed/ren forsikring"
+        }
+      ]
+    },
+    {
+      "id": "vari-66aa9f43-bfe6-4af8-8a66-8a0702965789:1.0.0",
+      "label": [
+        {
+          "da": "ÅRSAG MEDLEMSKAB 2. SVAR"
+        }
+      ],
+      "concept": {
+        "id": "conc-617be5ec-88df-438f-abca-89e0ff28299e:1.0.0",
+        "label": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ],
+        "description": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-ccfa997f-e9b3-49bf-95e4-71315d255dec:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 854-859: Hvorfor blev De medlem (af Fortsættelsessygekassen Danmark)? - Nævn 3 væsentligste begrundelser: 2. nævnt"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Var medlem af en fortsættelsessygekasse, da den nuværende sygesikringsordning trådte i kraft"
+        },
+        {
+          "da": "På grund af tilskud til medicin"
+        },
+        {
+          "da": "På grund af tilskud til tandlægebehandling"
+        },
+        {
+          "da": "På grund af tilskud til fysioterapeut"
+        },
+        {
+          "da": "På grund af tilskud til kiropraktor- behandling"
+        },
+        {
+          "da": "Fordi jeg kunne forudse stigende udgifter i forbindelse med sygdom"
+        },
+        {
+          "da": "Fordi det 'kan betale sig' (tilskud og skattefradrag)"
+        },
+        {
+          "da": "På grund af lægekonflikten i efteråret 1985"
+        },
+        {
+          "da": "Andet"
+        },
+        {
+          "da": "Tilskud til briller, kontaktlinser"
+        },
+        {
+          "da": "Familie, børn følger med"
+        },
+        {
+          "da": "Blev 16 år/forældre opfordrede"
+        },
+        {
+          "da": "Almindelig sikkerhed/ren forsikring"
+        }
+      ]
+    },
+    {
+      "id": "vari-744e4e4f-90a8-4638-b1cb-7d127a484feb:1.0.0",
+      "label": [
+        {
+          "da": "ÅRSAG MEDLEMSKAB 3. SVAR"
+        }
+      ],
+      "concept": {
+        "id": "conc-617be5ec-88df-438f-abca-89e0ff28299e:1.0.0",
+        "label": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ],
+        "description": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-3a12d82d-f1ce-473f-aeef-473c31b4b6a2:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 854-859: Hvorfor blev De medlem (af Fortsættelsessygekassen Danmark)? - Nævn 3 væsentligste begrundelser: 3. nævnt"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Var medlem af en fortsættelsessygekasse, da den nuværende sygesikringsordning trådte i kraft"
+        },
+        {
+          "da": "På grund af tilskud til medicin"
+        },
+        {
+          "da": "På grund af tilskud til tandlægebehandling"
+        },
+        {
+          "da": "På grund af tilskud til fysioterapeut"
+        },
+        {
+          "da": "På grund af tilskud til kiropraktor- behandling"
+        },
+        {
+          "da": "Fordi jeg kunne forudse stigende udgifter i forbindelse med sygdom"
+        },
+        {
+          "da": "Fordi det 'kan betale sig' (tilskud og skattefradrag)"
+        },
+        {
+          "da": "På grund af lægekonflikten i efteråret 1985"
+        },
+        {
+          "da": "Andet"
+        },
+        {
+          "da": "Tilskud til briller, kontaktlinser"
+        },
+        {
+          "da": "Familie, børn følger med"
+        },
+        {
+          "da": "Blev 16 år/forældre opfordrede"
+        },
+        {
+          "da": "Almindelig sikkerhed/ren forsikring"
+        }
+      ]
+    },
+    {
+      "id": "vari-38fbf525-673f-400c-8c95-f7db621982d0:1.0.0",
+      "label": [
+        {
+          "da": "UDNYTTE FORSIKR.FRADRAG"
+        }
+      ],
+      "concept": {
+        "id": "conc-617be5ec-88df-438f-abca-89e0ff28299e:1.0.0",
+        "label": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ],
+        "description": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-7f2716d2-d889-4af3-806d-cc98f25c9adc:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 866: På selvangivelsen har man et fradrag på op til 2.er for forskellige forsikringer (livs- og ulykkesforsikringer, børneopsparing eller medlemskab af Danmark): Udnytter De dette fradrag fuldt ud?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej - gå til spm. 868-870 (V74)"
+        }
+      ]
+    },
+    {
+      "id": "vari-b29e8776-9735-4af0-9fa2-89973a8d11ca:1.0.0",
+      "label": [
+        {
+          "da": "DANMARK MED I FRADRAG"
+        }
+      ],
+      "concept": {
+        "id": "conc-617be5ec-88df-438f-abca-89e0ff28299e:1.0.0",
+        "label": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ],
+        "description": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-6575bf59-eb3b-4c25-b5ae-0f4fc3cd88c0:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 867: Kunne De udnytte fradraget fuldt ud, hvis De ikke var medlem af Danmark (ville fradraget være under 2.er, hvis De ikke medtog præmien til Danmark)?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-3b9a5814-d109-4035-9164-b4ed70f76b93:1.0.0",
+      "label": [
+        {
+          "da": "MÅNEDLIG MEDICINUDGIFT"
+        }
+      ],
+      "concept": {
+        "id": "conc-617be5ec-88df-438f-abca-89e0ff28299e:1.0.0",
+        "label": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ],
+        "description": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-dd4fd96d-7ace-41ff-a52b-d5dab7b1fb21:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 868-870: Hvad er Deres omtrentlige månedlige udgifter til medicin (før tilskud fra Danmark)?"
+          }
+        ]
+      },
+      "representation": "NUMERIC"
+    },
+    {
+      "id": "vari-ba980a28-330f-41f0-bb10-8cdc2b5af11e:1.0.0",
+      "label": [
+        {
+          "da": "SYGESIKRINGSGRUPPE"
+        }
+      ],
+      "concept": {
+        "id": "conc-617be5ec-88df-438f-abca-89e0ff28299e:1.0.0",
+        "label": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ],
+        "description": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-3763a7b1-d4a8-4a1a-82c4-3d87baec31dc:1.0.0",
+        "label": [
+          {
+            "da": "Spm. 871: Hvilken sygesikringsgruppe tilhører De?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Gruppe 1"
+        },
+        {
+          "da": "Gruppe 2"
+        }
+      ]
+    },
+    {
+      "id": "vari-3236d2bc-7ce1-4835-b0c6-bbdb5ec157e9:1.0.0",
+      "label": [
+        {
+          "da": "PRÆMIE NED - 10% MEDICIN"
+        }
+      ],
+      "concept": {
+        "id": "conc-617be5ec-88df-438f-abca-89e0ff28299e:1.0.0",
+        "label": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ],
+        "description": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-6be5056d-21b8-4564-8c0c-2889036ed6c2:1.0.0",
+        "label": [
+          {
+            "da": "Spm. For gruppe 1 og 2 medlemmer betaler Fortsættelsessygekassen Danmark som bekendt hele medicinudgiften, når den er tilskudsberettiget ifølge indenrigsministeriets bekendtgørelse (på recept). Gruppe 5 medlemmer må selv betale lidt, idet de kun får refunderet halvdelen af egen udgift. Forestil Dem nu følgende tankeeksperiment: Man ville tilbyde Dem en præmienedsættelse på Deres Danmarkforsikring, hvis De selv ville betale noget af medicinudgiften: 872-874: Hvor stor en præmienedsættelse skulle De have, hvis De selv skulle betale 10% af medicinudgifterne? (Præmienedsættelse antal kroner pr. kvartal)"
+          }
+        ]
+      },
+      "representation": "NUMERIC"
+    },
+    {
+      "id": "vari-10e2ce7f-a763-4d85-9957-594169185d95:1.0.0",
+      "label": [
+        {
+          "da": "PRÆMIE NED - 20% MEDICIN"
+        }
+      ],
+      "concept": {
+        "id": "conc-617be5ec-88df-438f-abca-89e0ff28299e:1.0.0",
+        "label": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ],
+        "description": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-54c4156d-9416-48e2-9789-a9194d268fac:1.0.0",
+        "label": [
+          {
+            "da": "Spm. For gruppe 1 og 2 medlemmer betaler Fortsættelsessygekassen Danmark som bekendt hele medicinudgiften, når den er tilskudsberettiget ifølge indenrigsministeriets bekendtgørelse (på recept). Gruppe 5 medlemmer må selv betale lidt, idet de kun får refunderet halvdelen af egen udgift. Forestil Dem nu følgende tankeeksperiment: Man ville tilbyde Dem en præmienedsættelse på Deres Danmarkforsikring, hvis De selv ville betale noget af medicinudgiften: 875-877: Hvor stor en præmienedsættelse skulle De have, hvis De selv skulle betale 20% af medicinudgifterne? (Præmienedsættelse antal kroner pr. kvartal)"
+          }
+        ]
+      },
+      "representation": "NUMERIC"
+    },
+    {
+      "id": "vari-e1946fc9-06c6-4e84-b892-30e6d8eda0b7:1.0.0",
+      "label": [
+        {
+          "da": "PRÆMIE NED - 30% MEDICIN"
+        }
+      ],
+      "concept": {
+        "id": "conc-617be5ec-88df-438f-abca-89e0ff28299e:1.0.0",
+        "label": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ],
+        "description": [
+          {
+            "da": "Sygeforsikring"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-69bd775b-5b49-4132-b6f8-69296c461164:1.0.0",
+        "label": [
+          {
+            "da": "Spm. For gruppe 1 og 2 medlemmer betaler Fortsættelsessygekassen Danmark som bekendt hele medicinudgiften, når den er tilskudsberettiget ifølge indenrigsministeriets bekendtgørelse (på recept). Gruppe 5 medlemmer må selv betale lidt, idet de kun får refunderet halvdelen af egen udgift. Forestil Dem nu følgende tankeeksperiment: Man ville tilbyde Dem en præmienedsættelse på Deres Danmarkforsikring, hvis De selv ville betale noget af medicinudgiften: 909-911: Og hvor stor en præmienedsættelse skulle De have, hvis De selv skulle betale 30% af medicinudgifterne? (Præmienedsættelse antal kroner pr. kvartal)"
+          }
+        ]
+      },
+      "representation": "NUMERIC"
+    },
+    {
+      "id": "vari-d70a48db-ec92-40ee-b561-610b36ceb2f0:1.0.0",
+      "label": [
+        {
+          "da": "KONSULTERET TANDLÆGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-94b0eae8-2e35-4b43-b901-fd27504fe2a2:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Har kontaktet (konsulteret) tandlæge"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-dc5eb66b-d840-45cb-8155-727772cfb83a:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL BESØG TANDLÆGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-4160aca2-5c54-4557-aa90-75b0bd7b84ae:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Antal konsultationer hos tandlæge inden for sidste 12 måneder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ved ikke/uspecificeret antal konsultationer"
+        },
+        {
+          "da": "1 konsultation"
+        },
+        {
+          "da": "2 konsultationer"
+        },
+        {
+          "da": "3 konsultationer"
+        },
+        {
+          "da": "4 konsultationer"
+        },
+        {
+          "da": "5 konsultationer"
+        },
+        {
+          "da": "6 konsultationer"
+        },
+        {
+          "da": "7 konsultationer"
+        },
+        {
+          "da": "8 konsultationer"
+        },
+        {
+          "da": "10 konsultationer"
+        },
+        {
+          "da": "12 konsultationer"
+        },
+        {
+          "da": "20 konsultationer"
+        },
+        {
+          "da": "50 konsultationer"
+        }
+      ]
+    },
+    {
+      "id": "vari-e3ef2e61-7528-4ae2-9818-4ee08e0c2785:1.0.0",
+      "label": [
+        {
+          "da": "KONSULTERET KIROPRAKTOR"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-6bbf6800-0026-4432-8836-55734fa57e53:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Har kontaktet (konsulteret) kiropraktor"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-a0a336da-6f5d-4f6a-b4ae-b994891a8082:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL BESØG KIROPRAKTOR"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-4d9d0c75-8999-42f4-9dcf-016a83a8176f:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Antal konsultationer hos kiropraktor inden for sidste 12 måneder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ved ikke/uspecificeret antal konsultationer"
+        },
+        {
+          "da": "1 konsultation"
+        },
+        {
+          "da": "2 konsultationer"
+        },
+        {
+          "da": "3 konsultationer"
+        },
+        {
+          "da": "4 konsultationer"
+        },
+        {
+          "da": "5 konsultationer"
+        },
+        {
+          "da": "6 konsultationer"
+        },
+        {
+          "da": "7 konsultationer"
+        },
+        {
+          "da": "8 konsultationer"
+        },
+        {
+          "da": "10 konsultationer"
+        },
+        {
+          "da": "12 konsultationer"
+        },
+        {
+          "da": "17 konsultationer"
+        },
+        {
+          "da": "20 konsultationer"
+        },
+        {
+          "da": "28 konsultationer"
+        }
+      ]
+    },
+    {
+      "id": "vari-79fd4975-05b4-4007-9ec6-2e50f6a50abd:1.0.0",
+      "label": [
+        {
+          "da": "KONSULTERET FYSIOTERAP."
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-34e15332-4c9e-449b-bc6d-cf49adb54c58:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Har kontaktet (konsulteret) fysioterapeut"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-b14026cc-d969-4df4-bdc7-4a6e89e6f1f1:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL BESØG FYSIOTERAP."
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-285997d7-5dd1-4950-bc83-cea974d08ea7:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Antal konsultationer hos fysioterapeut inden for sidste 12 måneder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ved ikke/uspecificeret antal konsultationer"
+        },
+        {
+          "da": "1 konsultation"
+        },
+        {
+          "da": "2 konsultationer"
+        },
+        {
+          "da": "3 konsultationer"
+        },
+        {
+          "da": "4 konsultationer"
+        },
+        {
+          "da": "5 konsultationer"
+        },
+        {
+          "da": "6 konsultationer"
+        },
+        {
+          "da": "7 konsultationer"
+        },
+        {
+          "da": "8 konsultationer"
+        },
+        {
+          "da": "10 konsultationer"
+        },
+        {
+          "da": "12 konsultationer"
+        },
+        {
+          "da": "15 konsultationer"
+        },
+        {
+          "da": "16 konsultationer"
+        },
+        {
+          "da": "18 konsultationer"
+        },
+        {
+          "da": "19 konsultationer"
+        },
+        {
+          "da": "20 konsultationer"
+        },
+        {
+          "da": "24 konsultationer"
+        },
+        {
+          "da": "30 konsultationer"
+        },
+        {
+          "da": "48 konsultationer"
+        },
+        {
+          "da": "60 konsultationer"
+        }
+      ]
+    },
+    {
+      "id": "vari-69975e43-f204-457c-8043-2448e4ee5397:1.0.0",
+      "label": [
+        {
+          "da": "KONSULTERET TANDTEKNIKER"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-c3e55857-ac07-4ce2-856b-43f245175cba:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Har kontaktet (konsulteret) klinisk tandtekniker"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-aeda0e01-127e-47ae-8ed4-34d7ef7911bf:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL BESØG TANDTEKNIKER"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-5943db47-ae6b-429d-9c55-d9f95706d674:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Antal konsultationer hos klinisk tandtekniker inden for sidste 12 måneder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ved ikke/uspecificeret antal konsultationer"
+        },
+        {
+          "da": "1 konsultation"
+        },
+        {
+          "da": "2 konsultationer"
+        },
+        {
+          "da": "3 konsultationer"
+        },
+        {
+          "da": "4 konsultationer"
+        },
+        {
+          "da": "6 konsultationer"
+        },
+        {
+          "da": "10 konsultationer"
+        }
+      ]
+    },
+    {
+      "id": "vari-0a6b1f3c-198e-4b50-87f1-b79e564b7f23:1.0.0",
+      "label": [
+        {
+          "da": "KONSULTERET ØJENLÆGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-e34d2f9e-f2a6-4374-b532-f04689d009b1:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Har kontaktet (konsulteret) øjenlæge"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-942a82b8-366b-4913-a0be-a4c5093d3879:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL BESØG ØJENLÆGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-eca2c355-1a82-41c6-ae35-302e0ebe8b16:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Antal konsultationer hos øjenlæge inden for sidste 12 måneder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ved ikke/uspecificeret antal konsultationer"
+        },
+        {
+          "da": "1 konsultation"
+        },
+        {
+          "da": "2 konsultationer"
+        },
+        {
+          "da": "3 konsultationer"
+        },
+        {
+          "da": "4 konsultationer"
+        },
+        {
+          "da": "5 konsultationer"
+        },
+        {
+          "da": "6 konsultationer"
+        },
+        {
+          "da": "8 konsultationer"
+        },
+        {
+          "da": "10 konsultationer"
+        },
+        {
+          "da": "12 konsultationer"
+        },
+        {
+          "da": "15 konsultationer"
+        },
+        {
+          "da": "35 konsultationer"
+        }
+      ]
+    },
+    {
+      "id": "vari-5a9f3190-ac14-4708-9bcb-a987c529bf08:1.0.0",
+      "label": [
+        {
+          "da": "KONSULTERET ØRELÆGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-3491e04e-6a93-4ca5-81f8-8b314c579d44:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Har kontaktet (konsulteret) ørelæge"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-21b9f636-d284-4752-9455-c2d1e3b7a87e:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL BESØG ØRELÆGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-cc201fd7-02da-4784-81ad-e73aab94e7ac:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Antal konsultationer hos ørelæge inden for sidste 12 måneder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ved ikke/uspecificeret antal konsultationer"
+        },
+        {
+          "da": "1 konsultation"
+        },
+        {
+          "da": "2 konsultationer"
+        },
+        {
+          "da": "3 konsultationer"
+        },
+        {
+          "da": "4 konsultationer"
+        },
+        {
+          "da": "5 konsultationer"
+        },
+        {
+          "da": "10 konsultationer"
+        },
+        {
+          "da": "14 konsultationer"
+        },
+        {
+          "da": "15 konsultationer"
+        },
+        {
+          "da": "20 konsultationer"
+        }
+      ]
+    },
+    {
+      "id": "vari-bf0d41ba-16c8-4e1d-8901-5e23d6c27800:1.0.0",
+      "label": [
+        {
+          "da": "KONS. ANDEN SPECIALLÆGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-cb0b5b5c-4d6e-409c-91b1-b318deb86993:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Har kontaktet (konsulteret) anden speciallæge"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-35569147-3360-42ce-a6ac-24bb3d607481:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL: ANDEN SPECIALLÆGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-55c2240c-8c62-48f3-980c-ca76e3cb8363:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Antal konsultationer hos anden speciallæge inden for sidste 12 måneder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ved ikke/uspecificeret antal konsultationer"
+        },
+        {
+          "da": "1 konsultation"
+        },
+        {
+          "da": "2 konsultationer"
+        },
+        {
+          "da": "3 konsultationer"
+        },
+        {
+          "da": "4 konsultationer"
+        },
+        {
+          "da": "5 konsultationer"
+        },
+        {
+          "da": "6 konsultationer"
+        },
+        {
+          "da": "7 konsultationer"
+        },
+        {
+          "da": "8 konsultationer"
+        },
+        {
+          "da": "10 konsultationer"
+        },
+        {
+          "da": "11 konsultationer"
+        },
+        {
+          "da": "12 konsultationer"
+        },
+        {
+          "da": "15 konsultationer"
+        },
+        {
+          "da": "17 konsultationer"
+        },
+        {
+          "da": "20 konsultationer"
+        },
+        {
+          "da": "25 konsultationer"
+        },
+        {
+          "da": "78 konsultationer"
+        }
+      ]
+    },
+    {
+      "id": "vari-53fa27f2-7983-407b-80ed-d4f1563f1056:1.0.0",
+      "label": [
+        {
+          "da": "KONSULTERET OPTIKER"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-0ae6b6f9-c450-48dc-bb96-4539ca1d39db:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Har kontaktet (konsulteret) optiker"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-41da20b5-3c93-499d-bc82-cde37ba5b60a:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL BESØG OPTIKER"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-634d27c1-f192-4c1f-8a61-eeecc797072d:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Antal konsultationer hos optiker inden for sidste 12 måneder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ved ikke/uspecificeret antal konsultationer"
+        },
+        {
+          "da": "1 konsultation"
+        },
+        {
+          "da": "2 konsultationer"
+        },
+        {
+          "da": "3 konsultationer"
+        },
+        {
+          "da": "4 konsultationer"
+        },
+        {
+          "da": "7 konsultationer"
+        },
+        {
+          "da": "8 konsultationer"
+        },
+        {
+          "da": "10 konsultationer"
+        },
+        {
+          "da": "12 konsultationer"
+        },
+        {
+          "da": "15 konsultationer"
+        }
+      ]
+    },
+    {
+      "id": "vari-79fe1cb7-aac6-4304-a661-31532a180e6f:1.0.0",
+      "label": [
+        {
+          "da": "KONS. PRAKTISERENDE LÆGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-39105fa3-5635-458c-9bcc-3778e47dec28:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Har kontaktet (konsulteret) praktiserende læge"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-5c1111d2-33ea-4a0a-a2e3-bfd0008e13f5:1.0.0",
+      "label": [
+        {
+          "da": "ANTAL:PRAKTISERENDE LÆGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-21de305f-f085-4ddc-808d-9b6a72de8581:1.0.0",
+        "label": [
+          {
+            "da": "Kontakt med sundhedsvæsen"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kontakt med sundhedsvæsenet"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-4707332e-6a72-481b-ae4a-f7c193482f36:1.0.0",
+        "label": [
+          {
+            "da": "912-938: (Vis kort 13) - På dette kort kan De se en række personer i sundhedsvæsenet, som man kan have kontakt med. Prøv at tænke tilbage over det sidste år og angiv så godt som muligt det antal kontakter De har haft: Antal konsultationer hos praktiserende læge inden for sidste 12 måneder"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ved ikke/uspecificeret antal konsultationer"
+        },
+        {
+          "da": "1 konsultation"
+        },
+        {
+          "da": "2 konsultationer"
+        },
+        {
+          "da": "3 konsultationer"
+        },
+        {
+          "da": "4 konsultationer"
+        },
+        {
+          "da": "5 konsultationer"
+        },
+        {
+          "da": "6 konsultationer"
+        },
+        {
+          "da": "7 konsultationer"
+        },
+        {
+          "da": "8 konsultationer"
+        },
+        {
+          "da": "9 konsultationer"
+        },
+        {
+          "da": "10 konsultationer"
+        },
+        {
+          "da": "12 konsultationer"
+        },
+        {
+          "da": "15 konsultationer"
+        },
+        {
+          "da": "18 konsultationer"
+        },
+        {
+          "da": "20 konsultationer"
+        },
+        {
+          "da": "21 konsultationer"
+        },
+        {
+          "da": "22 konsultationer"
+        },
+        {
+          "da": "24 konsultationer"
+        },
+        {
+          "da": "25 konsultationer"
+        },
+        {
+          "da": "30 konsultationer"
+        },
+        {
+          "da": "40 konsultationer"
+        },
+        {
+          "da": "52 konsultationer"
+        },
+        {
+          "da": "96 konsultationer"
+        }
+      ]
+    },
+    {
+      "id": "vari-4f0efd4f-20ae-4a0b-8983-d313f1c9873e:1.0.0",
+      "label": [
+        {
+          "da": "FORHØJET BLODTRYK"
+        }
+      ],
+      "concept": {
+        "id": "conc-4ab3d2fd-680d-4e89-98e8-c30dec15d0a1:1.0.0",
+        "label": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-9680b9fa-49cd-418f-86fe-b2dc0b7e4604:1.0.0",
+        "label": [
+          {
+            "da": "939-946: Har De nogle af følgende kroniske sygdomme? Forhøjet blodtryk"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-59d47ef2-ecb7-4514-854e-1aac16b598f1:1.0.0",
+      "label": [
+        {
+          "da": "GIGTSYGDOMME"
+        }
+      ],
+      "concept": {
+        "id": "conc-4ab3d2fd-680d-4e89-98e8-c30dec15d0a1:1.0.0",
+        "label": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-1b770ad9-7d85-4096-9175-12ae30588451:1.0.0",
+        "label": [
+          {
+            "da": "939-946: Har De nogle af følgende kroniske sygdomme? Gigtsygdomme"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-0fdea03e-0c01-43da-b6d3-fedde336dccd:1.0.0",
+      "label": [
+        {
+          "da": "KRONISK BRONCHITIS/ASTMA"
+        }
+      ],
+      "concept": {
+        "id": "conc-4ab3d2fd-680d-4e89-98e8-c30dec15d0a1:1.0.0",
+        "label": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-fc7a457e-8c96-43fb-b9be-769fcfc74917:1.0.0",
+        "label": [
+          {
+            "da": "939-946: Har De nogle af følgende kroniske sygdomme? Kronisk bronchitis/astma"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-50a94bf1-eb2c-40ec-8415-cdc5e69eda01:1.0.0",
+      "label": [
+        {
+          "da": "SUKKERSYGE"
+        }
+      ],
+      "concept": {
+        "id": "conc-4ab3d2fd-680d-4e89-98e8-c30dec15d0a1:1.0.0",
+        "label": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-3bc503f6-eed6-4ccd-a44b-f2eac7f3555d:1.0.0",
+        "label": [
+          {
+            "da": "939-946: Har De nogle af følgende kroniske sygdomme? Sukkersyge"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-f1ff39d1-91fe-432c-8c00-16c25057ccbb:1.0.0",
+      "label": [
+        {
+          "da": "MIGRÆNE/KRONISK HOVEDP."
+        }
+      ],
+      "concept": {
+        "id": "conc-4ab3d2fd-680d-4e89-98e8-c30dec15d0a1:1.0.0",
+        "label": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-e77fbb7e-8702-42dc-9545-8eb3a54fe71b:1.0.0",
+        "label": [
+          {
+            "da": "939-946: Har De nogle af følgende kroniske sygdomme? Migræne/kronisk hovedpine"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-597652ab-6aeb-4b7b-87d8-d80e8d926cff:1.0.0",
+      "label": [
+        {
+          "da": "HJERTESYGDOM"
+        }
+      ],
+      "concept": {
+        "id": "conc-4ab3d2fd-680d-4e89-98e8-c30dec15d0a1:1.0.0",
+        "label": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-62cfd21c-87f5-4cba-a611-e5c1f2924ade:1.0.0",
+        "label": [
+          {
+            "da": "939-946: Har De nogle af følgende kroniske sygdomme? Hjertesygdom"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-e37fd097-589f-49b3-9b9f-62b3f708ceb9:1.0.0",
+      "label": [
+        {
+          "da": "ALLERGI"
+        }
+      ],
+      "concept": {
+        "id": "conc-4ab3d2fd-680d-4e89-98e8-c30dec15d0a1:1.0.0",
+        "label": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-03a65674-ae4b-4d02-91cd-d673c2e024ad:1.0.0",
+        "label": [
+          {
+            "da": "939-946: Har De nogle af følgende kroniske sygdomme? Allergi"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-df239f7f-af2a-4cda-a92c-189e7b86af14:1.0.0",
+      "label": [
+        {
+          "da": "ANDRE KRONISKE SYGDOMME"
+        }
+      ],
+      "concept": {
+        "id": "conc-4ab3d2fd-680d-4e89-98e8-c30dec15d0a1:1.0.0",
+        "label": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ],
+        "description": [
+          {
+            "da": "Kroniske sygdomme"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-016c4dda-004f-48d7-ac85-4ff22e31f42a:1.0.0",
+        "label": [
+          {
+            "da": "939-946: Har De nogle af følgende kroniske sygdomme? Andet"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        }
+      ]
+    },
+    {
+      "id": "vari-c0f2c1e2-8870-4293-870b-690bde18c30c:1.0.0",
+      "label": [
+        {
+          "da": "SKATTEPLIGTIG INDKOMST"
+        }
+      ],
+      "concept": {
+        "id": "conc-4f07e788-d7be-45ed-bb2c-3b67ec9199c4:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-ef2589fb-7a81-4069-a854-0e836980edfc:1.0.0",
+        "label": [
+          {
+            "da": "947: Ligger Deres skattepligtige indkomst - altså den indkomst som der betales skat af (efter fradrag osv.) ... ?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Under kr. 110.000"
+        },
+        {
+          "da": "Mellem kr. 111.000 og 183.000"
+        },
+        {
+          "da": "Over kr. 183.000"
+        }
+      ]
+    },
+    {
+      "id": "vari-e634bdd5-a621-49d7-85e1-af2bb2c9db42:1.0.0",
+      "label": [
+        {
+          "da": "SVARPERSONENS ALDER"
+        }
+      ],
+      "concept": {
+        "id": "conc-4f07e788-d7be-45ed-bb2c-3b67ec9199c4:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-0dbb842c-ec46-4d8b-af57-26bfd736f82c:1.0.0",
+        "label": [
+          {
+            "da": "948-949: Svarpersonens alder i hele år?"
+          }
+        ]
+      },
+      "representation": "NUMERIC"
+    },
+    {
+      "id": "vari-ff10564a-fe33-4ce5-9bdb-d7060bedf10e:1.0.0",
+      "label": [
+        {
+          "da": "MED I TANDPLEJEORDNING"
+        }
+      ],
+      "concept": {
+        "id": "conc-4f07e788-d7be-45ed-bb2c-3b67ec9199c4:1.0.0",
+        "label": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ],
+        "description": [
+          {
+            "da": "Baggrundsoplysninger"
+          }
+        ]
+      },
+      "question": {
+        "id": "quei-3244f68d-ba88-4720-99be-c5e4d9fd2150:1.0.0",
+        "label": [
+          {
+            "da": "950: (Hvis svarpersonen er mellem 16 og 30 år): Deltager De i sygesikringens regelmæssige tandplejeordning, dvs. får et indkaldelseskort til tandlægebesøg cirka hver 7. måned fra sygesikringen (kommunen)?"
+          }
+        ]
+      },
+      "representation": "CODE",
+      "categories": [
+        {
+          "da": "Ja"
+        },
+        {
+          "da": "Nej"
+        },
+        {
+          "da": "Ved ikke"
+        }
+      ]
+    }
+  ]
+}
