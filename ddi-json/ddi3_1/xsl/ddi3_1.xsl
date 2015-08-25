@@ -85,16 +85,37 @@
         <xsl:text>],</xsl:text>
 
         <!-- temporal coverage -->
+        
+        <!-- temporal coverage: start date -->
         <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate">
             <xsl:text>"startdate": "</xsl:text>
-            <xsl:value-of
-                select="substring-before(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate, 'T')"/>
+            
+            <xsl:choose>
+                <xsl:when test="contains(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate, 'T')">
+                    <xsl:value-of
+                    select="substring-before(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate, 'T')"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate"/>
+                </xsl:otherwise>
+            </xsl:choose>
+            
             <xsl:text>",</xsl:text>
         </xsl:if>
+        <!-- temporal coverage: end date -->
         <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate">
             <xsl:text>"enddate": "</xsl:text>
-            <xsl:value-of
-                select="substring-before(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate, 'T')"/>
+            
+            <xsl:choose>
+                <xsl:when test="contains(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate, 'T')">
+                    <xsl:value-of
+                        select="substring-before(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate, 'T')"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate"/>
+                </xsl:otherwise>
+            </xsl:choose>
+            
             <xsl:text>",</xsl:text>
         </xsl:if>
 
