@@ -35,14 +35,17 @@
         <xsl:text>",</xsl:text>
 
         <!-- repository -->
-        <xsl:text>"repository": "DDASOCIAL",</xsl:text>
-
+        <xsl:text>"repository": "DDASOCIAL",</xsl:text>      
+        
         <!-- analysis unit -->
-        <xsl:if test="r:AnalysisUnit">
-            <xsl:text>"analysis unit": "</xsl:text>
-            <xsl:value-of select="r:AnalysisUnit"/>
-            <xsl:text>",</xsl:text>
-        </xsl:if>
+        <xsl:text>"analysis unit": [</xsl:text>
+        <xsl:for-each select="r:AnalysisUnit">
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="normalize-space(.)"/>
+            <xsl:text>"</xsl:text>
+            <xsl:if test="position() != last()">, </xsl:if>
+        </xsl:for-each>
+        <xsl:text>],</xsl:text>
         
         <!-- kind of data -->
         <xsl:text>"kindofdata": [</xsl:text>
