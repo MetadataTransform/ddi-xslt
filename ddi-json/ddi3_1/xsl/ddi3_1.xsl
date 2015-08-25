@@ -43,13 +43,16 @@
             <xsl:value-of select="r:AnalysisUnit"/>
             <xsl:text>",</xsl:text>
         </xsl:if>
-
+        
         <!-- kind of data -->
-        <xsl:if test="s:KindOfData">
-            <xsl:text>"kindofdata": "</xsl:text>
-            <xsl:value-of select="s:KindOfData"/>
-            <xsl:text>",</xsl:text>
-        </xsl:if>
+        <xsl:text>"kindofdata": [</xsl:text>
+        <xsl:for-each select="s:KindOfData">
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="normalize-space(.)"/>
+            <xsl:text>"</xsl:text>
+            <xsl:if test="position() != last()">, </xsl:if>
+        </xsl:for-each>
+        <xsl:text>],</xsl:text>
         
         <!-- title -->
         <xsl:text>"title": [</xsl:text>
