@@ -37,13 +37,20 @@
         <!-- repository -->
         <xsl:text>"repository": "DDASOCIAL",</xsl:text>
 
+        <!-- analysis unit -->
+        <xsl:if test="r:AnalysisUnit">
+            <xsl:text>"analysis unit": "</xsl:text>
+            <xsl:value-of select="r:AnalysisUnit"/>
+            <xsl:text>",</xsl:text>
+        </xsl:if>
+
         <!-- kind of data -->
         <xsl:if test="s:KindOfData">
             <xsl:text>"kindofdata": "</xsl:text>
             <xsl:value-of select="s:KindOfData"/>
             <xsl:text>",</xsl:text>
         </xsl:if>
-
+        
         <!-- title -->
         <xsl:text>"title": [</xsl:text>
         <xsl:for-each select="r:Citation/r:Title">
