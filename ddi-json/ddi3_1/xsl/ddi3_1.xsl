@@ -33,9 +33,9 @@
             </xsl:otherwise>
         </xsl:choose>
         <xsl:text>",</xsl:text>
-
+        
         <!-- repository -->
-        <xsl:text>"repository": "DDASOCIAL",</xsl:text>      
+        <xsl:text>"repository": "</xsl:text><xsl:value-of select="@agency"/><xsl:text>",</xsl:text>
         
         <!-- analysis unit -->
         <xsl:text>"analysis unit": [</xsl:text>
