@@ -18,6 +18,18 @@
         </xsl:choose>
     </xsl:param>
 
+    <!-- The studys repository. If not specified will attempt to retrieve from DDI-XML -->
+    <xsl:param name="repository">
+        <xsl:choose>
+            <xsl:when test="/*:codeBook/*:stdyDscr/*:citation/*:distStmt/*:distrbtr/@abbr">
+                <xsl:value-of select="/*:codeBook/*:stdyDscr/*:citation/*:distStmt/*:distrbtr/@abbr"/>
+            </xsl:when>
+            <xsl:when test="/*:codeBook/*:docDscr/*:citation/*:titlStmt/*:IDNo/@agency">
+                <xsl:value-of select="/*:codeBook/*:docDscr/*:citation/*:titlStmt/*:IDNo/@agency"/>
+            </xsl:when>
+        </xsl:choose>
+    </xsl:param>
+
     <xsl:output method="text"/>
 
     <xsl:template match="*:codeBook">
@@ -31,6 +43,11 @@
         <!-- study id -->
         <xsl:text>"id": "</xsl:text>
         <xsl:value-of select="$studyId"/>
+        <xsl:text>",</xsl:text>
+
+        <!-- repository -->
+        <xsl:text>"repository": "</xsl:text>
+        <xsl:value-of select="$repository"/>
         <xsl:text>",</xsl:text>
 
         <!-- kind of data -->
@@ -127,7 +144,7 @@
 
         <!-- Accesscondition -->
         <xsl:if test="*:dataAccs/*:setAvail/*:avlStatus">
-            <xsl:text>"samplingprocedure": "</xsl:text>
+            <xsl:text>"accessconditions": "</xsl:text>
             <xsl:value-of select="*:dataAccs/*:setAvail/*:avlStatus" />
             <xsl:text>"</xsl:text>
         </xsl:if>
