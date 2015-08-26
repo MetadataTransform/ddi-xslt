@@ -201,6 +201,7 @@
             <xsl:value-of select="@xml:lang"/>
             <xsl:text>": "</xsl:text>
             
+            <!-- Get scope value and get rid of double quotation marks.  -->
             <xsl:call-template name="escapeQuote"/>
             
             <xsl:text>"}</xsl:text>
