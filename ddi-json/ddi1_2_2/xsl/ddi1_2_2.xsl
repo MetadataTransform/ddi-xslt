@@ -64,9 +64,9 @@
         <xsl:text>"}],</xsl:text>
 
         <!-- creator -->
-        <xsl:text>"creator": ["</xsl:text>
+        <xsl:text>"creator": [{"en": "</xsl:text>
         <xsl:value-of select="*:citation/*:prodStmt/*:producer"/>
-        <xsl:text>"],</xsl:text>
+        <xsl:text>"}],</xsl:text>
 
         <xsl:variable name="timePrd" select="*:stdyInfo/*:sumDscr/*:collDate"/>
         <xsl:if test="$timePrd[@event = 'start']">
@@ -131,11 +131,10 @@
         </xsl:if>
 
         <!-- modeofcollection -->
-        <xsl:if test="*:method/*:dataColl/*:collMode">
-            <xsl:text>"modeofcollection": "</xsl:text>
-                <xsl:value-of select="*:method/*:dataColl/*:collMode" />
-            <xsl:text>",</xsl:text>
-        </xsl:if>
+        <xsl:text>"modeofcollection": "</xsl:text>
+            <xsl:value-of select="*:method/*:dataColl/*:collMode" />
+        <xsl:text>",</xsl:text>
+        
 
         <!-- samplingprocedure -->
         <xsl:text>"samplingprocedure": "</xsl:text>
