@@ -111,16 +111,16 @@
 
         <!-- timemethod -->
         <xsl:if test="*:method/*:dataColl/*:timeMeth">
-            <xsl:text>"timemethod": "</xsl:text>
+            <xsl:text>"timemethod" : [{ "en" : "</xsl:text>
             <xsl:value-of select="normalize-space(*:method/*:dataColl/*:timeMeth)" />
-            <xsl:text>",</xsl:text>
+            <xsl:text>"}],</xsl:text>
         </xsl:if>
 
         <!-- analysisunit -->
         <xsl:if test="*:stdyInfo/*:sumDscr/*:anlyUnit">
-            <xsl:text>"analysisunit": "</xsl:text>
+            <xsl:text>"analysisunit" : [{ "en" : "</xsl:text>
             <xsl:value-of select="normalize-space(*:stdyInfo/*:sumDscr/*:anlyUnit)" />
-            <xsl:text>",</xsl:text>
+            <xsl:text>"}],</xsl:text>
         </xsl:if>
 
         <!-- country -->
@@ -131,15 +131,15 @@
         </xsl:if>
 
         <!-- modeofcollection -->
-        <xsl:text>"modeofcollection": "</xsl:text>
+        <xsl:text>"modeofcollection" : [{ "en" : "</xsl:text>
             <xsl:value-of select="*:method/*:dataColl/*:collMode" />
-        <xsl:text>",</xsl:text>
+        <xsl:text>"}],</xsl:text>
         
 
         <!-- samplingprocedure -->
-        <xsl:text>"samplingprocedure": "</xsl:text>
+        <xsl:text>"samplingprocedure" : [{ "en" : "</xsl:text>
             <xsl:value-of select="normalize-space(*:method/*:dataColl/*:sampProc)" />
-        <xsl:text>",</xsl:text>
+        <xsl:text>"}],</xsl:text>
 
         <!-- Accesscondition -->
 
