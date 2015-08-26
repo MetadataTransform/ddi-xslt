@@ -59,7 +59,6 @@
         </xsl:for-each>
         <xsl:text>],</xsl:text>
         
-        
         <!-- kind of data -->
         <xsl:text>"kindofdata": [</xsl:text>
         <xsl:for-each select="s:KindOfData">
@@ -85,14 +84,25 @@
         <!-- creator -->
         <xsl:text>"creator": [</xsl:text>
         <xsl:for-each select="r:Citation/r:Creator">
-            <xsl:text>"</xsl:text>
-            <xsl:value-of select="@xml:lang"/>
+            <xsl:text>{"</xsl:text>
+            
+            <!-- Differentiate between cases where xml:lang attr is given or not.  -->
+            <xsl:choose>
+                <xsl:when test="@xml:lang">
+                    <xsl:value-of select="@xml:lang"/>
+                    <xsl:text>": "</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>undefLang": "</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+            
             <xsl:value-of select="normalize-space(.)"/>
             <xsl:if test="@affiliation">
                 <xsl:text>, </xsl:text>
                 <xsl:value-of select="@affiliation"/>
             </xsl:if>
-            <xsl:text>"</xsl:text>
+            <xsl:text>"}</xsl:text>
             <xsl:if test="position() != last()">, </xsl:if>
         </xsl:for-each>
         <xsl:text>],</xsl:text>
