@@ -31,8 +31,10 @@ http://www.gnu.org/copyleft/lesser.html
   xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:util="https://code.google.com/p/ddixslt/#util" version="2.0"
-  xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd">
+  xmlns:util="https://code.google.com/p/ddixslt/#util"
+  xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd"
+  exclude-result-prefixes="xsl dc2 g d c a m1 m2 m3 ddi l pd cm s r pi ds pr"
+  version="2.0">
 
   <xsl:import href="ddi3_1_util.xsl"/>
   <xsl:import href="xhtml.xsl"/>
