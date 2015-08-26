@@ -138,18 +138,16 @@
         </xsl:if>
 
         <!-- samplingprocedure -->
-        <xsl:if test="*:method/*:dataColl/*:sampProc">
-            <xsl:text>"samplingprocedure": "</xsl:text>
-                <xsl:value-of select="normalize-space(*:method/*:dataColl/*:sampProc)" />
-            <xsl:text>",</xsl:text>
-        </xsl:if>
+        <xsl:text>"samplingprocedure": "</xsl:text>
+            <xsl:value-of select="normalize-space(*:method/*:dataColl/*:sampProc)" />
+        <xsl:text>",</xsl:text>
 
         <!-- Accesscondition -->
-        <xsl:if test="*:dataAccs/*:setAvail/*:avlStatus">
-            <xsl:text>"accessconditions": "</xsl:text>
-            <xsl:value-of select="normalize-space(*:dataAccs/*:setAvail/*:avlStatus)" />
-            <xsl:text>"</xsl:text>
-        </xsl:if>
+
+        <xsl:text>"accessconditions": "</xsl:text>
+        <xsl:value-of select="normalize-space(*:dataAccs/*:setAvail/*:avlStatus)" />
+        <xsl:text>"</xsl:text>
+        
 
     </xsl:template>
 
