@@ -104,20 +104,22 @@
 
         <!-- abstract -->
         <xsl:text>"abstract": [{"en": "</xsl:text>
-        <xsl:value-of select="normalize-space(*:stdyInfo/*:abstract)" />
+        <xsl:for-each select="*:stdyInfo/*:abstract">
+            <xsl:call-template name="escapeQuote" />
+        </xsl:for-each>
         <xsl:text>"}],</xsl:text>
 
         <!-- timemethod -->
         <xsl:if test="*:method/*:dataColl/*:timeMeth">
             <xsl:text>"timemethod": "</xsl:text>
-                <xsl:value-of select="*:method/*:dataColl/*:timeMeth" />
+            <xsl:value-of select="normalize-space(*:method/*:dataColl/*:timeMeth)" />
             <xsl:text>",</xsl:text>
         </xsl:if>
 
         <!-- analysisunit -->
         <xsl:if test="*:stdyInfo/*:sumDscr/*:anlyUnit">
             <xsl:text>"analysisunit": "</xsl:text>
-                <xsl:value-of select="*:stdyInfo/*:sumDscr/*:anlyUnit" />
+            <xsl:value-of select="normalize-space(*:stdyInfo/*:sumDscr/*:anlyUnit)" />
             <xsl:text>",</xsl:text>
         </xsl:if>
 
@@ -138,17 +140,35 @@
         <!-- samplingprocedure -->
         <xsl:if test="*:method/*:dataColl/*:sampProc">
             <xsl:text>"samplingprocedure": "</xsl:text>
-                <xsl:value-of select="*:method/*:dataColl/*:sampProc" />
+                <xsl:value-of select="normalize-space(*:method/*:dataColl/*:sampProc)" />
             <xsl:text>",</xsl:text>
         </xsl:if>
 
         <!-- Accesscondition -->
         <xsl:if test="*:dataAccs/*:setAvail/*:avlStatus">
             <xsl:text>"accessconditions": "</xsl:text>
-            <xsl:value-of select="*:dataAccs/*:setAvail/*:avlStatus" />
+            <xsl:value-of select="normalize-space(*:dataAccs/*:setAvail/*:avlStatus)" />
             <xsl:text>"</xsl:text>
         </xsl:if>
 
+    </xsl:template>
+
+    <xsl:template name="escapeQuote">
+        <xsl:param name="pText" select="normalize-space(.)"/>
+        
+        <xsl:if test="string-length($pText) >0">
+            <xsl:value-of select=
+                "substring-before(concat($pText, '&quot;'), '&quot;')"/>
+            
+            <xsl:if test="contains($pText, '&quot;')">
+                <xsl:text>\"</xsl:text>
+                
+                <xsl:call-template name="escapeQuote">
+                    <xsl:with-param name="pText" select=
+                        "substring-after($pText, '&quot;')"/>
+                </xsl:call-template>
+            </xsl:if>
+        </xsl:if>
     </xsl:template>
 
 </xsl:stylesheet>
