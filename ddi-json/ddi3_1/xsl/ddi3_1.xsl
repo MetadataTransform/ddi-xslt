@@ -81,6 +81,18 @@
         </xsl:for-each>
         <xsl:text>],</xsl:text>
         
+        <!-- sampling procedure -->
+        <xsl:text>"samplingprocedure": [</xsl:text>
+        <xsl:for-each select="//d:SamplingProcedure/r:Content">
+            <xsl:text>{"</xsl:text>
+            <xsl:value-of select="@xml:lang"/>
+            <xsl:text>": "</xsl:text>
+            <xsl:value-of select="normalize-space(.)"/>
+            <xsl:text>"}</xsl:text>
+            <xsl:if test="position() != last()">, </xsl:if>
+        </xsl:for-each>
+        <xsl:text>],</xsl:text>
+        
         <!-- title -->
         <xsl:text>"title": [</xsl:text>
         <xsl:for-each select="r:Citation/r:Title">
