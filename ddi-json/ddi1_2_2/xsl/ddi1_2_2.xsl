@@ -53,19 +53,19 @@
         <!-- kind of data -->
         <xsl:if test="*:stdyInfo/*:sumDscr/*:dataKind">
             <xsl:text>"kindofdata": "</xsl:text>
-            <xsl:value-of select="*:stdyInfo/*:sumDscr/*:dataKind"/>
+            <xsl:value-of select="normalize-space(*:stdyInfo/*:sumDscr/*:dataKind)"/>
             <xsl:text>",</xsl:text>
         </xsl:if>
 
         <!-- title -->
         <xsl:text>"title": [</xsl:text>
         <xsl:text>{"en": "</xsl:text>
-        <xsl:value-of select="*:citation/*:titlStmt/*:titl"/>
+        <xsl:value-of select="normalize-space(*:citation/*:titlStmt/*:titl)"/>
         <xsl:text>"}],</xsl:text>
 
         <!-- creator -->
         <xsl:text>"creator": [{"en": "</xsl:text>
-        <xsl:value-of select="*:citation/*:prodStmt/*:producer"/>
+        <xsl:value-of select="normalize-space(*:citation/*:prodStmt/*:producer)"/>
         <xsl:text>"}],</xsl:text>
 
         <xsl:variable name="timePrd" select="*:stdyInfo/*:sumDscr/*:collDate"/>
@@ -126,28 +126,27 @@
         <!-- country -->
         <xsl:if test="*:stdyInfo/*:sumDscr/*:nation">
             <xsl:text>"country": "</xsl:text>
-                <xsl:value-of select="*:stdyInfo/*:sumDscr/*:nation" />
+            <xsl:value-of select="normalize-space(*:stdyInfo/*:sumDscr/*:nation)" />
             <xsl:text>",</xsl:text>
         </xsl:if>
 
         <!-- modeofcollection -->
         <xsl:text>"modeofcollection" : [{ "en" : "</xsl:text>
-            <xsl:value-of select="*:method/*:dataColl/*:collMode" />
+            <xsl:value-of select="normalize-space(*:method/*:dataColl/*:collMode)" />
         <xsl:text>"}],</xsl:text>
         
-
         <!-- samplingprocedure -->
         <xsl:text>"samplingprocedure" : [{ "en" : "</xsl:text>
             <xsl:value-of select="normalize-space(*:method/*:dataColl/*:sampProc)" />
         <xsl:text>"}],</xsl:text>
 
         <!-- Accesscondition -->
-
         <xsl:text>"accessconditions": "</xsl:text>
-        <xsl:value-of select="normalize-space(*:dataAccs/*:setAvail/*:avlStatus)" />
+            <xsl:for-each select="*:dataAccs/*:setAvail/*:avlStatus">
+                <xsl:call-template name="escapeQuote" />
+            </xsl:for-each>
         <xsl:text>"</xsl:text>
         
-
     </xsl:template>
 
     <xsl:template name="escapeQuote">
