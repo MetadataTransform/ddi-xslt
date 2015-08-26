@@ -38,7 +38,7 @@
         <xsl:text>"repository": "</xsl:text><xsl:value-of select="@agency"/><xsl:text>",</xsl:text>
         
         <!-- analysis unit -->
-        <xsl:text>"analysis unit": [</xsl:text>
+        <xsl:text>"analysisunit": [</xsl:text>
         <xsl:for-each select="r:AnalysisUnit">
             <xsl:text>"</xsl:text>
             <xsl:value-of select="normalize-space(.)"/>
