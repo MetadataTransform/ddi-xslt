@@ -200,7 +200,9 @@
             <xsl:text>{"</xsl:text>
             <xsl:value-of select="@xml:lang"/>
             <xsl:text>": "</xsl:text>
-            <xsl:value-of select="normalize-space(.)"/>
+            
+            <xsl:call-template name="escapeQuote"/>
+            
             <xsl:text>"}</xsl:text>
             <xsl:if test="position() != last()">, </xsl:if>
         </xsl:for-each>
@@ -408,4 +410,23 @@
         </xsl:for-each>
         <xsl:text>]</xsl:text>
     </xsl:template>
+    
+    <xsl:template name="escapeQuote">
+        <xsl:param name="pText" select="normalize-space(.)"/>
+        
+        <xsl:if test="string-length($pText) >0">
+            <xsl:value-of select=
+                "substring-before(concat($pText, '&quot;'), '&quot;')"/>
+            
+            <xsl:if test="contains($pText, '&quot;')">
+                <xsl:text>\"</xsl:text>
+                
+                <xsl:call-template name="escapeQuote">
+                    <xsl:with-param name="pText" select=
+                        "substring-after($pText, '&quot;')"/>
+                </xsl:call-template>
+            </xsl:if>
+        </xsl:if>
+    </xsl:template>
+    
 </xsl:stylesheet>
