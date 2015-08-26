@@ -47,6 +47,18 @@
         </xsl:for-each>
         <xsl:text>],</xsl:text>
         
+        <!-- mode of collection  -->
+        <xsl:text>"modeofcollection": [</xsl:text>
+        <xsl:for-each select="//d:ModeOfCollection/r:Content">
+            <xsl:text>{"</xsl:text>
+            <xsl:value-of select="@xml:lang"/>
+            <xsl:text>": "</xsl:text>
+            <xsl:value-of select="normalize-space(.)"/>
+            <xsl:text>"}</xsl:text>
+            <xsl:if test="position() != last()">, </xsl:if>
+        </xsl:for-each>
+        <xsl:text>],</xsl:text>
+        
         <!-- time method -->
         <xsl:text>"timemethod": [</xsl:text>
         <xsl:for-each select="//d:TimeMethod/r:Content">
