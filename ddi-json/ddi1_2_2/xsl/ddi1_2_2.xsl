@@ -64,10 +64,17 @@
         <xsl:text>"}],</xsl:text>
 
         <!-- creator -->
-        <xsl:text>"creator": [{"en": "</xsl:text>
-        <xsl:value-of select="normalize-space(*:citation/*:prodStmt/*:producer)"/>
-        <xsl:text>"}],</xsl:text>
-
+        <xsl:if test="*:citation/*:prodStmt/*:producer">
+            <xsl:text>"creator": [</xsl:text>
+            <xsl:for-each select="*:citation/*:prodStmt/*:producer">
+                <xsl:text>{"en": "</xsl:text>
+                <xsl:value-of select="normalize-space(.)"/>
+                <xsl:text>"}</xsl:text>
+                <xsl:if test="position() != last()">, </xsl:if>
+            </xsl:for-each>
+            <xsl:text>],</xsl:text>
+        </xsl:if>        
+        
         <xsl:variable name="timePrd" select="*:stdyInfo/*:sumDscr/*:collDate"/>
         <xsl:if test="$timePrd[@event = 'start']">
             <xsl:text>"startdate": "</xsl:text>
