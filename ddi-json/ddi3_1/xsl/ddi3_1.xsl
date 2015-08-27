@@ -50,14 +50,14 @@
         <xsl:text>"repository": "</xsl:text><xsl:value-of select="@agency"/><xsl:text>",</xsl:text>
         
         <!-- analysis unit -->
-        <xsl:text>"analysisunit": [ {</xsl:text>
+        <xsl:text>"analysisunit": [ </xsl:text>
         <xsl:for-each select="r:AnalysisUnit">
-            <xsl:text>"en": "</xsl:text>
+            <xsl:text>{"en": "</xsl:text>
             <xsl:value-of select="normalize-space(.)"/>
-            <xsl:text>"</xsl:text>
+            <xsl:text>"}</xsl:text>
             <xsl:if test="position() != last()">, </xsl:if>
         </xsl:for-each>
-        <xsl:text>} ],</xsl:text>
+        <xsl:text>],</xsl:text>
         
         <!-- mode of collection  -->
         <xsl:text>"modeofcollection": [</xsl:text>
