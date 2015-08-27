@@ -125,9 +125,9 @@
 
         <!-- analysisunit -->
         <xsl:if test="*:stdyInfo/*:sumDscr/*:anlyUnit">
-            <xsl:text>"analysisunit" : "</xsl:text>
+            <xsl:text>"analysisunit" : [{ "en" : "</xsl:text>
             <xsl:value-of select="normalize-space(*:stdyInfo/*:sumDscr/*:anlyUnit)" />
-            <xsl:text>",</xsl:text>
+            <xsl:text>"}],</xsl:text>
         </xsl:if>
 
         <!-- country -->
