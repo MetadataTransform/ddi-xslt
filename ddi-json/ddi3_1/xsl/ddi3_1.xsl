@@ -20,6 +20,18 @@
     </xsl:template>
 
     <xsl:template match="s:StudyUnit">
+        
+        <!-- Country value. Set default 'Denmark' for DDA. If not available leave as empty value. -->
+        <xsl:param name="country">
+            <xsl:choose>
+                <xsl:when test="//r:GeographicLocation/r:Values/r:GeographyValue[r:GeographyCode/r:Value[@codeListID='ISO3166-1']]/r:GeographyName[@xml:lang='en']">
+                    <xsl:value-of select="//r:GeographicLocation/r:Values/r:GeographyValue[r:GeographyCode/r:Value[@codeListID='ISO3166-1']]/r:GeographyName[@xml:lang='en']"/>
+                </xsl:when>
+                <xsl:when test="@agency = 'dk.dda'">Denmark</xsl:when>
+                <xsl:otherwise></xsl:otherwise>
+            </xsl:choose>
+        </xsl:param>
+        
         <!-- study id -->
         <xsl:text>"id": "</xsl:text>
         <xsl:choose>
@@ -38,14 +50,14 @@
         <xsl:text>"repository": "</xsl:text><xsl:value-of select="@agency"/><xsl:text>",</xsl:text>
         
         <!-- analysis unit -->
-        <xsl:text>"analysisunit": [</xsl:text>
+        <xsl:text>"analysisunit": [ {</xsl:text>
         <xsl:for-each select="r:AnalysisUnit">
-            <xsl:text>"</xsl:text>
+            <xsl:text>"en": "</xsl:text>
             <xsl:value-of select="normalize-space(.)"/>
             <xsl:text>"</xsl:text>
             <xsl:if test="position() != last()">, </xsl:if>
         </xsl:for-each>
-        <xsl:text>],</xsl:text>
+        <xsl:text>} ],</xsl:text>
         
         <!-- mode of collection  -->
         <xsl:text>"modeofcollection": [</xsl:text>
@@ -93,6 +105,11 @@
         </xsl:for-each>
         <xsl:text>],</xsl:text>
         
+        <!-- country -->
+        <xsl:text>"country": "</xsl:text>
+        <xsl:value-of select="$country"/>
+        <xsl:text>",</xsl:text>
+        
         <!-- title -->
         <xsl:text>"title": [</xsl:text>
         <xsl:for-each select="r:Citation/r:Title">
@@ -104,6 +121,13 @@
             <xsl:if test="position() != last()">, </xsl:if>
         </xsl:for-each>
         <xsl:text>],</xsl:text>
+        
+        <!-- original (main) repository's landing page -->
+        <xsl:if test="//a:Archive/a:ArchiveSpecific/a:Collection/a:URI">
+            <xsl:text>"landingpage": "</xsl:text>
+            <xsl:value-of select="normalize-space(//a:Archive/a:ArchiveSpecific/a:Collection/a:URI)"/>
+            <xsl:text>",</xsl:text>
+        </xsl:if>
 
         <!-- creator -->
         <xsl:text>"creator": [</xsl:text>
