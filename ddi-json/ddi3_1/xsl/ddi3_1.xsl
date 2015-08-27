@@ -200,7 +200,10 @@
                 <xsl:text>{"</xsl:text>
                 <xsl:value-of select="@xml:lang"/>
                 <xsl:text>": "</xsl:text>
-                <xsl:value-of select="normalize-space(.)"/>
+                
+                <!-- Get scope value and get rid of double quotation marks.  -->
+                <xsl:call-template name="escapeQuote"/>
+                
                 <xsl:text>"}</xsl:text>
                 <xsl:if test="position() != last()">, </xsl:if>
             </xsl:for-each>
