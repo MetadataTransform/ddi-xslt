@@ -20,6 +20,18 @@
     </xsl:template>
 
     <xsl:template match="s:StudyUnit">
+        
+        <!-- Country value. Set default 'Denmark' for DDA. If not available leave as empty value. -->
+        <xsl:param name="country">
+            <xsl:choose>
+                <xsl:when test="//r:GeographicLocation/r:Values/r:GeographyValue[r:GeographyCode/r:Value[@codeListID='ISO3166-1']]/r:GeographyName[@xml:lang='en']">
+                    <xsl:value-of select="//r:GeographicLocation/r:Values/r:GeographyValue[r:GeographyCode/r:Value[@codeListID='ISO3166-1']]/r:GeographyName[@xml:lang='en']"/>
+                </xsl:when>
+                <xsl:when test="@agency = 'dk.dda'">Denmark</xsl:when>
+                <xsl:otherwise></xsl:otherwise>
+            </xsl:choose>
+        </xsl:param>
+        
         <!-- study id -->
         <xsl:text>"id": "</xsl:text>
         <xsl:choose>
@@ -92,6 +104,11 @@
             <xsl:if test="position() != last()">, </xsl:if>
         </xsl:for-each>
         <xsl:text>],</xsl:text>
+        
+        <!-- country -->
+        <xsl:text>"country": "</xsl:text>
+        <xsl:value-of select="$country"/>
+        <xsl:text>",</xsl:text>
         
         <!-- title -->
         <xsl:text>"title": [</xsl:text>
