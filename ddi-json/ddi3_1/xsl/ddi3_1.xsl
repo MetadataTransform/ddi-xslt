@@ -121,6 +121,13 @@
             <xsl:if test="position() != last()">, </xsl:if>
         </xsl:for-each>
         <xsl:text>],</xsl:text>
+        
+        <!-- original (main) repository's landing page -->
+        <xsl:if test="//a:Archive/a:ArchiveSpecific/a:Collection/a:URI">
+            <xsl:text>"landingpage": "</xsl:text>
+            <xsl:value-of select="normalize-space(//a:Archive/a:ArchiveSpecific/a:Collection/a:URI)"/>
+            <xsl:text>",</xsl:text>
+        </xsl:if>
 
         <!-- creator -->
         <xsl:text>"creator": [</xsl:text>
