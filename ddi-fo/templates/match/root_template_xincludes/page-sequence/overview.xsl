@@ -462,17 +462,20 @@
               </fo:table-cell>
             </fo:table-row>
             
-            
             <!-- Sampling Procedure -->
             <xsl:if test="/codeBook/stdyDscr/method/dataColl/sampProc">
               <fo:table-row>
                 <fo:table-cell number-columns-spanned="2" border="{$layout.tables.border}" padding="{$layout.tables.cellpadding}">
                   <fo:block font-weight="bold" text-decoration="none">
                     <xsl:value-of select="i18n:get('Sampling_Procedure')" />
-                  </fo:block>              
-                  <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
-                    <xsl:value-of select="util:trim(/codeBook/stdyDscr/method/dataColl/sampProc)" />
-                  </fo:block>                
+                  </fo:block>
+                  <!-- workaround for DDI files with many sampProc elements -->
+                  <xsl:for-each select="/codeBook/stdyDscr/method/dataColl/sampProc">
+                    <fo:block linefeed-treatment="preserve" white-space-collapse="false" space-after="0.0mm">
+                      <!-- <xsl:value-of select="util:trim(/codeBook/stdyDscr/method/dataColl/sampProc)" /> -->
+                      <xsl:value-of select="util:trim(.)" />
+                    </fo:block>
+                  </xsl:for-each>
                 </fo:table-cell>
               </fo:table-row>
             </xsl:if>
