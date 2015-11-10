@@ -21,22 +21,22 @@ The full text of the license is also available on the Internet at
 http://www.gnu.org/copyleft/lesser.html
 -->
 <xsl:stylesheet xmlns="http://www.icpsr.umich.edu/DDI" xmlns:dc="http://purl.org/dc/elements/1.1/"
-  xmlns:g="ddi:group:3_1" xmlns:d="ddi:datacollection:3_1" xmlns:dce="ddi:dcelements:3_1"
-  xmlns:c="ddi:conceptualcomponent:3_1" xmlns:xhtml="http://www.w3.org/1999/xhtml"
-  xmlns:a="ddi:archive:3_1" xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_1"
-  xmlns:ddi="ddi:instance:3_1" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_1"
-  xmlns:o="ddi:organizations:3_1" xmlns:l="ddi:logicalproduct:3_1"
-  xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1" xmlns:pd="ddi:physicaldataproduct:3_1"
-  xmlns:cm="ddi:comparative:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:r="ddi:reusable:3_1"
-  xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1"
+  xmlns:g="ddi:group:3_2" xmlns:d="ddi:datacollection:3_2" xmlns:dce="ddi:dcelements:3_2"
+  xmlns:c="ddi:conceptualcomponent:3_2" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:a="ddi:archive:3_2" xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_2"
+  xmlns:ddi="ddi:instance:3_2" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_2"
+  xmlns:o="ddi:organizations:3_2" xmlns:l="ddi:logicalproduct:3_2"
+  xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_2" xmlns:pd="ddi:physicaldataproduct:3_2"
+  xmlns:cm="ddi:comparative:3_2" xmlns:s="ddi:studyunit:3_2" xmlns:r="ddi:reusable:3_2"
+  xmlns:pi="ddi:physicalinstance:3_2" xmlns:ds="ddi:dataset:3_2" xmlns:pr="ddi:profile:3_2"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:util="https://code.google.com/p/ddixslt/#util"
   xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd"
-  exclude-result-prefixes="xsl dc2 g d c a m1 m2 m3 ddi l pd cm s r pi ds pr"
+  exclude-result-prefixes="xsl g d c a m1 m2 m3 ddi l pd cm s r pi ds pr"
   version="2.0">
 
-  <xsl:import href="ddi3_1_util.xsl"/>
+  <xsl:import href="ddi3_2_util.xsl"/>
   <xsl:import href="xhtml.xsl"/>
 
   <!-- output format -->
@@ -170,8 +170,8 @@ http://www.gnu.org/copyleft/lesser.html
             <prodDate date="{current-date()}">
               <xsl:value-of select="current-date()"/>
             </prodDate>
-            <software version="development">code.google.com/p/ddixslt
-              ddi3_1_to_ddi1_2_2.xsl</software>
+            <software version="development">github.com/MetadataTransform/ddi-xslt/tree/master/ddi-1.2.2/ddi3_2/
+              ddi3_2_to_ddi1_2_2.xsl</software>
           </prodStmt>
 
           <!--distStmt>
