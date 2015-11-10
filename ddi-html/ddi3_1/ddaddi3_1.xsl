@@ -1,25 +1,39 @@
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:g="ddi:group:3_1" xmlns:d="ddi:datacollection:3_1" xmlns:dce="ddi:dcelements:3_1" xmlns:c="ddi:conceptualcomponent:3_1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:a="ddi:archive:3_1"
-  xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_1" xmlns:ddi="ddi:instance:3_1" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_1" xmlns:o="ddi:organizations:3_1" xmlns:l="ddi:logicalproduct:3_1" xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1" xmlns:pd="ddi:physicaldataproduct:3_1"
-  xmlns:cm="ddi:comparative:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:r="ddi:reusable:3_1" xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1" xmlns:util="https://code.google.com/p/ddixslt/#util" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd" version="2.0">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:g="ddi:group:3_1" xmlns:d="ddi:datacollection:3_1" xmlns:dce="ddi:dcelements:3_1"
+  xmlns:c="ddi:conceptualcomponent:3_1" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:a="ddi:archive:3_1" xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_1"
+  xmlns:ddi="ddi:instance:3_1" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_1"
+  xmlns:o="ddi:organizations:3_1" xmlns:l="ddi:logicalproduct:3_1"
+  xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_1" xmlns:pd="ddi:physicaldataproduct:3_1"
+  xmlns:cm="ddi:comparative:3_1" xmlns:s="ddi:studyunit:3_1" xmlns:r="ddi:reusable:3_1"
+  xmlns:pi="ddi:physicalinstance:3_1" xmlns:ds="ddi:dataset:3_1" xmlns:pr="ddi:profile:3_1"
+  xmlns:util="https://code.google.com/p/ddixslt/#util"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd"
+  version="2.0">
 
   <xsl:import href="ddi3_1.xsl"/>
 
   <!--  svn version -->
-  <xsl:param name="svn-revision">Revision: 398</xsl:param>
+  <xsl:param name="svn-revision">Revision: 399</xsl:param>
 
   <!-- show frequencies on numeric variable with missing values -->
   <xsl:param name="show-numeric-var-frequence">true</xsl:param>
 
   <!-- show Messure -->
   <xsl:param name="show-messure">false</xsl:param>
-  
+
+  <!-- show Instrumentation i.e. Main and sub-sequences -->
+  <xsl:param name="show-instrumentation">true</xsl:param>
+
   <!-- upper lower case translations-->
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyzæøå'"/>
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'"/>
 
   <!-- output -->
-  <xsl:output method="html" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes"/>
+  <xsl:output method="html" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+    doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" indent="yes"/>
   <xsl:decimal-format name="euro" decimal-separator="," grouping-separator="."/>
 
   <!-- study - universe - concepts inherited from ddi3_1.xsl -->
@@ -80,9 +94,11 @@
       <xsl:variable name="cID" select="l:ConceptReference/r:ID"/>
       <xsl:if test="$cID">
         <li class="concepts">
-          <xsl:for-each select="../../../c:ConceptualComponent/c:ConceptScheme/c:Concept[@id = $cID]">
+          <xsl:for-each
+            select="../../../c:ConceptualComponent/c:ConceptScheme/c:Concept[@id = $cID]">
             <a>
-              <xsl:attribute name="href">#<xsl:value-of select="$cID"/>.<xsl:value-of select="@version"/>
+              <xsl:attribute name="href">#<xsl:value-of select="$cID"/>.<xsl:value-of
+                  select="@version"/>
               </xsl:attribute>
               <xsl:attribute name="title">
                 <xsl:call-template name="DisplayDescription"/>
@@ -97,10 +113,12 @@
       <xsl:if test="$show-universe = 'true'">
         <xsl:for-each select="r:UniverseReference">
           <xsl:variable name="uID" select="r:ID"/>
-          <xsl:for-each select="../../../../c:ConceptualComponent/c:UniverseScheme/c:Universe[@id = $uID]">
+          <xsl:for-each
+            select="../../../../c:ConceptualComponent/c:UniverseScheme/c:Universe[@id = $uID]">
             <li class="universes">
               <a>
-                <xsl:attribute name="href">#<xsl:value-of select="$uID"/>.<xsl:value-of select="@version"/></xsl:attribute>
+                <xsl:attribute name="href">#<xsl:value-of select="$uID"/>.<xsl:value-of
+                    select="@version"/></xsl:attribute>
                 <xsl:attribute name="title">
                   <xsl:value-of select="c:HumanReadable[@xml:lang=$lang]"/>
                 </xsl:attribute>
@@ -137,16 +155,24 @@
             </xsl:attribute>
           </a>
 
-          <xsl:if test="count(../../../d:DataCollection/d:QuestionScheme/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text) > 0">
-            <xsl:value-of select="../../../d:DataCollection/d:QuestionScheme/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text"/>
+          <xsl:if
+            test="count(../../../d:DataCollection/d:QuestionScheme/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text) > 0">
+            <xsl:value-of
+              select="../../../d:DataCollection/d:QuestionScheme/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text"
+            />
           </xsl:if>
-          <xsl:if test="count(../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text) > 0">
+          <xsl:if
+            test="count(../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text) > 0">
             <span class="multipleQuestion">
-              <xsl:value-of select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/../../d:QuestionText/d:LiteralText/d:Text"/>
+              <xsl:value-of
+                select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/../../d:QuestionText/d:LiteralText/d:Text"
+              />
             </span>
             <!--br/-->
             <div class="question">
-              <xsl:value-of select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text"/>
+              <xsl:value-of
+                select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem[@id = $qiID]/d:QuestionText/d:LiteralText/d:Text"
+              />
             </div>
           </xsl:if>
         </li>
@@ -196,14 +222,19 @@
       </xsl:variable>
 
       <!-- statistics -->
-      <xsl:variable name="decimalPosition" select="l:Representation/l:NumericRepresentation/@decimalPositions"/>
-      <xsl:if test="l:Representation/l:CodeRepresentation or 
+      <xsl:variable name="decimalPosition"
+        select="l:Representation/l:NumericRepresentation/@decimalPositions"/>
+      <xsl:if
+        test="l:Representation/l:CodeRepresentation or 
         (l:Representation/l:NumericRepresentation and $show-numeric-var-frequence = 'true'  and $missingValue != '' and $filterInfo != '')">
-        <xsl:variable name="csID" select="l:Representation/l:CodeRepresentation/r:CodeSchemeReference/r:ID"/>
+        <xsl:variable name="csID"
+          select="l:Representation/l:CodeRepresentation/r:CodeSchemeReference/r:ID"/>
         <table class="categoryStatisticsSurround">
           <xsl:choose>
-            <xsl:when test="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics/pi:VariableReference/r:ID = $varID">
-              <xsl:for-each select="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics">
+            <xsl:when
+              test="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics/pi:VariableReference/r:ID = $varID">
+              <xsl:for-each
+                select="../../../pi:PhysicalInstance/pi:Statistics/pi:VariableStatistics">
                 <!-- find statistics for current variable -->
                 <xsl:if test="pi:VariableReference/r:ID = $varID">
                   <!-- display statistics -->
@@ -248,10 +279,14 @@
                             </td>
                             <xsl:variable name="ref" select="l:CategoryReference/r:ID"/>
                             <td class="categoryLabel left">
-                              <xsl:value-of select="../../l:CategoryScheme/l:Category[@id=$ref]/r:Label"/>
-                              <xsl:if test="count(../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$ref]) > 0">
+                              <xsl:value-of
+                                select="../../l:CategoryScheme/l:Category[@id=$ref]/r:Label"/>
+                              <xsl:if
+                                test="count(../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$ref]) > 0">
                                 <resource>
-                                  <xsl:value-of select="../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$ref]/r:Label"/>
+                                  <xsl:value-of
+                                    select="../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$ref]/r:Label"
+                                  />
                                 </resource>
                               </xsl:if>
                             </td>
@@ -295,7 +330,8 @@
       </xsl:for-each>
     </xsl:if>
     <!--: other -->
-    <xsl:for-each select="l:Representation/l:CategoryRepresentation | 
+    <xsl:for-each
+      select="l:Representation/l:CategoryRepresentation | 
       l:Representation/l:GeographicRepresentation | 
       l:Representation/l:DateTimeRepresentation | 
       l:Representation/l:TextRepresentation">
@@ -363,7 +399,8 @@
     <xsl:if test="$show-category-statistics='true'">
       <script type="text/javascript">
         <xsl:text> $(function () {</xsl:text>
-        <!-- define graph data -->
+        <!--
+                define graph data//-->
         <xsl:text>var data = [ </xsl:text>
         <xsl:for-each select="pi:CategoryStatistics">
           <xsl:call-template name="displayStatisticPie">
@@ -389,7 +426,8 @@
         </xsl:for-each>
         <xsl:text> ];</xsl:text>
 
-        <!-- plot graph -->
+        <!--
+                plot graph//-->
         <xsl:text>&#10;</xsl:text>
         <xsl:text>$.plot($("#</xsl:text>
         <xsl:text>graph-</xsl:text>
@@ -465,7 +503,8 @@
         <!-- return string if lastChar is last char -->
         <xsl:choose>
           <xsl:when test="contains($in-string, '.')">
-            <xsl:if test="substring(substring-before($in-string,'.'), string-length(substring-before($in-string,'.'))) = $lastChar">
+            <xsl:if
+              test="substring(substring-before($in-string,'.'), string-length(substring-before($in-string,'.'))) = $lastChar">
               <xsl:value-of select="substring-before($in-string,'.')"/>
             </xsl:if>
           </xsl:when>
@@ -491,9 +530,11 @@
     <xsl:if test="count(pi:CategoryStatistic) > 0">
       <xsl:variable name="codeValue" select="pi:CategoryValue"/>
       <xsl:variable name="categoryRef">
-        <xsl:value-of select="../../../../l:LogicalProduct/l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
+        <xsl:value-of
+          select="../../../../l:LogicalProduct/l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
         <xsl:for-each select="../../../../../g:ResourcePackage">
-          <xsl:value-of select="l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
+          <xsl:value-of
+            select="l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
         </xsl:for-each>
       </xsl:variable>
       <tr>
@@ -525,18 +566,20 @@
         </td>
         <td class="left">
           <!-- local categories -->
-          <xsl:for-each select="../../../../l:LogicalProduct/l:CategoryScheme/l:Category[@id=$categoryRef]">
+          <xsl:for-each
+            select="../../../../l:LogicalProduct/l:CategoryScheme/l:Category[@id=$categoryRef]">
             <xsl:call-template name="CreateLink"/>
             <xsl:call-template name="DisplayLabel"/>
           </xsl:for-each>
           <!-- resource package categories -->
-          <xsl:for-each select="../../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$categoryRef]">
+          <xsl:for-each
+            select="../../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$categoryRef]">
             <xsl:call-template name="CreateLink"/>
             <resource>
               <xsl:call-template name="DisplayLabel"/>
             </resource>
           </xsl:for-each>
-          
+
           <xsl:if test="$codeValue = '.'">
             <!-- SYSMIS found - insert "Null" as Category Label -->
             <xsl:text>Null</xsl:text>
@@ -549,7 +592,8 @@
           <xsl:if test="string-length($codeValue) > 0 and normalize-space($codeValue) = $irrelevant">
             <xsl:value-of select="util:i18n('Irrelevant')"/>
           </xsl:if>
-          <xsl:if test="string-length($codeValue) > 0 and normalize-space($codeValue) = $deltagerIkke">
+          <xsl:if
+            test="string-length($codeValue) > 0 and normalize-space($codeValue) = $deltagerIkke">
             <xsl:value-of select="util:i18n('NotParticipating')"/>
           </xsl:if>
         </td>
@@ -565,7 +609,8 @@
 
     <xsl:choose>
       <xsl:when test="$type = 'ValidPercent'">
-        <xsl:if test="count(pi:CategoryStatistic/pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) = 0">
+        <xsl:if
+          test="count(pi:CategoryStatistic/pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) = 0">
           <td>
             <xsl:text> </xsl:text>
           </td>
@@ -579,7 +624,8 @@
           <xsl:value-of select="format-number(pi:Value, &quot;0&quot;)"/>
         </td>
       </xsl:if>
-      <xsl:if test="$type = 'ValidPercent' and count(pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) > 0">
+      <xsl:if
+        test="$type = 'ValidPercent' and count(pi:CategoryStatisticTypeCoded[@otherValue = 'ValidPercent']) > 0">
         <td align="right" valign="top">
           <xsl:value-of select="format-number(pi:Value, &quot;0&quot;)"/>
         </td>
@@ -608,23 +654,28 @@
     <xsl:if test="count(pi:CategoryStatistic) > 0">
       <xsl:variable name="codeValue" select="pi:CategoryValue"/>
       <xsl:variable name="categoryRef">
-        <xsl:value-of select="../../../../l:LogicalProduct/l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
+        <xsl:value-of
+          select="../../../../l:LogicalProduct/l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
         <xsl:for-each select="../../../../../g:ResourcePackage">
-          <xsl:value-of select="l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
+          <xsl:value-of
+            select="l:CodeScheme[@id=$csID]/l:Code[l:Value=$codeValue]/l:CategoryReference/r:ID"/>
         </xsl:for-each>
       </xsl:variable>
 
       <xsl:variable name="label">
-        <xsl:for-each select="../../../../l:LogicalProduct/l:CategoryScheme/l:Category[@id=$categoryRef]">
+        <xsl:for-each
+          select="../../../../l:LogicalProduct/l:CategoryScheme/l:Category[@id=$categoryRef]">
           <xsl:call-template name="DisplayLabel"/>
         </xsl:for-each>
-        <xsl:for-each select="../../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$categoryRef]">
+        <xsl:for-each
+          select="../../../../../g:ResourcePackage/l:CategoryScheme/l:Category[@id=$categoryRef]">
           <xsl:call-template name="DisplayLabel"/>
         </xsl:for-each>
       </xsl:variable>
 
       <xsl:variable name="testCode" select="normalize-space($codeValue)"/>
-      <xsl:if test=" $testCode != $uoplyst and $testCode != $irrelevant and $testCode != $deltagerIkke">
+      <xsl:if
+        test=" $testCode != $uoplyst and $testCode != $irrelevant and $testCode != $deltagerIkke">
         <xsl:text>{ label: "</xsl:text>
         <xsl:variable name="label2">
           <xsl:call-template name="removeNewLine">
@@ -820,7 +871,8 @@
           <xsl:for-each select="../../d:IfThenElse">
             <xsl:variable name="h-ifth" select="@id"/>
             <xsl:variable name="h-ifth-version" select="@version"/>
-            <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
+            <xsl:if
+              test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
               <li class="filteredby">
                 <xsl:call-template name="createFilterLinks">
                   <xsl:with-param name="ccId">
@@ -858,7 +910,8 @@
     <xsl:if test="r:UserID=$variableName">
       <xsl:variable name="quei" select="@id"/>
       <!-- get Question Construct -->
-      <xsl:for-each select="../../d:ControlConstructScheme/d:QuestionConstruct | ../../../../d:ControlConstructScheme/d:QuestionConstruct">
+      <xsl:for-each
+        select="../../d:ControlConstructScheme/d:QuestionConstruct | ../../../../d:ControlConstructScheme/d:QuestionConstruct">
         <xsl:if test="d:QuestionReference/r:ID=$quei or d:QuestionReference/r:ID=$mquei">
           <xsl:variable name="quec" select="@id"/>
           <!-- get Sequence pointing to Question Construct via Control Constuct Reference -->
@@ -869,7 +922,8 @@
               <xsl:for-each select="../../d:IfThenElse">
                 <xsl:variable name="ifth" select="@id"/>
                 <xsl:variable name="ifthVersion" select="@version"/>
-                <xsl:if test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
+                <xsl:if
+                  test="d:ThenConstructReference/r:ID=$seqc or d:ElseConstructReference/r:ID=$seqc">
                   <li class="filteredby">
                     <xsl:call-template name="createFilterLinks">
                       <xsl:with-param name="ccId">
@@ -970,7 +1024,8 @@
         <xsl:with-param name="mquei"/>
       </xsl:call-template>
     </xsl:for-each>
-    <xsl:for-each select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem">
+    <xsl:for-each
+      select="../../../d:DataCollection/d:QuestionScheme/d:MultipleQuestionItem/d:SubQuestions/d:QuestionItem">
       <xsl:call-template name="traverseQuestionItem">
         <xsl:with-param name="variableName" select="$variableName"/>
         <xsl:with-param name="mquei" select="../../@id"/>
@@ -1021,48 +1076,50 @@
 
   <!-- Instrumentation -->
   <xsl:template match="d:ControlConstructScheme">
-    <h3 id="Instrumentation">
-      <xsl:value-of select="util:i18n('Instrumentation')"/>
-    </h3>
-    <xsl:variable name="mainSeqId" select="../d:Instrument/d:ControlConstructReference/r:ID"/>
+    <xsl:if test="$show-instrumentation='true'">
+      <h3 id="Instrumentation">
+        <xsl:value-of select="util:i18n('Instrumentation')"/>
+      </h3>
+      <xsl:variable name="mainSeqId" select="../d:Instrument/d:ControlConstructReference/r:ID"/>
 
-    <!-- Main sequence -->
-    <xsl:for-each select="d:Sequence">
-      <xsl:if test="@id = $mainSeqId">
-        <h4>
-          <xsl:value-of select="util:i18n('MainSequence')"/>
-        </h4>
-        <div class="instrumentation">
-          <ul class="sequences">
-            <xsl:call-template name="sequenceLabel"/>
-            <xsl:call-template name="sequence"/>
-          </ul>
-        </div>
-      </xsl:if>
-    </xsl:for-each>
-
-    <!-- All other sequences -->
-    <h4>
-      <xsl:value-of select="util:i18n('Sequences')"/>
-    </h4>
-    <div class="instrumentation">
-      <ul class="sequences">
-        <xsl:for-each select="d:Sequence">
-          <xsl:choose>
-            <xsl:when test="not($mainSeqId)">
+      <!-- Main sequence -->
+      <xsl:for-each select="d:Sequence">
+        <xsl:if test="@id = $mainSeqId">
+          <h4>
+            <xsl:value-of select="util:i18n('MainSequence')"/>
+          </h4>
+          <div class="instrumentation">
+            <ul class="sequences">
               <xsl:call-template name="sequenceLabel"/>
               <xsl:call-template name="sequence"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:if test="@id != $mainSeqId">
+            </ul>
+          </div>
+        </xsl:if>
+      </xsl:for-each>
+
+      <!-- All other sequences -->
+      <h4>
+        <xsl:value-of select="util:i18n('Sequences')"/>
+      </h4>
+      <div class="instrumentation">
+        <ul class="sequences">
+          <xsl:for-each select="d:Sequence">
+            <xsl:choose>
+              <xsl:when test="not($mainSeqId)">
                 <xsl:call-template name="sequenceLabel"/>
                 <xsl:call-template name="sequence"/>
-              </xsl:if>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:for-each>
-      </ul>
-    </div>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:if test="@id != $mainSeqId">
+                  <xsl:call-template name="sequenceLabel"/>
+                  <xsl:call-template name="sequence"/>
+                </xsl:if>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:for-each>
+        </ul>
+      </div>
+    </xsl:if>
   </xsl:template>
 
   <!-- Render Sequence Label -->
@@ -1108,18 +1165,21 @@
             </xsl:for-each>
           </xsl:for-each>
 
-          <xsl:for-each select="../../d:QuestionScheme/d:QuestionItem[@id=$qrId] |
+          <xsl:for-each
+            select="../../d:QuestionScheme/d:QuestionItem[@id=$qrId] |
                       ../../d:QuestionScheme/d:MultipleQuestionItem[@id=$qrId]/d:SubQuestions/d:QuestionItem">
             <xsl:variable name="userId" select="r:UserID"/>
             <xsl:variable name="qId" select="@id"/>
 
             <li class="questions">
               <!-- get anchor of variable referencing this question item -->
-              <xsl:for-each select="../../../../../l:LogicalProduct/l:VariableScheme/l:Variable |
+              <xsl:for-each
+                select="../../../../../l:LogicalProduct/l:VariableScheme/l:Variable |
                       ../../../l:LogicalProduct/l:VariableScheme/l:Variable">
                 <xsl:if test="l:QuestionReference/r:ID = $qId">
                   <a>
-                    <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/></xsl:attribute>
+                    <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of
+                        select="@version"/></xsl:attribute>
                     <xsl:attribute name="title">
                       <xsl:call-template name="DisplayLabel"/>
                     </xsl:attribute>
@@ -1157,7 +1217,8 @@
             <xsl:variable name="eversion" select="d:ElseConstructReference/r:Version"/>
             <xsl:text> then </xsl:text>
             <a>
-              <xsl:attribute name="href">#<xsl:value-of select="$tid"/><xsl:text>.</xsl:text><xsl:value-of select="$tversion"/></xsl:attribute>
+              <xsl:attribute name="href">#<xsl:value-of select="$tid"
+                  /><xsl:text>.</xsl:text><xsl:value-of select="$tversion"/></xsl:attribute>
               <xsl:value-of select="../d:Sequence[@id=$tid]/r:Label"/>
             </a>
             <xsl:if test="$eid">
@@ -1173,7 +1234,8 @@
           <xsl:variable name="seq" select="../../d:Sequence[@id=$qcId]"/>
           <li class="subsequences">
             <a>
-              <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of select="@version"/>
+              <xsl:attribute name="href">#<xsl:value-of select="@id"/>.<xsl:value-of
+                  select="@version"/>
               </xsl:attribute>
               <xsl:value-of select="r:Label"/>
             </a>
