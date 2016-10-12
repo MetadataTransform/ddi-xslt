@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
 
 Description:
@@ -23,45 +22,14 @@ You should have received a copy of the GNU Lesser General Public
 License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-
-<xsl:stylesheet version="2.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-				xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:xhtml="http://www.w3.org/1999/xhtml" 
-                xmlns:marc="http://www.loc.gov/MARC21/slim"                              
-                xmlns:dc="http://purl.org/dc/elements/1.1/" 
-                xmlns:dc2="ddi:dcelements:3_2" 
-                xmlns:g="ddi:group:3_2" 
-                xmlns:d="ddi:datacollection:3_2"                 
-                xmlns:c="ddi:conceptualcomponent:3_2"                 
-                xmlns:a="ddi:archive:3_2"
-                xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_2" 				
-                xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_2" 
-                xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_2" 
-                xmlns:ddi="ddi:instance:3_2"
-                xmlns:l="ddi:logicalproduct:3_2" 				
-                xmlns:pd="ddi:physicaldataproduct:3_2"
-                xmlns:cm="ddi:comparative:3_2" 
-                xmlns:s="ddi:studyunit:3_2" 
-                xmlns:r="ddi:reusable:3_2" 
-                xmlns:pi="ddi:physicalinstance:3_2" 
-                xmlns:ds="ddi:dataset:3_2" 
-                xmlns:pr="ddi:profile:3_2"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/sites/default/files/schema/ddi3.2/instance.xsd http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd"
-                xmlns:exslt="http://exslt.org/dates-and-times"
-                extension-element-prefixes="exslt"
-                exclude-result-prefixes="xsl xhtml marc dc dc2 g d c a m1 m2 m3 ddi l pd cm s r pi ds pr">
-  
-    <xsl:output method="xml" encoding="iso-8859-1" indent="yes" />
+<xsl:stylesheet xmlns:a="ddi:archive:3_2" xmlns:pr="ddi:profile:3_2" xmlns:c="ddi:conceptualcomponent:3_2" xmlns:d="ddi:datacollection:3_2" xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_2" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_2" xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_2" xmlns:g="ddi:group:3_2" xmlns:ddi="ddi:instance:3_2" xmlns:cm="ddi:comparative:3_2" xmlns:l="ddi:logicalproduct:3_2" xmlns:ds="ddi:dataset:3_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:exslt="http://exslt.org/dates-and-times" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:dc2="ddi:dcelements:3_2" xmlns:r="ddi:reusable:3_2" xmlns:s="ddi:studyunit:3_2" xmlns:pd="ddi:physicaldataproduct:3_2" xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:pi="ddi:physicalinstance:3_2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/sites/default/files/schema/ddi3.2/instance.xsd http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" extension-element-prefixes="exslt" exclude-result-prefixes="xsl xhtml marc dc dc2 g d c a m1 m2 m3 ddi l pd cm s r pi ds pr">
+    <xsl:output method="xml" encoding="iso-8859-1" indent="yes"/>
 
     <!-- render text-elements of this language-->
     <xsl:param name="lang">sv</xsl:param>
     <!-- if the requested language is not found for e.g. questionText, use fallback language-->
     <xsl:param name="fallback-lang">en</xsl:param>
-  
     <xsl:variable name="doi_address">http://dx.doi.org/</xsl:variable>
-  
     <xsl:template match="ddi:DDIInstance">
         <xsl:text>
             
@@ -73,16 +41,14 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         <xsl:text>
             
         </xsl:text>
-        <collection xmlns="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+        <collection xmlns="http://www.loc.gov/MARC21/slim" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
             <xsl:apply-templates select="s:StudyUnit"/>
         </collection>
-  
     </xsl:template>
-  
     <xsl:template match="s:StudyUnit">
         <record xmlns="http://www.loc.gov/MARC21/slim">
             
-            <!-- Default leader -->            
+            <!-- Default leader -->
             <leader>
                 <xsl:text>00000cmm a2200000   4500</xsl:text>
             </leader>
@@ -104,7 +70,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                         <xsl:otherwise>
                             <xsl:value-of select="translate(@versionDate, '-', '')"/>
                         </xsl:otherwise>
-                    </xsl:choose>                    
+                    </xsl:choose>
                 </controlfield>
             </xsl:if>
                      
@@ -119,7 +85,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 <xsl:value-of select="format-number(number(format-dateTime($currenttime,'[M]')), '00')"/>
                 <xsl:value-of select="format-number(number(format-dateTime($currenttime,'[D]')), '00')"/>
 
-                <!-- 06, 07-14 - Type of date/Publication status, Date 1, Date 2 -->                
+                <!-- 06, 07-14 - Type of date/Publication status, Date 1, Date 2 -->
                 <xsl:choose>
                     <xsl:when test="r:Citation/r:PublicationDate/r:SimpleDate | r:Citation/r:PublicationDate/r:StartDate">
                         <xsl:text>e</xsl:text>
@@ -131,18 +97,18 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                                 <xsl:value-of select="substring(translate(r:Citation/r:PublicationDate/r:StartDate, '-', ''), 1, 4)"/>
                             </xsl:when>
                         </xsl:choose>
-						<xsl:choose>
-							<xsl:when test="r:Citation/r:PublicationDate/r:EndDate">
-								<xsl:value-of select="substring(translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''), 1, 4)"/>
-							</xsl:when>
-							<xsl:otherwise>
-								<xsl:text>    </xsl:text>
-							</xsl:otherwise>
-						</xsl:choose>
+                        <xsl:choose>
+                            <xsl:when test="r:Citation/r:PublicationDate/r:EndDate">
+                                <xsl:value-of select="substring(translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''), 1, 4)"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:text>    </xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:text>b        </xsl:text>
-                    </xsl:otherwise>                        
+                    </xsl:otherwise>
                 </xsl:choose>
                 
                 <!-- 15-17 - Place of publication, production, or execution -->
@@ -182,9 +148,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 
                 <!-- 39 - Cataloging source -->
                 <xsl:text>|</xsl:text>
-                
             </controlfield>
-                                                                                                                                        
             <xsl:for-each select="r:Citation/r:InternationalIdentifier">
                 <xsl:choose>
                     <!-- 010: LCCN -->
@@ -215,7 +179,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                     </xsl:when> 
 
                     <!-- 024: Other Standard Identifier -->
-                    <xsl:otherwise>                                    
+                    <xsl:otherwise>
                         <datafield ind1="7" ind2=" " tag="024">
                             <subfield code="a">
                                 <xsl:value-of select="normalize-space(.)"/>
@@ -257,21 +221,21 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </xsl:if>
                     
             <!-- 045: TemporalCoverage -->
-            <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate">          
+            <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate">
                 <datafield ind2=" " tag="045">
                     <xsl:choose>
                         <xsl:when test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:SimpleDate">
-                            <xsl:choose>                            
-                                <xsl:when test="count(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:SimpleDate) > 0">
+                            <xsl:choose>
+                                <xsl:when test="count(r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:SimpleDate) &gt; 0">
                                     <xsl:attribute name="ind1">1</xsl:attribute>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:attribute name="ind1">0</xsl:attribute>
-                                </xsl:otherwise>                            
+                                </xsl:otherwise>
                             </xsl:choose>
                             <xsl:for-each select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:SimpleDate">
                                 <subfield code="b">
-                                    <xsl:text>d</xsl:text>                                    
+                                    <xsl:text>d</xsl:text>
                                     <xsl:choose>
                                         <xsl:when test="contains(., 'T')">
                                             <xsl:value-of select="substring-before(translate(., '-', ''), 'T')"/>
@@ -363,16 +327,16 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                                 <xsl:value-of select="normalize-space(r:Citation/r:AlternateTitle)"/>
                             </xsl:otherwise>
                         </xsl:choose>
-                    </subfield>					
+                    </subfield>
                 </datafield>
             </xsl:if>
                   
             <!-- 260: Publisher -->
             <!-- Use 264 if distributor or other contributors are added -->
-            <xsl:if test="r:Citation/r:Publisher">                
+            <xsl:if test="r:Citation/r:Publisher">
                 <datafield ind1=" " ind2=" " tag="260">
                     <xsl:choose>
-                        <xsl:when test="r:Citation/r:Publisher[@xml:lang=$lang]">                    
+                        <xsl:when test="r:Citation/r:Publisher[@xml:lang=$lang]">
                             <xsl:apply-templates select="r:Citation/r:Publisher[@xml:lang=$lang]"/>
                         </xsl:when>
                         <xsl:when test="r:Citation/r:Publisher[@xml:lang=$fallback-lang]">
@@ -385,7 +349,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                     <xsl:if test="r:Citation/r:PublicationDate">
                         <subfield code="c">
                             <xsl:choose>
-                                <xsl:when test="r:Citation/r:PublicationDate/r:SimpleDate">                                    
+                                <xsl:when test="r:Citation/r:PublicationDate/r:SimpleDate">
                                     <xsl:choose>
                                         <xsl:when test="contains(r:Citation/r:PublicationDate/r:SimpleDate, 'T')">
                                             <xsl:value-of select="substring-before(translate(r:Citation/r:PublicationDate/r:SimpleDate, '-', ''), 'T')"/>
@@ -405,18 +369,18 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                                                 <xsl:value-of select="translate(r:Citation/r:PublicationDate/r:StartDate, '-', '')"/>
                                             </xsl:otherwise>
                                         </xsl:choose>
-                                    </xsl:variable>                                    
-                                    <xsl:if test="r:Citation/r:PublicationDate/r:EndDate">                                        
-										<xsl:choose>
-											<xsl:when test="contains(r:Citation/r:PublicationDate/r:EndDate, 'T')">
-												<xsl:value-of select="concat($pub_date, ' - ', substring-before(translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''), 'T'))"/>
-											</xsl:when>
-											<xsl:otherwise>
-												<xsl:value-of select="concat($pub_date, ' - ', translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''))"/>
-											</xsl:otherwise>
-										</xsl:choose>
+                                    </xsl:variable>
+                                    <xsl:if test="r:Citation/r:PublicationDate/r:EndDate">
+                                        <xsl:choose>
+                                            <xsl:when test="contains(r:Citation/r:PublicationDate/r:EndDate, 'T')">
+                                                <xsl:value-of select="concat($pub_date, ' - ', substring-before(translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''), 'T'))"/>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <xsl:value-of select="concat($pub_date, ' - ', translate(r:Citation/r:PublicationDate/r:EndDate, '-', ''))"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
                                     </xsl:if>
-                                    <xsl:value-of select="$pub_date"/>     
+                                    <xsl:value-of select="$pub_date"/>
                                 </xsl:when>
                             </xsl:choose>
                         </subfield>
@@ -425,30 +389,16 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </xsl:if>
             
             <!-- 490: Series -->
-            <xsl:if test="r:SeriesStatement/r:SeriesName">
-                <datafield ind1="0" ind2=" " tag="490">
-                    <subfield code="a">
-                        <xsl:choose>
-                            <xsl:when test="r:SeriesStatement/r:SeriesName[@xml:lang=$lang]">                    
-                                <xsl:value-of select="normalize-space(r:SeriesStatement/r:SeriesName[@xml:lang=$lang])"/>
-                            </xsl:when>
-                            <xsl:when test="r:SeriesStatement/r:SeriesName[@xml:lang=$fallback-lang]">
-                                <xsl:value-of select="normalize-space(r:SeriesStatement/r:SeriesName[@xml:lang=$fallback-lang])"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="normalize-space(r:SeriesStatement/r:SeriesName)"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </subfield>
-                </datafield>
-            </xsl:if>
+            <xsl:apply-templates select="r:SeriesStatement"/>
+
+            
             
             <!-- 506: AvailabilityStatus -->
-            <xsl:if test="a:Archive/a:ArchiveSpecific/a:Collection/a:AvailabilityStatus">                            
+            <xsl:if test="a:Archive/a:ArchiveSpecific/a:Collection/a:AvailabilityStatus">
                 <datafield tag="506" ind1=" " ind2=" ">
                     <subfield code="a">
                         <xsl:choose>
-                            <xsl:when test="a:Archive/a:ArchiveSpecific/a:Collection/a:AvailabilityStatus[@xml:lang=$lang]">                    
+                            <xsl:when test="a:Archive/a:ArchiveSpecific/a:Collection/a:AvailabilityStatus[@xml:lang=$lang]">
                                 <xsl:value-of select="normalize-space(a:Archive/a:ArchiveSpecific/a:Collection/a:AvailabilityStatus[@xml:lang=$lang])"/>
                             </xsl:when>
                             <xsl:when test="a:Archive/a:ArchiveSpecific/a:Collection/a:AvailabilityStatus[@xml:lang=$fallback-lang]">
@@ -467,14 +417,14 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 <datafield ind1="3" ind2=" " tag="520">
                     <subfield code="a">
                         <xsl:choose>
-                            <xsl:when test="s:Abstract/r:Content[@xml:lang=$lang]">                    
+                            <xsl:when test="s:Abstract/r:Content[@xml:lang=$lang]">
                                 <xsl:value-of select="normalize-space(s:Abstract/r:Content[@xml:lang=$lang])"/>
                             </xsl:when>
                             <xsl:when test="s:Abstract/r:Content[@xml:lang=$fallback-lang]">
                                 <xsl:value-of select="normalize-space(s:Abstract/r:Content[@xml:lang=$fallback-lang])"/>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:value-of select="normalize-space(s:Abstract/r:Content)"/>
+                                <xsl:value-of select="normalize-space(s:Abstract/r:Content[1])"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </subfield>
@@ -486,7 +436,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 <datafield ind1=" " ind2=" " tag="522">
                     <subfield code="a">
                         <xsl:choose>
-                            <xsl:when test="r:Coverage/r:SpatialCoverage/r:Description[@xml:lang=$lang]">                    
+                            <xsl:when test="r:Coverage/r:SpatialCoverage/r:Description[@xml:lang=$lang]">
                                 <xsl:value-of select="normalize-space(r:Coverage/r:SpatialCoverage/r:Description[@xml:lang=$lang])"/>
                             </xsl:when>
                             <xsl:when test="r:Coverage/r:SpatialCoverage/r:Description[@xml:lang=$fallback-lang]">
@@ -505,7 +455,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 <datafield ind1=" " ind2=" " tag="542">
                     <subfield code="f">
                         <xsl:choose>
-                            <xsl:when test="r:Citation/r:Copyright[@xml:lang=$lang]">                    
+                            <xsl:when test="r:Citation/r:Copyright[@xml:lang=$lang]">
                                 <xsl:value-of select="normalize-space(r:Citation/r:Copyright[@xml:lang=$lang])"/>
                             </xsl:when>
                             <xsl:when test="r:Citation/r:Copyright[@xml:lang=$fallback-lang]">
@@ -526,7 +476,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 </xsl:when>
                 <xsl:when test="r:Coverage/r:TopicalCoverage/r:Subject[@xml:lang=$fallback-lang]">
                     <xsl:apply-templates select="r:Coverage/r:TopicalCoverage/r:Subject[@xml:lang=$fallback-lang]"/>
-                </xsl:when>    
+                </xsl:when>
                 <xsl:otherwise>
                     <xsl:apply-templates select="r:Coverage/r:TopicalCoverage/r:Subject"/>
                 </xsl:otherwise>
@@ -539,7 +489,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 </xsl:when>
                 <xsl:when test="r:Coverage/r:TopicalCoverage/r:Keyword[@xml:lang=$fallback-lang]">
                     <xsl:apply-templates select="r:Coverage/r:TopicalCoverage/r:Keyword[@xml:lang=$fallback-lang]"/>
-                </xsl:when>    
+                </xsl:when>
                 <xsl:otherwise>
                     <xsl:apply-templates select="r:Coverage/r:TopicalCoverage/r:Keyword"/>
                 </xsl:otherwise>
@@ -553,7 +503,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 </xsl:when>
                 <xsl:when test="r:Citation/r:Creator[@xml:lang=$fallback-lang]">
                     <xsl:apply-templates select="r:Citation/r:Creator[@xml:lang=$fallback-lang]"/>
-                </xsl:when>    
+                </xsl:when>
                 <xsl:otherwise>
                     <xsl:apply-templates select="r:Citation/r:Creator"/>
                 </xsl:otherwise>
@@ -562,12 +512,11 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <!-- 850: ArchiveOrganization -->
             <xsl:if test="a:Archive/a:ArchiveSpecific/a:ArchiveOrganizationReference/r:ID">
                 <xsl:variable name="archiveID" select="normalize-space(a:Archive/a:ArchiveSpecific/a:ArchiveOrganizationReference/r:ID)"/>
-            
                 <xsl:if test="a:Archive/a:OrganizationScheme/a:Organization[@id=$archiveID]">
                     <datafield ind1=" " ind2=" " tag="850">
                         <subfield code="a">
                             <xsl:choose>
-                                <xsl:when test="a:Archive/a:OrganizationScheme/a:Organization[@id=$archiveID]/a:OrganizationName[@xml:lang=$lang]">                    
+                                <xsl:when test="a:Archive/a:OrganizationScheme/a:Organization[@id=$archiveID]/a:OrganizationName[@xml:lang=$lang]">
                                     <xsl:value-of select="normalize-space(a:Archive/a:OrganizationScheme/a:Organization[@id=$archiveID]/a:OrganizationName[@xml:lang=$lang])"/>
                                 </xsl:when>
                                 <xsl:when test="a:Archive/a:OrganizationScheme/a:Organization[@id=$archiveID]/a:OrganizationName[@xml:lang=$fallback-lang]">
@@ -579,20 +528,17 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                             </xsl:choose>
                         </subfield>
                     </datafield>
-                </xsl:if>            
+                </xsl:if>
             </xsl:if>         
             
             <!-- 856: DOI, URI -->
-            <xsl:if test="r:Citation/r:InternationalIdentifier[@type = 'DOI'] |
-                          r:UserID[@type = 'DOI'] |
-                          a:Archive/a:ArchiveSpecific/a:Collection/a:URI | 
-                          a:Archive/a:ArchiveSpecific/a:Item/a:URI">
+            <xsl:if test="r:Citation/r:InternationalIdentifier[@type = 'DOI'] |                           r:UserID[@type = 'DOI'] |                           a:Archive/a:ArchiveSpecific/a:Collection/a:URI |                            a:Archive/a:ArchiveSpecific/a:Item/a:URI">
                 <datafield ind1="4" ind2="0" tag="856">
                     <subfield code="u">
                         <xsl:choose>
                             <xsl:when test="r:Citation/r:InternationalIdentifier[@type = 'DOI']">
                                 <xsl:choose>
-                                    <xsl:when test="contains(r:Citation/r:InternationalIdentifier[@type = 'DOI'], $doi_address)">                                    
+                                    <xsl:when test="contains(r:Citation/r:InternationalIdentifier[@type = 'DOI'], $doi_address)">
                                         <xsl:value-of select="normalize-space(r:Citation/r:InternationalIdentifier[@type = 'DOI'])"/>
                                     </xsl:when>
                                     <xsl:otherwise>
@@ -602,7 +548,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                             </xsl:when>
                             <xsl:when test="r:UserID[@type = 'DOI']">
                                 <xsl:choose>
-                                    <xsl:when test="contains(r:UserID[@type = 'DOI'], $doi_address)">                                    
+                                    <xsl:when test="contains(r:UserID[@type = 'DOI'], $doi_address)">
                                         <xsl:value-of select="normalize-space(r:UserID[@type = 'DOI'])"/>
                                     </xsl:when>
                                     <xsl:otherwise>
@@ -610,27 +556,41 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:when>
-                            <xsl:when test="a:Archive/a:ArchiveSpecific/a:Collection/a:URI">                    
+                            <xsl:when test="a:Archive/a:ArchiveSpecific/a:Collection/a:URI">
                                 <xsl:value-of select="normalize-space(a:Archive/a:ArchiveSpecific/a:Collection/a:URI)"/>
                             </xsl:when>
                             <xsl:when test="a:Archive/a:ArchiveSpecific/a:Item/a:URI">
-                                <xsl:value-of select="normalize-space(a:Archive/a:ArchiveSpecific/a:Item/a:URI)"/>                        
+                                <xsl:value-of select="normalize-space(a:Archive/a:ArchiveSpecific/a:Item/a:URI)"/>
                             </xsl:when>
                         </xsl:choose>
                     </subfield>
                 </datafield>
             </xsl:if>
-            
-        </record>  
+        </record>
     </xsl:template>
-  
+    <xsl:template match="r:SeriesStatement">
+        <datafield ind1="0" ind2=" " tag="490">
+            <subfield code="a">
+                <xsl:choose>
+                    <xsl:when test="r:SeriesName/r:String[@xml:lang=$lang]">
+                        <xsl:value-of select="normalize-space(r:SeriesName/r:String[@xml:lang=$lang])"/>
+                    </xsl:when>
+                    <xsl:when test="r:SeriesName/r:String[@xml:lang=$fallback-lang]">
+                        <xsl:value-of select="normalize-space(r:SeriesName/r:String[@xml:lang=$fallback-lang])"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="normalize-space(r:SeriesName/r:String)"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </subfield>
+        </datafield>
+    </xsl:template>    
     <xsl:template match="r:Publisher">
         <subfield xmlns="http://www.loc.gov/MARC21/slim" code="a">
             <xsl:value-of select="normalize-space(.)"/>
         </subfield>
     </xsl:template>
-    
-    <xsl:template match="r:Keyword">     
+    <xsl:template match="r:Keyword">
         <xsl:variable name="codeList">
             <xsl:value-of select="normalize-space(@codeListID)"/>
         </xsl:variable>
@@ -643,18 +603,17 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 </xsl:choose>
             </xsl:attribute>
             <xsl:attribute name="tag">650</xsl:attribute>
-            <subfield code="a">                      
-                <xsl:value-of select="normalize-space(.)"/>                  
+            <subfield code="a">
+                <xsl:value-of select="normalize-space(.)"/>
             </subfield>
             <xsl:if test="$codeList!='LCSH' and $codeList!='MeSH'">
-                <subfield code="2">                      
-                    <xsl:value-of select="$codeList"/>                  
+                <subfield code="2">
+                    <xsl:value-of select="$codeList"/>
                 </subfield>
             </xsl:if>
         </datafield>
     </xsl:template>
-  
-    <xsl:template match="r:Subject">     
+    <xsl:template match="r:Subject">
         <xsl:variable name="codeList">
             <xsl:value-of select="normalize-space(@codeListID)"/>
         </xsl:variable>
@@ -667,30 +626,26 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 </xsl:choose>
             </xsl:attribute>
             <xsl:attribute name="tag">650</xsl:attribute>
-            <subfield code="a">                      
-                <xsl:value-of select="normalize-space(.)"/>                  
+            <subfield code="a">
+                <xsl:value-of select="normalize-space(.)"/>
             </subfield>
             <xsl:if test="$codeList!='LCSH' and $codeList!='MeSH'">
-                <subfield code="2">                      
-                    <xsl:value-of select="$codeList"/>                  
+                <subfield code="2">
+                    <xsl:value-of select="$codeList"/>
                 </subfield>
             </xsl:if>
         </datafield>
     </xsl:template>
-  
     <xsl:template match="r:Creator">
         <datafield xmlns="http://www.loc.gov/MARC21/slim" ind1=" " ind2=" " tag="720">
             <subfield code="a">
                 <xsl:value-of select="normalize-space(.)"/>
             </subfield>
-
             <xsl:if test="@affiliation">
                 <subfield code="u">
                     <xsl:value-of select="normalize-space(@affiliation)"/>
-                </subfield>	
-            </xsl:if>          
-
+                </subfield>
+            </xsl:if>
         </datafield>
     </xsl:template>
-  
 </xsl:stylesheet>
