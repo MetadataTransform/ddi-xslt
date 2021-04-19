@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<codeBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd" 
+xmlns="ddi:codebook:2_5">
+  <docDscr>
+    <citation>
+      <titlStmt>
+        <titl xml:lang="sv">Havströmmätningar med autonoma instrument.</titl>
+        <parTitl xml:lang="en">Ocean current measurements with autonomous instruments.</parTitl>
+        <IDNo agency="SND">ECDS 0146</IDNo>
+        <IDNo agency="DataCite">https://doi.org/10.5878/e332-8m11</IDNo>
+      </titlStmt>
+      <prodStmt>
+        <producer xml:lang="en" abbr="SND">Swedish National Data Service</producer>
+        <producer xml:lang="sv" abbr="SND">Svensk nationell datatjänst</producer>
+      </prodStmt>
+      <holdings URI="https://doi.org/10.5878/e332-8m11">Landing page</holdings>
+    </citation>
+  </docDscr>
+  <stdyDscr>
+    <citation>
+      <titlStmt>
+        <titl xml:lang="sv">Havströmmätningar med autonoma instrument.</titl>
+        <parTitl xml:lang="en">Ocean current measurements with autonomous instruments.</parTitl>
+        <IDNo agency="SND">ECDS 0146</IDNo>
+        <IDNo agency="DataCite">https://doi.org/10.5878/e332-8m11</IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty xml:lang="en" affiliation="SMHI - Swedish Meteorological and Hydrological Institute">Barry Broman</AuthEnty>
+        <AuthEnty xml:lang="sv" affiliation="SMHI - Sveriges Meteorologiska och Hydrologiska Institut">Barry Broman</AuthEnty>
+      </rspStmt>
+      <distStmt>
+        <distrbtr xml:lang="en" abbr="SND" URI="https://snd.gu.se">Swedish National Data Service</distrbtr>
+        <distrbtr xml:lang="sv" abbr="SND" URI="https://snd.gu.se">Svensk nationell datatjänst</distrbtr>
+        <distDate date="2021-04-09">2021-04-09</distDate>
+      </distStmt>
+      <holdings URI="https://doi.org/10.5878/e332-8m11">Landing page</holdings>
+    </citation>
+    <stdyInfo>
+      <subject>
+        <keyword xml:lang="en" vocab="GCMD" vocabURI="https://gcmdservices.gsfc.nasa.gov/kms/concept/03fbea0a-74b9-4c78-8752-a588cff27f17">Wind-Driven Circulation</keyword>
+        <keyword xml:lang="sv" vocab="GCMD" vocabURI="https://gcmdservices.gsfc.nasa.gov/kms/concept/03fbea0a-74b9-4c78-8752-a588cff27f17">Wind-Driven Circulation</keyword>
+        <keyword xml:lang="en" vocab="GCMD" vocabURI="https://gcmdservices.gsfc.nasa.gov/kms/concept/fbc53539-ce4e-4e3e-bbd2-8270386616b4">Surface Winds</keyword>
+        <keyword xml:lang="sv" vocab="GCMD" vocabURI="https://gcmdservices.gsfc.nasa.gov/kms/concept/fbc53539-ce4e-4e3e-bbd2-8270386616b4">Surface Winds</keyword>
+        <keyword xml:lang="en" vocab="INSPIRE Spatial Data Themes" vocabURI="http://inspire.ec.europa.eu/theme/sr">Sea regions</keyword>
+        <keyword xml:lang="sv" vocab="INSPIRE Spatial Data Themes" vocabURI="http://inspire.ec.europa.eu/theme/sr">Havsområden</keyword>
+        <topcClas xml:lang="en" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=NaturalEnvironment">NATURAL ENVIRONMENT</topcClas>
+        <topcClas xml:lang="sv" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=NaturalEnvironment">NATUR OCH MILJÖ</topcClas>
+        <topcClas xml:lang="en" vocab="Standard för svensk indelning av forskningsämnen 2011">Oceanography, Hydrology and Water Resources</topcClas>
+        <topcClas xml:lang="sv" vocab="Standard för svensk indelning av forskningsämnen 2011">Oceanografi, hydrologi och vattenresurser</topcClas>
+        <topcClas xml:lang="en" vocab="INSPIRE topic categories" vocabURI="http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/oceans">Oceans</topcClas>
+        <topcClas xml:lang="sv" vocab="INSPIRE topic categories" vocabURI="http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/oceans">Kust och hav</topcClas>
+      </subject>
+      <abstract xml:lang="en" contentType="abstract">Results from current meters: Aanderaa, Geodyne and Sensordata used in various sites depending on several projects within the oceanograhic section at SMH during 1968-1998. 
+
+NOTE: This dataset does not meet SND's nominal standards for data reusability. 
+
+Datasets are periods of use in the field with given idnames. There is a possibility to search individual datasets via an access database where the search elements are pinfo/sinfo primary/secondary info. Pinfo is similar to measurements of current, temperature and water samples all described in an pdf. Sinfo is dependant on the type of measurement giving depth and variables. 
+
+Different datasets from autonomic instruments where quality is due to how well the timestep could be found in classes 0 - 4</abstract>
+      <abstract xml:lang="sv" contentType="abstract">Resultat från havströmsmätare: Aanderaa, Geodyne och Sensordata som används på olika platser beroende på flera projekt inom oceanograhic delen vid SMH under 1968-1998.
+
+OBS: Detta datasätt uppfyller inte SND: s nominella standarder för återanvändbarhet för data.
+
+För mer information se den engelska sidan på: https://snd.gu.se/en/catalogue/study/ecds0146</abstract>
+      <sumDscr>
+        <nation xml:lang="en" abbr="SE">Sweden</nation>
+        <nation xml:lang="sv" abbr="SE">Sverige</nation>
+      </sumDscr>
+    </stdyInfo>
+    <method>
+      <dataColl />
+    </method>
+    <dataAccs>
+      <useStmt>
+        <restrctn xml:lang="en">Access to data through SND. Data are freely accessible.</restrctn>
+        <restrctn xml:lang="sv">Åtkomst till data via SND. Data är fritt tillgängliga.</restrctn>
+      </useStmt>
+    </dataAccs>
+  </stdyDscr>
+</codeBook>
