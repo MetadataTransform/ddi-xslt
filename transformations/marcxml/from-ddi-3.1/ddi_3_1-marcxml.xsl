@@ -48,8 +48,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 xmlns:pr="ddi:profile:3_1"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd"
-                xmlns:exslt="http://exslt.org/dates-and-times"
-                extension-element-prefixes="exslt"
                 exclude-result-prefixes="xsl xhtml marc dc dc2 g d c a m1 m2 m3 ddi l pd cm s r pi ds pr">
   
     <xsl:output method="xml" encoding="iso-8859-1" indent="yes" />
@@ -113,9 +111,9 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <!-- 008 -->
             <controlfield tag="008">
                 <!-- 00-05 - Date entered on file -->
-                <xsl:value-of select="substring(exslt:year(), 3, 2)"/>
-                <xsl:value-of select="format-number(exslt:month-in-year(), '00')"/>
-                <xsl:value-of select="format-number(exslt:day-in-month(), '00')"/>
+                <xsl:value-of select="year-from-date(current-date())"/>
+                <xsl:value-of select="format-number(month-from-date(current-date()), '00')"/>
+                <xsl:value-of select="format-number(day-from-date(current-date()), '00')"/>
 
                 <!-- 06, 07-14 - Type of date/Publication status, Date 1, Date 2 -->                
                 <xsl:choose>
