@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type= "text/xsl" href="ddi3_1.xsl"?>
 <DDIInstance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="ddi:instance:3_1" xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd" id="0ba0d0e3-ed29-44bd-85ca-3959750e01b1" agency="dk.dda" version="1.0.0"
   versionDate="2011-05-04T10:52:36.567+02:00">
   <StudyUnit xmlns="ddi:studyunit:3_1" id="TemplateStudyID" agency="dk.dda" version="1.0.0" versionDate="2011-05-04T10:52:53.567+02:00">

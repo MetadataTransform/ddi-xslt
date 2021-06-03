@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="ddi3_1.xsl"?>
 <ddi:DDIInstance xmlns:dc="ddi:dcelements:3_1" xmlns:d="ddi:datacollection:3_1" xmlns:dc2="http://purl.org/dc/elements/1.1/" xmlns:s="ddi:studyunit:3_1" xmlns:c="ddi:conceptualcomponent:3_1" xmlns:r="ddi:reusable:3_1" xmlns:a="ddi:archive:3_1" xmlns:ddi="ddi:instance:3_1" xmlns:l="ddi:logicalproduct:3_1" id="ddiinstance_0888-001" isMaintainable="true" version="1.0.0" versionDate="2011-01-20" agency="se.snd">
     <s:StudyUnit id="0888-001" version="1.0.0" versionDate="2011-01-20" agency="se.snd">
         <r:UserID type="study_id">598</r:UserID>

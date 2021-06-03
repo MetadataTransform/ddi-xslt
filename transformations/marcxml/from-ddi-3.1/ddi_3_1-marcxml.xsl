@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet src="/mnt/c/Users/xoolof/Documents/web/ddi-xslt/transformations/marcxml/from-ddi-3.1/ddi_3_1-marcxml.xsl"?>
 <!--
-
 Description:
 XSLT Stylesheet for conversion between DDI-L version 3.1 and MARC-XML
 
@@ -64,7 +64,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             
         </xsl:text>
         <xsl:comment>		  
-            Automatically generated file from a DDI-L version 3.1 XML input file using the ddi3tomarc 
+            automatically generated file from a DDI-L version 3.1 XML input file using the ddi3tomarc 
             xslt stylesheet for transformation by the Swedish National Data Service	
         </xsl:comment>
         <xsl:text>
