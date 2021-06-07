@@ -2,8 +2,6 @@
 
 echo "starting run.sh"
 
-cd "$(dirname "$0")"
-
 SAXON="/utils/saxon.jar"
 
 echo "Dev script to auto-transform XSLT while editing the XSLT"
