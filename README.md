@@ -3,23 +3,11 @@ ddi-xslt
 
 This is a collection of xslt-stylesheets for DDI for transformation the metadata to other formats.
 
-[Test the current transformations online](https://xml.snd.gu.se/ddi/app/transform/index.html)
-
-
-Example of rendered instruments:
-
-![DDI Instruments](http://olof.borsna.se/img/instument.gif "rendered instruments in html")
-
-
-Example of rendered varaible:
-
-![DDI Variable codebook](http://olof.borsna.se/img/codebook-question.gif "rendered variable in html")
-
 # development
 
 Create a new file `docker-compose.override.yml`
 
-Set the enviroment parameters for the XSLT to use in development
+Set the enviroment parameters for the XSLT and XML to use in development
 
 ```yml
 version: "3"
