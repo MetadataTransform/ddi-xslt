@@ -1,3 +1,4 @@
 ddi-json/ddi3_1/test/in.xml
 
 *.result.xml
+docker-compose.override.yml

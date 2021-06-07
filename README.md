@@ -15,6 +15,21 @@ Example of rendered varaible:
 
 ![DDI Variable codebook](http://olof.borsna.se/img/codebook-question.gif "rendered variable in html")
 
+# development
+
+Create a new file `docker-compose.override.yml`
+
+Set the enviroment parameters for the XSLT to use in development
+
+```yml
+version: "3"
+services:
+  ddi-xslt-dev:
+    environment:
+      XSLT: /transformations/dcterms/from-ddi-3.1/ddi_3_1-dcterms.xsl
+      XML: /examples/ddi-3.1/example-1.xml
+```
+
 
 GNU Lesser General Public License
 =========================

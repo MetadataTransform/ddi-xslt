@@ -70,7 +70,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </xsl:for-each>
             
             <xsl:apply-templates select="//p:PhysicalInstance" />
-            
         </xsl:element>        
     </xsl:template>
 

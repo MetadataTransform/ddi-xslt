@@ -1,0 +1,17 @@
+FROM adoptopenjdk/openjdk8:alpine-jre
+
+RUN apk add --no-cache inotify-tools
+
+COPY dev/run.sh /script/run.sh
+COPY transformations /transformations
+RUN chmod a+x /script/run.sh
+
+
+# get saxon
+ARG SAXON_VERSION=10.3
+ADD \
+  https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/${SAXON_VERSION}/Saxon-HE-${SAXON_VERSION}.jar \
+  /utils/saxon.jar
+RUN chmod a+x /utils/saxon.jar
+
+ENTRYPOINT ["sh", "/script/run.sh"]
