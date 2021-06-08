@@ -1,11 +1,10 @@
-FROM adoptopenjdk/openjdk8:alpine-jre
+FROM openjdk:17-ea-14-jdk-alpine3.13
 
 RUN apk add --no-cache inotify-tools
 
 COPY dev/run.sh /script/run.sh
 COPY transformations /transformations
 RUN chmod a+x /script/run.sh
-
 
 # get saxon
 ARG SAXON_VERSION=10.3
