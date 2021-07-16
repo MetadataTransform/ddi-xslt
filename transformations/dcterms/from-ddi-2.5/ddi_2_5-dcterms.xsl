@@ -23,24 +23,17 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:dcterms="http://purl.org/dc/terms/"
 
-
     xmlns:c="ddi:codebook:2_5"
 
     xmlns:ddi="http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
     xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
 
- 
-    
-
-
     exclude-result-prefixes="#all"
     version="2.0">
     
     <xsl:param name="root-element">metadata</xsl:param>
-
-    
+ 
     <xsl:output method="xml" indent="yes" />
-    
     
     <xsl:template match="/" > 
         <xsl:element name="{$root-element}">
@@ -69,8 +62,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </xsl:for-each>
             
             <xsl:apply-templates select="//p:PhysicalInstance" /> -->
-            
-
         </xsl:element>
     </xsl:template> 
 
@@ -138,7 +129,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     </xsl:template>
 
     <!-- Reference: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/elements11/subject/ -->
-    <xsl:template match="c:keyword">
+    <xsl:template match="c:keyword|c:topcClas">
         <xsl:for-each select=".">
             <dc:subject>
                 <xsl:attribute name="vocab">
@@ -149,5 +140,26 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </dc:subject>
         </xsl:for-each>
     </xsl:template>
+
+    <xsl:template match="c:abstract">
+        <dcterms:abstract>
+            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+            <xsl:value-of select="." />        
+        </dcterms:abstract>
+    </xsl:template>
+
+    <xsl:template match="c:restrctn">
+        <dcterms:accessRights>
+            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+            <xsl:value-of select="." />
+        </dcterms:accessRights>
+    </xsl:template> 
+
+    <!-- The following lines remove breaking lines in output -->
+    <!-- <xsl:template match="*/text()[normalize-space()]">
+        <xsl:value-of select="normalize-space()"/>
+    </xsl:template>
+
+    <xsl:template match="*/text()[not(normalize-space())]" /> -->
 
 </xsl:stylesheet>
