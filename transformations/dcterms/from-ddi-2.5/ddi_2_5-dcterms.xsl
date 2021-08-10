@@ -48,12 +48,16 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 </xsl:for-each>
             </xsl:for-each>
             
+            
             <xsl:copy-of select="//docDscr/citation/titlStmt" /> -->
 
             <!-- <xsl:apply-templates select="//c:docDscr/citation/titlStmt" /> -->
-            <xsl:apply-templates select="//c:stdyDscr" />
-            <!-- <xsl:apply-templates select="//c:stdyInfo" /> -->
-            <xsl:apply-templates select="//c:docDscr/citation/prodStmt" />
+            <!-- <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt[not(IDNo)]" /> -->
+            <xsl:apply-templates select="//c:stdyDscr/c:citation" />
+            <!-- <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt[not(distrbtr)]" /> -->
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo" />
+            <!-- <xsl:apply-templates select="*[name( ) != 'IDNo']" /> -->
+            <!-- <xsl:apply-templates select="//c:docDscr/c:citation/c:prodStmt" /> -->
             
             <!-- <xsl:for-each select="//PhysicalDataProduct/p:PhysicalStructureScheme/p:PhysicalStructure/p:Format">
                 <dcterms:format>
@@ -61,15 +65,15 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 </dcterms:format>
             </xsl:for-each>
             
-            <xsl:apply-templates select="//p:PhysicalInstance" /> -->
+            <xsl:apply-templates select="//p:PhysicalInstance" /> -->     
         </xsl:element>
     </xsl:template> 
 
     <xsl:template match="c:parTitl">
-        <alternative>
+        <dcterms:alternative>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
-        </alternative>        
+        </dcterms:alternative>        
     </xsl:template>
 
     <xsl:template match="c:titl">
@@ -111,7 +115,14 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:element>
     </xsl:template> -->
 
+    <xsl:template match="c:holdings">
+        <dc:identifier>
+            <xsl:value-of select="./@URI" />
+        </dc:identifier>
+    </xsl:template>
+
     <xsl:template match="c:AuthEnty">
+        <!-- <xsl:for-each select="AuthEnty"> -->
         <!-- <xsl:for-each select="AuthEnty"> -->
             <dcterms:creator>
                 <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
