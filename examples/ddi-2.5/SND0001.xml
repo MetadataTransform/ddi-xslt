@@ -1,0 +1,151 @@
+<codeBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd" xmlns="ddi:codebook:2_5">
+  <docDscr>
+    <citation>
+      <titlStmt>
+        <titl xml:lang="sv">Svensk valundersökning 1960</titl>
+        <altTitl>VU60</altTitl>
+        <parTitl xml:lang="en">Swedish election study 1960</parTitl>
+        <IDNo agency="SND">SND 0001</IDNo>
+        <IDNo agency="DataCite">https://doi.org/10.5878/000002</IDNo>
+      </titlStmt>
+      <prodStmt>
+        <producer xml:lang="en" abbr="SND">Swedish National Data Service</producer>
+        <producer xml:lang="sv" abbr="SND">Svensk nationell datatjänst</producer>
+      </prodStmt>
+      <holdings URI="https://doi.org/10.5878/000002">Landing page</holdings>
+    </citation>
+  </docDscr>
+  <stdyDscr>
+    <citation>
+      <titlStmt>
+        <titl xml:lang="sv">Svensk valundersökning 1960</titl>
+        <altTitl>VU60</altTitl>
+        <parTitl xml:lang="en">Swedish election study 1960</parTitl>
+        <IDNo agency="SND">SND 0001</IDNo>
+        <IDNo agency="DataCite">https://doi.org/10.5878/000002</IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty xml:lang="en" affiliation="University of Gothenburg, Department of Political Science">Bo Särlvik</AuthEnty>
+        <AuthEnty xml:lang="sv" affiliation="Göteborgs universitet, Statsvetenskapliga institutionen">Bo Särlvik</AuthEnty>
+      </rspStmt>
+      <distStmt>
+        <distrbtr xml:lang="en" abbr="SND" URI="https://snd.gu.se">Swedish National Data Service</distrbtr>
+        <distrbtr xml:lang="sv" abbr="SND" URI="https://snd.gu.se">Svensk nationell datatjänst</distrbtr>
+        <distDate date="1982-01-01">1982-01-01</distDate>
+      </distStmt>
+      <holdings URI="https://doi.org/10.5878/000002">Landing page</holdings>
+    </citation>
+    <stdyInfo>
+      <subject>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/574f84da-d04d-40bb-9579-b3d9d6abafdf">developing countries</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/574f84da-d04d-40bb-9579-b3d9d6abafdf">utvecklingsland</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/a84f47bf-1be8-4380-bd6d-3c3d843714a6">elections</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/a84f47bf-1be8-4380-bd6d-3c3d843714a6">val</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/6f628e04-cd98-4e7d-a50c-3078fe506f7f">housing</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/6f628e04-cd98-4e7d-a50c-3078fe506f7f">boende</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/9b740c74-bb6f-4b2e-8306-92e0fd2c786d">mass media</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/9b740c74-bb6f-4b2e-8306-92e0fd2c786d">massmedia</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/9d9fa275-bb4c-450b-8126-0b1eeb2325c2">population migration</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/9d9fa275-bb4c-450b-8126-0b1eeb2325c2">migration</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/bd5b9a6b-c499-4a31-bb03-42448825d1e5">defence</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/bd5b9a6b-c499-4a31-bb03-42448825d1e5">försvar</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/05b420dd-c3d9-492e-ae2e-d860216d8fdd">occupations</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/05b420dd-c3d9-492e-ae2e-d860216d8fdd">yrken</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/b0d606f4-7a23-48aa-afd1-c43f45965090">participation</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/b0d606f4-7a23-48aa-afd1-c43f45965090">deltagande</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/2a3757a5-3fff-4c52-a9a1-64467398851b">politics</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/2a3757a5-3fff-4c52-a9a1-64467398851b">politik</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/b3fb51f0-f7c8-4a13-a15f-a9d3e4d75c77">public sector</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/b3fb51f0-f7c8-4a13-a15f-a9d3e4d75c77">offentlig sektor</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/ce4374fe-9532-4bba-9766-d06c1f1a91f4">social mobility</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/ce4374fe-9532-4bba-9766-d06c1f1a91f4">social rörlighet</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/ae18e2a9-440d-4175-aead-1a7bd5ad2178">voting intention</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/ae18e2a9-440d-4175-aead-1a7bd5ad2178">röstavsikt</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/0926e84c-338b-4ee1-87e2-3f4b0ae3991c">voting</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/0926e84c-338b-4ee1-87e2-3f4b0ae3991c">röstning</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/218f78ba-7b4e-4f25-819e-2f1f28feebd3">parliamentary elections</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/218f78ba-7b4e-4f25-819e-2f1f28feebd3">riksdagsval</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/d896a730-3689-4498-a5c6-3cee1caf828b">political interest</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/d896a730-3689-4498-a5c6-3cee1caf828b">politiskt intresse</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/fecc20f8-e33d-4fe3-b7fe-81264fc7223d">party identification</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/fecc20f8-e33d-4fe3-b7fe-81264fc7223d">partiidentifikation</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/320f26ab-c5f3-4ab2-8e38-8d158795705c">taxation</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/320f26ab-c5f3-4ab2-8e38-8d158795705c">beskattning</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/538a6f84-862a-4dc6-b399-1cd98700a1df">political allegiance</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/538a6f84-862a-4dc6-b399-1cd98700a1df">politisk anhängare</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/2005dd1d-819c-4329-93cd-b67baad666a1">political participation</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/2005dd1d-819c-4329-93cd-b67baad666a1">politiskt deltagande</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/52b59c33-c268-4848-9315-1c8945079fbe">internal politics</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/52b59c33-c268-4848-9315-1c8945079fbe">inrikespolitik</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/e386ad4f-c919-43b6-aea3-5eeec543fdbd">party politics</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/e386ad4f-c919-43b6-aea3-5eeec543fdbd">partipolitik</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/c1561f24-0cc7-464c-82c9-e8d820060494">political parties</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/c1561f24-0cc7-464c-82c9-e8d820060494">politiska partier</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/b0b41c01-f273-4dca-beeb-890778965eab">political leaders</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/b0b41c01-f273-4dca-beeb-890778965eab">politiska ledare</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/e54743ca-46a7-4d2c-91c6-7d21011e156f">election campaigns</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/e54743ca-46a7-4d2c-91c6-7d21011e156f">valkampanjer</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/1adf04b9-c7eb-491d-9bf4-6837374c6527">electoral issues</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/1adf04b9-c7eb-491d-9bf4-6837374c6527">valfrågor</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/64015128-8f31-44cf-b7bf-e8a2333a9803">trade unions</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/64015128-8f31-44cf-b7bf-e8a2333a9803">fackföreningar</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/64f20c2a-31fd-4916-a126-a0e8242ee365">political attitudes</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/64f20c2a-31fd-4916-a126-a0e8242ee365">politiska åsikter</keyword>
+        <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/1304b492-ed07-4438-834d-7c75220597fd">trust in government</keyword>
+        <keyword xml:lang="sv" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id/1304b492-ed07-4438-834d-7c75220597fd">förtroende för regeringen</keyword>
+        <topcClas xml:lang="en" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.Elections">Elections</topcClas>
+        <topcClas xml:lang="sv" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.Elections">Val</topcClas>
+        <topcClas xml:lang="en" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.GovernmentPoliticalSystemsAndOrganisations">Government, political systems and organisations</topcClas>
+        <topcClas xml:lang="sv" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.GovernmentPoliticalSystemsAndOrganisations">Regering, politiska system och organisationer</topcClas>
+        <topcClas xml:lang="en" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.PoliticalBehaviourAndAttitudes">Political behaviour and attitudes</topcClas>
+        <topcClas xml:lang="sv" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.PoliticalBehaviourAndAttitudes">Politiska beteenden och attityder</topcClas>
+        <topcClas xml:lang="en" vocab="Standard för svensk indelning av forskningsämnen 2011">Social Sciences</topcClas>
+        <topcClas xml:lang="sv" vocab="Standard för svensk indelning av forskningsämnen 2011">Samhällsvetenskap</topcClas>
+        <topcClas xml:lang="en" vocab="Standard för svensk indelning av forskningsämnen 2011">Political Science</topcClas>
+        <topcClas xml:lang="sv" vocab="Standard för svensk indelning av forskningsämnen 2011">Statsvetenskap</topcClas>
+        <topcClas xml:lang="en" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=MediaCommunicationAndLanguage.Media">Media</topcClas>
+        <topcClas xml:lang="sv" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=MediaCommunicationAndLanguage.Media">Media</topcClas>
+      </subject>
+      <abstract xml:lang="en" contentType="abstract">This is the second election study carried out in Sweden in connection with a Swedish general election. One of the areas covered in this election study was newspaper reading habits, including questions on type of paper, which party the paper favors, and if the respondent subscribes or buys single copies of the paper. Questions were asked as to which topics were most interesting: crime, political news, international news, sports, editorials, and economics. Other questions dealt with exposure to election pamphlets and election programs in radio and television. There are also a number of questions concerning the respondent´s opinion in various political issues, such as state control over private enterprises, aid to developing-countries and social reforms.
+
+Purpose:
+
+Explain why people vote as they do and why an election ends in a particular way. Track and follow trends in the Swedish electoral democracy and make comparisons with other countries.</abstract>
+      <abstract xml:lang="sv" contentType="abstract">Valundersökningen 1960 är den andra riksomfattande studien i serien undersökningar kring partival, valdeltagande och politisk opinionsbildning inom den svenska valmanskåren i samband med ett riksdagsval. Liksom den tidigare undersökningen genomfördes den i samarbete mellan statsvetenskapliga institutionen vid Göteborgs universitet och statistiska centralbyrån.
+
+Genom att ställa frågor till ett för valmanskåren representativt urval av individer kan man få upplysningar om de intervjuades partisympatier och dessa uppgifter kan sedan kombineras med andra uppgifter t.ex beträffande sociala bakgrundsfaktorer såsom yrke, kön, civilstånd, inkomst mm. Därigenom kan skillnader med avseende på partiernas relativa styrkeförhållanden inom olika befolkningsgrupper på ett mera direkt sätt belysas. Vidare har i undersökningen medtagits ett antal frågor beträffande programverksamheten i radio och television inför valet, om partiernas propagandabroschyrer samt om vissa andra propagandamedel, varigenom det blivit möjligt att sammanställa uppgifter om intresset för den inför valet förekommande propagandan inom skilda befolkningsgrupper. Dessutom finns ett antal intervjufrågor som avser att ge en bild av informationsnivån inom valmanskåren beträffande dels vissa allmänna politiska förhållanden, dels partiernas ståndpunkter i bestämda sakfrågor. Den information om individerna som man erhöll genom intervjusvaren kompletterades med uppgifter från mantalslängder och röstlängderna för 1958 års kommunalval, 1960 års andrakammarval samt 1962 års kommunalval. Därjämte har 1960 års inkomsttaxeringslängd utnyttjats för information om intervjupersonernas inkomster; beträffande gifta intervjupersoner medtogs också uppgifter om makens/makans inkomst.
+
+Syfte:
+
+Förklara varför väljare röstar som de gör och varför val slutar som de gör. Spåra och följa trender i svensk valdemokrati och göra jämförelser med utvecklingen i andra länder.</abstract>
+      <sumDscr>
+        <collDate date="1960-09-20" event="start">1960-09-20</collDate>
+        <collDate date="1960-10-15" event="end">1960-10-15</collDate>
+        <collDate date="1960-09-20" event="start">1960-09-20</collDate>
+        <collDate date="1960-10-15" event="end">1960-10-15</collDate>
+        <collDate date="1960-08-29" event="start">1960-08-29</collDate>
+        <collDate date="1960-09-17" event="end">1960-09-17</collDate>
+        <nation xml:lang="en" abbr="SE">Sweden</nation>
+        <nation xml:lang="sv" abbr="SE">Sverige</nation>
+        <anlyUnit xml:lang="en">Individual</anlyUnit>
+        <anlyUnit xml:lang="sv">Individ</anlyUnit>
+      </sumDscr>
+    </stdyInfo>
+    <method>
+      <dataColl>
+        <timeMeth xml:lang="en">Longitudinal: Trend/Repeated cross-section</timeMeth>
+        <timeMeth xml:lang="sv">Longitudinell: Trend/Upprepat tvärsnitt</timeMeth>
+        <sampProc xml:lang="en">The sample was drawn from Statistics Sweden Survey Research Centre´s sampling framework. The framework consisted of a nation-wide set of primary sampling units which provide the framework for a ´general purpose´ two-stage population sample. Respondents not included in the target population because of ineligibility to vote are excluded from the sample. The target population even includes Swedes resident abroad, but these are not included in the sample. People above 80 years of age at the time of the study are excluded in order to avoid the difficulties encountered in interviewing very old people. The total sample is split into two subsamples of equal size. One subsample is contacted for personal interviews during the fieldwork stage preceding the election. Respondents in this subsample are contacted again after election day through a short mail questionnaire. The second subsample is contacted for personal interview during the weeks immediately after the election.</sampProc>
+        <sampProc xml:lang="sv">För framtagning av urval svarade statistiska centralbyråns utredningsinstitut. Dragningen utfördes som ett sannolikhetsurval där populationen omfattade samtliga svenska röstberättigade i riksdagsvalet 1960 födda 1880-1938. Urvalet har gjorts som ett tvåstegsurval med utnyttjande av statistiska centralbyråns basurvalsområden. Såsom urvalsram har 1960 års mantalslängder begagnats, varvid individer utanför den undersökta populationen utsorterats. Genom kommunala myndigheters försorg har därefter i röstlängderna kontrollerats, att de för urvalet uttagna individerna var röstberättigade; icke röstberättigade har uteslutits. Samtliga i urvalet ingående personers adresser har vidare kontrollerats av postanstalterna. Sedan slutligen ett antal personer, som avlidit men kvarstått i röstlängderna, uteslutits, omfattade urvalet 1603 individer.</sampProc>
+        <sampProc xml:lang="en">Probability: Multistage</sampProc>
+        <sampProc xml:lang="sv">Sannolikhetsurval: flerstegsurval</sampProc>
+      </dataColl>
+    </method>
+    <dataAccs>
+      <useStmt>
+        <restrctn xml:lang="en">Access to data through SND. Access to data is restricted.</restrctn>
+        <restrctn xml:lang="sv">Åtkomst till data via SND. Tillgång till data är begränsad.</restrctn>
+      </useStmt>
+    </dataAccs>
+  </stdyDscr>
+</codeBook>

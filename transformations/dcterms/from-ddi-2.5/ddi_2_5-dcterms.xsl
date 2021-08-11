@@ -42,41 +42,27 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:namespace name="dc">http://purl.org/dc/elements/1.1</xsl:namespace>
             <xsl:namespace name="dcterms">http://purl.org/dc/terms/</xsl:namespace>
 
-            <!-- <xsl:for-each select="docDscr">
-                <xsl:for-each select="citation">
-                    <xsl:value-of select="."></xsl:value-of>
-                </xsl:for-each>
-            </xsl:for-each>
-            
-            
-            <xsl:copy-of select="//docDscr/citation/titlStmt" /> -->
+            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:titl" />
+            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:altTitl" />
+            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:parTitl" />
+            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:holdings" />
+            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:rspStmt" />
+            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:distDate" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:abstract" />
+            <xsl:apply-templates select="//c:stdyDscr/c:dataAccs/c:useStmt/c:restrctn" />
 
-            <!-- <xsl:apply-templates select="//c:docDscr/citation/titlStmt" /> -->
-            <!-- <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt[not(IDNo)]" /> -->
-            <xsl:apply-templates select="//c:stdyDscr/c:citation" />
-            <!-- <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt[not(distrbtr)]" /> -->
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo" />
-            <!-- <xsl:apply-templates select="*[name( ) != 'IDNo']" /> -->
-            <!-- <xsl:apply-templates select="//c:docDscr/c:citation/c:prodStmt" /> -->
-            
-            <!-- <xsl:for-each select="//PhysicalDataProduct/p:PhysicalStructureScheme/p:PhysicalStructure/p:Format">
-                <dcterms:format>
-                    <xsl:value-of select="."></xsl:value-of>
-                </dcterms:format>
-            </xsl:for-each>
-            
-            <xsl:apply-templates select="//p:PhysicalInstance" /> -->     
         </xsl:element>
     </xsl:template> 
 
-    <xsl:template match="c:parTitl">
+    <xsl:template match="c:altTitl">
         <dcterms:alternative>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
         </dcterms:alternative>        
     </xsl:template>
 
-    <xsl:template match="c:titl">
+    <xsl:template match="c:titl|c:parTitl">
         <dcterms:title>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
@@ -122,20 +108,19 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     </xsl:template>
 
     <xsl:template match="c:AuthEnty">
-        <!-- <xsl:for-each select="AuthEnty"> -->
-        <!-- <xsl:for-each select="AuthEnty"> -->
             <dcterms:creator>
                 <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
             </dcterms:creator>
-        <!-- </xsl:for-each>    -->
     </xsl:template>
 
     <xsl:template match="c:distDate">
-        <xsl:element name="issued">
-            <xsl:attribute name="date">
+        <xsl:element name="dcterms:issued">
+            <!-- <xsl:attribute name="date"> -->
+                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
                 <xsl:value-of select="@date" />
-            </xsl:attribute>
+            <!-- </xsl:attribute> -->
+            <xsl:value-of select="." />
         </xsl:element>
     </xsl:template>
 
@@ -145,6 +130,9 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <dcterms:subject>
                 <xsl:attribute name="vocab">
                     <xsl:value-of select="@vocab" />
+                </xsl:attribute>
+                <xsl:attribute name="vocabURI">
+                    <xsl:value-of select="@vocabURI" />
                 </xsl:attribute>
                 <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
                 <xsl:value-of select="." />
@@ -166,11 +154,44 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </dcterms:accessRights>
     </xsl:template> 
 
+    <xsl:template match="publisher">
+        <dcterms:publisher>
+            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+            <xsl:value-of select="." />
+        </dcterms:publisher>
+    </xsl:template> 
+
+    <xsl:template match="relation">
+        <dcterms:relation>
+            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+            <xsl:value-of select="." />
+        </dcterms:relation>
+    </xsl:template> 
+
+    <xsl:template match="contributor">
+        <dcterms:contributor>
+            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+            <xsl:value-of select="." />
+        </dcterms:contributor>
+    </xsl:template> 
+
     <!-- The following lines remove breaking lines in output -->
     <!-- <xsl:template match="*/text()[normalize-space()]">
         <xsl:value-of select="normalize-space()"/>
     </xsl:template>
 
     <xsl:template match="*/text()[not(normalize-space())]" /> -->
+
+    <!-- Remove empty elements -->
+    <xsl:template match=
+    "*[not(node())]
+    |
+    *[not(node()[2])
+    and
+        node()/self::text()
+    and
+        not(normalize-space())
+        ]
+    "/>
 
 </xsl:stylesheet>
