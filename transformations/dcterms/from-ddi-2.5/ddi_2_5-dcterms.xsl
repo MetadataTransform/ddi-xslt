@@ -77,10 +77,10 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     </xsl:template>
 
     <xsl:template match="c:titl">
-        <dc:title>
+        <dcterms:title>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
-        </dc:title>        
+        </dcterms:title>        
     </xsl:template>
 
     <!-- <xsl:template match="c:IDNo" >
@@ -116,9 +116,9 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     </xsl:template> -->
 
     <xsl:template match="c:holdings">
-        <dc:identifier>
+        <dcterms:identifier>
             <xsl:value-of select="./@URI" />
-        </dc:identifier>
+        </dcterms:identifier>
     </xsl:template>
 
     <xsl:template match="c:AuthEnty">
@@ -142,13 +142,13 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     <!-- Reference: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/elements11/subject/ -->
     <xsl:template match="c:keyword|c:topcClas">
         <xsl:for-each select=".">
-            <dc:subject>
+            <dcterms:subject>
                 <xsl:attribute name="vocab">
                     <xsl:value-of select="@vocab" />
                 </xsl:attribute>
                 <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
                 <xsl:value-of select="." />
-            </dc:subject>
+            </dcterms:subject>
         </xsl:for-each>
     </xsl:template>
 
