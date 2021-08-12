@@ -45,7 +45,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:titl" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:altTitl" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:parTitl" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:holdings" />
+            <xsl:apply-templates select="//c:docDscr/c:citation/c:titlStmt/c:IDNo" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:rspStmt" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:distDate" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject" />
@@ -101,9 +101,9 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:element>
     </xsl:template> -->
 
-    <xsl:template match="c:holdings">
+    <xsl:template match="c:IDNo">
         <dcterms:identifier>
-            <xsl:value-of select="./@URI" />
+            <xsl:value-of select="." />
         </dcterms:identifier>
     </xsl:template>
 
