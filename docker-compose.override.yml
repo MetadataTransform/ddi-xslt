@@ -2,5 +2,5 @@ version: "3"
 services:
   ddi-xslt-dev:
     environment:
-      XSLT: /transformations/dcterms/from-ddi-3.1/ddi_2_5-dcterms.xsl
-      XML: /examples/ddi-2.5/2020-130.xml
+      XSLT: /transformations/dcterms/from-ddi-3.2/ddi_3_2-dcterms.xsl
+      XML: /examples/ddi-3.2/ICPSR2079variables.xml
