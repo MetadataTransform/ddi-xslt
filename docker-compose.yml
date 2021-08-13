@@ -1,0 +1,9 @@
+version: "3"
+services:
+  ddi-xslt-dev:
+    build: 
+      context: .
+      dockerfile: dev/Dockerfile-dev
+    volumes:
+      - ./transformations:/transformations:cached
+      - ./examples:/examples:cached
