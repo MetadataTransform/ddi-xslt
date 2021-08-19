@@ -117,8 +117,8 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     <xsl:template match="c:distDate">
         <xsl:element name="dcterms:issued">
             <!-- <xsl:attribute name="date"> -->
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="@date" />
+                <!-- <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+                <xsl:value-of select="@date" /> -->
             <!-- </xsl:attribute> -->
             <xsl:value-of select="." />
         </xsl:element>
