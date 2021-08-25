@@ -51,7 +51,14 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:depositr" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:distrbtr" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:keyword" />
+          <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:topcClas" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:abstract" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:timePrd" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogCover" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogBndBox" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:boundPoly" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogUnit" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:dataKind" />
             <xsl:apply-templates select="//c:stdyDscr/c:dataAccs/c:useStmt/c:restrctn" />
             <xsl:apply-templates select="//c:stdyDscr/c:dataAccs/c:setAvail/c:avlStatus" />
             <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat" />
@@ -128,8 +135,20 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:element>
     </xsl:template>
 
+    <xsl:template match="c:timePrd|c:geogUnit|c:geogCover|c:geogBndBox|c:boundPoly">
+        <xsl:element name="dc:coverage">
+            <xsl:value-of select="." />
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template match="c:dataKind">
+        <xsl:element name="dc:type">
+            <xsl:value-of select="." />
+        </xsl:element>
+    </xsl:template>
+
     <!-- Reference: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/elements11/subject/ -->
-    <xsl:template match="c:keyword">
+    <xsl:template match="c:keyword|c:topcClas">
         <xsl:for-each select=".">
             <dcterms:subject>
                 <xsl:attribute name="vocab">
