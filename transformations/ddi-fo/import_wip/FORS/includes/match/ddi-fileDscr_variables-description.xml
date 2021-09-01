@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- ddi:fileDsrc (variables description mode) -->
+<xsl:template match="ddi:fileDscr" mode="variables-description"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- variables -->
+    <xsl:variable name="fileId" select="@ID"/>
+
+    <!-- content -->
+    <fo:table id="vardesc-{@ID}" table-layout="fixed" width="100%" font-size="8pt" space-before="0.2in">
+        <fo:table-column column-width="proportional-column-width(100)"/>
+
+        <fo:table-header space-after="0.2in" >
+            <!-- file identification -->
+            <fo:table-row text-align="center" vertical-align="top">
+                <fo:table-cell text-align="left" border="{$default-border}" padding="{$cell-padding}">
+                    <fo:block font-size="12pt" font-weight="normal">
+                        <xsl:value-of select="$msg/*/entry[@key='File']"/>
+                        <xsl:text> </xsl:text>
+                        <xsl:apply-templates select="ddi:fileTxt/ddi:fileName"/>
+                    </fo:block>
+                </fo:table-cell>
+            </fo:table-row>
+        </fo:table-header>
+        <!-- table body -->
+        <fo:table-body>
+            <xsl:apply-templates select="/ddi:codeBook/ddi:dataDscr/ddi:var[@files=$fileId]" />
+        </fo:table-body>
+    </fo:table>
+
+</xsl:template>

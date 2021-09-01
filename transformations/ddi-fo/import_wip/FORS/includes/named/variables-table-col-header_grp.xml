@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- named: variables-table-col-header_grp -->
+<xsl:template name="variables-table-col-header_grp"  
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- content -->
+    <fo:table-row background-color="{$forsblue}" color="white" text-align="center"
+                  vertical-align="top" font-size="9pt"
+                  font-weight="bold" keep-with-next="always" >
+        <fo:table-cell border="0pt solid black" padding="3pt" padding-left="7pt">
+            <fo:block text-align="left">
+                <xsl:value-of select="$msg/*/entry[@key='Name']"/>
+            </fo:block>
+        </fo:table-cell>
+        <fo:table-cell border="0pt solid black" padding="3pt">
+            <fo:block text-align="left">
+                <xsl:value-of select="$msg/*/entry[@key='Label']"/>
+            </fo:block>
+        </fo:table-cell>
+        <xsl:if test="count(/ddi:codeBook/ddi:fileDscr)> 1">
+            <fo:table-cell text-align="left" border="0pt solid black" padding="3pt">
+                <fo:block>
+                    <xsl:value-of select="$msg/*/entry[@key='File']"/>
+                </fo:block>
+            </fo:table-cell>
+        </xsl:if >
+        <fo:table-cell text-align="left" border="0pt solid black" padding="3pt">
+            <fo:block>
+                <xsl:value-of select="$msg/*/entry[@key='Page']"/>
+            </fo:block>
+        </fo:table-cell>
+    </fo:table-row>
+    <!--separator-->
+    <fo:table-row height="2mm" border-top="{$default-border}" border-bottom="{$default-border}">
+        <fo:table-cell number-columns-spanned="2">
+            <fo:block/>
+        </fo:table-cell>
+    </fo:table-row>	
+</xsl:template>

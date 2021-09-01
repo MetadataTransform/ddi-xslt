@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-2.2 http://schema.datacite.org/meta/kernel-2.2/metadata.xsd">
+  <identifier identifierType="DOI">10.5072/1.snd0003</identifier>
+  <creators>
+    <creator>
+      <creatorName>Holmberg, Sören</creatorName>
+    </creator>
+    <creator>
+      <creatorName>Gilljam, Mikael</creatorName>
+    </creator>
+  </creators>
+  <titles>
+    <title>Folkomröstningsundersökningen 1994 </title>
+    <title titleType="TranslatedTitle">Referendum study 1994</title>
+  </titles>
+  <publisher>Swedish National Data Service, SND</publisher>
+  <publicationYear>1997</publicationYear>
+  <contributors>
+  	<contributor contributorType="Producer"><contributorName>Department of Political Science, University of Gothenburg</contributorName></contributor>
+  </contributors>  
+  <dates>
+    <date dateType="StartDate">1994-10-10</date>
+    <date dateType="EndDate">1994-10-10</date>
+  </dates>
+  <language>swe</language>
+  <resourceType resourceTypeGeneral="Dataset">Survey</resourceType>
+  <alternateIdentifiers>
+    <alternateIdentifier alternateIdentifierType="Internal">SND 0496-001</alternateIdentifier>
+  </alternateIdentifiers>
+  <version>1.0.0</version>
+  <rights>Requires permission from the principal investigator </rights>
+  <descriptions>
+    <description descriptionType="Abstract">In conjunction with the referendum on Swedish membership of the European Union (EU) an election study was carried out in collaboration between Statistics Sweden and the Department of Political Science at Göteborg University. All interviews were carried out before the day of the referendum, November 13 1994. The interview included questions on how much the respondent had been taking part of EU-issues in daily papers; political interest in general and interest in the EU-issue in particular; opinion on the EU, and if there had been some changes in the opinion during the last year. For all political parties the respondent had to state if the party supported ´yes´ or ´no´ in the referendum, and furthermore the respondent had to place the parties on a scale ranging from ´very negative´ to ´very positive´ towards a Swedish membership of the European Union. Other questions dealt with how a Swedish membership of the EU should affect a number of fields; opinion on a European federal state; and opinion on referenda in general. A number of questions dealt with the respondent´s knowledge of EU; probable outcome of the Swedish and Norwegian referenda respectively, and knowledge of the actual outcome of the Finnish referendum; attitudes towards EU among the surroundings, and the importance of other people´s attitudes and arguing for one´s own attitude; and how one plans to vote in the referendum. Besides the EU-specific questions the interview included questions on attitudes toward the various political parties; opinion on a number of topical questions; confidence in Swedish politicians; type of society one ought to go in for in the future; activities to influence political decisions; and own experiences of the tightening Swedish labour market. There are also information about education, occupation, trade union affiliation, marital status, and knowledge of languages. After the referendum the respondent had to answer a mail questionnaire, including questions on actual vote; when one decided how to vote; if one had been watching the concluding TV debate; and if the attitude towards a Swedish membership had been altered during the campaign.</description>
+  </descriptions>
+</resource>

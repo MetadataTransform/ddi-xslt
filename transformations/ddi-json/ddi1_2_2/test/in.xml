@@ -1,0 +1,8077 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<codeBook ID="NSD1907" version="1.2.2" xml-lang="en" xmlns="http://www.icpsr.umich.edu/DDI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.icpsr.umich.edu/DDI http://www.icpsr.umich.edu/DDI/Version1-2-2.xsd">
+	<docDscr>
+		<citation>
+			<titlStmt>
+				<titl>XML Data Documentation for &quot;International survey on health and health care, 2011, Norwegian part of ISSP&quot;</titl>
+				<IDNo>NSD1907</IDNo>
+			</titlStmt>
+			<rspStmt>
+				<othId affiliation="Norwegian Social Science Data Services" role="Author data documentation">
+					<p>Reinertsen, Øivind</p>
+				</othId>
+			</rspStmt>
+			<prodStmt>
+				<producer abbr="NSD">Norwegian Social Science Data Services</producer>
+				<copyright>Copyright (C) 2012 Norwegian Social Science Data Services</copyright>
+				<prodDate date="2012-10-31">2012-10-31</prodDate>
+				<software date="2013-04-23" version="4.0.9 ELSST">Nesstar Publisher</software>
+			</prodStmt>
+			<distStmt>
+				<distrbtr URI="http://www.nsd.uib.no" abbr="NSD">Norwegian Social Science Data Services</distrbtr>
+			</distStmt>
+			<verStmt>
+				<version date="2012-10-31"/>
+			</verStmt>
+			<biblCit>XML Data Documentation for &quot;International survey on health and health care, 2011, Norwegian part of ISSP&quot;. 1st XML edition, NSD Bergen, 2012.</biblCit>
+		</citation>
+		<docSrc>
+			<titlStmt>
+				<titl>International survey on health and health care, 2011, Norwegian part of ISSP</titl>
+			</titlStmt>
+			<rspStmt>
+				<AuthEnty affiliation="Norwegian Social Science Data Services">Sveinall, Finn Olav</AuthEnty>
+			</rspStmt>
+			<prodStmt>
+				<producer affiliation="NSD">Norwegian Social Science Data Services</producer>
+				<copyright>Copyright (C) 2011 Norwegian Social Science Data Services</copyright>
+			</prodStmt>
+			<distStmt>
+				<distrbtr URI="http://www.nsd.uib.no" abbr="NSD">Norwegian Social Science Data Services</distrbtr>
+			</distStmt>
+			<biblCit>XML Data Documentation for &quot;[Title, (month), year]&quot;. 1st XML-edition, NSD Bergen, [Year]</biblCit>
+		</docSrc>
+	</docDscr>
+	<stdyDscr>
+		<citation>
+			<titlStmt>
+				<titl>International survey on health and health care, 2011, Norwegian part of ISSP</titl>
+				<IDNo>NSD1907</IDNo>
+			</titlStmt>
+			<rspStmt>
+				<AuthEnty affiliation="NSD">Norwegian Social Science Data Services</AuthEnty>
+			</rspStmt>
+			<prodStmt>
+				<producer>Norwegian Social Science Data Services</producer>
+				<copyright>Copyright (C) 2011 Norwegian Social Science Data Services</copyright>
+				<software date="2013-04-23" version="4.0.9 ELSST">Nesstar Publisher</software>
+				<fundAg>Norwegian Social Science Data Services</fundAg>
+			</prodStmt>
+			<distStmt>
+				<distrbtr URI="http://www.nsd.uib.no" abbr="NSD">Norwegian Social Science Data Services</distrbtr>
+			</distStmt>
+			<serStmt>
+				<serName>International Social Survey Program (ISSP), Norwegian part</serName>
+				<serInfo><![CDATA[ISSP develops and coordinates annual surveys in their member countries, and the topics for research are repeated at intervals of a few years. The &quot; health and health care&quot; survey was conducted for the first time in Norway in 2011. The objective of the surveys is to create an empirical foundation for studying  health and health care.]]></serInfo>
+			</serStmt>
+			<verStmt>
+				<version date="2012-10-31"/>
+				<notes>Original data from TNS Gallup are documented and prepared, first NSD-version.</notes>
+			</verStmt>
+			<biblCit>&quot;International survey on health and health care, 2011, Norwegian part of ISSP&quot;. Data collected by TNS Gallup. First NSD edition, Bergen 2012.</biblCit>
+		</citation>
+		<stdyInfo>
+			<subject>
+				<keyword vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health</keyword>
+				<keyword vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Smoking</keyword>
+				<keyword vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education</keyword>
+				<keyword vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Higher education</keyword>
+				<keyword vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Economics</keyword>
+				<keyword vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment</keyword>
+				<keyword vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions</keyword>
+				<keyword vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Social structure</keyword>
+				<keyword vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Family roles</keyword>
+				<topcClas vocab="CESSDA Topical Classification">Health</topcClas>
+			</subject>
+			<abstract><![CDATA[This survey is conducted on the basis of the research work in &quot;The International Social Survey Programme&quot; (ISSP). ISSP is an international organization where members develop and coordinate annual surveys, mainly in the fields of political science and sociology. The topics of the surveys vary, but topics are replicated every few years so that it is possible to measure the changes in patterns of behavior and attitudes over time and differences between countries and cultures.
+
+In 1989, the Norwegian Social Science Data Services (NSD) became member of the ISSP and NSD has since been responsible for conducting the survey in Norway.
+
+In 2011, the goal was to collect data on health and health care.]]></abstract>
+			<sumDscr>
+				<timePrd date="2011" event="start"/>
+				<timePrd date="2011" event="end"/>
+				<collDate date="2011" event="start"/>
+				<collDate date="2011" event="end"/>
+				<nation abbr="NO">Norway</nation>
+				<geogCover>Country</geogCover>
+				<geogUnit/>
+				<anlyUnit>Individual</anlyUnit>
+				<universe>Persons residing in Norway in the ages of 19-78, in 2011.</universe>
+				<dataKind>Survey data</dataKind>
+			</sumDscr>
+		</stdyInfo>
+		<method>
+			<dataColl>
+				<timeMeth>Cross-sectional survey</timeMeth>
+				<dataCollector>TNS Gallup</dataCollector>
+				<sampProc><![CDATA[The sample has consisted of 3800 units.
+
+The primary sample was drawn from the Central Person Register as a simple, random sample of persons residing in Norway, in the age of 18-79 years. TNS Gallup sent out and registered the self-completion questionnaires. Respondents were also offered to answer on a web-based questionnaire developed by NSD. 489 of the respondents used the web survey.
+
+Gross sample: 3800 persons
+Net sample: 1834 persons
+Response rate: 48,26%]]></sampProc>
+				<collMode>Paper/pencil questionnaire and websurvey</collMode>
+				<sources/>
+				<weight>Not used in the study.</weight>
+			</dataColl>
+		</method>
+		<dataAccs>
+			<setAvail>
+				<accsPlac URI="http://www.nsd.uib.no">Norwegian Social Science Data Services</accsPlac>
+				<avlStatus>Data are freely accessible for researchers and students at universities and colleges.</avlStatus>
+				<collSize>One data file; different formats can be made.</collSize>
+			</setAvail>
+			<useStmt>
+				<restrctn>Data are freely accessible for researchers and students at universities and colleges.</restrctn>
+				<citReq><![CDATA[Users are obliged to refer to producer and distributor of the data by writing the following in forewords or footnotes in eventual publications:
+“(Some of) the data applied in the analysis in this publication are based on &quot;International survey on health and health care, 2011, Norwegian part of ISSP&quot;. The data are provided by TNS Gallup and NSD, and prepared and made available by the Norwegian Social Science Data Services (NSD). Neither TNS Gallup nor NSD are responsible for the analyses/interpretation of the data presented here.&quot;]]></citReq>
+				<deposReq>Access to data is given on the condition that NSD gets three copies, alternatively a PDF-file, of eventual reports that are written on the basis of the data. This to ensure best possible information of the use of data we distribute.</deposReq>
+				<disclaimer>Neither TNS Gallup nor NSD are responsible for the analyses/interpretation of the data presented here.</disclaimer>
+			</useStmt>
+		</dataAccs>
+	</stdyDscr>
+	<fileDscr URI="NSD1907.Nesstar?Index=0&amp;Name=NSD1907">
+		<fileTxt>
+			<fileName ID="F1">NSD1907.NSDstat</fileName>
+			<dimensns>
+				<caseQnty>1834</caseQnty>
+				<varQnty>115</varQnty>
+			</dimensns>
+			<fileType>Nesstar 200801</fileType>
+		</fileTxt>
+	</fileDscr>
+	<dataDscr>
+		<varGrp ID="VG7" type="subject" var="V1 V2 V3 V4 V5 V6 V7 V8 V9 V10 V11 V12 V13 V14 V15 V16 V17 V18 V19 V20 V21 V22 V23 V24 V25 V26 V27 V28 V29 V30 V31 V32 V33 V34 V35 V36 V37 V38 V39 V40 V41 V42 V43 V44 V45 V46 V47 V48 V49 V50 V51 V52 V53 V54 V55 V56 V57 V58 V59 V60 V61 V62 V63 V64 V65 V66 V67 V68 V69 V70 V71 V72 V73 V74 V75 V76 V77 V78 V79 V80 V81 V82 V83 V84 V85 V86 V87 V88 V89 V90 V91 V92 V93 V94 V95 V96 V97 V98 V99 V100 V101 V102 V103 V104 V105 V106 V107 V108 V109 V110 V111 V112 V113 V114 V115">
+			<labl>All variables</labl>
+		</varGrp>
+		<varGrp ID="VG3" type="subject" var="V111 V112 V113 V114 V115 V65 V66 V67 V68 V1">
+			<labl>Background variables</labl>
+		</varGrp>
+		<varGrp ID="VG1" type="subject" var="V3 V4 V6 V7 V8 V9 V10 V11 V12 V13 V14 V15 V16 V17 V18 V19 V20 V21 V22 V23 V24 V25 V26 V27 V28 V29 V30 V31 V32">
+			<labl>Attitudes to health care</labl>
+		</varGrp>
+		<varGrp ID="VG2" type="subject" var="V33 V34 V35 V36 V37 V38 V39 V40 V41 V42 V43 V44 V45 V46 V47 V48 V49 V50 V51 V52 V53 V54 V55 V56 V57 V58">
+			<labl>Personal health</labl>
+		</varGrp>
+		<varGrp ID="VG4" type="subject" var="V59 V60 V61 V62 V63 V64">
+			<labl>Insurance</labl>
+		</varGrp>
+		<varGrp ID="VG5" type="subject" var="V69 V70 V71 V72 V73 V74 V75 V76 V77 V78 V79 V2 V5">
+			<labl>Education</labl>
+		</varGrp>
+		<varGrp ID="VG6" type="subject" var="V80 V81 V82 V83 V84 V85 V86 V87 V88 V89 V90 V91 V92 V93 V94 V95 V96 V97 V98 V99 V100 V101 V102 V103 V104 V105 V106 V107 V108 V109 V110">
+			<labl>Labour and employment</labl>
+		</varGrp>
+		<var ID="V1" dcml="0" files="F1" intrvl="discrete" name="v001">
+			<location width="1"/>
+			<labl>LYKKULYK Consider life in general, how happy or unhappy would you say you are</labl>
+			<qstn>
+				<qstnLit>If you were to consider your life in general these days, how happy or unhappy would you say you are, on the whole?</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1797</sumStat>
+			<sumStat type="invd">37
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Completely happy
+</labl>
+				<catStat type="freq">99
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Very happy
+</labl>
+				<catStat type="freq">584
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Fairly happy
+</labl>
+				<catStat type="freq">797
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Neither happy nor unhappy
+</labl>
+				<catStat type="freq">238
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Fairly unhappy
+</labl>
+				<catStat type="freq">59
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Very unhappy
+</labl>
+				<catStat type="freq">13
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>Completely unhappy
+</labl>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can’t choose
+</labl>
+				<catStat type="freq">6
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">37
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Happiness
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Emotional states
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V2" dcml="0" files="F1" intrvl="discrete" name="v002">
+			<location width="1"/>
+			<labl>TILSKOLE Confidence in the education system in Norway
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[In general, how much confidence do you have in…
+
+... A. The educational system in [country]?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1776
+</sumStat>
+			<sumStat type="invd">58
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Complete confidence
+</labl>
+				<catStat type="freq">137
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>A great deal of confidence
+</labl>
+				<catStat type="freq">1024
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Some confidence
+</labl>
+				<catStat type="freq">486
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Very little confidence
+</labl>
+				<catStat type="freq">75
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>No confidence at all
+</labl>
+				<catStat type="freq">6
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">48
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">58
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Educational provision
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Educational opportunities
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V3" dcml="0" files="F1" intrvl="discrete" name="v003">
+			<location width="1"/>
+			<labl>TILHELSV Confidence in the health care system in Norway
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[In general, how much confidence do you have in…
+
+... B. The health care system in [country]?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1758
+</sumStat>
+			<sumStat type="invd">76
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Complete confidence
+</labl>
+				<catStat type="freq">98
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>A great deal of confidence
+</labl>
+				<catStat type="freq">867
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Some confidence
+</labl>
+				<catStat type="freq">564
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Very little confidence
+</labl>
+				<catStat type="freq">198
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>No confidence at all
+</labl>
+				<catStat type="freq">24
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">7
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">76
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V4" dcml="0" files="F1" intrvl="discrete" name="v004">
+			<location width="1"/>
+			<labl>HELSVNO Health care in Norway need changes?
+</labl>
+			<qstn>
+				<qstnLit>In general, would you say that the health care system in [country]….
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1807
+</sumStat>
+			<sumStat type="invd">27
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Needs no changes?
+</labl>
+				<catStat type="freq">10
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Needs a few changes?
+</labl>
+				<catStat type="freq">607
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Needs many changes?
+</labl>
+				<catStat type="freq">966
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Needs to be completely changed?
+</labl>
+				<catStat type="freq">173
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">51
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">27
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V5" dcml="0" files="F1" intrvl="discrete" name="v005">
+			<location width="1"/>
+			<labl>RIKUTD Just that those with higher incomes may give their children a better education
+</labl>
+			<qstn>
+				<qstnLit>Is it fair or unfair that people with higher incomes can afford better education for their children than people with lower incomes?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1809
+</sumStat>
+			<sumStat type="invd">25
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Very fair
+</labl>
+				<catStat type="freq">55
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Somewhat fair
+</labl>
+				<catStat type="freq">211
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither fair nor unfair
+</labl>
+				<catStat type="freq">405
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Somewhat unfair
+</labl>
+				<catStat type="freq">562
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Very unfair
+</labl>
+				<catStat type="freq">561
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">15
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">25
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Educational provision
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Educational opportunities
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V6" dcml="0" files="F1" intrvl="discrete" name="v006">
+			<location width="1"/>
+			<labl>RIKHELSE Just that those with higher incomes can buy better healthcare
+</labl>
+			<qstn>
+				<qstnLit>it fair or unfair that people with higher incomes can afford better health care than people with lower incomes?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1815
+</sumStat>
+			<sumStat type="invd">19
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Very fair
+</labl>
+				<catStat type="freq">65
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Somewhat fair
+</labl>
+				<catStat type="freq">154
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither fair nor unfair
+</labl>
+				<catStat type="freq">276
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Somewhat unfair
+</labl>
+				<catStat type="freq">478
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Very unfair
+</labl>
+				<catStat type="freq">829
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">13
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">19
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V7" dcml="0" files="F1" intrvl="discrete" name="v007">
+			<location width="1"/>
+			<labl>HELVNOB Health care in Norway better in the coming years
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How much do you agree or disagree with the following statements?
+
+... A. In the next few years the health care system in [country] will improve.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1808
+</sumStat>
+			<sumStat type="invd">26
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">38
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">528
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">555
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">461
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">73
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">153
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">26
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V8" dcml="0" files="F1" intrvl="discrete" name="v008">
+			<location width="1"/>
+			<labl>BRHELVN People use health services more than necessary
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How much do you agree or disagree with the following statements?'
+
+... B. People use health care services more than necessary.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1776
+</sumStat>
+			<sumStat type="invd">58
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">102
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">678
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">490
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">363
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">48
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">95
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">58
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V9" dcml="0" files="F1" intrvl="discrete" name="v009">
+			<location width="1"/>
+			<labl>OFTBHEL The government should only provide limited health care
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How much do you agree or disagree with the following statements?
+
+... C. The government should provide only limited health care services.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1766
+</sumStat>
+			<sumStat type="invd">68
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">32
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">147
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">245
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">650
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">617
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">75
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">68
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V10" dcml="0" files="F1" intrvl="discrete" name="v010">
+			<location width="1"/>
+			<labl>HELNOINE Health care in Norway is generally ineffective
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How much do you agree or disagree with the following statements?
+
+... D. In general, the health care system in [country] is inefficient.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1780
+</sumStat>
+			<sumStat type="invd">54
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">106
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">549
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">548
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">401
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">74
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">102
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">54
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V11" dcml="0" files="F1" intrvl="discrete" name="v011">
+			<location width="1"/>
+			<labl>HSKTHELT Willing to pay higher taxes in order to improve the level of health care
+</labl>
+			<qstn>
+				<qstnLit>How willing would you be to pay higher taxes to improve the level of health care for all people in [country]?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1799
+</sumStat>
+			<sumStat type="invd">35
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Very willing
+</labl>
+				<catStat type="freq">80
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Fairly willing
+</labl>
+				<catStat type="freq">432
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither willing nor unwilling
+</labl>
+				<catStat type="freq">423
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Fairly unwilling
+</labl>
+				<catStat type="freq">467
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Very unwilling
+</labl>
+				<catStat type="freq">360
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">37
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">35
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V12" dcml="0" files="F1" intrvl="discrete" name="v012">
+			<location width="1"/>
+			<labl>OFFMDUN Public funding of preventive medical examinations
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Are you in favor of or against public funding of…
+
+... A. Preventive medical checkups?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1820
+</sumStat>
+			<sumStat type="invd">14
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly in favor of
+</labl>
+				<catStat type="freq">582
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>In favor of
+</labl>
+				<catStat type="freq">1057
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither in favor of nor against
+</labl>
+				<catStat type="freq">122
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Against
+</labl>
+				<catStat type="freq">26
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly against
+</labl>
+				<catStat type="freq">9
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">24
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">14
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V13" dcml="0" files="F1" intrvl="discrete" name="v013">
+			<location width="1"/>
+			<labl>OFBIHV Public funding for treatment of HIV / AIDS
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Are you in favor of or against public funding of…
+
+... B. Treatment of HIV/AIDS?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1809
+</sumStat>
+			<sumStat type="invd">25
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly in favor of
+</labl>
+				<catStat type="freq">517
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>In favor of
+</labl>
+				<catStat type="freq">1028
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither in favor of nor against
+</labl>
+				<catStat type="freq">195
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Against
+</labl>
+				<catStat type="freq">29
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly against
+</labl>
+				<catStat type="freq">8
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">32
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">25
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V14" dcml="0" files="F1" intrvl="discrete" name="v014">
+			<location width="1"/>
+			<labl>OFPFFD Public funding of programs to prevent obesity
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Are you in favor of or against public funding of…
+
+... C. Programs to prevent obesity?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1813
+</sumStat>
+			<sumStat type="invd">21
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly in favor of
+</labl>
+				<catStat type="freq">382
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>In favor of
+</labl>
+				<catStat type="freq">904
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither in favor of nor against
+</labl>
+				<catStat type="freq">304
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Against
+</labl>
+				<catStat type="freq">150
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly against
+</labl>
+				<catStat type="freq">41
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">32
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">21
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V15" dcml="0" files="F1" intrvl="discrete" name="v015">
+			<location width="1"/>
+			<labl>OFORGTR Public funding of organ transplants
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Are you in favor of or against public funding of…
+
+... D. Organ transplants?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1810
+</sumStat>
+			<sumStat type="invd">24
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly in favor of
+</labl>
+				<catStat type="freq">699
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>In favor of
+</labl>
+				<catStat type="freq">926
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither in favor of nor against
+</labl>
+				<catStat type="freq">128
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Against
+</labl>
+				<catStat type="freq">19
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly against
+</labl>
+				<catStat type="freq">5
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">33
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">24
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V16" dcml="0" files="F1" intrvl="discrete" name="v016">
+			<location width="1"/>
+			<labl>TLDHINS Have access to public health services although not Norwegian citizens
+</labl>
+			<qstn>
+				<preQTxt>How much do you agree or disagree with the following statements?
+</preQTxt>
+				<qstnLit><![CDATA[People should have access to publicly funded health care even if they…
+
+... A. Do not hold citizenship of [country].]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1812
+</sumStat>
+			<sumStat type="invd">22
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">144
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">643
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">350
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">390
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">222
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">63
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">22
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V17" dcml="0" files="F1" intrvl="discrete" name="v017">
+			<location width="1"/>
+			<labl>TLDHSSH Have access to public health care even if their behavior damages health
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[People should have access to publicly funded health care even if they…
+
+... B. Behave in ways that damage their health.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1801
+</sumStat>
+			<sumStat type="invd">33
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">161
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">747
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">457
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">294
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">80
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">62
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">33
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V18" dcml="0" files="F1" intrvl="discrete" name="v018">
+			<location width="1"/>
+			<labl>ITHETR People in Norway who have no access to health services they need
+</labl>
+			<qstn>
+				<qstnLit>In your opinion, how many people are there in [country] who do not have access to the health care they need?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1808
+</sumStat>
+			<sumStat type="invd">26
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>None
+</labl>
+				<catStat type="freq">78
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Very few
+</labl>
+				<catStat type="freq">507
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Some
+</labl>
+				<catStat type="freq">625
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Many
+</labl>
+				<catStat type="freq">345
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">253
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">26
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V19" dcml="0" files="F1" intrvl="discrete" name="v019">
+			<location width="1"/>
+			<labl>HPATF Suffering from serious health problems because they have had a behavior that has damaged their health
+</labl>
+			<qstn>
+				<preQTxt>Severe health problems may have many causes. How much do you agree or disagree with the following statements?
+</preQTxt>
+				<qstnLit><![CDATA[People suffer from severe health problems…
+
+... A. Because they behaved in ways that damaged their health.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1803
+</sumStat>
+			<sumStat type="invd">31
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">110
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">927
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">510
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">150
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">23
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">83
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">31
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V20" dcml="0" files="F1" intrvl="discrete" name="v020">
+			<location width="1"/>
+			<labl>HPMILJ Suffering from serious health problems because of the environment they are exposed to
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[People suffer from severe health problems…
+
+... B. Because of the environment they are exposed to at work or where they live.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1798
+</sumStat>
+			<sumStat type="invd">36
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">78
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">885
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">542
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">204
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">20
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">69
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">36
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V21" dcml="0" files="F1" intrvl="discrete" name="v021">
+			<location width="1"/>
+			<labl>HPGEN Suffering from serious health problems because of their genes
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[People suffer from severe health problems…
+
+... C. Because of their genes.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1788
+</sumStat>
+			<sumStat type="invd">46
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">105
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">948
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">503
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">105
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">18
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">109
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">46
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V22" dcml="0" files="F1" intrvl="discrete" name="v022">
+			<location width="1"/>
+			<labl>HPFAT Suffering from serious health problems because they are poor
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[People suffer from severe health problems…
+
+... D. Because they are poor.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1794
+</sumStat>
+			<sumStat type="invd">40
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">68
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">489
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">509
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">510
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">128
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">90
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">40
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V23" dcml="0" files="F1" intrvl="discrete" name="v023">
+			<location width="1"/>
+			<labl>OPROYK Surgery first: Smoker or non-smoker
+</labl>
+			<qstn>
+				<qstnLit>Suppose two equally sick people need the same heart operation. One does not smoke, the other is a heavy smoker . In your opinion who should get the operation first?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1812
+</sumStat>
+			<sumStat type="invd">22
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>The non-smoker
+</labl>
+				<catStat type="freq">630
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>The heavy smoker
+</labl>
+				<catStat type="freq">12
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Their smoking habits should make no difference
+</labl>
+				<catStat type="freq">1079
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">91
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">22
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V24" dcml="0" files="F1" intrvl="discrete" name="v024">
+			<location width="1"/>
+			<labl>OPALD Surgery first: 30-year-old or 70-year-old
+</labl>
+			<qstn>
+				<qstnLit>Now, suppose two other equally sick people need the same heart operation. One is aged 30, the other 70. In your opinion who should get the operation first?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1814
+</sumStat>
+			<sumStat type="invd">20
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>The 30 year old
+</labl>
+				<catStat type="freq">801
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>The 70 year old
+</labl>
+				<catStat type="freq">11
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Their ages should make no difference
+</labl>
+				<catStat type="freq">947
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">55
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">20
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V25" dcml="0" files="F1" intrvl="discrete" name="v025">
+			<location width="1"/>
+			<labl>OPBARN Surgery first: have small children or do not have young children
+</labl>
+			<qstn>
+				<qstnLit>Now, suppose two other equally sick people need the same heart operation. One has young children, the other does not have young children. In your opinion who should get the operation first?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1818
+</sumStat>
+			<sumStat type="invd">16
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>The one who has young children
+</labl>
+				<catStat type="freq">527
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>The one who has no young children
+</labl>
+				<catStat type="freq">2
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Having young children should make no difference
+</labl>
+				<catStat type="freq">1154
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">135
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">16
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V26" dcml="0" files="F1" intrvl="discrete" name="v026">
+			<location width="1"/>
+			<labl>AMEBED Alternative medicine offers better solutions to health problems than traditional conventional medicine
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How much do you agree or disagree with the following statements?
+
+... A. [Alternative/traditional/folk] medicine provides  better solutions for health problems than [mainstream/western conventional] medicine.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1807
+</sumStat>
+			<sumStat type="invd">27
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">44
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">179
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">648
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">542
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">226
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">168
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">27
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V27" dcml="0" files="F1" intrvl="discrete" name="v027">
+			<location width="1"/>
+			<labl>AMELOV Alternative medicine promises more than it can hold
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How much do you agree or disagree with the following statements?
+
+... B. [Alternative/traditional /folk] medicine promises more than it is able to deliver.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1806
+</sumStat>
+			<sumStat type="invd">28
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">194
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">678
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">594
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">116
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">23
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">201
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">28
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V28" dcml="0" files="F1" intrvl="discrete" name="v028">
+			<location width="1"/>
+			<labl>LEGSTOL All things considered, doctors can be trusted.
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How much do you agree or disagree with the following statements about doctors in general in [country]?
+
+... A. All things considered, doctors can be trusted.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1819
+</sumStat>
+			<sumStat type="invd">15
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">92
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">1229
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">332
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">123
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">11
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">32
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">15
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V29" dcml="0" files="F1" intrvl="discrete" name="v029">
+			<location width="1"/>
+			<labl>LEGDPAS Doctors discuss all treatment options with their patients.
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How much do you agree or disagree with the following statements about doctors in general in [country]?
+
+... B. Doctors discuss all treatment options with their patients.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1809
+</sumStat>
+			<sumStat type="invd">25
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">34
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">388
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">570
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">584
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">69
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">164
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">25
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V30" dcml="0" files="F1" intrvl="discrete" name="v030">
+			<location width="1"/>
+			<labl>LEGKOMP The medical skills of doctors are not as good as they should be.
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How much do you agree or disagree with the following statements about doctors in general in [country]?
+
+... C. The medical skills of doctors are not as good as they should be.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1811
+</sumStat>
+			<sumStat type="invd">23
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">47
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">504
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">632
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">435
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">32
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">161
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">23
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V31" dcml="0" files="F1" intrvl="discrete" name="v031">
+			<location width="1"/>
+			<labl>LEGTJEN Doctors care more about their earnings than about their patients.
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How much do you agree or disagree with the following statements about doctors in general in [country]?
+
+... D. Doctors care more about their earnings than about their patients.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1810
+</sumStat>
+			<sumStat type="invd">24
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">42
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">252
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">622
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">661
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">112
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">121
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">24
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V32" dcml="0" files="F1" intrvl="discrete" name="v032">
+			<location width="1"/>
+			<labl>LEGFFL Doctors would tell their patients if they made a mistake during treatment.
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How much do you agree or disagree with the following statements about doctors in general in [country]?
+
+... E. Doctors would tell their patients if they made a mistake during treatment.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1804
+</sumStat>
+			<sumStat type="invd">30
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Strongly agree
+</labl>
+				<catStat type="freq">27
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Agree
+</labl>
+				<catStat type="freq">236
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Neither agree nor disagree
+</labl>
+				<catStat type="freq">594
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Disagree
+</labl>
+				<catStat type="freq">521
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Strongly disagree
+</labl>
+				<catStat type="freq">128
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">298
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">30
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health expenditure
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health care costs
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">State health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V33" dcml="0" files="F1" intrvl="discrete" name="v033">
+			<location width="1"/>
+			<labl>HPARB Last 4 weeks: had problems with work or chores at home because of health problems
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[During the past 4 weeks how often... 
+
+... A. Have you had difficulties with work or household activities because of health problems?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1808
+</sumStat>
+			<sumStat type="invd">26
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Never
+</labl>
+				<catStat type="freq">811
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Seldom
+</labl>
+				<catStat type="freq">356
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Sometimes
+</labl>
+				<catStat type="freq">384
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Often
+</labl>
+				<catStat type="freq">141
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Very often
+</labl>
+				<catStat type="freq">113
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">3
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">26
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V34" dcml="0" files="F1" intrvl="discrete" name="v034">
+			<location width="1"/>
+			<labl>SMERTE Last 4 weeks: had pain in the body
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[During the past 4 weeks how often... 
+
+... B. Have you had bodily aches or pains?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1811
+</sumStat>
+			<sumStat type="invd">23
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Never
+</labl>
+				<catStat type="freq">304
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Seldom
+</labl>
+				<catStat type="freq">419
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Sometimes
+</labl>
+				<catStat type="freq">584
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Often
+</labl>
+				<catStat type="freq">296
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Very often
+</labl>
+				<catStat type="freq">207
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">23
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V35" dcml="0" files="F1" intrvl="discrete" name="v035">
+			<location width="1"/>
+			<labl>ULYKDEP Last 4 weeks: felt unhappy and depressed
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[During the past 4 weeks how often... 
+
+... C. Have you felt unhappy and depressed?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1815
+</sumStat>
+			<sumStat type="invd">19
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Never
+</labl>
+				<catStat type="freq">522
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Seldom
+</labl>
+				<catStat type="freq">650
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Sometimes
+</labl>
+				<catStat type="freq">466
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Often
+</labl>
+				<catStat type="freq">108
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Very often
+</labl>
+				<catStat type="freq">63
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">6
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">19
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V36" dcml="0" files="F1" intrvl="discrete" name="v036">
+			<location width="1"/>
+			<labl>MISTTRO Last 4 weeks: lost faith in yourself
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[During the past 4 weeks how often... 
+
+... D. Have you lost confidence in yourself?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1809
+</sumStat>
+			<sumStat type="invd">25
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Never
+</labl>
+				<catStat type="freq">804
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Seldom
+</labl>
+				<catStat type="freq">567
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Sometimes
+</labl>
+				<catStat type="freq">308
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Often
+</labl>
+				<catStat type="freq">83
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Very often
+</labl>
+				<catStat type="freq">32
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">15
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">25
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V37" dcml="0" files="F1" intrvl="discrete" name="v037">
+			<location width="1"/>
+			<labl>IOKPROB Last 4 weeks: felt not being able to get over your problems
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[During the past 4 weeks how often... 
+
+... E. Have you felt  you could not overcome your problems?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1808
+</sumStat>
+			<sumStat type="invd">26
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Never
+</labl>
+				<catStat type="freq">824
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Seldom
+</labl>
+				<catStat type="freq">532
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Sometimes
+</labl>
+				<catStat type="freq">297
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Often
+</labl>
+				<catStat type="freq">92
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Very often
+</labl>
+				<catStat type="freq">48
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">15
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">26
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V38" dcml="0" files="F1" intrvl="discrete" name="v038">
+			<location width="1"/>
+			<labl>OPBLEGE Last 12 months: visited or been visited by a doctor
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[During the past 12 months, how often did you visit or were visited by... 
+
+... A. A doctor?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1810
+</sumStat>
+			<sumStat type="invd">24
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Never
+</labl>
+				<catStat type="freq">332
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Seldom
+</labl>
+				<catStat type="freq">683
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Sometimes
+</labl>
+				<catStat type="freq">541
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Often
+</labl>
+				<catStat type="freq">185
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Very often
+</labl>
+				<catStat type="freq">66
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">3
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">24
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V39" dcml="0" files="F1" intrvl="discrete" name="v039">
+			<location width="1"/>
+			<labl>OPBAME Last 12 months: sought or received a visit from a practicing alternative medicine
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[During the past 12 months, how often did you visit or were visited by... 
+
+... B. An [alternative/traditional/folk] health care practitioner?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1799
+</sumStat>
+			<sumStat type="invd">35
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Never
+</labl>
+				<catStat type="freq">1463
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Seldom
+</labl>
+				<catStat type="freq">148
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Sometimes
+</labl>
+				<catStat type="freq">131
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Often
+</labl>
+				<catStat type="freq">37
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Very often
+</labl>
+				<catStat type="freq">10
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">10
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">35
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V40" dcml="0" files="F1" intrvl="discrete" name="v040">
+			<location width="1"/>
+			<labl>ILSYKH Last 12 months: admitted to the hospital or clinic
+</labl>
+			<qstn>
+				<qstnLit>During the past 12 months, have you been in hospital or a clinic as an inpatient overnight?
+</qstnLit>
+				<postQTxt>With hospital/clinic we also mean delivery room
+</postQTxt>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1803
+</sumStat>
+			<sumStat type="invd">31
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Yes
+</labl>
+				<catStat type="freq">271
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>No
+</labl>
+				<catStat type="freq">1531
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Don't know
+</labl>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">31
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V41" dcml="0" files="F1" intrvl="discrete" name="v041">
+			<location width="1"/>
+			<labl>IMBET Last 12 months: not received medical treatment because you could not pay for it
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[During the past 12 months did it ever happen that you did not get the medical treatment you needed because…
+
+... A. You could not pay for it?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1793
+</sumStat>
+			<sumStat type="invd">41
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Yes
+</labl>
+				<catStat type="freq">50
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>No
+</labl>
+				<catStat type="freq">1083
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Did not need medical treatment
+</labl>
+				<catStat type="freq">660
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">41
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V42" dcml="0" files="F1" intrvl="discrete" name="v042">
+			<location width="1"/>
+			<labl>IMARB Last 12 months: not received medical treatment because you could not take off from work or other commitments
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[During the past 12 months did it ever happen that you did not get the medical treatment you needed because…
+
+... B. You could not take the time off work or had other commitments?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1785
+</sumStat>
+			<sumStat type="invd">49
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Yes
+</labl>
+				<catStat type="freq">71
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>No
+</labl>
+				<catStat type="freq">1071
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Did not need medical treatment
+</labl>
+				<catStat type="freq">643
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">49
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V43" dcml="0" files="F1" intrvl="discrete" name="v043">
+			<location width="1"/>
+			<labl>IMITILG Last 12 months: not given medical treatment because the treatment you needed was not available near where you live
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[During the past 12 months did it ever happen that you did not get the medical treatment you needed because…
+
+... C. The treatment you needed was not available where you live or nearby?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1783
+</sumStat>
+			<sumStat type="invd">51
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Yes
+</labl>
+				<catStat type="freq">71
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>No
+</labl>
+				<catStat type="freq">1018
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Did not need medical treatment
+</labl>
+				<catStat type="freq">694
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">51
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V44" dcml="0" files="F1" intrvl="discrete" name="v044">
+			<location width="1"/>
+			<labl>IMVENT Last 12 months: not given medical treatment because the waiting list was too long
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[During the past 12 months did it ever happen that you did not get the medical treatment you needed because…
+
+... D. The waiting list was to long.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1793
+</sumStat>
+			<sumStat type="invd">41
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Yes
+</labl>
+				<catStat type="freq">176
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>No
+</labl>
+				<catStat type="freq">914
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Did not need medical treatment
+</labl>
+				<catStat type="freq">703
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">41
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V45" dcml="0" files="F1" intrvl="discrete" name="v045">
+			<location width="1"/>
+			<labl>SBSTBEH If seriously ill, how likely you would get the best treatment available in Norway
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How likely is it that if you become seriously ill, you would get or not get…
+
+... A. The best treatment available in [country].]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1819
+</sumStat>
+			<sumStat type="invd">15
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>It's certain I would get
+</labl>
+				<catStat type="freq">259
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>It's likely I would get
+</labl>
+				<catStat type="freq">934
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Equal chance of getting or not getting
+</labl>
+				<catStat type="freq">413
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>it's likely I would not get
+</labl>
+				<catStat type="freq">104
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>It's certain I would not get
+</labl>
+				<catStat type="freq">27
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">82
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">15
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V46" dcml="0" files="F1" intrvl="discrete" name="v046">
+			<location width="1"/>
+			<labl>SVLGLG If seriously ill, how likely you would get to choose which doctor would treat you
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How likely is it that if you become seriously ill, you would get or not get…
+
+... B. Treatment from the doctor of your choice.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1808
+</sumStat>
+			<sumStat type="invd">26
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>It's certain I would get
+</labl>
+				<catStat type="freq">70
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>It's likely I would get
+</labl>
+				<catStat type="freq">286
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Equal chance of getting or not getting
+</labl>
+				<catStat type="freq">515
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>it's likely I would not get
+</labl>
+				<catStat type="freq">561
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>It's certain I would not get
+</labl>
+				<catStat type="freq">160
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">216
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">26
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Ill health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Diseases
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical history
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical treatment methods
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V47" dcml="0" files="F1" intrvl="discrete" name="v047">
+			<location width="1"/>
+			<labl>HELNOF Satisfied or dissatisfied with the health services in Norway
+</labl>
+			<qstn>
+				<qstnLit>In general, how satisfied or dissatisfied are you with the health care system in [country]?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1813
+</sumStat>
+			<sumStat type="invd">21
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Completely satisfied
+</labl>
+				<catStat type="freq">24
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Very satisfied
+</labl>
+				<catStat type="freq">396
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Fairly satisfied
+</labl>
+				<catStat type="freq">883
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Neither satisfied nor dissatisfied
+</labl>
+				<catStat type="freq">265
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Fairly dissatisfied
+</labl>
+				<catStat type="freq">164
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Very dissatisfied
+</labl>
+				<catStat type="freq">56
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>Completely dissatisfied
+</labl>
+				<catStat type="freq">11
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can’t choose
+</labl>
+				<catStat type="freq">14
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">21
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Access to health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V48" dcml="0" files="F1" intrvl="discrete" name="v048">
+			<location width="1"/>
+			<labl>FBHLEGE Satisfied or dissatisfied with the treatment you last visited a doctor
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How satisfied or dissatisfied were you with the treatment you received…
+
+... A. When you last visited a doctor?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1811
+</sumStat>
+			<sumStat type="invd">23
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Completely satisfied
+</labl>
+				<catStat type="freq">226
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Very satisfied
+</labl>
+				<catStat type="freq">759
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Fairly satisfied
+</labl>
+				<catStat type="freq">572
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Neither satisfied nor dissatisfied
+</labl>
+				<catStat type="freq">125
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Fairly dissatisfied
+</labl>
+				<catStat type="freq">78
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Very dissatisfied
+</labl>
+				<catStat type="freq">23
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>Completely dissatisfied
+</labl>
+				<catStat type="freq">14
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can’t choose
+</labl>
+				<catStat type="freq">14
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">23
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Access to health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V49" dcml="0" files="F1" intrvl="discrete" name="v049">
+			<location width="1"/>
+			<labl>FBHAMED Satisfied or dissatisfied with the treatment you last visited the one who practices alternative medicine
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How satisfied or dissatisfied were you with the treatment you received…
+
+... B. When you last visited an [alternative /traditional/ folk] health care practitioner?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1663
+</sumStat>
+			<sumStat type="invd">171
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Completely satisfied
+</labl>
+				<catStat type="freq">57
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Very satisfied
+</labl>
+				<catStat type="freq">214
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Fairly satisfied
+</labl>
+				<catStat type="freq">135
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Neither satisfied nor dissatisfied
+</labl>
+				<catStat type="freq">126
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Fairly dissatisfied
+</labl>
+				<catStat type="freq">31
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Very dissatisfied
+</labl>
+				<catStat type="freq">8
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>Completely dissatisfied
+</labl>
+				<catStat type="freq">17
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can’t choose
+</labl>
+				<catStat type="freq">1075
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">171
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Access to health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V50" dcml="0" files="F1" intrvl="discrete" name="v050">
+			<location width="1"/>
+			<labl>FBHSYKH Satisfied or dissatisfied with the treatment last time you were in hospital
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How satisfied or dissatisfied were you with the treatment you received…
+
+... C. When you were last in hospital?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1761
+</sumStat>
+			<sumStat type="invd">73
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Completely satisfied
+</labl>
+				<catStat type="freq">183
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Very satisfied
+</labl>
+				<catStat type="freq">651
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Fairly satisfied
+</labl>
+				<catStat type="freq">408
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Neither satisfied nor dissatisfied
+</labl>
+				<catStat type="freq">120
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Fairly dissatisfied
+</labl>
+				<catStat type="freq">60
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Very dissatisfied
+</labl>
+				<catStat type="freq">27
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>Completely dissatisfied
+</labl>
+				<catStat type="freq">17
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can’t choose
+</labl>
+				<catStat type="freq">295
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">73
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health professions
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Access to health services
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health services
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V51" dcml="0" files="F1" intrvl="discrete" name="v051">
+			<location width="1"/>
+			<labl>RKSIGHM Smoke cigarettes and how many per day
+</labl>
+			<qstn>
+				<qstnLit>Do you smoke cigarettes, and if so about how many cigarettes a day?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="7" min="1"/>
+			</valrng>
+			<sumStat type="vald">1799
+</sumStat>
+			<sumStat type="invd">35
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Do not smoke and never did
+</labl>
+				<catStat type="freq">795
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Do not smoke now but smoked in the past
+</labl>
+				<catStat type="freq">670
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Smoke 1-5 cigarettes per day
+</labl>
+				<catStat type="freq">80
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Smoke 6-10 cigarettes per day
+</labl>
+				<catStat type="freq">111
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Smoke 11-20 cigarettes per day
+</labl>
+				<catStat type="freq">125
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Smoke 21-40 cigarettes per day
+</labl>
+				<catStat type="freq">16
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>Smoke more than 40 cigarettes per day
+</labl>
+				<catStat type="freq">2
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">35
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Smoke
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Drinking behaviour
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V52" dcml="0" files="F1" intrvl="discrete" name="v052">
+			<location width="1"/>
+			<labl>DALKOSD How often: drink at least four alcoholic drinks on the same day
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How often do you…
+
+... A. Drink 4 or more alcoholic drinks on the same day?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1814
+</sumStat>
+			<sumStat type="invd">20
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Never
+</labl>
+				<catStat type="freq">615
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Once a month or less often
+</labl>
+				<catStat type="freq">799
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Several times a month
+</labl>
+				<catStat type="freq">342
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Several times a week
+</labl>
+				<catStat type="freq">47
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Daily
+</labl>
+				<catStat type="freq">6
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">5
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">20
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Smoke
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Drinking behaviour
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V53" dcml="0" files="F1" intrvl="discrete" name="v053">
+			<location width="1"/>
+			<labl>FYSAKT How often: are physically active for at least 20 minutes and is more sweating and breathing heavier than usual
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How often do you…
+
+... B. Do physical activity for at least 20 minutes that makes you sweat or breathe more heavily than usual?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1811
+</sumStat>
+			<sumStat type="invd">23
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Never
+</labl>
+				<catStat type="freq">51
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Once a month or less often
+</labl>
+				<catStat type="freq">196
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Several times a month
+</labl>
+				<catStat type="freq">477
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Several times a week
+</labl>
+				<catStat type="freq">860
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Daily
+</labl>
+				<catStat type="freq">206
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">21
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">23
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Physical fitness
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V54" dcml="0" files="F1" intrvl="discrete" name="v054">
+			<location width="1"/>
+			<labl>SPFRGRS How often: Eat fresh fruit or vegetables
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[How often do you…
+
+... C. Eat fresh fruit or vegetables?]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1814
+</sumStat>
+			<sumStat type="invd">20
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Never
+</labl>
+				<catStat type="freq">7
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Once a month or less often
+</labl>
+				<catStat type="freq">39
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Several times a month
+</labl>
+				<catStat type="freq">176
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Several times a week
+</labl>
+				<catStat type="freq">597
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Daily
+</labl>
+				<catStat type="freq">992
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">3
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">20
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Physical fitness
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V55" dcml="0" files="F1" intrvl="discrete" name="v055">
+			<location width="1"/>
+			<labl>HELSE How is your health in general
+</labl>
+			<qstn>
+				<qstnLit>In general, would you say your health is...
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1815
+</sumStat>
+			<sumStat type="invd">19
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Excellent
+</labl>
+				<catStat type="freq">120
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Very good
+</labl>
+				<catStat type="freq">520
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Good
+</labl>
+				<catStat type="freq">681
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Fair
+</labl>
+				<catStat type="freq">376
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Poor
+</labl>
+				<catStat type="freq">115
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Can't choose
+</labl>
+				<catStat type="freq">3
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">19
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Physical fitness
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V56" dcml="0" files="F1" intrvl="discrete" name="v056">
+			<location width="1"/>
+			<labl>SYKKRON Has prolonged illness, chronic illness or disability
+</labl>
+			<qstn>
+				<qstnLit>Do you have a long-standing illness, a chronic condition, or a disability?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1791
+</sumStat>
+			<sumStat type="invd">43
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Yes
+</labl>
+				<catStat type="freq">655
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>No
+</labl>
+				<catStat type="freq">1136
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Cant't choose
+</labl>
+				<catStat type="freq">0
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">43
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Physical fitness
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V57" dcml="0" files="F1" intrvl="contin" name="v057">
+			<location width="3"/>
+			<labl>HOYDE Height in cm
+</labl>
+			<qstn>
+				<qstnLit>What is your height in cm?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="207" min="147"/>
+			</valrng>
+			<sumStat type="vald">1805
+</sumStat>
+			<sumStat type="invd">29
+</sumStat>
+			<sumStat type="min">147
+</sumStat>
+			<sumStat type="max">207
+</sumStat>
+			<sumStat type="mean">173.152
+</sumStat>
+			<sumStat type="stdev">9.113
+</sumStat>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Physical fitness
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V58" dcml="0" files="F1" intrvl="contin" name="v058">
+			<location width="3"/>
+			<labl>VEKT Weight in kg
+</labl>
+			<qstn>
+				<qstnLit>What is your weight i kg?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="145" min="40"/>
+			</valrng>
+			<sumStat type="vald">1760
+</sumStat>
+			<sumStat type="invd">74
+</sumStat>
+			<sumStat type="min">40
+</sumStat>
+			<sumStat type="max">145
+</sumStat>
+			<sumStat type="mean">77.487
+</sumStat>
+			<sumStat type="stdev">15.506
+</sumStat>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Physical fitness
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V59" dcml="0" files="F1" intrvl="discrete" name="v059">
+			<location width="1"/>
+			<labl>HFOFF Has public health insurance
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[What kind of health insurance do you have? 
+
+... A. National/public health insurance (including coverage by public welfare).]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="1" min="0"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<labl>Unchecked
+</labl>
+				<catStat type="freq">885
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Checked
+</labl>
+				<catStat type="freq">949
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Insurance
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical insurance
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V60" dcml="0" files="F1" intrvl="discrete" name="v060">
+			<location width="1"/>
+			<labl>HFPRIV Has private health insurance
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[What kind of health insurance do you have? 
+
+... B. Private insurance.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="1" min="0"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<labl>Unchecked
+</labl>
+				<catStat type="freq">1544
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Checked
+</labl>
+				<catStat type="freq">290
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Insurance
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical insurance
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V61" dcml="0" files="F1" intrvl="discrete" name="v061">
+			<location width="1"/>
+			<labl>HFARB Has health insurance through your employer or union
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[What kind of health insurance do you have? 
+
+... C. Employer/union based insurance .]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="1" min="0"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<labl>Unchecked
+</labl>
+				<catStat type="freq">1196
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Checked
+</labl>
+				<catStat type="freq">638
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Insurance
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical insurance
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V62" dcml="0" files="F1" intrvl="discrete" name="v062">
+			<location width="1"/>
+			<labl>HFINGEN Have no health insurance
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[What kind of health insurance do you have? 
+
+... D. Have no health insurance.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="1" min="0"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<labl>Unchecked
+</labl>
+				<catStat type="freq">1579
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Checked
+</labl>
+				<catStat type="freq">255
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Insurance
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical insurance
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V63" dcml="0" files="F1" intrvl="discrete" name="v063">
+			<location width="1"/>
+			<labl>HFDEKKE How well covered by health insurance
+</labl>
+			<qstn>
+				<qstnLit>Thinking about your health insurance coverage would you say you are…
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1548
+</sumStat>
+			<sumStat type="invd">286
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Very well covered
+</labl>
+				<catStat type="freq">250
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Well covered
+</labl>
+				<catStat type="freq">850
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Not well covered
+</labl>
+				<catStat type="freq">125
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Don't know
+</labl>
+				<catStat type="freq">323
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">286
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Insurance
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical insurance
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V64" dcml="0" files="F1" intrvl="discrete" name="v064">
+			<location width="1"/>
+			<labl>HELSFOR Type (s) health insurance
+</labl>
+			<qstn>
+				<qstnLit>Type (s) health insurance
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1786
+</sumStat>
+			<sumStat type="invd">48
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>None
+</labl>
+				<catStat type="freq">244
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Public through the National Insurance
+</labl>
+				<catStat type="freq">718
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Private
+</labl>
+				<catStat type="freq">157
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Employer or union
+</labl>
+				<catStat type="freq">372
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Public and private
+</labl>
+				<catStat type="freq">29
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Public and employer / union
+</labl>
+				<catStat type="freq">162
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>Employer / union and private
+</labl>
+				<catStat type="freq">64
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Government, employer / union and private
+</labl>
+				<catStat type="freq">40
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">48
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Health
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Insurance
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Medical insurance
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V65" dcml="0" files="F1" intrvl="discrete" name="v065">
+			<location width="1"/>
+			<labl>kjonn Gender
+</labl>
+			<qstn>
+				<preQTxt>Background information. For all.
+</preQTxt>
+				<qstnLit>Gender.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="2" min="1"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Male
+</labl>
+				<catStat type="freq">854
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Female
+</labl>
+				<catStat type="freq">980
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Gender
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V66" dcml="0" files="F1" intrvl="contin" name="v066">
+			<location width="4"/>
+			<labl>faar Year of birth
+</labl>
+			<qstn>
+				<qstnLit>Year of birth.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="1993" min="1934"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<sumStat type="min">1934
+</sumStat>
+			<sumStat type="max">1993
+</sumStat>
+			<sumStat type="mean">1962.723
+</sumStat>
+			<sumStat type="stdev">15.952
+</sumStat>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Age
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Age groups
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V67" dcml="0" files="F1" intrvl="contin" name="v067">
+			<location width="2"/>
+			<labl>alder Age
+</labl>
+			<qstn>
+				<qstnLit>Age.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="78" min="19"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<sumStat type="min">19
+</sumStat>
+			<sumStat type="max">78
+</sumStat>
+			<sumStat type="mean">49.277
+</sumStat>
+			<sumStat type="stdev">15.952
+</sumStat>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Age
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Age groups
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V68" dcml="0" files="F1" intrvl="discrete" name="v068">
+			<location width="1"/>
+			<labl>aldgr Age groups. Transcoding of age
+</labl>
+			<qstn>
+				<qstnLit>Age groups. Transcoding of age.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="6" min="1"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>19-24 years
+</labl>
+				<catStat type="freq">143
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>25-34 years
+</labl>
+				<catStat type="freq">252
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>35-44 years
+</labl>
+				<catStat type="freq">304
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>45-54 years
+</labl>
+				<catStat type="freq">390
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>55-64 years
+</labl>
+				<catStat type="freq">353
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>65-78 years
+</labl>
+				<catStat type="freq">392
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Age
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Age groups
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V69" dcml="0" files="F1" intrvl="contin" name="v069">
+			<location width="2"/>
+			<labl>AARUTD Number of years of full-time education
+</labl>
+			<qstn>
+				<qstnLit>How many years of full-time education, you have all in all? Expect all education, including primary and apprentices.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="40" min="0"/>
+			</valrng>
+			<sumStat type="vald">1788
+</sumStat>
+			<sumStat type="invd">46
+</sumStat>
+			<sumStat type="min">0
+</sumStat>
+			<sumStat type="max">40
+</sumStat>
+			<sumStat type="mean">13.633
+</sumStat>
+			<sumStat type="stdev">3.984
+</sumStat>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V70" dcml="0" files="F1" intrvl="discrete" name="v070">
+			<location width="1"/>
+			<labl>UFUTD Completed general education / academic specialization: no education or incomplete primary
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Which general education or academic specialization have you completed?
+
+... A. No education or incomplete primary education.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="1" min="0"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<labl>Not marked
+</labl>
+				<catStat type="freq">1795
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Marked
+</labl>
+				<catStat type="freq">39
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V71" dcml="0" files="F1" intrvl="discrete" name="v071">
+			<location width="1"/>
+			<labl>GRUNNUTD Completed general education / academic specialization: school, primary school, secondary school, continuation school
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Which general education or academic specialization have you completed?
+
+... B. Primary school, primary school, secondary school, continuation school.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="1" min="0"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<labl>Not marked
+</labl>
+				<catStat type="freq">868
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Marked
+</labl>
+				<catStat type="freq">966
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V72" dcml="0" files="F1" intrvl="discrete" name="v072">
+			<location width="1"/>
+			<labl>FHSKUTD Completed general education / academic specialization: folk university
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Which general education or academic specialization have you completed?
+
+... C. Folk university, (college without any formal education).]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="1" min="0"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<labl>Not marked
+</labl>
+				<catStat type="freq">1641
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Marked
+</labl>
+				<catStat type="freq">193
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V73" dcml="0" files="F1" intrvl="discrete" name="v073">
+			<location width="1"/>
+			<labl>STDVGGR Completed general education / academic specialization: basic education high school general
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Which general education or academic specialization have you completed?
+
+... D. Basic education at high school (GK, VKI, VG1, VG2) by general studies / general studies education.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="1" min="0"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<labl>Not marked
+</labl>
+				<catStat type="freq">1083
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Marked
+</labl>
+				<catStat type="freq">751
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V74" dcml="0" files="F1" intrvl="discrete" name="v074">
+			<location width="1"/>
+			<labl>STDVGFF Completed general education / academic specialization: completed high school general
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Which general education or academic specialization have you completed?
+
+... E. Completed high school, general studies / general studies programs, one-year post-admission (VKII, VG3, high school).]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="1" min="0"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<labl>Not marked
+</labl>
+				<catStat type="freq">1115
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Marked
+</labl>
+				<catStat type="freq">719
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V75" dcml="0" files="F1" intrvl="discrete" name="v075">
+			<location width="1"/>
+			<labl>YRKUTDA Highest completed vocational education
+</labl>
+			<qstn>
+				<qstnLit>Which vocational education have you completed?
+</qstnLit>
+				<postQTxt>If education at university college or university: answer question B6.
+</postQTxt>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="3" min="1"/>
+			</valrng>
+			<sumStat type="vald">965
+</sumStat>
+			<sumStat type="invd">869
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Primary education upper secondary school, vocational school
+</labl>
+				<catStat type="freq">435
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Finished upper secondary school, certificate of completed apprenticeship, apprentices' final exam(ination)
+</labl>
+				<catStat type="freq">416
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Technical college, approved college
+</labl>
+				<catStat type="freq">114
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">869
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V76" dcml="0" files="F1" intrvl="discrete" name="v076">
+			<location width="1"/>
+			<labl>HOYUTDA Highest completed education
+</labl>
+			<qstn>
+				<qstnLit>Highest completed education.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="3" min="1"/>
+			</valrng>
+			<sumStat type="vald">850
+</sumStat>
+			<sumStat type="invd">984
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>University, university college, less than 3 years
+</labl>
+				<catStat type="freq">226
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl><![CDATA[University, university college, 3-4  years]]></labl>
+				<catStat type="freq">428
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>University, university college, 5 years or more
+</labl>
+				<catStat type="freq">196
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">984
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V77" dcml="0" files="F1" intrvl="discrete" name="v077">
+			<location width="1"/>
+			<labl>ALMENUTD Highest completed general education. The encoding of ufutd - stdvgff
+</labl>
+			<qstn>
+				<qstnLit>Highest completed general education. The encoding of ufutd - stdvgff.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="5" min="1"/>
+			</valrng>
+			<sumStat type="vald">1782
+</sumStat>
+			<sumStat type="invd">52
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Incomplete primary education
+</labl>
+				<catStat type="freq">34
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Primary school, primary school, secondary school, continuation school
+</labl>
+				<catStat type="freq">381
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Folk university, (college without any formal education)
+</labl>
+				<catStat type="freq">79
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Basic education at high school by general studies / general studies education
+</labl>
+				<catStat type="freq">569
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Completed high school, general studies
+</labl>
+				<catStat type="freq">719
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">52
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V78" dcml="0" files="F1" intrvl="discrete" name="v078">
+			<location width="1"/>
+			<labl>UTD1 Highest education 1 The encoding of almenutd, yrkesutda and hoyutda, 9 categories
+</labl>
+			<qstn>
+				<qstnLit>Highest education 1 The encoding of almenutd, yrkesutda and hoyutda, 9 categories.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="9" min="1"/>
+			</valrng>
+			<sumStat type="vald">1803
+</sumStat>
+			<sumStat type="invd">31
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Not finished any formal education
+</labl>
+				<catStat type="freq">31
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Primary school, primary school, secondary school, continuation school
+</labl>
+				<catStat type="freq">170
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Primary education, folk university, (college without any formal education)
+</labl>
+				<catStat type="freq">309
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Finished upper secondary school, certificate of completed apprenticeship, apprentices' final exam(ination)
+</labl>
+				<catStat type="freq">190
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Finished upper primary school by general studies / general studies education.
+</labl>
+				<catStat type="freq">185
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Technical college, approved college
+</labl>
+				<catStat type="freq">68
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>University, university college, less than 3 years
+</labl>
+				<catStat type="freq">226
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl><![CDATA[University, university college, 3-4  years]]></labl>
+				<catStat type="freq">428
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>9
+</catValu>
+				<labl>University, university college, 5 years or more
+</labl>
+				<catStat type="freq">196
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">31
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V79" dcml="0" files="F1" intrvl="discrete" name="v079">
+			<location width="1"/>
+			<labl>UTD2 Highest education 2 The encoding of almenutd, yrkesutd and hoyutda, 6 categories
+</labl>
+			<qstn>
+				<qstnLit>Highest education 2 The encoding of almenutd, yrkesutd and hoyutda, 6 categories.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="6" min="0"/>
+			</valrng>
+			<sumStat type="vald">1803
+</sumStat>
+			<sumStat type="invd">31
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<labl>Not finished any formal education
+</labl>
+				<catStat type="freq">31
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Primary school, primary school, secondary school, continuation school
+</labl>
+				<catStat type="freq">170
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Primary education, folk university, (college without any formal education)
+</labl>
+				<catStat type="freq">309
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Finished upper secondary school
+</labl>
+				<catStat type="freq">375
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Technical college, approved college
+</labl>
+				<catStat type="freq">68
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>University, university college, less than 3 years
+</labl>
+				<catStat type="freq">226
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>University, university college, 3 years or more
+</labl>
+				<catStat type="freq">624
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">31
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Education
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V80" dcml="0" files="F1" intrvl="discrete" name="v080">
+			<location width="1"/>
+			<labl>INNTARB Have or have had paid work
+</labl>
+			<qstn>
+				<qstnLit>Do you or have you ever had, paid work? We are interested in your work, even if it's just in a few hours a week. Work in own family business without fixed wages are considered paid work.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="4" min="1"/>
+			</valrng>
+			<sumStat type="vald">1819
+</sumStat>
+			<sumStat type="invd">15
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Yes, paid work now
+</labl>
+				<catStat type="freq">1218
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Yes, but temporarily not working because of leave of absence, illnes or the like
+</labl>
+				<catStat type="freq">87
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Has been in paid employment before
+</labl>
+				<catStat type="freq">497
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>No, never had paid work
+</labl>
+				<catStat type="freq">17
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">15
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V81" dcml="0" files="F1" intrvl="contin" name="v081">
+			<location width="2"/>
+			<labl>ARBTIMER Working hours per week usually total
+</labl>
+			<qstn>
+				<qstnLit>How many hours do you work normally total pr week? also included overtime hours and work at home.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="95" min="0"/>
+			</valrng>
+			<sumStat type="vald">1383
+</sumStat>
+			<sumStat type="invd">451
+</sumStat>
+			<sumStat type="min">0
+</sumStat>
+			<sumStat type="max">95
+</sumStat>
+			<sumStat type="mean">38.583
+</sumStat>
+			<sumStat type="stdev">13.715
+</sumStat>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V82" dcml="0" files="F1" intrvl="discrete" name="v082">
+			<location width="1"/>
+			<labl>SELVANS Self employed or working family's business, current or last main occupation
+</labl>
+			<qstn>
+				<qstnLit>Are / were you in your main job ...
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="4" min="1"/>
+			</valrng>
+			<sumStat type="vald">1686
+</sumStat>
+			<sumStat type="invd">148
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Self-employed with employees
+</labl>
+				<catStat type="freq">76
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Self-employed without employees
+</labl>
+				<catStat type="freq">72
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Employed
+</labl>
+				<catStat type="freq">1506
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Family member
+</labl>
+				<catStat type="freq">32
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">148
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V83" dcml="0" files="F1" intrvl="discrete" name="v083">
+			<location width="4"/>
+			<labl>ANSATTE Employees, if self-employed with employees in the current or last main occupation
+</labl>
+			<qstn>
+				<qstnLit>If you are / were self-employed with employees, how many employees do / did you have?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="1100" min="0"/>
+			</valrng>
+			<sumStat type="vald">88
+</sumStat>
+			<sumStat type="invd">1746
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<catStat type="freq">7
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<catStat type="freq">12
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<catStat type="freq">14
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<catStat type="freq">10
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<catStat type="freq">6
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<catStat type="freq">5
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<catStat type="freq">7
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<catStat type="freq">3
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>10
+</catValu>
+				<catStat type="freq">6
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>12
+</catValu>
+				<catStat type="freq">5
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>15
+</catValu>
+				<catStat type="freq">2
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>17
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>24
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>25
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>28
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>30
+</catValu>
+				<catStat type="freq">2
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>36
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>40
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>74
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1100
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">1746
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V84" dcml="0" files="F1" intrvl="discrete" name="v084">
+			<location width="1"/>
+			<labl>LEDER Managing other employees in the current or last main occupation
+</labl>
+			<qstn>
+				<qstnLit>Does / meant your regular work to direct other employees, or decide what kind of work they should / should do?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1648
+</sumStat>
+			<sumStat type="invd">186
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Yes
+</labl>
+				<catStat type="freq">514
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>No
+</labl>
+				<catStat type="freq">1134
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Don`t know
+</labl>
+				<catStat type="freq">0
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">186
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V85" dcml="0" files="F1" intrvl="contin" name="v085">
+			<location width="4"/>
+			<labl>ANTLEDE Command number of other employees in the current or last main occupation
+</labl>
+			<qstn>
+				<qstnLit>How many employees are / were under your leadership?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="1500" min="1"/>
+			</valrng>
+			<sumStat type="vald">495
+</sumStat>
+			<sumStat type="invd">1339
+</sumStat>
+			<sumStat type="min">1
+</sumStat>
+			<sumStat type="max">1500
+</sumStat>
+			<sumStat type="mean">25.147
+</sumStat>
+			<sumStat type="stdev">100.708
+</sumStat>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V86" dcml="0" files="F1" intrvl="discrete" name="v086">
+			<location width="1"/>
+			<labl>TYPORG Working in the business at a profit for the owners aim in the current or last main occupation
+</labl>
+			<qstn>
+				<qstnLit>Laborer / worked you in a business that has / had profits for the owners as a goal, or a business without such a goal (public sector, NGOs, etc.)?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="2" min="1"/>
+			</valrng>
+			<sumStat type="vald">1628
+</sumStat>
+			<sumStat type="invd">206
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Profits as goal
+</labl>
+				<catStat type="freq">849
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Not profit as a goal
+</labl>
+				<catStat type="freq">779
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">206
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V87" dcml="0" files="F1" intrvl="discrete" name="v087">
+			<location width="1"/>
+			<labl>VIRKSHET Working in the type of business in the current or last main occupation
+</labl>
+			<qstn>
+				<qstnLit>And is / was the business you work / worked in a ...
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="6" min="1"/>
+			</valrng>
+			<sumStat type="vald">1732
+</sumStat>
+			<sumStat type="invd">102
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Private firm
+</labl>
+				<catStat type="freq">842
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Organization, foundation
+</labl>
+				<catStat type="freq">80
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Municipal/county municipal business
+</labl>
+				<catStat type="freq">435
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Public company
+</labl>
+				<catStat type="freq">239
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Other public or halv public company
+</labl>
+				<catStat type="freq">71
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Other
+</labl>
+				<catStat type="freq">65
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">102
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V88" dcml="0" files="F1" intrvl="discrete" name="v088">
+			<location width="1"/>
+			<labl>VRKSSTR Employees in the normal workplace
+</labl>
+			<qstn>
+				<qstnLit>Including yourself, about how many are / were employed where you usually work / worked?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="5" min="1"/>
+			</valrng>
+			<sumStat type="vald">1723
+</sumStat>
+			<sumStat type="invd">111
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>1-9
+</labl>
+				<catStat type="freq">411
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>10-24
+</labl>
+				<catStat type="freq">407
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>25-99
+</labl>
+				<catStat type="freq">411
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>100-499
+</labl>
+				<catStat type="freq">266
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>500 or more
+</labl>
+				<catStat type="freq">228
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">111
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V89" dcml="0" files="F1" intrvl="contin" name="v089">
+			<location width="4"/>
+			<labl>isco Current or last main occupation, ISCO-88 (com). Standard Classification of Occupations 1998. Nos c 521
+</labl>
+			<qstn>
+				<qstnLit>Current or last main occupation, ISCO-88 (com). Standard Classification of Occupations 1998. Nos c 521
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="9999" min="110"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<sumStat type="min">110
+</sumStat>
+			<sumStat type="max">9999
+</sumStat>
+			<sumStat type="mean">4670.09
+</sumStat>
+			<sumStat type="stdev">2585.129
+</sumStat>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V90" dcml="0" files="F1" intrvl="discrete" name="v090">
+			<location width="1"/>
+			<labl>YRKSTATA Consider your main activity at the time
+</labl>
+			<qstn>
+				<qstnLit>Consider your main activity at the time
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="9" min="1"/>
+			</valrng>
+			<sumStat type="vald">1792
+</sumStat>
+			<sumStat type="invd">42
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>In paid work
+</labl>
+				<catStat type="freq">1154
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Unemployed, but looking for work
+</labl>
+				<catStat type="freq">28
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>In education
+</labl>
+				<catStat type="freq">110
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Apprentice
+</labl>
+				<catStat type="freq">13
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Insured/ unfit for emplyment
+</labl>
+				<catStat type="freq">138
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Old age or early aged pensioner
+</labl>
+				<catStat type="freq">304
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>Homemaker with med domestic work/care
+</labl>
+				<catStat type="freq">18
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Compulory military or compulsory civilian national service
+</labl>
+				<catStat type="freq">9
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>9
+</catValu>
+				<labl>Other
+</labl>
+				<catStat type="freq">18
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">42
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V91" dcml="0" files="F1" intrvl="discrete" name="v091">
+			<location width="1"/>
+			<labl>PARTNERA Have stable spouse / partner and living in the same household
+</labl>
+			<qstn>
+				<qstnLit>Do you have a spouse or stable partner, and you live in the same household?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="3" min="1"/>
+			</valrng>
+			<sumStat type="vald">1801
+</sumStat>
+			<sumStat type="invd">33
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Married/stable partner, living in the same household
+</labl>
+				<catStat type="freq">1282
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Married/stable partner, not living in the same household
+</labl>
+				<catStat type="freq">86
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Not married/stable partner
+</labl>
+				<catStat type="freq">433
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">33
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V92" dcml="0" files="F1" intrvl="discrete" name="v092">
+			<location width="1"/>
+			<labl>INTARBP Spouse / partner have / have had paid work
+</labl>
+			<qstn>
+				<qstnLit>Does your spouse / partner now or previously had paid work? We are interested in any work, even if it's just in a few hours a week. Work in own family business without fixed wages are considered paid work.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="4" min="1"/>
+			</valrng>
+			<sumStat type="vald">1390
+</sumStat>
+			<sumStat type="invd">444
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Yes, paid work now
+</labl>
+				<catStat type="freq">958
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Yes, but temporarily not working because of leave of absence, illnes or the like
+</labl>
+				<catStat type="freq">60
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Has been in paid employment before
+</labl>
+				<catStat type="freq">353
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>No, never had paid work
+</labl>
+				<catStat type="freq">19
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">444
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V93" dcml="0" files="F1" intrvl="contin" name="v093">
+			<location width="2"/>
+			<labl>ARBTIMP Working hours for spouse / partner usually total per week
+</labl>
+			<qstn>
+				<qstnLit>How many hours does your spouse / partner usually total pr week? also included overtime hours and work at home
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="96" min="0"/>
+			</valrng>
+			<sumStat type="vald">1072
+</sumStat>
+			<sumStat type="invd">762
+</sumStat>
+			<sumStat type="min">0
+</sumStat>
+			<sumStat type="max">96
+</sumStat>
+			<sumStat type="mean">39.387
+</sumStat>
+			<sumStat type="stdev">12.901
+</sumStat>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V94" dcml="0" files="F1" intrvl="discrete" name="v094">
+			<location width="1"/>
+			<labl>SLVANSP Spouse / partner independent, employed or working family's business, current or last main occupation
+</labl>
+			<qstn>
+				<qstnLit>Is / was your spouse / partner ...
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="4" min="1"/>
+			</valrng>
+			<sumStat type="vald">1319
+</sumStat>
+			<sumStat type="invd">515
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Self-employed with employees
+</labl>
+				<catStat type="freq">83
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Self-employed without employees
+</labl>
+				<catStat type="freq">72
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Employed
+</labl>
+				<catStat type="freq">1130
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Family member
+</labl>
+				<catStat type="freq">34
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">515
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V95" dcml="0" files="F1" intrvl="discrete" name="v095">
+			<location width="1"/>
+			<labl>LEDERP Spouse / partner lead other employees in the current or last main occupation
+</labl>
+			<qstn>
+				<qstnLit>Does / meant your spouse / partner 'ordinary work to lead other employees, or decide what kind of work they should do?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1329
+</sumStat>
+			<sumStat type="invd">505
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Yes
+</labl>
+				<catStat type="freq">414
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>No
+</labl>
+				<catStat type="freq">915
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Don`t know
+</labl>
+				<catStat type="freq">0
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">505
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V96" dcml="0" files="F1" intrvl="contin" name="v096">
+			<location width="4"/>
+			<labl>iscop Spouse / partner's current or last main occupation, ISCO-88 (com). Standard Classification of Occupations 1998. Nos c 521
+</labl>
+			<qstn>
+				<qstnLit>Spouse / partner's current or last main occupation, ISCO-88 (com). Standard Classification of Occupations 1998. Nos c 521.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="9999" min="110"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<sumStat type="min">110
+</sumStat>
+			<sumStat type="max">9999
+</sumStat>
+			<sumStat type="mean">6083.829
+</sumStat>
+			<sumStat type="stdev">3179.908
+</sumStat>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V97" dcml="0" files="F1" intrvl="discrete" name="v097">
+			<location width="1"/>
+			<labl>YRKSTP Spouse / partner's main activity at the time
+</labl>
+			<qstn>
+				<qstnLit>What is your current spouse's / partner's main activity? If he / she is temporarily absent due to illness, leave or similar response from her / his normal situation.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="9" min="1"/>
+			</valrng>
+			<sumStat type="vald">1358
+</sumStat>
+			<sumStat type="invd">476
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>In paid work
+</labl>
+				<catStat type="freq">918
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Unemployed, but looking for work
+</labl>
+				<catStat type="freq">27
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>In education
+</labl>
+				<catStat type="freq">50
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Apprentice
+</labl>
+				<catStat type="freq">3
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Insured/ unfit for emplyment
+</labl>
+				<catStat type="freq">104
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Old age or early aged pensioner
+</labl>
+				<catStat type="freq">205
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>Homemaker with med domestic work/care
+</labl>
+				<catStat type="freq">24
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Compulory military or compulsory civilian national service
+</labl>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>9
+</catValu>
+				<labl>Other
+</labl>
+				<catStat type="freq">26
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">476
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Labour and employment
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Working conditions
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V98" dcml="0" files="F1" intrvl="discrete" name="v098">
+			<location width="1"/>
+			<labl>MEDLORG Is or has been a member of a trade or professional association
+</labl>
+			<qstn>
+				<qstnLit>Are you or have you been a member of a trade or professional association?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="3" min="1"/>
+			</valrng>
+			<sumStat type="vald">1811
+</sumStat>
+			<sumStat type="invd">23
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Member now
+</labl>
+				<catStat type="freq">998
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Been a member previously
+</labl>
+				<catStat type="freq">362
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Never been a member
+</labl>
+				<catStat type="freq">451
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">23
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Trade union membership
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V99" dcml="0" files="F1" intrvl="discrete" name="v099">
+			<location width="2"/>
+			<labl>TRSAMF Located particular religion or denomination
+</labl>
+			<qstn>
+				<qstnLit>Do you belong to a particular religion or belief, and if so, what?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="14" min="1"/>
+			</valrng>
+			<sumStat type="vald">1820
+</sumStat>
+			<sumStat type="invd">14
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>The norwegian church (state church)
+</labl>
+				<catStat type="freq">1408
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Pentecostal movement
+</labl>
+				<catStat type="freq">20
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Other protestantic denomination
+</labl>
+				<catStat type="freq">18
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>The Roman Catholic church
+</labl>
+				<catStat type="freq">20
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Orthodox church
+</labl>
+				<catStat type="freq">3
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Other Christian denomination
+</labl>
+				<catStat type="freq">18
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>The Mosaic religious community (jewish)
+</labl>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Islam
+</labl>
+				<catStat type="freq">23
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>9
+</catValu>
+				<labl>Buddhism
+</labl>
+				<catStat type="freq">5
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>10
+</catValu>
+				<labl>Hinduism
+</labl>
+				<catStat type="freq">0
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>11
+</catValu>
+				<labl>Other eastern religion
+</labl>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>12
+</catValu>
+				<labl>Other religion
+</labl>
+				<catStat type="freq">5
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>13
+</catValu>
+				<labl>Other philosofical association, for example Norwegian Humanist Association
+</labl>
+				<catStat type="freq">49
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>14
+</catValu>
+				<labl><![CDATA[No religios or  philosofical association]]></labl>
+				<catStat type="freq">249
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">14
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Religion
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V100" dcml="0" files="F1" intrvl="discrete" name="v100">
+			<location width="1"/>
+			<labl>RELMOTE How often attend religious services or other religious ways (except for weddings, funerals, baptisms, etc.)
+</labl>
+			<qstn>
+				<qstnLit>How often do you attend religious services or other religious meetings? Do not include weddings, funerals, baptisms, etc.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="1"/>
+			</valrng>
+			<sumStat type="vald">1822
+</sumStat>
+			<sumStat type="invd">12
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Several times a week
+</labl>
+				<catStat type="freq">22
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Once a week
+</labl>
+				<catStat type="freq">45
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Two or three times a month
+</labl>
+				<catStat type="freq">44
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Once a month
+</labl>
+				<catStat type="freq">21
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Several times a year
+</labl>
+				<catStat type="freq">275
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Once a year
+</labl>
+				<catStat type="freq">349
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>Less than once a year
+</labl>
+				<catStat type="freq">507
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Never
+</labl>
+				<catStat type="freq">559
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">12
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Religion
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Religious practice
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Religious attendance
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V101" dcml="0" files="F1" intrvl="discrete" name="v101">
+			<location width="2"/>
+			<labl>SKALA10 Placed on the social ladder: top-bottom scale
+</labl>
+			<qstn>
+				<qstnLit>In our society, there are groups that are more or less near the top of the social ladder and groups that are more or less near the bottom. Below is a scale that runs from top to bottom. Where would you place yourself on this scale?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="10" min="1"/>
+			</valrng>
+			<sumStat type="vald">1775
+</sumStat>
+			<sumStat type="invd">59
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Bottom
+</labl>
+				<catStat type="freq">18
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>2
+</labl>
+				<catStat type="freq">15
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>3
+</labl>
+				<catStat type="freq">68
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>4
+</labl>
+				<catStat type="freq">123
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>5
+</labl>
+				<catStat type="freq">379
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>6
+</labl>
+				<catStat type="freq">492
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>7
+</labl>
+				<catStat type="freq">410
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>8
+</labl>
+				<catStat type="freq">214
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>9
+</catValu>
+				<labl>9
+</labl>
+				<catStat type="freq">46
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>10
+</catValu>
+				<labl>Top
+</labl>
+				<catStat type="freq">10
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">59
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Social class
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Social structure
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V102" dcml="0" files="F1" intrvl="discrete" name="v102">
+			<location width="1"/>
+			<labl>STEMVALG Voted in last general election
+</labl>
+			<qstn>
+				<qstnLit>Did you vote in the last parliamentary elections in 2009?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="3" min="1"/>
+			</valrng>
+			<sumStat type="vald">1814
+</sumStat>
+			<sumStat type="invd">20
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Yes
+</labl>
+				<catStat type="freq">1580
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>No
+</labl>
+				<catStat type="freq">195
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Did not have the right to vote
+</labl>
+				<catStat type="freq">39
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">20
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Politics
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Political participation
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Elections
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">National elections
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V103" dcml="0" files="F1" intrvl="discrete" name="v103">
+			<location width="2"/>
+			<labl>PARTIVLG Which party you vote for in the last election
+</labl>
+			<qstn>
+				<qstnLit>Which party you vote for in the last election?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="88" min="1"/>
+			</valrng>
+			<sumStat type="vald">1567
+</sumStat>
+			<sumStat type="invd">267
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Red Party
+</labl>
+				<catStat type="freq">25
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Labour Party (dna)
+</labl>
+				<catStat type="freq">583
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Progress Party (frp)
+</labl>
+				<catStat type="freq">214
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Conservative Party (h)
+</labl>
+				<catStat type="freq">370
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Christian Democratic Partyi (krf)
+</labl>
+				<catStat type="freq">70
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Centre Party (sp)
+</labl>
+				<catStat type="freq">81
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<labl>Socialist Left Party (sv)
+</labl>
+				<catStat type="freq">74
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<labl>Liberal Party (v)
+</labl>
+				<catStat type="freq">63
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>9
+</catValu>
+				<labl>Other
+</labl>
+				<catStat type="freq">11
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>88
+</catValu>
+				<labl>Do not remember
+</labl>
+				<catStat type="freq">76
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">267
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Politics
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Political participation
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Elections
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">National elections
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V104" dcml="0" files="F1" intrvl="discrete" name="v104">
+			<location width="1"/>
+			<labl>FLDFDT Were your parents born in Norway
+</labl>
+			<qstn>
+				<qstnLit>Were your parents born in Norway?
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="3" min="1"/>
+			</valrng>
+			<sumStat type="vald">1814
+</sumStat>
+			<sumStat type="invd">20
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Yes, both born in Norway
+</labl>
+				<catStat type="freq">1681
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>One of them born in Norway
+</labl>
+				<catStat type="freq">64
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>None of them born in Norway
+</labl>
+				<catStat type="freq">69
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">20
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">National background
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Family members
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Parents
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V105" dcml="0" files="F1" intrvl="discrete" name="v105">
+			<location width="1"/>
+			<labl>PERS18 Persons 18 years and over, including yourself, living the common household
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Including yourself, how many people live to normal in your household, and in which age groups benefit household members themselves?
+
+... A. Number of adults 18 years and older, including yourself (one number in each square).]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="8" min="0"/>
+			</valrng>
+			<sumStat type="vald">1780
+</sumStat>
+			<sumStat type="invd">54
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<catStat type="freq">5
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<catStat type="freq">366
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<catStat type="freq">1107
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<catStat type="freq">217
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<catStat type="freq">66
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<catStat type="freq">17
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">54
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Households
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Family members
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Families
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Family life
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V106" dcml="0" files="F1" intrvl="discrete" name="v106">
+			<location width="2"/>
+			<labl>BRNSK Number of children 6-17 years living in the common household
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Including yourself, how many people live to normal in your household, and in which age groups benefit 
+household members themselves?
+
+... B. Number of children aged 6-17 years.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="11" min="0"/>
+			</valrng>
+			<sumStat type="vald">1795
+</sumStat>
+			<sumStat type="invd">39
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<catStat type="freq">1336
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<catStat type="freq">246
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<catStat type="freq">156
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<catStat type="freq">50
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<catStat type="freq">2
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<catStat type="freq">2
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>11
+</catValu>
+				<catStat type="freq">2
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">39
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Households
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Family members
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Families
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Family life
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V107" dcml="0" files="F1" intrvl="discrete" name="v107">
+			<location width="1"/>
+			<labl>BRNUSK Number of children under 6 years old living in the household to normal
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Including yourself, how many people live to normal in your household, and in which age groups benefit household members themselves?
+
+... C. Number of children under 6 years.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="4" min="0"/>
+			</valrng>
+			<sumStat type="vald">1794
+</sumStat>
+			<sumStat type="invd">40
+</sumStat>
+			<catgry>
+				<catValu>0
+</catValu>
+				<catStat type="freq">1562
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>1
+</catValu>
+				<catStat type="freq">160
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<catStat type="freq">69
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<catStat type="freq">2
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">40
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Households
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Family members
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Families
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Family life
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V108" dcml="0" files="F1" intrvl="discrete" name="v108">
+			<location width="2"/>
+			<labl>ANTHUSST Number of people in all that normaly lives in your household
+</labl>
+			<qstn>
+				<qstnLit><![CDATA[Including yourself, how many people live to normal in your household, and in which age groups benefit household members themselves?
+
+... D. In total, including yourself.]]></qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="22" min="1"/>
+			</valrng>
+			<sumStat type="vald">1802
+</sumStat>
+			<sumStat type="invd">32
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<catStat type="freq">319
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<catStat type="freq">741
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<catStat type="freq">290
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<catStat type="freq">274
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<catStat type="freq">133
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<catStat type="freq">21
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>7
+</catValu>
+				<catStat type="freq">4
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>8
+</catValu>
+				<catStat type="freq">4
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>9
+</catValu>
+				<catStat type="freq">2
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>10
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>11
+</catValu>
+				<catStat type="freq">7
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>12
+</catValu>
+				<catStat type="freq">1
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>22
+</catValu>
+				<catStat type="freq">5
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">32
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Households
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Family members
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Families
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Family life
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V109" dcml="0" files="F1" intrvl="contin" name="v109">
+			<location width="4"/>
+			<labl>INNTEKT Specific gross annual income before taxes and deductions including pension, social security, subsidiary income, interest income, etc., but not loans. 1 000.
+</labl>
+			<qstn>
+				<qstnLit>Before taxes and other deductions, about how big is your gross annual income? with pension, social security, subsidiary income, interest income, etc., but not loans.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="5600" min="0"/>
+			</valrng>
+			<sumStat type="vald">1612
+</sumStat>
+			<sumStat type="invd">222
+</sumStat>
+			<sumStat type="min">0
+</sumStat>
+			<sumStat type="max">5600
+</sumStat>
+			<sumStat type="mean">425.925
+</sumStat>
+			<sumStat type="stdev">371.009
+</sumStat>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Economics
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Income
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V110" dcml="0" files="F1" intrvl="contin" name="v110">
+			<location width="4"/>
+			<labl>HHINNT Household gross annual income before taxes and deductions including pension, social security, subsidiary income, interest income, etc., but not loans. 1 000.
+</labl>
+			<qstn>
+				<qstnLit>Household gross annual income before taxes and deductions including pension, social security, subsidiary income, interest income, etc., but not loans. (In 1 000 NOK.)
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="9000" min="0"/>
+			</valrng>
+			<sumStat type="vald">1598
+</sumStat>
+			<sumStat type="invd">236
+</sumStat>
+			<sumStat type="min">0
+</sumStat>
+			<sumStat type="max">9000
+</sumStat>
+			<sumStat type="mean">763.503
+</sumStat>
+			<sumStat type="stdev">610.813
+</sumStat>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Economics
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Income
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V111" dcml="0" files="F1" intrvl="discrete" name="v111">
+			<location width="1"/>
+			<labl>SIVSTAT Current marital status
+</labl>
+			<qstn>
+				<qstnLit>Current marital status.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="6" min="1"/>
+			</valrng>
+			<sumStat type="vald">1802
+</sumStat>
+			<sumStat type="invd">32
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Married
+</labl>
+				<catStat type="freq">977
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Registered partner (gay partnership)
+</labl>
+				<catStat type="freq">60
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Separated
+</labl>
+				<catStat type="freq">25
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Divorced
+</labl>
+				<catStat type="freq">165
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Widowed
+</labl>
+				<catStat type="freq">61
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>Not married
+</labl>
+				<catStat type="freq">514
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">32
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Family members
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Spouses
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V112" dcml="0" files="F1" intrvl="discrete" name="v112">
+			<location width="1"/>
+			<labl>BOSTED Location type
+</labl>
+			<qstn>
+				<qstnLit>Location type.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="5" min="1"/>
+			</valrng>
+			<sumStat type="vald">1822
+</sumStat>
+			<sumStat type="invd">12
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>A big city
+</labl>
+				<catStat type="freq">446
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>A suburb to, or on the outskirts of a big city
+</labl>
+				<catStat type="freq">212
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>A smaller city
+</labl>
+				<catStat type="freq">432
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>A village
+</labl>
+				<catStat type="freq">407
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>A densely populated area
+</labl>
+				<catStat type="freq">325
+</catStat>
+			</catgry>
+			<catgry missing="Y">
+				<catValu>Sysmiss
+</catValu>
+				<catStat type="freq">12
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Human settlement
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Place of residence
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V113" dcml="0" files="F1" intrvl="discrete" name="v113">
+			<location width="1"/>
+			<labl>LANDSDEL Regionally
+</labl>
+			<qstn>
+				<qstnLit>Regionally.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="6" min="1"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Oslo, Akershus
+</labl>
+				<catStat type="freq">416
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Rest of east Norway
+</labl>
+				<catStat type="freq">495
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Agder
+</labl>
+				<catStat type="freq">103
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>4
+</catValu>
+				<labl>Vestlandet
+</labl>
+				<catStat type="freq">510
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>5
+</catValu>
+				<labl>Trøndelag
+</labl>
+				<catStat type="freq">151
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>6
+</catValu>
+				<labl>North-Norway
+</labl>
+				<catStat type="freq">159
+</catStat>
+			</catgry>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Human settlement
+</concept>
+			<concept vocab="ELSST" vocabURI="http://elsst.esds.ac.uk/">Place of residence
+</concept>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V114" dcml="0" files="F1" intrvl="discrete" name="v114">
+			<location width="1"/>
+			<labl>mode Answer types
+</labl>
+			<qstn>
+				<qstnLit>Answer types.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="2" min="1"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Self completed paper form
+</labl>
+				<catStat type="freq">1345
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Self completed web form
+</labl>
+				<catStat type="freq">489
+</catStat>
+			</catgry>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+		<var ID="V115" dcml="0" files="F1" intrvl="discrete" name="v115">
+			<location width="1"/>
+			<labl>gruppe Apparel
+</labl>
+			<qstn>
+				<qstnLit>Apparel.
+</qstnLit>
+			</qstn>
+			<valrng>
+				<range UNITS="REAL" max="3" min="1"/>
+			</valrng>
+			<sumStat type="vald">1834
+</sumStat>
+			<sumStat type="invd">0
+</sumStat>
+			<catgry>
+				<catValu>1
+</catValu>
+				<labl>Letter with url to web first
+</labl>
+				<catStat type="freq">720
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>2
+</catValu>
+				<labl>Paper form with url to web
+</labl>
+				<catStat type="freq">720
+</catStat>
+			</catgry>
+			<catgry>
+				<catValu>3
+</catValu>
+				<labl>Paper form without url
+</labl>
+				<catStat type="freq">394
+</catStat>
+			</catgry>
+			<varFormat schema="other" type="numeric"/>
+		</var>
+	</dataDscr>
+	<otherMat URI="http://www.nsd.uib.no/individ/publikasjoner/" level="study"/>
+	<otherMat level="study"/>
+</codeBook>

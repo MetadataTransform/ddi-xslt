@@ -1,0 +1,67 @@
+#!/bin/sh
+
+# Simple build script for turning DDI Codebook into PDF
+# 2013-04-25	Initial version
+# 2013-04-26	Better file extension on generated file
+# 2013-04-30    Using only fop for transformation
+# 2013-05-28    Use xinclude insted of xsl:include (mostly)
+# 2013-10-09    Removed old FOP/Xalan structure, moved to Saxon+FOP
+# 2015-11-06    Improving text feedback/formatting
+
+# requierments: fop
+# usage: ./build_pdf [-h] [-l LANGUAGE] input_file.xml 
+
+# Some useful text formating vars
+regular_yellow='\e[0;33m';
+bold_green='\e[1;32m';
+format_reset='\e[0m'   # reset text formating to normal
+
+# ==========================
+# Handle options & arguments
+# ==========================
+
+LANGUAGE_STRING="sv"	# default i18n file
+
+# handle options
+while getopts "hl:" opt
+do
+	case $opt in
+		h) echo "Usage: build_pdf [-h] [-l LANGUAGE] input_file.xml"
+		   exit 1;;
+		l) LANGUAGE_STRING=$OPTARG;;
+	esac
+done
+
+shift $(($OPTIND - 1)) # shift argument to position 1
+
+FILENAME="${1%.*}" # remove file extension from DDI input file
+
+# parameters for Saxon and FOP
+PARAMS="paper.type=A4 \
+        fop1.extensions=1 \
+        i18n.translation_file=./i18n/$LANGUAGE_STRING.xml"
+
+# ============
+# Process file
+# ============
+# note: the -e flag makes echo use the formatting escape sequences
+
+echo -e "${bold_green}[build_pdf]${format_reset} Using language: ${regular_yellow}$LANGUAGE_STRING${format_reset}"
+
+# run xincludes
+echo -e "${bold_green}[process_xincludes]${format_reset}Assembling dditofo_complete.xsl"
+./process_xincludes
+
+# transform codebook to fo using saxon
+echo -e "${bold_green}[Saxon]${format_reset} Transforming ${regular_yellow}$1${format_reset} to FO..."
+java net.sf.saxon.Transform -s:$1 -xsl:dditofo_complete.xsl -o:$FILENAME.fo $PARAMS
+echo -e "${bold_green}[Saxon]${format_reset} File ${regular_yellow}$FILENAME.fo${format_reset} generated"
+
+# render PDF from FO
+echo -e "${bold_green}[FOP]${format_reset} Rendering ${regular_yellow}$FILENAME.fo${format_reset} to PDF..."
+fop -fo $FILENAME.fo -pdf $FILENAME.pdf
+echo -e "${bold_green}[FOP]${format_reset} ${regular_yellow}$FILENAME.pdf${format_reset} generated."
+
+# cleanup
+echo -e "${bold_green}[build_pdf]${format_reset} Removing ${regular_yellow}$FILENAME.fo${format_reset}"
+rm $FILENAME.fo
