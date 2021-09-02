@@ -1,0 +1,103 @@
+<codeBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd" xmlns="ddi:codebook:2_5">
+  <docDscr>
+    <citation>
+      <titlStmt>
+        <titl xml:lang="sv">How Much Do People Value Future Generations? Climate Change, Trust, and Public Support for Future-Oriented Policies</titl>
+        <parTitl xml:lang="en">How Much Do People Value Future Generations? Climate Change, Trust, and Public Support for Future-Oriented Policies</parTitl>
+        <IDNo agency="SND">2020-130</IDNo>
+        <IDNo agency="DataCite">https://doi.org/10.5878/1k34-yy89</IDNo>
+      </titlStmt>
+      <prodStmt>
+        <producer xml:lang="en" abbr="SND">Swedish National Data Service</producer>
+        <producer xml:lang="sv" abbr="SND">Svensk nationell datatjänst</producer>
+      </prodStmt>
+      <holdings URI="https://doi.org/10.5878/1k34-yy89">Landing page</holdings>
+    </citation>
+  </docDscr>
+  <stdyDscr>
+    <citation>
+      <titlStmt>
+        <titl xml:lang="sv">How Much Do People Value Future Generations? Climate Change, Trust, and Public Support for Future-Oriented Policies</titl>
+        <parTitl xml:lang="en">How Much Do People Value Future Generations? Climate Change, Trust, and Public Support for Future-Oriented Policies</parTitl>
+        <IDNo agency="SND">2020-130</IDNo>
+        <IDNo agency="DataCite">https://doi.org/10.5878/1k34-yy89</IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty xml:lang="en" affiliation="Institute for Futures Studies">Malcolm Fairbrother</AuthEnty>
+        <AuthEnty xml:lang="sv" affiliation="Institute for Futures Studies">Malcolm Fairbrother</AuthEnty>
+      </rspStmt>
+      <distStmt>
+        <distrbtr xml:lang="en" abbr="SND" URI="https://snd.gu.se">Swedish National Data Service</distrbtr>
+        <distrbtr xml:lang="sv" abbr="SND" URI="https://snd.gu.se">Svensk nationell datatjänst</distrbtr>
+        <distDate date="2020-12-10">2020-12-10</distDate>
+      </distStmt>
+      <holdings URI="https://doi.org/10.5878/1k34-yy89">Landing page</holdings>
+    </citation>
+    <stdyInfo>
+      <subject>
+        <keyword xml:lang="en" vocab="GEMET" vocabURI="http://www.eionet.europa.eu/gemet/concept/1470">climatic alteration</keyword>
+        <keyword xml:lang="sv" vocab="GEMET" vocabURI="http://www.eionet.europa.eu/gemet/concept/1470">klimatisk förändring</keyword>
+        <keyword xml:lang="en" vocab="GEMET" vocabURI="http://www.eionet.europa.eu/gemet/concept/2715">energy consumption</keyword>
+        <keyword xml:lang="sv" vocab="GEMET" vocabURI="http://www.eionet.europa.eu/gemet/concept/2715">energiförbrukning</keyword>
+        <keyword xml:lang="en" vocab="GEMET" vocabURI="http://www.eionet.europa.eu/gemet/concept/2980">ethics</keyword>
+        <keyword xml:lang="sv" vocab="GEMET" vocabURI="http://www.eionet.europa.eu/gemet/concept/2980">etik</keyword>
+        <topcClas xml:lang="en" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=NaturalEnvironment.EnergyAndNaturalResources">Energy and natural resources</topcClas>
+        <topcClas xml:lang="sv" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=NaturalEnvironment.EnergyAndNaturalResources">Energi och naturresurser</topcClas>
+        <topcClas xml:lang="en" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.PoliticalBehaviourAndAttitudes">Political behaviour and attitudes</topcClas>
+        <topcClas xml:lang="sv" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.PoliticalBehaviourAndAttitudes">Politiska beteenden och attityder</topcClas>
+        <topcClas xml:lang="en" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.GovernmentPoliticalSystemsAndOrganisations">Government, political systems and organisations</topcClas>
+        <topcClas xml:lang="sv" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.GovernmentPoliticalSystemsAndOrganisations">Regering, politiska system och organisationer</topcClas>
+        <topcClas xml:lang="en" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=SocialStratificationAndGroupings.ElitesAndLeadership">Elites and leadership</topcClas>
+        <topcClas xml:lang="sv" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=SocialStratificationAndGroupings.ElitesAndLeadership">Eliter och ledarskap</topcClas>
+        <topcClas xml:lang="en" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=SocietyAndCulture.SocialBehaviourAndAttitudes">Social behaviour and attitudes</topcClas>
+        <topcClas xml:lang="sv" vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=SocietyAndCulture.SocialBehaviourAndAttitudes">Socialt beteende och attityder</topcClas>
+        <topcClas xml:lang="en" vocab="Standard för svensk indelning av forskningsämnen 2011">Climate Research</topcClas>
+        <topcClas xml:lang="sv" vocab="Standard för svensk indelning av forskningsämnen 2011">Klimatforskning</topcClas>
+        <topcClas xml:lang="en" vocab="Standard för svensk indelning av forskningsämnen 2011">Sociology (excluding Social Work, Social Psychology and Social Anthropology)</topcClas>
+        <topcClas xml:lang="sv" vocab="Standard för svensk indelning av forskningsämnen 2011">Sociologi (exklusive socialt arbete, socialpsykologi och socialantropologi)</topcClas>
+        <topcClas xml:lang="en" vocab="Standard för svensk indelning av forskningsämnen 2011">Philosophy</topcClas>
+        <topcClas xml:lang="sv" vocab="Standard för svensk indelning av forskningsämnen 2011">Filosofi</topcClas>
+        <topcClas xml:lang="en" vocab="Standard för svensk indelning av forskningsämnen 2011">Ethics</topcClas>
+        <topcClas xml:lang="sv" vocab="Standard för svensk indelning av forskningsämnen 2011">Etik</topcClas>
+      </subject>
+      <abstract xml:lang="en" contentType="abstract">Do people care about future generations? Moral philosophers say we should, but it is unclear whether laypeople agree. In particular, humanity’s inadequate efforts to mitigate climate change could be due to public indifference or heavy discounting of future generations’ well-being. Using surveys and survey experiments in four countries—Sweden, Spain, South Korea, and China—we found that most people say they care about future generations, and would be willing to reduce their standard of living so that people can enjoy better lives in the future. However, not everyone who says they care supports two public actions that could be taken for the benefit of future generations: policies to reduce either global warming or national debt. We find evidence that much of people’s apparent lack of concern for future generations is actually due to distrust of major social institutions, and associated doubts about the effectiveness of future-oriented policies.</abstract>
+      <abstract xml:lang="sv" contentType="abstract">Bryr människor sig om framtida generationer? Moralfilosofer säger att vi borde göra det, men det är oklart om lekmän håller med. I synnerhet kan mänsklighetens otillräckliga ansträngningar för att mildra klimatförändringen bero på allmän likgiltighet eller kraftig diskontering av kommande generationers välbefinnande. Med hjälp av undersökningar och undersökningsexperiment i fyra länder - Sverige, Spanien, Sydkorea och Kina - fann vi att de flesta säger att de bryr sig om framtida generationer och skulle vara villiga att sänka sin levnadsstandard så att människor kan få bättre liv i framtiden. Men inte alla som säger att de bryr sig stöder två offentliga åtgärder som kan vidtas till förmån för framtida generationer: politik för att minska antingen global uppvärmning eller statsskuld. Vi hittar bevis för att mycket av människors uppenbara brist på oro för framtida generationer faktiskt beror på misstro mot stora sociala institutioner och därmed förbundna tvivel om effektiviteten i framtidsinriktad politik.</abstract>
+      <sumDscr>
+        <collDate date="2019" event="start">2019</collDate>
+        <collDate date="2019" event="end">2019</collDate>
+        <collDate date="2019" event="start">2019</collDate>
+        <collDate date="2019" event="end">2019</collDate>
+        <collDate date="2019" event="start">2019</collDate>
+        <collDate date="2019" event="end">2019</collDate>
+        <collDate date="2019" event="start">2019</collDate>
+        <collDate date="2019" event="end">2019</collDate>
+        <nation xml:lang="en" abbr="SE">Sweden</nation>
+        <nation xml:lang="sv" abbr="SE">Sverige</nation>
+        <nation xml:lang="en" abbr="CN">China</nation>
+        <nation xml:lang="sv" abbr="CN">Kina</nation>
+        <nation xml:lang="en" abbr="ES">Spain</nation>
+        <nation xml:lang="sv" abbr="ES">Spanien</nation>
+        <nation xml:lang="en" abbr="KR">Korea (the Republic of)</nation>
+        <nation xml:lang="sv" abbr="KR">Sydkorea</nation>
+        <anlyUnit xml:lang="en">Individual</anlyUnit>
+        <anlyUnit xml:lang="sv">Individ</anlyUnit>
+      </sumDscr>
+    </stdyInfo>
+    <method>
+      <dataColl>
+        <timeMeth xml:lang="en">Cross-section</timeMeth>
+        <timeMeth xml:lang="sv">Tvärsnitt</timeMeth>
+        <sampProc xml:lang="en">Vi genomförde vår studie i fyra länder med olika nivåer av politiskt förtroende: Sverige, Spanien, Sydkorea och Kina. Baserat på tidigare omröstningar och studier är institutionellt förtroende högt i Sverige och Kina och lågt i Spanien och Sydkorea. Vi valde också dessa fyra länder eftersom de spänner över två kulturellt distinkta världsregioner, och befolkningen i de fyra länderna är också kända för att ha olika nivåer av optimism om framtiden. Undersökningarna gjordes av det internationella företaget Ipsos MORI, med online-paneler för vuxna. Uppnådda N var: Sverige 1084 (spänner över åldersintervallet 16-65); Spanien 1298 (16-65); Sydkorea 1176 (18-54); och Kina 1165 (18-50). Eftersom de är online-paneler är proverna inte helt representativa för de nationella befolkningarna. I synnerhet det kinesiska urvalet innehåller oproportionerligt yngre, mer urbana och mer utbildade respondenter.</sampProc>
+        <sampProc xml:lang="sv">We conducted our study in four countries with different levels of political trust: Sweden, Spain, South Korea, and China. Based on prior polls and studies, levels of institutional trust are high in Sweden and China, and low in Spain and South Korea. We also chose these four countries because they span two culturally distinct world regions, and the populations of the four countries are also known to possess different levels of optimism about the future. The surveys were fielded by the international firm Ipsos MORI, using online panels of adults. Achieved N’s were: Sweden 1084 (spanning the age range 16-65); Spain 1298 (16-65); South Korea 1176 (18-54); and China 1165 (18-50). Being online panels, the samples are not perfectly representative of the national populations. The Chinese sample, in particular, includes disproportionately younger, more urban, and more educated respondents.</sampProc>
+        <sampProc xml:lang="en">Mixed probability and non-probability</sampProc>
+        <sampProc xml:lang="sv">Blandat sannolikhets- och icke-sannolikhetsurval</sampProc>
+      </dataColl>
+    </method>
+    <dataAccs>
+      <useStmt>
+        <restrctn xml:lang="en">Access to data through SND. Data are freely accessible.</restrctn>
+        <restrctn xml:lang="sv">Åtkomst till data via SND. Data är fritt tillgängliga.</restrctn>
+      </useStmt>
+    </dataAccs>
+  </stdyDscr>
+</codeBook>

@@ -48,9 +48,24 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:apply-templates select="//c:docDscr/c:citation/c:titlStmt/c:IDNo" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:rspStmt" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:distDate" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject" />
+            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:depositr" />
+            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:distrbtr" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:keyword" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:topcClas" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:abstract" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:timePrd" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogCover" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogBndBox" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:boundPoly" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogUnit" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:dataKind" />
             <xsl:apply-templates select="//c:stdyDscr/c:dataAccs/c:useStmt/c:restrctn" />
+            <xsl:apply-templates select="//c:stdyDscr/c:dataAccs/c:setAvail/c:avlStatus" />
+            <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat" />
+            <xsl:apply-templates select="//c:stdyDscr/c:prodStmt/c:copyright" />
+            <xsl:apply-templates select="//c:stdyDscr/c:prodStmt/c:prodDate" />
+            <xsl:apply-templates select="//c:stdyDscr/c:dataColl/c:sources" />
+            <xsl:apply-templates select="//c:fileDscr/c:fileTxt/c:fileType" />
 
         </xsl:element>
     </xsl:template> 
@@ -78,15 +93,15 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:element>
     </xsl:template> -->
 
-    <!-- <xsl:template match="c:producer">
-        <xsl:element name="producer">
+    <xsl:template match="c:producer">
+        <xsl:element name="dc:publisher">
             <xsl:attribute name="abbr">
                 <xsl:value-of select="@abbr" />
             </xsl:attribute>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
         </xsl:element>
-    </xsl:template> -->
+    </xsl:template>
 
     <!-- <xsl:template match="c:distrbtr">
         <xsl:element name="distributer">
@@ -115,11 +130,19 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     </xsl:template>
 
     <xsl:template match="c:distDate">
-        <xsl:element name="dcterms:issued">
-            <!-- <xsl:attribute name="date"> -->
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="@date" />
-            <!-- </xsl:attribute> -->
+        <xsl:element name="dc:issued">
+            <xsl:value-of select="." />
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template match="c:timePrd|c:geogUnit|c:geogCover|c:geogBndBox|c:boundPoly">
+        <xsl:element name="dc:coverage">
+            <xsl:value-of select="." />
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template match="c:dataKind">
+        <xsl:element name="dc:type">
             <xsl:value-of select="." />
         </xsl:element>
     </xsl:template>
@@ -147,32 +170,74 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </dcterms:abstract>
     </xsl:template>
 
-    <xsl:template match="c:restrctn">
+    <!-- <xsl:template match="c:restrctn">
         <dcterms:accessRights>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
         </dcterms:accessRights>
-    </xsl:template> 
+    </xsl:template> -->
 
-    <xsl:template match="publisher">
+    <xsl:template match="c:avlStatus|c:restrctn">
+        <dcterms:accessRights>
+            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+            <xsl:value-of select="." />
+        </dcterms:accessRights>
+    </xsl:template>
+
+    <!-- <xsl:template match="publisher">
         <dcterms:publisher>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
         </dcterms:publisher>
-    </xsl:template> 
+    </xsl:template>  -->
 
-    <xsl:template match="relation">
+    <xsl:template match="c:othrStdyMat">
         <dcterms:relation>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
         </dcterms:relation>
     </xsl:template> 
 
-    <xsl:template match="contributor">
+    <xsl:template match="c:copyright">
+        <dc:rights>
+            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+            <xsl:value-of select="." />
+        </dc:rights>
+    </xsl:template> 
+
+    <xsl:template match="c:prodDate">
+        <dc:date>
+            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+            <xsl:value-of select="." />
+        </dc:date>
+    </xsl:template> 
+
+    <xsl:template match="c:sources">
+        <dc:source>
+            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+            <xsl:value-of select="." />
+        </dc:source>
+    </xsl:template>
+    
+    <xsl:template match="c:fileType">
+        <dc:format>
+            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+            <xsl:value-of select="." />
+        </dc:format>
+    </xsl:template>     
+
+    <!-- <xsl:template match="contributor">
         <dcterms:contributor>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
         </dcterms:contributor>
+    </xsl:template> -->
+
+    <xsl:template match="othId|distrbtr|depositr">
+        <dc:contributor>
+            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+            <xsl:value-of select="." />
+        </dc:contributor>
     </xsl:template> 
 
     <!-- The following lines remove breaking lines in output -->
