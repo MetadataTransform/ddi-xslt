@@ -1,0 +1,13 @@
+"""
+Quick and dirty xinclude preprocessor thingy
+Req the lxml module
+"""
+# 2013-05-27    Initial version
+
+import lxml.etree as LET
+
+tree = LET.parse('dditofo.xsl')
+tree.xinclude()  # perform xincludes
+
+# directly write tree to file
+tree.write('dditofo_complete.xsl', xml_declaration=True, encoding='UTF-8')

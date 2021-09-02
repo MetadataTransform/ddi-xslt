@@ -1,0 +1,6 @@
+version: "3"
+services:
+  ddi-xslt-dev:
+    environment:
+      XSLT: /transformations/ddi-dcterms/ddi3_2/ddi_3_2-dcterms.xsl
+      XML: /examples/ddi-3.2/ZA4586_ddi-I_StudyDescription_3_2.xml

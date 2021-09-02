@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1"
+          xmlns:dcterms="http://purl.org/dc/terms/"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <dcterms:title xml:lang="FR">Cohorte blessures scolaires en fonction du genre</dcterms:title>
+   <dcterms:title xml:lang="EN">School-Related Injuries as a Function of Gender</dcterms:title>
+   <dcterms:identifier>PEF4194</dcterms:identifier>
+   <dcterms:creator>Bruno Falissard</dcterms:creator>
+   <dcterms:creator>Nearkasen Chau</dcterms:creator>
+   <dcterms:issued xml:lang="FR">22/07/2014</dcterms:issued>
+   <dcterms:issued xml:lang="EN">12/05/2015</dcterms:issued>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="FR">blessures scolaires</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="FR">genre</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="FR">sexe</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="FR">sport</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="FR">famille</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="FR">caractéristiques individuelles</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="FR">école</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="EN">school-related injuries</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="EN">type</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="EN">sex</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="EN">individual characteristics</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="EN">sport</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="EN">family</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="EN">school</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="FR">Médecine générale</dcterms:subject>
+   <dcterms:subject vocab="" vocabURI="" xml:lang="EN">General practice</dcterms:subject>
+   <dcterms:abstract xml:lang="FR">Objectif de la base de données : Etudier les caractéristiques et les facteurs de risque des blessures (accidents) scolaires</dcterms:abstract>
+   <dcterms:abstract xml:lang="EN">Database objective : To study the characteristics and risk factors of school-related injuries (accidents).</dcterms:abstract>
+   <dcterms:accessRights xml:lang="FR">Publications</dcterms:accessRights>
+   <dcterms:accessRights xml:lang="EN">Publications.</dcterms:accessRights>
+</metadata>

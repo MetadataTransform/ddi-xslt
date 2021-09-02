@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1"
+          xmlns:dcterms="http://purl.org/dc/terms/"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <dcterms:title xml:lang="sv">How Much Do People Value Future Generations? Climate Change, Trust, and Public Support for Future-Oriented Policies</dcterms:title>
+   <dcterms:title xml:lang="en">How Much Do People Value Future Generations? Climate Change, Trust, and Public Support for Future-Oriented Policies</dcterms:title>
+   <dcterms:identifier>2020-130</dcterms:identifier>
+   <dcterms:identifier>https://doi.org/10.5878/1k34-yy89</dcterms:identifier>
+   <dcterms:creator xml:lang="en">Malcolm Fairbrother</dcterms:creator>
+   <dcterms:creator xml:lang="sv">Malcolm Fairbrother</dcterms:creator>
+   <dcterms:issued>2020-12-102020-12-10</dcterms:issued>
+   <dcterms:subject vocab="GEMET"
+                    vocabURI="http://www.eionet.europa.eu/gemet/concept/1470"
+                    xml:lang="en">climatic alteration</dcterms:subject>
+   <dcterms:subject vocab="GEMET"
+                    vocabURI="http://www.eionet.europa.eu/gemet/concept/1470"
+                    xml:lang="sv">klimatisk förändring</dcterms:subject>
+   <dcterms:subject vocab="GEMET"
+                    vocabURI="http://www.eionet.europa.eu/gemet/concept/2715"
+                    xml:lang="en">energy consumption</dcterms:subject>
+   <dcterms:subject vocab="GEMET"
+                    vocabURI="http://www.eionet.europa.eu/gemet/concept/2715"
+                    xml:lang="sv">energiförbrukning</dcterms:subject>
+   <dcterms:subject vocab="GEMET"
+                    vocabURI="http://www.eionet.europa.eu/gemet/concept/2980"
+                    xml:lang="en">ethics</dcterms:subject>
+   <dcterms:subject vocab="GEMET"
+                    vocabURI="http://www.eionet.europa.eu/gemet/concept/2980"
+                    xml:lang="sv">etik</dcterms:subject>
+   <dcterms:subject vocab="CESSDA Topic Classification"
+                    vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=NaturalEnvironment.EnergyAndNaturalResources"
+                    xml:lang="en">Energy and natural resources</dcterms:subject>
+   <dcterms:subject vocab="CESSDA Topic Classification"
+                    vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=NaturalEnvironment.EnergyAndNaturalResources"
+                    xml:lang="sv">Energi och naturresurser</dcterms:subject>
+   <dcterms:subject vocab="CESSDA Topic Classification"
+                    vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.PoliticalBehaviourAndAttitudes"
+                    xml:lang="en">Political behaviour and attitudes</dcterms:subject>
+   <dcterms:subject vocab="CESSDA Topic Classification"
+                    vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.PoliticalBehaviourAndAttitudes"
+                    xml:lang="sv">Politiska beteenden och attityder</dcterms:subject>
+   <dcterms:subject vocab="CESSDA Topic Classification"
+                    vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.GovernmentPoliticalSystemsAndOrganisations"
+                    xml:lang="en">Government, political systems and organisations</dcterms:subject>
+   <dcterms:subject vocab="CESSDA Topic Classification"
+                    vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=Politics.GovernmentPoliticalSystemsAndOrganisations"
+                    xml:lang="sv">Regering, politiska system och organisationer</dcterms:subject>
+   <dcterms:subject vocab="CESSDA Topic Classification"
+                    vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=SocialStratificationAndGroupings.ElitesAndLeadership"
+                    xml:lang="en">Elites and leadership</dcterms:subject>
+   <dcterms:subject vocab="CESSDA Topic Classification"
+                    vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=SocialStratificationAndGroupings.ElitesAndLeadership"
+                    xml:lang="sv">Eliter och ledarskap</dcterms:subject>
+   <dcterms:subject vocab="CESSDA Topic Classification"
+                    vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=SocietyAndCulture.SocialBehaviourAndAttitudes"
+                    xml:lang="en">Social behaviour and attitudes</dcterms:subject>
+   <dcterms:subject vocab="CESSDA Topic Classification"
+                    vocabURI="https://vocabularies.cessda.eu/vocabulary/TopicClassification?code=SocietyAndCulture.SocialBehaviourAndAttitudes"
+                    xml:lang="sv">Socialt beteende och attityder</dcterms:subject>
+   <dcterms:subject vocab="Standard för svensk indelning av forskningsämnen 2011"
+                    vocabURI=""
+                    xml:lang="en">Climate Research</dcterms:subject>
+   <dcterms:subject vocab="Standard för svensk indelning av forskningsämnen 2011"
+                    vocabURI=""
+                    xml:lang="sv">Klimatforskning</dcterms:subject>
+   <dcterms:subject vocab="Standard för svensk indelning av forskningsämnen 2011"
+                    vocabURI=""
+                    xml:lang="en">Sociology (excluding Social Work, Social Psychology and Social Anthropology)</dcterms:subject>
+   <dcterms:subject vocab="Standard för svensk indelning av forskningsämnen 2011"
+                    vocabURI=""
+                    xml:lang="sv">Sociologi (exklusive socialt arbete, socialpsykologi och socialantropologi)</dcterms:subject>
+   <dcterms:subject vocab="Standard för svensk indelning av forskningsämnen 2011"
+                    vocabURI=""
+                    xml:lang="en">Philosophy</dcterms:subject>
+   <dcterms:subject vocab="Standard för svensk indelning av forskningsämnen 2011"
+                    vocabURI=""
+                    xml:lang="sv">Filosofi</dcterms:subject>
+   <dcterms:subject vocab="Standard för svensk indelning av forskningsämnen 2011"
+                    vocabURI=""
+                    xml:lang="en">Ethics</dcterms:subject>
+   <dcterms:subject vocab="Standard för svensk indelning av forskningsämnen 2011"
+                    vocabURI=""
+                    xml:lang="sv">Etik</dcterms:subject>
+   <dcterms:abstract xml:lang="en">Do people care about future generations? Moral philosophers say we should, but it is unclear whether laypeople agree. In particular, humanity’s inadequate efforts to mitigate climate change could be due to public indifference or heavy discounting of future generations’ well-being. Using surveys and survey experiments in four countries—Sweden, Spain, South Korea, and China—we found that most people say they care about future generations, and would be willing to reduce their standard of living so that people can enjoy better lives in the future. However, not everyone who says they care supports two public actions that could be taken for the benefit of future generations: policies to reduce either global warming or national debt. We find evidence that much of people’s apparent lack of concern for future generations is actually due to distrust of major social institutions, and associated doubts about the effectiveness of future-oriented policies.</dcterms:abstract>
+   <dcterms:abstract xml:lang="sv">Bryr människor sig om framtida generationer? Moralfilosofer säger att vi borde göra det, men det är oklart om lekmän håller med. I synnerhet kan mänsklighetens otillräckliga ansträngningar för att mildra klimatförändringen bero på allmän likgiltighet eller kraftig diskontering av kommande generationers välbefinnande. Med hjälp av undersökningar och undersökningsexperiment i fyra länder - Sverige, Spanien, Sydkorea och Kina - fann vi att de flesta säger att de bryr sig om framtida generationer och skulle vara villiga att sänka sin levnadsstandard så att människor kan få bättre liv i framtiden. Men inte alla som säger att de bryr sig stöder två offentliga åtgärder som kan vidtas till förmån för framtida generationer: politik för att minska antingen global uppvärmning eller statsskuld. Vi hittar bevis för att mycket av människors uppenbara brist på oro för framtida generationer faktiskt beror på misstro mot stora sociala institutioner och därmed förbundna tvivel om effektiviteten i framtidsinriktad politik.</dcterms:abstract>
+   <dcterms:accessRights xml:lang="en">Access to data through SND. Data are freely accessible.</dcterms:accessRights>
+   <dcterms:accessRights xml:lang="sv">Åtkomst till data via SND. Data är fritt tillgängliga.</dcterms:accessRights>
+</metadata>

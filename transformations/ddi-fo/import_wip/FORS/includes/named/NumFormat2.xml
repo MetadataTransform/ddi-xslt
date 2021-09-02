@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- named: NumFormat2 -->
+<xsl:template name="NumFormat2"
+              xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+    <!-- params -->
+    <xsl:param name="input"/>
+    <xsl:param name="formstr" select="$num_0d2" />
+
+    <!-- content -->
+    <xsl:choose>
+        <xsl:when test="string(number($input)) != 'NaN'" >
+            <xsl:value-of select="format-number($input,$formstr,'de2')" />
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:value-of select="$input" />
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>

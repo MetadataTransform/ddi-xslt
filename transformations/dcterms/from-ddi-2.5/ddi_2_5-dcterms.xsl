@@ -51,7 +51,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:depositr" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:distrbtr" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:keyword" />
-          <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:topcClas" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:topcClas" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:abstract" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:timePrd" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogCover" />
@@ -239,7 +239,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:value-of select="." />
         </dc:contributor>
     </xsl:template> 
-
 
     <!-- The following lines remove breaking lines in output -->
     <!-- <xsl:template match="*/text()[normalize-space()]">
