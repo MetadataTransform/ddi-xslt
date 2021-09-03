@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+-->
+
+  <a:Archive xmlns:ddi="ddi:instance:3_3" xmlns:a="ddi:archive:3_3" xmlns:c="ddi:conceptualcomponent:3_3" xmlns:cm="ddi:comparative:3_3" xmlns:d="ddi:datacollection:3_3" xmlns:g="ddi:group:3_3" xmlns:l="ddi:logicalproduct:3_3" xmlns:p="ddi:physicaldataproduct:3_3" xmlns:pi="ddi:physicalinstance:3_3" xmlns:pr="ddi:ddiprofile:3_3" xmlns:r="ddi:reusable:3_3" xmlns:s="ddi:studyunit:3_3" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_3 ../../XMLSchema/instance.xsd" isMaintainable="true" scopeOfUniqueness="Agency">
+    <r:URN typeOfIdentifier="Canonical">urn:ddi:us.mpc:Arch_1:1</r:URN>
+    <a:ArchiveModuleName context="IPEDS"><r:String xml:lang="en-US">MPC_NHGIS_HIST1900</r:String></a:ArchiveModuleName>
+    <r:Label><r:Content xml:lang="en-US">MPC NHGIS Archive Record for HIST1900</r:Content></r:Label>
+    <r:Description><r:Content xml:lang="en-US">Information specific to the HIST1900 data files and documentation in the NHGIS project</r:Content></r:Description>
+    <a:ArchiveSpecific>
+      <a:ArchiveOrganizationReference isReference="true" isExternal="true" lateBound="false">
+        <r:URN>urn:ddi:us.mpc:OrgS_MPCwide:1.0</r:URN>
+        <r:TypeOfObject>OrganizationScheme</r:TypeOfObject>
+      </a:ArchiveOrganizationReference>
+      <a:Collection>
+        <r:Citation>
+          <r:Title><r:String>NHGIS Historical 1900</r:String></r:Title>
+        </r:Citation>
+        <a:ItemQuantity>2</a:ItemQuantity>
+        <a:AvailabilityStatus><r:Content>On-Line</r:Content></a:AvailabilityStatus>
+        <a:DataFileQuantity>4</a:DataFileQuantity> 
+        <a:CollectionCompleteness><r:Content>Original data dictionary, DDI documentation, US level data file, State level data file, and County level data file.</r:Content></a:CollectionCompleteness>
+        <a:Item>
+          <r:Citation>
+             <r:Title><r:String>us1990cnty</r:String></r:Title>
+          </r:Citation>
+          <a:LocationInArchive><r:String>aggdata/Translation/HIST/us1990cnty.sps</r:String></a:LocationInArchive>
+          <a:ItemFormat>ASCII text</a:ItemFormat>
+          <a:AvailabilityStatus><r:Content>archive</r:Content></a:AvailabilityStatus>.
+          <a:DataFileQuantity>1</a:DataFileQuantity>
+          <a:CollectionCompleteness><r:Content>SPSS setup file and related data file.</r:Content></a:CollectionCompleteness>
+        </a:Item>
+        <a:Item>
+          <r:Citation>
+            <r:Title><r:String>Census of Population for National, State, and County Levels - 1900: NHGIS documentation</r:String></r:Title>
+          </r:Citation>
+          <a:LocationInArchive><r:String>NHGIS/metadata/DDI/HIST1900-cnty.xml</r:String></a:LocationInArchive>
+          <a:ItemFormat>xml</a:ItemFormat>
+          <a:AvailabilityStatus><r:Content>NHGISsubversion</r:Content></a:AvailabilityStatus>
+          <a:DataFileQuantity>3</a:DataFileQuantity>
+          <a:CollectionCompleteness><r:Content>DDI documentation, US level data file, State level data file, and County level data file.</r:Content></a:CollectionCompleteness>
+        </a:Item>
+      </a:Collection>
+      <a:DefaultAccess isIdentifiable="true" scopeOfUniqueness="Agency">
+        <r:URN>urn:ddi:us.mpc:NHGIS_ACCESS_1:1</r:URN>
+        <a:AccessTypeName context="IPEDS"><r:String xml:lang="en-US">MPC_NHGIS_ACCESS</r:String></a:AccessTypeName>
+        <r:Label><r:Content xml:lang="en-US">NHGIS Access Requirements</r:Content></r:Label>
+        <r:Description><r:Content xml:lang="en-US">Describes access and usage requirements for NHGIS</r:Content></r:Description>
+        <a:ConfidentialityStatement><r:Content xml:lang="en-US">NHGIS contains public data obtained through the U.S. Census Bureau.</r:Content></a:ConfidentialityStatement>
+        <a:AccessPermission isRequired="true">
+          <r:URI>https://data2.nhgis.org/users/login</r:URI>
+        </a:AccessPermission>
+        <a:Restrictions><r:Content xml:lang="en-US">The National Historical Geographic Information System (NHGIS) provides, free of charge, aggregate census data and GIS-compatible boundary files for the United States between 1790 and 2010.</r:Content></a:Restrictions>
+        <a:CitationRequirement><r:Content xml:lang="en-US"><xhtml:div>All persons are granted a limited license to use this documentation and the accompanying data, subject to the following condition:<xhtml:ul><xhtml:li>Publications and research reports based on the database must cite it appropriately. The citation should include the following: Minnesota Population Center. National Historical Geographic Information System: Version 2.0. Minneapolis, MN: University of Minnesota 2011.</xhtml:li><xhtml:li>If possible, citations should also include the URL for the NHGIS site: http://www.nhgis.org</xhtml:li></xhtml:ul><xhtml:br/>In addition, we request that users send us a copy of any publications, research reports, or educational material making use of the data or documentation. Printed material should be sent to:<xhtml:br/>NHGIS<xhtml:br/> Minnesota Population Center<xhtml:br/> University of Minnesota<xhtml:br/>50 Willey Hall<xhtml:br/>225 19th Ave S<xhtml:br/>Minneapolis, MN 55455</xhtml:div></r:Content></a:CitationRequirement>
+        <a:AccessConditions><r:Content xml:lang="en-US">Preregistration</r:Content></a:AccessConditions>
+        <a:AccessRestrictionDate><r:StartDate>2001-05-01</r:StartDate></a:AccessRestrictionDate>
+        <a:ContactOrganizationReference isReference="true" isExternal="true" lateBound="false">
+          <r:URN>urn:ddi:us.mpc:OrgS_MPCwide:1.0</r:URN>
+          <r:TypeOfObject>OrganizationScheme</r:TypeOfObject>
+        </a:ContactOrganizationReference>
+      </a:DefaultAccess>
+    </a:ArchiveSpecific>
+    <r:OrganizationSchemeReference isReference="true" isExternal="true" lateBound="false">
+      <r:URN>urn:ddi:us.mpc:OrgS_MPCwide:1.0</r:URN>
+      <r:TypeOfObject>OrganizationScheme</r:TypeOfObject>
+    </r:OrganizationSchemeReference>
+    <r:LifecycleInformation>
+      <r:LifecycleEvent isIdentifiable="true" scopeOfUniqueness="Agency">
+        <r:URN>urn:ddi:us.mpc:NHGIS_Event_1:1</r:URN>
+        <r:Label><r:Content xml:lang="en-US">HIST1900-cnty aquisition</r:Content></r:Label>
+        <r:EventType>Aquisition</r:EventType>
+        <r:Date><r:SimpleDate>2001-03-10</r:SimpleDate></r:Date>
+        <r:AgencyOrganizationReference isReference="true" isExternal="true" lateBound="false">
+          <r:URN>urn:ddi:us.mpc:OrgS_MPC_NHGIS:1.0</r:URN>.
+          <r:TypeOfObject>Organization</r:TypeOfObject>
+        </r:AgencyOrganizationReference>
+        <r:Description><r:Content xml:lang="en-US">The 1900 History file was aquired as part of a collection of 1900-1950 data entered from printed documents through NGHIS subcontract.</r:Content></r:Description>
+        <r:Relationship>
+          <r:RelatedToReference isReference="true" isExternal="false" lateBound="false">
+            <r:URN>urn:ddi:us.mpc:NHGIS_HIST1900-cnty:1</r:URN>
+            <r:TypeOfObject>StudyUnit</r:TypeOfObject>
+          </r:RelatedToReference>
+          <r:RelationshipDescription><r:Content xml:lang="en">DDI Documentation</r:Content></r:RelationshipDescription>
+        </r:Relationship>
+      </r:LifecycleEvent>
+
+      <r:LifecycleEvent isIdentifiable="true" scopeOfUniqueness="Agency">
+        <r:URN>urn:ddi:us.mpc:NHGIS_Event_2:1</r:URN>.
+        <r:Label><r:Content xml:lang="en-US">HIST1900-cnty creation of DDI metadata document</r:Content></r:Label>
+        <r:EventType>DDICreation</r:EventType>
+        <r:Date><r:SimpleDate>2001-04-01</r:SimpleDate></r:Date>
+        <r:AgencyOrganizationReference isReference="true" isExternal="true" lateBound="false">
+          <r:URN>urn:ddi:us.mpc:OrgS_MPC_NHGIS:1.0</r:URN>
+          <r:TypeOfObject>Organization</r:TypeOfObject>
+        </r:AgencyOrganizationReference>
+        <r:Description><r:Content xml:lang="en-US">Data dictionary information plus additional content from original print documents and materials regarding the 1990 U.S. Census in IPUMS were complied in DDI and verified.</r:Content></r:Description>
+        <r:Relationship>
+          <r:RelatedToReference isReference="true" isExternal="false" lateBound="false">
+            <r:URN>urn:ddi:us.mpc:NHGIS_HIST1900-cnty:1</r:URN>
+             <r:TypeOfObject>StudyUnit</r:TypeOfObject>
+          </r:RelatedToReference>
+          <r:RelationshipDescription><r:Content xml:lang="en">DDI Documentation</r:Content></r:RelationshipDescription>
+        </r:Relationship>
+        <r:Relationship>
+          <r:RelatedToReference isReference="true" isExternal="false" lateBound="false">
+            <r:URN>urn:ddi:us.mpc:NHGIS_OtherMat_1:1</r:URN>
+              <r:TypeOfObject>OtherMaterial</r:TypeOfObject>
+          </r:RelatedToReference>
+          <r:RelationshipDescription><r:Content xml:lang="en">Data Source</r:Content></r:RelationshipDescription>
+        </r:Relationship>
+      </r:LifecycleEvent>
+
+      <r:LifecycleEvent isIdentifiable="true" scopeOfUniqueness="Agency">
+        <r:URN>urn:ddi:us.mpc:NHGIS_Event_3:1</r:URN>
+        <r:Label><r:Content xml:lang="en-US">HIST1900-cnty integration into 2001 NHGIS release</r:Content></r:Label>
+        <r:EventType>NHGISIntegration</r:EventType>
+        <r:Date><r:SimpleDate>2001-05-01</r:SimpleDate></r:Date>
+        <r:AgencyOrganizationReference isReference="true" isExternal="true" lateBound="false">
+          <r:URN>urn:ddi:us.mpc:OrgS_MPC_NHGIS:1.0</r:URN>
+          <r:TypeOfObject>Organization</r:TypeOfObject>
+        </r:AgencyOrganizationReference>
+        <r:Description><r:Content xml:lang="en-US">The HIST1990-cnty metadata and data files were successfully integrated into the NHGIS system for the May 2001 release.</r:Content></r:Description>
+        <r:Relationship>
+          <r:RelatedToReference isReference="true" isExternal="false" lateBound="false">
+            <r:URN>urn:ddi:us.mpc:NHGIS_HIST1900-cnty:1</r:URN>
+            <r:TypeOfObject>StudyUnit</r:TypeOfObject>
+          </r:RelatedToReference>
+          <r:RelationshipDescription><r:Content xml:lang="en">DDI Documentation</r:Content></r:RelationshipDescription>
+        </r:Relationship>
+      </r:LifecycleEvent>
+    </r:LifecycleInformation>
+    <r:OtherMaterial isVersionable="true" scopeOfUniqueness="Agency" xml:lang="en">
+      <r:URN>urn:ddi:us.mpc:NHGIS_OtherMat_1:1</r:URN>
+      <r:TypeOfMaterial>Print.Book</r:TypeOfMaterial>
+      <r:Description><r:Content xml:lang="en-US">Data source</r:Content></r:Description>
+      <r:Citation>
+        <r:Title><r:String>Twelfth Census of the United States Taken in the Year 1990, Census Reports Volume I - Population Part I</r:String></r:Title>
+        <r:Creator>
+           <r:CreatorName affiliation="Interior Department"><r:String>United States Census Office</r:String></r:CreatorName>
+        </r:Creator>
+        <r:Publisher>
+          <r:PublisherName><r:String>Washington: United States Census Office</r:String></r:PublisherName>
+        </r:Publisher>
+        <r:PublicationDate>
+          <r:SimpleDate>1901</r:SimpleDate>
+        </r:PublicationDate>
+      </r:Citation>
+    </r:OtherMaterial>
+  </a:Archive>
