@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ddi:DDIInstance
+	xmlns:pr="ddi:ddiprofile:3_3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ds="ddi:dataset:3_3"
+	xmlns:dc2="http://purl.org/dc/elements/1.1/"
+	xmlns:a="ddi:archive:3_3"
+	xmlns:c="ddi:conceptualcomponent:3_3"
+	xmlns:d="ddi:datacollection:3_3"
+	xmlns:m1="ddi:physicaldataproduct_ncube_normal:3_3"
+	xmlns:m2="ddi:physicaldataproduct_ncube_tabular:3_3"
+	xmlns:m3="ddi:physicaldataproduct_ncube_inline:3_3"
+	xmlns:g="ddi:group:3_3"
+	xmlns:m4="ddi:physicaldataproduct_proprietary:3_3"
+	xmlns:cm="ddi:comparative:3_3"
+	xmlns:dc_terms="http://purl.org/dc/terms/"
+	xmlns:l="ddi:logicalproduct:3_3"
+	xmlns:p="ddi:physicaldataproduct:3_3"
+	xmlns:r="ddi:reusable:3_3"
+	xmlns:s="ddi:studyunit:3_3"
+	xmlns:pi="ddi:physicalinstance:3_3"
+	xmlns:ddi="ddi:instance:3_3" xsi:schemaLocation="ddi:instance:3_3 ../../XMLSchema/instance.xsd">
+	<r:Agency>se.snd</r:Agency>
+	<r:ID>instance_35f3bf26-2dd3-420d-8f09-aa3935763774</r:ID>
+	<r:Version>1.0</r:Version>
+	<s:StudyUnit isPublished="false">
+		<r:Agency>se.snd</r:Agency>
+		<r:ID>35f3bf26-2dd3-420d-8f09-aa3935763774</r:ID>
+		<r:Version>1.0</r:Version>
+		<r:UserID typeOfUserID="study_id">2705</r:UserID>
+		<r:Citation>
+			<r:Title>
+				<r:String xml:lang="sv">Lomonosov Ridge off Greenland (LOMROG) 2007: Kemisk och fysisk oceanografi</r:String>
+				<r:String xml:lang="en">Lomonosov Ridge off Greenland (LOMROG) 2007: Chemical and physical oceanography</r:String>
+			</r:Title>
+			<r:Creator>
+				<r:CreatorReference>
+					<r:Agency>se.snd</r:Agency>
+					<r:ID>f10d8f9a-e3f3-430a-a86b-27b820afeece</r:ID>
+					<r:Version>1.0</r:Version>
+					<r:TypeOfObject>Individual</r:TypeOfObject>
+					<r:MaintainableObject>
+						<r:TypeOfObject>OrganizationScheme</r:TypeOfObject>
+						<r:MaintainableID>1</r:MaintainableID>
+						<r:MaintainableVersion>1.0</r:MaintainableVersion>
+					</r:MaintainableObject>
+				</r:CreatorReference>
+			</r:Creator>
+			<r:Publisher>
+				<r:PublisherReference>
+					<r:Agency>se.snd</r:Agency>
+					<r:ID>07acb206-fc78-499a-bb13-0641e57e64b1</r:ID>
+					<r:Version>1.0</r:Version>
+					<r:TypeOfObject>Organization</r:TypeOfObject>
+					<r:MaintainableObject>
+						<r:TypeOfObject>OrganizationScheme</r:TypeOfObject>
+						<r:MaintainableID>1</r:MaintainableID>
+						<r:MaintainableVersion>1.0</r:MaintainableVersion>
+					</r:MaintainableObject>
+				</r:PublisherReference>
+			</r:Publisher>
+			<r:PublicationDate>
+				<r:SimpleDate>2019-04-09</r:SimpleDate>
+			</r:PublicationDate>
+			<dc_terms:abstract xml:lang="sv">Konduktivitetstemperaturdjup (CTD) och vattenprovtagning utfördes vid 26 stationer som täckte delar av västra Eurasian Basin och en station vid kontinentalmarginalen i Östgrönland. Se engelska sidan för för detaljer.</dc_terms:abstract>
+			<dc2:creator>Anderson, Leif</dc2:creator>
+			<dc2:date>2019-04-09 13:52:07</dc2:date>
+			<dc2:description xml:lang="en">Conductivity Temperature Depth (CTD) and water sampling were carried out at 26 stations covering parts of the western Eurasian Basin and one station at the East Greenland continental margin. Water was collected using a 24-bottle rosette sampler equipped with 7.5 l Niskin type bottles and a CTD (Sea Bird 911+). When brought back onboard the rosette was moved into a heated double container as quickly as possible to avoid freezing the samples. Water samples were immediately drawn for the individual parameters to be determined in the following order: CFCs, oxygen, dissolved inorganic carbon/pH/total alkalinity, nutrients, oxygen-18, and salinity.</dc2:description>
+			<dc2:identifier>ECDS 0018</dc2:identifier>
+			<dc2:identifier>https://polarforskningsportalen.se/en/arctic/expeditions/lomrog/cruise-reports/lomonosov-ridge-greenland-lomrog-2007-chemical-physical-oceanography</dc2:identifier>
+			<dc2:title xml:lang="sv">Lomonosov Ridge off Greenland (LOMROG) 2007: Kemisk och fysisk oceanografi</dc2:title>
+			<dc2:title xml:lang="en">Lomonosov Ridge off Greenland (LOMROG) 2007: Chemical and physical oceanography</dc2:title>
+			<dc2:type>study</dc2:type>
+		</r:Citation>
+		<r:Abstract>
+			<r:Content xml:lang="sv">Konduktivitetstemperaturdjup (CTD) och vattenprovtagning utfördes vid 26 stationer som täckte delar av västra Eurasian Basin och en station vid kontinentalmarginalen i Östgrönland. Se engelska sidan för för detaljer.</r:Content>
+			<r:Content xml:lang="en">Conductivity Temperature Depth (CTD) and water sampling were carried out at 26 stations covering parts of the western Eurasian Basin and one station at the East Greenland continental margin. Water was collected using a 24-bottle rosette sampler equipped with 7.5 l Niskin type bottles and a CTD (Sea Bird 911+). When brought back onboard the rosette was moved into a heated double container as quickly as possible to avoid freezing the samples. Water samples were immediately drawn for the individual parameters to be determined in the following order: CFCs, oxygen, dissolved inorganic carbon/pH/total alkalinity, nutrients, oxygen-18, and salinity.</r:Content>
+		</r:Abstract>
+		<r:Coverage>
+			<r:TopicalCoverage>
+				<r:Agency>se.snd</r:Agency>
+				<r:ID>21</r:ID>
+				<r:Version>1.0</r:Version>
+				<r:Subject xml:lang="sv" codeListName="Standard för svensk indelning av forskningsämnen 2011">Organisk kemi</r:Subject>
+				<r:Subject xml:lang="en" codeListName="Standard för svensk indelning av forskningsämnen 2011">Organic Chemistry</r:Subject>
+				<r:Subject xml:lang="sv" codeListName="Standard för svensk indelning av forskningsämnen 2011">Kemi</r:Subject>
+				<r:Subject xml:lang="en" codeListName="Standard för svensk indelning av forskningsämnen 2011">Chemical Sciences</r:Subject>
+				<r:Subject xml:lang="sv" codeListName="Standard för svensk indelning av forskningsämnen 2011">Naturvetenskap</r:Subject>
+				<r:Subject xml:lang="en" codeListName="Standard för svensk indelning av forskningsämnen 2011">Natural Sciences</r:Subject>
+				<r:Subject xml:lang="sv" codeListName="Standard för svensk indelning av forskningsämnen 2011">Oceanografi, hydrologi och vattenresurser</r:Subject>
+				<r:Subject xml:lang="en" codeListName="Standard för svensk indelning av forskningsämnen 2011">Oceanography, Hydrology and Water Resources</r:Subject>
+				<r:Subject xml:lang="sv" codeListName="Standard för svensk indelning av forskningsämnen 2011">Geovetenskap och miljövetenskap</r:Subject>
+				<r:Subject xml:lang="en" codeListName="Standard för svensk indelning av forskningsämnen 2011">Earth and Related Environmental Sciences</r:Subject>
+				<r:Subject xml:lang="sv" codeListName="INSPIRE topic categories">Kust och hav</r:Subject>
+				<r:Subject xml:lang="en" codeListName="INSPIRE topic categories">Oceans</r:Subject>
+				<r:Keyword xml:lang="sv" codeListName="GCMD">Inorganic Carbon</r:Keyword>
+				<r:Keyword xml:lang="en" codeListName="GCMD">Inorganic Carbon</r:Keyword>
+				<r:Keyword xml:lang="sv" codeListName="GCMD">Ocean Chemistry</r:Keyword>
+				<r:Keyword xml:lang="en" codeListName="GCMD">Ocean Chemistry</r:Keyword>
+				<r:Keyword xml:lang="sv" codeListName="GCMD">Oceans</r:Keyword>
+				<r:Keyword xml:lang="en" codeListName="GCMD">Oceans</r:Keyword>
+				<r:Keyword xml:lang="sv" codeListName="GCMD">Earth Science</r:Keyword>
+				<r:Keyword xml:lang="en" codeListName="GCMD">Earth Science</r:Keyword>
+				<r:Keyword xml:lang="sv" codeListName="GCMD">Science Keywords</r:Keyword>
+				<r:Keyword xml:lang="en" codeListName="GCMD">Science Keywords</r:Keyword>
+				<r:Keyword xml:lang="sv" codeListName="GCMD">Conductivity</r:Keyword>
+				<r:Keyword xml:lang="en" codeListName="GCMD">Conductivity</r:Keyword>
+				<r:Keyword xml:lang="sv" codeListName="GCMD">Salinity/Density</r:Keyword>
+				<r:Keyword xml:lang="en" codeListName="GCMD">Salinity/Density</r:Keyword>
+				<r:Keyword xml:lang="sv" codeListName="GCMD">Ocean Temperature</r:Keyword>
+				<r:Keyword xml:lang="en" codeListName="GCMD">Ocean Temperature</r:Keyword>
+				<r:Keyword xml:lang="en" codeListName="GEMET">chemical oceanography</r:Keyword>
+				<r:Keyword xml:lang="en" codeListName="GEMET">physical oceanography</r:Keyword>
+				<r:Keyword xml:lang="sv" codeListName="INSPIRE Spatial Data Themes">Geografiska oceanografiska förhållanden</r:Keyword>
+				<r:Keyword xml:lang="en" codeListName="INSPIRE Spatial Data Themes">Oceanographic geographical features</r:Keyword>
+			</r:TopicalCoverage>
+			<r:SpatialCoverage>
+				<r:Agency>se.snd</r:Agency>
+				<r:ID>22</r:ID>
+				<r:Version>1.0</r:Version>
+				<r:BoundingBox>
+					<r:WestLongitude>-52.919</r:WestLongitude>
+					<r:EastLongitude>10.168</r:EastLongitude>
+					<r:SouthLatitude>79.121</r:SouthLatitude>
+					<r:NorthLatitude>86.968</r:NorthLatitude>
+				</r:BoundingBox>
+				<r:Description>
+					<r:Content xml:lang="sv">Arktiska havet</r:Content>
+					<r:Content xml:lang="en">Arctic Ocean</r:Content>
+				</r:Description>
+				<r:SpatialObject>Point</r:SpatialObject>
+				<r:GeographicStructureReference>
+					<r:Agency>se.snd</r:Agency>
+					<r:ID>5</r:ID>
+					<r:Version>1.0</r:Version>
+					<r:TypeOfObject>GeographicStructure</r:TypeOfObject>
+					<r:MaintainableObject>
+						<r:TypeOfObject>GeographicStructureScheme</r:TypeOfObject>
+						<r:MaintainableID>4</r:MaintainableID>
+						<r:MaintainableVersion>1.0</r:MaintainableVersion>
+					</r:MaintainableObject>
+				</r:GeographicStructureReference>
+			</r:SpatialCoverage>
+			<r:TemporalCoverage>
+				<r:Agency>se.snd</r:Agency>
+				<r:ID>23</r:ID>
+				<r:Version>1.0</r:Version>
+				<r:ReferenceDate>
+					<r:StartDate>2008-08-15</r:StartDate>
+					<r:EndDate>2008-09-07</r:EndDate>
+				</r:ReferenceDate>
+			</r:TemporalCoverage>
+		</r:Coverage>
+		<r:KindOfData>Conductivity-Temperature-Depth (CTD)</r:KindOfData>
+		<c:ConceptualComponent isPublished="false">
+			<r:Agency>se.snd</r:Agency>
+			<r:ID>3</r:ID>
+			<r:Version>1.0</r:Version>
+			<c:GeographicStructureScheme isPublished="false">
+				<r:Agency>se.snd</r:Agency>
+				<r:ID>4</r:ID>
+				<r:Version>1.0</r:Version>
+				<r:GeographicStructure>
+					<r:Agency>se.snd</r:Agency>
+					<r:ID>5</r:ID>
+					<r:Version>1.0</r:Version>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>6</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">Odefinierat</r:String>
+							<r:String xml:lang="en">Undefined</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>7</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">Land</r:String>
+							<r:String xml:lang="en">Country</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>8</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">Riksområde</r:String>
+							<r:String xml:lang="en">National area (NUTS2)</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>9</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">H-region</r:String>
+							<r:String xml:lang="en">H-region</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>10</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">Region</r:String>
+							<r:String xml:lang="en">Region</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>11</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">A-region</r:String>
+							<r:String xml:lang="en">A-region</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>12</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">Län</r:String>
+							<r:String xml:lang="en">County (NUTS3)</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>13</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">Landskap</r:String>
+							<r:String xml:lang="en">Province</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>14</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">Kommun</r:String>
+							<r:String xml:lang="en">Municipality</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>15</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">Församling</r:String>
+							<r:String xml:lang="en">Parish</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>16</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">Stadsdel</r:String>
+							<r:String xml:lang="en">Town district</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>17</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">Valkrets</r:String>
+							<r:String xml:lang="en">Constituency</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>18</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">Valdistrikt</r:String>
+							<r:String xml:lang="en">Electoral area</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+					<r:GeographicLevel>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>19</r:ID>
+						<r:Version>1.0</r:Version>
+						<r:GeographicLevelName>
+							<r:String xml:lang="sv">Socken</r:String>
+							<r:String xml:lang="en">Parish</r:String>
+						</r:GeographicLevelName>
+					</r:GeographicLevel>
+				</r:GeographicStructure>
+			</c:GeographicStructureScheme>
+			<c:GeographicLocationScheme isPublished="false">
+				<r:Agency>se.snd</r:Agency>
+				<r:ID>20</r:ID>
+				<r:Version>1.0</r:Version>
+			</c:GeographicLocationScheme>
+		</c:ConceptualComponent>
+		<d:DataCollection isPublished="false">
+			<r:Agency>se.snd</r:Agency>
+			<r:ID>24</r:ID>
+			<r:Version>1.0</r:Version>
+			<d:Methodology>
+				<r:Agency>se.snd</r:Agency>
+				<r:ID>25</r:ID>
+				<r:Version>1.0</r:Version>
+			</d:Methodology>
+			<d:InstrumentScheme isPublished="false">
+				<r:Agency>se.snd</r:Agency>
+				<r:ID>26</r:ID>
+				<r:Version>1.0</r:Version>
+			</d:InstrumentScheme>
+		</d:DataCollection>
+		<l:LogicalProduct isPublished="false">
+			<r:Agency>se.snd</r:Agency>
+			<r:ID>27</r:ID>
+			<r:Version>1.0</r:Version>
+		</l:LogicalProduct>
+		<a:Archive isPublished="false">
+			<r:Agency>se.snd</r:Agency>
+			<r:ID>0</r:ID>
+			<r:Version>1.0</r:Version>
+			<a:ArchiveSpecific>
+				<a:ArchiveOrganizationReference>
+					<r:Agency>se.snd</r:Agency>
+					<r:ID>07acb206-fc78-499a-bb13-0641e57e64b1</r:ID>
+					<r:Version>1.0</r:Version>
+					<r:TypeOfObject>Organization</r:TypeOfObject>
+					<r:MaintainableObject>
+						<r:TypeOfObject>OrganizationScheme</r:TypeOfObject>
+						<r:MaintainableID>1</r:MaintainableID>
+						<r:MaintainableVersion>1.0</r:MaintainableVersion>
+					</r:MaintainableObject>
+				</a:ArchiveOrganizationReference>
+				<a:Collection>
+					<a:CallNumber>ECDS 0018</a:CallNumber>
+					<r:URI>https://snd.gu.se/catalogue/study/ECDS0018</r:URI>
+					<a:ItemQuantity>0</a:ItemQuantity>
+					<a:DefaultAccess>
+						<r:Agency>se.snd</r:Agency>
+						<r:ID>28</r:ID>
+						<r:Version>1.0</r:Version>
+						<a:Restrictions>
+							<r:Content xml:lang="sv">Begränsad, kontakta primärforskaren</r:Content>
+							<r:Content xml:lang="en">Restricted, contact the Creator/Principal investigator.</r:Content>
+						</a:Restrictions>
+					</a:DefaultAccess>
+					<a:AvailabilityStatus>
+						<r:Content xml:lang="sv">Åtkomst till data via extern aktör. Tillgång till data är begränsad.</r:Content>
+						<r:Content xml:lang="en">Access to data through an external actor. Access to data is restricted.</r:Content>
+					</a:AvailabilityStatus>
+				</a:Collection>
+			</a:ArchiveSpecific>
+			<a:OrganizationScheme isPublished="false">
+				<r:Agency>se.snd</r:Agency>
+				<r:ID>1</r:ID>
+				<r:Version>1.0</r:Version>
+				<a:Organization>
+					<r:Agency>se.snd</r:Agency>
+					<r:ID>92c55b32-5bcf-4e0b-a809-24d58cadc69d</r:ID>
+					<r:Version>1.0</r:Version>
+					<a:OrganizationIdentification>
+						<a:OrganizationName>
+							<r:String xml:lang="sv">Göteborgs universitet, Institutionen för kemi och molekylärbiologi</r:String>
+							<r:String xml:lang="en">University of Gothenburg, Department of Chemistry &amp; Molecular Biology</r:String>
+						</a:OrganizationName>
+					</a:OrganizationIdentification>
+				</a:Organization>
+				<a:Organization>
+					<r:Agency>se.snd</r:Agency>
+					<r:ID>07acb206-fc78-499a-bb13-0641e57e64b1</r:ID>
+					<r:Version>1.0</r:Version>
+					<a:OrganizationIdentification>
+						<a:OrganizationName>
+							<r:String xml:lang="sv">Svensk nationell datatjänst</r:String>
+							<r:String xml:lang="en">Swedish National Data Service</r:String>
+							<r:Abbreviation>
+								<r:String>SND</r:String>
+							</r:Abbreviation>
+						</a:OrganizationName>
+					</a:OrganizationIdentification>
+					<a:ContactInformation>
+						<a:URL>http://www.snd.gu.se</a:URL>
+					</a:ContactInformation>
+				</a:Organization>
+				<a:Individual>
+					<r:Agency>se.snd</r:Agency>
+					<r:ID>f10d8f9a-e3f3-430a-a86b-27b820afeece</r:ID>
+					<r:Version>1.0</r:Version>
+					<a:IndividualIdentification>
+						<a:IndividualName isPreferred="true">
+							<a:FirstGiven>Leif</a:FirstGiven>
+							<a:LastFamily>Anderson</a:LastFamily>
+						</a:IndividualName>
+					</a:IndividualIdentification>
+					<a:ContactInformation>
+						<a:Email>
+							<r:InternetEmail>leif.anderson@marine.gu.se</r:InternetEmail>
+						</a:Email>
+					</a:ContactInformation>
+				</a:Individual>
+				<a:Relation>
+					<r:Agency>se.snd</r:Agency>
+					<r:ID>2</r:ID>
+					<r:Version>1.0</r:Version>
+					<a:SourceObject>
+						<a:OrganizationReference>
+							<r:Agency>se.snd</r:Agency>
+							<r:ID>92c55b32-5bcf-4e0b-a809-24d58cadc69d</r:ID>
+							<r:Version>1.0</r:Version>
+							<r:TypeOfObject>Organization</r:TypeOfObject>
+							<r:MaintainableObject>
+								<r:TypeOfObject>OrganizationScheme</r:TypeOfObject>
+								<r:MaintainableID>1</r:MaintainableID>
+								<r:MaintainableVersion>1.0</r:MaintainableVersion>
+							</r:MaintainableObject>
+						</a:OrganizationReference>
+						<a:RelationshipCode>Parent</a:RelationshipCode>
+					</a:SourceObject>
+					<a:TargetObject>
+						<a:IndividualReference>
+							<r:Agency>se.snd</r:Agency>
+							<r:ID>f10d8f9a-e3f3-430a-a86b-27b820afeece</r:ID>
+							<r:Version>1.0</r:Version>
+							<r:TypeOfObject>Individual</r:TypeOfObject>
+							<r:MaintainableObject>
+								<r:TypeOfObject>OrganizationScheme</r:TypeOfObject>
+								<r:MaintainableID>1</r:MaintainableID>
+								<r:MaintainableVersion>1.0</r:MaintainableVersion>
+							</r:MaintainableObject>
+						</a:IndividualReference>
+					</a:TargetObject>
+				</a:Relation>
+			</a:OrganizationScheme>
+		</a:Archive>
+	</s:StudyUnit>
+</ddi:DDIInstance>
