@@ -18,6 +18,7 @@ services:
       XML: /examples/ddi-3.1/example-1.xml
 ```
 
+Note: In case of compilation error, change End Of Line sequence from CRLF to LF in `run.sh` script.
 
 GNU Lesser General Public License
 =========================
