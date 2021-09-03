@@ -1,3 +1,0 @@
-import/work-in-progress:
-
-This folder contains resources and code from external sources, for possible future inclusion in this version of the stylesheet.
