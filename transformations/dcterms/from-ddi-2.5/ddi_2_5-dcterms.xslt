@@ -22,14 +22,22 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:dcterms="http://purl.org/dc/terms/"
-
     xmlns:c="ddi:codebook:2_5"
-
+    xmlns:meta="transformation:metadata"
     xmlns:ddi="http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
     xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
 
     exclude-result-prefixes="#all"
     version="2.0">
+    <meta:metadata>
+        <identifier>ddi-2.5-to-dcterms</identifier>
+        <title>DDI 2.5 to DCterms</title>
+        <description>Convert DDI Codebook (2.5) to Dcterms</description>
+        <outputFormat>XML</outputFormat>
+        <parameters>
+            <parameter name="root-element" format="xs:string" description="Root element"/>
+        </parameters>
+    </meta:metadata>
     
     <xsl:param name="root-element">metadata</xsl:param>
  

@@ -42,10 +42,20 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     xmlns:pi="ddi:physicalinstance:3_2" 
     xmlns:ds="ddi:dataset:3_2" 
     xmlns:pr="ddi:profile:3_2"
+    xmlns:meta="transformation:metadata"
     xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/sites/default/files/schema/ddi3.2/instance.xsd"
     
     exclude-result-prefixes="#all"
     version="2.0">
+    <meta:metadata>
+        <identifier>ddi-3.2-to-dcterms</identifier>
+        <title>DDI 3.2 to Dcterms</title>
+        <description>Convert DDI Lifecycle (3.2) to Dcterms</description>
+        <outputFormat>XML</outputFormat>
+        <parameters>
+            <parameter name="root-element" format="xs:string" description="Root element"/>
+        </parameters>
+    </meta:metadata>
     
     <xsl:output method="xml" indent="yes" />
     <xsl:param name="root-element">metadata</xsl:param>
