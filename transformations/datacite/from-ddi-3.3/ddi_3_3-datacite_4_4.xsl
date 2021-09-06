@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet 
-                xmlns="http://schema.datacite.org/meta/kernel-2.2/metadata.xsd"
+                xmlns="http://schema.datacite.org/meta/kernel-4.4/metadata.xsd"
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:g="ddi:group:3_3"
                 xmlns:d="ddi:datacollection:3_3"
@@ -21,7 +21,7 @@
                 xmlns:pr="ddi:profile:3_3"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="https://schema.datacite.org/meta/kernel-4.4 https://schema.datacite.org/meta/kernel-4.4/metadata.xsd"
+                xsi:schemaLocation="http://schema.datacite.org/meta/kernel-4.4 http://schema.datacite.org/meta/kernel-4.4/metadata.xsd"
                 version="2.0"
                 exclude-result-prefixes="dc g d c xhtml a m1 ddi m2 l m3 pd cm s r pi ds pr xsl">
     <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
@@ -29,14 +29,13 @@
     <!--
     Document   : ddi_3_3-datacite_4_4.xsl
     Version    : development
-    Created on : den 11 december 2011, 22:29
-    Updated on : 
-    Description: extract metadata from DDI 3.3 to DataCite metadata
+    Created on : 9th of December 2014
+    Description: Extract metadata from DDI 3.3 to DataCite 4 metadata
     
     DOC: https://schema.datacite.org/meta/kernel-4.4/doc/DataCite-MetadataKernel_v4.4.pdf
     
     progress:
-    id     | datacite              | ddi3
+    id     | datacite              | ddi3.3
     =======================================
     1       +Identifier
     2       +Creator
@@ -52,6 +51,7 @@
     9       language                parameter
     10      resourceType            s:KindOfData
     11      alternateIdentifier     s:CallNumber
+    12      relatedIdentifier       todo
     13      size                        
     14      +format                 parameter
     15      version
@@ -61,31 +61,28 @@
 
     <!-- if the DOI is supplied as a parameter then use that rather than the one from the DDI-instance -->
     <xsl:param name="doi"/>
-
-    <!-- language use to substract text from the ddi-l file -->
-    <xsl:param name="lang">en</xsl:param>
     
     <!-- primary language of resource -->    
     <!-- Note: DataCite use a three-letter standard -->
     <!-- Note: Subject to change in next DataCite version -->
-    <xsl:param name="resourceLang">eng</xsl:param>
+    <xsl:param name="resourceLang">en</xsl:param>
     
     <!-- space separated string defining formats prefered in mime types -->
     <!-- usual formats: 
-    application/x-ddi-l+xml 
+    application/xml;vocabulary=ddi,version=3.3 
     text/csv 
     application/x-stata 
     application/x-sas 
     application/x-spss-sav  
     application/x-R-2
     -->
-    <xsl:param name="formats">application/x-ddi-l+xml</xsl:param>
+    <xsl:param name="formats">application/xml;vocabulary=ddi,version=3.1</xsl:param>
     
-    <xsl:template match="/ddi:DDIInstance">
+    <xsl:template match="//ddi:DDIInstance">
         <xsl:apply-templates select="s:StudyUnit"/>
     </xsl:template>
     
-    <xsl:template match="/ddi:DDIInstance">
+    <xsl:template match="//s:StudyUnit">
         <resource xmlns="https://schema.datacite.org/meta/kernel-4.4/metadata.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
             
             <!-- 1 identifier -->
@@ -112,31 +109,16 @@
                                     
             <!-- 2 creators -->
             <!-- last name comes before first name(s) separated by comma ("family, given") -->
-                     <creators>
-                <xsl:choose>
-                    <xsl:when test="r:Citation/r:Creator/@xml:lang">                    
-                        <xsl:for-each select="r:Citation/r:Creator[@xml:lang = $lang]">
-                            <creator>
-                                <creatorName>
-                                    <xsl:call-template name="formatName">
-                                        <xsl:with-param name="name" select="."/>
-                                    </xsl:call-template>
-                                </creatorName>
-                            </creator>
-                        </xsl:for-each>                           
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:for-each select="r:Citation/r:Creator">
-                            <creator>
-                                <creatorName>
-                                    <xsl:call-template name="formatName">
-                                        <xsl:with-param name="name" select="."/>
-                                    </xsl:call-template>
-                                </creatorName>
-                            </creator>
-                        </xsl:for-each>
-                    </xsl:otherwise>
-                </xsl:choose>
+            <creators>
+                 <xsl:for-each select="r:Citation/r:Creator">
+                     <creator>
+                         <creatorName>
+                             <xsl:call-template name="formatName">
+                                 <xsl:with-param name="name" select="."/>
+                             </xsl:call-template>
+                         </creatorName>
+                     </creator>
+                 </xsl:for-each>
             </creators>
             
             <!-- 3 titles -->
@@ -178,9 +160,9 @@
             <!-- 4 publisher -->
             <xsl:if test="r:Citation/r:Publisher">
                 <xsl:choose>
-                    <xsl:when test="r:Citation/r:Publisher[@xml:lang = $lang]">
+                    <xsl:when test="r:Citation/r:Publisher[@xml:lang = 'en']">
                         <publisher>
-                            <xsl:value-of select="r:Citation/r:Publisher[@xml:lang = $lang]"/>
+                            <xsl:value-of select="r:Citation/r:Publisher[@xml:lang = 'en']"/>
                         </publisher>
                     </xsl:when>
                     <xsl:otherwise>
@@ -209,140 +191,52 @@
                             </xsl:if>                            
                             <xsl:value-of select="."/>
                         </subject>
+                    </xsl:for-each>                    
+                    <xsl:for-each select="r:Coverage/r:TopicalCoverage/r:Subject">
+                        <subject>
+                            <xsl:if test="@codeListID">
+                                <xsl:attribute name="subjectScheme"><xsl:value-of select="@codeListID"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:if test="@xml:lang">
+                                <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                            </xsl:if> 
+                            <xsl:value-of select="."/>
+                        </subject>
                     </xsl:for-each>
-                    <xsl:choose>
-                        <xsl:when test="r:Coverage/r:TopicalCoverage/r:Subject[@xml:lang=$lang]">
-                            <xsl:for-each select="r:Coverage/r:TopicalCoverage/r:Subject[@xml:lang=$lang]">
-                                <subject>
-                                    <xsl:if test="@codeListID">
-                                        <xsl:attribute name="subjectScheme"><xsl:value-of select="@codeListID"/></xsl:attribute>
-                                    </xsl:if>
-                                    <xsl:value-of select="."/>
-                                </subject>
-                            </xsl:for-each>
-                        </xsl:when>                        
-                        <xsl:otherwise>
-                            <xsl:for-each select="r:Coverage/r:TopicalCoverage/r:Subject">
-                                <subject>
-                                    <xsl:if test="@codeListID">
-                                        <xsl:attribute name="subjectScheme"><xsl:value-of select="@codeListID"/></xsl:attribute>
-                                    </xsl:if>
-                                    <xsl:value-of select="."/>
-                                </subject>
-                            </xsl:for-each>                            
-                        </xsl:otherwise>
-                    </xsl:choose>     
-                    <xsl:choose>
-                        <xsl:when test="r:Coverage/r:TopicalCoverage/r:Keyword[@xml:lang=$lang]">
-                            <xsl:for-each select="r:Coverage/r:TopicalCoverage/r:Keyword[@xml:lang=$lang]">
-                                <subject>
-                                    <xsl:if test="@codeListID">
-                                        <xsl:attribute name="subjectScheme"><xsl:value-of select="@codeListID"/></xsl:attribute>
-                                    </xsl:if>
-                                    <xsl:value-of select="."/>
-                                </subject>
-                            </xsl:for-each>
-                        </xsl:when>                        
-                        <xsl:otherwise>
-                            <xsl:for-each select="r:Coverage/r:TopicalCoverage/r:Keyword">
-                                <subject>
-                                    <xsl:if test="@codeListID">
-                                        <xsl:attribute name="subjectScheme"><xsl:value-of select="@codeListID"/></xsl:attribute>
-                                    </xsl:if>
-                                    <xsl:value-of select="."/>
-                                </subject>
-                            </xsl:for-each>
-                        </xsl:otherwise>
-                    </xsl:choose>
+                    <xsl:for-each select="r:Coverage/r:TopicalCoverage/r:Keyword">
+                        <subject>
+                            <xsl:if test="@codeListID">
+                                <xsl:attribute name="subjectScheme"><xsl:value-of select="@codeListID"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:if test="@xml:lang">
+                                <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                            </xsl:if>                                    
+                            <xsl:value-of select="."/>
+                        </subject>
+                    </xsl:for-each>
                 </subjects>
             </xsl:if>
             
             <!-- 7 contributors -->
             <xsl:if test="r:Citation/r:Contributor">
                 <contributors>
-                    <xsl:choose>
-                        <xsl:when test="r:Citation/r:Contributor[@xml:lang=$lang]">
-                            <xsl:for-each select="r:Citation/r:Contributor[@xml:lang=$lang]">
-                                <contributor>
-                                    <xsl:if test="@role">
-                                        <xsl:attribute name="contributorType"><xsl:value-of select="@role"/></xsl:attribute>                                        
-                                    </xsl:if>
-                                    <contributorName>
-                                        <xsl:call-template name="formatName">
-                                            <xsl:with-param name="name" select="."/>
-                                        </xsl:call-template>
-                                    </contributorName>
-                                </contributor>
-                            </xsl:for-each>                            
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:for-each select="r:Citation/r:Contributor">
-                                <contributor>
-                                    <xsl:if test="@role">
-                                        <xsl:attribute name="contributorType"><xsl:value-of select="@role"/></xsl:attribute>                                        
-                                    </xsl:if>
-                                    <contributorName>
-                                        <xsl:call-template name="formatName">
-                                            <xsl:with-param name="name" select="."/>
-                                        </xsl:call-template>
-                                    </contributorName>
-                                </contributor>
-                            </xsl:for-each>            
-                        </xsl:otherwise>
-                    </xsl:choose>
+                    <xsl:for-each select="r:Citation/r:Contributor">
+                        <contributor>
+                            <xsl:if test="@role">
+                                <xsl:attribute name="contributorType"><xsl:value-of select="@role"/></xsl:attribute>                                        
+                            </xsl:if>
+                            <contributorName>
+                                <xsl:call-template name="formatName">
+                                    <xsl:with-param name="name" select="."/>
+                                </xsl:call-template>
+                            </contributorName>
+                        </contributor>
+                    </xsl:for-each>
                 </contributors>
             </xsl:if>
             
             <!-- 8 dates -->
-            <!-- Note: Ignores date ranges as there's at the moment no way in DataCite to say which type of date range it is -->
-            <!-- This will be amended in next version of DataCite where they will use RKMS-ISO8601 for date ranges -->
-            <!-- Note: Deposit might not map to Accepted by publisher -->
-            <!-- Note: Uncertain whether NewVersionRelease and Updated maps. -->
-            <!--<xsl:if
-                test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate or r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate">
-                <dates>
-                    <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate">
-                        <date dateType="StartDate">
-                            <xsl:call-template name="getDate">
-                                <xsl:with-param name="date">
-                                    <xsl:value-of
-                                        select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate"
-                                    />
-                                </xsl:with-param>
-                            </xsl:call-template>
-                        </date>
-                    </xsl:if>
-                    <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate">
-                        <date dateType="EndDate">
-                            <xsl:call-template name="getDate">
-                                <xsl:with-param name="date">
-                                    <xsl:value-of
-                                        select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate"
-                                    />
-                                </xsl:with-param>
-                            </xsl:call-template>
-                        </date>
-                    </xsl:if>
-                </dates>
-            </xsl:if>-->
-            <xsl:if test="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'OriginalRelease']/r:Date/r:SimpleDate |
-                          a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'Deposit']/r:Date/r:SimpleDate |
-                          a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'NewVersionRelease']/r:Date/r:SimpleDate">
-                <dates>
-                    <xsl:if test="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'OriginalRelease']/r:Date/r:SimpleDate">
-                        <date dateType="Available"><xsl:value-of select="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'OriginalRelease']/r:Date/r:SimpleDate"/></date>
-                    </xsl:if>  
-                     <xsl:if test="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'Deposit']/r:Date/r:SimpleDate">
-                        <date dateType="Accepted"><xsl:value-of select="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'Deposit']/r:Date/r:SimpleDate"/></date>
-                    </xsl:if>  
-                    <xsl:for-each select="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'NewVersionRelease']/r:Date/r:SimpleDate"> 
-                        <xsl:sort select="." order="descending" /> 
-                        <xsl:if test="position() = 1">
-                            <date dateType="Updated"><xsl:value-of select="."/></date>
-                        </xsl:if>
-                    </xsl:for-each>
-                </dates>
-            </xsl:if>
+            <xsl:call-template name="lifecycleEvent"/>
   
             <!-- 9 language -->
             <!-- Note: DataCite only allows three-letter language codes -->
@@ -459,26 +353,7 @@
             </xsl:if>
         
             <!-- 14 format -->
-            <!--
-            <xsl:variable name="formatList" select="tokenize($formats, ' ')"/>
-            <formats>
-                <xsl:for-each select="$formatList">
-                    <format>
-                        <xsl:value-of select="."/>
-                    </format>
-                </xsl:for-each>
-            </formats>
-            -->
-            <xsl:if test="a:Archive/a:ArchiveSpecific/a:Item/a:Format | pd:PhysicalDataProduct/pd:PhysicalStructureScheme/pd:PhysicalStructure/pd:Format">
-                <formats>
-                    <xsl:if test="a:Archive/a:ArchiveSpecific/a:Item/a:Format">
-                        <format><xsl:value-of select="a:Archive/a:ArchiveSpecific/a:Item/a:Format"/></format>
-                    </xsl:if>
-                    <xsl:if test="pd:PhysicalDataProduct/pd:PhysicalStructureScheme/pd:PhysicalStructure/pd:Format">
-                        <format><xsl:value-of select="pd:PhysicalDataProduct/pd:PhysicalStructureScheme/pd:PhysicalStructure/pd:Format"/></format>
-                    </xsl:if>
-                </formats>                
-            </xsl:if>
+            <xsl:call-template name="formats"/>            
             
             <!-- 15 version -->
             <!-- Note: mapped by DataCite to pi:PhysicalInstance/@version -->
@@ -508,39 +383,119 @@
             <!-- 17 descriptions -->
             <xsl:if test="s:Abstract | s:Purpose | r:SeriesStatement/r:SeriesDescription">
                 <descriptions>
-                    <xsl:if test="s:Abstract">
-                        <xsl:choose>
-                            <xsl:when test="s:Abstract/r:Content[@xml:lang = $lang]">
-                                <description descriptionType="Abstract"><xsl:value-of select="s:Abstract/r:Content[@xml:lang = $lang]"/></description>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <description descriptionType="Abstract"><xsl:value-of select="s:Abstract/r:Content"/></description>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:if>
-                    <xsl:if test="s:Purpose">
-                        <xsl:choose>
-                            <xsl:when test="s:Purpose/r:Content[@xml:lang = $lang]">
-                                <description descriptionType="Other"><xsl:value-of select="s:Purpose/r:Content[@xml:lang = $lang]"/></description>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <description descriptionType="Other"><xsl:value-of select="s:Purpose/r:Content"/></description>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:if>
-                    <xsl:if test="r:SeriesStatement/r:SeriesDescription">
-                        <xsl:choose>
-                            <xsl:when test="r:SeriesStatement/r:SeriesDescription[@xml:lang = $lang]">
-                                <description descriptionType="SeriesInformation"><xsl:value-of select="r:SeriesStatement/r:SeriesDescription[@xml:lang = $lang]"/></description>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <description descriptionType="SeriesInformation"><xsl:value-of select="r:SeriesStatement/r:SeriesDescription"/></description>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:if>
+                    <xsl:for-each select="s:Abstract">
+                        <description descriptionType="Abstract">
+                            <xsl:if test="r:Content/@xml:lang">
+                                <xsl:attribute name="xml:lang"><xsl:value-of select="r:Content/@xml:lang"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:value-of select="r:Content"/>
+                        </description>
+                    </xsl:for-each>
+                    <xsl:for-each select="s:Purpose">
+                        <description descriptionType="Other">
+                            <xsl:if test="r:Content/@xml:lang">
+                                <xsl:attribute name="xml:lang"><xsl:value-of select="r:Content/@xml:lang"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:value-of select="r:Content"/>
+                        </description>
+                    </xsl:for-each>
+                    <xsl:for-each select="r:SeriesStatement/r:SeriesDescription">
+                        <description descriptionType="SeriesInformation">
+                            <xsl:if test="@xml:lang">
+                                <xsl:attribute name="xml:lang"><xsl:value-of select="r:Content/@xml:lang"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:value-of select="."/>
+                        </description>
+                    </xsl:for-each>
                 </descriptions>
             </xsl:if>
         </resource>
+    </xsl:template>    
+    
+    <xsl:template name="formats">
+        <!--xsl:variable name="formatList" select="tokenize($formats, ' ')"/>
+        <formats>
+            <xsl:for-each select="$formatList">
+                <format>
+                    <xsl:value-of select="."/>
+                </format>
+            </xsl:for-each>
+        </formats-->
+        <xsl:if test="a:Archive/a:ArchiveSpecific/a:Item/a:Format | pd:PhysicalDataProduct/pd:PhysicalStructureScheme/pd:PhysicalStructure/pd:Format">
+            <formats>
+                <xsl:if test="a:Archive/a:ArchiveSpecific/a:Item/a:Format">
+                    <format><xsl:value-of select="a:Archive/a:ArchiveSpecific/a:Item/a:Format"/></format>
+                </xsl:if>
+                <xsl:if test="pd:PhysicalDataProduct/pd:PhysicalStructureScheme/pd:PhysicalStructure/pd:Format">
+                    <format><xsl:value-of select="pd:PhysicalDataProduct/pd:PhysicalStructureScheme/pd:PhysicalStructure/pd:Format"/></format>
+                </xsl:if>
+            </formats>                
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template name="lifecycleEvent">        
+        <xsl:if test="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'OriginalRelease']/r:Date/r:SimpleDate |
+            a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'Deposit']/r:Date/r:SimpleDate |
+            a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'NewVersionRelease']/r:Date/r:SimpleDate |
+            r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate |
+            r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate">
+            <dates>                
+                <xsl:call-template name="temporalCoverage"/>
+                <xsl:if test="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'OriginalRelease']/r:Date/r:SimpleDate">
+                    <date dateType="Available"><xsl:value-of select="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'OriginalRelease']/r:Date/r:SimpleDate"/></date>
+                </xsl:if>  
+                <xsl:if test="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'Deposit']/r:Date/r:SimpleDate">
+                    <date dateType="Accepted"><xsl:value-of select="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'Deposit']/r:Date/r:SimpleDate"/></date>
+                </xsl:if>  
+                <xsl:for-each select="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'NewVersionRelease']/r:Date/r:SimpleDate"> 
+                    <xsl:sort select="." order="descending" /> 
+                    <xsl:if test="position() = 1">
+                        <date dateType="Updated"><xsl:value-of select="."/></date>
+                    </xsl:if>
+                </xsl:for-each>
+            </dates>
+        </xsl:if>
+    </xsl:template>
+    
+    <xsl:template name="temporalCoverage">
+       <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate or r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate">
+           <xsl:variable name="startdate">
+               <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate">
+                   <xsl:call-template name="getDate">
+                       <xsl:with-param name="date">
+                           <xsl:value-of
+                               select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate"
+                           />
+                       </xsl:with-param>
+                   </xsl:call-template>
+               </xsl:if>
+           </xsl:variable>
+           <xsl:variable name="enddate">
+               <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate">
+                   <xsl:call-template name="getDate">
+                       <xsl:with-param name="date">
+                           <xsl:value-of
+                               select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate"
+                           />
+                       </xsl:with-param>
+                   </xsl:call-template>                        
+               </xsl:if>
+           </xsl:variable>
+           <xsl:choose>
+               <xsl:when test="$enddate!=''">
+                   <date dateType="Collected">
+                       <xsl:value-of select="$startdate"/>
+                       <xsl:text>/</xsl:text>
+                       <xsl:value-of select="$enddate"/>
+                   </date>    
+               </xsl:when>
+               <xsl:when test="$startdate!=''">
+                   <date dateType="Collected">
+                       <xsl:value-of select="$startdate"/>
+                   </date>
+               </xsl:when>
+           </xsl:choose>
+       </xsl:if>        
     </xsl:template>
     
     <!-- template to subtract a date from a datetime -->

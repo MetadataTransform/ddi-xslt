@@ -60,15 +60,15 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     <xsl:output method="xml" indent="yes" />
     <xsl:param name="root-element">metadata</xsl:param>
     
-    <xsl:template match="/ddi:DDIInstance">
+    <xsl:template match="//s:StudyUnit">
         <xsl:element name="{$root-element}">
             <xsl:namespace name="xs" select="'http://www.w3.org/2001/XMLSchema'"/>
             <xsl:namespace name="xsi" select="'http://www.w3.org/2001/XMLSchema-instance'"/>
             <xsl:namespace name="dc" select="'http://purl.org/dc/elements/1.1/'"/>
             <xsl:namespace name="dcterms" select="'http://purl.org/dc/terms/'"/>
             
-            <xsl:apply-templates select="s:StudyUnit/r:Citation" />
-            <xsl:apply-templates select="s:StudyUnit/s:Abstract" />
+            <xsl:apply-templates select="r:Citation" />
+            <xsl:apply-templates select="r:Abstract" />
             
             <xsl:for-each select="//PhysicalDataProduct/p:PhysicalStructureScheme/p:PhysicalStructure/p:Format">
                 <dcterms:format>
@@ -96,7 +96,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </dcterms:alternative>
         </xsl:for-each>
 
-        <xsl:for-each select="r:Creator">
+        <xsl:for-each select="r:Creator/r:CreatorReference/r:ID">
             <dcterms:creator>
                 <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
                 <xsl:value-of select="." />
@@ -110,7 +110,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </dcterms:contributor>
         </xsl:for-each>
 
-        <xsl:for-each select="r:Publisher">
+        <xsl:for-each select="r:Publisher/r:PublisherReference/r:Agency">
             <dc:publisher>
                 <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
                 <xsl:value-of select="." />
@@ -121,7 +121,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <dcterms:language><xsl:value-of select="r:Language"/></dcterms:language>
         </xsl:if>
 
-        <xsl:for-each select="r:InternationalIdentifier">
+        <xsl:for-each select="r:InternationalIdentifier/r:IdentifierContent">
             <dc:identifier>
                 <xsl:value-of select="."></xsl:value-of>
             </dc:identifier>
@@ -138,13 +138,25 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:if>       
     </xsl:template>
 
-    <xsl:template match="s:Abstract">
-        <dcterms:abstract>
-            <xsl:if test="r:Content/@xml:lang">
-                <xsl:attribute name="xml:lang" select="r:Content/@xml:lang"/>
-            </xsl:if>
-            <xsl:value-of select="r:Content" />
-        </dcterms:abstract>
+    <xsl:template match="r:Abstract">
+        <xsl:for-each select="r:Content">
+            <dcterms:abstract>
+                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+                <xsl:value-of select="." /> 
+            </dcterms:abstract>
+        </xsl:for-each>
+    </xsl:template>
+
+    <xsl:template match="r:Keyword|r:Coverage">
+        <xsl:for-each select="r:TopicalCoverage/r:Subject">
+            <dcterms:subject>
+                <xsl:attribute name="codeListName">
+                    <xsl:value-of select="@codeListName" />
+                </xsl:attribute>
+                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+                <xsl:value-of select="." />
+            </dcterms:subject>
+        </xsl:for-each>
     </xsl:template>
 
 </xsl:stylesheet>
