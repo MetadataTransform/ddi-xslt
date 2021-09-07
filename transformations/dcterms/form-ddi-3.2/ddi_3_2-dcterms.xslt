@@ -66,11 +66,11 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:namespace name="xsi" select="'http://www.w3.org/2001/XMLSchema-instance'"/>
             <xsl:namespace name="dc" select="'http://purl.org/dc/elements/1.1/'"/>
             <xsl:namespace name="dcterms" select="'http://purl.org/dc/terms/'"/>
-            
+
             <xsl:apply-templates select="r:Citation" />
             <xsl:apply-templates select="r:Abstract" />
             <xsl:apply-templates select="r:Coverage/r:TopicalCoverage" />
-            
+
             <xsl:for-each select="//PhysicalDataProduct/p:PhysicalStructureScheme/p:PhysicalStructure/p:Format">
                 <dcterms:format>
                     <xsl:value-of select="."></xsl:value-of>
@@ -81,6 +81,8 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             
         </xsl:element>        
     </xsl:template>
+
+    <xsl:template match="r:OtherMaterial|r:UniverseReference|g:ResourcePackage|r:Agency|r:ID|r:Version" />
 
     <xsl:template match="r:Citation">
         <xsl:for-each select="r:Title">
