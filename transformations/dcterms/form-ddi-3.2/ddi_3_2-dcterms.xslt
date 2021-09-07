@@ -69,6 +69,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             
             <xsl:apply-templates select="r:Citation" />
             <xsl:apply-templates select="r:Abstract" />
+            <xsl:apply-templates select="r:Coverage/r:TopicalCoverage" />
             
             <xsl:for-each select="//PhysicalDataProduct/p:PhysicalStructureScheme/p:PhysicalStructure/p:Format">
                 <dcterms:format>
@@ -147,8 +148,8 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:for-each>
     </xsl:template>
 
-    <xsl:template match="r:Keyword|r:Coverage">
-        <xsl:for-each select="r:TopicalCoverage/r:Subject">
+    <xsl:template match="r:Coverage/r:TopicalCoverage">
+        <xsl:for-each select="r:Subject|r:Keyword">
             <dcterms:subject>
                 <xsl:attribute name="codeListName">
                     <xsl:value-of select="@codeListName" />
