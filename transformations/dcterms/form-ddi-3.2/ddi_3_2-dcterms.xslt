@@ -82,7 +82,15 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:element>        
     </xsl:template>
 
-    <xsl:template match="r:OtherMaterial|r:UniverseReference|g:ResourcePackage|r:Agency|r:ID|r:Version|ResourcePackage|CategoryScheme|VariableStatistics" />
+    <xsl:template match="r:OtherMaterial" />
+    <xsl:template match="r:UniverseReference" />
+    <xsl:template match="g:ResourcePackage" />
+    <xsl:template match="r:Agency" />
+    <xsl:template match="r:ID" />
+    <xsl:template match="r:Version" />
+    <xsl:template match="ResourcePackage" />
+    <xsl:template match="CategoryScheme" />
+    <xsl:template match="VariableStatistics" />
 
     <xsl:template match="r:Citation">
         <xsl:for-each select="r:Title">
