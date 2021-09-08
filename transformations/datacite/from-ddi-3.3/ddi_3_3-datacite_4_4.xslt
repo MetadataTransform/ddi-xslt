@@ -57,6 +57,7 @@
     15      version
     16      rights                  a:AccessConditions
     17      +description            s:Abstract, s:purpose
+    18      geolocation             r:GeographicBoundary
     -->
 
     <!-- if the DOI is supplied as a parameter then use that rather than the one from the DDI-instance -->
@@ -123,7 +124,7 @@
             
             <!-- 3 titles -->
             <titles>
-                <xsl:for-each select="r:Citation/r:Title">
+                <xsl:for-each select="r:Citation/r:Title/r:String">
                     <xsl:if test="@translated='false'">
                        <title>                            
                            <xsl:if test="@xml:lang">
@@ -133,7 +134,7 @@
                        </title>
                     </xsl:if>
                 </xsl:for-each>
-                <xsl:for-each select="r:Citation/r:AlternateTitle">
+                <xsl:for-each select="r:Citation/r:AlternateTitle/r:String">
                     <title titleType="AlternativeTitle">                            
                         <xsl:if test="@xml:lang">
                             <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
@@ -149,7 +150,7 @@
                         <xsl:value-of select="."/>
                     </title>
                 </xsl:for-each>
-                <xsl:for-each select="r:Citation/r:Title[@translated='true']">
+                <xsl:for-each select="r:Citation/r:Title/r:String[@translated='true']">
                     <title titleType="TranslatedTitle">                        
                         <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
                         <xsl:value-of select="."/>
@@ -409,6 +410,25 @@
                     </xsl:for-each>
                 </descriptions>
             </xsl:if>
+
+            <!-- 18 geolocation -->
+            <xsl:if test="r:GeographicBoundary/child::* | r:GeographicLocation/child::*">
+                <geolocation>
+                    <xsl:for-each select="r:GeographicBoundary">             
+                            <xsl:if test="@BoundingPolygon">
+                                <xsl:attribute name="BoundingPolygon"><xsl:value-of select="@BoundingPolygon"/></xsl:attribute>
+                            </xsl:if>                            
+                            <xsl:value-of select="."/>
+                    </xsl:for-each>
+                    <xsl:for-each select="r:GeographicLocation">             
+                            <xsl:if test="@LocationValue">
+                                <xsl:attribute name="LocationValue"><xsl:value-of select="@LocationValue"/></xsl:attribute>
+                            </xsl:if>                            
+                            <xsl:value-of select="."/>
+                    </xsl:for-each>
+                </geolocation>
+            </xsl:if>   
+
         </resource>
     </xsl:template>    
     

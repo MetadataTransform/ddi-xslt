@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">DDI3.2 study level documentation for study ZA4586 Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS - Kumulation 1980-2016
-			DDI3.2 Dokumentation auf Studienebene für Studie ZA4586 Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS - Kumulation 1980-2016</dc:title>
+<dc:title xmlns:dc="http://purl.org/dc/elements/1.1/" xml:lang="en">DDI3.2 study level documentation for study ZA4586 Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS - Kumulation 1980-2016</dc:title>
+<dc:title xmlns:dc="http://purl.org/dc/elements/1.1/" xml:lang="de">DDI3.2 Dokumentation auf Studienebene für Studie ZA4586 Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS - Kumulation 1980-2016</dc:title>
 <dcterms:language xmlns:dcterms="http://purl.org/dc/terms/">de</dcterms:language>
 <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"
           xmlns:dcterms="http://purl.org/dc/terms/"
           xmlns:xs="http://www.w3.org/2001/XMLSchema"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <dc:title>ALLBUS/GGSS 1980-2016 (Kumulierte Allgemeine Bevölkerungsumfrage der Sozialwissenschaften / Cumulated German General Social Survey 1980-2016)
-						Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS - Kumulation 1980-2016</dc:title>
+   <dc:title xml:lang="en">ALLBUS/GGSS 1980-2016 (Kumulierte Allgemeine Bevölkerungsumfrage der Sozialwissenschaften / Cumulated German General Social Survey 1980-2016)</dc:title>
+   <dc:title xml:lang="de">Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS - Kumulation 1980-2016</dc:title>
    <dcterms:creator>ZA4586_Ind_Cre1</dcterms:creator>
    <dcterms:creator>ZA4586_Ind_Cre2</dcterms:creator>
    <dcterms:creator>ZA4586_Ind_Cre3</dcterms:creator>
