@@ -83,6 +83,16 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:element>        
     </xsl:template>
 
+    <xsl:template match="r:OtherMaterial" />
+    <xsl:template match="r:UniverseReference" />
+    <xsl:template match="g:ResourcePackage" />
+    <xsl:template match="r:Agency" />
+    <xsl:template match="r:ID" />
+    <xsl:template match="r:Version" />
+    <xsl:template match="ResourcePackage" />
+    <xsl:template match="CategoryScheme" />
+    <xsl:template match="VariableStatistics" />
+
     <xsl:template match="r:Title">
         <dc:title>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
@@ -158,4 +168,17 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:value-of select="r:Content" />
         </dcterms:abstract>
     </xsl:template>
+
+    <xsl:template match="r:Coverage/r:TopicalCoverage">
+        <xsl:for-each select="r:Subject|r:Keyword">
+            <dcterms:subject>
+                <xsl:attribute name="codeListName">
+                    <xsl:value-of select="@codeListName" />
+                </xsl:attribute>
+                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+                <xsl:value-of select="." />
+            </dcterms:subject>
+        </xsl:for-each>
+    </xsl:template>
+
 </xsl:stylesheet>
