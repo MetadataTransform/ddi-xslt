@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">DDI3.2 study level documentation for study ZA4586 Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS - Kumulation 1980-2016
+			DDI3.2 Dokumentation auf Studienebene für Studie ZA4586 Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS - Kumulation 1980-2016</dc:title>
+<dcterms:language xmlns:dcterms="http://purl.org/dc/terms/">de</dcterms:language>
 <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"
           xmlns:dcterms="http://purl.org/dc/terms/"
           xmlns:xs="http://www.w3.org/2001/XMLSchema"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <dc:title xml:lang="en">DDI3.2 study level documentation for study ZA4586 Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS - Kumulation 1980-2016</dc:title>
-   <dc:title xml:lang="de">DDI3.2 Dokumentation auf Studienebene für Studie ZA4586 Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS - Kumulation 1980-2016</dc:title>
-   <dc:publisher xml:lang="en">GESIS - Leibniz Institute for the Social Sciences</dc:publisher>
-   <dc:publisher xml:lang="de">GESIS - Leibniz Institut für Sozialwissenschaften</dc:publisher>
-   <dcterms:language>de</dcterms:language>
-   <dcterms:abstract xml:lang="en de">The original surveys have been designed to monitor trends in attitudes, behavior, and societal change in the Federal Republic of Germany. The main topics of this cumulative study are:
+   <dc:title>ALLBUS/GGSS 1980-2016 (Kumulierte Allgemeine Bevölkerungsumfrage der Sozialwissenschaften / Cumulated German General Social Survey 1980-2016)
+						Allgemeine Bevölkerungsumfrage der Sozialwissenschaften ALLBUS - Kumulation 1980-2016</dc:title>
+   <dcterms:creator>ZA4586_Ind_Cre1</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre2</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre3</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre4</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre5</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre6</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre7</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre8</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre9</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre10</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre11</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre12</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre13</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre14</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre15</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre16</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre17</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre18</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre19</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre20</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre21</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre22</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre23</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre24</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre25</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre26</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre27</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre28</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre29</dcterms:creator>
+   <dcterms:creator>ZA4586_Ind_Cre30</dcterms:creator>
+   <dc:publisher>de.gesis</dc:publisher>
+   <dc:identifier>doi:10.4232/1.13029</dc:identifier>
+   <dcterms:abstract xml:lang="en">The original surveys have been designed to monitor trends in attitudes, behavior, and societal change in the Federal Republic of Germany. The main topics of this cumulative study are:
 
 1.) Economy: assessment of the present and future economic situation in Germany and in one´s own federal state, assessment of present and future personal economic situation.
 
@@ -62,7 +94,8 @@ Migration, residential biography and living environment: original citizenship of
 
 14.) Geographical data: region of interview (East / West Germany), federal state, size of municipality, Boustedt-type of municipality, BIK-type of municipality, percentage of non-German residents at county level.
 
-15.) Added value: Body-Mass-Index, Inglehart-index, family typology, classification of private households (according to Porst and Funk), International Standard Classification of Occupations (ISCO) 1968, 1988 and 2008; occupational prestige (according to Treiman), Standard International Occupational Prestige Scale (SIOPS, according to Ganzeboom), International Socio-economic Index of Occupational Status (ISEI, according to Ganzeboom), magnitude prestige (according to Wegener), International Standard Classification of  Education (ISCED) 1997 and 2011, class position (according to Goldthorpe), per capita income, equivalized income (OECD-modified scale), percentage of non-German residents at county level, transformation weight for analyses on household level or on individual level, east-west design weight. Trenderhebung zur gesellschaftlichen Dauerbeobachtung von Einstellungen, Verhalten und sozialem Wandel in Deutschland. Die Schwerpunkte der kumulierten Untersuchungen sind:
+15.) Added value: Body-Mass-Index, Inglehart-index, family typology, classification of private households (according to Porst and Funk), International Standard Classification of Occupations (ISCO) 1968, 1988 and 2008; occupational prestige (according to Treiman), Standard International Occupational Prestige Scale (SIOPS, according to Ganzeboom), International Socio-economic Index of Occupational Status (ISEI, according to Ganzeboom), magnitude prestige (according to Wegener), International Standard Classification of  Education (ISCED) 1997 and 2011, class position (according to Goldthorpe), per capita income, equivalized income (OECD-modified scale), percentage of non-German residents at county level, transformation weight for analyses on household level or on individual level, east-west design weight.</dcterms:abstract>
+   <dcterms:abstract xml:lang="de">Trenderhebung zur gesellschaftlichen Dauerbeobachtung von Einstellungen, Verhalten und sozialem Wandel in Deutschland. Die Schwerpunkte der kumulierten Untersuchungen sind:
 
 1.) Wirtschaft: Wahrnehmung der eigenen Wirtschaftslage und der aktuellen und zukünftigen Wirtschaftslage in der Bundesrepublik und im eigenen Bundesland.
 
@@ -117,4 +150,24 @@ Migration, Wohnbiographie und Wohnumfeld: ursprüngliche Staatsbürgerschaft des
 14.) Regionaldaten: Erhebungsgebiet (Ost-/Westdeutschland), Bundesland, politische Gemeindegröße, Boustedt-Gemeindetyp, BIK-Stadtregion, Ausländeranteil auf Kreisebene.
 
 15.) Ergänzungen und abgeleitete Variablen: Body-Mass-Index, Postmaterialismus-Index (nach Inglehart), Familientypologie, Haushaltsklassifikationen (nach Porst und Funk), Berufsvercodung gemäß ISCO (International Standard Classification of Occupations) 1968, 1988 und 2008; Berufsprestige (nach Treiman), SIOPS (nach Ganzeboom), ISEI (nach Ganzeboom), Magnitudeprestige (nach Wegener), ISCED (International Standard Classification of Education) 1997 und 2011, Klassenlagen (nach Goldthorpe), Pro-Kopf-Einkommen, Äquivalenzeinkommen (modifizierte OECD-Skala), Transformationsgewichte für Auswertungen auf Haushalts- oder Personenebene, Ost-West-Gewichte für gesamtdeutsche Auswertungen.</dcterms:abstract>
+   <dcterms:subject codeListName="ZA-Categories" xml:lang="en">Society, Culture</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Kategorien" xml:lang="de">Gesellschaft, Kultur</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Categories" xml:lang="en">Political Attitudes and Behavior</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Kategorien" xml:lang="de">Politische Einstellungen und Verhaltensweisen</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Categories" xml:lang="en">Economic Policy, National Economic Situation</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Kategorien" xml:lang="de">Wirtschaftspolitik, wirtschaftliche Lage</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Categories" xml:lang="en">Social Policy</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Kategorien" xml:lang="de">Sozialpolitik</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Categories" xml:lang="en">Person, Personality, Role</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Kategorien" xml:lang="de">Person, Persönlichkeit, Rolle</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Categories" xml:lang="en">Family</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Kategorien" xml:lang="de">Familie</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Categories" xml:lang="en">Medicine</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Kategorien" xml:lang="de">Medizin</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Categories" xml:lang="en">Communication, Public Opinion, Media</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Kategorien" xml:lang="de">Kommunikation, öffentliche Meinung, Medien</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Categories" xml:lang="en">Religion and Weltanschauung</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Kategorien" xml:lang="de">Religion und Weltanschauung</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Categories" xml:lang="en">Natural Environment, Nature</dcterms:subject>
+   <dcterms:subject codeListName="ZA-Kategorien" xml:lang="de">Umwelt, Natur</dcterms:subject>
 </metadata>
