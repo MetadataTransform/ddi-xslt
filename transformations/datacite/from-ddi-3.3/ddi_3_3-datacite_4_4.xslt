@@ -82,30 +82,34 @@
     <xsl:template match="//ddi:DDIInstance">
         <xsl:apply-templates select="s:StudyUnit"/>
     </xsl:template>
-    
+
+    <xsl:template match="r:OtherMaterial" />
+    <xsl:template match="r:UniverseReference" />
+    <xsl:template match="g:ResourcePackage" />
+    <xsl:template match="r:Agency" />
+    <xsl:template match="r:ID" />
+    <xsl:template match="r:Version" />
+    <xsl:template match="ResourcePackage" />
+    <xsl:template match="CategoryScheme" />
+    <xsl:template match="VariableStatistics" />
+
     <xsl:template match="//s:StudyUnit">
         <resource xmlns="https://schema.datacite.org/meta/kernel-4.4/metadata.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
             
             <!-- 1 identifier -->
             <identifier identifierType="DOI">
-                <xsl:choose>
-                    <xsl:when test="$doi">
+                    <xsl:if test="$doi">
                         <xsl:value-of select="$doi"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:choose>    
-                            <xsl:when test="r:Citation/r:InternationalIdentifier[@type = 'DOI']">
-                                <xsl:value-of select="r:Citation/r:InternationalIdentifier[@type = 'DOI']"/>
-                            </xsl:when>
-                            <xsl:when test="r:UserID[@type = 'DOI']">
-                                <xsl:value-of select="r:UserID[@type = 'DOI']"/>
-                            </xsl:when>
-                            <xsl:when test="pi:PhysicalInstance/pi:DataFileIdentification/r:UserID[@type = 'DOI']">
-                                <xsl:value-of select="r:UserID[@type = 'DOI']"/>
-                            </xsl:when>
-                        </xsl:choose>
-                    </xsl:otherwise>
-                </xsl:choose>
+                    </xsl:if>
+                    <xsl:if test="r:Citation/r:InternationalIdentifier/r:IdentifierContent">
+                        <xsl:value-of select="r:Citation/r:InternationalIdentifier/r:IdentifierContent"/>
+                    </xsl:if>
+                    <xsl:if test="r:UserID[@type = 'DOI']">
+                        <xsl:value-of select="r:UserID[@type = 'DOI']"/>
+                    </xsl:if>
+                    <xsl:if test="pi:PhysicalInstance/pi:DataFileIdentification/r:UserID[@type = 'DOI']">
+                        <xsl:value-of select="r:UserID[@type = 'DOI']"/>
+                    </xsl:if>
             </identifier>
                                     
             <!-- 2 creators -->
@@ -125,14 +129,16 @@
             <!-- 3 titles -->
             <titles>
                 <xsl:for-each select="r:Citation/r:Title/r:String">
-                    <xsl:if test="@translated='false'">
+                    <!-- <xsl:if test="@translated='false'"> -->
                        <title>                            
-                           <xsl:if test="@xml:lang">
-                               <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                           <xsl:if test="@xml:lang='en'">
+                               <xsl:attribute name="xml:lang"><xsl:value-of select="if (@xml:lang = 'en') then
+                               (@xml:lang) else ()"/></xsl:attribute>
                            </xsl:if>
-                           <xsl:value-of select="."/>
+                           <xsl:value-of select="if (@xml:lang = 'en') then
+                               (.) else null"/>
                        </title>
-                    </xsl:if>
+                    <!-- </xsl:if> -->
                 </xsl:for-each>
                 <xsl:for-each select="r:Citation/r:AlternateTitle/r:String">
                     <title titleType="AlternativeTitle">                            
@@ -161,9 +167,9 @@
             <!-- 4 publisher -->
             <xsl:if test="r:Citation/r:Publisher">
                 <xsl:choose>
-                    <xsl:when test="r:Citation/r:Publisher[@xml:lang = 'en']">
+                    <xsl:when test="r:Citation/r:Publisher/r:PublisherReference">
                         <publisher>
-                            <xsl:value-of select="r:Citation/r:Publisher[@xml:lang = 'en']"/>
+                            <xsl:value-of select="r:Citation/r:Publisher/r:PublisherReference/r:Agency"/>
                         </publisher>
                     </xsl:when>
                     <xsl:otherwise>
@@ -178,7 +184,9 @@
             <xsl:if test="r:Citation/r:PublicationDate/r:SimpleDate">
                 <publicationYear>
                     <xsl:value-of
-                        select="substring-before(r:Citation/r:PublicationDate/r:SimpleDate, '-')"/>
+                        select="if (substring-before(r:Citation/r:PublicationDate/r:SimpleDate, '-') != '') then 
+                        substring-before(r:Citation/r:PublicationDate/r:SimpleDate, '-') else
+                        r:Citation/r:PublicationDate/r:SimpleDate"/>
                 </publicationYear>
             </xsl:if>      
             
