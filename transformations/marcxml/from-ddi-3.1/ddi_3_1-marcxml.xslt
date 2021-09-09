@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet src="/mnt/c/Users/xoolof/Documents/web/ddi-xslt/transformations/marcxml/from-ddi-3.1/ddi_3_1-marcxml.xsl"?>
 <!--
 Description:
 XSLT Stylesheet for conversion between DDI-L version 3.1 and MARC-XML
@@ -47,9 +46,20 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 xmlns:ds="ddi:dataset:3_1" 
                 xmlns:pr="ddi:profile:3_1"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:meta="transformation:metadata"
                 xsi:schemaLocation="ddi:instance:3_1 http://www.ddialliance.org/sites/default/files/schema/ddi3.1/instance.xsd http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd"
-                exclude-result-prefixes="xsl xhtml marc dc dc2 g d c a m1 m2 m3 ddi l pd cm s r pi ds pr">
-  
+                exclude-result-prefixes="xsl xhtml marc dc dc2 g d c a m1 m2 m3 ddi l pd cm s r pi ds pr meta">
+    <meta:metadata>
+        <identifier>ddi-3.1-to-marc-xml</identifier>
+        <title>DDI 3.1 to MARC-XML</title>
+        <description>Convert DDI Lifecycle (3.1) to MARC-XML</description>
+        <outputFormat>XML</outputFormat>
+        <parameters>
+            <parameter name="lang" format="xs:string" description="Language (xml:lang) to look for"/>
+            <parameter name="fallback-lang" format="xs:string" description="Language (xml:lang) for fallback"/>
+            <parameter name="doi_address" format="xs:string" description="Base url for DOI resolver"/>
+        </parameters>
+    </meta:metadata>
     <xsl:output method="xml" encoding="iso-8859-1" indent="yes" />
 
     <!-- render text-elements of this language-->
@@ -57,7 +67,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     <!-- if the requested language is not found for e.g. questionText, use fallback language-->
     <xsl:param name="fallback-lang">en</xsl:param>
   
-    <xsl:variable name="doi_address">http://dx.doi.org/</xsl:variable>
+    <xsl:variable name="doi_address">https://doi.org/</xsl:variable>
   
     <xsl:template match="ddi:DDIInstance">
         <xsl:text>
