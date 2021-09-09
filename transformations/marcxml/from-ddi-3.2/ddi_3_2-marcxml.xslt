@@ -22,14 +22,25 @@ You should have received a copy of the GNU Lesser General Public
 License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
-<xsl:stylesheet xmlns:a="ddi:archive:3_2" xmlns:pr="ddi:profile:3_2" xmlns:c="ddi:conceptualcomponent:3_2" xmlns:d="ddi:datacollection:3_2" xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_2" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_2" xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_2" xmlns:g="ddi:group:3_2" xmlns:ddi="ddi:instance:3_2" xmlns:cm="ddi:comparative:3_2" xmlns:l="ddi:logicalproduct:3_2" xmlns:ds="ddi:dataset:3_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:exslt="http://exslt.org/dates-and-times" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:dc2="ddi:dcelements:3_2" xmlns:r="ddi:reusable:3_2" xmlns:s="ddi:studyunit:3_2" xmlns:pd="ddi:physicaldataproduct:3_2" xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:pi="ddi:physicalinstance:3_2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/sites/default/files/schema/ddi3.2/instance.xsd http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" extension-element-prefixes="exslt" exclude-result-prefixes="xsl xhtml marc dc dc2 g d c a m1 m2 m3 ddi l pd cm s r pi ds pr">
+<xsl:stylesheet xmlns:a="ddi:archive:3_2" xmlns:pr="ddi:profile:3_2" xmlns:c="ddi:conceptualcomponent:3_2" xmlns:d="ddi:datacollection:3_2" xmlns:m1="ddi:physicaldataproduct/ncube/normal:3_2" xmlns:m2="ddi:physicaldataproduct/ncube/tabular:3_2" xmlns:m3="ddi:physicaldataproduct/ncube/inline:3_2" xmlns:g="ddi:group:3_2" xmlns:ddi="ddi:instance:3_2" xmlns:cm="ddi:comparative:3_2" xmlns:l="ddi:logicalproduct:3_2" xmlns:ds="ddi:dataset:3_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:exslt="http://exslt.org/dates-and-times" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:dc2="ddi:dcelements:3_2" xmlns:r="ddi:reusable:3_2" xmlns:s="ddi:studyunit:3_2" xmlns:pd="ddi:physicaldataproduct:3_2" xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:pi="ddi:physicalinstance:3_2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="transformation:metadata" version="2.0" xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/sites/default/files/schema/ddi3.2/instance.xsd http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" extension-element-prefixes="exslt" exclude-result-prefixes="xsl xhtml marc dc dc2 g d c a m1 m2 m3 ddi l pd cm s r pi ds pr">
+    <meta:metadata>
+        <identifier>ddi-3.2-to-marc-xml</identifier>
+        <title>DDI 3.2 to MARC-XML</title>
+        <description>Convert DDI Lifecycle (3.2) to MARC-XML</description>
+        <outputFormat>XML</outputFormat>
+        <parameters>
+            <parameter name="lang" format="xs:string" description="Language (xml:lang) to look for"/>
+            <parameter name="fallback-lang" format="xs:string" description="Language (xml:lang) for fallback"/>
+            <parameter name="doi_address" format="xs:string" description="Base url for DOI resolver"/>
+        </parameters>
+    </meta:metadata>
     <xsl:output method="xml" encoding="iso-8859-1" indent="yes"/>
 
     <!-- render text-elements of this language-->
     <xsl:param name="lang">sv</xsl:param>
     <!-- if the requested language is not found for e.g. questionText, use fallback language-->
     <xsl:param name="fallback-lang">en</xsl:param>
-    <xsl:variable name="doi_address">http://dx.doi.org/</xsl:variable>
+    <xsl:variable name="doi_address">https://doi.org/</xsl:variable>
     <xsl:template match="ddi:DDIInstance">
         <xsl:text>
             
