@@ -79,9 +79,9 @@
     -->
     <xsl:param name="formats">application/xml;vocabulary=ddi,version=3.1</xsl:param>
     
-    <xsl:template match="//ddi:DDIInstance">
+    <!-- <xsl:template match="s:StudyUnit">
         <xsl:apply-templates select="s:StudyUnit"/>
-    </xsl:template>
+    </xsl:template> -->
 
     <xsl:template match="r:OtherMaterial" />
     <xsl:template match="r:UniverseReference" />
@@ -92,7 +92,8 @@
     <xsl:template match="ResourcePackage" />
     <xsl:template match="CategoryScheme" />
     <xsl:template match="VariableStatistics" />
-
+    <xsl:template match="ddi:DDIInstance/." />
+    
     <xsl:template match="//s:StudyUnit">
         <resource xmlns="https://schema.datacite.org/meta/kernel-4.4/metadata.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
             
@@ -114,17 +115,23 @@
                                     
             <!-- 2 creators -->
             <!-- last name comes before first name(s) separated by comma ("family, given") -->
-            <creators>
-                 <xsl:for-each select="r:Citation/r:Creator">
-                     <creator>
-                         <creatorName>
-                             <xsl:call-template name="formatName">
-                                 <xsl:with-param name="name" select="."/>
-                             </xsl:call-template>
-                         </creatorName>
-                     </creator>
-                 </xsl:for-each>
-            </creators>
+            <!-- Not creatorReference? -->
+            <creator>
+                <xsl:for-each select="r:Citation/r:Creator/r:CreatorName">
+                    <creatorName>
+                        <!-- <xsl:if test="@xml:lang='en'">
+                            <xsl:attribute name="xml:lang"><xsl:value-of select="if (@xml:lang = 'en') then
+                            (@xml:lang) else ()"/></xsl:attribute>
+                        </xsl:if>
+                        <xsl:value-of select="if (@xml:lang = 'en') then
+                            (.) else null"/> -->
+                            <xsl:value-of select="."/>
+                        <!-- <xsl:call-template name="formatName">
+                            <xsl:with-param name="name" select="."/>
+                        </xsl:call-template> -->
+                    </creatorName>
+                </xsl:for-each>
+            </creator>   
             
             <!-- 3 titles -->
             <titles>
@@ -435,7 +442,20 @@
                             <xsl:value-of select="."/>
                     </xsl:for-each>
                 </geolocation>
-            </xsl:if>   
+            </xsl:if>
+
+            <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate and r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate">
+                <dates dateType="Collected">
+                     <xsl:for-each select="r:Coverage/r:TemporalCoverage/r:ReferenceDate">
+                        <date>
+                            <xsl:variable name="startdate" select="r:StartDate" />
+                            <xsl:variable name="enddate" select="r:EndDate" />
+                            <xsl:value-of select="concat($startdate, '/', $enddate)" />
+                        </date>
+                    </xsl:for-each>
+                </dates>
+            </xsl:if>
+  
 
         </resource>
     </xsl:template>    
@@ -468,7 +488,7 @@
             r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate |
             r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate">
             <dates>                
-                <xsl:call-template name="temporalCoverage"/>
+                <!-- <xsl:call-template name="temporalCoverage"/> -->
                 <xsl:if test="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'OriginalRelease']/r:Date/r:SimpleDate">
                     <date dateType="Available"><xsl:value-of select="a:Archive/r:LifecycleInformation/r:LifecycleEvent[r:EventType = 'OriginalRelease']/r:Date/r:SimpleDate"/></date>
                 </xsl:if>  
@@ -483,47 +503,6 @@
                 </xsl:for-each>
             </dates>
         </xsl:if>
-    </xsl:template>
-    
-    <xsl:template name="temporalCoverage">
-       <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate or r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate">
-           <xsl:variable name="startdate">
-               <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate">
-                   <xsl:call-template name="getDate">
-                       <xsl:with-param name="date">
-                           <xsl:value-of
-                               select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate"
-                           />
-                       </xsl:with-param>
-                   </xsl:call-template>
-               </xsl:if>
-           </xsl:variable>
-           <xsl:variable name="enddate">
-               <xsl:if test="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:StartDate">
-                   <xsl:call-template name="getDate">
-                       <xsl:with-param name="date">
-                           <xsl:value-of
-                               select="r:Coverage/r:TemporalCoverage/r:ReferenceDate/r:EndDate"
-                           />
-                       </xsl:with-param>
-                   </xsl:call-template>                        
-               </xsl:if>
-           </xsl:variable>
-           <xsl:choose>
-               <xsl:when test="$enddate!=''">
-                   <date dateType="Collected">
-                       <xsl:value-of select="$startdate"/>
-                       <xsl:text>/</xsl:text>
-                       <xsl:value-of select="$enddate"/>
-                   </date>    
-               </xsl:when>
-               <xsl:when test="$startdate!=''">
-                   <date dateType="Collected">
-                       <xsl:value-of select="$startdate"/>
-                   </date>
-               </xsl:when>
-           </xsl:choose>
-       </xsl:if>        
     </xsl:template>
     
     <!-- template to subtract a date from a datetime -->
