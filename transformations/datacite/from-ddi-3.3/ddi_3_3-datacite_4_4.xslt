@@ -49,14 +49,14 @@
     7       contributors            r:Contributor
     8       +date                   r:StatDate && r:EndDate
     9       language                parameter
-    10      resourceType            s:KindOfData
-    11      alternateIdentifier     s:CallNumber
+    10      resourceType            r:KindOfData
+    11      alternateIdentifier     a:CallNumber
     12      relatedIdentifier       todo
     13      size                        
     14      +format                 parameter
     15      version
     16      rights                  a:AccessConditions
-    17      +description            s:Abstract, s:purpose
+    17      +description            r:Abstract, r:purpose
     18      geolocation             r:GeographicBoundary
     -->
 
@@ -77,7 +77,7 @@
     application/x-spss-sav  
     application/x-R-2
     -->
-    <xsl:param name="formats">application/xml;vocabulary=ddi,version=3.1</xsl:param>
+    <xsl:param name="formats">application/xml;vocabulary=ddi,version=3.3</xsl:param>
     
     <!-- <xsl:template match="s:StudyUnit">
         <xsl:apply-templates select="s:StudyUnit"/>
@@ -92,7 +92,7 @@
     <xsl:template match="ResourcePackage" />
     <xsl:template match="CategoryScheme" />
     <xsl:template match="VariableStatistics" />
-    <xsl:template match="ddi:DDIInstance/." />
+    <xsl:template match="ddi:DDIInstance/child::node() " />
     
     <xsl:template match="//s:StudyUnit">
         <resource xmlns="https://schema.datacite.org/meta/kernel-4.4/metadata.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
@@ -115,23 +115,37 @@
                                     
             <!-- 2 creators -->
             <!-- last name comes before first name(s) separated by comma ("family, given") -->
-            <!-- Not creatorReference? -->
-            <creator>
-                <xsl:for-each select="r:Citation/r:Creator/r:CreatorName">
-                    <creatorName>
-                        <!-- <xsl:if test="@xml:lang='en'">
-                            <xsl:attribute name="xml:lang"><xsl:value-of select="if (@xml:lang = 'en') then
-                            (@xml:lang) else ()"/></xsl:attribute>
-                        </xsl:if>
-                        <xsl:value-of select="if (@xml:lang = 'en') then
-                            (.) else null"/> -->
-                            <xsl:value-of select="."/>
-                        <!-- <xsl:call-template name="formatName">
-                            <xsl:with-param name="name" select="."/>
-                        </xsl:call-template> -->
-                    </creatorName>
-                </xsl:for-each>
-            </creator>   
+            <creators>
+                <xsl:choose>
+                    <xsl:when test="r:CreatorName">
+                        <xsl:for-each select="r:Citation/r:Creator">
+                            <creator nameType="Personal">
+                                <creatorName>
+                                    <!-- <xsl:if test="@xml:lang='en'">
+                                        <xsl:attribute name="xml:lang"><xsl:value-of select="if (@xml:lang = 'en') then
+                                        (@xml:lang) else ()"/></xsl:attribute>
+                                    </xsl:if>
+                                    <xsl:value-of select="if (@xml:lang = 'en') then
+                                        (.) else null"/> -->
+                                        <xsl:call-template name="formatName">
+                                            <xsl:with-param name="name" select="."/>
+                                        </xsl:call-template>   
+                                    <!-- <xsl:value-of select="r:CreatorName"/> -->
+                                    <!-- <xsl:call-template name="formatName">
+                                        <xsl:with-param name="name" select="."/>
+                                    </xsl:call-template> -->
+                                </creatorName>
+                            </creator>
+                        </xsl:for-each>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>Unknown</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
+                        <!-- <xsl:variable name="agency" select="r:CreatorReference/r:Agency" />
+                        <xsl:variable name="creatorid" select="r:CreatorReference/r:ID" />
+                        <xsl:value-of select="$agency/$creatorid" /> -->
+            </creators>   
             
             <!-- 3 titles -->
             <titles>
@@ -224,6 +238,15 @@
                             <xsl:if test="@codeListID">
                                 <xsl:attribute name="subjectScheme"><xsl:value-of select="@codeListID"/></xsl:attribute>
                             </xsl:if>
+                            <xsl:if test="@codeListID">
+                                <xsl:attribute name="schemeURI"><xsl:value-of select="@codeListID"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:if test="@codeListID">
+                                <xsl:attribute name="valueURI"><xsl:value-of select="@codeListID"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:if test="@codeListID">
+                                <xsl:attribute name="classificationCode"><xsl:value-of select="@codeListID"/></xsl:attribute>
+                            </xsl:if>
                             <xsl:if test="@xml:lang">
                                 <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
                             </xsl:if>                                    
@@ -255,7 +278,6 @@
             <xsl:call-template name="lifecycleEvent"/>
   
             <!-- 9 language -->
-            <!-- Note: DataCite only allows three-letter language codes -->
             <xsl:if test="$resourceLang or string-length(r:Citation/r:Language) = 3">
                 <language>
                     <xsl:choose>
@@ -272,50 +294,48 @@
             <!-- 10 resourceType -->
             <!-- Note: DataCite uses controlled vocabulary for attribute-->
             <!-- Note: Use KindOfData instead of suggested dc:type -->
-            <xsl:if test="s:KindOfData">
-                <resourceType>
-                    <xsl:choose>
-                        <xsl:when test="s:KindOfData = 'Collection' or 
-                                        s:KindOfData = 'Dataset' or 
-                                        s:KindOfData = 'Event' or 
-                                        s:KindOfData = 'Film' or 
-                                        s:KindOfData = 'Image' or 
-                                        s:KindOfData = 'InteractiveResource' or 
-                                        s:KindOfData = 'Model' or 
-                                        s:KindOfData = 'PhysicalObject' or 
-                                        s:KindOfData = 'Service' or 
-                                        s:KindOfData = 'Software' or 
-                                        s:KindOfData = 'Sound' or 
-                                        s:KindOfData = 'Text'">                
-                            <xsl:attribute name="resourceTypeGeneral">
-                                <xsl:value-of select="s:KindOfData"/>
-                            </xsl:attribute>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:attribute name="resourceTypeGeneral">
-                                <xsl:text>Dataset</xsl:text>
-                            </xsl:attribute>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                    <xsl:choose>
-                        <xsl:when test="s:KindOfData">
-                            <xsl:variable name="resourceType">
-                                <xsl:for-each select="s:KindOfData">
-                                    <xsl:value-of select="."/>
-                                    <xsl:if test="position() != last()">
-                                        <xsl:text>, </xsl:text>
-                                    </xsl:if>
-                                </xsl:for-each>
-                            </xsl:variable>
-                            <xsl:value-of select="$resourceType"/>
-                        </xsl:when>
-                        <xsl:otherwise>
+            <resourceType>
+                <xsl:choose>
+                    <xsl:when test="r:KindOfData = 'Collection' or 
+                                    r:KindOfData = 'Dataset' or 
+                                    r:KindOfData = 'Event' or 
+                                    r:KindOfData = 'Film' or 
+                                    r:KindOfData = 'Image' or 
+                                    r:KindOfData = 'InteractiveResource' or 
+                                    r:KindOfData = 'Model' or 
+                                    r:KindOfData = 'PhysicalObject' or 
+                                    r:KindOfData = 'Service' or 
+                                    r:KindOfData = 'Software' or 
+                                    r:KindOfData = 'Sound' or 
+                                    r:KindOfData = 'Text'">                
+                        <xsl:attribute name="resourceTypeGeneral">
+                            <xsl:value-of select="r:KindOfData"/>
+                        </xsl:attribute>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:attribute name="resourceTypeGeneral">
                             <xsl:text>Dataset</xsl:text>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </resourceType>
-            </xsl:if>
-            
+                        </xsl:attribute>
+                    </xsl:otherwise>
+                </xsl:choose>
+                <xsl:choose>
+                    <xsl:when test="r:KindOfData">
+                        <xsl:variable name="resourceType">
+                            <xsl:for-each select="r:KindOfData">
+                                <xsl:value-of select="."/>
+                                <xsl:if test="position() != last()">
+                                    <xsl:text>, </xsl:text>
+                                </xsl:if>
+                            </xsl:for-each>
+                        </xsl:variable>
+                        <xsl:value-of select="$resourceType"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>Dataset</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </resourceType>
+  
             <!-- 11 alternateIdentifiers -->
             <xsl:if test="r:UserID[@type != 'DOI'] | r:Citation/r:InternationalIdentifier[@type != 'DOI'] | 
                           a:Archive/a:ArchiveSpecific/a:Collection/a:CallNumber | a:Archive/a:ArchiveSpecific/a:Item/a:CallNumber">
@@ -369,16 +389,14 @@
             </xsl:if>
         
             <!-- 14 format -->
+            <!-- Note: Not in StudyUnit? -->
             <xsl:call-template name="formats"/>            
             
             <!-- 15 version -->
             <!-- Note: mapped by DataCite to pi:PhysicalInstance/@version -->
             <xsl:choose>
-            <!--<xsl:when test="pi:PhysicalInstance/@version">
-                    <version><xsl:value-of select="pi:PhysicalInstance/@version"/></version>
-                </xsl:when>-->
-                <xsl:when test="@version">
-                    <version><xsl:value-of select="@version"/></version>
+            <xsl:when test="pi:PhysicalInstance/r:Version">
+                    <version><xsl:value-of select="pi:PhysicalInstance/r:Version"/></version>
                 </xsl:when>
             </xsl:choose>
         
@@ -392,22 +410,28 @@
                     />
                 </rights>
             </xsl:if>-->
-            <xsl:if test="r:Citation/r:Copyright">
-                <rights><xsl:value-of select="r:Citation/r:Copyright"/></rights>
-            </xsl:if>        
+            <xsl:choose>
+                <xsl:when test="r:Citation/r:Copyright/r:String">
+                    <rights><xsl:value-of select="r:Citation/r:Copyright/r:String"/></rights>
+                </xsl:when>
+                <xsl:otherwise>
+                    <rights><xsl:text>Not spcified</xsl:text></rights>
+                </xsl:otherwise>
+            </xsl:choose>
+
             
             <!-- 17 descriptions -->
-            <xsl:if test="s:Abstract | s:Purpose | r:SeriesStatement/r:SeriesDescription">
+            <xsl:if test="r:Abstract | r:Purpose | r:SeriesStatement/r:SeriesDescription">
                 <descriptions>
-                    <xsl:for-each select="s:Abstract">
+                    <xsl:for-each select="r:Abstract/r:Content">
                         <description descriptionType="Abstract">
-                            <xsl:if test="r:Content/@xml:lang">
-                                <xsl:attribute name="xml:lang"><xsl:value-of select="r:Content/@xml:lang"/></xsl:attribute>
+                            <xsl:if test="@xml:lang">
+                                <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
                             </xsl:if>
-                            <xsl:value-of select="r:Content"/>
+                            <xsl:value-of select="."/>
                         </description>
                     </xsl:for-each>
-                    <xsl:for-each select="s:Purpose">
+                    <xsl:for-each select="r:Purpose">
                         <description descriptionType="Other">
                             <xsl:if test="r:Content/@xml:lang">
                                 <xsl:attribute name="xml:lang"><xsl:value-of select="r:Content/@xml:lang"/></xsl:attribute>
