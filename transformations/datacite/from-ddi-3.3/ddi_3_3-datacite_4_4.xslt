@@ -92,6 +92,7 @@
     <xsl:template match="ResourcePackage" />
     <xsl:template match="CategoryScheme" />
     <xsl:template match="VariableStatistics" />
+    <xsl:template match="r:Citation" />
     <xsl:template match="ddi:DDIInstance/child::node() " />
     
     <xsl:template match="//s:StudyUnit">
