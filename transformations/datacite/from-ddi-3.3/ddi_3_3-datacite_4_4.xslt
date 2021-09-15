@@ -30,6 +30,7 @@
     Document   : ddi_3_3-datacite_4_4.xsl
     Version    : development
     Created on : 9th of December 2014
+    Updated on : 15th of September 2021
     Description: Extract metadata from DDI 3.3 to DataCite 4 metadata
     
     DOC: https://schema.datacite.org/meta/kernel-4.4/doc/DataCite-MetadataKernel_v4.4.pdf
@@ -151,16 +152,19 @@
             <!-- 3 titles -->
             <titles>
                 <xsl:for-each select="r:Citation/r:Title/r:String">
-                    <!-- <xsl:if test="@translated='false'"> -->
-                       <title>                            
-                           <xsl:if test="@xml:lang='en'">
+                       <title>
+                            <xsl:if test="@xml:lang">
+                                <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:value-of select="."/>
+                           <!-- Note: Use following if just 'en' needed to get.                             -->
+                           <!-- <xsl:if test="@xml:lang='en'">
                                <xsl:attribute name="xml:lang"><xsl:value-of select="if (@xml:lang = 'en') then
                                (@xml:lang) else ()"/></xsl:attribute>
                            </xsl:if>
                            <xsl:value-of select="if (@xml:lang = 'en') then
-                               (.) else null"/>
+                               (.) else null"/> -->
                        </title>
-                    <!-- </xsl:if> -->
                 </xsl:for-each>
                 <xsl:for-each select="r:Citation/r:AlternateTitle/r:String">
                     <title titleType="AlternativeTitle">                            
@@ -375,7 +379,7 @@
             <xsl:if test="a:Archive/a:ArchiveSpecific/a:Collection/a:ItemQuantity | a:Archive/a:ArchiveSpecific/a:Item/a:DataFileQuantity |
                           pi:PhysicalInstance/pi:GrossFileStructure/pi:CaseQuantity">
                 <sizes>
-                    <xsl:choose>      
+                    <xsl:choose>     
                         <xsl:when test="a:Archive/a:ArchiveSpecific/a:Collection/a:ItemQuantity">
                             <size><xsl:value-of select="a:Archive/a:ArchiveSpecific/a:Collection/a:ItemQuantity"/> data files</size>
                         </xsl:when>
@@ -403,14 +407,6 @@
         
             <!-- 16 rights -->
             <!-- Field maps to dc:rights -->
-            <!--<xsl:if
-                test="a:Archive/a:ArchiveSpecific/a:DefaultAccess/a:AccessConditions[@xml:lang=$lang]">
-                <rights>
-                    <xsl:value-of
-                        select="a:Archive/a:ArchiveSpecific/a:DefaultAccess/a:AccessConditions[@xml:lang=$lang]"
-                    />
-                </rights>
-            </xsl:if>-->
             <xsl:choose>
                 <xsl:when test="r:Citation/r:Copyright/r:String">
                     <rights><xsl:value-of select="r:Citation/r:Copyright/r:String"/></rights>
@@ -486,14 +482,6 @@
     </xsl:template>    
     
     <xsl:template name="formats">
-        <!--xsl:variable name="formatList" select="tokenize($formats, ' ')"/>
-        <formats>
-            <xsl:for-each select="$formatList">
-                <format>
-                    <xsl:value-of select="."/>
-                </format>
-            </xsl:for-each>
-        </formats-->
         <xsl:if test="a:Archive/a:ArchiveSpecific/a:Item/a:Format | pd:PhysicalDataProduct/pd:PhysicalStructureScheme/pd:PhysicalStructure/pd:Format">
             <formats>
                 <xsl:if test="a:Archive/a:ArchiveSpecific/a:Item/a:Format">
