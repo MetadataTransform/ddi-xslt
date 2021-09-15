@@ -412,7 +412,7 @@
                     <rights><xsl:value-of select="r:Citation/r:Copyright/r:String"/></rights>
                 </xsl:when>
                 <xsl:otherwise>
-                    <rights><xsl:text>Not spcified</xsl:text></rights>
+                    <rights><xsl:text>Not specified</xsl:text></rights>
                 </xsl:otherwise>
             </xsl:choose>
 
