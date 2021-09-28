@@ -132,7 +132,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
     <xsl:template match="c:AuthEnty">
             <dcterms:creator>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/><xsl:attribute name="affiliation" select="@affiliation"/></xsl:if>
             <xsl:value-of select="." />
             </dcterms:creator>
     </xsl:template>
@@ -143,10 +143,19 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:element>
     </xsl:template>
 
-    <xsl:template match="c:timePrd|c:geogUnit|c:geogCover|c:geogBndBox|c:boundPoly">
-        <xsl:element name="dc:coverage">
-            <xsl:value-of select="." />
-        </xsl:element>
+    <xsl:template match="c:timePrd|c:geogCover">
+        <dc:coverage>
+            <xsl:variable name="startdate" select="if (@event='start' and (@date!='')) then (@date) else (.)"/>
+            <xsl:variable name="enddate" select="if (@event='end' and (@date!='')) then (@date) else (.)"/>
+            <xsl:if test="@event">
+              <xsl:if test="@event='start'"><xsl:attribute name="start" select="$startdate"/>
+                <xsl:value-of select="$startdate" />
+              </xsl:if>
+              <xsl:if test="@event='end'"><xsl:attribute name="end" select="$enddate"/>
+                <xsl:value-of select="$enddate"/>
+              </xsl:if>
+            </xsl:if>
+        </dc:coverage>
     </xsl:template>
 
     <xsl:template match="c:dataKind">
