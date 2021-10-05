@@ -15,14 +15,11 @@
   xmlns:rdfs      ="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:xsi       ="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:skos      ="http://www.w3.org/2004/02/skos/core#" 
-  xmlns:dc        ="http://purl.org/dc/elements/1.1/"
-  xmlns:dcterms   ="http://purl.org/dc/terms/"
-  xmlns:meta="transformation:metadata" 
   xmlns:disco     ="http://rdf-vocabulary.ddialliance.org/discovery#"
-  xmlns:ddi       ="http://ddialliance.org/data/" 
   xmlns:schema    ="http://schema.org/"
+  xmlns:meta="transformation:rdf"
   xmlns:c="ddi:codebook:2_5"
-  xmlns:ddicb     ="http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
+  xmlns:ddi     ="http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
   xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
 
   exclude-result-prefixes="#all">
@@ -37,6 +34,8 @@
     </parameters>
   </meta:metadata>
 
+  <xsl:param name="root-element">rdf:RDF</xsl:param> 
+
 
   <!-- ================================================== -->
   <!-- imports                                            -->
@@ -48,7 +47,7 @@
   <!-- setup                                              -->
   <!-- ================================================== -->
   <xsl:output method="xml" indent="yes"/>
-  <xsl:strip-space elements="*"/>
+  <!-- <xsl:strip-space elements="*"/> -->
 
   <!-- ================================================== -->
   <!-- params                                             -->
@@ -59,11 +58,11 @@
   <!-- used as a prefix for elements -->
   <xsl:param name="studyURI">
       <xsl:choose>
-          <xsl:when test="//ddicb:codeBook/ddicb:stdyDscr/@ID">
-              <xsl:value-of select="//ddicb:codeBook/ddicb:stdyDscr/@ID"/>
+          <xsl:when test="//c:docDscr/c:citation/c:titlStmt/c:IDNo!=''">
+              <xsl:value-of select="if (@agency='DataCite') then (.) else null"/>
           </xsl:when>
-          <xsl:when test="//ddicb:codeBook/@ID">
-              <xsl:value-of select="//ddicb:codeBook/@ID"/>
+          <xsl:when test="//c:codeBook/@ID">
+              <xsl:value-of select="//c:codeBook/@ID"/>
           </xsl:when>
       </xsl:choose>
   </xsl:param>
@@ -75,44 +74,53 @@
   <!-- ===================== -->
 
   <xsl:template match="/">
-      <!-- output of doctype -->
-      <!--
-      <xsl:text disable-output-escaping="yes"><![CDATA[
-<!DOCTYPE rdf:RDF [
-<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-]>            
-      ]]></xsl:text>
-      -->
-      <rdf:RDF>
+    <xsl:element name="{$root-element}">
+        <xsl:namespace name="schema">http://schema.org/</xsl:namespace>
+        <!-- <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
+        <xsl:namespace name="xsi">http://www.w3.org/2001/XMLSchema-instance</xsl:namespace>
+        <xsl:namespace name="dc">http://purl.org/dc/elements/1.1</xsl:namespace>
+        <xsl:namespace name="dcterms">http://purl.org/dc/terms/</xsl:namespace> -->
+
         <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:keyword" />
+        <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:titl" />
+        <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:topcClas" />
         <xsl:apply-templates select="//c:docDscr/c:citation/c:titlStmt/c:IDNo" />
+        <!-- Study -->
+        <xsl:apply-templates select="//c:stdyDscr" />
+        <!-- Universe -->
+        <xsl:apply-templates select="c:stdyDscr/c:stdyInfo/c:sumDscr/c:universe" />      
+        <!-- DataFile -->
+        <xsl:apply-templates select="//c:fileDscr/c:fileTxt"/>
+        <!-- DescriptiveStatistics -->
+        <xsl:apply-templates select="//c:dataDscr/c:var/c:catgry"/>
+        <!-- Variables -->
+        <xsl:apply-templates select="//c:dataDscr/c:var"/>               
+        <!-- Intrument -->
+        <!-- <xsl:call-template name="Instrument"/> -->
+        <!--Question -->
+        <xsl:apply-templates select="//c:qstn"/>
+    </xsl:element>
+  </xsl:template>
+
+      <!-- <rdf:RDF> -->
+        <!-- <schema:Dataset>
+          <xsl:attribute name="rdf:about">
+                <xsl:value-of select="$studyURI" />
+                   <xsl:if test="c:citation/c:titlStmt/c:IDNo!=''">
+                    <xsl:value-of select="c:citation/c:titlStmt/c:IDNo" />
+                  </xsl:if> 
+                   <xsl:if test="c:docDscr/c:citation/c:titlStmt/c:IDNo!=''">
+                    <xsl:value-of select="if (@agency='DataCite') then (.) else null" />
+                </xsl:if>
+                <xsl:if test="../ID">
+                    <xsl:value-of select="../ID" />
+                </xsl:if> 
+          </xsl:attribute>
           <owl:Ontology rdf:about="">
               <owl:versionIRI rdf:resource=""/>
-          </owl:Ontology>
+          </owl:Ontology> -->
           
-          <!-- Study -->
-          <xsl:apply-templates select="ddicb:stdyDscr" />
 
-          <!-- Universe -->
-          <xsl:apply-templates select="ddicb:stdyDscr/ddicb:stdyInfo/ddicb:sumDscr/ddicb:universe" />
-                  
-          <!-- DataFile -->
-          <xsl:apply-templates select="//ddicb:fileDscr/ddicb:fileTxt"/>
-
-          <!-- DescriptiveStatistics -->
-          <xsl:apply-templates select="//ddicb:dataDscr/ddicb:var/ddicb:catgry"/>
-
-          <!-- Variables -->
-          <xsl:apply-templates select="//ddicb:dataDscr/ddicb:var"/>            
-      
-          <!-- Intrument -->
-          <!-- <xsl:call-template name="Instrument"/> -->
-
-          <!--Question -->
-          <xsl:apply-templates select="//ddicb:qstn"/>
       
           <!-- Coverage -->
           <!-- <xsl:call-template name="Coverage"/> -->
@@ -122,18 +130,25 @@
           
           <!-- LogicalDataSet -->
           <!-- <xsl:call-template name="LogicalDataSet"/>            -->
-          
-      </rdf:RDF>
-  </xsl:template>
+            <xsl:template match="c:AuthEnty">
+                <schema:creator>
+                    <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/><xsl:attribute name="affiliation" select="@affiliation"/></xsl:if>
+                    <xsl:value-of select="." />
+                </schema:creator>
+            </xsl:template>
+        <!-- </schema:Dataset> -->
+          <!-- </rdf:RDF> -->
+    
+      
   
   <!-- Study -->
-  <xsl:template match="ddicb:stdyDscr">        
+  <xsl:template match="c:stdyDscr">        
       <rdf:Description>
           <xsl:attribute name="rdf:about">
                 <xsl:value-of select="$studyURI" />
               <xsl:choose>
-                  <xsl:when test="ddicb:citation/ddicb:titlStmt/ddicb:IDNo!=''">
-                      <xsl:value-of select="ddicb:citation/ddicb:titlStmt/ddicb:IDNo" />
+                  <xsl:when test="c:citation/c:titlStmt/c:IDNo!=''">
+                      <xsl:value-of select="c:citation/c:titlStmt/c:IDNo" />
                   </xsl:when>
                   <xsl:otherwise><xsl:value-of select="../ID" /></xsl:otherwise>
               </xsl:choose>
@@ -141,7 +156,7 @@
           <rdf:type rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study" />
 
           <!-- disco:isMeasureOf -->
-          <xsl:for-each select="ddicb:stdyInfo/ddicb:sumDscr/ddicb:universe">
+          <xsl:for-each select="c:stdyInfo/c:sumDscr/c:universe">
               <disco:isMeasureOf>
                   <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-universe-<xsl:value-of select="." /></xsl:attribute>
               </disco:isMeasureOf>
@@ -153,21 +168,21 @@
           </disco:HasInstrument>
           
           <!-- dc:hasPart logicalDataset-->
-          <dc:hasPart>
+          <!-- <dc:hasPart>
               <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-logicalDataSet</xsl:attribute>
-          </dc:hasPart>
+          </dc:hasPart> -->
           
           <!-- disco:HasDataFile -->
-          <xsl:for-each select="//ddicb:codeBook/ddicb:fileDscr/ddicb:fileTxt">
+          <xsl:for-each select="//c:codeBook/c:fileDscr/c:fileTxt">
               <xsl:element name="disco:HasDataFile">
-                  <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-<xsl:value-of select="./ddicb:fileName"/></xsl:attribute>
+                  <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-<xsl:value-of select="./ddi:fileName"/></xsl:attribute>
               </xsl:element>
           </xsl:for-each>
     
           
             <!-- disco:ContainsVariable -->
-          <xsl:for-each select="//ddicb:codeBook/ddicb:dataDscr/ddicb:var">
-              <xsl:element name="disco:ContainsVariable">
+          <xsl:for-each select="//c:codeBook/c:dataDscr/c:var">
+              <xsl:element name="c:ContainsVariable">
                   <xsl:attribute name="rdf:resource">
                       <xsl:choose>
                           <xsl:when test="./@name">
@@ -190,28 +205,28 @@
               <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-coverage</xsl:attribute>
           </xsl:element>
 
-          <dc:identifier>
+          <!-- <dc:identifier>
               <xsl:text>http://ddialliance.org/data/</xsl:text>
               <xsl:choose>
-                  <xsl:when test="ddicb:citation/ddicb:titlStmt/ddicb:IDNo!=''">
-                      <xsl:value-of select="ddicb:citation/ddicb:titlStmt/ddicb:IDNo" />
+                  <xsl:when test="c:citation/c:titlStmt/c:IDNo!=''">
+                      <xsl:value-of select="c:citation/c:titlStmt/c:IDNo" />
                   </xsl:when>
                   <xsl:otherwise><xsl:value-of select="../ID" /></xsl:otherwise>
               </xsl:choose>
-          </dc:identifier>
+          </dc:identifier> -->
 
-          <xsl:apply-templates select="ddicb:citation" />
+          <xsl:apply-templates select="c:citation" />
 
-          <xsl:apply-templates select="ddicb:stdyInfo" />
+          <xsl:apply-templates select="c:stdyInfo" />
           <!--<xsl:apply-templates select="../ddicb:dataDscr" mode="reference"/>-->
       </rdf:Description>
   </xsl:template>
 
-  <xsl:template match="ddicb:citation">
-      <dc:title>
+  <xsl:template match="c:citation">
+      <schema:name>
           <xsl:attribute name="xml:lang"><xsl:value-of select="$lang"/></xsl:attribute>
-          <xsl:value-of select="ddicb:titlStmt/ddicb:titl" />
-      </dc:title>
+          <xsl:value-of select="c:titlStmt/c:titl" />
+      </schema:name>
   </xsl:template>
 
   <xsl:template match="c:keyword|c:topcClas">
@@ -241,12 +256,12 @@
     </schema:citation>
   </xsl:template>
 
-  <xsl:template match="ddicb:stdyInfo">
-      <dcterms:abstract>
-          <xsl:value-of select="ddicb:abstract" />
-      </dcterms:abstract>
-      <xsl:for-each select="ddicb:subject/ddicb:topcClas">
-          <dcterms:subject>
+  <xsl:template match="c:stdyInfo">
+      <rdf:Description>
+          <xsl:value-of select="c:abstract" />
+      </rdf:Description>
+      <xsl:for-each select="c:subject/c:topcClas">
+          <schema:keywords>
               <xsl:attribute name="xml:lang">
                   <xsl:choose>
                       <xsl:when test="@xml-lang"><xsl:value-of select="$lang"/></xsl:when>
@@ -255,30 +270,30 @@
               </xsl:attribute>
               <xsl:attribute name="xml:lang"><xsl:value-of select="$lang"/></xsl:attribute>
               <xsl:value-of select="." />
-          </dcterms:subject>
+          </schema:keywords>
       </xsl:for-each>    
       <xsl:for-each select="c:keyword|c:topcClas">
           <schema:keywords><xsl:value-of select="." /></schema:keywords>
       </xsl:for-each>    
-      <xsl:apply-templates select="ddicb:sumDscr" />
+      <xsl:apply-templates select="c:sumDscr" />
 
   </xsl:template>
   
-  <xsl:template match="ddicb:dataAccs">
+  <xsl:template match="c:dataAccs">
       
   </xsl:template>
   
 
-  <xsl:template match="ddicb:sumDscr">
+  <xsl:template match="c:sumDscr">
       <!--
       <dcterms:temporal xsi:type="dcterms:Period">
           start=<xsl:value-of select="ddicb:timePrd[@event='start']" />; end=<xsl:value-of select="ddicb:timePrd[@event='end']" />;
       </dcterms:temporal>
       -->
-      <xsl:if test="ddicb:nation">
-          <dc:coverage>
-              <xsl:value-of select="ddicb:nation" />
-          </dc:coverage>
+      <xsl:if test="c:nation">
+          <!-- <dc:coverage>
+              <xsl:value-of select="c:nation" />
+          </dc:coverage> -->
       </xsl:if>
       
       <!--
@@ -289,18 +304,18 @@
       </xsl:if>
       -->
       
-      <xsl:if test="ddicb:dataKind">
-          <dcterms:type><xsl:value-of select="ddicb:dataKind" /></dcterms:type>
+      <xsl:if test="c:dataKind">
+          <!-- <dcterms:type><xsl:value-of select="c:dataKind" /></dcterms:type> -->
       </xsl:if>
     
-      <xsl:if test="ddicb:universe">      
-          <dcterms:coverage>
-              <xsl:value-of select="ddicb:universe" />
-          </dcterms:coverage>
+      <xsl:if test="c:universe">      
+          <!-- <dcterms:coverage>
+              <xsl:value-of select="c:universe" />
+          </dcterms:coverage> -->
       </xsl:if>
   </xsl:template>
   
-  <xsl:template match="ddicb:universe">
+  <xsl:template match="c:universe">
       <rdf:Description>
           <!-- URI -->
           <xsl:attribute name="rdf:about"><xsl:value-of select="$studyURI" />-universe-<xsl:value-of select="." /></xsl:attribute>
@@ -325,7 +340,7 @@
   select="ddicb:" /> </disco:hasDatafile> </xsl:template>
   -->
 
-  <xsl:template match="ddicb:concept" mode="reference">
+  <xsl:template match="c:concept" mode="reference">
 
   </xsl:template>
 </xsl:stylesheet>
