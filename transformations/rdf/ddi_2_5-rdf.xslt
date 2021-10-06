@@ -53,7 +53,7 @@
   <!-- params                                             -->
   <!-- ================================================== -->
   <!-- render text-elements with this lang attribute -->
-  <xsl:param name="lang">en</xsl:param>
+  <!-- <xsl:param name="lang">en</xsl:param> -->
 
   <!-- used as a prefix for elements -->
   <xsl:param name="studyURI">
@@ -81,10 +81,10 @@
         <xsl:namespace name="dc">http://purl.org/dc/elements/1.1</xsl:namespace>
         <xsl:namespace name="dcterms">http://purl.org/dc/terms/</xsl:namespace> -->
 
-        <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:keyword" />
-        <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:titl" />
-        <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:topcClas" />
-        <xsl:apply-templates select="//c:docDscr/c:citation/c:titlStmt/c:IDNo" />
+        <!-- <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:keyword" /> -->
+        <!-- <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:titl" /> -->
+        <!-- <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:topcClas" /> -->
+        <!-- <xsl:apply-templates select="//c:docDscr/c:citation/c:titlStmt/c:IDNo" /> -->
         <!-- Study -->
         <xsl:apply-templates select="//c:stdyDscr" />
         <!-- Universe -->
@@ -130,12 +130,7 @@
           
           <!-- LogicalDataSet -->
           <!-- <xsl:call-template name="LogicalDataSet"/>            -->
-            <xsl:template match="c:AuthEnty">
-                <schema:creator>
-                    <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/><xsl:attribute name="affiliation" select="@affiliation"/></xsl:if>
-                    <xsl:value-of select="." />
-                </schema:creator>
-            </xsl:template>
+
         <!-- </schema:Dataset> -->
           <!-- </rdf:RDF> -->
     
@@ -143,7 +138,7 @@
   
   <!-- Study -->
   <xsl:template match="c:stdyDscr">        
-      <rdf:Description>
+      <schema:Dataset>
           <xsl:attribute name="rdf:about">
                 <xsl:value-of select="$studyURI" />
               <xsl:choose>
@@ -155,6 +150,23 @@
           </xsl:attribute>
           <rdf:type rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study" />
 
+          <!-- <xsl:template match=""> -->
+          <xsl:for-each select="c:citation/c:rspStmt/c:AuthEnty">
+          <schema:creator>
+                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/><xsl:attribute name="affiliation" select="@affiliation"/></xsl:if>
+                <xsl:value-of select="." />
+          </schema:creator>
+          </xsl:for-each>
+        <!-- </xsl:template> -->
+
+          <!-- <xsl:for-each select=""> -->
+          <xsl:for-each select="c:citation/c:titlStmt/c:titl">
+            <schema:name>
+                    <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+                    <xsl:value-of select="." />
+            </schema:name>
+          </xsl:for-each>
+
           <!-- disco:isMeasureOf -->
           <xsl:for-each select="c:stdyInfo/c:sumDscr/c:universe">
               <disco:isMeasureOf>
@@ -163,9 +175,9 @@
           </xsl:for-each>
           
           <!-- disco:HasInstrument -->
-          <disco:HasInstrument>
+          <!-- <disco:HasInstrument>
               <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-instrument</xsl:attribute>
-          </disco:HasInstrument>
+          </disco:HasInstrument> -->
           
           <!-- dc:hasPart logicalDataset-->
           <!-- <dc:hasPart>
@@ -215,21 +227,37 @@
               </xsl:choose>
           </dc:identifier> -->
 
-          <xsl:apply-templates select="c:citation" />
+          <!-- <xsl:apply-templates select="c:citation" /> -->
+        <!-- <xsl:apply-templates select="c:stdyInfo" /> -->
+        <xsl:for-each select="c:stdyInfo/c:abstract">
+        <rdf:description>
+                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+                <xsl:value-of select="." />    
+        </rdf:description>
+        </xsl:for-each>
 
-          <xsl:apply-templates select="c:stdyInfo" />
-          <!--<xsl:apply-templates select="../ddicb:dataDscr" mode="reference"/>-->
-      </rdf:Description>
+        <xsl:for-each select="c:stdyInfo/c:subject/c:topcClas|c:stdyInfo/c:subject/c:keyword">
+            <schema:keywords>
+                <xsl:attribute name="xml:lang">
+                    <xsl:choose>
+                        <xsl:when test="@xml-lang"><xsl:value-of select="."/></xsl:when>
+                        <xsl:otherwise><xsl:value-of select="."/></xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
+                <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                <xsl:value-of select="." />
+            </schema:keywords>
+        </xsl:for-each>    
+        <!-- <xsl:for-each select="c:keyword|c:topcClas">
+            <schema:keywords><xsl:value-of select="." /></schema:keywords>
+        </xsl:for-each>     -->
+
+      </schema:Dataset>
   </xsl:template>
 
-  <xsl:template match="c:citation">
-      <schema:name>
-          <xsl:attribute name="xml:lang"><xsl:value-of select="$lang"/></xsl:attribute>
-          <xsl:value-of select="c:titlStmt/c:titl" />
-      </schema:name>
-  </xsl:template>
 
-  <xsl:template match="c:keyword|c:topcClas">
+
+  <!-- <xsl:template match="c:keyword|c:topcClas">
     <xsl:variable name="rdfdt">http://www.w3.org/2001/XMLSchema#string</xsl:variable>
     <xsl:for-each select=".">
         <schema:keywords>
@@ -246,38 +274,17 @@
             <xsl:value-of select="." />
         </schema:keywords>
     </xsl:for-each>
-  </xsl:template>
+  </xsl:template> -->
 
-  <xsl:template match="c:IDNo">
+  <!-- <xsl:template match="c:IDNo">
     <schema:citation>
-        <xsl:attribute name="rdf:resource">
+        <xsl:attribute name="rdf:about">
             <xsl:value-of select="." />
         </xsl:attribute>
     </schema:citation>
-  </xsl:template>
+  </xsl:template> -->
 
-  <xsl:template match="c:stdyInfo">
-      <rdf:Description>
-          <xsl:value-of select="c:abstract" />
-      </rdf:Description>
-      <xsl:for-each select="c:subject/c:topcClas">
-          <schema:keywords>
-              <xsl:attribute name="xml:lang">
-                  <xsl:choose>
-                      <xsl:when test="@xml-lang"><xsl:value-of select="$lang"/></xsl:when>
-                      <xsl:otherwise><xsl:value-of select="$lang"/></xsl:otherwise>
-                  </xsl:choose>
-              </xsl:attribute>
-              <xsl:attribute name="xml:lang"><xsl:value-of select="$lang"/></xsl:attribute>
-              <xsl:value-of select="." />
-          </schema:keywords>
-      </xsl:for-each>    
-      <xsl:for-each select="c:keyword|c:topcClas">
-          <schema:keywords><xsl:value-of select="." /></schema:keywords>
-      </xsl:for-each>    
-      <xsl:apply-templates select="c:sumDscr" />
 
-  </xsl:template>
   
   <xsl:template match="c:dataAccs">
       
@@ -315,20 +322,7 @@
       </xsl:if>
   </xsl:template>
   
-  <xsl:template match="c:universe">
-      <rdf:Description>
-          <!-- URI -->
-          <xsl:attribute name="rdf:about"><xsl:value-of select="$studyURI" />-universe-<xsl:value-of select="." /></xsl:attribute>
-          <!-- rdf:type -->
-          <rdf:type>
-              <xsl:attribute name="rdf:resource">http://rdf-vocabulary.ddialliance.org/discovery#Universe</xsl:attribute>
-          </rdf:type>
-
-          <skos:definition>
-              <xsl:value-of select="." />
-          </skos:definition>
-      </rdf:Description>
-  </xsl:template>
+ 
   <!--
   <xsl:template match="ddicb:"> <disco:isMeasureOf> <xsl:value-of
   select="ddicb:" /> </disco:isMeasureOf> </xsl:template>
