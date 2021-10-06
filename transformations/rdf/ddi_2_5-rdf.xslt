@@ -15,7 +15,6 @@
   xmlns:rdfs      ="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:xsi       ="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:skos      ="http://www.w3.org/2004/02/skos/core#" 
-  xmlns:disco     ="http://rdf-vocabulary.ddialliance.org/discovery#"
   xmlns:schema    ="http://schema.org/"
   xmlns:meta="transformation:rdf"
   xmlns:c="ddi:codebook:2_5"
@@ -29,9 +28,6 @@
     <title>DDI 2.5 to RDF/XML</title>
     <description>Convert DDI Codebook (2.5) to RDF/XML</description>
     <outputFormat>XML</outputFormat>
-    <parameters>
-        <parameter name="root-element" format="xs:string" description="Root element"/>
-    </parameters>
   </meta:metadata>
 
   <xsl:param name="root-element">rdf:RDF</xsl:param> 
@@ -167,56 +163,6 @@
             </schema:name>
           </xsl:for-each>
 
-          <!-- disco:isMeasureOf -->
-          <xsl:for-each select="c:stdyInfo/c:sumDscr/c:universe">
-              <disco:isMeasureOf>
-                  <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-universe-<xsl:value-of select="." /></xsl:attribute>
-              </disco:isMeasureOf>
-          </xsl:for-each>
-          
-          <!-- disco:HasInstrument -->
-          <!-- <disco:HasInstrument>
-              <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-instrument</xsl:attribute>
-          </disco:HasInstrument> -->
-          
-          <!-- dc:hasPart logicalDataset-->
-          <!-- <dc:hasPart>
-              <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-logicalDataSet</xsl:attribute>
-          </dc:hasPart> -->
-          
-          <!-- disco:HasDataFile -->
-          <xsl:for-each select="//c:codeBook/c:fileDscr/c:fileTxt">
-              <xsl:element name="disco:HasDataFile">
-                  <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-<xsl:value-of select="./ddi:fileName"/></xsl:attribute>
-              </xsl:element>
-          </xsl:for-each>
-    
-          
-            <!-- disco:ContainsVariable -->
-          <xsl:for-each select="//c:codeBook/c:dataDscr/c:var">
-              <xsl:element name="c:ContainsVariable">
-                  <xsl:attribute name="rdf:resource">
-                      <xsl:choose>
-                          <xsl:when test="./@name">
-                                  <xsl:value-of select="$studyURI"/>
-                                  <xsl:text>-</xsl:text>
-                                  <xsl:value-of select="./@name"/>
-                          </xsl:when>
-                          <xsl:when test="./@ID">
-                                  <xsl:value-of select="$studyURI"/>
-                                  <xsl:text>-</xsl:text>
-                                  <xsl:value-of select="./@ID"/>
-                          </xsl:when>
-                      </xsl:choose>
-                  </xsl:attribute>
-              </xsl:element>
-          </xsl:for-each>                       
-
-          <!-- disco:HasCoverage -->
-          <xsl:element name="disco:HasCoverage">
-              <xsl:attribute name="rdf:resource"><xsl:value-of select="$studyURI"/>-coverage</xsl:attribute>
-          </xsl:element>
-
           <!-- <dc:identifier>
               <xsl:text>http://ddialliance.org/data/</xsl:text>
               <xsl:choose>
@@ -321,18 +267,6 @@
           </dcterms:coverage> -->
       </xsl:if>
   </xsl:template>
-  
- 
-  <!--
-  <xsl:template match="ddicb:"> <disco:isMeasureOf> <xsl:value-of
-  select="ddicb:" /> </disco:isMeasureOf> </xsl:template>
-  <xsl:template match="ddicb:"> <disco:hasInstrument> <xsl:value-of
-  select="ddicb:" /> </disco:hasInstrument> </xsl:template>
-  <xsl:template match="ddicb:"> <disco:hasCoverage> <xsl:value-of
-  select="ddicb:" /> </disco:hasCoverage> </xsl:template>
-  <xsl:template match="ddicb:"> <disco:hasDatafile> <xsl:value-of
-  select="ddicb:" /> </disco:hasDatafile> </xsl:template>
-  -->
 
   <xsl:template match="c:concept" mode="reference">
 
