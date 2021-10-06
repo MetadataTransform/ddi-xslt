@@ -55,7 +55,7 @@
   <xsl:param name="studyURI">
       <xsl:choose>
           <xsl:when test="//c:docDscr/c:citation/c:titlStmt/c:IDNo!=''">
-              <xsl:value-of select="if (@agency='DataCite') then (.) else null"/>
+              <xsl:value-of select="c:citation/c:titlStmt/c:IDNo[@agency='DataCite']"/>
           </xsl:when>
           <xsl:when test="//c:codeBook/@ID">
               <xsl:value-of select="//c:codeBook/@ID"/>
@@ -139,7 +139,7 @@
                 <xsl:value-of select="$studyURI" />
               <xsl:choose>
                   <xsl:when test="c:citation/c:titlStmt/c:IDNo!=''">
-                      <xsl:value-of select="c:citation/c:titlStmt/c:IDNo" />
+                      <xsl:value-of select="c:citation/c:titlStmt/c:IDNo[@agency='DataCite']" />
                   </xsl:when>
                   <xsl:otherwise><xsl:value-of select="../ID" /></xsl:otherwise>
               </xsl:choose>
