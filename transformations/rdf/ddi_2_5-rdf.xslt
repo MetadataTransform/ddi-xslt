@@ -144,7 +144,7 @@
                   <xsl:otherwise><xsl:value-of select="../ID" /></xsl:otherwise>
               </xsl:choose>
           </xsl:attribute>
-          <rdf:type rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study" />
+          <schema:additionalType rdf:resource="http://rdf-vocabulary.ddialliance.org/discovery#Study" />
 
           <!-- <xsl:template match=""> -->
           <xsl:for-each select="c:citation/c:rspStmt/c:AuthEnty">
@@ -176,10 +176,10 @@
           <!-- <xsl:apply-templates select="c:citation" /> -->
         <!-- <xsl:apply-templates select="c:stdyInfo" /> -->
         <xsl:for-each select="c:stdyInfo/c:abstract">
-        <rdf:description>
+        <schema:abstract>
                 <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
                 <xsl:value-of select="." />    
-        </rdf:description>
+        </schema:abstract>
         </xsl:for-each>
 
         <xsl:for-each select="c:stdyInfo/c:subject/c:topcClas|c:stdyInfo/c:subject/c:keyword">
