@@ -49,8 +49,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <parameter name="root-element" format="xs:string" description="Root element"/>
         </parameters>
     </meta:metadata>
-    
-    <xsl:param name="root-element">rdf:RDF</xsl:param>
  
     <xsl:output method="xml" indent="yes" />
 
@@ -66,7 +64,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     </xsl:param>
     
     <xsl:template match="/" > 
-        <xsl:element name="{$root-element}">
+        <xsl:element name="rdf:RDF">
             <xsl:namespace name="dcat">http://www.w3.org/ns/dcat#</xsl:namespace>
             <xsl:namespace name="foaf">http://xmlns.com/foaf/0.1</xsl:namespace>
             <xsl:namespace name="prov">http://www.w3.org/ns/prov#</xsl:namespace>
@@ -105,7 +103,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <!-- <xsl:apply-templates select="//c:stdyDscr/c:prodStmt/c:copyright" />
             <xsl:apply-templates select="//c:stdyDscr/c:prodStmt/c:prodDate" /> -->
 
-            <xsl:apply-templates select="//c:docDscr/c:citation/c:prodStmt/c:producer" />
+            <!-- <xsl:apply-templates select="//c:docDscr/c:citation/c:prodStmt/c:producer" /> -->
 
         </xsl:element>
     </xsl:template>
@@ -171,63 +169,63 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 </dcterms:identifier>
             </xsl:for-each>
 
-            <xsl:for-each select="c:citation/c:rspStmt/c:AuthEnty">
-                    <dcterms:creator>
-                        <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/>
-                                                 <!-- <xsl:attribute name="affiliation" select="@affiliation"/> -->
-                        </xsl:if>
-                    <xsl:value-of select="." />
-                    </dcterms:creator>
-            </xsl:for-each>
+            <xsl:if test="c:citation/c:rspStmt/c:AuthEnty">
+                <dcterms:creator>
+                    <foaf:Agent>
+                    <xsl:variable name="creator"><xsl:value-of select="c:citation/c:rspStmt/c:AuthEnty[1]" /></xsl:variable>
+                        <foaf:name><xsl:value-of select="$creator" /></foaf:name>
+                    </foaf:Agent>
+                </dcterms:creator>
+            </xsl:if>
 
             <xsl:if test="c:citation/c:distStmt/c:distDate">
-                <xsl:element name="dcterms:issued">
+                <dcterms:issued>
                 <xsl:variable name="rdfdt">http://www.w3.org/2001/XMLSchema#dateTime</xsl:variable>
                     <xsl:attribute name="rdf:datatype">
                         <xsl:value-of select="$rdfdt"/>
                     </xsl:attribute>
                     <xsl:value-of select="c:citation/c:distStmt/c:distDate" />
-                </xsl:element>
+                </dcterms:issued>
             </xsl:if>
 
             <xsl:if test="c:citation/c:distStmt/c:distDate">
-                <xsl:element name="dcterms:modified">
+                <dcterms:modified>
                 <xsl:variable name="rdfdt">http://www.w3.org/2001/XMLSchema#dateTime</xsl:variable>
                     <xsl:attribute name="rdf:datatype">
                         <xsl:value-of select="$rdfdt"/>
                     </xsl:attribute>
                     <xsl:value-of select="c:citation/c:distStmt/c:distDate" />
-                </xsl:element>
+                </dcterms:modified>
             </xsl:if>
 
-            <!-- <xsl:if test="c:stdyInfo/c:sumDscr/c:timePrd"> -->
             <xsl:for-each select="c:stdyInfo/c:sumDscr/c:timePrd">
-                                <!-- <xsl:variable name="startdate" select="if (@event='start' and (@date!='')) then (@date) else null"/>
-                    <xsl:variable name="enddate" select="if (@event='end' and (@date!='')) then (@date) else null"/> -->
-                <xsl:variable name="startdate">
-                    <xsl:choose>
-                        <xsl:when test="@event='start'">
-                                <xsl:value-of select="@date"/>
-                        </xsl:when>
-                    </xsl:choose>
-                </xsl:variable>
-                <xsl:variable name="enddate">
-                    <xsl:choose>
-                        <xsl:when test="@event='end'">
-                                <xsl:value-of select="@date"/>
-                        </xsl:when>
-                    </xsl:choose>
-                </xsl:variable>
-
                 <dcterms:temporal>
-                    <!-- <xsl:if test="@event">
-                        <xsl:if test="@event='start'"><xsl:attribute name="start" select="$startdate"/>
-                    <xsl:value-of select="$startdate" />
-            </xsl:if>
-                    <xsl:if test="@event='end'"><xsl:attribute name="end" select="$enddate"/> -->
-                        <xsl:value-of select="concat($startdate,$enddate)" />
-                    <!-- </xsl:if>
-                    </xsl:if> -->
+                    <dcterms:PeriodOfTime>
+                        <xsl:for-each select="c:stdyInfo/c:sumDscr/c:timePrd">
+                            <xsl:variable name="startdate" select="if (@event='start' and (@date!='')) then (@date) else (.)"/>
+                            <xsl:variable name="enddate" select="if (@event='end' and (@date!='')) then (@date) else (.)"/>
+                            <xsl:if test="@event">
+                                <xsl:if test="@event='start'">
+                                    <dcat:startDate>
+                                        <xsl:variable name="rdfdt">http://www.w3.org/2001/XMLSchema#dateTime</xsl:variable>
+                                        <xsl:attribute name="rdf:datatype">
+                                            <xsl:value-of select="$rdfdt"/>
+                                        </xsl:attribute>
+                                        <xsl:value-of select="$startdate" />
+                                    </dcat:startDate>
+                                </xsl:if>
+                                <xsl:if test="@event='end'">
+                                    <dcat:endDate >
+                                        <xsl:variable name="rdfdt">http://www.w3.org/2001/XMLSchema#dateTime</xsl:variable>
+                                        <xsl:attribute name="rdf:datatype">
+                                            <xsl:value-of select="$rdfdt"/>
+                                        </xsl:attribute>
+                                        <xsl:value-of select="$enddate" />
+                                    </dcat:endDate> 
+                                </xsl:if>
+                            </xsl:if>   
+                        </xsl:for-each>
+                    </dcterms:PeriodOfTime>
                 </dcterms:temporal>
             </xsl:for-each>
 
@@ -340,14 +338,53 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 </prov:qualifiedAttribution>
             </xsl:for-each>
 
-            <xsl:for-each select="c:citation/c:distStmt/c:othId">
+            <xsl:for-each select="c:citation/c:rspStmt/c:AuthEnty">
+            <xsl:variable name="priInvest">http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/principalInvestigator</xsl:variable> 
+                <prov:qualifiedAttribution>
+                    <prov:Attribution>
+                        <prov:agent>
+                            <foaf:Agent>
+                    <!-- <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if> -->
+                                <foaf:name><xsl:value-of select="." /></foaf:name>
+                            </foaf:Agent>
+                        </prov:agent>
+                        <dcat:hadRole>
+                            <xsl:attribute name="rdf:resource">
+                                <xsl:value-of select="$priInvest" />
+                            </xsl:attribute>
+                        </dcat:hadRole>
+                    </prov:Attribution>
+                </prov:qualifiedAttribution>
+            </xsl:for-each>
+
+                        <!-- <xsl:if test="c:citation/c:rspStmt/c:AuthEnty">
+                <dcterms:creator>
+                    <foaf:Agent>
+                    <xsl:variable name="creator"><xsl:value-of select="c:citation/c:rspStmt/c:AuthEnty[1]" /></xsl:variable>
+                        <foaf:name><xsl:value-of select="$creator" /></foaf:name>
+                    </foaf:Agent>
+                </dcterms:creator>
+            </xsl:if> -->
+
+
+
+            <xsl:for-each select="c:citation/c:distStmt/c:distrbtr">
+                <dcterms:publisher>
+                    <xsl:attribute name="rdf:resource">
+                        <!-- <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if> -->
+                        <xsl:value-of select="@URI" />
+                    </xsl:attribute>
+                </dcterms:publisher>
+            </xsl:for-each>
+
+            <xsl:for-each select="c:citation/c:rspStmt/c:othId">
                 <prov:qualifiedAttribution>
                     <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
                     <xsl:value-of select="." />
                 </prov:qualifiedAttribution>
             </xsl:for-each>
 
-            <xsl:for-each select="c:citation/c:distStmt/othId">
+            <xsl:for-each select="c:citation/c:rspStmt/othId">
                 <dcat:contactPoint>
                     <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
                     <xsl:value-of select="." />
@@ -363,15 +400,8 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
         </dcat:Dataset>
     </xsl:template>
-    
-    <xsl:template match="//c:docDscr/c:citation/c:prodStmt/c:producer">
-        <xsl:for-each select=".">
-        <xsl:element name="dcterms:publisher">
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </xsl:element>
-        </xsl:for-each>
-    </xsl:template>
+     
+ 
 
     <!-- The following lines remove breaking lines in output -->
     <!-- <xsl:template match="*/text()[normalize-space()]">
