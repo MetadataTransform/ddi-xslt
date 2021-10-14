@@ -201,32 +201,29 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:for-each select="c:stdyInfo/c:sumDscr/c:timePrd">
                 <dcterms:temporal>
                     <dcterms:PeriodOfTime>
-                        <xsl:for-each select="c:stdyInfo/c:sumDscr/c:timePrd">
-                            <xsl:variable name="startdate" select="if (@event='start' and (@date!='')) then (@date) else (.)"/>
-                            <xsl:variable name="enddate" select="if (@event='end' and (@date!='')) then (@date) else (.)"/>
-                            <xsl:if test="@event">
-                                <xsl:if test="@event='start'">
-                                    <dcat:startDate>
-                                        <xsl:variable name="rdfdt">http://www.w3.org/2001/XMLSchema#dateTime</xsl:variable>
-                                        <xsl:attribute name="rdf:datatype">
-                                            <xsl:value-of select="$rdfdt"/>
-                                        </xsl:attribute>
-                                        <xsl:value-of select="$startdate" />
-                                    </dcat:startDate>
-                                </xsl:if>
-                                <xsl:if test="@event='end'">
-                                    <dcat:endDate >
-                                        <xsl:variable name="rdfdt">http://www.w3.org/2001/XMLSchema#dateTime</xsl:variable>
-                                        <xsl:attribute name="rdf:datatype">
-                                            <xsl:value-of select="$rdfdt"/>
-                                        </xsl:attribute>
-                                        <xsl:value-of select="$enddate" />
-                                    </dcat:endDate> 
-                                </xsl:if>
-                            </xsl:if>   
-                        </xsl:for-each>
+                        <xsl:variable name="startdate" select="if (@event='start') then (@date) else null"/>
+                        <xsl:variable name="enddate" select="if (@event='start') then following-sibling::c:timePrd[1]/@date else null"/>
+                        <xsl:if test="@event='start'">
+                            <dcat:startDate>
+                                <xsl:variable name="rdfdt">http://www.w3.org/2001/XMLSchema#dateTime</xsl:variable>
+                                <xsl:attribute name="rdf:datatype">
+                                    <xsl:value-of select="$rdfdt"/>
+                                </xsl:attribute>
+                                <xsl:value-of select="$startdate" />
+                            </dcat:startDate>
+                        </xsl:if>
+                        <xsl:if test="@event='start'">
+                            <dcat:endDate >
+                                <xsl:variable name="rdfdt">http://www.w3.org/2001/XMLSchema#dateTime</xsl:variable>
+                                <xsl:attribute name="rdf:datatype">
+                                    <xsl:value-of select="$rdfdt"/>
+                                </xsl:attribute>
+                                <xsl:value-of select="$enddate" />
+                            </dcat:endDate>
+                        </xsl:if> 
                     </dcterms:PeriodOfTime>
                 </dcterms:temporal>
+
             </xsl:for-each>
 
             <xsl:for-each select="c:sumDscr/c:geogBndBox|c:sumDscr/c:geogCover|c:sumDscr/c:boundPoly">
