@@ -27,7 +27,7 @@
 
     <meta:metadata>
         <identifier>ddi-2.5-to-metashare</identifier>
-        <title>DDI 2.5 to RDF/XML</title>
+        <title>DDI 2.5 to Meta-Share</title>
         <description>Convert DDI Codebook (2.5) to Meta-Share</description>
         <outputFormat>XML</outputFormat>
     </meta:metadata>
