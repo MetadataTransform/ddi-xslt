@@ -23,14 +23,10 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     xmlns:dcat="http://www.w3.org/ns/dcat#"
     xmlns:foaf="http://xmlns.com/foaf/0.1"
     xmlns:prov="http://www.w3.org/ns/prov#"
-    xmlns:adms="http://www.w3.org/ns/adms#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:schema="http://schema.org"
-    xmlns:spdx="http://spdx.org/rdf/terms#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
-    xmlns:locn="http://www.w3.org/ns/locn#"
-    xmlns:odrs="http://schema.theodi.org/odrs#"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:c="ddi:codebook:2_5"
@@ -68,13 +64,9 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:namespace name="dcat">http://www.w3.org/ns/dcat#</xsl:namespace>
             <xsl:namespace name="foaf">http://xmlns.com/foaf/0.1</xsl:namespace>
             <xsl:namespace name="prov">http://www.w3.org/ns/prov#</xsl:namespace>
-            <xsl:namespace name="adms">http://www.w3.org/ns/adms#</xsl:namespace>
             <xsl:namespace name="owl">http://www.w3.org/2002/07/owl#</xsl:namespace>
-            <xsl:namespace name="spdx">http://spdx.org/rdf/terms#</xsl:namespace>
             <xsl:namespace name="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:namespace>
             <xsl:namespace name="vcard">http://www.w3.org/2006/vcard/ns#</xsl:namespace>
-            <xsl:namespace name="locn">http://www.w3.org/ns/locn#</xsl:namespace>
-            <xsl:namespace name="odrs">http://schema.theodi.org/odrs#</xsl:namespace>
             <xsl:namespace name="dcterms">http://purl.org/dc/terms/</xsl:namespace>
 
             <xsl:apply-templates select="//c:stdyDscr" />
