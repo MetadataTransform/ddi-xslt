@@ -26,9 +26,9 @@
     exclude-result-prefixes="#all">
 
     <meta:metadata>
-        <identifier>ddi-2.5-to-rdf</identifier>
+        <identifier>ddi-2.5-to-metashare</identifier>
         <title>DDI 2.5 to RDF/XML</title>
-        <description>Convert DDI Codebook (2.5) to RDF/XML</description>
+        <description>Convert DDI Codebook (2.5) to Meta-Share</description>
         <outputFormat>XML</outputFormat>
     </meta:metadata>
 
