@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 Description:
-XSLT Stylesheet for conversion between DDI-L version 2.5 and dc/dcterms
+XSLT Stylesheet for conversion between DDI-C version 2.5 and dc/dcterms
 
 This file is free software: you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
