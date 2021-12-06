@@ -56,7 +56,9 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:IDNo" />
             <!-- <xsl:apply-templates select="//c:docDscr/c:citation/c:titlStmt/c:IDNo" /> -->
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:rspStmt" />
+            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:serStmt/c:serName" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:distDate" />
+            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:depDate" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:depositr" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:distrbtr" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:prodStmt/c:producer" />
@@ -69,7 +71,8 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:boundPoly" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogUnit" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:dataKind" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:collDate" />            
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:collDate" />
+            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:nation" />            
             <xsl:apply-templates select="//c:stdyDscr/c:dataAccs/c:useStmt/c:restrctn" />
             <xsl:apply-templates select="//c:stdyDscr/c:dataAccs/c:setAvail/c:avlStatus" />
             <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat" />
@@ -93,7 +96,8 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </dcterms:alternative>        
     </xsl:template>
 
-    <xsl:template match="c:titl|c:parTitl">
+    <!-- TODO: c:parTitl is important to have in title tag? -->
+    <xsl:template match="c:titl">
         <dcterms:title>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
@@ -155,20 +159,16 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </dc:issued>
     </xsl:template>
 
-    <xsl:template match="c:timePrd|c:geogCover">
-        <xsl:for-each select=".">    
-            <dc:coverage>
-                <xsl:variable name="startdate" select="if (@event='start' and (@date!='')) then (@date) else null"/>
-                <xsl:variable name="enddate" select="if (@event='end' and (@date!='')) then (@date) else null"/>
-                <xsl:if test="@event">
-                    <xsl:if test="@event='start'"><xsl:attribute name="start" select="$startdate"/>
-                        <xsl:value-of select="$startdate" />
-                    </xsl:if>
-                    <xsl:if test="@event='end'"><xsl:attribute name="end" select="$enddate"/>
-                        <xsl:value-of select="$enddate"/>
-                    </xsl:if>
-                </xsl:if>
-            </dc:coverage>
+    <!-- TODO: not sureabout this mapping! -->
+    <xsl:template match="c:serName">
+        <xsl:for-each select=".">
+            <dcterms:isPartOf>
+                <xsl:attribute name="abbr">
+                    <xsl:value-of select="@abbr" />
+                </xsl:attribute>
+                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+                <xsl:value-of select="." />
+            </dcterms:isPartOf>
         </xsl:for-each>
     </xsl:template>
 
@@ -210,6 +210,18 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:for-each>
     </xsl:template>
 
+    <xsl:template match="c:nation">
+        <xsl:for-each select=".">
+            <dcterms:spatial>
+                <xsl:attribute name="abbr">
+                    <xsl:value-of select="@abbr" />
+                </xsl:attribute>
+                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
+                <xsl:value-of select="." />
+            </dcterms:spatial>
+        </xsl:for-each>
+    </xsl:template>
+
     <xsl:template match="c:dataKind">
         <xsl:for-each select=".">    
             <dcterms:type>
@@ -237,6 +249,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     <xsl:template match="c:geogCover|c:geogBndBox|c:boundPoly">
         <xsl:for-each select=".">
             <dcterms:spatial>
+                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
                 <xsl:value-of select="." />
             </dcterms:spatial>
         </xsl:for-each>
@@ -285,10 +298,10 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     </xsl:template> 
 
     <xsl:template match="c:prodDate">
-        <dc:date>
+        <dc:created>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
-        </dc:date>
+        </dc:created>
     </xsl:template> 
 
     <xsl:template match="c:dataSrc">
