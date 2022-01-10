@@ -1,45 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Description:
-XSLT Stylesheet for conversion between DDI-C version 2.5 and dc/dcterms
-
-This file is free software: you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation, either
-version 3 of the License, or (at your option) any later version.
-
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-Lesser General Public License for more details.
-
-You should have received a copy of the GNU Lesser General Public
-License along with this library.  If not, see <http://www.gnu.org/licenses/>.
-
--->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<xsl:stylesheet 
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:c="ddi:codebook:2_5"
     xmlns:meta="transformation:metadata"
-    xmlns:ddi="http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
-    xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
+    xmlns:ddi="http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"   
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xsi:schemaLocation="http://schema.datacite.org/meta/kernel-4.4 http://schema.datacite.org/meta/kernel-4.4/metadata.xsd"
 
     exclude-result-prefixes="#all"
     version="2.0">
     <meta:metadata>
-        <identifier>ddi-2.5-to-dcterms</identifier>
-        <title>DDI 2.5 to DCterms</title>
-        <description>Convert DDI Codebook (2.5) to Dcterms</description>
+        <identifier>ddi-2.5-to-datacite-4.4</identifier>
+        <title>DDI 2.5 to DataCite 4.4</title>
+        <description>Convert DDI Codebook (2.5) to DataCite</description>
         <outputFormat>XML</outputFormat>
         <parameters>
             <parameter name="root-element" format="xs:string" description="Root element"/>
         </parameters>
     </meta:metadata>
     
-    <xsl:param name="root-element">metadata</xsl:param>
+    <xsl:param name="root-element">resource</xsl:param>
  
     <xsl:output method="xml" indent="yes" />
     
@@ -48,11 +31,11 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
             <xsl:namespace name="xsi">http://www.w3.org/2001/XMLSchema-instance</xsl:namespace>
             <xsl:namespace name="dc">http://purl.org/dc/elements/1.1</xsl:namespace>
-            <xsl:namespace name="dcterms">http://purl.org/dc/terms/</xsl:namespace>
 
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:titl" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:altTitl" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:parTitl" />
+            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:subTitl" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:IDNo" />
             <!-- <xsl:apply-templates select="//c:docDscr/c:citation/c:titlStmt/c:IDNo" /> -->
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:rspStmt" />
@@ -92,12 +75,24 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:element>
     </xsl:template> 
 
-    <xsl:template match="c:altTitl">
-        <dcterms:alternative>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </dcterms:alternative>        
-    </xsl:template>
+
+        <titles>
+            <title>
+                    <xsl:if test="//c:stdyDscr/c:citation/c:titlStmt/c:titl">
+                        <xsl:value-of select="//c:stdyDscr/c:citation/c:titlStmt/c:titl"/>
+                    </xsl:if>
+                    <xsl:if test="//c:stdyDscr/c:citation/c:titlStmt/c:altTitl">
+                        <xsl:value-of select="//c:stdyDscr/c:citation/c:titlStmt/c:altTitl"/>
+                    </xsl:if>
+                        <xsl:if test="//c:stdyDscr/c:citation/c:titlStmt/c:parTitl">
+                        <xsl:value-of select="//c:stdyDscr/c:citation/c:titlStmt/c:parTitl"/>
+                    </xsl:if>
+                        <xsl:if test="//c:stdyDscr/c:citation/c:titlStmt/c:subTitl">
+                        <xsl:value-of select="//c:stdyDscr/c:citation/c:titlStmt/c:subTitl"/>
+                    </xsl:if>
+            </title>
+        </titles>
+
 
     <!-- TODO: c:parTitl is important to have in title tag? -->
     <xsl:template match="c:titl">
@@ -355,24 +350,5 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </dc:contributor>
         </xsl:for-each>
     </xsl:template> 
-
-    <!-- The following lines remove breaking lines in output -->
-    <!-- <xsl:template match="*/text()[normalize-space()]">
-        <xsl:value-of select="normalize-space()"/>
-    </xsl:template>
-
-    <xsl:template match="*/text()[not(normalize-space())]" /> -->
-
-    <!-- Remove empty elements -->
-    <xsl:template match=
-    "*[not(node())]
-    |
-    *[not(node()[2])
-    and
-        node()/self::text()
-    and
-        not(normalize-space())
-        ]
-    "/>
-
+    
 </xsl:stylesheet>
