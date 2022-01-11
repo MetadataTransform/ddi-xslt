@@ -26,81 +26,289 @@
  
     <xsl:output method="xml" indent="yes" />
     
-    <xsl:template match="/" > 
-        <xsl:element name="{$root-element}">
-            <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
-            <xsl:namespace name="xsi">http://www.w3.org/2001/XMLSchema-instance</xsl:namespace>
-            <xsl:namespace name="dc">http://purl.org/dc/elements/1.1</xsl:namespace>
 
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:titl" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:altTitl" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:parTitl" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:subTitl" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:IDNo" />
-            <!-- <xsl:apply-templates select="//c:docDscr/c:citation/c:titlStmt/c:IDNo" /> -->
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:rspStmt" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:serStmt/c:serName" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:distDate" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:depDate" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:depositr" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:distrbtr" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:prodStmt/c:producer" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:keyword" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:topcClas" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:abstract" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:timePrd" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogCover" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogBndBox" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:boundPoly" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogUnit" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:dataKind" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:collDate" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:nation" />            
-            <xsl:apply-templates select="//c:stdyDscr/c:dataAccs/c:useStmt/c:restrctn" />
-            <xsl:apply-templates select="//c:stdyDscr/c:dataAccs/c:setAvail/c:avlStatus" />
-            <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:othRefs" />
-            <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:relMat" />
-            <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:relPubl" />
-            <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:relStdy" />
-            <xsl:apply-templates select="//c:stdyDscr/c:prodStmt/c:copyright" />
-            <xsl:apply-templates select="//c:stdyDscr/c:prodStmt/c:prodDate" />
-            <xsl:apply-templates select="//c:stdyDscr/c:method/c:dataColl/c:sources" />
-            <xsl:apply-templates select="//c:stdyDscr/c:method/c:dataColl/c:dataCollector" />
-            <xsl:apply-templates select="//c:stdyDscr/c:method/c:dataColl/c:frequenc" />            
-            <!-- <xsl:apply-templates select="//c:fileDscr/c:fileTxt/c:fileType" /> -->
-            <xsl:apply-templates select="//c:fileDscr/c:fileTxt/c:format" />
-            <xsl:apply-templates select="//c:fileDscr/c:fileTxt/c:dimensns/c:varQnty" />
-            <xsl:apply-templates select="//c:fileDscr/c:fileTxt/c:dimensns/c:caseQnty" />
-
-        </xsl:element>
-    </xsl:template> 
-
-
-        <titles>
-            <title>
-                    <xsl:if test="//c:stdyDscr/c:citation/c:titlStmt/c:titl">
-                        <xsl:value-of select="//c:stdyDscr/c:citation/c:titlStmt/c:titl"/>
+<xsl:template match="//c:stdyDscr">
+        <resource xmlns="https://schema.datacite.org/meta/kernel-4.4/metadata.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
+            
+            <!-- 1 identifier -->
+            <identifier identifierType="DOI">
+                    <xsl:if test="c:citation/c:titlStmt/c:IDNo[@agency='DataCite']">
+                        <xsl:value-of select="c:citation/c:titlStmt/c:IDNo[@agency='DataCite']"/>
                     </xsl:if>
-                    <xsl:if test="//c:stdyDscr/c:citation/c:titlStmt/c:altTitl">
-                        <xsl:value-of select="//c:stdyDscr/c:citation/c:titlStmt/c:altTitl"/>
+            </identifier>
+            <identifier>
+                    <xsl:if test="c:citation/c:titlStmt/c:IDNo[@agency!='DataCite']">
+                        <xsl:value-of select="c:citation/c:titlStmt/c:IDNo[@agency!='DataCite']"/>
                     </xsl:if>
-                        <xsl:if test="//c:stdyDscr/c:citation/c:titlStmt/c:parTitl">
-                        <xsl:value-of select="//c:stdyDscr/c:citation/c:titlStmt/c:parTitl"/>
-                    </xsl:if>
-                        <xsl:if test="//c:stdyDscr/c:citation/c:titlStmt/c:subTitl">
-                        <xsl:value-of select="//c:stdyDscr/c:citation/c:titlStmt/c:subTitl"/>
-                    </xsl:if>
-            </title>
-        </titles>
+            </identifier>
 
+            <!-- 2 creators -->
+            <!-- last name comes before first name(s) separated by comma ("family, given") -->
+            <creators>
+                    <xsl:for-each select="c:citation/c:rspStmt/c:AuthEnty">
+                        <creator>
+                            <creatorName>
+                                <xsl:if test="@xml:lang">
+                                    <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                                </xsl:if>
+                                <xsl:value-of select="."/> 
+                                <!-- <xsl:value-of select="r:CreatorName"/> -->
+                                <!-- <xsl:call-template name="formatName">
+                                    <xsl:with-param name="name" select="."/>
+                                </xsl:call-template> -->
+                            </creatorName>
+                            <affiliation>
+                                <xsl:if test="@affiliation">
+                                    <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                                </xsl:if>
+                                <xsl:value-of select="@affiliation"/>
+                            </affiliation>
+                        </creator>
+                    </xsl:for-each>
+                    <!-- <xsl:otherwise>
+                        <xsl:text>Unknown</xsl:text>
+                    </xsl:otherwise> -->
+                        <!-- <xsl:variable name="agency" select="r:CreatorReference/r:Agency" />
+                        <xsl:variable name="creatorid" select="r:CreatorReference/r:ID" />
+                        <xsl:value-of select="$agency/$creatorid" /> -->
+            </creators>   
+            <!-- 3 titles -->
+            <titles>
+                <xsl:for-each select="c:citation/c:titlStmt/c:titl">
+                       <title>
+                            <xsl:if test="@xml:lang">
+                                <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:value-of select="."/>
+                           <!-- Note: Use following if just 'en' needed to get.                             -->
+                           <!-- <xsl:if test="@xml:lang='en'">
+                               <xsl:attribute name="xml:lang"><xsl:value-of select="if (@xml:lang = 'en') then
+                               (@xml:lang) else ()"/></xsl:attribute>
+                           </xsl:if>
+                           <xsl:value-of select="if (@xml:lang = 'en') then
+                               (.) else null"/> -->
+                       </title>
+                </xsl:for-each>
+                <xsl:for-each select="c:citation/c:titlStmt/c:altTitl">
+                    <title titleType="AlternativeTitle">                            
+                        <xsl:if test="@xml:lang">
+                            <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                        </xsl:if>
+                        <xsl:value-of select="."/>
+                    </title>
+                </xsl:for-each>
+                <xsl:for-each select="c:citation/c:titlStmt/c:sybTitl">
+                    <title titleType="Subtitle">                            
+                        <xsl:if test="@xml:lang">
+                            <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                        </xsl:if>
+                        <xsl:value-of select="."/>
+                    </title>
+                </xsl:for-each>
+                <xsl:for-each select="c:citation/c:titlStmt/c:parTitl">
+                    <title titleType="TranslatedTitle">                        
+                        <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                        <xsl:value-of select="."/>
+                    </title>
+                </xsl:for-each>
+            </titles>
 
+            <!-- 6 subjects -->
+            <xsl:if test="c:stdyInfo/c:subject/child::*">
+                <subjects>
+                    <xsl:for-each select="c:stdyInfo/c:subject/c:topcClas">
+                        <subject>
+                            <xsl:if test="@vocab">
+                                <xsl:attribute name="subjectScheme"><xsl:value-of select="@vocab"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:if test="@xml:lang">
+                                <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                            </xsl:if> 
+                            <xsl:value-of select="."/>
+                        </subject>
+                    </xsl:for-each>
+                    <xsl:for-each select="c:stdyInfo/c:subject/c:topcClas">
+                        <subject>
+                            <xsl:if test="@vocabURI">
+                                <xsl:attribute name="subjectScheme"><xsl:value-of select="@vocabURI"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:if test="@xml:lang">
+                                <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                            </xsl:if> 
+                            <xsl:value-of select="."/>
+                        </subject>
+                    </xsl:for-each>
+                    <xsl:for-each select="c:stdyInfo/c:subject/c:keyword">
+                        <subject>
+                            <xsl:if test="@vocab">
+                                <xsl:attribute name="subjectScheme"><xsl:value-of select="@vocab"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:if test="@vocabURI">
+                                <xsl:attribute name="schemeURI"><xsl:value-of select="@vocabURI"/></xsl:attribute>
+                            </xsl:if>
+                            <!-- <xsl:if test="@vocab">
+                                <xsl:attribute name="valueURI"><xsl:value-of select="@vocab"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:if test="@vocab">
+                                <xsl:attribute name="classificationCode"><xsl:value-of select="@codeListID"/></xsl:attribute>
+                            </xsl:if> -->
+                            <xsl:if test="@xml:lang">
+                                <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                            </xsl:if>                                    
+                            <xsl:value-of select="."/>
+                        </subject>
+                    </xsl:for-each>
+                </subjects>
+                            
+            <!-- 7 contributors -->
+            <xsl:if test="c:method/c:dataColl/c:dataCollector|c:citation/c:rspStmt/c:othId">
+                <contributors>
+                    <xsl:for-each select="c:method/c:dataColl/c:dataCollector|c:citation/c:rspStmt/c:othId">
+                        <contributor>
+                            <xsl:if test="@role">
+                                <xsl:attribute name="contributorType"><xsl:value-of select="@role"/></xsl:attribute>                                        
+                            </xsl:if>
+                            <contributorName>
+                                <xsl:call-template name="formatName">
+                                    <xsl:with-param name="name" select="."/>
+                                </xsl:call-template>
+                            </contributorName>
+                        </contributor>
+                    </xsl:for-each>
+                </contributors>
+            </xsl:if>
+            </xsl:if>
+
+            <!-- 9 language -->
+            <xsl:if test="c:citation/c:language">
+                <language>
+                    <xsl:value-of select="c:citation/c:language"/>
+                </language>
+            </xsl:if>
+            
+            <!-- 11 alternateIdentifiers -->
+            <xsl:if test="c:citation/c:holdings">
+                <alternateIdentifiers>
+                    <xsl:for-each select="c:citation/c:holdings">
+                        <alternateIdentifier>
+                            <xsl:attribute name="alternateIdentifierType"><xsl:value-of select="@type"/></xsl:attribute>
+                            <xsl:value-of select="c:citation/c:holdings"/>                            
+                        </alternateIdentifier>
+                    </xsl:for-each>
+                </alternateIdentifiers>                
+            </xsl:if>
+            
+            <!-- 13 size -->
+            <xsl:if test="c:dataAccs/c:setAvail/c:collSize | c:dataAccs/c:setAvail/c:fileQnty">
+                <sizes>
+                    <xsl:choose>     
+                        <xsl:when test="c:dataAccs/c:setAvail/c:collSize">
+                            <size><xsl:value-of select="c:dataAccs/c:setAvail/c:collSize"/> data files</size>
+                        </xsl:when>
+                        <xsl:when test="c:dataAccs/c:setAvail/c:fileQnty">
+                            <size><xsl:value-of select="c:dataAccs/c:setAvail/c:fileQnty"/> data files</size>
+                        </xsl:when>
+                    </xsl:choose> 
+                </sizes>
+            </xsl:if>
+            
+            <!-- 15 version -->
+            <!-- Note: mapped by DataCite to pi:PhysicalInstance/@version -->
+            <xsl:choose>
+            <xsl:when test="c:citation/c:verStmt/c:version">
+                    <version>
+                      <xsl:if test="@xml:lang">
+                        <xsl:attribute name="xml:lang"><xsl:value-of select="@xml:lang"/></xsl:attribute>
+                      </xsl:if> 
+                      <xsl:value-of select="c:citation/c:verStmt/c:version"/>
+                    </version>
+                </xsl:when>
+            </xsl:choose>
+            
+            <!-- 16 rights -->
+            <!-- Field maps to dc:rights -->
+            <xsl:choose>
+                <xsl:when test="c:citation/c:prodStmt/c:copyright">
+                    <rightsList><rights><xsl:value-of select="c:citation/c:prodStmt/c:copyright"/></rights></rightsList>
+                </xsl:when>
+                <xsl:when test="c:dataAccs/c:setAvail/c:avlStatus">
+                    <rights><xsl:value-of select="c:dataAccs/c:setAvail/c:avlStatus"/></rights>
+                </xsl:when>
+                <xsl:when test="c:dataAccs/c:useStmt/c:restrctn">
+                    <rights><xsl:value-of select="c:dataAccs/c:useStmt/c:restrctn"/></rights>
+                </xsl:when>
+                <xsl:when test="c:dataAccs/c:useStmt/c:conditions">
+                    <rights><xsl:value-of select="c:dataAccs/c:useStmt/c:conditions"/></rights>
+                </xsl:when>
+                <xsl:when test="c:dataAccs/c:useStmt/c:disclaime">
+                    <rights><xsl:value-of select="c:dataAccs/c:useStmt/c:disclaime"/></rights>
+                </xsl:when>
+                <xsl:otherwise>
+                    <rights><xsl:text>Not specified</xsl:text></rights>
+                </xsl:otherwise>
+            </xsl:choose>
+        </resource>
+</xsl:template>
+
+	<!--
+    Formats a name to family, given format. If name is an organization or
+    contains any comma, no formatting is applied apart from normalize-space.
+    -->   
+    <xsl:template name="formatName">
+        <xsl:param name="name" />
+        <xsl:variable name="normalized" select="normalize-space($name)"/>
+        
+        <xsl:choose>
+            <xsl:when test="contains($normalized, ',')">
+                <!-- name is (presumably) already in family, given format -->
+                <xsl:value-of select="$normalized"/>
+            </xsl:when>
+            <xsl:when test="not(contains($normalized, ' '))">
+                <!-- name contains no spaces, we are done -->
+                <xsl:value-of select="$normalized"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <!-- name needs to be transformed to family, given format -->
+                <xsl:call-template name="transformName">
+                    <xsl:with-param name="name" select="$normalized" />
+                </xsl:call-template>
+            </xsl:otherwise>             
+        </xsl:choose>
+ 
+    </xsl:template>
+
+    <!-- 
+    Transforms a string of form "Given Family" to "Family, Given".
+    Assumes input string is normalized and contains at least one space.
+    -->
+    <xsl:template name="transformName">
+        <xsl:param name="name" />
+        <xsl:param name="acc" />
+        <xsl:variable name="first" select="substring-before($name, ' ')" />
+        <xsl:variable name="remaining" select="substring-after($name, ' ')" />     
+
+        <!-- call recursively until remaining is empty -->
+        <xsl:choose>
+            <xsl:when test="$remaining">
+                <xsl:call-template name="transformName">
+                    <xsl:with-param name="name" select="$remaining" />
+                    <xsl:with-param name="acc" select="concat($acc, ' ', $first)" />
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$name"/>
+                <xsl:text>, </xsl:text>
+                <xsl:value-of select="$acc"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
     <!-- TODO: c:parTitl is important to have in title tag? -->
-    <xsl:template match="c:titl">
+    <!-- <xsl:template match="c:titl">
         <dcterms:title>
             <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
             <xsl:value-of select="." />
         </dcterms:title>        
-    </xsl:template>
+    </xsl:template> -->
 
     <!-- <xsl:template match="c:IDNo" >
         <xsl:element name="IDNo">
@@ -111,244 +319,6 @@
         </xsl:element>
     </xsl:template> -->
 
-    <xsl:template match="c:producer">
-        <dc:publisher>
-            <xsl:attribute name="abbr">
-                <xsl:value-of select="@abbr" />
-            </xsl:attribute>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </dc:publisher>
-    </xsl:template>
 
-    <!-- <xsl:template match="c:distrbtr">
-        <xsl:element name="distributer">
-            <xsl:attribute name="abbr">
-                <xsl:value-of select="@abbr" />
-            </xsl:attribute>
-            <xsl:attribute name="URI">
-                <xsl:value-of select="@URI" />
-            </xsl:attribute>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </xsl:element>
-    </xsl:template> -->
-
-    <xsl:template match="c:IDNo">
-        <xsl:for-each select=".">   
-            <dcterms:identifier>
-                <xsl:value-of select="." />
-            </dcterms:identifier>
-        </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template match="c:AuthEnty">
-        <xsl:for-each select=".">   
-            <dcterms:creator>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/><xsl:attribute name="affiliation" select="@affiliation"/></xsl:if>
-            <xsl:value-of select="." />
-            </dcterms:creator>
-        </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template match="c:distDate">
-        <dc:issued>
-            <xsl:value-of select="." />
-        </dc:issued>
-    </xsl:template>
-
-    <!-- TODO: not sureabout this mapping! -->
-    <xsl:template match="c:serName">
-        <xsl:for-each select=".">
-            <dcterms:isPartOf>
-                <xsl:attribute name="abbr">
-                    <xsl:value-of select="@abbr" />
-                </xsl:attribute>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:isPartOf>
-        </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template match="c:timePrd">
-        <xsl:for-each select=".">    
-            <dc:temporal>
-                <xsl:variable name="startdate" select="if (@event='start' and (@date!='')) then (@date) else null"/>
-                <xsl:variable name="enddate" select="if (@event='end' and (@date!='')) then (@date) else null"/>
-                <xsl:if test="@event">
-                    <xsl:if test="@event='start'"><xsl:attribute name="start" select="$startdate"/>
-                        <xsl:value-of select="$startdate" />
-                    </xsl:if>
-                    <xsl:if test="@event='end'"><xsl:attribute name="end" select="$enddate"/>
-                        <xsl:value-of select="$enddate"/>
-                    </xsl:if>
-                </xsl:if>
-            </dc:temporal>
-        </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template match="c:collDate">
-        <xsl:for-each select=".">    
-            <dcterms:date>
-                <xsl:variable name="startdate" select="if (@event='start' and (@date!='')) then (@date) else null"/>
-                <xsl:variable name="enddate" select="if (@event='end' and (@date!='')) then (@date) else null"/>
-                <xsl:variable name="single" select="if (@event='single' and (@date!='')) then (@date) else null"/>
-                <xsl:if test="@event">
-                    <xsl:if test="@event='single'"><xsl:attribute name="single" select="$single"/>
-                        <xsl:value-of select="$single"/>
-                    </xsl:if>
-                    <xsl:if test="@event='start'"><xsl:attribute name="start" select="$startdate"/>
-                        <xsl:value-of select="$startdate" />
-                    </xsl:if>
-                    <xsl:if test="@event='end'"><xsl:attribute name="end" select="$enddate"/>
-                        <xsl:value-of select="$enddate"/>
-                    </xsl:if>
-                </xsl:if>
-            </dcterms:date>
-        </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template match="c:nation">
-        <xsl:for-each select=".">
-            <dcterms:spatial>
-                <xsl:attribute name="abbr">
-                    <xsl:value-of select="@abbr" />
-                </xsl:attribute>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:spatial>
-        </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template match="c:dataKind">
-        <xsl:for-each select=".">    
-            <dcterms:type>
-                <xsl:value-of select="." />
-            </dcterms:type>
-        </xsl:for-each>
-    </xsl:template>
-
-    <!-- Reference: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/elements11/subject/ -->
-    <xsl:template match="c:keyword|c:topcClas">
-        <xsl:for-each select=".">
-            <dcterms:subject>
-                <xsl:attribute name="vocab">
-                    <xsl:value-of select="@vocab" />
-                </xsl:attribute>
-                <xsl:attribute name="vocabURI">
-                    <xsl:value-of select="@vocabURI" />
-                </xsl:attribute>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:subject>
-        </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template match="c:geogCover|c:geogBndBox|c:boundPoly">
-        <xsl:for-each select=".">
-            <dcterms:spatial>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:spatial>
-        </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template match="c:abstract">
-        <dcterms:abstract>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />        
-        </dcterms:abstract>
-    </xsl:template>
-
-    <!-- <xsl:template match="c:restrctn">
-        <dcterms:accessRights>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </dcterms:accessRights>
-    </xsl:template> -->
-
-    <xsl:template match="c:avlStatus|c:restrctn">
-        <dcterms:accessRights>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </dcterms:accessRights>
-    </xsl:template>
-
-    <!-- <xsl:template match="publisher">
-        <dcterms:publisher>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </dcterms:publisher>
-    </xsl:template>  -->
-
-    <xsl:template match="c:othRefs|c:relMat|c:relPubl|c:relStdy">
-        <xsl:for-each select=".">
-            <dcterms:relation>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:relation>
-        </xsl:for-each>
-    </xsl:template> 
-
-    <xsl:template match="c:copyright">
-        <dc:rights>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </dc:rights>
-    </xsl:template> 
-
-    <xsl:template match="c:prodDate">
-        <dc:created>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </dc:created>
-    </xsl:template> 
-
-    <xsl:template match="c:sources">
-        <xsl:for-each select=".">
-            <dc:source>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dc:source>
-        </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template match="c:frequenc">
-        <xsl:for-each select=".">
-            <dc:accrualPeriodicity>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dc:accrualPeriodicity>
-        </xsl:for-each>
-    </xsl:template>
-    
-    <xsl:template match="c:format">
-        <dc:format>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </dc:format>
-    </xsl:template>
-
-    <xsl:template match="c:varQnty|c:caseQnty">
-        <dc:extent>
-            <xsl:value-of select="." />
-        </dc:extent>
-    </xsl:template>
-
-    <!-- <xsl:template match="contributor">
-        <dcterms:contributor>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </dcterms:contributor>
-    </xsl:template> -->
-
-    <xsl:template match="c:othId|c:distrbtr|c:depositr|c:dataCollector">
-        <xsl:for-each select=".">
-            <dc:contributor>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dc:contributor>
-        </xsl:for-each>
-    </xsl:template> 
     
 </xsl:stylesheet>
