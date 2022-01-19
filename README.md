@@ -14,8 +14,8 @@ version: "3"
 services:
   ddi-xslt-dev:
     environment:
-      XSLT: /transformations/dcterms/from-ddi-3.1/ddi_3_1-dcterms.xsl
-      XML: /examples/ddi-3.1/example-1.xml
+      XSLT: /transformations/dcterms/from-ddi-3.2/ddi_3_2-dcterms.xslt
+      XML: /examples/ddi-3.2/ZA4586_ddi-I_StudyDescription_3_2.xml
 ```
 
 Note: In case of compilation error, change End Of Line sequence from CRLF to LF in `run.sh` script.
