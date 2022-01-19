@@ -26,16 +26,25 @@ xmlns="ddi:codebook:2_5">
         <IDNo agency="SND">ECDS 0146</IDNo>
         <IDNo agency="DataCite">https://doi.org/10.5878/e332-8m11</IDNo>
       </titlStmt>
+      <prodStmt>
+        <fundAg abbr="NSF" role="infrastructure">National Science Foundation</fundAg> <fundAg abbr="SUN" role="equipment">Sun Microsystems</fundAg> 
+        <grantNo agency="Bureau of Justice Statistics">J-LEAA-018-77</grantNo> 
+      </prodStmt>
       <rspStmt>
         <AuthEnty xml:lang="en" affiliation="SMHI - Swedish Meteorological and Hydrological Institute">Barry Broman</AuthEnty>
         <AuthEnty xml:lang="sv" affiliation="SMHI - Sveriges Meteorologiska och Hydrologiska Institut">Barry Broman</AuthEnty>
       </rspStmt>
       <distStmt>
+        <depDate date="1999-01-25">January 25, 1999</depDate> 
+        <distrbtr abbr="ICPSR" affiliation="Institute for Social Research" URI="http://www.icpsr.umich.edu">Ann Arbor, MI: Inter-university Consortium for Political and Social Research</distrbtr>
         <distrbtr xml:lang="en" abbr="SND" URI="https://snd.gu.se">Swedish National Data Service</distrbtr>
         <distrbtr xml:lang="sv" abbr="SND" URI="https://snd.gu.se">Svensk nationell datatjänst</distrbtr>
         <distDate date="2021-04-09">2021-04-09</distDate>
       </distStmt>
       <holdings URI="https://doi.org/10.5878/e332-8m11">Landing page</holdings>
+      <verStmt>
+        <version type="edition" date="1999-01-25">Second ICPSR Edition</version> <var> <verStmt> <version type="version" date="1999-01-25">Second version of V25</version> </verStmt> </var> <nCube> <verStmt> <version type="version" date="1999-01-25">Second version of N25</version> </verStmt> </nCube> 
+      </verStmt>
     </citation>
     <stdyInfo>
       <subject>
@@ -70,13 +79,23 @@ För mer information se den engelska sidan på: https://snd.gu.se/en/catalogue/s
       </sumDscr>
     </stdyInfo>
     <method>
-      <dataColl />
+      <dataColl>
+        <dataCollector abbr="SRC" affiliation="University of Michigan" role="questionnaire administration">Survey Research Center</dataCollector>
+      </dataColl>
     </method>
     <dataAccs>
+      <setAvail>
+        <collSize>1 data file + machine-readable documentation (PDF) + SAS data definition statements</collSize> 
+      </setAvail>
       <useStmt>
         <restrctn xml:lang="en">Access to data through SND. Data are freely accessible.</restrctn>
         <restrctn xml:lang="sv">Åtkomst till data via SND. Data är fritt tillgängliga.</restrctn>
       </useStmt>
     </dataAccs>
+    <othrStdymat>
+      <relMat> Full details on the research design and procedures, sampling methodology, content areas, and questionnaire design, as well as percentage distributions by respondent's sex, race, region, college plans, and drug use, appear in the annual ISR volumes MONITORING THE FUTURE: QUESTIONNAIRE RESPONSES FROM THE NATION'S HIGH SCHOOL SENIORS.</relMat>
+      <relMat>Current Population Survey, March 1999: Technical Documentation includes an abstract, pertinent information about the file, a glossary, code lists, and a data dictionary. One copy accompanies each file order. When ordered separately, it is available from Marketing Services Office, Customer Service Center, Bureau of the Census, Washington, D.C. 20233. </relMat>
+      <relMat>A more precise explanation regarding the CPS sample design is provided in Technical Paper 40, The Current Population Survey: Design and Methodology. Chapter 5 of this paper provides documentation on the weighting procedures for the CPS both with and without supplement questions.</relMat> 
+    </othrStdymat>
   </stdyDscr>
 </codeBook>
