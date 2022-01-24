@@ -13,4 +13,20 @@ ADD \
   /utils/saxon.jar
 RUN chmod a+x /utils/saxon.jar
 
+# get ddi profiles for cessda-cmv
+ADD \
+  https://cmv.cessda.eu/profiles/eqb/ddi-2.5/0.1.0/profile.xml \
+  /profiles/eqb/ddi-2.5.xml
+
+ADD \
+  https://cmv.cessda.eu/profiles/cdc/ddi-2.5/1.0.4/profile.xml \
+  /profiles/cdc/ddi-2.5.xml
+
+# get cessda-cmv-cmd
+ARG CESSDA_CMV_CMD_VERSION=0.0.2
+ADD \
+  https://github.com/borsna/cessda-cmv-cmd/releases/download/${CESSDA_CMV_CMD_VERSION}/cmv-cmd.jar  \
+  /utils/cmv-cmd.jar
+RUN chmod a+x /utils/cmv-cmd.jar
+
 ENTRYPOINT ["sh", "/script/run.sh"]
