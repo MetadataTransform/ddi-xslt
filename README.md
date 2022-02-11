@@ -27,6 +27,7 @@ services:
       XSLT: /transformations/cessda-eqb/from-ddi-2.5/ddi_2_5-cessda_eqb.xslt
       XML: /examples/ddi-2.5/2020-130.xml
       PROFILE: /profiles/eqb/ddi-2.5.xml
+      GATE: BASIC
 ```
 CESSDA CMV profiles in docker image:
 ```
@@ -38,6 +39,9 @@ CESSDA CMV profiles in docker image:
 /profiles/eqb/ddi-2.5.xml
 /profiles/eqb/ddi-3.2.xml
 ```
+
+Values for GATE using CESSDA CMV: `BASIC`, `BASICPLUS`, `EXTENDED`, `STANDARD`, `STRICT`
+
 
 
 Note: In case of compilation error, change End Of Line sequence from CRLF to LF in `run.sh` script.

@@ -12,6 +12,8 @@ while inotifywait -q -e modify $XSLT; do
     java -jar $SAXON $XML $XSLT -o:$XML.result.xml
 
     if [[ ! -z "$PROFILE" ]]; then
-        java -jar $CMV $XML.result.xml $PROFILE
+        VGATE=${GATE:="BASIC"}
+        echo "CMM-VALIDATOR USING GATE: $VGATE"
+        java -jar $CMV $XML.result.xml $PROFILE $VGATE
     fi
 done

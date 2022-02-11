@@ -13,7 +13,7 @@ ADD \
   /utils/saxon.jar
 RUN chmod a+x /utils/saxon.jar
 
-# get ddi profiles for cessda-cmv
+# get ddi profiles for cessda-cmv https://cmv.cessda.eu
 ADD https://cmv.cessda.eu/profiles/cdc/ddi-1.2.2/1.0.4/profile.xml \
     /profiles/cdc/1.2.2.xml
 
@@ -36,7 +36,8 @@ ADD https://cmv.cessda.eu/profiles/eqb/ddi-3.2/0.1.1/profile.xml \
     /profiles/eqb/ddi-3.2.xml
 
 # get cessda-cmv-cmd
-ARG CESSDA_CMV_CMD_VERSION=0.0.2
+# https://github.com/borsna/cessda-cmv-cmd
+ARG CESSDA_CMV_CMD_VERSION=0.0.3
 ADD \
   https://github.com/borsna/cessda-cmv-cmd/releases/download/${CESSDA_CMV_CMD_VERSION}/cmv-cmd.jar  \
   /utils/cmv-cmd.jar
