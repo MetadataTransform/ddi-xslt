@@ -29,7 +29,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
   exclude-result-prefixes="#all"
   version="2.0">
-  
+
   <meta:metadata>
     <identifier>ddi-2.5-to-schema.org</identifier>
     <title>DDI 2.5 to schema.org (RDF/XML)</title>
@@ -46,7 +46,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
       <xsl:namespace name="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:namespace>
       <xsl:namespace name="schema">http://schema.org/</xsl:namespace>
       
-      <rdf:Description rdf:about="{meta:getRootIdentifier()}">
+      <schema:Dataset rdf:about="{meta:getRootIdentifier()}">
         <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:titl" />
         <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:altTitl" />
         <xsl:apply-templates select="//c:stdyDscr/c:citation/c:prodStmt/c:producer" />
@@ -55,7 +55,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:keyword" />
         <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:topcClas" />
         <xsl:apply-templates select="//c:stdyDscr/c:method/c:dataColl/c:sampProc" />
-      </rdf:Description>
+      </schema:Dataset>
     </rdf:RDF>
   </xsl:template>
 
