@@ -47,14 +47,15 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
       <xsl:namespace name="schema">http://schema.org/</xsl:namespace>
       
       <schema:Dataset rdf:about="{meta:getRootIdentifier()}">
-        <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:titl" />
-        <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:altTitl" />
-        <xsl:apply-templates select="//c:stdyDscr/c:citation/c:prodStmt/c:producer" />
-        <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:IDNo" />
-        <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:abstract" />
-        <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:keyword" />
-        <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:subject/c:topcClas" />
-        <xsl:apply-templates select="//c:stdyDscr/c:method/c:dataColl/c:sampProc" />
+        <xsl:apply-templates select="$main-root/c:citation/c:titlStmt/c:titl" />
+        <xsl:apply-templates select="$main-root/c:citation/c:titlStmt/c:altTitl" />
+        <xsl:apply-templates select="$main-root/c:citation/c:prodStmt/c:producer" />
+        <xsl:apply-templates select="$main-root/c:citation/c:titlStmt/c:IDNo" />
+        <xsl:apply-templates select="$main-root/c:stdyInfo/c:abstract" />
+        <xsl:apply-templates select="$main-root/c:stdyInfo/c:subject/c:keyword" />
+        <xsl:apply-templates select="$main-root/c:stdyInfo/c:subject/c:topcClas" />
+        <xsl:apply-templates select="$main-root/c:method/c:dataColl/c:sampProc" />
+        <xsl:apply-templates select="$main-root/c:citation/c:prodStmt/c:fundAg" />
       </schema:Dataset>
     </rdf:RDF>
   </xsl:template>
@@ -98,6 +99,14 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
       <xsl:copy-of select="@xml:lang" />
       <xsl:value-of select="." />
     </schema:measurementTechnique>
+  </xsl:template>
+
+  <xsl:template match="c:fundAg">
+    <schema:funder>
+      <schema:Organization>
+        <schema:name><xsl:value-of select="." /></schema:name>
+      </schema:Organization>
+    </schema:funder>
   </xsl:template>
 
   <xsl:function name="meta:getRootIdentifier">
