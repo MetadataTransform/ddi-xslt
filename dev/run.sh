@@ -16,4 +16,7 @@ while inotifywait -q -e modify $XSLT; do
         echo "CMM-VALIDATOR USING GATE: $VGATE"
         java -jar $CMV $XML.result.xml $PROFILE $VGATE
     fi
+    if [[ ! -z "$ECHO_RESULT" ]]; then
+        cat $XML.result.xml
+    fi
 done
