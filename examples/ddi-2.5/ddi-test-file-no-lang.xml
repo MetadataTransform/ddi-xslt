@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ddi:codeBook xmlns:dc="http://purl.org/dc/terms/" xmlns:dc2="http://purl.org/dc/elements/1.1/" xmlns:dcmi="http://purl.org/dc/dcmitype/" xmlns:ddi="ddi:codebook:2_5" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:codebook:2_5 codebook.xsd http://www.w3.org/XML/1998/namespace xml.xsd http://www.w3.org/1999/xhtml ddi-xhtml11.xsd http://purl.org/dc/terms/ dcterms.xsd http://purl.org/dc/elements/1.1/ dc.xsd http://purl.org/dc/dcmitype/ dcmitype.xsd ">
+  <ddi:docDscr>
+    <ddi:citation>
+      <ddi:titlStmt>
+        <ddi:titl>titl</ddi:titl>
+        <ddi:subTitl>subTitl</ddi:subTitl>
+        <ddi:altTitl>altTitl</ddi:altTitl>
+        <ddi:parTitl>parTitl</ddi:parTitl>
+        <ddi:IDNo agency="agency">IDNo</ddi:IDNo>
+      </ddi:titlStmt>
+      <ddi:rspStmt>
+        <ddi:AuthEnty affiliation="affiliation">AuthEnty</ddi:AuthEnty>
+        <ddi:othId role="role" affiliation="affiliation">othId</ddi:othId>
+      </ddi:rspStmt>
+      <ddi:prodStmt>
+        <ddi:producer abbr="abbr" affiliation="affiliation" role="role">producer</ddi:producer>
+        <ddi:copyright>copyright</ddi:copyright>
+        <ddi:prodDate>2022-02-18</ddi:prodDate>
+        <ddi:prodPlac>prodPlac</ddi:prodPlac>
+        <ddi:software version="version">software</ddi:software>
+        <ddi:fundAg abbr="abbr" role="role">fundAg</ddi:fundAg>
+        <ddi:grantNo agency="agency" role="role">grantNo</ddi:grantNo>
+      </ddi:prodStmt>
+      <ddi:distStmt>
+        <ddi:distrbtr abbr="abbr" affiliation="affiliation" URI="URI">distrbtr</ddi:distrbtr>
+        <ddi:contact affiliation="affiliation" URI="URI" email="email">contact</ddi:contact>
+        <ddi:depositr abbr="abbr" affiliation="affiliation">depositr</ddi:depositr>
+        <ddi:depDate>2022-02-18</ddi:depDate>
+        <ddi:distDate>2022-02-18</ddi:distDate>
+      </ddi:distStmt>
+      <ddi:serStmt>
+        <ddi:serName abbr="abbr">serName</ddi:serName>
+        <ddi:serInfo>serInfo</ddi:serInfo>
+      </ddi:serStmt>
+      <ddi:verStmt>
+        <ddi:version date="2022-02-18" type="type">1.0</ddi:version>
+        <ddi:verResp affiliation="affiliation">verResp</ddi:verResp>
+        <ddi:notes>notes</ddi:notes>
+      </ddi:verStmt>
+      <ddi:biblCit format="format">biblCit</ddi:biblCit>
+      <ddi:holdings location="location" callno="callno" URI="URI" media="media">holdings</ddi:holdings>
+      <ddi:notes>notes</ddi:notes>
+      <dc:abstract>dc:abstract</dc:abstract>
+      <dc:accessRights>dc:accessRights</dc:accessRights>
+      <dc:alternative>dc:alternative</dc:alternative>
+      <dc:audience>dc:audience</dc:audience>
+      <dc:available>dc:available</dc:available>
+      <dc:bibliographicCitation>dc:bibliographicCitation</dc:bibliographicCitation>
+      <dc:conformsTo>dc:conformsTo</dc:conformsTo>
+      <dc:created>dc:created</dc:created>
+      <dc:dateAccepted>dc:dateAccepted</dc:dateAccepted>
+      <dc:dateCopyrighted>dc:dateCopyrighted</dc:dateCopyrighted>
+      <dc:dateSubmitted>dc:dateSubmitted</dc:dateSubmitted>
+      <dc:educationLevel>dc:educationLevel</dc:educationLevel>
+      <dc:extent>dc:extent</dc:extent>
+      <dc:hasFormat>dc:hasFormat</dc:hasFormat>
+      <dc:hasPart>dc:hasPart</dc:hasPart>
+      <dc:hasVersion>dc:hasVersion</dc:hasVersion>
+      <dc:isFormatOf>dc:isFormatOf</dc:isFormatOf>
+      <dc:isPartOf>dc:isPartOf</dc:isPartOf>
+      <dc:isReferencedBy>dc:isReferencedBy</dc:isReferencedBy>
+      <dc:isReplacedBy>dc:isReplacedBy</dc:isReplacedBy>
+      <dc:isRequiredBy>dc:isRequiredBy</dc:isRequiredBy>
+      <dc:issued>dc:issued</dc:issued>
+      <dc:isVersionOf>dc:isVersionOf</dc:isVersionOf>
+      <dc:mediator>dc:mediator</dc:mediator>
+      <dc:medium>dc:medium</dc:medium>
+      <dc:modified>dc:modified</dc:modified>
+      <dc:references>dc:references</dc:references>
+      <dc:replaces>dc:replaces</dc:replaces>
+      <dc:requires>dc:requires</dc:requires>
+      <dc:spatial>dc:spatial</dc:spatial>
+      <dc:tableOfContents>dc:tableOfContents</dc:tableOfContents>
+      <dc:temporal>dc:temporal</dc:temporal>
+      <dc:valid>dc:valid</dc:valid>
+      <dc2:contributor>dc:contributor</dc2:contributor>
+      <dc2:coverage>dc:coverage</dc2:coverage>
+      <dc2:creator>dc:creator</dc2:creator>
+      <dc2:date>dc:date</dc2:date>
+      <dc2:description>dc:description</dc2:description>
+      <dc2:format>dc:format</dc2:format>
+      <dc2:identifier>dc:identifier</dc2:identifier>
+      <dc2:language>dc:language</dc2:language>
+      <dc2:publisher>dc:publisher</dc2:publisher>
+      <dc2:relation>dc:relation</dc2:relation>
+      <dc2:rights>dc:rights</dc2:rights>
+      <dc2:source>dc:source</dc2:source>
+      <dc2:subject>dc:subject</dc2:subject>
+      <dc2:title>dc:title</dc2:title>
+      <dc2:type>dc:type</dc2:type>      
+    </ddi:citation>
+    <ddi:notes>notes</ddi:notes>
+  </ddi:docDscr>
+  <ddi:stdyDscr>
+	<ddi:citation>
+      <ddi:titlStmt>
+        <ddi:titl>titl</ddi:titl>
+        <ddi:subTitl>subtitl</ddi:subTitl>
+        <ddi:altTitl>altTitl</ddi:altTitl>
+        <ddi:parTitl>parTitl</ddi:parTitl>
+        <ddi:IDNo agency="agency">IDNo</ddi:IDNo>
+      </ddi:titlStmt>
+      <ddi:rspStmt>
+        <ddi:AuthEnty affiliation="affiliation">AuthEnty</ddi:AuthEnty>
+        <ddi:othId role="role" affiliation="affiliation">othId</ddi:othId>
+      </ddi:rspStmt>
+      <ddi:prodStmt>
+        <ddi:producer abbr="abbr" affiliation="affiliation" role="role">producer</ddi:producer>
+        <ddi:copyright>copyright</ddi:copyright>
+        <ddi:prodDate>2022-02-18</ddi:prodDate>
+        <ddi:prodPlac>prodPlac</ddi:prodPlac>
+        <ddi:software version="version">software</ddi:software>
+        <ddi:fundAg abbr="abbr" role="role">fundAg</ddi:fundAg>
+        <ddi:grantNo agency="agency" role="role">grantNo</ddi:grantNo>
+      </ddi:prodStmt>
+      <ddi:distStmt>
+        <ddi:distrbtr abbr="abbr" affiliation="affiliation" URI="URI">distrbtr</ddi:distrbtr>
+        <ddi:contact affiliation="affiliation" URI="URI" email="email">contact</ddi:contact>
+        <ddi:depositr abbr="abbr" affiliation="affiliation">depositr</ddi:depositr>
+        <ddi:depDate>2022-02-18</ddi:depDate>
+        <ddi:distDate>2022-02-18</ddi:distDate>
+      </ddi:distStmt>
+      <ddi:serStmt>
+        <ddi:serName abbr="abbr">serName</ddi:serName>
+        <ddi:serInfo>serInfo</ddi:serInfo>
+      </ddi:serStmt>
+      <ddi:verStmt>
+        <ddi:version date="2022-02-18" type="type">1.0</ddi:version>
+        <ddi:verResp affiliation="affiliation">verResp</ddi:verResp>
+        <ddi:notes>notes</ddi:notes>
+      </ddi:verStmt>
+      <ddi:biblCit format="format">biblCit</ddi:biblCit>
+      <ddi:holdings location="location" callno="callno" URI="URI" media="media">holdings</ddi:holdings>
+      <ddi:notes>notes</ddi:notes>
+      <dc:abstract>dc:abstract</dc:abstract>
+      <dc:accessRights>dc:accessRights</dc:accessRights>
+      <dc:alternative>dc:alternative</dc:alternative>
+      <dc:audience>dc:audience</dc:audience>
+      <dc:available>dc:available</dc:available>
+      <dc:bibliographicCitation>dc:bibliographicCitation</dc:bibliographicCitation>
+      <dc:conformsTo>dc:conformsTo</dc:conformsTo>
+      <dc:created>dc:created</dc:created>
+      <dc:dateAccepted>dc:dateAccepted</dc:dateAccepted>
+      <dc:dateCopyrighted>dc:dateCopyrighted</dc:dateCopyrighted>
+      <dc:dateSubmitted>dc:dateSubmitted</dc:dateSubmitted>
+      <dc:educationLevel>dc:educationLevel</dc:educationLevel>
+      <dc:extent>dc:extent</dc:extent>
+      <dc:hasFormat>dc:hasFormat</dc:hasFormat>
+      <dc:hasPart>dc:hasPart</dc:hasPart>
+      <dc:hasVersion>dc:hasVersion</dc:hasVersion>
+      <dc:isFormatOf>dc:isFormatOf</dc:isFormatOf>
+      <dc:isPartOf>dc:isPartOf</dc:isPartOf>
+      <dc:isReferencedBy>dc:isReferencedBy</dc:isReferencedBy>
+      <dc:isReplacedBy>dc:isReplacedBy</dc:isReplacedBy>
+      <dc:isRequiredBy>dc:isRequiredBy</dc:isRequiredBy>
+      <dc:issued>dc:issued</dc:issued>
+      <dc:isVersionOf>dc:isVersionOf</dc:isVersionOf>
+      <dc:mediator>dc:mediator</dc:mediator>
+      <dc:medium>dc:medium</dc:medium>
+      <dc:modified>dc:modified</dc:modified>
+      <dc:references>dc:references</dc:references>
+      <dc:replaces>dc:replaces</dc:replaces>
+      <dc:requires>dc:requires</dc:requires>
+      <dc:spatial>dc:spatial</dc:spatial>
+      <dc:tableOfContents>dc:tableOfContents</dc:tableOfContents>
+      <dc:temporal>dc:temporal</dc:temporal>
+      <dc:valid>dc:valid</dc:valid>
+      <dc2:contributor>dc:contributor</dc2:contributor>
+      <dc2:coverage>dc:coverage</dc2:coverage>
+      <dc2:creator>dc:creator</dc2:creator>
+      <dc2:date>dc:date</dc2:date>
+      <dc2:description>dc:description</dc2:description>
+      <dc2:format>dc:format</dc2:format>
+      <dc2:identifier>dc:identifier</dc2:identifier>
+      <dc2:language>dc:language</dc2:language>
+      <dc2:publisher>dc:publisher</dc2:publisher>
+      <dc2:relation>dc:relation</dc2:relation>
+      <dc2:rights>dc:rights</dc2:rights>
+      <dc2:source>dc:source</dc2:source>
+      <dc2:subject>dc:subject</dc2:subject>
+      <dc2:title>dc:title</dc2:title>
+      <dc2:type>dc:type</dc2:type>      
+    </ddi:citation>
+    <ddi:studyAuthorization>
+      <ddi:authorizingAgency affiliation="affiliation" abbr="abbr">authorizingAgency</ddi:authorizingAgency>
+      <ddi:authorizationStatement>authorizationStatement</ddi:authorizationStatement>
+    </ddi:studyAuthorization>
+    <ddi:stdyInfo>
+      <ddi:studyBudget>studyBudget</ddi:studyBudget>      
+      <ddi:subject>
+        <ddi:keyword vocab="vocab" vocabURI="vocabURI">keyword</ddi:keyword>
+        <ddi:topcClas vocab="vocab" vocabURI="vocabURI">topcClas</ddi:topcClas>
+      </ddi:subject>
+      <ddi:abstract contentType="abstract">abstract</ddi:abstract>
+      <ddi:abstract contentType="purpose">purpose</ddi:abstract>
+      <ddi:sumDscr>
+        <ddi:timePrd event="start">2022-02-18</ddi:timePrd>
+        <ddi:timePrd event="end">2022-02-18</ddi:timePrd>
+        <ddi:timePrd event="single" cycle="cycle">2022-02-18</ddi:timePrd>
+        <ddi:collDate event="start">2022-02-18</ddi:collDate>
+        <ddi:collDate event="end">2022-02-18</ddi:collDate>
+        <ddi:collDate event="single" cycle="cycle">2022-02-18</ddi:collDate>
+        <ddi:nation abbr="abbr">nation</ddi:nation>
+        <ddi:geogCover>geogCover</ddi:geogCover>
+        <ddi:geogUnit>geogUnit</ddi:geogUnit>
+        <ddi:geoBndBox>
+          <ddi:westBL>-180,0</ddi:westBL>
+          <ddi:eastBL>-180,0</ddi:eastBL>
+          <ddi:southBL>-90,0</ddi:southBL>
+          <ddi:northBL>-90,0</ddi:northBL>
+        </ddi:geoBndBox>
+        <ddi:boundPoly>
+          <ddi:polygon>
+            <ddi:point>
+              <ddi:gringLat>90</ddi:gringLat>
+              <ddi:gringLon>180</ddi:gringLon>
+            </ddi:point>
+            <ddi:point>
+              <ddi:gringLat>88</ddi:gringLat>
+              <ddi:gringLon>178</ddi:gringLon>
+            </ddi:point>
+            <ddi:point>
+              <ddi:gringLat>87</ddi:gringLat>
+              <ddi:gringLon>178</ddi:gringLon>
+            </ddi:point>
+            <ddi:point>
+              <ddi:gringLat>90</ddi:gringLat>
+              <ddi:gringLon>180</ddi:gringLon>
+            </ddi:point>
+          </ddi:polygon>
+        </ddi:boundPoly>
+        <ddi:anlyUnit>anlyUnit</ddi:anlyUnit>
+        <ddi:universe>universe</ddi:universe>
+        <ddi:dataKind type="type">dataKind</ddi:dataKind>
+      </ddi:sumDscr>
+      <ddi:notes>notes</ddi:notes>      
+    </ddi:stdyInfo>
+    <ddi:method>
+      <ddi:dataColl>
+        <ddi:timeMeth>timeMeth</ddi:timeMeth>
+        <ddi:dataCollector abbr="abbr" affiliation="affiliation" role="role">dataCollector</ddi:dataCollector>        
+        <ddi:frequenc>frequenc</ddi:frequenc>
+        <ddi:sampProc>sampProc</ddi:sampProc>        
+        <ddi:deviat>deviat</ddi:deviat>
+        <ddi:collMode>collMode</ddi:collMode>
+        <ddi:resInstru type="type">resInstru</ddi:resInstru>
+        <ddi:instrumentDevelopment type="type">instrumentDevelopment</ddi:instrumentDevelopment>
+        <ddi:sources>
+        	<ddi:dataSrc>dataSrc</ddi:dataSrc>
+        </ddi:sources>
+        <ddi:collSitu>collSitu</ddi:collSitu>
+        <ddi:actMin>actMin</ddi:actMin>
+        <ddi:ConOps>ConOps</ddi:ConOps>
+        <ddi:weight>weight</ddi:weight>
+        <ddi:cleanOps>cleanOps</ddi:cleanOps>
+      </ddi:dataColl>
+      <ddi:notes>notes</ddi:notes>
+      <ddi:anlyInfo>
+        <ddi:respRate>respRate</ddi:respRate>
+        <ddi:EstSmpErr>EstSmpErr</ddi:EstSmpErr>
+        <ddi:dataAppr>dataAppr</ddi:dataAppr>
+      </ddi:anlyInfo>
+      <ddi:stdyClas>stdyClas</ddi:stdyClas>
+      <ddi:dataProcessing>dataProcessing</ddi:dataProcessing>      
+    </ddi:method>
+    <ddi:dataAccs>
+      <ddi:setAvail>
+        <ddi:accsPlac URI="URI">accsPlac</ddi:accsPlac>
+        <ddi:origArch>origArch</ddi:origArch>
+        <ddi:avlStatus>avlStatus</ddi:avlStatus>
+        <ddi:collSize>collSize</ddi:collSize>
+        <ddi:complete>complete</ddi:complete>
+        <ddi:fileQnty>fileQnty</ddi:fileQnty>
+        <ddi:notes>notes</ddi:notes>
+      </ddi:setAvail>
+      <ddi:useStmt>
+        <ddi:confDec required="yes" formNo="formNo" URI="URI">confDec</ddi:confDec>
+        <ddi:specPerm required="yes" formNo="formNo" URI="URI">specPerm</ddi:specPerm>
+        <ddi:restrctn>restrctn</ddi:restrctn>
+        <ddi:contact affiliation="affiliation" URI="URI" email="email">contact</ddi:contact>
+        <ddi:citReq>citReq</ddi:citReq>
+        <ddi:deposReq>deposReq</ddi:deposReq>
+        <ddi:conditions>conditions</ddi:conditions>
+        <ddi:disclaimer>disclaimer</ddi:disclaimer>
+      </ddi:useStmt>
+      <ddi:notes>notes</ddi:notes>
+    </ddi:dataAccs>
+    <ddi:othrStdyMat>
+      <ddi:relMat>
+       	<ddi:citation>
+	      <ddi:titlStmt>
+	        <ddi:titl>titl</ddi:titl>
+	        <ddi:subTitl>subTitl</ddi:subTitl>
+	        <ddi:altTitl>altTitl</ddi:altTitl>
+	        <ddi:parTitl>parTitl</ddi:parTitl>
+	        <ddi:IDNo agency="agency">IDNo</ddi:IDNo>
+	      </ddi:titlStmt>
+	      <ddi:rspStmt>
+	        <ddi:AuthEnty affiliation="affiliation">AuthEnty</ddi:AuthEnty>
+	        <ddi:othId role="role" affiliation="affiliation">othId</ddi:othId>
+	      </ddi:rspStmt>
+	      <ddi:prodStmt>
+	        <ddi:producer abbr="abbr" affiliation="affiliation" role="role">producer</ddi:producer>
+	        <ddi:copyright>copyright</ddi:copyright>
+	        <ddi:prodDate>2022-02-18</ddi:prodDate>
+	        <ddi:prodPlac>prodPlac</ddi:prodPlac>
+	        <ddi:software version="version">software</ddi:software>
+	        <ddi:fundAg abbr="abbr" role="role">fundAg</ddi:fundAg>
+	        <ddi:grantNo agency="agency" role="role">grantNo</ddi:grantNo>
+	      </ddi:prodStmt>
+	      <ddi:distStmt>
+	        <ddi:distrbtr abbr="abbr" affiliation="affiliation" URI="URI">distrbtr</ddi:distrbtr>
+	        <ddi:contact affiliation="affiliation" URI="URI" email="email">contact</ddi:contact>
+	        <ddi:depositr abbr="abbr" affiliation="affiliation">depositr</ddi:depositr>
+	        <ddi:depDate>2022-02-18</ddi:depDate>
+	        <ddi:distDate>2022-02-18</ddi:distDate>
+	      </ddi:distStmt>
+	      <ddi:serStmt>
+	        <ddi:serName abbr="abbr">serName</ddi:serName>
+	        <ddi:serInfo>serInfo</ddi:serInfo>
+	      </ddi:serStmt>
+	      <ddi:verStmt>
+	        <ddi:version date="2022-02-18" type="type">1.0</ddi:version>
+	        <ddi:verResp affiliation="affiliation">verResp</ddi:verResp>
+	        <ddi:notes>notes</ddi:notes>
+	      </ddi:verStmt>
+	      <ddi:biblCit format="format">biblCit</ddi:biblCit>
+	      <ddi:holdings location="location" callno="callno" URI="URI" media="media">holdings</ddi:holdings>
+	      <ddi:notes>notes</ddi:notes>
+	      <dc:abstract>dc:abstract</dc:abstract>
+	      <dc:accessRights>dc:accessRights</dc:accessRights>
+	      <dc:alternative>dc:alternative</dc:alternative>
+	      <dc:audience>dc:audience</dc:audience>
+	      <dc:available>dc:available</dc:available>
+	      <dc:bibliographicCitation>dc:bibliographicCitation</dc:bibliographicCitation>
+	      <dc:conformsTo>dc:conformsTo</dc:conformsTo>
+	      <dc:created>dc:created</dc:created>
+	      <dc:dateAccepted>dc:dateAccepted</dc:dateAccepted>
+	      <dc:dateCopyrighted>dc:dateCopyrighted</dc:dateCopyrighted>
+	      <dc:dateSubmitted>dc:dateSubmitted</dc:dateSubmitted>
+	      <dc:educationLevel>dc:educationLevel</dc:educationLevel>
+	      <dc:extent>dc:extent</dc:extent>
+	      <dc:hasFormat>dc:hasFormat</dc:hasFormat>
+	      <dc:hasPart>dc:hasPart</dc:hasPart>
+	      <dc:hasVersion>dc:hasVersion</dc:hasVersion>
+	      <dc:isFormatOf>dc:isFormatOf</dc:isFormatOf>
+	      <dc:isPartOf>dc:isPartOf</dc:isPartOf>
+	      <dc:isReferencedBy>dc:isReferencedBy</dc:isReferencedBy>
+	      <dc:isReplacedBy>dc:isReplacedBy</dc:isReplacedBy>
+	      <dc:isRequiredBy>dc:isRequiredBy</dc:isRequiredBy>
+	      <dc:issued>dc:issued</dc:issued>
+	      <dc:isVersionOf>dc:isVersionOf</dc:isVersionOf>
+	      <dc:mediator>dc:mediator</dc:mediator>
+	      <dc:medium>dc:medium</dc:medium>
+	      <dc:modified>dc:modified</dc:modified>
+	      <dc:references>dc:references</dc:references>
+	      <dc:replaces>dc:replaces</dc:replaces>
+	      <dc:requires>dc:requires</dc:requires>
+	      <dc:spatial>dc:spatial</dc:spatial>
+	      <dc:tableOfContents>dc:tableOfContents</dc:tableOfContents>
+	      <dc:temporal>dc:temporal</dc:temporal>
+	      <dc:valid>dc:valid</dc:valid>
+	      <dc2:contributor>dc:contributor</dc2:contributor>
+	      <dc2:coverage>dc:coverage</dc2:coverage>
+	      <dc2:creator>dc:creator</dc2:creator>
+	      <dc2:date>dc:date</dc2:date>
+	      <dc2:description>dc:description</dc2:description>
+	      <dc2:format>dc:format</dc2:format>
+	      <dc2:identifier>dc:identifier</dc2:identifier>
+	      <dc2:language>dc:language</dc2:language>
+	      <dc2:publisher>dc:publisher</dc2:publisher>
+	      <dc2:relation>dc:relation</dc2:relation>
+	      <dc2:rights>dc:rights</dc2:rights>
+	      <dc2:source>dc:source</dc2:source>
+	      <dc2:subject>dc:subject</dc2:subject>
+	      <dc2:title>dc:title</dc2:title>
+	      <dc2:type>dc:type</dc2:type>      
+	    </ddi:citation>
+      </ddi:relMat>
+      <ddi:relStdy>
+ 		<ddi:citation>
+	      <ddi:titlStmt>
+	        <ddi:titl>titl</ddi:titl>
+	        <ddi:subTitl>subTitl</ddi:subTitl>
+	        <ddi:altTitl>altTitl</ddi:altTitl>
+	        <ddi:parTitl>parTitl</ddi:parTitl>
+	        <ddi:IDNo agency="agency">IDNo</ddi:IDNo>
+	      </ddi:titlStmt>
+	      <ddi:rspStmt>
+	        <ddi:AuthEnty affiliation="affiliation">AuthEnty</ddi:AuthEnty>
+	        <ddi:othId role="role" affiliation="affiliation">othId</ddi:othId>
+	      </ddi:rspStmt>
+	      <ddi:prodStmt>
+	        <ddi:producer abbr="abbr" affiliation="affiliation" role="role">producer</ddi:producer>
+	        <ddi:copyright>copyright</ddi:copyright>
+	        <ddi:prodDate>2022-02-18</ddi:prodDate>
+	        <ddi:prodPlac>prodPlac</ddi:prodPlac>
+	        <ddi:software version="version">software</ddi:software>
+	        <ddi:fundAg abbr="abbr" role="role">fundAg</ddi:fundAg>
+	        <ddi:grantNo agency="agency" role="role">grantNo</ddi:grantNo>
+	      </ddi:prodStmt>
+	      <ddi:distStmt>
+	        <ddi:distrbtr abbr="abbr" affiliation="affiliation" URI="URI">distrbtr</ddi:distrbtr>
+	        <ddi:contact affiliation="affiliation" URI="URI" email="email">contact</ddi:contact>
+	        <ddi:depositr abbr="abbr" affiliation="affiliation">depositr</ddi:depositr>
+	        <ddi:depDate>2022-02-18</ddi:depDate>
+	        <ddi:distDate>2022-02-18</ddi:distDate>
+	      </ddi:distStmt>
+	      <ddi:serStmt>
+	        <ddi:serName abbr="abbr">serName</ddi:serName>
+	        <ddi:serInfo>serInfo</ddi:serInfo>
+	      </ddi:serStmt>
+	      <ddi:verStmt>
+	        <ddi:version date="2022-02-18" type="type">1.0</ddi:version>
+	        <ddi:verResp affiliation="affiliation">verResp</ddi:verResp>
+	        <ddi:notes>notes</ddi:notes>
+	      </ddi:verStmt>
+	      <ddi:biblCit format="format">biblCit</ddi:biblCit>
+	      <ddi:holdings location="location" callno="callno" URI="URI" media="media">holdings</ddi:holdings>
+	      <ddi:notes>notes</ddi:notes>
+	      <dc:abstract>dc:abstract</dc:abstract>
+	      <dc:accessRights>dc:accessRights</dc:accessRights>
+	      <dc:alternative>dc:alternative</dc:alternative>
+	      <dc:audience>dc:audience</dc:audience>
+	      <dc:available>dc:available</dc:available>
+	      <dc:bibliographicCitation>dc:bibliographicCitation</dc:bibliographicCitation>
+	      <dc:conformsTo>dc:conformsTo</dc:conformsTo>
+	      <dc:created>dc:created</dc:created>
+	      <dc:dateAccepted>dc:dateAccepted</dc:dateAccepted>
+	      <dc:dateCopyrighted>dc:dateCopyrighted</dc:dateCopyrighted>
+	      <dc:dateSubmitted>dc:dateSubmitted</dc:dateSubmitted>
+	      <dc:educationLevel>dc:educationLevel</dc:educationLevel>
+	      <dc:extent>dc:extent</dc:extent>
+	      <dc:hasFormat>dc:hasFormat</dc:hasFormat>
+	      <dc:hasPart>dc:hasPart</dc:hasPart>
+	      <dc:hasVersion>dc:hasVersion</dc:hasVersion>
+	      <dc:isFormatOf>dc:isFormatOf</dc:isFormatOf>
+	      <dc:isPartOf>dc:isPartOf</dc:isPartOf>
+	      <dc:isReferencedBy>dc:isReferencedBy</dc:isReferencedBy>
+	      <dc:isReplacedBy>dc:isReplacedBy</dc:isReplacedBy>
+	      <dc:isRequiredBy>dc:isRequiredBy</dc:isRequiredBy>
+	      <dc:issued>dc:issued</dc:issued>
+	      <dc:isVersionOf>dc:isVersionOf</dc:isVersionOf>
+	      <dc:mediator>dc:mediator</dc:mediator>
+	      <dc:medium>dc:medium</dc:medium>
+	      <dc:modified>dc:modified</dc:modified>
+	      <dc:references>dc:references</dc:references>
+	      <dc:replaces>dc:replaces</dc:replaces>
+	      <dc:requires>dc:requires</dc:requires>
+	      <dc:spatial>dc:spatial</dc:spatial>
+	      <dc:tableOfContents>dc:tableOfContents</dc:tableOfContents>
+	      <dc:temporal>dc:temporal</dc:temporal>
+	      <dc:valid>dc:valid</dc:valid>
+	      <dc2:contributor>dc:contributor</dc2:contributor>
+	      <dc2:coverage>dc:coverage</dc2:coverage>
+	      <dc2:creator>dc:creator</dc2:creator>
+	      <dc2:date>dc:date</dc2:date>
+	      <dc2:description>dc:description</dc2:description>
+	      <dc2:format>dc:format</dc2:format>
+	      <dc2:identifier>dc:identifier</dc2:identifier>
+	      <dc2:language>dc:language</dc2:language>
+	      <dc2:publisher>dc:publisher</dc2:publisher>
+	      <dc2:relation>dc:relation</dc2:relation>
+	      <dc2:rights>dc:rights</dc2:rights>
+	      <dc2:source>dc:source</dc2:source>
+	      <dc2:subject>dc:subject</dc2:subject>
+	      <dc2:title>dc:title</dc2:title>
+	      <dc2:type>dc:type</dc2:type>      
+	    </ddi:citation>      
+      </ddi:relStdy>
+      <ddi:relPubl>
+      	 <ddi:citation>
+		      <ddi:titlStmt>
+		        <ddi:titl>titl</ddi:titl>
+		        <ddi:subTitl>subTitl</ddi:subTitl>
+		        <ddi:altTitl>altTitl</ddi:altTitl>
+		        <ddi:parTitl>parTitl</ddi:parTitl>
+		        <ddi:IDNo agency="agency">IDNo</ddi:IDNo>
+		      </ddi:titlStmt>
+		      <ddi:rspStmt>
+		        <ddi:AuthEnty affiliation="affiliation">AuthEnty</ddi:AuthEnty>
+		        <ddi:othId role="role" affiliation="affiliation">othId</ddi:othId>
+		      </ddi:rspStmt>
+		      <ddi:prodStmt>
+		        <ddi:producer abbr="abbr" affiliation="affiliation" role="role">producer</ddi:producer>
+		        <ddi:copyright>copyright</ddi:copyright>
+		        <ddi:prodDate>2022-02-18</ddi:prodDate>
+		        <ddi:prodPlac>prodPlac</ddi:prodPlac>
+		        <ddi:software version="version">software</ddi:software>
+		        <ddi:fundAg abbr="abbr" role="role">fundAg</ddi:fundAg>
+		        <ddi:grantNo agency="agency" role="role">grantNo</ddi:grantNo>
+		      </ddi:prodStmt>
+		      <ddi:distStmt>
+		        <ddi:distrbtr abbr="abbr" affiliation="affiliation" URI="URI">distrbtr</ddi:distrbtr>
+		        <ddi:contact affiliation="affiliation" URI="URI" email="email">contact</ddi:contact>
+		        <ddi:depositr abbr="abbr" affiliation="affiliation">depositr</ddi:depositr>
+		        <ddi:depDate>2022-02-18</ddi:depDate>
+		        <ddi:distDate>2022-02-18</ddi:distDate>
+		      </ddi:distStmt>
+		      <ddi:serStmt>
+		        <ddi:serName abbr="abbr">serName</ddi:serName>
+		        <ddi:serInfo>serInfo</ddi:serInfo>
+		      </ddi:serStmt>
+		      <ddi:verStmt>
+		        <ddi:version date="2022-02-18" type="type">1.0</ddi:version>
+		        <ddi:verResp affiliation="affiliation">verResp</ddi:verResp>
+		        <ddi:notes>notes</ddi:notes>
+		      </ddi:verStmt>
+		      <ddi:biblCit format="format">biblCit</ddi:biblCit>
+		      <ddi:holdings location="location" callno="callno" URI="URI" media="media">holdings</ddi:holdings>
+		      <ddi:notes>notes</ddi:notes>
+		      <dc:abstract>dc:abstract</dc:abstract>
+		      <dc:accessRights>dc:accessRights</dc:accessRights>
+		      <dc:alternative>dc:alternative</dc:alternative>
+		      <dc:audience>dc:audience</dc:audience>
+		      <dc:available>dc:available</dc:available>
+		      <dc:bibliographicCitation>dc:bibliographicCitation</dc:bibliographicCitation>
+		      <dc:conformsTo>dc:conformsTo</dc:conformsTo>
+		      <dc:created>dc:created</dc:created>
+		      <dc:dateAccepted>dc:dateAccepted</dc:dateAccepted>
+		      <dc:dateCopyrighted>dc:dateCopyrighted</dc:dateCopyrighted>
+		      <dc:dateSubmitted>dc:dateSubmitted</dc:dateSubmitted>
+		      <dc:educationLevel>dc:educationLevel</dc:educationLevel>
+		      <dc:extent>dc:extent</dc:extent>
+		      <dc:hasFormat>dc:hasFormat</dc:hasFormat>
+		      <dc:hasPart>dc:hasPart</dc:hasPart>
+		      <dc:hasVersion>dc:hasVersion</dc:hasVersion>
+		      <dc:isFormatOf>dc:isFormatOf</dc:isFormatOf>
+		      <dc:isPartOf>dc:isPartOf</dc:isPartOf>
+		      <dc:isReferencedBy>dc:isReferencedBy</dc:isReferencedBy>
+		      <dc:isReplacedBy>dc:isReplacedBy</dc:isReplacedBy>
+		      <dc:isRequiredBy>dc:isRequiredBy</dc:isRequiredBy>
+		      <dc:issued>dc:issued</dc:issued>
+		      <dc:isVersionOf>dc:isVersionOf</dc:isVersionOf>
+		      <dc:mediator>dc:mediator</dc:mediator>
+		      <dc:medium>dc:medium</dc:medium>
+		      <dc:modified>dc:modified</dc:modified>
+		      <dc:references>dc:references</dc:references>
+		      <dc:replaces>dc:replaces</dc:replaces>
+		      <dc:requires>dc:requires</dc:requires>
+		      <dc:spatial>dc:spatial</dc:spatial>
+		      <dc:tableOfContents>dc:tableOfContents</dc:tableOfContents>
+		      <dc:temporal>dc:temporal</dc:temporal>
+		      <dc:valid>dc:valid</dc:valid>
+		      <dc2:contributor>dc:contributor</dc2:contributor>
+		      <dc2:coverage>dc:coverage</dc2:coverage>
+		      <dc2:creator>dc:creator</dc2:creator>
+		      <dc2:date>dc:date</dc2:date>
+		      <dc2:description>dc:description</dc2:description>
+		      <dc2:format>dc:format</dc2:format>
+		      <dc2:identifier>dc:identifier</dc2:identifier>
+		      <dc2:language>dc:language</dc2:language>
+		      <dc2:publisher>dc:publisher</dc2:publisher>
+		      <dc2:relation>dc:relation</dc2:relation>
+		      <dc2:rights>dc:rights</dc2:rights>
+		      <dc2:source>dc:source</dc2:source>
+		      <dc2:subject>dc:subject</dc2:subject>
+		      <dc2:title>dc:title</dc2:title>
+		      <dc2:type>dc:type</dc2:type>      
+		    </ddi:citation>
+      </ddi:relPubl>
+      <ddi:othRefs>
+       	<ddi:citation>
+	      <ddi:titlStmt>
+	        <ddi:titl>titl</ddi:titl>
+	        <ddi:subTitl>subTitl</ddi:subTitl>
+	        <ddi:altTitl>altTitl</ddi:altTitl>
+	        <ddi:parTitl>parTitl</ddi:parTitl>
+	        <ddi:IDNo agency="agency">IDNo</ddi:IDNo>
+	      </ddi:titlStmt>
+	      <ddi:rspStmt>
+	        <ddi:AuthEnty affiliation="affiliation">AuthEnty</ddi:AuthEnty>
+	        <ddi:othId role="role" affiliation="affiliation">othId</ddi:othId>
+	      </ddi:rspStmt>
+	      <ddi:prodStmt>
+	        <ddi:producer abbr="abbr" affiliation="affiliation" role="role">producer</ddi:producer>
+	        <ddi:copyright>copyright</ddi:copyright>
+	        <ddi:prodDate>2022-02-18</ddi:prodDate>
+	        <ddi:prodPlac>prodPlac</ddi:prodPlac>
+	        <ddi:software version="version">software</ddi:software>
+	        <ddi:fundAg abbr="abbr" role="role">fundAg</ddi:fundAg>
+	        <ddi:grantNo agency="agency" role="role">grantNo</ddi:grantNo>
+	      </ddi:prodStmt>
+	      <ddi:distStmt>
+	        <ddi:distrbtr abbr="abbr" affiliation="affiliation" URI="URI">distrbtr</ddi:distrbtr>
+	        <ddi:contact affiliation="affiliation" URI="URI" email="email">contact</ddi:contact>
+	        <ddi:depositr abbr="abbr" affiliation="affiliation">depositr</ddi:depositr>
+	        <ddi:depDate>2022-02-18</ddi:depDate>
+	        <ddi:distDate>2022-02-18</ddi:distDate>
+	      </ddi:distStmt>
+	      <ddi:serStmt>
+	        <ddi:serName abbr="abbr">serName</ddi:serName>
+	        <ddi:serInfo>serInfo</ddi:serInfo>
+	      </ddi:serStmt>
+	      <ddi:verStmt>
+	        <ddi:version date="2022-02-18" type="type">1.0</ddi:version>
+	        <ddi:verResp affiliation="affiliation">verResp</ddi:verResp>
+	        <ddi:notes>notes</ddi:notes>
+	      </ddi:verStmt>
+	      <ddi:biblCit format="format">biblCit</ddi:biblCit>
+	      <ddi:holdings location="location" callno="callno" URI="URI" media="media">holdings</ddi:holdings>
+	      <ddi:notes>notes</ddi:notes>
+	      <dc:abstract>dc:abstract</dc:abstract>
+	      <dc:accessRights>dc:accessRights</dc:accessRights>
+	      <dc:alternative>dc:alternative</dc:alternative>
+	      <dc:audience>dc:audience</dc:audience>
+	      <dc:available>dc:available</dc:available>
+	      <dc:bibliographicCitation>dc:bibliographicCitation</dc:bibliographicCitation>
+	      <dc:conformsTo>dc:conformsTo</dc:conformsTo>
+	      <dc:created>dc:created</dc:created>
+	      <dc:dateAccepted>dc:dateAccepted</dc:dateAccepted>
+	      <dc:dateCopyrighted>dc:dateCopyrighted</dc:dateCopyrighted>
+	      <dc:dateSubmitted>dc:dateSubmitted</dc:dateSubmitted>
+	      <dc:educationLevel>dc:educationLevel</dc:educationLevel>
+	      <dc:extent>dc:extent</dc:extent>
+	      <dc:hasFormat>dc:hasFormat</dc:hasFormat>
+	      <dc:hasPart>dc:hasPart</dc:hasPart>
+	      <dc:hasVersion>dc:hasVersion</dc:hasVersion>
+	      <dc:isFormatOf>dc:isFormatOf</dc:isFormatOf>
+	      <dc:isPartOf>dc:isPartOf</dc:isPartOf>
+	      <dc:isReferencedBy>dc:isReferencedBy</dc:isReferencedBy>
+	      <dc:isReplacedBy>dc:isReplacedBy</dc:isReplacedBy>
+	      <dc:isRequiredBy>dc:isRequiredBy</dc:isRequiredBy>
+	      <dc:issued>dc:issued</dc:issued>
+	      <dc:isVersionOf>dc:isVersionOf</dc:isVersionOf>
+	      <dc:mediator>dc:mediator</dc:mediator>
+	      <dc:medium>dc:medium</dc:medium>
+	      <dc:modified>dc:modified</dc:modified>
+	      <dc:references>dc:references</dc:references>
+	      <dc:replaces>dc:replaces</dc:replaces>
+	      <dc:requires>dc:requires</dc:requires>
+	      <dc:spatial>dc:spatial</dc:spatial>
+	      <dc:tableOfContents>dc:tableOfContents</dc:tableOfContents>
+	      <dc:temporal>dc:temporal</dc:temporal>
+	      <dc:valid>dc:valid</dc:valid>
+	      <dc2:contributor>dc:contributor</dc2:contributor>
+	      <dc2:coverage>dc:coverage</dc2:coverage>
+	      <dc2:creator>dc:creator</dc2:creator>
+	      <dc2:date>dc:date</dc2:date>
+	      <dc2:description>dc:description</dc2:description>
+	      <dc2:format>dc:format</dc2:format>
+	      <dc2:identifier>dc:identifier</dc2:identifier>
+	      <dc2:language>dc:language</dc2:language>
+	      <dc2:publisher>dc:publisher</dc2:publisher>
+	      <dc2:relation>dc:relation</dc2:relation>
+	      <dc2:rights>dc:rights</dc2:rights>
+	      <dc2:source>dc:source</dc2:source>
+	      <dc2:subject>dc:subject</dc2:subject>
+	      <dc2:title>dc:title</dc2:title>
+	      <dc2:type>dc:type</dc2:type>      
+	    </ddi:citation>
+      </ddi:othRefs>
+    </ddi:othrStdyMat>
+    <ddi:notes>notes</ddi:notes>
+  </ddi:stdyDscr>
+  <ddi:fileDscr>
+    <ddi:fileTxt>
+      <ddi:fileName>fileName</ddi:fileName>
+      <ddi:fileCitation>
+          <ddi:titlStmt>
+	        <ddi:titl>titl</ddi:titl>
+	        <ddi:subTitl>subtitl</ddi:subTitl>
+	        <ddi:altTitl>altTitl</ddi:altTitl>
+	        <ddi:parTitl>parTitl</ddi:parTitl>
+	        <ddi:IDNo agency="agency">IDNo</ddi:IDNo>
+	      </ddi:titlStmt>
+	      <ddi:rspStmt>
+	        <ddi:AuthEnty affiliation="affiliation">AuthEnty</ddi:AuthEnty>
+	        <ddi:othId role="role" affiliation="affiliation">othId</ddi:othId>
+	      </ddi:rspStmt>
+	      <ddi:prodStmt>
+	        <ddi:producer abbr="abbr" affiliation="affiliation" role="role">producer</ddi:producer>
+	        <ddi:copyright>copyright</ddi:copyright>
+	        <ddi:prodDate>2022-02-18</ddi:prodDate>
+	        <ddi:prodPlac>prodPlac</ddi:prodPlac>
+	        <ddi:software version="version">software</ddi:software>
+	        <ddi:fundAg abbr="abbr" role="role">fundAg</ddi:fundAg>
+	        <ddi:grantNo agency="agency" role="role">grantNo</ddi:grantNo>
+	      </ddi:prodStmt>
+	      <ddi:distStmt>
+	        <ddi:distrbtr abbr="abbr" affiliation="affiliation" URI="URI">distrbtr</ddi:distrbtr>
+	        <ddi:contact affiliation="affiliation" URI="URI" email="email">contact</ddi:contact>
+	        <ddi:depositr abbr="abbr" affiliation="affiliation">depositr</ddi:depositr>
+	        <ddi:depDate>2022-02-18</ddi:depDate>
+	        <ddi:distDate>2022-02-18</ddi:distDate>
+	      </ddi:distStmt>
+	      <ddi:serStmt>
+	        <ddi:serName abbr="abbr">serName</ddi:serName>
+	        <ddi:serInfo>serInfo</ddi:serInfo>
+	      </ddi:serStmt>
+	      <ddi:verStmt>
+	        <ddi:version date="2022-02-18" type="type">1.0</ddi:version>
+	        <ddi:verResp affiliation="affiliation">verResp</ddi:verResp>
+	        <ddi:notes>notes</ddi:notes>
+	      </ddi:verStmt>
+	      <ddi:biblCit format="format">biblCit</ddi:biblCit>
+	      <ddi:holdings location="location" callno="callno" URI="URI" media="media">holdings</ddi:holdings>
+	      <ddi:notes>notes</ddi:notes>
+	      <dc:abstract>dc:abstract</dc:abstract>
+	      <dc:accessRights>dc:accessRights</dc:accessRights>
+	      <dc:alternative>dc:alternative</dc:alternative>
+	      <dc:audience>dc:audience</dc:audience>
+	      <dc:available>dc:available</dc:available>
+	      <dc:bibliographicCitation>dc:bibliographicCitation</dc:bibliographicCitation>
+	      <dc:conformsTo>dc:conformsTo</dc:conformsTo>
+	      <dc:created>dc:created</dc:created>
+	      <dc:dateAccepted>dc:dateAccepted</dc:dateAccepted>
+	      <dc:dateCopyrighted>dc:dateCopyrighted</dc:dateCopyrighted>
+	      <dc:dateSubmitted>dc:dateSubmitted</dc:dateSubmitted>
+	      <dc:educationLevel>dc:educationLevel</dc:educationLevel>
+	      <dc:extent>dc:extent</dc:extent>
+	      <dc:hasFormat>dc:hasFormat</dc:hasFormat>
+	      <dc:hasPart>dc:hasPart</dc:hasPart>
+	      <dc:hasVersion>dc:hasVersion</dc:hasVersion>
+	      <dc:isFormatOf>dc:isFormatOf</dc:isFormatOf>
+	      <dc:isPartOf>dc:isPartOf</dc:isPartOf>
+	      <dc:isReferencedBy>dc:isReferencedBy</dc:isReferencedBy>
+	      <dc:isReplacedBy>dc:isReplacedBy</dc:isReplacedBy>
+	      <dc:isRequiredBy>dc:isRequiredBy</dc:isRequiredBy>
+	      <dc:issued>dc:issued</dc:issued>
+	      <dc:isVersionOf>dc:isVersionOf</dc:isVersionOf>
+	      <dc:mediator>dc:mediator</dc:mediator>
+	      <dc:medium>dc:medium</dc:medium>
+	      <dc:modified>dc:modified</dc:modified>
+	      <dc:references>dc:references</dc:references>
+	      <dc:replaces>dc:replaces</dc:replaces>
+	      <dc:requires>dc:requires</dc:requires>
+	      <dc:spatial>dc:spatial</dc:spatial>
+	      <dc:tableOfContents>dc:tableOfContents</dc:tableOfContents>
+	      <dc:temporal>dc:temporal</dc:temporal>
+	      <dc:valid>dc:valid</dc:valid>
+	      <dc2:contributor>dc:contributor</dc2:contributor>
+	      <dc2:coverage>dc:coverage</dc2:coverage>
+	      <dc2:creator>dc:creator</dc2:creator>
+	      <dc2:date>dc:date</dc2:date>
+	      <dc2:description>dc:description</dc2:description>
+	      <dc2:format>dc:format</dc2:format>
+	      <dc2:identifier>dc:identifier</dc2:identifier>
+	      <dc2:language>dc:language</dc2:language>
+	      <dc2:publisher>dc:publisher</dc2:publisher>
+	      <dc2:relation>dc:relation</dc2:relation>
+	      <dc2:rights>dc:rights</dc2:rights>
+	      <dc2:source>dc:source</dc2:source>
+	      <dc2:subject>dc:subject</dc2:subject>
+	      <dc2:title>dc:title</dc2:title>
+	      <dc2:type>dc:type</dc2:type>    
+      </ddi:fileCitation>
+      <ddi:dataFingerprint type="data">
+        <ddi:digitalFingerprintValue>ddi:digitalFingerprintValue</ddi:digitalFingerprintValue>
+        <ddi:algorithmSpecification>ddi:algorithmSpecification</ddi:algorithmSpecification>
+        <ddi:algorithmVersion>ddi:algorithmVersion</ddi:algorithmVersion>
+      </ddi:dataFingerprint>
+      <ddi:fileCont>fileCont</ddi:fileCont>
+      <ddi:dimensns>
+        <ddi:caseQnty>caseQnty</ddi:caseQnty>
+        <ddi:varQnty>varQnty</ddi:varQnty>
+        <ddi:logRecL>logRecL</ddi:logRecL>
+        <ddi:recPrCas>recPrCas</ddi:recPrCas>
+        <ddi:recNumTot>recNumTot</ddi:recNumTot>
+      </ddi:dimensns>
+      <ddi:fileType charset="charset">fileType</ddi:fileType>
+      <ddi:format>format</ddi:format>
+      <ddi:filePlac>filePlac</ddi:filePlac>
+      <ddi:dataChck>dataChck</ddi:dataChck>
+      <ddi:ProcStat>ProcStat</ddi:ProcStat>
+      <ddi:dataMsng>dataMsng</ddi:dataMsng>
+      <ddi:software date="2022-02-18" version="version">software</ddi:software>
+      <ddi:verStmt>
+        <ddi:version date="2022-02-18" type="type">1.0</ddi:version>
+        <ddi:verResp affiliation="affiliation">verResp</ddi:verResp>
+        <ddi:notes>notes</ddi:notes>
+      </ddi:verStmt>
+    </ddi:fileTxt>    
+    <ddi:notes>notes</ddi:notes>
+  </ddi:fileDscr>
+  <ddi:dataDscr>
+    <ddi:var name="name">      
+      <ddi:labl>labl</ddi:labl>
+      <ddi:imputation>imputation</ddi:imputation>
+      <ddi:security>security</ddi:security>
+      <ddi:embargo date="2022-02-18" event="notBefore" format="format">embargo</ddi:embargo>
+      <ddi:respUnit>respUnit</ddi:respUnit>
+      <ddi:anlysUnit>anlysUnit</ddi:anlysUnit>
+      <ddi:qstn responseDomainType="text">qstn</ddi:qstn>
+      <ddi:txt>txt</ddi:txt>
+      <ddi:codInstr>codInstr</ddi:codInstr>
+      <ddi:verStmt>
+        <ddi:version date="2022-02-18" type="type">1.0</ddi:version>
+        <ddi:verResp affiliation="affiliation">verResp</ddi:verResp>
+        <ddi:notes>notes</ddi:notes>
+      </ddi:verStmt>
+      <ddi:concept vocab="vocab" vocabURI="vocabURI">concept</ddi:concept>     
+      <ddi:notes>notes</ddi:notes>
+    </ddi:var>    
+    <ddi:notes>notes</ddi:notes>
+  </ddi:dataDscr>
+</ddi:codeBook>
