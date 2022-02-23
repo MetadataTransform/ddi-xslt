@@ -5,5 +5,5 @@ services:
       context: .
       dockerfile: dev/Dockerfile-dev
     volumes:
-      - ./transformations:/transformations:cached
-      - ./examples:/examples:cached
+      - ./transformations:/transformations
+      - ./examples:/examples
