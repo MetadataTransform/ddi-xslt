@@ -51,6 +51,9 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         <xsl:apply-templates select="$main-root/c:citation/c:titlStmt/c:parTitl" />
         <xsl:apply-templates select="$main-root/c:citation/c:titlStmt/c:altTitl" />
         <xsl:apply-templates select="$main-root/c:citation/c:prodStmt/c:producer" />
+        <xsl:apply-templates select="$main-root/c:citation/c:distStmt/c:contact" />
+        <xsl:apply-templates select="$main-root/c:citation/c:distStmt/c:distDate" />
+        <xsl:apply-templates select="$main-root/c:sumDscr/c:geogCover" />
         <xsl:apply-templates select="$main-root/c:citation/c:titlStmt/c:IDNo" />
         <xsl:apply-templates select="$main-root/c:citation/c:verStmt/c:version" />
         <xsl:apply-templates select="$main-root/c:stdyInfo/c:abstract" />
@@ -123,6 +126,24 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         <schema:name><xsl:value-of select="." /></schema:name>
       </schema:Organization>
     </schema:funder>
+  </xsl:template>
+
+  <xsl:template match="c:contact">
+    <schema:contactPoint>
+      <xsl:copy-of select="@xml:lang" />
+      <xsl:value-of select="." />
+    </schema:contactPoint>
+  </xsl:template>
+
+  <xsl:template match="c:geogCover">
+    <schema:spatialCoverage>
+      <xsl:copy-of select="@xml:lang" />
+      <xsl:value-of select="." />
+    </schema:spatialCoverage>
+  </xsl:template>
+
+  <xsl:template match="c:distDate">
+    <schema:datePublished><xsl:value-of select="." /></schema:datePublished>
   </xsl:template>
 
   <xsl:template match="c:nation">
