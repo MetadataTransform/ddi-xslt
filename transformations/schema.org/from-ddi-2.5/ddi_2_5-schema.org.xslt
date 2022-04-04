@@ -51,7 +51,9 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         <xsl:apply-templates select="$main-root/c:citation/c:titlStmt/c:parTitl" />
         <xsl:apply-templates select="$main-root/c:citation/c:titlStmt/c:altTitl" />
         <xsl:apply-templates select="$main-root/c:citation/c:prodStmt/c:producer" />
+        <xsl:apply-templates select="$main-root/c:citation/c:prodStmt/c:prodPlac" />
         <xsl:apply-templates select="$main-root/c:citation/c:distStmt/c:contact" />
+        <xsl:apply-templates select="$main-root/c:citation/c:distStmt/c:distrbtr" />
         <xsl:apply-templates select="$main-root/c:citation/c:distStmt/c:distDate" />
         <xsl:apply-templates select="$main-root/c:sumDscr/c:geogCover" />
         <xsl:apply-templates select="$main-root/c:citation/c:titlStmt/c:IDNo" />
@@ -59,7 +61,9 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         <xsl:apply-templates select="$main-root/c:stdyInfo/c:abstract" />
         <xsl:apply-templates select="$main-root/c:stdyInfo/c:subject/c:keyword" />
         <xsl:apply-templates select="$main-root/c:stdyInfo/c:subject/c:topcClas" />
-        <xsl:apply-templates select="$main-root/c:method/c:dataColl/c:sampProc" />
+        <xsl:apply-templates select="$main-root/c:method/c:dataColl/c:collMode" />
+        <xsl:apply-templates select="$main-root/c:method/c:dataColl/c:instrumentDevelopment" />
+        <xsl:apply-templates select="$main-root/c:method/c:dataColl/c:frequenc" />
         <xsl:apply-templates select="$main-root/c:citation/c:prodStmt/c:fundAg" />
         <xsl:apply-templates select="$main-root/c:stdyInfo/c:sumDscr/c:nation" />
       </schema:Dataset>
@@ -94,6 +98,13 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     </schema:producer>
   </xsl:template>
 
+  <xsl:template match="c:prodPlac">
+    <schema:locationCreated>
+      <xsl:copy-of select="@xml:lang" />
+      <xsl:value-of select="." />
+    </schema:locationCreated>
+  </xsl:template>
+
   <xsl:template match="c:keyword|c:topcClas">
     <schema:keywords>
       <xsl:copy-of select="@xml:lang" />
@@ -113,11 +124,16 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     </schema:version>
   </xsl:template>
 
-  <xsl:template match="c:sampProc">
+  <xsl:template match="c:collMode|c:instrumentDevelopment">
     <schema:measurementTechnique>
       <xsl:copy-of select="@xml:lang" />
       <xsl:value-of select="." />
     </schema:measurementTechnique>
+  </xsl:template>
+
+  <xsl:template match="c:frequenc">
+    <schema:repeatFrequency>
+    </schema:repeatFrequency>
   </xsl:template>
 
   <xsl:template match="c:fundAg">
@@ -133,6 +149,13 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
       <xsl:copy-of select="@xml:lang" />
       <xsl:value-of select="." />
     </schema:contactPoint>
+  </xsl:template>
+
+  <xsl:template match="c:distrbtr">
+    <schema:provider>
+      <xsl:copy-of select="@xml:lang" />
+      <xsl:value-of select="." />
+    </schema:provider>
   </xsl:template>
 
   <xsl:template match="c:geogCover">
