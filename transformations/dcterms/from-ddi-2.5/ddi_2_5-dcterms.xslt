@@ -35,7 +35,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         <description>Convert DDI Codebook (2.5) to Dcterms</description>
         <outputFormat>XML</outputFormat>
         <parameters>
-            <parameter name="root-element" format="xs:string" description="Root element"/>
+            <parameter name="root-element" format="xs:string" description="Root xml element"/>
         </parameters>
     </meta:metadata>
     
@@ -43,11 +43,10 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
  
     <xsl:output method="xml" indent="yes" />
     
-    <xsl:template match="/" > 
+    <xsl:template match="/" >
         <xsl:element name="{$root-element}">
             <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
             <xsl:namespace name="xsi">http://www.w3.org/2001/XMLSchema-instance</xsl:namespace>
-            <xsl:namespace name="dc">http://purl.org/dc/elements/1.1</xsl:namespace>
             <xsl:namespace name="dcterms">http://purl.org/dc/terms/</xsl:namespace>
 
             <xsl:copy-of select="meta:mapLiteral('dcterms:title', //c:stdyDscr/c:citation/c:titlStmt/c:titl)" />
@@ -72,22 +71,36 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:copy-of select="meta:mapLiteral('dcterms:rights', //c:stdyDscr/c:prodStmt/c:copyright)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:created', //c:stdyDscr/c:prodStmt/c:prodDate)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:accrualPeriodicity', //c:stdyDscr/c:method/c:dataColl/c:frequenc)" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:source', //c:stdyDscr/c:method/c:dataColl/c:sources/c:dataSrc)" />
 
-            <!-- TODO: add prefix "variables:" and "cases:" ? --> 
-            <xsl:copy-of select="meta:mapLiteral('dcterms:extent', //c:fileDscr/c:fileTxt/c:dimensns/c:varQnty)" />
-            <xsl:copy-of select="meta:mapLiteral('dcterms:extent', //c:fileDscr/c:fileTxt/c:dimensns/c:caseQnty)" />
-
+            <xsl:apply-templates select="//c:fileDscr/c:fileTxt/c:dimensns/c:varQnty" />
+            <xsl:apply-templates select="c:fileDscr/c:fileTxt/c:dimensns/c:caseQnty" />
+ 
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:timePrd" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogUnit" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:collDate" />
             
+            <!-- TODO: this does not work, needs to handle citation element
             <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:othRefs" />
             <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:relMat" />
             <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:relPubl" />
             <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:relStdy" />
-            
-            <xsl:apply-templates select="//c:stdyDscr/c:method/c:dataColl/c:sources" />
+            -->
         </xsl:element>
+    </xsl:template>
+
+
+    <xsl:template match="c:varQnty">
+        <dcterms:extent>
+            <xsl:text>variables: </xsl:text>
+            <xsl:value-of select="." />
+        </dcterms:extent>
+    </xsl:template>
+
+    <xsl:template match="c:caseQnty">
+        <dcterms:extent>
+            <xsl:text>cases: </xsl:text>
+            <xsl:value-of select="." />
+        </dcterms:extent>
     </xsl:template>
 
     <xsl:template match="c:AuthEnty">
@@ -101,7 +114,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
     <xsl:template match="c:timePrd">
         <xsl:for-each select=".">    
-            <dc:temporal>
+            <dcterms:temporal>
                 <xsl:variable name="startdate" select="if (@event='start' and (@date!='')) then (@date) else null"/>
                 <xsl:variable name="enddate" select="if (@event='end' and (@date!='')) then (@date) else null"/>
                 <xsl:if test="@event">
@@ -112,7 +125,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                         <xsl:value-of select="$enddate"/>
                     </xsl:if>
                 </xsl:if>
-            </dc:temporal>
+            </dcterms:temporal>
         </xsl:for-each>
     </xsl:template>
 
@@ -147,15 +160,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:for-each>
     </xsl:template> 
 
-    <xsl:template match="c:sources">
-        <xsl:for-each select=".">
-            <dc:source>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dc:source>
-        </xsl:for-each>
-    </xsl:template>
-
     <!-- Remove empty elements -->
     <xsl:template match=
     "*[not(node())]
@@ -169,8 +173,8 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     "/>
 
     <xsl:function name="meta:mapLiteral">
-        <xsl:param name = "element" />
-        <xsl:param name = "content" />
+        <xsl:param name="element" />
+        <xsl:param name="content" />
     
         <xsl:for-each select="$content">
           <xsl:element name="{$element}">
