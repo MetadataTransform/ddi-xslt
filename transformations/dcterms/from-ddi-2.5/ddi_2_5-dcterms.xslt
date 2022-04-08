@@ -49,9 +49,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:namespace name="xsi">http://www.w3.org/2001/XMLSchema-instance</xsl:namespace>
             <xsl:namespace name="dc">http://purl.org/dc/elements/1.1</xsl:namespace>
             <xsl:namespace name="dcterms">http://purl.org/dc/terms/</xsl:namespace>
-            <!--
-            <xsl:copy-of select="meta:mapLiteral('dcterms:', )" />
-            -->
+
             <xsl:copy-of select="meta:mapLiteral('dcterms:title', //c:stdyDscr/c:citation/c:titlStmt/c:titl)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:title', //c:stdyDscr/c:citation/c:titlStmt/c:parTitl)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:abstract', //c:stdyDscr/c:stdyInfo/c:abstract)" />
@@ -68,27 +66,27 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:copy-of select="meta:mapLiteral('dcterms:accessRights', //c:stdyDscr/c:dataAccs/c:useStmt/c:restrctn)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:accessRights', //c:stdyDscr/c:dataAccs/c:setAvail/c:avlStatus)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:spatial', //c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogCover)" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:spatial', //c:stdyDscr/c:stdyInfo/c:sumDscr/c:nation)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:publisher', //c:stdyDscr/c:citation/c:prodStmt/c:producer)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:format', //c:fileDscr/c:fileTxt/c:format)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:rights', //c:stdyDscr/c:prodStmt/c:copyright)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:created', //c:stdyDscr/c:prodStmt/c:prodDate)" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:accrualPeriodicity', //c:stdyDscr/c:method/c:dataColl/c:frequenc)" />
+
+            <!-- TODO: add prefix "variables:" and "cases:" ? --> 
+            <xsl:copy-of select="meta:mapLiteral('dcterms:extent', //c:fileDscr/c:fileTxt/c:dimensns/c:varQnty)" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:extent', //c:fileDscr/c:fileTxt/c:dimensns/c:caseQnty)" />
 
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:timePrd" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogUnit" />
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:collDate" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:nation" />
-
+            
             <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:othRefs" />
             <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:relMat" />
             <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:relPubl" />
             <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:relStdy" />
             
             <xsl:apply-templates select="//c:stdyDscr/c:method/c:dataColl/c:sources" />
-            
-            <xsl:apply-templates select="//c:stdyDscr/c:method/c:dataColl/c:frequenc" />
-            
-            <xsl:apply-templates select="//c:fileDscr/c:fileTxt/c:dimensns/c:varQnty" />
-            <xsl:apply-templates select="//c:fileDscr/c:fileTxt/c:dimensns/c:caseQnty" />
         </xsl:element>
     </xsl:template>
 
@@ -139,17 +137,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:for-each>
     </xsl:template>
 
-    <xsl:template match="c:nation">
-        <xsl:for-each select=".">
-            <dcterms:spatial>
-                <xsl:attribute name="abbr">
-                    <xsl:value-of select="@abbr" />
-                </xsl:attribute>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:spatial>
-        </xsl:for-each>
-    </xsl:template>
 
     <xsl:template match="c:othRefs|c:relMat|c:relPubl|c:relStdy">
         <xsl:for-each select=".">
@@ -167,21 +154,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
                 <xsl:value-of select="." />
             </dc:source>
         </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template match="c:frequenc">
-        <xsl:for-each select=".">
-            <dc:accrualPeriodicity>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dc:accrualPeriodicity>
-        </xsl:for-each>
-    </xsl:template>
-    
-    <xsl:template match="c:varQnty|c:caseQnty">
-        <dc:extent>
-            <xsl:value-of select="." />
-        </dc:extent>
     </xsl:template>
 
     <!-- Remove empty elements -->
