@@ -22,8 +22,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
-    xmlns:dcterms="http://purl.org/dc/terms/"   
-
+    xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:dc2="ddi:dcelements:3_2" 
     xmlns:g="ddi:group:3_2" 
     xmlns:d="ddi:datacollection:3_2"                 
@@ -43,8 +42,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     xmlns:ds="ddi:dataset:3_2" 
     xmlns:pr="ddi:profile:3_2"
     xmlns:meta="transformation:metadata"
-    xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/sites/default/files/schema/ddi3.2/instance.xsd"
-    
+    xsi:schemaLocation="ddi:instance:3_2 https://ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd"
     exclude-result-prefixes="#all"
     version="2.0">
     <meta:metadata>
@@ -66,15 +64,11 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:namespace name="xsi">http://www.w3.org/2001/XMLSchema-instance</xsl:namespace>
             <xsl:namespace name="dcterms">http://purl.org/dc/terms/</xsl:namespace>
 
-            <!--
-            <xsl:copy-of select="meta:mapLiteral('dcterms:', )" />
-            -->
-            
             <xsl:copy-of select="meta:mapLiteral('dcterms:identifier', //s:StudyUnit/r:Citation/r:InternationalIdentifier/r:IdentifierContent)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:title', //s:StudyUnit/r:Citation/r:Title/r:String)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:alternative', //s:StudyUnit/r:Citation/r:AlternativeTitle/r:String)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:language', //s:StudyUnit/r:Citation/r:Language)" />
-            <xsl:copy-of select="meta:mapLiteral('dcterms:language', //s:StudyUnit/r:Citation/r:Language)" />
+            <xsl:apply-templates select="//s:StudyUnit//r:Creator" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:abstract', //s:StudyUnit/r:Abstract/r:Content)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:subject', //s:StudyUnit/r:Coverage/r:TopicalCoverage/r:Subject)" />
             <xsl:copy-of select="meta:mapLiteral('dcterms:subject', //s:StudyUnit/r:Coverage/r:TopicalCoverage/r:Keyword)" />
@@ -82,13 +76,22 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
             <xsl:apply-templates select="//pi:PhysicalInstance/pi:GrossFileStructure/pi:OverallRecordCount" />
             <xsl:apply-templates select="//pi:PhysicalInstance/pi:GrossFileStructure/pi:CaseQuantity" />
-            
-            <!--
-            <xsl:apply-templates select="r:Citation" />
-            
-            <xsl:apply-templates select="//p:PhysicalInstance" />
-            -->
         </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="r:Creator|a:Individual">
+        <xsl:choose>
+          <xsl:when test="r:CreatorName">
+             <xsl:copy-of select="meta:mapLiteral('dcterms:creator', ./r:CreatorName/r:String)" />
+          </xsl:when>
+          <xsl:when test="r:CreatorReference">
+            <xsl:variable name="id" select="./r:CreatorReference/r:ID" />
+            <xsl:apply-templates select="//a:Individual[./r:ID=$id]" />
+          </xsl:when>
+          <xsl:when test="a:IndividualIdentification">
+             <xsl:copy-of select="meta:mapLiteral('dcterms:creator', ./a:IndividualIdentification/a:IndividualName/a:FullName/r:String)" />
+          </xsl:when>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="pi:OverallRecordCount">
@@ -104,35 +107,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:value-of select="."/>
         </dcterms:extent>
     </xsl:template>
-
-    <xsl:template match="r:Creator">
-        
-    </xsl:template>
-
-    <!--
-    <xsl:template match="r:Citation">
-        <xsl:for-each select="r:Creator/r:CreatorReference/r:ID">
-            <dcterms:creator>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:creator>
-        </xsl:for-each>
-
-        <xsl:for-each select="r:Contributor">
-            <dcterms:contributor>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:contributor>
-        </xsl:for-each> 
-
-        <xsl:for-each select="r:Publisher/r:PublisherReference/r:Agency">
-            <dcterms:publisher>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:publisher>
-        </xsl:for-each>
-    </xsl:template>
-    -->
 
     <xsl:function name="meta:mapLiteral">
         <xsl:param name="element" />
