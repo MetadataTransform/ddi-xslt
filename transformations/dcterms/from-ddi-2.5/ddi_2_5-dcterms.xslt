@@ -77,7 +77,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:apply-templates select="c:fileDscr/c:fileTxt/c:dimensns/c:caseQnty" />
  
             <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:timePrd" />
-            <xsl:apply-templates select="//c:stdyDscr/c:stdyInfo/c:sumDscr/c:collDate" />
             
             <!-- TODO: this does not work, needs to handle citation element
             <xsl:apply-templates select="//c:stdyDscr/c:othrStdyMat/c:othRefs" />
@@ -90,66 +89,48 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 
     <xsl:template match="c:varQnty">
-        <dcterms:extent>
-            <xsl:text>variables: </xsl:text>
-            <xsl:value-of select="." />
-        </dcterms:extent>
+      <dcterms:extent>
+        <xsl:text>variables: </xsl:text>
+        <xsl:value-of select="." />
+      </dcterms:extent>
     </xsl:template>
 
     <xsl:template match="c:caseQnty">
-        <dcterms:extent>
-            <xsl:text>cases: </xsl:text>
-            <xsl:value-of select="." />
-        </dcterms:extent>
+      <dcterms:extent>
+        <xsl:text>cases: </xsl:text>
+        <xsl:value-of select="." />
+      </dcterms:extent>
     </xsl:template>
 
     <xsl:template match="c:AuthEnty">
-        <xsl:for-each select=".">
-            <dcterms:creator>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/><xsl:attribute name="affiliation" select="@affiliation"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:creator>
-        </xsl:for-each>
+      <xsl:for-each select=".">
+        <dcterms:creator>
+          <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/><xsl:attribute name="affiliation" select="@affiliation"/></xsl:if>
+          <xsl:value-of select="." />
+        </dcterms:creator>
+      </xsl:for-each>
     </xsl:template>
 
     <xsl:template match="c:timePrd">
-        <xsl:for-each select=".">    
-            <dcterms:temporal>
-                <xsl:variable name="startdate" select="if (@event='start' and (@date!='')) then (@date) else null"/>
-                <xsl:variable name="enddate" select="if (@event='end' and (@date!='')) then (@date) else null"/>
-                <xsl:if test="@event">
-                    <xsl:if test="@event='start'"><xsl:attribute name="start" select="$startdate"/>
-                        <xsl:value-of select="$startdate" />
-                    </xsl:if>
-                    <xsl:if test="@event='end'"><xsl:attribute name="end" select="$enddate"/>
-                        <xsl:value-of select="$enddate"/>
-                    </xsl:if>
-                </xsl:if>
-            </dcterms:temporal>
-        </xsl:for-each>
-    </xsl:template>
-
-    <xsl:template match="c:collDate">
-        <xsl:for-each select=".">    
+      <xsl:for-each select=".">
+        <xsl:variable name="singleDate" select="if (@event='single') then (@date) else null"/>                      
+        <xsl:variable name="startdate" select="if (@event='start') then (@date) else null"/>
+        <xsl:choose>
+          <xsl:when test="@event='start'">
+            <dcterms:PeriodOfTime>
+              <xsl:value-of select="$startdate" />
+              <xsl:text>/</xsl:text>
+              <xsl:value-of select="following-sibling::*[name() = name(current())][1]/@date"/>
+            </dcterms:PeriodOfTime>
+          </xsl:when>
+          <xsl:when test="@event='single'">
             <dcterms:date>
-                <xsl:variable name="startdate" select="if (@event='start' and (@date!='')) then (@date) else null"/>
-                <xsl:variable name="enddate" select="if (@event='end' and (@date!='')) then (@date) else null"/>
-                <xsl:variable name="single" select="if (@event='single' and (@date!='')) then (@date) else null"/>
-                <xsl:if test="@event">
-                    <xsl:if test="@event='single'"><xsl:attribute name="single" select="$single"/>
-                        <xsl:value-of select="$single"/>
-                    </xsl:if>
-                    <xsl:if test="@event='start'"><xsl:attribute name="start" select="$startdate"/>
-                        <xsl:value-of select="$startdate" />
-                    </xsl:if>
-                    <xsl:if test="@event='end'"><xsl:attribute name="end" select="$enddate"/>
-                        <xsl:value-of select="$enddate"/>
-                    </xsl:if>
-                </xsl:if>
+              <xsl:value-of select="$singleDate" />
             </dcterms:date>
-        </xsl:for-each>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:for-each>
     </xsl:template>
-
 
     <xsl:template match="c:othRefs|c:relMat|c:relPubl|c:relStdy">
         <xsl:for-each select=".">
