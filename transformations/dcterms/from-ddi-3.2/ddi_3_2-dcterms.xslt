@@ -22,8 +22,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
-    xmlns:dcterms="http://purl.org/dc/terms/"   
-
+    xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:dc2="ddi:dcelements:3_2" 
     xmlns:g="ddi:group:3_2" 
     xmlns:d="ddi:datacollection:3_2"                 
@@ -43,8 +42,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     xmlns:ds="ddi:dataset:3_2" 
     xmlns:pr="ddi:profile:3_2"
     xmlns:meta="transformation:metadata"
-    xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/sites/default/files/schema/ddi3.2/instance.xsd"
-    
+    xsi:schemaLocation="ddi:instance:3_2 https://ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd"
     exclude-result-prefixes="#all"
     version="2.0">
     <meta:metadata>
@@ -60,114 +58,65 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     <xsl:output method="xml" indent="yes" />
     <xsl:param name="root-element">metadata</xsl:param>
     
-    <xsl:template match="//s:StudyUnit">
+    <xsl:template match="/">
         <xsl:element name="{$root-element}">
-            <xsl:namespace name="xs" select="'http://www.w3.org/2001/XMLSchema'"/>
-            <xsl:namespace name="xsi" select="'http://www.w3.org/2001/XMLSchema-instance'"/>
-            <xsl:namespace name="dc" select="'http://purl.org/dc/elements/1.1/'"/>
-            <xsl:namespace name="dcterms" select="'http://purl.org/dc/terms/'"/>
+            <xsl:namespace name="xs">http://www.w3.org/2001/XMLSchema</xsl:namespace>
+            <xsl:namespace name="xsi">http://www.w3.org/2001/XMLSchema-instance</xsl:namespace>
+            <xsl:namespace name="dcterms">http://purl.org/dc/terms/</xsl:namespace>
 
-            <xsl:apply-templates select="r:Citation" />
-            <xsl:apply-templates select="r:Abstract" />
-            <xsl:apply-templates select="r:Coverage/r:TopicalCoverage" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:identifier', //s:StudyUnit/r:Citation/r:InternationalIdentifier/r:IdentifierContent)" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:title', //s:StudyUnit/r:Citation/r:Title/r:String)" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:alternative', //s:StudyUnit/r:Citation/r:AlternativeTitle/r:String)" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:language', //s:StudyUnit/r:Citation/r:Language)" />
+            <xsl:apply-templates select="//s:StudyUnit//r:Creator" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:abstract', //s:StudyUnit/r:Abstract/r:Content)" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:subject', //s:StudyUnit/r:Coverage/r:TopicalCoverage/r:Subject)" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:subject', //s:StudyUnit/r:Coverage/r:TopicalCoverage/r:Keyword)" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:format', //s:StudyUnit/PhysicalDataProduct/p:PhysicalStructureScheme/p:PhysicalStructure/p:Format)" />
 
-            <xsl:for-each select="//PhysicalDataProduct/p:PhysicalStructureScheme/p:PhysicalStructure/p:Format">
-                <dcterms:format>
-                    <xsl:value-of select="."></xsl:value-of>
-                </dcterms:format>
-            </xsl:for-each>
-            
-            <xsl:apply-templates select="//p:PhysicalInstance" />
-            
-        </xsl:element>        
+            <xsl:apply-templates select="//pi:PhysicalInstance/pi:GrossFileStructure/pi:OverallRecordCount" />
+            <xsl:apply-templates select="//pi:PhysicalInstance/pi:GrossFileStructure/pi:CaseQuantity" />
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="r:Creator|a:Individual">
+        <xsl:choose>
+          <xsl:when test="r:CreatorName">
+             <xsl:copy-of select="meta:mapLiteral('dcterms:creator', ./r:CreatorName/r:String)" />
+          </xsl:when>
+          <xsl:when test="r:CreatorReference">
+            <xsl:variable name="id" select="./r:CreatorReference/r:ID" />
+            <xsl:apply-templates select="//a:Individual[./r:ID=$id]" />
+          </xsl:when>
+          <xsl:when test="a:IndividualIdentification">
+             <xsl:copy-of select="meta:mapLiteral('dcterms:creator', ./a:IndividualIdentification/a:IndividualName/a:FullName/r:String)" />
+          </xsl:when>
+        </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="r:OtherMaterial" />
-    <xsl:template match="r:UniverseReference" />
-    <xsl:template match="g:ResourcePackage" />
-    <xsl:template match="r:Agency" />
-    <xsl:template match="r:ID" />
-    <xsl:template match="r:Version" />
-    <xsl:template match="ResourcePackage" />
-    <xsl:template match="CategoryScheme" />
-    <xsl:template match="VariableStatistics" />
-
-    <xsl:template match="r:Citation">
-        <xsl:for-each select="r:Title/r:String">
-            <dc:title>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dc:title>
-        </xsl:for-each>
-        
-        <xsl:for-each select="r:AlternativeTitle/r:String">
-            <dcterms:alternative>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:alternative>
-        </xsl:for-each>
-
-        <xsl:for-each select="r:Creator/r:CreatorReference/r:ID">
-            <dcterms:creator>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:creator>
-        </xsl:for-each>
-
-        <xsl:for-each select="r:Contributor">
-            <dcterms:contributor>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:contributor>
-        </xsl:for-each>
-
-        <xsl:for-each select="r:Publisher/r:PublisherReference/r:Agency">
-            <dc:publisher>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dc:publisher>
-        </xsl:for-each>
-
-        <xsl:if test="r:Language">
-            <dcterms:language><xsl:value-of select="r:Language"/></dcterms:language>
-        </xsl:if>
-
-        <xsl:for-each select="r:InternationalIdentifier/r:IdentifierContent">
-            <dc:identifier>
-                <xsl:value-of select="."></xsl:value-of>
-            </dc:identifier>
-        </xsl:for-each>
-    </xsl:template>
-        
-    <xsl:template match="p:PhysicalInstance">
-        <xsl:if test="p:GrossFileStructure/p:OverallRecordCount">
-            <dcterms:extent><xsl:value-of select="p:GrossFileStructure/p:OverallRecordCount" /><xsl:text> records</xsl:text></dcterms:extent>
-        </xsl:if>
-        
-        <xsl:if test="p:GrossFileStructure/p:CaseQuantity">
-            <dcterms:extent><xsl:value-of select="p:GrossFileStructure/p:CaseQuantity" /><xsl:text> cases</xsl:text></dcterms:extent>
-        </xsl:if>       
+    <xsl:template match="pi:OverallRecordCount">
+        <dcterms:extent>
+            <xsl:text>records: </xsl:text>
+            <xsl:value-of select="."/>
+        </dcterms:extent>
     </xsl:template>
 
-    <xsl:template match="r:Abstract">
-        <xsl:for-each select="r:Content">
-            <dcterms:abstract>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." /> 
-            </dcterms:abstract>
-        </xsl:for-each>
+    <xsl:template match="pi:CaseQuantity">
+        <dcterms:extent>
+            <xsl:text>cases: </xsl:text>
+            <xsl:value-of select="."/>
+        </dcterms:extent>
     </xsl:template>
 
-    <xsl:template match="r:Coverage/r:TopicalCoverage">
-        <xsl:for-each select="r:Subject|r:Keyword">
-            <dcterms:subject>
-                <xsl:attribute name="codeListName">
-                    <xsl:value-of select="@codeListName" />
-                </xsl:attribute>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:subject>
-        </xsl:for-each>
-    </xsl:template>
-
+    <xsl:function name="meta:mapLiteral">
+        <xsl:param name="element" />
+        <xsl:param name="content" />
+    
+        <xsl:for-each select="$content">
+          <xsl:element name="{$element}">
+            <xsl:copy-of select="@xml:lang" />
+            <xsl:value-of select ="." />
+          </xsl:element>
+        </xsl:for-each> 
+    </xsl:function>
 </xsl:stylesheet>
