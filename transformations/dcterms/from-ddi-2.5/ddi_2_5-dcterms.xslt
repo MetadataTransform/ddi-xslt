@@ -50,13 +50,13 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             <xsl:namespace name="dc">http://purl.org/dc/elements/1.1</xsl:namespace>
             <xsl:namespace name="dcterms">http://purl.org/dc/terms/</xsl:namespace>
 
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:titl" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:altTitl" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:parTitl" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:title', //c:stdyDscr/c:citation/c:titlStmt/c:titl)" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:title', //c:stdyDscr/c:citation/c:titlStmt/c:parTitl)" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:alternative', //c:stdyDscr/c:citation/c:titlStmt/c:altTitl)" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:titlStmt/c:IDNo" />
             <!-- <xsl:apply-templates select="//c:docDscr/c:citation/c:titlStmt/c:IDNo" /> -->
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:rspStmt" />
-            <xsl:apply-templates select="//c:stdyDscr/c:citation/c:serStmt/c:serName" />
+            <xsl:copy-of select="meta:mapLiteral('dcterms:isPartOf', //c:stdyDscr/c:citation/c:serStmt/c:serName)" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:distDate" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:depDate" />
             <xsl:apply-templates select="//c:stdyDscr/c:citation/c:distStmt/c:depositr" />
@@ -92,20 +92,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:element>
     </xsl:template> 
 
-    <xsl:template match="c:altTitl">
-        <dcterms:alternative>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </dcterms:alternative>        
-    </xsl:template>
-
-    <!-- TODO: c:parTitl is important to have in title tag? -->
-    <xsl:template match="c:titl">
-        <dcterms:title>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-        </dcterms:title>        
-    </xsl:template>
 
     <!-- <xsl:template match="c:IDNo" >
         <xsl:element name="IDNo">
@@ -160,19 +146,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         <dc:issued>
             <xsl:value-of select="." />
         </dc:issued>
-    </xsl:template>
-
-    <!-- TODO: not sureabout this mapping! -->
-    <xsl:template match="c:serName">
-        <xsl:for-each select=".">
-            <dcterms:isPartOf>
-                <xsl:attribute name="abbr">
-                    <xsl:value-of select="@abbr" />
-                </xsl:attribute>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />
-            </dcterms:isPartOf>
-        </xsl:for-each>
     </xsl:template>
 
     <xsl:template match="c:timePrd">
@@ -374,5 +347,17 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         not(normalize-space())
         ]
     "/>
+
+  <xsl:function name="meta:mapLiteral">
+    <xsl:param name="element" />
+    <xsl:param name="content" />
+
+    <xsl:for-each select="$content">
+      <xsl:element name="{$element}">
+        <xsl:copy-of select="@xml:lang" />
+        <xsl:value-of select ="." />
+      </xsl:element>
+    </xsl:for-each>
+  </xsl:function >
 
 </xsl:stylesheet>
