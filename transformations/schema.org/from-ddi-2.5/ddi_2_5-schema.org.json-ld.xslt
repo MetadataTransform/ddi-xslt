@@ -20,55 +20,56 @@
 
   <xsl:param name="main-root" select="/c:codeBook/c:stdyDscr"/>
 
-  <xsl:template match="/">
+  <xsl:template match="/c:codeBook">
 
       <xsl:map>
         <xsl:map-entry key="'@context'">https://schema.org</xsl:map-entry>
         <xsl:map-entry key="'@type'">Dataset</xsl:map-entry>
         
-        <xsl:copy-of select="meta:mapLiteral('keywords', (
-          $main-root/c:stdyInfo/c:subject/c:topcClas | 
-          $main-root/c:stdyInfo/c:subject/c:keyword
-        ))" />
-
-        <xsl:copy-of select="meta:mapLiteral('name', (
-          $main-root/c:citation/c:titlStmt/c:titl |
-          $main-root/c:citation/c:titlStmt/c:parTitl
-        ))" />
-        
-        <xsl:copy-of select="meta:mapLiteral('alternateName', $main-root/c:citation/c:titlStmt/c:altTitl)" />
-        <xsl:copy-of select="meta:mapLiteral('producer', $main-root/c:citation/c:prodStmt/c:producer)" />
-        <xsl:copy-of select="meta:mapLiteral('locationCreated', $main-root/c:citation/c:prodStmt/c:prodPlac)" />
-        <xsl:copy-of select="meta:mapLiteral('provider', $main-root/c:citation/c:distStmt/c:distrbtr)" />
-        <xsl:copy-of select="meta:mapLiteral('description', $main-root/c:stdyInfo/c:abstract)" />
-        <xsl:copy-of select="meta:mapLiteral('measurementTechnique', $main-root/c:method/c:dataColl/c:collMode)" />
-        <xsl:copy-of select="meta:mapLiteral('measurementTechnique', $main-root/c:method/c:dataColl/c:instrumentDevelopment)" />
-        <xsl:copy-of select="meta:mapLiteral('repeatFrequency', $main-root/c:method/c:dataColl/c:frequenc)" />
-        <xsl:copy-of select="meta:mapLiteral('isBasedOn', $main-root/c:method/c:dataColl/c:sources/c:dataSrc)" />
-        <xsl:copy-of select="meta:mapLiteral('datePublished', $main-root/c:citation/c:distStmt/c:distDate)" />
-        <xsl:copy-of select="meta:mapLiteral('identifier', $main-root/c:citation/c:titlStmt/c:IDNo)" />
-        <xsl:copy-of select="meta:mapLiteral('version', $main-root/c:citation/c:verStmt/c:version)" />
-        <xsl:copy-of select="meta:mapLiteral('hasPart', $main-root/c:citation/dc:hasPart)" />
-        <xsl:copy-of select="meta:mapLiteral('hasPart', $main-root/c:citation/dc:hasPart)" />
-        <xsl:copy-of select="meta:mapLiteral('audience', $main-root/c:citation/dc:audience)" />
-        <xsl:copy-of select="meta:mapLiteral('temporalCoverage', $main-root/c:citation/dc:temporal)" />
-        <xsl:copy-of select="meta:mapLiteral('inLanguage', $main-root/c:citation/dc:language)" />
-        <xsl:copy-of select="meta:mapLiteral('publisher', $main-root/c:citation/dc:publisher)" />
-        <xsl:copy-of select="meta:mapLiteral('conditionsOfAccess', $main-root/c:dataAccs/c:setAvail/c:avlStatus)" />
-        <xsl:copy-of select="meta:mapLiteral('conditionsOfAccess', $main-root/c:dataAccs/c:useStmt/c:conditions)" />
-        <xsl:copy-of select="meta:mapLiteral('usageInfo', $main-root/c:dataAccs/c:useStmt/c:disclaimer)" />
-        <xsl:copy-of select="meta:mapLiteral('spatialCoverage', $main-root/c:sumDscr/c:geogCover)" />
-        
-        <xsl:copy-of select="meta:personOrOrganizationList('author', $main-root/c:citation/c:rspStmt/c:AuthEnty)" />
-        <xsl:copy-of select="meta:personOrOrganizationList('contributor', $main-root/c:citation/c:distStmt/c:depositr)" />
+        <xsl:copy-of select="meta:mapLiteral('name', 
+          c:stdyDscr/c:citation/c:titlStmt/c:titl |
+          c:stdyDscr/c:citation/c:titlStmt/c:parTitl
+        )" />
+        <xsl:copy-of select="meta:mapLiteral('alternateName', c:stdyDscr/c:citation/c:titlStmt/c:altTitl)" />
+        <xsl:copy-of select="meta:mapLiteral('keywords', 
+          c:stdyDscr/c:stdyInfo/c:subject/c:topcClas | 
+          c:stdyDscr/c:stdyInfo/c:subject/c:keyword
+        )" />
+        <xsl:copy-of select="meta:mapLiteral('abstract', c:stdyDscr/c:stdyInfo/c:abstract)" />
+        <xsl:copy-of select="meta:mapLiteral('measurementTechnique', c:stdyDscr/c:method/c:dataColl/c:collMode)" />
+        <xsl:copy-of select="meta:mapLiteral('isBasedOn', c:stdyDscr/c:method/c:dataColl/c:sources/c:dataSrc)" />
+        <xsl:copy-of select="meta:mapLiteral('version', c:stdyDscr/c:citation/c:verStmt/c:version)" />
+        <xsl:copy-of select="meta:mapLiteral('hasPart', c:stdyDscr/c:citation/dc:hasPart)" />
+        <xsl:copy-of select="meta:mapLiteral('audience', c:stdyDscr/c:citation/dc:audience)" />
+        <xsl:copy-of select="meta:mapLiteral('temporalCoverage', c:stdyDscr/c:citation/dc:temporal)" />
+        <xsl:copy-of select="meta:mapLiteral('inLanguage', c:stdyDscr/c:citation/dc:language)" />
+        <xsl:copy-of select="meta:mapLiteral('publisher', c:stdyDscr/c:citation/dc:publisher)" />
+        <xsl:copy-of select="meta:mapLiteral('conditionsOfAccess', 
+          c:stdyDscr/c:dataAccs/c:setAvail/c:avlStatus | 
+          c:stdyDscr/c:dataAccs/c:useStmt/c:conditions
+        )" />
+        <xsl:copy-of select="meta:mapLiteral('usageInfo', c:stdyDscr/c:dataAccs/c:useStmt/c:disclaimer)" />
+        <xsl:copy-of select="meta:mapLiteral('creditText', c:stdyDscr/c:citation/c:biblCit)" />
+        <xsl:copy-of select="meta:mapPersonOrOrganization('author', c:stdyDscr/c:citation/c:rspStmt/c:AuthEnty)" />
+        <xsl:copy-of select="meta:mapPersonOrOrganization('contributor', 
+          c:stdyDscr/c:citation/c:distStmt/c:depositr |
+          c:stdyDscr/c:method/c:dataColl/c:dataCollector
+        )" />
+        <xsl:copy-of select="meta:mapPersonOrOrganization('provider', c:stdyDscr/c:citation/c:distStmt/c:distrbtr)" />
+        <xsl:copy-of select="meta:mapPersonOrOrganization('producer', c:stdyDscr/c:citation/c:prodStmt/c:producer)" />
+        <xsl:copy-of select="meta:mapSpatial('locationCreated', c:stdyDscr/c:citation/c:prodStmt/c:prodPlac)" />
+        <xsl:copy-of select="meta:mapSpatial('spatialCoverage', 
+          c:stdyDscr/c:stdyInfo/c:sumDscr/c:geogCover | 
+          c:stdyDscr/c:stdyInfo/c:sumDscr/c:nation
+        )" />
+        <xsl:copy-of select="meta:mapDistinctValues('identifier', c:stdyDscr/c:citation/c:titlStmt/c:IDNo)" />
+        <xsl:copy-of select="meta:mapDate('datePublished', c:stdyDscr/c:citation/c:distStmt/c:distDate)" />
       </xsl:map>
   </xsl:template>
   
-  <xsl:template match="c:AuthEnty">
-
-  </xsl:template>
   <xsl:function name="meta:personOrOrganizationEntries">
     <xsl:param name="element"/>
+    
     <xsl:for-each select="$element">
       <xsl:map>
         <xsl:choose>
@@ -95,16 +96,68 @@
             <xsl:value-of select="./@email" />
           </xsl:map-entry>
         </xsl:if>
+        <xsl:if test="@URI">
+          <xsl:map-entry key="'url'">
+            <xsl:value-of select="./@URI" />
+          </xsl:map-entry>
+        </xsl:if>
       </xsl:map>
     </xsl:for-each>
   </xsl:function>
   
-  
-  <xsl:function name="meta:personOrOrganizationList">
+  <xsl:function name="meta:mapPersonOrOrganization">
     <xsl:param name="element"/>
     <xsl:param name="content"/>
         <xsl:map-entry key="$element">
         <xsl:sequence select="array {meta:personOrOrganizationEntries($content)}"/>
+    </xsl:map-entry>
+  </xsl:function>
+  
+  <xsl:function name="meta:spatilEntries">
+    <xsl:param name="element"/>
+    
+    <xsl:for-each select="$element">
+      <xsl:map>
+        <xsl:map-entry key="'@type'">Place</xsl:map-entry>
+        <xsl:map-entry key="'name'">
+          <xsl:sequence select="array {meta:literalList(.)}"/>
+        </xsl:map-entry>
+        <xsl:if test="@abbr">
+          <xsl:map-entry key="'identifier'">
+            <xsl:value-of select="./@abbr" />
+          </xsl:map-entry>
+        </xsl:if>
+      </xsl:map>
+    </xsl:for-each>
+  </xsl:function>
+  
+  <xsl:function name="meta:mapSpatial">
+    <xsl:param name="element"/>
+    <xsl:param name="content"/>
+        <xsl:map-entry key="$element">
+        <xsl:sequence select="array {meta:spatilEntries($content)}"/>
+    </xsl:map-entry>
+  </xsl:function>
+  
+  <xsl:function name="meta:mapDistinctValues">
+    <xsl:param name="element"/>
+    <xsl:param name="content"/>
+    <xsl:for-each select="$content">
+    
+    </xsl:for-each>
+      <xsl:map-entry key="$element">
+      <xsl:sequence select="array {distinct-values($content/text())}"/>
+    </xsl:map-entry>
+  </xsl:function>
+  
+  <xsl:function name="meta:mapDate">
+    <xsl:param name="element"/>
+    <xsl:param name="content"/>
+    <xsl:for-each select="$content">
+    
+    </xsl:for-each>
+        <xsl:map-entry key="$element">
+        <xsl:sequence select="array {$content[0]/@date}"/>
     </xsl:map-entry>
   </xsl:function>
 
@@ -129,7 +182,7 @@
         </xsl:map-entry>
       </xsl:when>
     </xsl:choose>
-  </xsl:function >
+  </xsl:function>
 
   <xsl:function name="meta:literalList">
     <xsl:param name="content"/>
@@ -141,8 +194,8 @@
           </xsl:if>
         </xsl:map>
     </xsl:for-each>
-  </xsl:function >
-
+  </xsl:function>
+  
   <xsl:character-map name="no-escape-slash">
     <xsl:output-character character="/" string="/"/>
   </xsl:character-map>
