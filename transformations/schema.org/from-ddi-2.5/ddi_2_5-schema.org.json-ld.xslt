@@ -25,7 +25,7 @@
       <xsl:map>
         <xsl:map-entry key="'@context'">https://schema.org</xsl:map-entry>
         <xsl:map-entry key="'@type'">Dataset</xsl:map-entry>
-
+        
         <xsl:copy-of select="meta:mapLiteral('keywords', (
           $main-root/c:stdyInfo/c:subject/c:topcClas | 
           $main-root/c:stdyInfo/c:subject/c:keyword
@@ -58,8 +58,55 @@
         <xsl:copy-of select="meta:mapLiteral('conditionsOfAccess', $main-root/c:dataAccs/c:useStmt/c:conditions)" />
         <xsl:copy-of select="meta:mapLiteral('usageInfo', $main-root/c:dataAccs/c:useStmt/c:disclaimer)" />
         <xsl:copy-of select="meta:mapLiteral('spatialCoverage', $main-root/c:sumDscr/c:geogCover)" />
+        
+        <xsl:copy-of select="meta:personOrOrganizationList('author', $main-root/c:citation/c:rspStmt/c:AuthEnty)" />
+        <xsl:copy-of select="meta:personOrOrganizationList('contributor', $main-root/c:citation/c:distStmt/c:depositr)" />
       </xsl:map>
   </xsl:template>
+  
+  <xsl:template match="c:AuthEnty">
+
+  </xsl:template>
+  <xsl:function name="meta:personOrOrganizationEntries">
+    <xsl:param name="element"/>
+    <xsl:for-each select="$element">
+      <xsl:map>
+        <xsl:choose>
+            <xsl:when test="not(./@affiliation)">
+              <xsl:map-entry key="'@type'">Organization</xsl:map-entry>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:map-entry key="'@type'">Person</xsl:map-entry>
+              <xsl:map-entry key="'affiliation'">
+                <xsl:map>
+                  <xsl:map-entry key="'@type'">Organization</xsl:map-entry>
+                  <xsl:map-entry key="'name'">
+                    <xsl:value-of select="./@affiliation" />
+                  </xsl:map-entry>
+                </xsl:map>
+              </xsl:map-entry>
+            </xsl:otherwise>
+        </xsl:choose>
+        <xsl:map-entry key="'name'">
+          <xsl:sequence select="array {meta:literalList(.)}"/>
+        </xsl:map-entry>
+        <xsl:if test="@email">
+          <xsl:map-entry key="'email'">
+            <xsl:value-of select="./@email" />
+          </xsl:map-entry>
+        </xsl:if>
+      </xsl:map>
+    </xsl:for-each>
+  </xsl:function>
+  
+  
+  <xsl:function name="meta:personOrOrganizationList">
+    <xsl:param name="element"/>
+    <xsl:param name="content"/>
+        <xsl:map-entry key="$element">
+        <xsl:sequence select="array {meta:personOrOrganizationEntries($content)}"/>
+    </xsl:map-entry>
+  </xsl:function>
 
   <xsl:function name="meta:mapLiteral">
     <xsl:param name="element"/>

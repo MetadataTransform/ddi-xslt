@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<codeBook
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns="ddi:codebook:2_5" 
+    version="2.5" 
+    xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd">
+    <docDscr>
+        <citation>
+            <titlStmt>
+                <titl xml:lang="en">DDI description: Practices of Working Life 2012: Employees</titl>
+            </titlStmt>
+            <prodStmt>
+                <producer xml:lang="fi" abbr="FSD">Yhteiskuntatieteellinen tietoarkisto</producer>
+                <producer xml:lang="en" abbr="FSD">Finnish Social Science Data Archive</producer>
+                <copyright xml:lang="fi">Yhteiskuntatieteellinen tietoarkisto</copyright>
+                <copyright xml:lang="en">Finnish Social Science Data Archive</copyright>
+            </prodStmt>
+            <holdings xml:lang="fi" URI="http://urn.fi/urn:nbn:fi:fsd:T-FSD2954" location="Yhteiskuntatieteellinen tietoarkisto FSD"/>
+            <holdings xml:lang="en" URI="http://urn.fi/urn:nbn:fi:fsd:T-FSD2954" location="Finnish Social Science Data Archive FSD"/>
+        </citation>
+    </docDscr>
+    <docDscr>
+        <citation>
+            <titlStmt>
+                <titl xml:lang="fi">DDI-kuvailu: Työelämän käytännöt 2012: työntekijät</titl>
+            </titlStmt>
+        </citation>
+    </docDscr>
+    <stdyDscr>
+        <citation>
+            <titlStmt>
+                <titl xml:lang="en">Practices of Working Life 2012: Employees</titl>
+                <parTitl xml:lang="en">Practices of Working Life 2012: Employees</parTitl>
+                <parTitl xml:lang="fi">Työelämän käytännöt 2012: työntekijät</parTitl>
+                <IDNo xml:lang="fi" agency="FSD">FSD2954</IDNo>
+                <IDNo xml:lang="fi" agency="URN">urn:nbn:fi:fsd:T-FSD2954</IDNo>
+                <IDNo xml:lang="en" agency="FSD">FSD2954</IDNo>
+                <IDNo xml:lang="en" agency="URN">urn:nbn:fi:fsd:T-FSD2954</IDNo>
+            </titlStmt>
+            <rspStmt>
+                <AuthEnty xml:lang="fi">Tampereen yliopisto. Työelämän tutkimuskeskus</AuthEnty>
+                <AuthEnty xml:lang="en">University of Tampere. Work Research Center (WRC)</AuthEnty>
+            </rspStmt>
+            <prodStmt>
+                <copyright xml:lang="fi">Tietoarkiston ja aineiston luovuttajan tekemän sopimuksen mukaisesti.</copyright>
+                <copyright xml:lang="en">In accordance with the agreement between FSD and the depositor.</copyright>
+                <prodDate xml:lang="fi">2014-09-10</prodDate>
+                <prodDate xml:lang="en">2015-07-13</prodDate>
+            </prodStmt>
+            <distStmt>
+                <distrbtr abbr="FSD" URI="https://www.fsd.tuni.fi/" xml:lang="fi">Yhteiskuntatieteellinen tietoarkisto</distrbtr>
+                <distrbtr abbr="FSD" URI="https://www.fsd.tuni.fi/" xml:lang="en">Finnish Social Science Data Archive</distrbtr>
+                <distDate xml:lang="fi" date="2014-09-10"/>
+                <distDate xml:lang="en" date="2015-07-13"/>
+            </distStmt>
+            <serStmt URI="https://services.fsd.tuni.fi/catalogue/series/8?lang=fi" xml:lang="fi" ID="yks">
+                <serName xml:lang="fi">Aineistot, jotka eivät kuulu sarjaan</serName>
+                <serInfo xml:lang="fi">Yksittäiset aineistot, jotka eivät kuulu mihinkään sarjaan.</serInfo>
+            </serStmt>
+            <serStmt URI="https://services.fsd.tuni.fi/catalogue/series/8?lang=en" xml:lang="en">
+                <serName xml:lang="en">Individual datasets</serName>
+                <serInfo xml:lang="en">Individual datasets that do not belong to any series.</serInfo>
+            </serStmt>
+            <verStmt>
+                <version date="2018-07-18" xml:lang="fi"/>
+                <version date="2018-07-18" xml:lang="en"/>
+            </verStmt>
+            <holdings xml:lang="fi" URI="http://urn.fi/urn:nbn:fi:fsd:T-FSD2954" location="Yhteiskuntatieteellinen tietoarkisto FSD"/>
+            <holdings xml:lang="en" URI="http://urn.fi/urn:nbn:fi:fsd:T-FSD2954" location="Finnish Social Science Data Archive FSD"/>
+        </citation>
+        <citation>
+            <titlStmt>
+                <titl xml:lang="fi">Työelämän käytännöt 2012: työntekijät</titl>
+            </titlStmt>
+        </citation>
+        <stdyInfo>
+            <subject>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="innovaatiot">innovaatiot</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="tyoeelaemae">työelämä</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="muutos">muutos</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="tyoekyky">työkyky</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="tyoeaika">työaika</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="tyoellisyys">työllisyys</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="tyoehyvinvointi">työhyvinvointi</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="palkkaus">palkkaus</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="ryhmaetyoe">ryhmätyö</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="ammatillinen_kehitys">ammatillinen kehitys</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="kehittaeminen">kehittäminen</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="koulutus">koulutus</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="henkiloestoe">henkilöstö</keyword>
+                <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="tulevaisuudenodotukset">tulevaisuudenodotukset</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="occupational_life">occupational life</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="employees">employees</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="businesses">businesses</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="organizations">organizations</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="public_sector">public sector</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="private_sector">private sector</keyword>
+                <keyword xml:lang="en" ID="well-being_at_work">well-being at work</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="workers_participation">workers participation</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="innovation">innovation</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="employment_contracts">employment contracts</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="autonomy_at_work">autonomy at work</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="flexible_working_time">flexible working time</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="arrangement_of_working_time">arrangement of working time</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="job_characteristics">job characteristics</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="occupational_training">occupational training</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="job_security">job security</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="wages">wages</keyword>
+                <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="working_conditions">working conditions</keyword>
+                <topcClas xml:lang="fi" vocab="OKM" vocabURI="http://www.yso.fi/onto/okm-tieteenala/conceptscheme" ID="Yhteiskuntatieteet">Yhteiskuntatieteet</topcClas>
+                <topcClas xml:lang="fi" vocab="CESSDA Topic Classification" ID="Tyoeolot">Työolot</topcClas>
+                <topcClas xml:lang="en" vocab="OKM" vocabURI="http://www.yso.fi/onto/okm-tieteenala/conceptscheme" ID="Social_sciences">Social sciences</topcClas>
+                <topcClas xml:lang="en" vocab="CESSDA Topic Classification" ID="Working_conditions">Working conditions</topcClas>
+            </subject>
+            <abstract xml:lang="fi">Työelämän käytännöt 2012 -tutkimus on kansainvälisen MEADOW-konseptin mukainen tutkimushanke, jonka tavoitteena on koota kattavaa tietoa yritysten ja julkisyhteisöjen toiminnasta. Työntekijöille suunnatussa kyselyssä tutkimusaiheina ovat työpaikan ominaisuudet, muutokset ja niiden hyödyllisyys, työntekijän oma työnkuva, toimintamahdollisuudet, suhteet työyhteisöön ja hyvinvointi. MEADOW (Measuring the Dynamics of Organisation and Work) on EU:n rahoituksella kehitetty väline vertailukelpoisen tiedon tuottamiseksi työn ja organisaatioiden muutoksista sekä näiden taloudellisista ja sosiaalisista vaikutuksista eri EU-maissa. MEADOW:n erityispiirre on, että lähtökohtana on koota samoista organisaatioista sekä työnantajilta että työntekijöiltä monipuolisia tietoja, jotka voidaan yhdistää toisiinsa. Myös muissa Pohjoismaissa, kuten Norjassa, Ruotsissa ja Tanskassa, on hyödynnetty MEADOW-konseptia. Suomessa kerättyyn kyselyyn on liitetty kansallisia kysymyksiä (lisätietoa lomakkeiden välisistä eroista väliraportissa, kts. Käytön ja kuvailun oheismateriaalit). Työnantajien (FSD2955) ja työntekijöiden (FSD2954) aineistot ovat yhdistettävissä yritystiedon (kohdenro-muuttujan) avulla. Tämä aineisto sisältää työntekijöille suunnatun kyselyn tulokset. Kyselyn aluksi vastaajalta varmistetaan, että hän työskentelee edelleen vuoden 2010 rekisteritietoihin perustuvassa yrityksessä ja kysytään, missä ammatissa hän toimii tässä työpaikassa. Sitten vastaajalta tiedustellaan työn ominaisuuksia, kuten työsuhteen laatua, työn kielivaatimuksia, johtotehtäviä ja ryhmissä työskentelyä. Jos henkilö työskentelee tiimeissä, häneltä kysytään tarkemmin ryhmän ominaispiirteistä ja sen keskinäisestä vuorovaikutuksesta. Seuraavaksi vastaaja arvioi yrityksen tai organisaationsa toimintaa ja omaa työskentelyään työpaikalla. Häntä pyydetään antamaan kouluarvosana työpaikan ilmapiiriä ja toimivuutta kuvaaville termeille kuten henkilöstöstä ja oikeudenmukaisuudesta huolehtimiselle, luottamukselle ja yhteistyölle sekä innostukselle ja osaamiselle. Lisäksi vastaaja arvioi työnsä vaativuutta ja kiireisyyttä, häneltä kysytään esimerkiksi ylitöiden tekemisestä ja työajan ulkopuolella työskentelystä. Yrityksen toiminnan kahdesta viimeisimmästä vuodesta vastaajalta kysytään työpaikalla sinä aikana tapahtuneista muutoksista kuten, ovatko ne vaikuttaneet kielteisesti vai myönteisesti hänen työntekoon, ovatko ne olleet tarpeellisia ja onko hän tyytyväinen muutoksia koskevaan päätöksentekoon. Seuraavat kysymykset koskevat vastaajan tilannetta työssään tällä hetkellä. Häneltä tiedustellaan muun muassa työhön liittyviä vaikutusmahdollisuuksia, suoritusten arviointeja, työnantajan ja työntekijän suhdetta ja työtyytyväisyyttä. Vastaajalta kysytään myös hänen ammattitaidostaan ja sen hyödyntämismahdollisuuksista työssä sekä työhön liittyvästä koulutuksesta. Lisäksi vastaajalta kysytään työajoista ja käsityksiä oman työllisyyden varmuudesta, kuten onko työpaikalla irtisanottu kahden viime vuoden aikana työntekijöitä. Lopuksi vastaajalta kysytään hyvinvoinnista, kuten tunteeko itsensä vahvaksi ja tarmokkaaksi työssään, onko hänellä stressiä ja minkä arvosanan hän antaisi työkyvylleen. Aineistossa on useita taustamuuttujia, joista bv-alkuiset muuttujat tulevat rekisteristä. Taustamuuttujina ovat muun muassa sukupuoli, ikä, koulutus, ammatti, ansiotyövuodet, palkkausmuoto ja tulot.</abstract>
+            <abstract xml:lang="en">The survey studied organisational practices, organisational change, job characteristics, workplace relations and well-being at work in Finland from the employee perspective. The contents of the survey were influenced by the MEADOW (Measuring the Dynamics of Organisations and Work) tool created to collect data on change at work and in organisations at the European level, both from employers and employees. Another influence were the national MEADOW surveys in Sweden, Norway and Denmark. This dataset forms the Finnish employee-level MEADOW survey. However, the Finnish survey also includes some national questions. Data were collected from employees of the private and public sector organisations that had participated in the employer survey. Both employer (FSD2955) and employee (FSD2954) surveys have been archived and the data can be combined using the organisation number variable. First, the respondents were asked whether they still worked at the organisation in question and what their job was. Job characteristics were charted with questions on work contract, working hours, use of foreign languages at work, supervisory or management responsibilities, presence and nature of group or team work, team member influence. The respondents were asked to evaluate their workplace regarding a number of aspects, for instance, enthusiasm, competence, employee well-being, management, utilisation of staff ideas. Assistance received from supervisor, co-workers or clients in difficult or overload situations, targets set for the job, achieving these targets, and working to tight deadlines or at speed were charted. Further questions investigated how often the respondents worked at home, or worked or were contacted outside normal office hours. Changes in work organisation were studied with questions on what kind of changes had been done in the organisation in the past two years, including changes in task division, organisational structure, working methods or systems, whether these changes had had impact on the respondent's work tasks, job security, career, meaningfulness of job, workload or pay. The necessity of these changes and R's satisfaction with involvement in the change process were charted. Possibility to participate in decision-making regarding own duties, and performance appraisal and its consequences were studied as well as own image of and pride in the work. Other topics included level of educational achievement or prior work experience required for the job, requirements regarding learning new things, helping others with advice, participation in improving own work or developing new products or services, participation in training or education paid by the employer, and sufficiency of training regarding work duties. Working time questions investigated working time arrangements, shift work, own influence over shifts, and unpaid and paid overtime. Employment security was charted by asking about likelihood of losing the job. Satisfaction with working time arrangements, job security and pay as well as what kind of changes had happened in staff numbers in the past two years were studied. Finally, employee well-being was investigated with questions on positive feelings about work, overall job satisfaction, feelings of stress, days of absence, and self-perceived work capability. Background variable included R's gender, age, household composition, highest level of education attained, number of years in paid work after full-time study, pay type and level, and occupation.</abstract>
+            <sumDscr>
+                <collDate xml:lang="fi" date="2012-09-19" event="start"/>
+                <collDate xml:lang="fi" date="2012-12-19" event="end"/>
+                <collDate xml:lang="en" date="2012-09-19" event="start"/>
+                <collDate xml:lang="en" date="2012-12-19" event="end"/>
+                <nation xml:lang="fi" abbr="FI">Suomi</nation>
+                <nation xml:lang="en" abbr="FI">Finland</nation>
+                <geogCover xml:lang="fi">Suomi</geogCover>
+                <geogCover xml:lang="en">Finland</geogCover>
+                <anlyUnit xml:lang="fi">Henkilö
+                    <concept>Individual</concept>
+                </anlyUnit>
+                <anlyUnit xml:lang="en">Individual
+                    <concept>Individual</concept>
+                </anlyUnit>
+                <universe xml:lang="fi" clusion="I">Työnantajatutkimukseen (FSD2955) vastanneiden vähintään 10 henkilöä työllistävien organisaatioiden tai yritysten työntekijät, jotka ovat työskennelleet työpaikallaan vähintään puoli vuotta</universe>
+                <universe xml:lang="fi" clusion="E">maa- ja metsätalouden toimijat</universe>
+                <universe xml:lang="en" clusion="I">Employees of private companies and public sector organisations that had participated in the employer-level survey (FSD2955) and employ at least 10 persons (excluding agriculture and forestry organisations). Only the employees who had been working in the organisation for at least 6 months were included.</universe>
+                <dataKind xml:lang="fi">Kvantitatiivinen</dataKind>
+                <dataKind xml:lang="en">Quantitative</dataKind>
+            </sumDscr>
+        </stdyInfo>
+        <method>
+            <dataColl>
+                <timeMeth xml:lang="fi">Poikkileikkausaineisto
+                    <concept>CrossSection</concept>
+                </timeMeth>
+                <timeMeth xml:lang="en">Cross-section
+                    <concept>CrossSection</concept>
+                </timeMeth>
+                <collMode xml:lang="fi">Puhelinhaastattelu
+                    <concept/>
+                </collMode>
+                <collMode xml:lang="en">Telephone interview
+                    <concept/>
+                </collMode>
+            </dataColl>
+        </method>
+        <dataAccs>
+            <useStmt>
+                <restrctn xml:lang="fi">Aineisto on käytettävissä (B) tutkimukseen, opetukseen ja opiskeluun.</restrctn>
+                <restrctn xml:lang="en">The dataset is (B) available for research, teaching and study.</restrctn>
+                <citReq xml:lang="fi">Aineistoon ja sen tekijöihin tulee viitata asianmukaisesti kaikissa julkaisuissa ja esityksissä, joissa aineistoa käytetään. Tietoarkiston antaman malliviittaustiedon voi merkitä lähdeluetteloon sellaisenaan tai sitä voi muokata julkaisun käytäntöjen mukaisesti.</citReq>
+                <citReq xml:lang="en">The data and its creators shall be cited in all publications and presentations for which the data have been used. The bibliographic citation may be in the form suggested by the archive or in the form required by the publication.</citReq>
+                <deposReq xml:lang="fi">Tietoarkistoon on lähetettävä viitetiedot kaikista julkaisuista, joissa käyttäjä hyödyntää aineistoa.</deposReq>
+                <deposReq xml:lang="en">The user shall notify the archive of all publications where she or he has used the data.</deposReq>
+            </useStmt>
+        </dataAccs>
+        <othrStdyMat>
+            <relPubl xml:lang="fi">
+        Aho, Simo &amp; Mäkiaho, Ari (2013). Organisaatioiden ja työn dynamiikka työnantajien näkökulmasta. MEADOW-tutkimuksen I väliraportti. Helsinki: Tekesin katsaus; 299.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="fi"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="fi"/>
+                    </distStmt>
+                    <holdings xml:lang="fi"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="fi">
+        Aho, Simo &amp; Minkkinen, Jaana &amp; Mäkiaho, Ari (2013). Organisaatioiden ja työn dynamiikka työntekijöiden näkökulmasta. MEADOW-tutkimuksen II väliraportti. Helsinki: Tekesin katsaus; 300.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="fi"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="fi"/>
+                    </distStmt>
+                    <holdings xml:lang="fi"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="fi">
+        Aho, Simo &amp; Minkkinen, Jaana &amp; Mäkiaho, Ari (2014). Organisointikäytännöt, innovatiivisuus ja työhyvinvointi. Työnantaja- ja työntekijähaastatteluja yhdistävään MEADOW-aineistoon perustuva tutkimus. Helsinki: Tekesin katsaus; 310.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="fi"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="fi"/>
+                    </distStmt>
+                    <holdings xml:lang="fi"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="fi">
+        Aho, Susanna (2015). Henkilöstöjohtamisen ja työkuorman hallinnan yhteys organisaatiositoutumiseen suomalaisilla palkansaajilla. Turku: Turun yliopisto. Sosiologian pro gradu -tutkielma. http://urn.fi/URN:NBN:fi-fe2015120422150
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="fi"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="fi"/>
+                    </distStmt>
+                    <holdings xml:lang="fi"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="fi">
+        Alasoini, Tuomo &amp; Aho, Simo &amp; Minkkinen, Jaana &amp; Mäkiaho, Ari (2013). Organisaatioiden ja työn dynamiikka Suomessa - MEADOW-tutkimuksen välituloksia. Työpoliittinen aikakauskirja 57(4), 39 - 52.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="fi"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="fi"/>
+                    </distStmt>
+                    <holdings xml:lang="fi"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="fi">
+        Grönroos, Tanja (2015). Viekö työ mennessään? Korvatun ja korvauksettoman ylityön yhteys työn imuun. Turku: Turun yliopisto. Sosiaalitieteiden laitos. Sosiaalipolitiikan kandidaatintutkielma.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="fi"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="fi"/>
+                    </distStmt>
+                    <holdings xml:lang="fi"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="fi">
+        Lindström, Sara &amp; Janhonen, Minna (2015). Kasvuyritys työpaikkana. Kasvuyritysten ketterä henkilöstöjohtaminen - toimintamalleja pk-yrityksille (KetteräHR). Helsinki: Työterveyslaitos.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="fi"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="fi"/>
+                    </distStmt>
+                    <holdings xml:lang="fi"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="fi">
+        Lindström, Sara &amp; Janhonen, Minna (2015). Naisten ja miesten käsityksiä henkilöstöjohtamisesta, työhyvinvoinnista ja työn muutoksista kasvu- ja muissa yrityksissä. Helsinki: Työterveyslaitos.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="fi"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="fi"/>
+                    </distStmt>
+                    <holdings xml:lang="fi"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="fi">
+        Ogbonnaya, C. &amp; Messersmith, J. (2018) Employee performance, well-being, and differential effects of human resource management subdimensions: mutual gains or conflicting outcomes? Human Resource Management Journal. doi:10.1111/1748-8583.12203
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="fi"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="fi"/>
+                    </distStmt>
+                    <holdings xml:lang="fi"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="fi">
+        Rantanen Flores, Mirva (2017). Aineeton pääoma suomalaisissa työorganisaatioissa. Resursseja vai eriarvoisuutta? Tampere: Tampereen yliopisto. Yhteiskuntatutkimus. Sosiaalipsykologian kandidaatintutkielma.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="fi"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="fi"/>
+                    </distStmt>
+                    <holdings xml:lang="fi"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="fi">
+        Saari, Suvi (2022). Työntekijän aseman yhteys näkemyksiin työhyvinvoinnista ja oikeudenmukaisesta johtamisesta. Tampere: Tampereen yliopisto. Yhteiskuntatutkimuksen kandidaatintutkielma.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="fi"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="fi"/>
+                    </distStmt>
+                    <holdings xml:lang="fi"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="fi">
+        Voipio, Anssi (2015). Do high-involvement management practices enhance employees' innovative behavior? Helsinki: Aalto University School of Business. Department of Economics. Kansantaloustieteen pro gradu -tutkielma.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="fi"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="fi"/>
+                    </distStmt>
+                    <holdings xml:lang="fi"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="en">
+        Aho, Simo &amp; Mäkiaho, Ari (2013). Organisaatioiden ja työn dynamiikka työnantajien näkökulmasta. MEADOW-tutkimuksen I väliraportti. Helsinki: Tekesin katsaus; 299.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="en"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="en"/>
+                    </distStmt>
+                    <holdings xml:lang="en"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="en">
+        Aho, Simo &amp; Minkkinen, Jaana &amp; Mäkiaho, Ari (2013). Organisaatioiden ja työn dynamiikka työntekijöiden näkökulmasta. MEADOW-tutkimuksen II väliraportti. Helsinki: Tekesin katsaus; 300.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="en"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="en"/>
+                    </distStmt>
+                    <holdings xml:lang="en"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="en">
+        Aho, Simo &amp; Minkkinen, Jaana &amp; Mäkiaho, Ari (2014). Organisointikäytännöt, innovatiivisuus ja työhyvinvointi. Työnantaja- ja työntekijähaastatteluja yhdistävään MEADOW-aineistoon perustuva tutkimus. Helsinki: Tekesin katsaus; 310.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="en"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="en"/>
+                    </distStmt>
+                    <holdings xml:lang="en"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="en">
+        Aho, Susanna (2015). Henkilöstöjohtamisen ja työkuorman hallinnan yhteys organisaatiositoutumiseen suomalaisilla palkansaajilla. Turku: Turun yliopisto. Sosiologian pro gradu -tutkielma. http://urn.fi/URN:NBN:fi-fe2015120422150
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="en"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="en"/>
+                    </distStmt>
+                    <holdings xml:lang="en"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="en">
+        Alasoini, Tuomo &amp; Aho, Simo &amp; Minkkinen, Jaana &amp; Mäkiaho, Ari (2013). Organisaatioiden ja työn dynamiikka Suomessa - MEADOW-tutkimuksen välituloksia. Työpoliittinen aikakauskirja 57(4), 39 - 52.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="en"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="en"/>
+                    </distStmt>
+                    <holdings xml:lang="en"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="en">
+        Grönroos, Tanja (2015). Viekö työ mennessään? Korvatun ja korvauksettoman ylityön yhteys työn imuun. Turku: Turun yliopisto. Sosiaalitieteiden laitos. Sosiaalipolitiikan kandidaatintutkielma.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="en"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="en"/>
+                    </distStmt>
+                    <holdings xml:lang="en"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="en">
+        Lindström, Sara &amp; Janhonen, Minna (2015). Kasvuyritys työpaikkana. Kasvuyritysten ketterä henkilöstöjohtaminen - toimintamalleja pk-yrityksille (KetteräHR). Helsinki: Työterveyslaitos.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="en"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="en"/>
+                    </distStmt>
+                    <holdings xml:lang="en"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="en">
+        Lindström, Sara &amp; Janhonen, Minna (2015). Naisten ja miesten käsityksiä henkilöstöjohtamisesta, työhyvinvoinnista ja työn muutoksista kasvu- ja muissa yrityksissä. Helsinki: Työterveyslaitos.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="en"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="en"/>
+                    </distStmt>
+                    <holdings xml:lang="en"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="en">
+        Ogbonnaya, C. &amp; Messersmith, J. (2018) Employee performance, well-being, and differential effects of human resource management subdimensions: mutual gains or conflicting outcomes? Human Resource Management Journal. doi:10.1111/1748-8583.12203
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="en"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="en"/>
+                    </distStmt>
+                    <holdings xml:lang="en"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="en">
+        Rantanen Flores, Mirva (2017). Aineeton pääoma suomalaisissa työorganisaatioissa. Resursseja vai eriarvoisuutta? Tampere: Tampereen yliopisto. Yhteiskuntatutkimus. Sosiaalipsykologian kandidaatintutkielma.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="en"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="en"/>
+                    </distStmt>
+                    <holdings xml:lang="en"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="en">
+        Saari, Suvi (2022). Työntekijän aseman yhteys näkemyksiin työhyvinvoinnista ja oikeudenmukaisesta johtamisesta. Tampere: Tampereen yliopisto. Yhteiskuntatutkimuksen kandidaatintutkielma.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="en"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="en"/>
+                    </distStmt>
+                    <holdings xml:lang="en"/>
+                </citation>
+            </relPubl>
+            <relPubl xml:lang="en">
+        Voipio, Anssi (2015). Do high-involvement management practices enhance employees' innovative behavior? Helsinki: Aalto University School of Business. Department of Economics. Kansantaloustieteen pro gradu -tutkielma.
+        
+                <citation>
+                    <titlStmt>
+                        <titl xml:lang="en"/>
+                    </titlStmt>
+                    <distStmt>
+                        <distDate xml:lang="en"/>
+                    </distStmt>
+                    <holdings xml:lang="en"/>
+                </citation>
+            </relPubl>
+        </othrStdyMat>
+    </stdyDscr>
+    <fileDscr>
+        <fileTxt>
+            <fileName xml:lang="fi">daF2954.por</fileName>
+        </fileTxt>
+        <fileTxt>
+            <fileName xml:lang="en">daF2954e.por</fileName>
+        </fileTxt>
+    </fileDscr>
+</codeBook>
