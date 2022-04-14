@@ -1,11 +1,11 @@
 DDI-XSLT
 ========
 
-This is a collection of xslt-stylesheets for DDI for transformation the metadata to other formats.
+DDI-XSLT is a collection of xslt-stylesheets for transformation of DDI XML to other formats.
 
 ## Online demo
 
-[Test the XSLT:s using examples](dev/demo/)
+[Test some of the transformations online](https://metadatatransform.github.io/ddi-xslt/dev/demo/)
 
 ## Development
 
