@@ -8,54 +8,50 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>"/>
   <script src="js/SaxonJS2.js"></script>
   <script src="https://unpkg.com/vue@3"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
   <style>
-    body{
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
-    select{
-      width:98.5%;
-    }
-    #result, #input{
-      width: 98%;
-      height:50%;
-      font-family: 'Courier New', Courier, monospace;
-    }
 
-    #transform{
-      width: 100%;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-    }
   </style>
+
 </head>
 
 <body>
-  <h2>DDI-XSLT demo</h2>
-  <section id="app">
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+      <header class="inner">
+        <a id="forkme_banner" href="https://github.com/MetadataTransform/ddi-xslt">View on GitHub</a>
 
-    <fieldset>
-      <legend for="input">Input XML</legend>
-      <select @change="onXmlChange($event)" v-model="selectedXml">
-        <option v-for="o in xmlList" v-bind:value="o.path">{{ o.label }}</option>
-      </select>
-      <textarea id="input" v-model="input" rows="20" spellcheck="false" placeholder="DDI XML input"></textarea>
-    </fieldset>
+        <h1 id="project_title"><a href="https://metadatatransform.github.io/ddi-xslt/">ddi-xslt</a></h1>
+        <h2 id="project_tagline">XSLT transformations for DDI XML-files to other formats</h2>
+      </header>
+  </div>
 
-    <fieldset>
-      <legend>Transformation</legend>
-      <select id="xslt" @change="onXsltChange($event)" v-model="selectedXslt">
-        <option v-for="o in xsltList" v-bind:value="o.path">{{ o.label }}</option>
-      </select>
-    </fieldset>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>DDI-XSLT demo</h2>
+        <fieldset>
+          <legend for="input">Input XML</legend>
+          <select @change="onXmlChange($event)" v-model="selectedXml">
+            <option v-for="o in xmlList" v-bind:value="o.path">{{ o.label }}</option>
+          </select>
+          <textarea id="input" v-model="input" rows="20" spellcheck="false" placeholder="DDI XML input"></textarea>
+        </fieldset>
 
-    
-    <button id="transform" v-on:click="transform" :disabled="transformationEnabled">Transform XML</button>
-    <fieldset>
-      <legend for="result">Result</legend>
-      <textarea id="result" v-model="result" rows="30" spellcheck="false" placeholder="XSLT trasformation result"></textarea>
-    </fieldset>
-  </section>
+        <fieldset>
+          <legend>Transformation</legend>
+          <select id="xslt" @change="onXsltChange($event)" v-model="selectedXslt">
+            <option v-for="o in xsltList" v-bind:value="o.path">{{ o.label }}</option>
+          </select>
+        </fieldset>
 
+        <button id="transform" class="button" v-on:click="transform" :disabled="transformationEnabled">Transform XML</button>
+        <fieldset>
+          <legend for="result">Result</legend>
+          <textarea id="result" v-model="result" rows="30" spellcheck="false" placeholder="XSLT trasformation result"></textarea>
+        </fieldset>
+    </section>
+  </div>
   <script>
     Vue.createApp({
       data() {
@@ -146,7 +142,7 @@
           });
         }
       }
-    }).mount('#app')
+    }).mount('#main_content')
   </script>
 </body>
 
