@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DDI-XSLT demo</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>"/>
+  <script src="js/SaxonJS2.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <style>
+    body{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    select{
+      width:98.5%;
+    }
+    #result, #input{
+      width: 98%;
+      height:50%;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    #transform{
+      width: 100%;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>DDI-XSLT demo</h2>
+  <section id="app">
+
+    <fieldset>
+      <legend for="input">Input XML</legend>
+      <select>
+        <option v-for="o in xmlList" v-bind:value="o.path">{{ o.label }}</option>
+      </select>
+      <textarea id="input" v-model="input" rows="20" spellcheck="false" placeholder="DDI XML input"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Transformation</legend>
+      <select id="xslt" @change="onXsltChange($event)" v-model="selectedXslt">
+        <option v-for="o in xsltList" v-bind:value="o.path">{{ o.label }}</option>
+      </select>
+    </fieldset>
+
+    
+    <button id="transform" v-on:click="transform" :disabled="trasoformationEnabled">Transform XML</button>
+    <fieldset>
+      <legend for="result">Result</legend>
+      <textarea id="result" v-model="result" rows="30" spellcheck="false" placeholder="XSLT trasformation result"></textarea>
+    </fieldset>
+  </section>
+
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          xsltList: [
+            {
+              label: 'DDI 2.5 to schema.org (json-ld)',
+              path: '../../transformations/schema.org/from-ddi-2.5/ddi_2_5-schema.org.json-ld.xslt'
+            },
+            {
+              label: 'DDI 2.5 to dcat-ap',
+              path: '../../transformations/dcat-ap/from-ddi-2.5/ddi_2_5-dcat-ap.xslt'
+            },
+            {
+              label: 'DDI 2.5 to DataCite 4.4',
+              path: '../../transformations/datacite/from-ddi-2.5/ddi_2_5-datacite_4_4.xslt'
+            },
+            {
+              label: 'DDI 2.5 to dcterms',
+              path: '../../transformations/dcterms/from-ddi-2.5/ddi_2_5-dcterms.xslt'
+            },
+            {
+              label: 'DDI 2.5 to MetaShare',
+              path: '../../transformations/meta-share/from-ddi-2.5/ddi_2_5-metashare.xslt'
+            },
+          ],
+          xmlList:[
+            {
+              label: 'DDI 2.5 - ECDS0146',
+              path: '../../examples/ddi-2.5/ecds0146.xml'
+            },
+            {
+              label: 'DDI 2.5 - FSD2954',
+              path: '../../examples/ddi-2.5/FSD2954.xml'
+            }
+          ],
+          selectedXslt: null,
+          inputPath: '../../examples/ddi-2.5/ecds0146.xml',
+          xsltPath: '',
+          input: '',
+          xslt: '',
+          result: ''
+        }
+      },
+      mounted() {
+        this.selectedXslt = this.xsltList[0].path;
+        this.getRemoteInput();
+        this.getRemoteXslt();
+      },
+      computed: {
+        trasoformationEnabled(){
+          return this.input == '' || this.xslt == '';
+        }
+      },
+      methods: {
+        onXsltChange(event){
+          this.getRemoteXslt();
+        },
+        getRemoteInput(){
+          fetch(this.inputPath)
+          .then(response => response.text())
+          .then(data => {
+            this.input = data;
+          });
+        },
+        getRemoteXslt(){
+          fetch(this.selectedXslt)
+          .then(response => response.text())
+          .then(data => {
+            this.xslt = data;
+          });
+        },
+        transform(){
+          this.result = SaxonJS.XPath.evaluate(`transform(map { 'source-node' : parse-xml($xml), 'stylesheet-text' : $xslt, 'delivery-format' : 'serialized' })?output`, null, { 
+            params : { 
+              'xml' : this.input, 
+              'xslt' : this.xslt 
+            } 
+          });
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>
