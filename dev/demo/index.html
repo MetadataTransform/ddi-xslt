@@ -32,7 +32,8 @@
         <h2>DDI-XSLT demo</h2>
         <fieldset>
           <legend for="input">Input XML</legend>
-          <select @change="onXmlChange($event)" v-model="selectedXml">
+          <label for="xml_examples">Load example XML: </label>
+          <select id="xml_examples" @change="onXmlChange($event)" v-model="selectedXml">
             <option v-for="o in xmlList" v-bind:value="o.path">{{ o.label }}</option>
           </select>
           <textarea id="input" v-model="input" rows="20" spellcheck="false" placeholder="DDI XML input"></textarea>
@@ -80,6 +81,10 @@
           ],
           xmlList:[
             {
+              label: 'Select example XML',
+              path: null
+            },
+            {
               label: 'DDI 2.5 - ECDS0146',
               path: '../../examples/ddi-2.5/ecds0146.xml'
             },
@@ -118,12 +123,14 @@
           this.getRemoteXml();
         },
         getRemoteXml(){
-          fetch(this.selectedXml)
-          .then(response => response.text())
-          .then(data => {
-            this.input = data;
-            this.transform();
-          });
+          if(this.selectedXml != null){
+            fetch(this.selectedXml)
+            .then(response => response.text())
+            .then(data => {
+              this.input = data;
+              this.transform();
+            });
+          }
         },
         getRemoteXslt(){
           fetch(this.selectedXslt)

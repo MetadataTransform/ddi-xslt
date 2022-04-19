@@ -4,6 +4,11 @@ body{
 select{
     width:99%;
 }
+
+#xml_examples {
+    width: 10rem
+}
+
 #result, #input{
     width: 98%;
     height:50%;
@@ -28,6 +33,11 @@ select{
     cursor: pointer;
     transition-duration: 0.4s;
     font-weight: bold;
+}
+
+fieldset{
+    border-color: lightgray;
+    border-radius: 5px;
 }
 
 .button:hover {
@@ -364,7 +374,6 @@ dd,
 ol,
 ul,
 li,
-fieldset,
 form,
 label,
 legend,
