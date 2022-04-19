@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DDI-XSLT demo</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>"/>
+  <script src="js/SaxonJS2.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+      <header class="inner">
+        <a id="forkme_banner" href="https://github.com/MetadataTransform/ddi-xslt">View on GitHub</a>
+
+        <h1 id="project_title"><a href="https://metadatatransform.github.io/ddi-xslt/">ddi-xslt</a></h1>
+        <h2 id="project_tagline">XSLT transformations for DDI XML-files to other formats</h2>
+      </header>
+  </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>DDI-XSLT demo</h2>
+        <fieldset>
+          <legend for="input">Input XML</legend>
+          <select @change="onXmlChange($event)" v-model="selectedXml">
+            <option v-for="o in xmlList" v-bind:value="o.path">{{ o.label }}</option>
+          </select>
+          <textarea id="input" v-model="input" rows="20" spellcheck="false" placeholder="DDI XML input"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>Transformation</legend>
+          <select id="xslt" @change="onXsltChange($event)" v-model="selectedXslt">
+            <option v-for="o in xsltList" v-bind:value="o.path">{{ o.label }}</option>
+          </select>
+        </fieldset>
+
+        <button id="transform" class="button" v-on:click="transform" :disabled="transformationEnabled">Transform XML</button>
+        <fieldset>
+          <legend for="result">Result</legend>
+          <textarea id="result" v-model="result" rows="30" spellcheck="false" placeholder="XSLT trasformation result"></textarea>
+        </fieldset>
+    </section>
+  </div>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          xsltList: [
+            {
+              label: 'DDI 2.5 to schema.org (json-ld)',
+              path: '../../transformations/schema.org/from-ddi-2.5/ddi_2_5-schema.org.json-ld.xslt'
+            },
+            {
+              label: 'DDI 2.5 to dcat-ap',
+              path: '../../transformations/dcat-ap/from-ddi-2.5/ddi_2_5-dcat-ap.xslt'
+            },
+            {
+              label: 'DDI 2.5 to DataCite 4.4',
+              path: '../../transformations/datacite/from-ddi-2.5/ddi_2_5-datacite_4_4.xslt'
+            },
+            {
+              label: 'DDI 2.5 to dcterms',
+              path: '../../transformations/dcterms/from-ddi-2.5/ddi_2_5-dcterms.xslt'
+            },
+            {
+              label: 'DDI 2.5 to MetaShare',
+              path: '../../transformations/meta-share/from-ddi-2.5/ddi_2_5-metashare.xslt'
+            },
+          ],
+          xmlList:[
+            {
+              label: 'DDI 2.5 - ECDS0146',
+              path: '../../examples/ddi-2.5/ecds0146.xml'
+            },
+            {
+              label: 'DDI 2.5 - FSD2954',
+              path: '../../examples/ddi-2.5/FSD2954.xml'
+            },
+            {
+              label: 'DDI 2.5 - 4194 Cohorte blessures scolaires (en)',
+              path: '../../examples/ddi-2.5/4194_Cohorte_blessures_scolaires_en_2_5.xml'
+            }
+          ],
+          selectedXslt: null,
+          selectedXml: null,
+          input: '',
+          xslt: '',
+          result: ''
+        }
+      },
+      mounted() {
+        this.selectedXslt = this.xsltList[0].path;
+        this.selectedXml = this.xmlList[0].path;
+        this.getRemoteXml();
+        this.getRemoteXslt();
+      },
+      computed: {
+        transformationEnabled(){
+          return this.input == '' || this.xslt == '';
+        }
+      },
+      methods: {
+        onXsltChange(event){
+          this.getRemoteXslt();
+        },
+        onXmlChange(event){
+          this.getRemoteXml();
+        },
+        getRemoteXml(){
+          fetch(this.selectedXml)
+          .then(response => response.text())
+          .then(data => {
+            this.input = data;
+            this.transform();
+          });
+        },
+        getRemoteXslt(){
+          fetch(this.selectedXslt)
+          .then(response => response.text())
+          .then(data => {
+            this.xslt = data;
+            this.transform();
+          });
+        },
+        transform(){
+          this.result = SaxonJS.XPath.evaluate(`transform(map { 'source-node' : parse-xml($xml), 'stylesheet-text' : $xslt, 'delivery-format' : 'serialized' })?output`, null, { 
+            params : { 
+              'xml' : this.input, 
+              'xslt' : this.xslt 
+            } 
+          });
+        }
+      }
+    }).mount('#main_content')
+  </script>
+</body>
+
+</html>
