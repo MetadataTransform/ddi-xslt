@@ -57,6 +57,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 <!--progress:
     id     | ddi2.5                     | dcat-ap-se
     ==================================================================
+    0       Document (metadata) Producer  dcat:Dataset/dcterms:publisher
     1       Title                         dcat:Dataset/dcterms:title
     2       Identification Number         dcat:Dataset/dcterms:identifier
     3       Authoring Entity              dcat:Dataset/dcterms:creator
@@ -120,6 +121,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         <xsl:namespace name="dcterms">http://purl.org/dc/terms/</xsl:namespace>
         <xsl:namespace name="odrs">http://schema.theodi.org/odrs</xsl:namespace>
         <xsl:namespace name="dc">http://purl.org/dc/elements/1.1</xsl:namespace>
+        <xsl:namespace name="locn">http://www.w3.org/ns/locn#</xsl:namespace>
 
         <xsl:apply-templates select="//c:stdyDscr" />
       </rdf:RDF>
@@ -127,35 +129,21 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
     <xsl:template match="c:stdyDscr">
       <dcat:Dataset rdf:about="{meta:getRootIdentifier()}">
-      <!-- 1       Title -->
-        <xsl:for-each select="c:citation/c:titlStmt/c:titl">
-          <dcterms:title>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-          </dcterms:title>
-        </xsl:for-each>
-      <!-- 2       Identification Number -->
-        <xsl:for-each select="c:citation/c:titlStmt/c:IDNo">
-          <dcterms:identifier>
-            <xsl:value-of select="." />
-          </dcterms:identifier>
-        </xsl:for-each>
-      <!-- 3       Authoring Entity -->
-        <xsl:if test="c:citation/c:rspStmt/c:AuthEnty">
-          <dcterms:creator>
-            <!-- DCAT-AP-SE accepts just one creator https://docs.dataportal.se/dcat/en/#dcat_Dataset-dcterms_creator -->
-            <xsl:variable name="creator"><xsl:value-of select="c:citation/c:rspStmt/c:AuthEnty[1]" /></xsl:variable>
-            <foaf:name><xsl:value-of select="$creator" /></foaf:name>
-          </dcterms:creator>
-        </xsl:if>
-      <!-- 4       Other Identifications -->
+        <!-- 1       Title -->
+        <xsl:copy-of select="meta:mapLiteral('dcterms:title', c:citation/c:titlStmt/c:titl, null, null)" />
+        <!-- 2       Identification Number -->
+        <xsl:copy-of select="meta:mapLiteral('dcterms:identifier', c:citation/c:titlStmt/c:IDNo, null, null)" />
+        <!-- 3       Authoring Entity -->
+        <!-- DCAT-AP-SE accepts just one creator https://docs.dataportal.se/dcat/en/#dcat_Dataset-dcterms_creator -->
+        <xsl:copy-of select="meta:mapLiteral('dcterms:creator', c:citation/c:rspStmt/c:AuthEnty[1], null, null)" />
+        <!-- 4       Other Identifications -->
         <xsl:for-each select="c:citation/c:rspStmt/c:othId">
           <prov:qualifiedAttribution>
             <xsl:variable name="priInvest">http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/principalInvestigator</xsl:variable>
             <prov:Attribution>
               <dcat:hadRole>
                 <xsl:value-of select="$priInvest" />
-              </dcat:hadRole>l
+              </dcat:hadRole>
               <prov:agent>
                 <xsl:value-of select="." />
               </prov:agent> 
@@ -163,15 +151,12 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </prov:Attribution>
           </prov:qualifiedAttribution>
         </xsl:for-each>
-      <!-- 5       Producer -->
-        <xsl:if test="c:citation/c:prodStmt/c:producer">
-          <dcterms:publisher>
-            <dcterms:agent>
-              <xsl:value-of select="c:citation/c:prodStmt/c:producer" />
-            </dcterms:agent>
-          </dcterms:publisher>
-        </xsl:if>
-      <!-- 7       Funding Agency -->
+        <!-- 0       Document (metadata) Producer -->
+        <!-- 5       Producer -->
+        <dcterms:publisher>
+          <xsl:copy-of select="meta:mapLiteral('dcterms:agent', c:citation/c:prodStmt/c:producer, null, null)" />
+        </dcterms:publisher>
+        <!-- 7       Funding Agency -->
         <xsl:for-each select="c:citation/c:prodStmt/c:fundAg">
           <xsl:variable name="priInvest">http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/principalInvestigator</xsl:variable> 
           <prov:qualifiedAttribution>
@@ -189,80 +174,28 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </prov:Attribution>
           </prov:qualifiedAttribution>
         </xsl:for-each>
-      <!-- 10      Contact Persons -->
-        <xsl:for-each select="c:citation/c:distStmt/contact">
-          <dcat:contactPoint>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-          </dcat:contactPoint>
-        </xsl:for-each>
-      <!-- 11      Date of Distribution -->
-        <xsl:if test="c:citation/c:distStmt/c:distDate">
-          <dcterms:issued>
-          <xsl:variable name="rdfdt">http://www.w3.org/2001/XMLSchema#dateTime</xsl:variable>
-            <xsl:attribute name="rdf:datatype">
-              <xsl:value-of select="$rdfdt"/>
-            </xsl:attribute>
-            <xsl:value-of select="c:citation/c:distStmt/c:distDate" />
-          </dcterms:issued>
-        </xsl:if>
-      <!-- 12      Version -->
-        <xsl:if test="c:citation/c:verStmt/c:version">
-          <owl:versionInfo>
-            <xsl:value-of select="c:citation/c:verStmt/c:version" />
-          </owl:versionInfo>
-        </xsl:if>
-      <!-- 13      Version date -->
-        <xsl:if test="c:citation/c:verStmt/c:version/@date">
-          <dcterms:modified>
-            <xsl:value-of select="c:citation/c:verStmt/c:version/@date" />
-          </dcterms:modified>
-        </xsl:if>
-        <xsl:if test="c:citation/c:distStmt/c:distDate">
-          <dcterms:modified>
-            <xsl:variable name="rdfdt">http://www.w3.org/2001/XMLSchema#dateTime</xsl:variable>
-            <xsl:attribute name="rdf:datatype">
-              <xsl:value-of select="$rdfdt"/>
-            </xsl:attribute>
-            <xsl:value-of select="c:citation/c:distStmt/c:distDate" />
-          </dcterms:modified>
-        </xsl:if>
-      <!-- 14      Version Notes and comments -->
-        <xsl:for-each select="c:citation/c:verStmt/c:notes">
-          <adms:versionNotes>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-          </adms:versionNotes>
-        </xsl:for-each>
-      <!-- 15      URI -->
-        <xsl:for-each select="c:dataAccs/c:holdings/@URI">
-          <dcat:landingPage>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:attribute name = "rdf:resource" select="." />
-          </dcat:landingPage>
-        </xsl:for-each>
-      <!-- 16      Keywords -->
-        <xsl:for-each select="c:stdyInfo/c:subject/c:keyword">
-          <dcat:keyword>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-          </dcat:keyword>
-        </xsl:for-each>
-      <!-- 17      Topic Classification (R) -->
-        <xsl:for-each select="c:stdyInfo/c:subject/c:topcClas">
-          <dcat:theme>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-          </dcat:theme>
-        </xsl:for-each>
-      <!-- 18      Abstract (R) -->
-        <xsl:for-each select="c:stdyInfo/c:abstract">
-          <dcterms:description>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />        
-          </dcterms:description>
-        </xsl:for-each>
-      <!-- 19      Time Period Covered -->
+        <!-- 10      Contact Persons -->
+        <xsl:copy-of select="meta:mapLiteral('dcat:contactPoint', c:citation/c:distStmt/c:contact, null, null)" />
+        <!-- 11      Date of Distribution -->
+        <xsl:variable name="rdfdt">http://www.w3.org/2001/XMLSchema#dateTime</xsl:variable>
+        <xsl:copy-of select="meta:mapLiteral('dcterms:issued', c:citation/c:distStmt/c:distDate, 'rdf:datatype', $rdfdt)" />
+        <!-- 12      Version -->
+        <xsl:copy-of select="meta:mapLiteral('owl:versionInfo', c:citation/c:verStmt/c:version, null, null)" />
+        <!-- 13      Version date -->
+        <xsl:copy-of select="meta:mapLiteral('dcterms:modified', c:citation/c:verStmt/c:version/@date, null, null)" />
+        <xsl:copy-of select="meta:mapLiteral('dcterms:modified', c:citation/c:distStmt/c:distDate, 'rdf:datatype', $rdfdt)" />
+        <!-- 14      Version Notes and comments -->
+        <xsl:copy-of select="meta:mapLiteral('adms:versionNotes', c:citation/c:verStmt/c:notes, null, null)" />
+        <!-- 15      URI -->
+        <xsl:variable name="rdfres"><xsl:value-of select="c:citation/c:holdings/@URI" /></xsl:variable>
+        <xsl:copy-of select="meta:mapLiteral('dcat:landingPage', c:citation/c:holdings/@URI, 'rdf:resource', $rdfres)" />
+        <!-- 16      Keywords -->
+        <xsl:copy-of select="meta:mapLiteral('dcat:keyword', c:stdyInfo/c:subject/c:keyword, null, null)" />
+        <!-- 17      Topic Classification -->
+        <xsl:copy-of select="meta:mapLiteral('dcat:theme', c:stdyInfo/c:subject/c:topcClas, null, null)" />
+        <!-- 18      Abstract -->
+        <xsl:copy-of select="meta:mapLiteral('dcterms:description', c:stdyInfo/c:abstract, null, null)" />
+        <!-- 19      Time Period Covered -->
         <xsl:for-each select="c:stdyInfo/c:sumDscr/c:timePrd">
           <dcterms:temporal>
             <dcterms:PeriodOfTime>
@@ -302,48 +235,25 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </dcterms:PeriodOfTime>
           </dcterms:temporal>
         </xsl:for-each>
-      <!-- 20      Country -->
-      <!-- 21      Geographic Coverage -->
-        <xsl:for-each select="c:stdyInfo/c:sumDscr/c:nation|c:stdyInfo/c:sumDscr/c:geogCover">
-          <dcterms:spatial>
-            <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-            <xsl:value-of select="." />
-          </dcterms:spatial>
-        </xsl:for-each>
-      <!-- 22      Geographic Bounding Box -->
-      <!-- 23      Geographic Bounding Polygon -->
-        <xsl:if test="c:stdyInfo/c:sumDscr/c:geoBndBox|c:stdyInfo/c:sumDscr/c:boundPoly">
-          <dcterms:Location>
-            <xsl:for-each select="c:stdyInfo/c:sumDscr/c:geoBndBox/child::*">
-              <dcat:bbox>
-                <xsl:value-of select="." />
-              </dcat:bbox>
-            </xsl:for-each>          
-            <xsl:for-each select="c:stdyInfo/c:sumDscr/c:boundPoly/c:polygon/c:point/child::*">
-              <locn:geometry>
-                <xsl:value-of select="." />
-              </locn:geometry>
-            </xsl:for-each>
-          </dcterms:Location>
-        </xsl:if>
-      <!-- 24      Frequency of Data Collection -->
-        <xsl:if test="c:method/c:dataColl/c:frequenc">
-          <dcterms:accrualPeriodicity>
-            <xsl:value-of select="c:method/c:dataColl/c:frequenc" />
-          </dcterms:accrualPeriodicity>
-        </xsl:if>
-      <!-- 25      Sources Statement -->
-        <xsl:for-each select="c:method/c:dataColl/c:sources/child::*">
-          <dcterms:source>
-            <xsl:attribute name = "rdf:resource" select="." />
-          </dcterms:source>
-        </xsl:for-each>
-      <!-- 27      Availability Status -->
-      <!-- 28      Confidentiality Declaration -->
-      <!-- 29      Special Permissions -->
-      <!-- 30      Restrictions -->
-      <!-- 31      Conditions -->
-      <!-- 32      Disclaimer -->
+        <!-- 20      Country -->
+        <!-- 21      Geographic Coverage -->
+        <xsl:copy-of select="meta:mapLiteral('dcterms:spatial', c:stdyInfo/c:sumDscr/c:nation|c:stdyInfo/c:sumDscr/c:geogCover, null, null)" />
+        <!-- 22      Geographic Bounding Box -->
+        <!-- 23      Geographic Bounding Polygon -->
+        <dcterms:Location>
+          <xsl:copy-of select="meta:mapLiteral('dcat:bbox', c:stdyInfo/c:sumDscr/c:geoBndBox/child::*, null, null)" />
+          <xsl:copy-of select="meta:mapLiteral('locn:geometry', c:stdyInfo/c:sumDscr/c:boundPoly/c:polygon/c:point/child::*, null, null)" />
+        </dcterms:Location>
+        <!-- 24      Frequency of Data Collection -->
+        <xsl:copy-of select="meta:mapLiteral('dcterms:accrualPeriodicity', c:method/c:dataColl/c:frequenc, null, null)" />
+        <!-- 25      Sources Statement -->
+        <xsl:copy-of select="meta:mapLiteral('rdf:resource', c:method/c:dataColl/c:sources/child::*, null, null)" />
+        <!-- 27      Availability Status -->
+        <!-- 28      Confidentiality Declaration -->
+        <!-- 29      Special Permissions -->
+        <!-- 30      Restrictions -->
+        <!-- 31      Conditions -->
+        <!-- 32      Disclaimer -->
         <xsl:for-each select="$main-root/c:dataAccs/c:useStmt/c:restrctn|$main-root/c:dataAccs/c:useStmt/c:specPerm
                                               |$main-root/c:dataAccs/c:useStmt/c:confDec|c:dataAccs/c:setAvail/c:avlStatus
                                               |$main-root/c:dataAccs/c:useStmt/c:conditions|$main-root/c:dataAccs/c:useStmt/c:disclaimer" >
@@ -368,53 +278,27 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
             </xsl:otherwise>
           </xsl:choose>
         </xsl:for-each>
-      <!-- 33      Related Materials -->
-        <xsl:for-each select="c:othrStdyMat/c:relMat/descendant-or-self::*">
-          <foaf:page>
-            <xsl:value-of select="." />
-          </foaf:page>
-        </xsl:for-each>
-      <!-- 34      Related Studies -->
-        <xsl:for-each select="c:othrStdyMat/c:relStdy/descendant-or-self::*">
-          <dcat:qualifiedRelation>
-            <xsl:value-of select="." />
-          </dcat:qualifiedRelation>
-        </xsl:for-each>        
+        <!-- 33      Related Materials -->
+        <xsl:copy-of select="meta:mapLiteral('foaf:page', c:othrStdyMat/c:relMat/descendant-or-self::*, null, null)" />
+        <!-- 34      Related Studies -->
+        <xsl:copy-of select="meta:mapLiteral('dcat:qualifiedRelation', c:othrStdyMat/c:relStdy/descendant-or-self::*, null, null)" />      
       </dcat:Dataset>
-
       <dcat:Distribution>
-      <!-- 6       Copyright (R) -->
-        <xsl:for-each select="c:citation/c:prodStmt/c:copyright">
-          <dcterms:rights>
-            <odrs:RightsStatement>
-              <odrs:attributionText>
-                <xsl:if test="@xml:lang"><xsl:attribute name="xml:lang" select="@xml:lang"/></xsl:if>
-                <xsl:value-of select="." />  
-              </odrs:attributionText>              
-            </odrs:RightsStatement>
-          </dcterms:rights>
-        </xsl:for-each>
-      <!-- 8       Distributor -->
+        <!-- 6       Copyright -->
+        <dcterms:rights>
+          <odrs:RightsStatement>
+            <xsl:copy-of select="meta:mapLiteral('odrs:attributionText', c:citation/c:prodStmt/c:copyright, null, null)" />
+          </odrs:RightsStatement>
+        </dcterms:rights>
+        <!-- 8       Distributor -->
         <!-- The following ensures that just one URL is selected according to DCAT-AP-SE 2.0 definition -->
-        <xsl:for-each select="c:citation/c:distStmt/c:distrbtr[1]">
-          <dcat:accessService>
-            <xsl:attribute name = "rdf:resource" select= "." />
-          </dcat:accessService> 
-        </xsl:for-each>
-      <!-- 9       URI -->
+        <xsl:copy-of select="meta:mapLiteral('dcat:accessService', c:citation/c:distStmt/c:distrbtr[1], 'rdf:resource', c:citation/c:distStmt/c:distrbtr[1])" />
+        <!-- 9       URI -->
         <!-- The following ensures that just one URL is selected according to DCAT-AP-SE 2.0 definition -->
-        <xsl:for-each select="c:citation/c:holdings/@URI">
-          <dcat:accessURL>
-            <xsl:attribute name = "rdf:resource" select= "." />
-          </dcat:accessURL> 
-        </xsl:for-each>
+        <xsl:copy-of select="meta:mapLiteral('dcat:accessURL', c:citation/c:holdings/@URI, 'rdf:resource', c:citation/c:holdings/@URI)" />
       </dcat:Distribution>
-    <!-- 26      URI -->
-      <xsl:if test="c:dataAccs/c:setAvail/c:accsPlac/@URI">
-        <dcat:endPointURL>
-          <xsl:value-of select= "c:dataAccs/c:setAvail/c:accsPlac/@URI"/>
-        </dcat:endPointURL>
-      </xsl:if>
+      <!-- 26      URI -->
+      <xsl:copy-of select="meta:mapLiteral('dcat:endPointURL', c:dataAccs/c:setAvail/c:accsPlac/@URI, null, null)" />
     </xsl:template>
 
     <xsl:function name="meta:getRootIdentifier">
@@ -424,5 +308,19 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
         </xsl:when>
       </xsl:choose>
     </xsl:function>
-
+    <xsl:function name="meta:mapLiteral">
+    <xsl:param name="element" />
+    <xsl:param name="content" />
+    <xsl:param name="attribute" />
+    <xsl:param name="attribValue" />
+      <xsl:for-each select="$content">
+          <xsl:element name="{$element}">
+          <xsl:copy-of select="@xml:lang" />
+          <xsl:if test="$attribute!='null'">
+          <xsl:attribute name="{$attribute}"><xsl:value-of select= "$attribValue" /></xsl:attribute>
+          </xsl:if>
+          <xsl:value-of select ="." />
+          </xsl:element>
+      </xsl:for-each> 
+    </xsl:function>
 </xsl:stylesheet>
