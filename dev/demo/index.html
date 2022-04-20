@@ -36,7 +36,7 @@
           <select id="xml_examples" @change="onXmlChange($event)" v-model="selectedXml">
             <option v-for="o in xmlList" v-bind:value="o.path">{{ o.label }}</option>
           </select>
-          <textarea id="input" v-model="input" rows="20" spellcheck="false" placeholder="DDI XML input"></textarea>
+          <textarea id="input" v-model="input" rows="20" spellcheck="false" :ondrop="onDrop" placeholder="Drop/paste DDI-file here or select a example from the list"></textarea>
         </fieldset>
 
         <fieldset>
@@ -125,6 +125,18 @@
         },
         onXmlChange(event){
           this.getRemoteXml();
+        },
+        onDrop(event){
+          event.preventDefault();
+          var file = event.dataTransfer.files[0];
+          var reader = new FileReader();
+          var ref = this;
+          reader.onload = function(e) {
+            ref.input = e.target.result;
+            ref.transform();
+          }
+
+          reader.readAsText(file,"UTF-8");
         },
         getRemoteXml(){
           if(this.selectedXml != null){
