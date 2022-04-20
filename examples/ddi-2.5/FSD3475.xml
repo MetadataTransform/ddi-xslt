@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codeBook xmlns="ddi:codebook:2_5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd">
+   <docDscr>
+      <citation>
+         <titlStmt>
+            <titl xml:lang="en">DDI description: Everyday Experiences of Poverty: Self-administered Writings 2019</titl>
+         </titlStmt>
+         <prodStmt>
+            <producer xml:lang="fi" abbr="FSD">Yhteiskuntatieteellinen tietoarkisto</producer>
+            <producer xml:lang="en" abbr="FSD">Finnish Social Science Data Archive</producer>
+            <copyright xml:lang="fi">Yhteiskuntatieteellinen tietoarkisto</copyright>
+            <copyright xml:lang="en">Finnish Social Science Data Archive</copyright>
+         </prodStmt>
+         <holdings xml:lang="fi" URI="http://urn.fi/urn:nbn:fi:fsd:T-FSD3475" location="Yhteiskuntatieteellinen tietoarkisto FSD" />
+         <holdings xml:lang="en" URI="http://urn.fi/urn:nbn:fi:fsd:T-FSD3475" location="Finnish Social Science Data Archive FSD" />
+      </citation>
+   </docDscr>
+   <docDscr>
+      <citation>
+         <titlStmt>
+            <titl xml:lang="fi">DDI-kuvailu: Arkipäivän kokemuksia köyhyydestä -kirjoituskilpailu 2019</titl>
+         </titlStmt>
+      </citation>
+   </docDscr>
+   <stdyDscr>
+      <citation>
+         <titlStmt>
+            <titl xml:lang="en">Everyday Experiences of Poverty: Self-administered Writings 2019</titl>
+            <parTitl xml:lang="en">Everyday Experiences of Poverty: Self-administered Writings 2019</parTitl>
+            <parTitl xml:lang="fi">Arkipäivän kokemuksia köyhyydestä -kirjoituskilpailu 2019</parTitl>
+            <IDNo xml:lang="fi" agency="FSD">FSD3475</IDNo>
+            <IDNo xml:lang="fi" agency="URN">urn:nbn:fi:fsd:T-FSD3475</IDNo>
+            <IDNo xml:lang="en" agency="FSD">FSD3475</IDNo>
+            <IDNo xml:lang="en" agency="URN">urn:nbn:fi:fsd:T-FSD3475</IDNo>
+         </titlStmt>
+         <rspStmt>
+            <AuthEnty affiliation="Helsingin yliopisto" xml:lang="fi">Turunen, Elina</AuthEnty>
+            <AuthEnty xml:lang="fi">Isola, Anna-Maria</AuthEnty>
+            <AuthEnty affiliation="University of Helsinki" xml:lang="en">Turunen, Elina</AuthEnty>
+            <AuthEnty xml:lang="en">Isola, Anna-Maria</AuthEnty>
+         </rspStmt>
+         <prodStmt>
+            <copyright xml:lang="fi">Tietoarkiston ja aineiston luovuttajan tekemän sopimuksen mukaisesti.</copyright>
+            <copyright xml:lang="en">In accordance with the agreement between FSD and the depositor.</copyright>
+            <prodDate xml:lang="fi">2021-02-02</prodDate>
+            <prodDate xml:lang="en">2021-07-27</prodDate>
+         </prodStmt>
+         <distStmt>
+            <distrbtr abbr="FSD" URI="https://www.fsd.tuni.fi/" xml:lang="fi">Yhteiskuntatieteellinen tietoarkisto</distrbtr>
+            <distrbtr abbr="FSD" URI="https://www.fsd.tuni.fi/" xml:lang="en">Finnish Social Science Data Archive</distrbtr>
+            <distDate xml:lang="fi" date="2021-02-02" />
+            <distDate xml:lang="en" date="2021-07-27" />
+         </distStmt>
+         <serStmt URI="https://services.fsd.tuni.fi/catalogue/series/8?lang=fi" xml:lang="fi" ID="yks">
+            <serName xml:lang="fi">Aineistot, jotka eivät kuulu sarjaan</serName>
+            <serInfo xml:lang="fi">Yksittäiset aineistot, jotka eivät kuulu mihinkään sarjaan.</serInfo>
+         </serStmt>
+         <serStmt URI="https://services.fsd.tuni.fi/catalogue/series/8?lang=en" xml:lang="en">
+            <serName xml:lang="en">Individual datasets</serName>
+            <serInfo xml:lang="en">Individual datasets that do not belong to any series.</serInfo>
+         </serStmt>
+         <verStmt>
+            <version date="2020-11-25" xml:lang="fi" />
+            <version date="2020-11-25" xml:lang="en" />
+         </verStmt>
+         <holdings xml:lang="fi" URI="http://urn.fi/urn:nbn:fi:fsd:T-FSD3475" location="Yhteiskuntatieteellinen tietoarkisto FSD" />
+         <holdings xml:lang="en" URI="http://urn.fi/urn:nbn:fi:fsd:T-FSD3475" location="Finnish Social Science Data Archive FSD" />
+      </citation>
+      <citation>
+         <titlStmt>
+            <titl xml:lang="fi">Arkipäivän kokemuksia köyhyydestä -kirjoituskilpailu 2019</titl>
+         </titlStmt>
+      </citation>
+      <stdyInfo>
+         <subject>
+            <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="arki">arki</keyword>
+            <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="henkiloehistoria">henkilöhistoria</keyword>
+            <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="koeyhyys">köyhyys</keyword>
+            <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="syrjaeytyminen">syrjäytyminen</keyword>
+            <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="tyoettoemyys">työttömyys</keyword>
+            <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="pienituloiset">pienituloiset</keyword>
+            <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="velkaantuminen">velkaantuminen</keyword>
+            <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="selviytyminen">selviytyminen</keyword>
+            <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="elintaso">elintaso</keyword>
+            <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="toimeentulo">toimeentulo</keyword>
+            <keyword xml:lang="fi" vocab="YSO" vocabURI="http://www.yso.fi/onto/yso/" ID="sosiaaliturva">sosiaaliturva</keyword>
+            <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="everyday_life">everyday life</keyword>
+            <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="low_pay">low pay</keyword>
+            <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="poverty">poverty</keyword>
+            <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="social_exclusion">social exclusion</keyword>
+            <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="social_security">social security</keyword>
+            <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="standard_of_living">standard of living</keyword>
+            <keyword xml:lang="en" vocab="ELSST" vocabURI="https://elsst.cessda.eu/id" ID="unemployment">unemployment</keyword>
+            <topcClas xml:lang="fi" vocab="OKM" vocabURI="https://finto.fi/okm-tieteenala/fi/page/conceptscheme" ID="Yhteiskuntatieteet">Yhteiskuntatieteet</topcClas>
+            <topcClas xml:lang="fi" vocab="CESSDA Topic Classification" ID="Tulot_omaisuus_ja_investoinnitsaeaestaeminen">Tulot, omaisuus ja investoinnit/säästäminen</topcClas>
+            <topcClas xml:lang="fi" vocab="CESSDA Topic Classification" ID="Tasa-arvo_eriarvoisuus_ja_syrjaeytyminen">Tasa-arvo, eriarvoisuus ja syrjäytyminen</topcClas>
+            <topcClas xml:lang="fi" vocab="CESSDA Topic Classification" ID="Sosiaalipolitiikka">Sosiaalipolitiikka</topcClas>
+            <topcClas xml:lang="en" vocab="OKM" vocabURI="https://finto.fi/okm-tieteenala/fi/page/conceptscheme" ID="Social_sciences">Social sciences</topcClas>
+            <topcClas xml:lang="en" vocab="CESSDA Topic Classification" ID="Income_property_and_investmentsaving">Income, property and investment/saving</topcClas>
+            <topcClas xml:lang="en" vocab="CESSDA Topic Classification" ID="Equality_inequality_and_social_exclusion">Equality, inequality and social exclusion</topcClas>
+            <topcClas xml:lang="en" vocab="CESSDA Topic Classification" ID="Social_welfare_policy">Social welfare policy</topcClas>
+         </subject>
+         <abstract xml:lang="fi">Aineisto sisältää 89 vapaamuotoista kirjoitusta, jotka on lähetetty Arkipäivän kokemuksia köyhyydestä -kirjoituskilpailuun vuonna 2019. Tutkimuksen tavoitteena oli kerätä kokemuksia siitä, millaisia köyhyyden kokemuksia ihmisillä on ja näin ymmärtää syvemmin suomalaista köyhyyttä. Kilpailun järjesti tutkijaryhmä yhdessä Suomen köyhyyden vastaisen verkoston (EAPN-Fin) ja Kuka kuuntelee köyhää? -verkoston kanssa. Aineisto kerättiin osana väitöskirjatutkimusta, jota rahoitti Koneen Säätiö. Kilpailutekstien palkitsemiskriteereinä mainittiin, että kirjoitus on omasta elämästä todenmukaisesti ja suorasanaisesti kerrottu, kuvaa tämän ajan köyhyyttä ja tuo uusia näkökulmia köyhyyteen. Tekstien pituus rajattiin kymmeneen sivuun. Raati palkitsi parhaat kirjoitukset rahapalkinnoilla. Kilpailua tukivat EAPN-Fin -Suomen köyhyyden vastainen verkosto, MIELI Suomen Mielenterveys ry, Työttömien Keskusjärjestö ry, Mannerheimin lastensuojeluliitto, Suomen Setlementtiliitto ry, Takuusäätiö, Suomen Ammattiliittojen Keskusjärjestö SAK, Kirkon Diakonia ja sielunhoito, Suomen Punainen Risti sekä Ehkäisevä päihdetyö EHYT ry. Kirjoituksissa kuvaillaan arkista elämää köyhyyden varjossa. Kirjoituksissa käsitellään esimerkiksi köyhyyden syitä ja sitä, miten köyhyys vaikuttaa erilaisiin arkisiin valintoihin. Osa teksteistä on kirjoitettu elämäntarinalliseen muotoon. Kirjoituksissa kuvaillaan erilaisia keinoja, joiden avulla kirjoittaja selviytyy arjessa sekä sitä, minkälaisia vaikutuksia köyhyydellä on perheenjäseniin ja muuhun lähipiiriin ja heidän suhtautumiseensa. Samankaltaiset aineistot on kerätty myös aiemmin (FSD2413 Arkipäivän kokemuksia köyhyydestä -kirjoituskilpailu 2006 ja FSD2795 Arkipäivän kokemuksia köyhyydestä: seuranta-aineisto 2012), mutta aiempien aineistojen vastaajat eivät ole yhdistettävissä tähän aineistoon. Taustatietoina aineistossa on kerätty nimi tai nimimerkki, sukupuoli, ikä, asuinalue, koulutus ja ammatti tai entinen ammatti. Aineistosta on tehty html-versio, jonka hakemiston avulla haastatteluja on helppo selata.</abstract>
+         <abstract xml:lang="en">This dataset consists of 89 texts written for a writing competition titled 'Everyday Experiences of Poverty' in 2019 in Finland. The aim was to collect varied experiences of poverty and to better understand Finnish poverty. The writing competition was organised by a research team in collaboration with the European Anti-Poverty Network Finland (EAPN-Fin) and the Who Listens to the Poor? network. The data were collected as part of dissertation research, which was funded by Kone Foundation. The participants were guided to write truthfully about their own experiences of poverty and to discuss new perspectives on poverty in contemporary society. The writers were instructed to write ten pages of prose at most. The competition was endorsed by many Finnish organisations promoting health and well-being. The texts described everyday life in the shadow of poverty, the reasons behind poverty, and the effects of poverty on daily life choices. The writers also discussed different ways of coping with poverty and how poverty had affected their close relationships. Similar data collections have been conducted before (FSD2413 Everyday Experiences of Poverty: Self-administered Writings 2006 and FSD2795 Everyday Experiences of Poverty 2012: Follow-up Study). The respondents in the previous studies cannot be connected to the respondents in this study. Background information included the respondent's name or pseudonym, gender, age, area of residence, level of education, and occupation. The data were organised into an easy to use HTML version at FSD. The dataset is only available in Finnish.</abstract>
+         <sumDscr>
+            <collDate xml:lang="fi" date="2019-07-03" event="start" />
+            <collDate xml:lang="fi" date="2019-10-15" event="end" />
+            <collDate xml:lang="en" date="2019-07-03" event="start" />
+            <collDate xml:lang="en" date="2019-10-15" event="end" />
+            <nation xml:lang="fi" abbr="FI">Suomi</nation>
+            <nation xml:lang="en" abbr="FI">Finland</nation>
+            <geogCover xml:lang="fi">Suomi</geogCover>
+            <geogCover xml:lang="en">Finland</geogCover>
+            <anlyUnit xml:lang="fi">
+               Henkilö
+               <concept>Individual</concept>
+            </anlyUnit>
+            <anlyUnit xml:lang="en">
+               Individual
+               <concept>Individual</concept>
+            </anlyUnit>
+            <universe xml:lang="fi" clusion="I">Täysi-ikäiset suomalaiset, joilla on kokemuksia köyhyydestä omassa elämässään</universe>
+            <universe xml:lang="en" clusion="I">People aged over 18 who have experienced poverty in their life living in Finland</universe>
+            <dataKind xml:lang="fi">Kvalitatiivinen</dataKind>
+            <dataKind xml:lang="en">Qualitative</dataKind>
+         </sumDscr>
+      </stdyInfo>
+      <method>
+         <dataColl>
+            <timeMeth xml:lang="fi">
+               Poikkileikkausaineisto
+               <concept>CrossSection</concept>
+            </timeMeth>
+            <timeMeth xml:lang="en">
+               Cross-section
+               <concept>CrossSection</concept>
+            </timeMeth>
+            <collMode xml:lang="fi">
+               Oma kirjoitus tai päiväkirja: sähköpostilla saatu
+               <concept />
+            </collMode>
+            <collMode xml:lang="fi">
+               Oma kirjoitus tai päiväkirja: paperimuotoinen kirjoitus
+               <concept />
+            </collMode>
+            <collMode xml:lang="en">
+               Self-administered writings and/or diaries: E-mail
+               <concept />
+            </collMode>
+            <collMode xml:lang="en">
+               Self-administered writings and/or diaries: Paper
+               <concept />
+            </collMode>
+         </dataColl>
+      </method>
+      <dataAccs>
+         <useStmt>
+            <restrctn xml:lang="fi">Aineisto on käytettävissä (D) vain luovuttajan luvalla.</restrctn>
+            <restrctn xml:lang="en">The dataset is (D) available only by permission from the data depositor/creator.</restrctn>
+            <citReq xml:lang="fi">Aineistoon ja sen tekijöihin tulee viitata asianmukaisesti kaikissa julkaisuissa ja esityksissä, joissa aineistoa käytetään. Tietoarkiston antaman malliviittaustiedon voi merkitä lähdeluetteloon sellaisenaan tai sitä voi muokata julkaisun käytäntöjen mukaisesti.</citReq>
+            <citReq xml:lang="en">The data and its creators shall be cited in all publications and presentations for which the data have been used. The bibliographic citation may be in the form suggested by the archive or in the form required by the publication.</citReq>
+            <deposReq xml:lang="fi">Tietoarkistoon on lähetettävä viitetiedot kaikista julkaisuista, joissa käyttäjä hyödyntää aineistoa.</deposReq>
+            <deposReq xml:lang="en">The user shall notify the archive of all publications where she or he has used the data.</deposReq>
+         </useStmt>
+      </dataAccs>
+      <othrStdyMat>
+         <relPubl xml:lang="fi">
+            Koskimies, Anna (2021). Köyhyyttä kokeneiden käsityksiä hyväosaisista: tutkimus hyväosaisuuden representaatioista. Kuluttajaekonomian pro gradu -tutkielma. Helsinki: Helsingin yliopisto.
+            <citation>
+               <titlStmt>
+                  <titl xml:lang="fi" />
+               </titlStmt>
+               <distStmt>
+                  <distDate xml:lang="fi" />
+               </distStmt>
+               <holdings xml:lang="fi" />
+            </citation>
+         </relPubl>
+         <relPubl xml:lang="fi">
+            Miettinen, Iiris (2021) Korkeasti koulutettujen naisten köyhyysnarratiivit ja suhteellinen toimijuus. Pro gradu -tutkielma. Yhteiskuntatieteiden tiedekunta. Tampereen yliopisto.
+            <citation>
+               <titlStmt>
+                  <titl xml:lang="fi" />
+               </titlStmt>
+               <distStmt>
+                  <distDate xml:lang="fi" />
+               </distStmt>
+               <holdings xml:lang="fi" />
+            </citation>
+         </relPubl>
+         <relPubl xml:lang="fi">
+            Sukuvaara, Samu (2022). Kokemuksia köyhyydestä: "Lepään vain hetken silloin, kun en enää jaksa. Ja jatkan taas." Pro gradu -tutkielma. Yhteiskuntatieteiden tiedekunta. Lapin yliopisto.
+            <citation>
+               <titlStmt>
+                  <titl xml:lang="fi" />
+               </titlStmt>
+               <distStmt>
+                  <distDate xml:lang="fi" />
+               </distStmt>
+               <holdings xml:lang="fi" />
+            </citation>
+         </relPubl>
+         <relPubl xml:lang="fi">
+            Tirri, Linda (2021) Köyhyys on jatkuva tunne siitä, että minä en kuulu tänne. Äitien kerrottuja kokemuksia köyhyydestä. Pro gradu -tutkielma. Yhteiskuntatieteiden tiedekunta. Tampereen yliopisto.
+            <citation>
+               <titlStmt>
+                  <titl xml:lang="fi" />
+               </titlStmt>
+               <distStmt>
+                  <distDate xml:lang="fi" />
+               </distStmt>
+               <holdings xml:lang="fi" />
+            </citation>
+         </relPubl>
+         <relPubl xml:lang="en">
+            Koskimies, Anna (2021). Köyhyyttä kokeneiden käsityksiä hyväosaisista: tutkimus hyväosaisuuden representaatioista. Kuluttajaekonomian pro gradu -tutkielma. Helsinki: Helsingin yliopisto.
+            <citation>
+               <titlStmt>
+                  <titl xml:lang="en" />
+               </titlStmt>
+               <distStmt>
+                  <distDate xml:lang="en" />
+               </distStmt>
+               <holdings xml:lang="en" />
+            </citation>
+         </relPubl>
+         <relPubl xml:lang="en">
+            Miettinen, Iiris (2021) Korkeasti koulutettujen naisten köyhyysnarratiivit ja suhteellinen toimijuus. Pro gradu -tutkielma. Yhteiskuntatieteiden tiedekunta. Tampereen yliopisto.
+            <citation>
+               <titlStmt>
+                  <titl xml:lang="en" />
+               </titlStmt>
+               <distStmt>
+                  <distDate xml:lang="en" />
+               </distStmt>
+               <holdings xml:lang="en" />
+            </citation>
+         </relPubl>
+         <relPubl xml:lang="en">
+            Sukuvaara, Samu (2022). Kokemuksia köyhyydestä: "Lepään vain hetken silloin, kun en enää jaksa. Ja jatkan taas." Pro gradu -tutkielma. Yhteiskuntatieteiden tiedekunta. Lapin yliopisto.
+            <citation>
+               <titlStmt>
+                  <titl xml:lang="en" />
+               </titlStmt>
+               <distStmt>
+                  <distDate xml:lang="en" />
+               </distStmt>
+               <holdings xml:lang="en" />
+            </citation>
+         </relPubl>
+         <relPubl xml:lang="en">
+            Tirri, Linda (2021) Köyhyys on jatkuva tunne siitä, että minä en kuulu tänne. Äitien kerrottuja kokemuksia köyhyydestä. Pro gradu -tutkielma. Yhteiskuntatieteiden tiedekunta. Tampereen yliopisto.
+            <citation>
+               <titlStmt>
+                  <titl xml:lang="en" />
+               </titlStmt>
+               <distStmt>
+                  <distDate xml:lang="en" />
+               </distStmt>
+               <holdings xml:lang="en" />
+            </citation>
+         </relPubl>
+      </othrStdyMat>
+   </stdyDscr>
+   <fileDscr />
+</codeBook>
