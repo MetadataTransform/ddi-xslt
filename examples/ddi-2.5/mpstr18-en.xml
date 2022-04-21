@@ -1,0 +1,4583 @@
+<?xml version='1.0' encoding='utf-8'?>
+<codeBook xmlns="ddi:codebook:2_5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd" version="2.5" xml:lang="en-GB">
+  <docDscr>
+    <citation>
+      <titlStmt>
+        <titl xml:lang="en-GB"> Media and seniors (65 and above), 2018</titl>
+        <parTitl xml:lang="sl-SI"> Medijske navade starejših (65 let in več), 2018</parTitl>
+        <IDNo agency="ADP">MPSTR18</IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty affiliation="Fakulteta za medije = Faculty of Media">Rek, Mateja</AuthEnty>
+        <AuthEnty affiliation="Fakulteta za medije = Faculty of Media">Kovačič, Andrej</AuthEnty>
+        <AuthEnty>Milanovski Brumat, Kristina</AuthEnty>
+      </rspStmt>
+      <prodStmt>
+        <producer abbr="ADP" affiliation="Univerza v Ljubljani = University of Ljubljana" xml:lang="en-GB">Arhiv družboslovnih podatkov = Social Science Data Archives</producer>
+        <copyright>ADP, 2020</copyright>
+        <prodDate date="2020-03" xml:lang="en-GB">March 2020</prodDate>
+        <prodPlac xml:lang="en-GB">Ljubljana</prodPlac>
+        <software version="18.0" ID="Oxygen" xml:lang="en-GB">Oxygen</software>
+        <fundAg abbr="ARRS" xml:lang="en-GB">Javna agencija za raziskovalno dejavnost Republike Slovenije = Slovenian Research Agency</fundAg>
+        <grantNo agency="ARRS">1000-15-0510 (IRC)</grantNo>
+      </prodStmt>
+      <distStmt>
+        <distrbtr abbr="ADP" affiliation="Univerza v Ljubljani = University of Ljubljana" xml:lang="en-GB" URI="http://www.adp.fdv.uni-lj.si/">Arhiv družboslovnih podatkov = Social Science Data Archives</distrbtr>
+        <distDate date="2020-03" xml:lang="en-GB">March 2020</distDate>
+      </distStmt>
+      <verStmt>
+        <version type="version" xml:lang="en-GB">ADP XML Codebook file</version>
+        <verResp>Sergeja Masten, ADP</verResp>
+        <notes ID="Authorized" xml:lang="en-GB" type="Avtorizacija">Andrej Kovačič, FAM, in Sergeja Masten, ADP, sta pripravila opis raziskave. Study Description is authorized.</notes>
+      </verStmt>
+      <biblCit>Rek, M., Kovačič, A. and Milanovski Brumat, K. (2020).  Media and seniors (65 and above), 2018 [Codebook file]. Ljubljana: Univerza v Ljubljani = University of Ljubljana, Arhiv družboslovnih podatkov = Social Science Data Archives. ADP - IDNo: MPSTR18. https://doi.org/10.17898/ADP_MPSTR18_V1</biblCit>
+      <holdings URI="http://www.adp.fdv.uni-lj.si/opisi/">ADP DDI</holdings>
+    </citation>
+    <docStatus xml:lang="en-GB">4 - Full Study description and XML DDI Codebook Data description with full questions text.</docStatus>
+  </docDscr>
+  <stdyDscr>
+    <citation>
+      <titlStmt>
+        <titl xml:lang="en-GB"> Media and seniors (65 and above), 2018</titl>
+        <parTitl xml:lang="sl-SI"> Medijske navade starejših (65 let in več), 2018</parTitl>
+        <IDNo agency="ADP">MPSTR18</IDNo>
+        <IDNo agency="dara">https://doi.org/10.17898/ADP_MPSTR18_V1</IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty affiliation="Fakulteta za medije = Faculty of Media">Rek, Mateja</AuthEnty>
+        <AuthEnty affiliation="Fakulteta za medije = Faculty of Media">Kovačič, Andrej</AuthEnty>
+        <AuthEnty>Milanovski Brumat, Kristina</AuthEnty>
+      </rspStmt>
+      <prodStmt>
+        <producer abbr="FAM" xml:lang="en-GB">Fakulteta za medije = Faculty of Media</producer>
+        <prodDate date="2018" xml:lang="en-GB">2018</prodDate>
+        <prodPlac xml:lang="en-GB">Ljubljana, Slovenia</prodPlac>
+        <software ID="SPSS" xml:lang="en-GB">SPSS</software>
+        <fundAg abbr="ARRS" xml:lang="en-GB">Javna agencija za raziskovalno dejavnost Republike Slovenije = Slovenian Research Agency</fundAg>
+        <grantNo agency="ARRS">1000-16-2916</grantNo>
+      </prodStmt>
+      <distStmt>
+        <distrbtr abbr="ADP" affiliation="Univerza v Ljubljani = University of Ljubljana" URI="http://www.adp.fdv.uni-lj.si/">Arhiv družboslovnih podatkov = Social Science Data Archives</distrbtr>
+        <depositr abbr="FAM">Fakulteta za medije = Faculty of Media</depositr>
+        <depDate date="2019-05-17" xml:lang="en-GB">17. May 2019</depDate>
+        <distDate date="2020-03" xml:lang="en-GB">March 2020</distDate>
+      </distStmt>
+      <serStmt>
+        <serName abbr="MEDPIS" xml:lang="en-GB">Medijska pismenost v Sloveniji = Media Literacy in Slovenia</serName>
+        <serInfo xml:lang="en-GB">Media literacy research is the first comprehensive research in Slovenia. 
+The research work draws on a number of already existing studies and analysis of primary and secondary data. 
+The data is collected within the Infrastructural programme of the Faculty of Media and is the basis for the analysis of media literacy and media use in Slovenia. 
+The research has begun in 2014, covering fields of media use, online security, media education, use of social networks, media exposure and use of electronic devices, 
+the impact of media on people's daily lives, the importance of privacy and the security of sharing personal information online. 
+Within the media research, different age groups are included - general representative population of Slovenia and individual groups 
+such as primary school children, high school students, preschool children, the unemployed and hearing impaired and visually impared or partially sighted.
+</serInfo>
+      </serStmt>
+      <biblCit>Rek, M., Kovačič, A. and Milanovski Brumat, K. (2020).  Media and seniors (65 and above), 2018 [Data file]. Ljubljana: Univerza v Ljubljani = University of Ljubljana, Arhiv družboslovnih podatkov = Social Science Data Archives. ADP - IDNo: MPSTR18. https://doi.org/10.17898/ADP_MPSTR18_V1</biblCit>
+    </citation>
+    <stdyInfo>
+      <subject>
+        <keyword xml:lang="en-GB" vocab="ADP">media</keyword>
+        <keyword xml:lang="en-GB" vocab="ADP">internet and classic media</keyword>
+        <keyword xml:lang="en-GB" vocab="ADP">elderly people</keyword>
+        <keyword xml:lang="en-GB" vocab="ADP">use of information and communication means</keyword>
+        <keyword xml:lang="en-GB" vocab="ADP">mass media</keyword>
+        <keyword xml:lang="en-GB" ID="ELSST_498de90d-7d1e-4f94-b283-181b7edb3ebf" vocab="ELSST" vocabURI="https://elsst.ukdataservice.ac.uk">ELDERLY</keyword>
+        <keyword xml:lang="en-GB" ID="ELSST_13fbc01b-5607-4587-93cc-80589e49744f" vocab="ELSST" vocabURI="https://elsst.ukdataservice.ac.uk">MEDIA LITERACY</keyword>
+        <keyword xml:lang="en-GB" ID="ELSST_e62e9398-efd1-45fd-8144-65e00617391e" vocab="ELSST" vocabURI="https://elsst.ukdataservice.ac.uk">INFORMATION SOCIETY</keyword>
+        <keyword xml:lang="en-GB" ID="ELSST_883ff032-a12f-4b14-a861-3e6aba934490" vocab="ELSST" vocabURI="https://elsst.ukdataservice.ac.uk">MASS MEDIA EXPOSURE</keyword>
+        <keyword xml:lang="en-GB" ID="ELSST_7f7f056f-272e-42a9-8889-2e09cd3868f6" vocab="ELSST" vocabURI="https://elsst.ukdataservice.ac.uk">MASS MEDIA USE</keyword>
+        <topcClas xml:lang="en-GB" ID="MediaCommunicationAndLanguage.Media" vocab="CESSDA Topic Classification" vocabURI="urn:ddi:int.cessda.cv:TopicClassification:3.0">MEDIA, COMMUNICATION AND LANGUAGE - Media</topcClas>
+        <topcClas xml:lang="en-GB" ID="MediaCommunicationAndLanguage.InformationSociety" vocab="CESSDA Topic Classification" vocabURI="urn:ddi:int.cessda.cv:TopicClassification:3.0">MEDIA, COMMUNICATION AND LANGUAGE - Information society</topcClas>
+        <topcClas xml:lang="en-GB" ID="S265" vocab="CERIF" vocabURI="http://sicris.izum.si/">Press and communication sciences</topcClas>
+        <topcClas xml:lang="en-GB" vocab="ADP Druga poglavja" vocabURI="http://www.adp.fdv.uni-lj.si">Daily use of media</topcClas>
+        <topcClas xml:lang="en-GB" vocab="ADP Druga poglavja" vocabURI="http://www.adp.fdv.uni-lj.si">Social networks</topcClas>
+        <topcClas xml:lang="en-GB" vocab="ADP Druga poglavja" vocabURI="http://www.adp.fdv.uni-lj.si">Access to internet</topcClas>
+        <topcClas xml:lang="en-GB" vocab="ADP Druga poglavja" vocabURI="http://www.adp.fdv.uni-lj.si">Phone usage</topcClas>
+        <topcClas xml:lang="en-GB" vocab="ADP Druga poglavja" vocabURI="http://www.adp.fdv.uni-lj.si">Demography</topcClas>
+      </subject>
+      <abstract xml:lang="en-GB">The purpose of the study was to gather data on media behaviour of elderly people, 65 years old or more.
+         The goal was to determine their ability of critical evaluation of information, given by the media and their exposure to media. 
+         Covered topics are: the daily use of media, media related activities, use of social networks, internet and smart phones. 
+         322 respondents participated in the study.</abstract>
+      <sumDscr>
+        <timePrd event="single" date="2018" xml:lang="en-GB">2018</timePrd>
+        <collDate event="start" date="2018-05-10" xml:lang="en-GB">10. May 2018</collDate>
+        <collDate date="2018-09-30" event="end" xml:lang="en-GB">30. September 2018</collDate>
+        <nation xml:lang="en-GB">Slovenia</nation>
+        <geogCover xml:lang="en-GB">Slovenia</geogCover>
+        <geogUnit xml:lang="en-GB">Geographic units are not determined<concept vocab="ADP-GeogUnit">GeographicUnitNotDetermined</concept></geogUnit>
+        <anlyUnit xml:lang="en-GB">Individual<concept vocab="DDI Analysis Unit" vocabURI="urn:ddi-cv:AnalysisUnit:1.0">Individual</concept></anlyUnit>
+        <universe clusion="I" xml:lang="en-GB">Elderly, 65 years old or more, from the Republic of Slovenia, living at home or are in institutional care (nursing homes).</universe>
+        <dataKind xml:lang="en-GB">Numeric<concept vocab="DDI General Data Format" vocabURI="urn:ddi-cv:GeneralDataFormat:2.0">Numeric</concept></dataKind>
+      </sumDscr>
+    </stdyInfo>
+    <method>
+      <dataColl>
+        <timeMeth xml:lang="en-GB">Cross-section<concept vocab="DDI Time Method" vocabURI="urn:ddi-cv:TimeMethod:1.2">CrossSection</concept></timeMeth>
+        <dataCollector abbr="FAM" xml:lang="en-GB">Fakulteta za medije = Faculty of Media</dataCollector>
+        <frequenc ID="OneTime" xml:lang="en-GB">One-time data collection</frequenc>
+        <sampProc xml:lang="en-GB">Non-probability: Quota<concept vocab="DDI Sampling Procedure" vocabURI="urn:ddi-cv:SamplingProcedure:1.1">Nonprobability.Quota</concept></sampProc>
+        <sampProc xml:lang="en-GB">486 respondents, older than 65, were contacted on field. 
+          The selection took into account the approximate layout of respondents by gender, age and geographical coverage. 
+          They were personally invited to participate. The final sample of respondents was 322. 
+          Of these, 28 surveys were conducted in nursing homes.</sampProc>
+        <collMode xml:lang="en-GB">Face-to-face interview: PAPI<concept vocab="DDI Mode of Collection" vocabURI="urn:ddi-cv:ModeOfCollection:3.0">Interview.FaceToFace.PAPI</concept></collMode>
+        <collMode xml:lang="en-GB">Face-to-face interview: CAPI/CAMI<concept vocab="DDI Mode of Collection" vocabURI="urn:ddi-cv:ModeOfCollection:3.0">Interview.FaceToFace.CAPICAMI</concept></collMode>
+        <resInstru xml:lang="en-GB">Structured questionnaire<concept vocab="DDI Type of Instrument" vocabURI="urn:ddi-cv:TypeOfInstrument:1.1">Questionnaire.Structured</concept></resInstru>
+        <collSitu xml:lang="en-GB">All surveys were filled-in in the presence of a researcher. 31.4% of the surveys were fulfilled on paper and then entered electronically by a researcher. 
+          In other cases, the researcher entered answers directly to the electronic survey format. </collSitu>
+        <weight xml:lang="en-GB">No.</weight>
+        <cleanOps ID="DataCleaned" xml:lang="en-GB">Data was cleaned.</cleanOps>
+      </dataColl>
+      <anlyInfo>
+        <respRate xml:lang="en-GB">The response rate was 66%.</respRate>
+      </anlyInfo>
+      <stdyClas ID="oc7" xml:lang="en-GB" type="ADP">7 - studies that permits theoretical generalisations or relates on a practical problem, less influential</stdyClas>
+    </method>
+    <dataAccs>
+      <setAvail>
+        <accsPlac URI="http://www.adp.fdv.uni-lj.si/podatki/" xml:lang="en-GB">Arhiv družboslovnih podatkov = Social Science Data Archives</accsPlac>
+        <collSize xml:lang="en-GB">1 Data file.</collSize>
+        <fileQnty>1</fileQnty>
+      </setAvail>
+      <useStmt>
+        <restrctn xml:lang="en-GB" ID="ccby">Data and materials are licensed under a Creative Commons Attribution 4.0 International License. The users should use the materials only for the purposes specified in Registration form, to act at all times so as to preserve the confidentiality of individuals and institutions recorded in the materials. </restrctn>
+        <contact affiliation="ADP" email="arhiv.podatkov@fdv.uni-lj.si" xml:lang="en-GB" URI="http://www.adp.fdv.uni-lj.si/">Arhiv družboslovnih podatkov = Social Science Data Archives</contact>
+        <citReq xml:lang="en-GB">The users should acknowledge in any publication both the original depositors and the Archive.</citReq>
+        <deposReq xml:lang="en-GB">Users are requested to deposit with the Archive two copies of any published work or report based wholly or in part on such materials and to notify the Archive of any errors discovered in the materials.</deposReq>
+        <conditions xml:lang="en-GB">In case of ambiguity the users of the data set are advised to contact principal investigators or Archive.</conditions>
+      </useStmt>
+    </dataAccs>
+    <othrStdyMat>
+      <!-- &rM; -->
+      <relMat ID="MP_RM1_SL_V1_R0">
+  <citation><titlStmt><titl xml:lang="en-GB">Medijska pismenost</titl><!-- <IDNo agency="ADP">MEDPIS_RM1_SL_V1_R0</IDNo>--></titlStmt><rspStmt><AuthEnty>Rek, Mateja</AuthEnty></rspStmt><prodStmt><producer abbr="FAM" xml:lang="en-GB">Fakulteta za medije = Faculty of Media</producer><prodDate xml:lang="en-GB"/><prodPlac xml:lang="en-GB">Ljubljana</prodPlac><software xml:lang="en-GB">OTHER</software></prodStmt><holdings URI="http://pismenost.si/">Fakulteta za medije = Faculty of Media</holdings></citation></relMat>
+      <relPubl ID="MPSTR18_RP1_SL_V1_R0">
+  <citation><titlStmt><titl xml:lang="en-GB">Medijske navade starejših (65 let in več)</titl></titlStmt><rspStmt><AuthEnty>Rek, Mateja</AuthEnty><AuthEnty>Kovačič, Andrej</AuthEnty><AuthEnty>Brumat, Kristina</AuthEnty></rspStmt><prodStmt><producer xml:lang="en-GB">Fakulteta za medije = Faculty of Media</producer><prodDate date="2018" xml:lang="en-GB">2018</prodDate><prodPlac xml:lang="en-GB">Ljubljana</prodPlac></prodStmt><holdings URI="http://pismenost.si/pdf/Raziskava_Medijske_navade_starejsih_2018.pdf">FAM</holdings></citation></relPubl>
+    </othrStdyMat>
+  </stdyDscr>
+  <fileDscr ID="F1" xml:lang="sl-SI" URI="../podatki/mpstr18/mpstr18_p1_sl_v1_r2.txt" access="ccby">
+    <fileTxt>
+      <fileName xml:lang="sl-SI" ID="MPSTR18_P1_SL_V1_R2">Medijske navade starejših (65 let in več), 2018 [Data file]</fileName>
+      <fileCitation>
+        <titlStmt>
+          <titl xml:lang="sl-SI">Medijske navade starejših (65 let in več), 2018 [Data file]</titl>
+        </titlStmt>
+        <rspStmt>
+          <AuthEnty affiliation="Fakulteta za medije = Faculty of Media">Rek, Mateja</AuthEnty>
+          <AuthEnty affiliation="Fakulteta za medije = Faculty of Media">Kovačič, Andrej</AuthEnty>
+          <AuthEnty>Milanovski Brumat, Kristina</AuthEnty>
+        </rspStmt>
+      </fileCitation>
+      <dimensns>
+        <caseQnty>322</caseQnty>
+        <varQnty>53</varQnty>
+      </dimensns>
+      <fileType ID="txt" xml:lang="sl-SI">*.txt - TEXT</fileType>
+      <filePlac>ADP</filePlac>
+      <verStmt>
+        <version date="2019-08-23" xml:lang="sl-SI">23. August 2019</version>
+        <verResp>Arhiv družboslovnih podatkov = Social Science Data Archives</verResp>
+        <notes xml:lang="en-GB"/>
+      </verStmt>
+    </fileTxt>
+  </fileDscr>
+  <dataDscr>
+    <varGrp ID="VG1" type="subject" var="V1 V2 V3 V4 V5 V6 V7 V8 V9 V10 V11 V12">
+      <labl xml:lang="en-GB">
+        Dnevno spremljanje medijev
+      </labl>
+    </varGrp>
+    <varGrp ID="VG2" type="subject" var="V13 V14 V15 V16 V17 V18 V19 V20">
+      <labl xml:lang="en-GB">
+        Družbena omrežja
+      </labl>
+    </varGrp>
+    <varGrp ID="VG3" type="subject" var="V21">
+      <labl xml:lang="en-GB">
+        Dostop do interneta
+      </labl>
+    </varGrp>
+    <varGrp ID="VG4" type="subject" var="V22">
+      <labl xml:lang="en-GB">
+        Uporaba telefona
+      </labl>
+    </varGrp>
+    <varGrp ID="VG5" type="subject" var="V23 V24 V25 V26 V27 V28 V29 V30 V31 V32 V33 V34 V35 V36 V37 V38 V39 V40 V41">
+      <labl xml:lang="en-GB">
+        Strinjanje s trditvami
+      </labl>
+    </varGrp>
+    <varGrp ID="VG6" type="subject" var="V42 V43 V44 V45 V46 V47 V48 V49 V50 V51 V52 V53">
+      <labl xml:lang="en-GB">
+        Demografija
+      </labl>
+    </varGrp>
+    <var ID="V1" name="v1" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Koliko gledate televizijo, video ali filme?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="0" max="500"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        500
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          0
+        </catValu>
+        <labl xml:lang="en-GB">
+          0 min
+        </labl>
+        <catStat type="freq">
+          20
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          15
+        </catValu>
+        <labl xml:lang="en-GB">
+          15 min
+        </labl>
+        <catStat type="freq">
+          24
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          30
+        </catValu>
+        <labl xml:lang="en-GB">
+          30 min
+        </labl>
+        <catStat type="freq">
+          12
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          45
+        </catValu>
+        <labl xml:lang="en-GB">
+          45 min
+        </labl>
+        <catStat type="freq">
+          13
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          60
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura
+        </labl>
+        <catStat type="freq">
+          35
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          90
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura 30 min
+        </labl>
+        <catStat type="freq">
+          27
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          120
+        </catValu>
+        <labl xml:lang="en-GB">
+          2 uri
+        </labl>
+        <catStat type="freq">
+          41
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          180
+        </catValu>
+        <labl xml:lang="en-GB">
+          3 ure
+        </labl>
+        <catStat type="freq">
+          80
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          240
+        </catValu>
+        <labl xml:lang="en-GB">
+          4 ure
+        </labl>
+        <catStat type="freq">
+          38
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          300
+        </catValu>
+        <labl xml:lang="en-GB">
+          5 ur
+        </labl>
+        <catStat type="freq">
+          29
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          500
+        </catValu>
+        <labl xml:lang="en-GB">
+          8 ur ali več
+        </labl>
+        <catStat type="freq">
+          3
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V2" name="v2" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Koliko poslušate radijski program?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="0" max="500"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        500
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          0
+        </catValu>
+        <labl xml:lang="en-GB">
+          0 min
+        </labl>
+        <catStat type="freq">
+          64
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          15
+        </catValu>
+        <labl xml:lang="en-GB">
+          15 min
+        </labl>
+        <catStat type="freq">
+          39
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          30
+        </catValu>
+        <labl xml:lang="en-GB">
+          30 min
+        </labl>
+        <catStat type="freq">
+          40
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          45
+        </catValu>
+        <labl xml:lang="en-GB">
+          45 min
+        </labl>
+        <catStat type="freq">
+          26
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          60
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura
+        </labl>
+        <catStat type="freq">
+          50
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          90
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura 30 min
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          120
+        </catValu>
+        <labl xml:lang="en-GB">
+          2 uri
+        </labl>
+        <catStat type="freq">
+          31
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          180
+        </catValu>
+        <labl xml:lang="en-GB">
+          3 ure
+        </labl>
+        <catStat type="freq">
+          14
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          240
+        </catValu>
+        <labl xml:lang="en-GB">
+          4 ure
+        </labl>
+        <catStat type="freq">
+          16
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          300
+        </catValu>
+        <labl xml:lang="en-GB">
+          5 ur
+        </labl>
+        <catStat type="freq">
+          21
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          500
+        </catValu>
+        <labl xml:lang="en-GB">
+          8 ur ali več
+        </labl>
+        <catStat type="freq">
+          21
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V3" name="v3" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Koliko ste v prostoru, kjer je prižgana televizija v minutah dnevno?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="0" max="500"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        500
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          0
+        </catValu>
+        <labl xml:lang="en-GB">
+          0 min
+        </labl>
+        <catStat type="freq">
+          2
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          15
+        </catValu>
+        <labl xml:lang="en-GB">
+          15 min
+        </labl>
+        <catStat type="freq">
+          15
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          30
+        </catValu>
+        <labl xml:lang="en-GB">
+          30 min
+        </labl>
+        <catStat type="freq">
+          20
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          45
+        </catValu>
+        <labl xml:lang="en-GB">
+          45 min
+        </labl>
+        <catStat type="freq">
+          10
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          60
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura
+        </labl>
+        <catStat type="freq">
+          21
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          90
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura 30 min
+        </labl>
+        <catStat type="freq">
+          31
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          120
+        </catValu>
+        <labl xml:lang="en-GB">
+          2 uri
+        </labl>
+        <catStat type="freq">
+          31
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          180
+        </catValu>
+        <labl xml:lang="en-GB">
+          3 ure
+        </labl>
+        <catStat type="freq">
+          63
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          240
+        </catValu>
+        <labl xml:lang="en-GB">
+          4 ure
+        </labl>
+        <catStat type="freq">
+          68
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          300
+        </catValu>
+        <labl xml:lang="en-GB">
+          5 ur
+        </labl>
+        <catStat type="freq">
+          24
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          500
+        </catValu>
+        <labl xml:lang="en-GB">
+          8 ur ali več
+        </labl>
+        <catStat type="freq">
+          28
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V4" name="v4" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Koliko uporabljate telefon za pogovarjanje?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="0" max="500"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        90
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          0
+        </catValu>
+        <labl xml:lang="en-GB">
+          0 min
+        </labl>
+        <catStat type="freq">
+          58
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          15
+        </catValu>
+        <labl xml:lang="en-GB">
+          15 min
+        </labl>
+        <catStat type="freq">
+          132
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          30
+        </catValu>
+        <labl xml:lang="en-GB">
+          30 min
+        </labl>
+        <catStat type="freq">
+          74
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          45
+        </catValu>
+        <labl xml:lang="en-GB">
+          45 min
+        </labl>
+        <catStat type="freq">
+          34
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          60
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura
+        </labl>
+        <catStat type="freq">
+          16
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          90
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura 30 min
+        </labl>
+        <catStat type="freq">
+          8
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          120
+        </catValu>
+        <labl xml:lang="en-GB">
+          2 uri
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          180
+        </catValu>
+        <labl xml:lang="en-GB">
+          3 ure
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          240
+        </catValu>
+        <labl xml:lang="en-GB">
+          4 ure
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          300
+        </catValu>
+        <labl xml:lang="en-GB">
+          5 ur
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          500
+        </catValu>
+        <labl xml:lang="en-GB">
+          8 ur ali več
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V5" name="v5" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Koliko uporabljate mobilni telefon za vse namene skupaj?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="0" max="500"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        321
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        180
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          0
+        </catValu>
+        <labl xml:lang="en-GB">
+          0 min
+        </labl>
+        <catStat type="freq">
+          32
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          15
+        </catValu>
+        <labl xml:lang="en-GB">
+          15 min
+        </labl>
+        <catStat type="freq">
+          89
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          30
+        </catValu>
+        <labl xml:lang="en-GB">
+          30 min
+        </labl>
+        <catStat type="freq">
+          68
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          45
+        </catValu>
+        <labl xml:lang="en-GB">
+          45 min
+        </labl>
+        <catStat type="freq">
+          37
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          60
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura
+        </labl>
+        <catStat type="freq">
+          28
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          90
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura 30 min
+        </labl>
+        <catStat type="freq">
+          39
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          120
+        </catValu>
+        <labl xml:lang="en-GB">
+          2 uri
+        </labl>
+        <catStat type="freq">
+          25
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          180
+        </catValu>
+        <labl xml:lang="en-GB">
+          3 ure
+        </labl>
+        <catStat type="freq">
+          3
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          240
+        </catValu>
+        <labl xml:lang="en-GB">
+          4 ure
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          300
+        </catValu>
+        <labl xml:lang="en-GB">
+          5 ur
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          500
+        </catValu>
+        <labl xml:lang="en-GB">
+          8 ur ali več
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V6" name="v6" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="9"/>
+      <labl xml:lang="en-GB">
+        Koliko berete revije, časopise, in ostale tiskane medije v papirni obliki?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="0" max="500"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        321
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        180
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          0
+        </catValu>
+        <labl xml:lang="en-GB">
+          0 min
+        </labl>
+        <catStat type="freq">
+          67
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          15
+        </catValu>
+        <labl xml:lang="en-GB">
+          15 min
+        </labl>
+        <catStat type="freq">
+          54
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          30
+        </catValu>
+        <labl xml:lang="en-GB">
+          30 min
+        </labl>
+        <catStat type="freq">
+          70
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          45
+        </catValu>
+        <labl xml:lang="en-GB">
+          45 min
+        </labl>
+        <catStat type="freq">
+          10
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          60
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura
+        </labl>
+        <catStat type="freq">
+          77
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          90
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura 30 min
+        </labl>
+        <catStat type="freq">
+          38
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          120
+        </catValu>
+        <labl xml:lang="en-GB">
+          2 uri
+        </labl>
+        <catStat type="freq">
+          4
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          180
+        </catValu>
+        <labl xml:lang="en-GB">
+          3 ure
+        </labl>
+        <catStat type="freq">
+          1
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          240
+        </catValu>
+        <labl xml:lang="en-GB">
+          4 ure
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          300
+        </catValu>
+        <labl xml:lang="en-GB">
+          5 ur
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          500
+        </catValu>
+        <labl xml:lang="en-GB">
+          8 ur ali več
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V7" name="v7" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Koliko igrate video igre kjerkoli (na rač., tablici, GSM ali konzolah)?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="0" max="500"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        319
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        3
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        180
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          0
+        </catValu>
+        <labl xml:lang="en-GB">
+          0 min
+        </labl>
+        <catStat type="freq">
+          308
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          15
+        </catValu>
+        <labl xml:lang="en-GB">
+          15 min
+        </labl>
+        <catStat type="freq">
+          6
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          30
+        </catValu>
+        <labl xml:lang="en-GB">
+          30 min
+        </labl>
+        <catStat type="freq">
+          1
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          45
+        </catValu>
+        <labl xml:lang="en-GB">
+          45 min
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          60
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura
+        </labl>
+        <catStat type="freq">
+          1
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          90
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura 30 min
+        </labl>
+        <catStat type="freq">
+          1
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          120
+        </catValu>
+        <labl xml:lang="en-GB">
+          2 uri
+        </labl>
+        <catStat type="freq">
+          1
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          180
+        </catValu>
+        <labl xml:lang="en-GB">
+          3 ure
+        </labl>
+        <catStat type="freq">
+          1
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          240
+        </catValu>
+        <labl xml:lang="en-GB">
+          4 ure
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          300
+        </catValu>
+        <labl xml:lang="en-GB">
+          5 ur
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          500
+        </catValu>
+        <labl xml:lang="en-GB">
+          8 ur ali več
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V8" name="v8" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Koliko uporabljate računalnik/tablico za učenje ali drugo delo v minutah dnevno?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="0" max="500"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        300
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          0
+        </catValu>
+        <labl xml:lang="en-GB">
+          0 min
+        </labl>
+        <catStat type="freq">
+          183
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          15
+        </catValu>
+        <labl xml:lang="en-GB">
+          15 min
+        </labl>
+        <catStat type="freq">
+          64
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          30
+        </catValu>
+        <labl xml:lang="en-GB">
+          30 min
+        </labl>
+        <catStat type="freq">
+          5
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          45
+        </catValu>
+        <labl xml:lang="en-GB">
+          45 min
+        </labl>
+        <catStat type="freq">
+          8
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          60
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura
+        </labl>
+        <catStat type="freq">
+          16
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          90
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura 30 min
+        </labl>
+        <catStat type="freq">
+          19
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          120
+        </catValu>
+        <labl xml:lang="en-GB">
+          2 uri
+        </labl>
+        <catStat type="freq">
+          8
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          180
+        </catValu>
+        <labl xml:lang="en-GB">
+          3 ure
+        </labl>
+        <catStat type="freq">
+          6
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          240
+        </catValu>
+        <labl xml:lang="en-GB">
+          4 ure
+        </labl>
+        <catStat type="freq">
+          10
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          300
+        </catValu>
+        <labl xml:lang="en-GB">
+          5 ur
+        </labl>
+        <catStat type="freq">
+          3
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          500
+        </catValu>
+        <labl xml:lang="en-GB">
+          8 ur ali več
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V9" name="v9" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Koliko uporabljate računalnik/tablico za vse namene skupaj?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="0" max="500"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        500
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          0
+        </catValu>
+        <labl xml:lang="en-GB">
+          0 min
+        </labl>
+        <catStat type="freq">
+          139
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          15
+        </catValu>
+        <labl xml:lang="en-GB">
+          15 min
+        </labl>
+        <catStat type="freq">
+          63
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          30
+        </catValu>
+        <labl xml:lang="en-GB">
+          30 min
+        </labl>
+        <catStat type="freq">
+          31
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          45
+        </catValu>
+        <labl xml:lang="en-GB">
+          45 min
+        </labl>
+        <catStat type="freq">
+          15
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          60
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura
+        </labl>
+        <catStat type="freq">
+          26
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          90
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura 30 min
+        </labl>
+        <catStat type="freq">
+          11
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          120
+        </catValu>
+        <labl xml:lang="en-GB">
+          2 uri
+        </labl>
+        <catStat type="freq">
+          12
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          180
+        </catValu>
+        <labl xml:lang="en-GB">
+          3 ure
+        </labl>
+        <catStat type="freq">
+          12
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          240
+        </catValu>
+        <labl xml:lang="en-GB">
+          4 ure
+        </labl>
+        <catStat type="freq">
+          7
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          300
+        </catValu>
+        <labl xml:lang="en-GB">
+          5 ur
+        </labl>
+        <catStat type="freq">
+          4
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          500
+        </catValu>
+        <labl xml:lang="en-GB">
+          8 ur ali več
+        </labl>
+        <catStat type="freq">
+          2
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V10" name="v10" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Koliko ste prisotni na internetu v minutah dnevno?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="0" max="500"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        240
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          0
+        </catValu>
+        <labl xml:lang="en-GB">
+          0 min
+        </labl>
+        <catStat type="freq">
+          186
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          15
+        </catValu>
+        <labl xml:lang="en-GB">
+          15 min
+        </labl>
+        <catStat type="freq">
+          20
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          30
+        </catValu>
+        <labl xml:lang="en-GB">
+          30 min
+        </labl>
+        <catStat type="freq">
+          34
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          45
+        </catValu>
+        <labl xml:lang="en-GB">
+          45 min
+        </labl>
+        <catStat type="freq">
+          18
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          60
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura
+        </labl>
+        <catStat type="freq">
+          28
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          90
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura 30 min
+        </labl>
+        <catStat type="freq">
+          7
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          120
+        </catValu>
+        <labl xml:lang="en-GB">
+          2 uri
+        </labl>
+        <catStat type="freq">
+          11
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          180
+        </catValu>
+        <labl xml:lang="en-GB">
+          3 ure
+        </labl>
+        <catStat type="freq">
+          9
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          240
+        </catValu>
+        <labl xml:lang="en-GB">
+          4 ure
+        </labl>
+        <catStat type="freq">
+          9
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          300
+        </catValu>
+        <labl xml:lang="en-GB">
+          5 ur
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          500
+        </catValu>
+        <labl xml:lang="en-GB">
+          8 ur ali več
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V11" name="v11" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Koliko ste prisotni na družbenih omrežjih v minutah dnevno?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="0" max="500"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        180
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          0
+        </catValu>
+        <labl xml:lang="en-GB">
+          0 min
+        </labl>
+        <catStat type="freq">
+          254
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          15
+        </catValu>
+        <labl xml:lang="en-GB">
+          15 min
+        </labl>
+        <catStat type="freq">
+          32
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          30
+        </catValu>
+        <labl xml:lang="en-GB">
+          30 min
+        </labl>
+        <catStat type="freq">
+          10
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          45
+        </catValu>
+        <labl xml:lang="en-GB">
+          45 min
+        </labl>
+        <catStat type="freq">
+          12
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          60
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura
+        </labl>
+        <catStat type="freq">
+          4
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          90
+        </catValu>
+        <labl xml:lang="en-GB">
+          1 ura 30 min
+        </labl>
+        <catStat type="freq">
+          5
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          120
+        </catValu>
+        <labl xml:lang="en-GB">
+          2 uri
+        </labl>
+        <catStat type="freq">
+          3
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          180
+        </catValu>
+        <labl xml:lang="en-GB">
+          3 ure
+        </labl>
+        <catStat type="freq">
+          2
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          240
+        </catValu>
+        <labl xml:lang="en-GB">
+          4 ure
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          300
+        </catValu>
+        <labl xml:lang="en-GB">
+          5 ur
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          500
+        </catValu>
+        <labl xml:lang="en-GB">
+          8 ur ali več
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V12" name="v12" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Koliko tektstualnih sporočil (katerakoli) pošljete dnevno?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="0" max="15"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        15
+      </sumStat>
+      <sumStat type="mean" wgtd="not-wgtd">
+        1.484
+      </sumStat>
+      <sumStat type="stdev" wgtd="not-wgtd">
+        2.424
+      </sumStat>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V13" name="v13" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Že objavili objavljen ime in priimek (upoštevani le uporabniki družbenih omrežij).
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        50
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        272
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        3
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Z veseljem
+        </labl>
+        <catStat type="freq">
+          7
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Imel sem nekaj pomislekov, vendar sem kljub temu objavil
+        </labl>
+        <catStat type="freq">
+          22
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ne objavljam tega
+        </labl>
+        <catStat type="freq">
+          21
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V14" name="v14" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Že objavili kaj dela zadnje čase (upoštevani le uporabniki družbenih omrežij).
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        48
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        274
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        3
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Z veseljem
+        </labl>
+        <catStat type="freq">
+          1
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Imel sem nekaj pomislekov, vendar sem kljub temu objavil
+        </labl>
+        <catStat type="freq">
+          20
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ne objavljam tega
+        </labl>
+        <catStat type="freq">
+          27
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V15" name="v15" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Že objavili kako se počuti na splošno (upoštevani le uporabniki družbenih omrežij).
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        48
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        274
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        3
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Z veseljem
+        </labl>
+        <catStat type="freq">
+          1
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Imel sem nekaj pomislekov, vendar sem kljub temu objavil
+        </labl>
+        <catStat type="freq">
+          21
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ne objavljam tega
+        </labl>
+        <catStat type="freq">
+          26
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V16" name="v16" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Že objavili fotografije s potovanj, doživetij (upoštevani le uporabniki družbenih omrežij).
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        48
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        274
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        3
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Z veseljem
+        </labl>
+        <catStat type="freq">
+          1
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Imel sem nekaj pomislekov, vendar sem kljub temu objavil
+        </labl>
+        <catStat type="freq">
+          20
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ne objavljam tega
+        </labl>
+        <catStat type="freq">
+          27
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V17" name="v17" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Že objavili fotografije sebe v provokativni pozi (upoštevani le uporabniki družbenih omrežij).
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        48
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        274
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        3
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Z veseljem
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Imel sem nekaj pomislekov, vendar sem kljub temu objavil
+        </labl>
+        <catStat type="freq">
+          6
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ne objavljam tega
+        </labl>
+        <catStat type="freq">
+          42
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V18" name="v18" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Že objavili osebne podatke, če imam s tem ugodnosti (upoštevani le uporabniki družbenih omrežij).
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        48
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        274
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        3
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Z veseljem
+        </labl>
+        <catStat type="freq">
+          1
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Imel sem nekaj pomislekov, vendar sem kljub temu objavil
+        </labl>
+        <catStat type="freq">
+          20
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ne objavljam tega
+        </labl>
+        <catStat type="freq">
+          27
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V19" name="v19" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Že objavili fotografije/video drugih, ko so jih ujeli delati nekaj nenavadnega, zabavnega (upoštevani le uporabniki družbenih omrežij).
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        50
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        272
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        3
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Z veseljem
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Imel sem nekaj pomislekov, vendar sem kljub temu objavil
+        </labl>
+        <catStat type="freq">
+          20
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ne objavljam tega
+        </labl>
+        <catStat type="freq">
+          30
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V20" name="v20" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Imate na spletu objavljen svoj selfie (upoštevani le uporabniki družbenih omrežij)?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        50
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        272
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        3
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Z veseljem
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Imel sem nekaj pomislekov, vendar sem kljub temu objavil
+        </labl>
+        <catStat type="freq">
+          8
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ne objavljam tega
+        </labl>
+        <catStat type="freq">
+          42
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V21" name="v21" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Ali imate dostop interneta?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Da, neomejen
+        </labl>
+        <catStat type="freq">
+          151
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Da, vendar omejen
+        </labl>
+        <catStat type="freq">
+          4
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          Nimam dostopa
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ne želim upor. interneta
+        </labl>
+        <catStat type="freq">
+          146
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+         Ne morem  upor. interneta
+        </labl>
+        <catStat type="freq">
+          21
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V22" name="v22" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Katere vrste telefon uporabljate?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Pametni telefon z internetno povezavo
+        </labl>
+        <catStat type="freq">
+          128
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Pametni telefon brez internetne povezave
+        </labl>
+        <catStat type="freq">
+          138
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          Preprost oz prilagojen telefon
+        </labl>
+        <catStat type="freq">
+          52
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ne želim upor. telefona
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ne morem upor. telefona
+        </labl>
+        <catStat type="freq">
+          4
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V23" name="v23" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Dokler medij nudi novice/zabavo, ni pomembno, kdo je lastnik ali kako je financiran.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        320
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          74
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          73
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          69
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          53
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          51
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V24" name="v24" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Ko gledam novice navadno verjamem temu, kar vidim na televiziji.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        321
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          58
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          88
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          83
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          66
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          26
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V25" name="v25" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Ko berem novice v časopisu navadno verjamem temu, kar preberem.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        321
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          62
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          74
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          95
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          70
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          20
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V26" name="v26" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Ko gledam spletne strani, navadno verjamem temu, kar preberem ali vidim.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        206
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        116
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          25
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          51
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          60
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          54
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          16
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V27" name="v27" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Na družbenih omrežjih (npr. Facebook) navadno verjamem temu, kar preberem ali vidim.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        138
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        184
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          28
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          35
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          23
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          28
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          24
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V28" name="v28" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Na svetovnem spletu ali družbenih omrežjih vedno preverim namen in verodostojnost avtorjev spletne strani.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        117
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        205
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          42
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          26
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          17
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          17
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          15
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V29" name="v29" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Internet mi je izboljšal življenje.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        191
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        131
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          45
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          36
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          24
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          48
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          38
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V30" name="v30" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Mobilni telefon mi zelo koristi.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        317
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          19
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          45
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          60
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          114
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          79
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V31" name="v31" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Novi tehnološki pripomočki so zelo koristni.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        308
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        14
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          44
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          67
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          71
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          65
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          61
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V32" name="v32" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Slovenskim medijem zaupam glede informacij.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        311
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        11
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          43
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          61
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          97
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          81
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          29
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V33" name="v33" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Mediji imajo velik vpliv name.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        309
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        13
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          82
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          116
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          50
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          42
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          19
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V34" name="v34" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        če bi imel več denarja, bi bilo moje življenje boljše.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        312
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        10
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          44
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          73
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          56
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          77
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          62
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V35" name="v35" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Trditev: Zelo dobro vidim.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          13
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          68
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          87
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          93
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          61
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V36" name="v36" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Trditev: Zelo dobro slišim.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          20
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          47
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          62
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          106
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          87
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V37" name="v37" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Trditev: Sem telesno aktiven.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        320
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          10
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          64
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          107
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          96
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          43
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V38" name="v38" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Internet znam dobro uporabljati.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        301
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        21
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          93
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          71
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          60
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          53
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          24
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V39" name="v39" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Veliko sem v stiku z mlajšimi (otroci, vnuki...).
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          28
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          53
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          73
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          107
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          61
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V40" name="v40" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Večkrat sem osamljen/a.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        319
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        3
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          99
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          88
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          44
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          59
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          29
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V41" name="v41" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Veliko sem v stiku s starejšimi.
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="5"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          1-popolnoma se NE strinjam
+        </labl>
+        <catStat type="freq">
+          18
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          50
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          102
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          92
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5-popolnoma se strinjam
+        </labl>
+        <catStat type="freq">
+          60
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V42" name="v42" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Spol:
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="2"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        320
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ženski
+        </labl>
+        <catStat type="freq">
+          161
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Moški
+        </labl>
+        <catStat type="freq">
+          159
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V43" name="v43" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Letnica rojstva
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1923" max="1954"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1923
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        1954
+      </sumStat>
+      <sumStat type="mean" wgtd="not-wgtd">
+        1940.73
+      </sumStat>
+      <sumStat type="stdev" wgtd="not-wgtd">
+        8.355
+      </sumStat>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V44" name="v44" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Kraj bivanja
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="2"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Mesto
+        </labl>
+        <catStat type="freq">
+          198
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Podeželje
+        </labl>
+        <catStat type="freq">
+          124
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V45" name="v45" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Izobrazba
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="3"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        3
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          osnovna šola ali manj
+        </labl>
+        <catStat type="freq">
+          67
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          srednja ali poklicna šola
+        </labl>
+        <catStat type="freq">
+          172
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          višja šola ali več
+        </labl>
+        <catStat type="freq">
+          83
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V46" name="v46" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Zaposlitev
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="6"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        5
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          invalidsko upokojen
+        </labl>
+        <catStat type="freq">
+          11
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Trenutno nezaposlen
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          Poln delovni čas
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          Polovičen
+        </labl>
+        <catStat type="freq">
+          5
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          Upokojen
+        </labl>
+        <catStat type="freq">
+          306
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          6
+        </catValu>
+        <labl xml:lang="en-GB">
+          Drugo
+        </labl>
+        <catStat type="freq">
+          0
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V47" name="v47" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Prva številka vaše poštne številke
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="8"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        8
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          Ljubljanski poštni okraj
+        </labl>
+        <catStat type="freq">
+          121
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          Mariborski poštni okraj
+        </labl>
+        <catStat type="freq">
+          104
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          Celjski poštni okraj
+        </labl>
+        <catStat type="freq">
+          31
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          Kranjski poštni okraj
+        </labl>
+        <catStat type="freq">
+          33
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          Novogoriški poštni okraj
+        </labl>
+        <catStat type="freq">
+          14
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          6
+        </catValu>
+        <labl xml:lang="en-GB">
+          Koprski poštni okraj
+        </labl>
+        <catStat type="freq">
+          8
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          8
+        </catValu>
+        <labl xml:lang="en-GB">
+          Novomeški poštni okraj
+        </labl>
+        <catStat type="freq">
+          11
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V48" name="v48" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Število vseh oseb v gospodinjstvu
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="8"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        8
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          sam v gosp.
+        </labl>
+        <catStat type="freq">
+          41
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          2
+        </labl>
+        <catStat type="freq">
+          136
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          3
+        </catValu>
+        <labl xml:lang="en-GB">
+          3
+        </labl>
+        <catStat type="freq">
+          62
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          4
+        </catValu>
+        <labl xml:lang="en-GB">
+          4
+        </labl>
+        <catStat type="freq">
+          23
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          5
+        </catValu>
+        <labl xml:lang="en-GB">
+          5
+        </labl>
+        <catStat type="freq">
+          13
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          6
+        </catValu>
+        <labl xml:lang="en-GB">
+          6
+        </labl>
+        <catStat type="freq">
+          15
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          7
+        </catValu>
+        <labl xml:lang="en-GB">
+          7 ali več
+        </labl>
+        <catStat type="freq">
+          4
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          8
+        </catValu>
+        <labl xml:lang="en-GB">
+          V zavodu/domu
+        </labl>
+        <catStat type="freq">
+          28
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V49" name="v49" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Ste morda vključeni v katero društvo?
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="2"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          da
+        </labl>
+        <catStat type="freq">
+          83
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          ne
+        </labl>
+        <catStat type="freq">
+          239
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V50" name="v50" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="6"/>
+      <labl xml:lang="en-GB">
+        Zelo dobro ali dobro vidi
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="2"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          da
+        </labl>
+        <catStat type="freq">
+          154
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          ostali
+        </labl>
+        <catStat type="freq">
+          168
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V51" name="v51" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Zelo dobro ali dobro sliši
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="2"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          da
+        </labl>
+        <catStat type="freq">
+          193
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          ostali
+        </labl>
+        <catStat type="freq">
+          129
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V52" name="v52" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Zelo dobro ali dobro je telesno aktiven
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="2"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          da
+        </labl>
+        <catStat type="freq">
+          139
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          ostali
+        </labl>
+        <catStat type="freq">
+          183
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+    <var ID="V53" name="v53" files="F1" dcml="0" intrvl="contin" wgt="not-wgt">
+      <location width="8"/>
+      <labl xml:lang="en-GB">
+        Starostni skupini
+      </labl>
+      <valrng>
+        <range UNITS="REAL" min="1" max="2"/>
+      </valrng>
+      <sumStat type="vald" wgtd="not-wgtd">
+        322
+      </sumStat>
+      <sumStat type="invd" wgtd="not-wgtd">
+        0
+      </sumStat>
+      <sumStat type="min" wgtd="not-wgtd">
+        1
+      </sumStat>
+      <sumStat type="max" wgtd="not-wgtd">
+        2
+      </sumStat>
+      <catgry missing="N">
+        <catValu>
+          1
+        </catValu>
+        <labl xml:lang="en-GB">
+          65-74 let
+        </labl>
+        <catStat type="freq">
+          146
+        </catStat>
+      </catgry>
+      <catgry missing="N">
+        <catValu>
+          2
+        </catValu>
+        <labl xml:lang="en-GB">
+          75 let in več
+        </labl>
+        <catStat type="freq">
+          176
+        </catStat>
+      </catgry>
+      <varFormat type="numeric" schema="other" category="other"/>
+    </var>
+  </dataDscr>
+  <otherMat URI="../podatki/mpstr18/mpstr18_vp1_sl_v1_r1.pdf" level="study" type="*.pdf - GRAPHIC" ID="MPSTR18_VP1_SL_V1_R1">
+    <citation>
+      <titlStmt>
+        <titl xml:lang="en-GB">MPSTR18 - Medijske navade starejših (65 let in več), 2018 [Questionnaire]</titl>
+        <IDNo agency="ADP">MPSTR18_VP1_SL_V1_R1</IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty>Rek, Mateja</AuthEnty>
+        <AuthEnty>Kovačič, Andrej</AuthEnty>
+      </rspStmt>
+      <prodStmt>
+        <producer affiliation="Fakulteta za medije = Faculty of Media" xml:lang="en-GB">FAM</producer>
+        <prodDate xml:lang="en-GB">2018</prodDate>
+        <prodPlac xml:lang="en-GB">Ljubljana</prodPlac>
+        <software xml:lang="en-GB">*.pdf - GRAPHIC</software>
+      </prodStmt>
+      <holdings URI="../podatki/mpstr18/mpstr18_vp1_sl_v1_r1.pdf">Arhiv družboslovnih podatkov = Social Science Data Archives</holdings>
+    </citation>
+  </otherMat>
+</codeBook>
