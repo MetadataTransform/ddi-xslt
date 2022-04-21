@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet 
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:jn="http://www.json.org"
-    xmlns:fn="http://www.w3.org/2005/xpath-functions"
     xmlns:meta="transformation:metadata"
     xmlns:c="ddi:codebook:2_5"
     xmlns:dc="http://purl.org/dc/terms/" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
     version="3.0">
 
   <xsl:output method="json" indent="yes" use-character-maps="no-escape-slash" />
