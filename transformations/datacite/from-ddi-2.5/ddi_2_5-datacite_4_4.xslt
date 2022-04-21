@@ -36,6 +36,7 @@
               xmlns:meta="transformation:metadata"
               xmlns:ddi="http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+              xmlns="http://datacite.org/schema/kernel-4.4"
               xsi:schemaLocation="https://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
 
         <!--Contents:
