@@ -19,7 +19,7 @@
     <!-- root template    -->
 
     <!-- by default, all nodes and attributes are copied verbatim to the output 
-    Note: can be in teh possiton as the last template in the row to catch any remaining content of the original document
+    Note: can be in the position as the last template in the row to catch any remaining content of the original document
     <xsl:template match="node()|@*">
         <xsl:copy>
             <xsl:apply-templates select="node()|@*"/>
@@ -159,7 +159,7 @@
                     <xsl:attribute name="xml:lang">sl-SI</xsl:attribute>
                     <xsl:value-of select="current-group()/c:labl"/>
                 </labl>
-                <!-- The bellow notation any labl in a group match / not appropriate as labl repeats on lower level elswhere in the node
+                <!-- The below notation any labl in a group match / not appropriate as labl repeats on lower level elswhere in the node
                             <xsl:copy-of select="current-group()//c:labl"/>
                 -->
                 <!--  <xsl:copy-of select="current-group()//c:qstn"/>
@@ -197,7 +197,7 @@
                 </qstn>
                 <xsl:copy-of select="current-group()/c:valrng"/>
                 <xsl:copy-of select="current-group()/c:sumStat"/>
-                <!-- CHANGE systematic arror in xml:lang produced by NESSTAR Publisher: from 'en-GB' to 'sl-SI' +
+                <!-- CHANGE systematic error in xml:lang produced by NESSTAR Publisher: from 'en-GB' to 'sl-SI' +
                 add labl if not present 
                 -->    
                 <xsl:for-each-group select="c:catgry" group-by="c:catValu">
@@ -239,62 +239,3 @@
     </otherMat>
 </xsl:template>
 </xsl:stylesheet>
-
-<!--  literature / examples solutions:
-Test examples: 
-https://www.adp.fdv.uni-lj.si/media/raziskave/opisi/pocp21-en.xml 
-
-Instructions:
-Run: cd c:\Users\stebej\Documents\ddi-xslt\dev\ 
-docker-compose up 
-
-see  readme
-ddi-xslt
-========
-
-This is a collection of xslt-stylesheets for DDI for transformation the metadata to other formats.
-
-# development
-
-Create a new file `docker-compose.override.yml`
-
-Set the enviroment parameters for the XSLT and XML to use in development
-
-```yml
-version: "3"
-services:
-  ddi-xslt-dev:
-    environment:
-      XSLT: /transformations/dcterms/from-ddi-3.2/ddi_3_2-dcterms.xslt
-      XML: /examples/ddi-3.2/ZA4586_ddi-I_StudyDescription_3_2.xml
-```
-
-Note: In case of compilation error, change End Of Line sequence from CRLF to LF in `run.sh` script.
-
-GNU Lesser General Public License
-=========================
-
-[![GNU LGPL v3.0](https://www.gnu.org/graphics/lgplv3-147x51.png)](https://www.gnu.org/licenses/lgpl-3.0.html)
-
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$default
-Docker-copmpose.override.yml
-version: "3"
-services:
-  ddi-xslt-dev:
-    environment:
-      XSLT: /transformations/cessda-eqb/from-ddi-2.5/ddi_2_5-cessda_eqb.xslt
-      XML: /examples/ddi-2.5/mpstr18_eqb_test_valid.xml
-    build: 
-      context: .
-      dockerfile: dev/Dockerfile-dev
-    volumes:
-      - ./transformations:/transformations:cached
-      - ./examples:/examples:cached
-
-local setting
-PS C:\Users\stebej\documents> cd ddi-xslt
-PS C:\Users\stebej\documents\ddi-xslt> cd dev
-PS C:\Users\stebej\documents\ddi-xslt\dev> docker-compose up
-Recreating ddi-xslt_ddi-xslt-dev_1 ... done  
---> 
