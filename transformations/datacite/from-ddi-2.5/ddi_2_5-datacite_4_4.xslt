@@ -272,38 +272,44 @@
         <xsl:copy-of select="meta:mapLiteral('description', c:stdyInfo/c:abstract, null, null)" />
         <xsl:copy-of select="meta:mapLiteral('description', c:citation/c:serStmt/c:serInfo, null, null)" />
         <!-- 15 Geolocation -->
-        <geoLocations>
-            <geoLocation>
-                <xsl:copy-of select="meta:mapLiteral('geoLocationPlace', c:stdyInfo/c:sumDscr/nation, null, null)" />
-                <xsl:copy-of select="meta:mapLiteral('geoLocationPlace', c:stdyInfo/c:sumDscr/c:geogCover, null, null)" />
-                <geoLocationBox>
-                    <xsl:copy-of select="meta:mapLiteral('westBoundLongitude', c:stdyInfo/c:sumDscr/c:geoBndBox/c:westBL, null, null)" />
-                    <xsl:copy-of select="meta:mapLiteral('eastBoundLongitude', c:stdyInfo/c:sumDscr/c:geoBndBox/c:eastBL, null, null)" />
-                    <xsl:copy-of select="meta:mapLiteral('southBoundLatitude', c:stdyInfo/c:sumDscr/c:geoBndBox/c:southBL, null, null)" />
-                    <xsl:copy-of select="meta:mapLiteral('northBoundLatitude', c:stdyInfo/c:sumDscr/c:geoBndBox/c:northBL, null, null)" />
-                </geoLocationBox>
-                <geoLocationPolygon>
-                    <polygonPoint>
-                        <xsl:copy-of select="meta:mapLiteral('pointLatitude', c:stdyInfo/c:sumDscr/c:boundPoly/c:polygon/c:point/c:gringLat, null, null)" />
-                        <xsl:copy-of select="meta:mapLiteral('pointLongitude', c:stdyInfo/c:sumDscr/c:boundPoly/c:polygon/c:point/c:gringLon, null, null)" />
-                    </polygonPoint>
-                </geoLocationPolygon>
-            </geoLocation>
-        </geoLocations>
+        <xsl:if test= "c:stdyInfo/c:sumDscr/nation|c:stdyInfo/c:sumDscr/c:geogCover">
+            <geoLocations>
+                <geoLocation>
+                    <xsl:copy-of select="meta:mapLiteral('geoLocationPlace', c:stdyInfo/c:sumDscr/nation, null, null)" />
+                    <xsl:copy-of select="meta:mapLiteral('geoLocationPlace', c:stdyInfo/c:sumDscr/c:geogCover, null, null)" />
+                    <geoLocationBox>
+                        <xsl:copy-of select="meta:mapLiteral('westBoundLongitude', c:stdyInfo/c:sumDscr/c:geoBndBox/c:westBL, null, null)" />
+                        <xsl:copy-of select="meta:mapLiteral('eastBoundLongitude', c:stdyInfo/c:sumDscr/c:geoBndBox/c:eastBL, null, null)" />
+                        <xsl:copy-of select="meta:mapLiteral('southBoundLatitude', c:stdyInfo/c:sumDscr/c:geoBndBox/c:southBL, null, null)" />
+                        <xsl:copy-of select="meta:mapLiteral('northBoundLatitude', c:stdyInfo/c:sumDscr/c:geoBndBox/c:northBL, null, null)" />
+                    </geoLocationBox>
+                    <geoLocationPolygon>
+                        <polygonPoint>
+                            <xsl:copy-of select="meta:mapLiteral('pointLatitude', c:stdyInfo/c:sumDscr/c:boundPoly/c:polygon/c:point/c:gringLat, null, null)" />
+                            <xsl:copy-of select="meta:mapLiteral('pointLongitude', c:stdyInfo/c:sumDscr/c:boundPoly/c:polygon/c:point/c:gringLon, null, null)" />
+                        </polygonPoint>
+                    </geoLocationPolygon>
+                </geoLocation>
+            </geoLocations>
+        </xsl:if>
         <!-- 16 Other Material -->
-        <relatedItems>
-            <xsl:copy-of select="meta:mapLiteral('relatedItem', c:othrStdymat/c:relMat, null, null)" />
-            <xsl:copy-of select="meta:mapLiteral('relatedItem', c:othrStdymat/c:relStdy, null, null)" />
-            <xsl:copy-of select="meta:mapLiteral('relatedItem', c:othrStdymat/c:relPubl, null, null)" />
-            <xsl:copy-of select="meta:mapLiteral('relatedItem', c:othrStdymat/c:othRefs, null, null)" />
-            <xsl:copy-of select="meta:mapLiteral('relatedItem', c:citation/c:serStmt/c:serName, 'relationType', 'IsPartOf')" />
-        </relatedItems>
+        <xsl:if test="c:othrStdymat|c:citation/c:serStmt/c:serName">
+            <relatedItems>
+                <xsl:copy-of select="meta:mapLiteral('relatedItem', c:othrStdyMat/c:relMat, null, null)" />
+                <xsl:copy-of select="meta:mapLiteral('relatedItem', c:othrStdyMat/c:relStdy, null, null)" />
+                <xsl:copy-of select="meta:mapLiteral('relatedItem', c:othrStdyMat/c:relPubl, null, null)" />
+                <xsl:copy-of select="meta:mapLiteral('relatedItem', c:othrStdyMat/c:othRefs, null, null)" />
+                <xsl:copy-of select="meta:mapLiteral('relatedItem', c:citation/c:serStmt/c:serName, 'relationType', 'IsPartOf')" />
+            </relatedItems>
+        </xsl:if>
         <!-- 17 Funding -->
-        <funderReference>
-            <xsl:copy-of select="meta:mapLiteral('funderName', c:citation/c:prodStmt/c:fundAg, null, null)" />
-            <xsl:copy-of select="meta:mapLiteral('awardNumber', c:citation/c:prodStmt/c:grantNo, null, null)" />
-            <xsl:copy-of select="meta:mapLiteral('funderName', c:citation/c:prodStmt/c:grantNo/@agency, null, null)" />
-        </funderReference>
+        <xsl:if test="c:citation/c:prodStmt/c:fundAg|c:citation/c:prodStmt/c:grantNo">
+            <funderReference>
+                <xsl:copy-of select="meta:mapLiteral('funderName', c:citation/c:prodStmt/c:fundAg, null, null)" />
+                <xsl:copy-of select="meta:mapLiteral('awardNumber', c:citation/c:prodStmt/c:grantNo, null, null)" />
+                <xsl:copy-of select="meta:mapLiteral('funderName', c:citation/c:prodStmt/c:grantNo/@agency, null, null)" />
+            </funderReference>
+        </xsl:if>
         <!-- 18 Data Format -->
             <xsl:copy-of select="meta:mapLiteral('format', //c:fileDscr/c:fileTxt/c:format, null, null)" />
     </xsl:element>
