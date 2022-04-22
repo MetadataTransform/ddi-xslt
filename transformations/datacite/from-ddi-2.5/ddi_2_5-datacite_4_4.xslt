@@ -191,7 +191,7 @@
                 </contributor>
             </xsl:if>
             <xsl:copy-of select="meta:mapLiteral('contributor', c:citation/c:distStmt/c:distrbtr, 'contributorType', 'Distributor')" />
-            <xsl:copy-of select="meta:mapLiteral('contributor', c:citation/c:distStmt/c:contact, 'contributorType', 'ContactPerson')" />
+            <xsl:copy-of select="meta:mapLiteral('contributor', c:citation/c:distStmt/c:contact, 'contributorType', 'Contact Person')" />
             <contributor>
                 <xsl:copy-of select="meta:mapLiteral('affiliation', c:citation/c:rspStmt/c:othId/@affiliation, null, null)" />
             </contributor>
