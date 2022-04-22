@@ -25,17 +25,6 @@
 
     <xsl:output method="xml" indent="yes" />
 
-    <xsl:param name="studyURI">
-        <xsl:choose>
-            <xsl:when test="//c:stdyDscr/c:citation/c:titlStmt/c:IDNo!=''">
-                <xsl:value-of select="//c:stdyDscr/c:citation/c:titlStmt/c:IDNo[@agency='DataCite']" />
-            </xsl:when>
-            <xsl:when test="//c:codeBook/@ID">
-                <xsl:value-of select="//c:codeBook/@ID" />
-            </xsl:when>
-        </xsl:choose>
-    </xsl:param>
-
     <xsl:template match="/">
         <resourceInfo>
             <xsl:namespace name="xsi">http://www.w3.org/2001/XMLSchema-instance</xsl:namespace>
@@ -47,42 +36,32 @@
     </xsl:template>
 
     <xsl:template match="c:stdyDscr">
-        <IdentificationInfo>
-            <xsl:for-each select="$studyURI">
-                <identifier>
-                    <xsl:value-of select="." />
-                </identifier>
-            </xsl:for-each>
-
-            <xsl:for-each select="c:citation/c:titlStmt/c:titl|c:citation/c:titlStmt/c:altTitl|c:titl|c:citation/c:titlStmt/c:parTitl">
-                <resourceName>
-                    <xsl:copy-of select="@xml:lang" />
-                    <xsl:value-of select="." />
-                </resourceName>
-            </xsl:for-each>
-
-            <xsl:for-each select="c:stdyInfo/c:abstract">
-                <description>
-                    <xsl:copy-of select="@xml:lang" />
-                    <xsl:value-of select="." />
-                </description>
-            </xsl:for-each>
-        </IdentificationInfo>
+        <distributionInfo>
+            <xsl:copy-of select="meta:mapLiteral('availability', c:dataAccs/c:setAvail/c:avlStatus)" />
+        </distributionInfo>
+        <resourceCreationInfo>
+            <xsl:copy-of select="meta:mapLiteral('resourceCreator', c:citation/c:rspStmt/c:AuthEnty)" />
+        </resourceCreationInfo>
+        <identificationInfo>
+            <xsl:copy-of select="meta:mapLiteral('identifier', c:citation/c:titlStmt/c:IDNo)" />
+            <xsl:copy-of select="meta:mapLiteral('resourceName', c:citation/c:titlStmt/c:titl)" />
+            <xsl:copy-of select="meta:mapLiteral('resourceName', c:citation/c:titlStmt/c:altTitl)" />
+            <xsl:copy-of select="meta:mapLiteral('description', c:stdyInfo/c:abstract)" />
+        </identificationInfo>
         <relationInfo>
-            <xsl:for-each select="c:othrStdyMat">
-                <relationType>
-                    <xsl:copy-of select="@xml:lang" />
-                    <xsl:value-of select="." />
-                </relationType>
-            </xsl:for-each>
-
-            <xsl:for-each select="c:othrStdyMat">
-                <targetResourceNameURI>
-                    <xsl:copy-of select="@xml:lang" />
-                    <xsl:value-of select="." />
-                </targetResourceNameURI>
-            </xsl:for-each>
-
+            <xsl:copy-of select="meta:mapLiteral('relationType', c:othrStdyMat)" />
+            <xsl:copy-of select="meta:mapLiteral('targetResourceNameURI', c:othrStdyMat)" />
         </relationInfo>
     </xsl:template>
+    <xsl:function name="meta:mapLiteral">
+    <xsl:param name="element" />
+    <xsl:param name="content" />
+
+    <xsl:for-each select="$content">
+        <xsl:element name="{$element}">
+        <xsl:copy-of select="@xml:lang" />
+        <xsl:value-of select ="." />
+        </xsl:element>
+    </xsl:for-each> 
+    </xsl:function>
 </xsl:stylesheet>
