@@ -8,7 +8,8 @@
     xmlns:meta="transformation:metadata"
     xmlns:ddi="http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xsi:schemaLocation="http://schema.datacite.org/meta/kernel-4.4 http://schema.datacite.org/meta/kernel-4.4/metadata.xsd"
+    xmlns="http://datacite.org/schema/kernel-4"
+    xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.4/metadata.xsd"
 
     exclude-result-prefixes="#all"
     version="2.0">
@@ -36,7 +37,7 @@
               xmlns:meta="transformation:metadata"
               xmlns:ddi="http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
               xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-              xmlns="http://datacite.org/schema/kernel-4.4"
+              xmlns="http://datacite.org/schema/kernel-4"
               xsi:schemaLocation="https://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
 
         <!--Contents:
@@ -366,20 +367,20 @@ Assumes input string is normalized and contains at least one space.
     </xsl:choose>
 </xsl:template>
 
-<xsl:function name="meta:mapLiteral">
-    <xsl:param name="element" />
-    <xsl:param name="content" />
-    <xsl:param name="attribute" />
-    <xsl:param name="attribValue" />
+    <xsl:function name="meta:mapLiteral">
+        <xsl:param name="element" />
+        <xsl:param name="content" />
+        <xsl:param name="attribute" />
+        <xsl:param name="attribValue" />
 
-    <xsl:for-each select="$content">
-        <xsl:element name="{$element}">
-        <xsl:copy-of select="@xml:lang" />
-        <xsl:if test="$attribute!='null'">
-        <xsl:attribute name="{$attribute}"><xsl:value-of select= "$attribValue" /></xsl:attribute>
-        </xsl:if>
-        <xsl:value-of select ="." />
-        </xsl:element>
-    </xsl:for-each> 
-</xsl:function>
+        <xsl:for-each select="$content">
+            <xsl:element name="{$element}">
+            <xsl:copy-of select="@xml:lang" />
+            <xsl:if test="$attribute!='null'">
+            <xsl:attribute name="{$attribute}"><xsl:value-of select= "$attribValue" /></xsl:attribute>
+            </xsl:if>
+            <xsl:value-of select ="." />
+            </xsl:element>
+        </xsl:for-each> 
+    </xsl:function>
 </xsl:stylesheet>
