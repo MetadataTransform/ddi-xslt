@@ -23,7 +23,7 @@
     <xsl:output method="xml" indent="yes" />
 
     <xsl:template match="/">
-        <resourceInfo xmlns="http://www.ilsp.gr/META-XMLSchema">
+        <resourceInfo>
             <xsl:namespace name="xsi">http://www.w3.org/2001/XMLSchema-instance</xsl:namespace>
             <xsl:namespace name="xsd">http://www.w3.org/2001/XMLSchema</xsl:namespace>
             <xsl:attribute name="xsi:schemaLocation">http://www.ilsp.gr/META-XMLSchema http://metashare.ilsp.gr/META-XMLSchema/v3.0/META-SHARE-Resource.xsd</xsl:attribute>
