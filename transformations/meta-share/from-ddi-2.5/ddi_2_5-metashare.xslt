@@ -2,18 +2,15 @@
 <!-- ddi2-5-to-meta-share.xsl -->
 <!-- converts a DDI 2.5 intance to Meta-Share -->
 
-<xsl:stylesheet version="2.0" 
+<xsl:stylesheet 
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
  xmlns:xml="http://www.w3.org/XML/1998/namespace" 
- xmlns:meta="transformation:rdf" 
+ xmlns:meta="transformation:metadata"
  xmlns:c="ddi:codebook:2_5" 
  xmlns:ddi="http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd" 
- xmlns:ms="http://www.ilsp.gr/META-XMLSchema" 
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
- xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
- xsi:schemaLocation="http://www.ilsp.gr/META-XMLSchema http://metashare.ilsp.gr/META-XMLSchema/v3.0/META-SHARE-Resource.xsd" 
- xmlns="http://www.ilsp.gr/META-XMLSchema" 
- xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ version="2.0" 
  exclude-result-prefixes="#all">
 
     <meta:metadata>
@@ -26,11 +23,10 @@
     <xsl:output method="xml" indent="yes" />
 
     <xsl:template match="/">
-        <resourceInfo>
+        <resourceInfo xmlns="http://www.ilsp.gr/META-XMLSchema">
             <xsl:namespace name="xsi">http://www.w3.org/2001/XMLSchema-instance</xsl:namespace>
             <xsl:namespace name="xsd">http://www.w3.org/2001/XMLSchema</xsl:namespace>
-            <xsl:namespace name="schemaLocation">http://www.ilsp.gr/META-XMLSchema http://metashare.ilsp.gr/META-XMLSchema/v3.0/META-SHARE-Resource.xsd</xsl:namespace>
-
+            <xsl:attribute name="xsi:schemaLocation">http://www.ilsp.gr/META-XMLSchema http://metashare.ilsp.gr/META-XMLSchema/v3.0/META-SHARE-Resource.xsd</xsl:attribute>
             <xsl:apply-templates select="//c:stdyDscr" />
         </resourceInfo>
     </xsl:template>
