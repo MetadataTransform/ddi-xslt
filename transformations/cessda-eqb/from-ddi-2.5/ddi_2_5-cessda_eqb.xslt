@@ -19,12 +19,31 @@
     <!-- root template    -->
 
     <!-- by default, all nodes and attributes are copied verbatim to the output 
-    Note: can be in the position as the last template in the row to catch any remaining content of the original document
+    Note: can be in teh possiton as the last template in the row to catch any remaining content of the original document 
     <xsl:template match="node()|@*">
         <xsl:copy>
             <xsl:apply-templates select="node()|@*"/>
         </xsl:copy>
     </xsl:template> -->
+
+<!-- declaration of the values of the constants   -->
+<xsl:variable name="xml_lang_stdyDscr"><xsl:if test="not(c:codeBook/c:stdyDscr/c:citation/c:titlStmt/c:titl/@xml:lang)">en-GB</xsl:if>
+<xsl:if test="(c:codeBook/c:stdyDscr/c:citation/c:titlStmt/c:titl/@xml:lang)">
+<xsl:value-of select="c:codeBook/c:stdyDscr/c:citation/c:titlStmt/c:titl/@xml:lang"/><!-- The language derived from title Study Description or else 'en-GB'  -->                  
+</xsl:if></xsl:variable>
+
+
+ <!-- parameters  -->
+  <!-- lang_dataDscr  Set the constant to be used for language of the data description section -->
+  <xsl:param name="lang_dataDscr">sl-SI</xsl:param>
+            
+ <!-- -->
+<!--<xsl:variable name="xml_lang_dataDscr">
+    <xsl:value-of select="c:codeBook/c:fileDscr/c:fileTxt/c:fileCitation/c:titlStmt/c:titl/@xml:lang"/> 
+   <xsl:param name="multilang">false</xsl:param>
+</xsl:variable>
+-->
+
 
     <xsl:template match="//c:codeBook"> 
         <codeBook>
@@ -48,9 +67,12 @@
             <xsl:copy-of select="./c:citation/c:rspStmt"/>
                  <prodStmt> 
                     <xsl:copy-of select="./c:citation/c:prodStmt/c:producer"/>
-                    <!-- the required element xml:lang attribut is missing: defaults to "en"; 
+                    <!-- the required element xml:lang attribut is missing: defaults to "$xml_lang_stdyDscr"; 
                     TO DO: read the Codebook language version from one of the existing elements, e.g. title -->
-                    <copyright xml:lang="en-GB">
+                    <copyright>
+                        <xsl:attribute name="xml:lang">
+                            <xsl:value-of select="$xml_lang_stdyDscr"/>
+                        </xsl:attribute>
                         <xsl:value-of select="./c:citation/c:prodStmt/c:copyright"/>
                     </copyright>
                     <xsl:copy-of select="./c:citation/c:prodStmt/c:prodDate"/>
@@ -108,19 +130,23 @@
         <!-- copy the attributes from the origin -->
         <xsl:copy-of select="@*"/>
            <fileTxt> 
-                <xsl:copy-of select="//c:fileName"/>
-                <xsl:copy-of select="//c:dimensns"/>
+                <xsl:copy-of select="./c:fileTxt/c:fileName"/>
+                <xsl:copy-of select="./c:fileTxt/c:fileCitation"/>
+                <xsl:copy-of select="./c:fileTxt/c:dimensns"/>
                 <!-- Check if the required element is missing and in case it is, assign the default values-->
                 <!-- Check if it would be possible to assign the default from study description related to the https://ddialliance.org/controlled-vocabularies-->          
-                <xsl:copy-of select="//c:fileType"/>
-                    <xsl:if test="not(//c:fileType)">
-                        <fileType xml:lang="en-GB">*.txt - TEXT</fileType>
+                <xsl:copy-of select="./c:fileTxt/c:fileType"/> 
+                    <xsl:if test="not(./c:fileTxt/c:fileType)">
+                       <fileType>
+                        <xsl:attribute name="xml:lang">
+                            <xsl:value-of select="./c:fileTxt/c:fileName/@xml:lang"/>
+                        </xsl:attribute>*.txt - TEXT</fileType>
                     </xsl:if>
-                <xsl:copy-of select="//c:filePlac"/>
-                <xsl:copy-of select="//c:fileTxt/c:verStmt"/>        
+                <xsl:copy-of select="./c:fileTxt/c:filePlac"/>
+                <xsl:copy-of select="./c:fileTxt/c:verStmt"/>        
             </fileTxt> 
         </fileDscr>
-            </xsl:template>
+    </xsl:template>
 
 <xsl:template match="//c:dataDscr">
     <dataDscr>
@@ -133,7 +159,9 @@
                 <!-- current existent attributes copied:/>         --> 
                 <xsl:copy-of select="@*"/>
                 <!-- The default value of attribute overwrite the existent false values that resulted from NESSTAR Publisher         -->
-                <xsl:attribute name="xml:lang">sl-SI</xsl:attribute>
+                <xsl:attribute name="xml:lang">
+                    <xsl:value-of select="$lang_dataDscr"/>
+                </xsl:attribute>
                 <!-- The default value of attribute if missing:        -->         
                 <xsl:if test="not(//c:var/c:nature)">
                     <xsl:attribute name="nature">ordinal</xsl:attribute>
@@ -156,18 +184,20 @@
                         <xsl:copy-of select="current-group()//c:labl"/> if sytematic error: change to default "sl-SI" xml:lang insted en-GB =  
                 -->
                 <labl>
-                    <xsl:attribute name="xml:lang">sl-SI</xsl:attribute>
+                    <xsl:attribute name="xml:lang"><xsl:value-of select="$lang_dataDscr"/></xsl:attribute>
                     <xsl:value-of select="current-group()/c:labl"/>
                 </labl>
-                <!-- The below notation any labl in a group match / not appropriate as labl repeats on lower level elswhere in the node
+                <!-- The bellow notation any labl in a group match / not appropriate as labl repeats on lower level elswhere in the node
                             <xsl:copy-of select="current-group()//c:labl"/>
                 -->
+
                 <!--  <xsl:copy-of select="current-group()//c:qstn"/>
                       <xsl:if test="not(current-group()//c:qstn)">
 
                         !!!!!!!!!!!!!!!! overwrite: question attributes and values
                 -->          
-                <qstn xml:lang="sl-SI">
+                <qstn>
+                    <xsl:attribute name="xml:lang"><xsl:value-of select="$lang_dataDscr"/></xsl:attribute>
                     <xsl:attribute name="ID">
                         <xsl:value-of select="'Q'"/>
                         <xsl:value-of select="$var_seq"/>
@@ -190,14 +220,15 @@
                     </xsl:if>
                     <!-- Check if the required element is missing and in case it is, copy the default values from existing label-->
                     <xsl:if test="not(current-group()//c:qstn/c:qstnLit)">
-                        <qstnLit xml:lang="en-GB">
+                        <qstnLit>
+                            <xsl:attribute name="xml:lang"><xsl:value-of select="$lang_dataDscr"/></xsl:attribute>
                             <xsl:value-of select="current-group()/c:labl"/>
                         </qstnLit>
                     </xsl:if>
                 </qstn>
                 <xsl:copy-of select="current-group()/c:valrng"/>
                 <xsl:copy-of select="current-group()/c:sumStat"/>
-                <!-- CHANGE systematic error in xml:lang produced by NESSTAR Publisher: from 'en-GB' to 'sl-SI' +
+                <!-- CHANGE systematic arror in xml:lang produced by NESSTAR Publisher: from 'en-GB' to 'sl-SI' +
                 add labl if not present 
                 -->    
                 <xsl:for-each-group select="c:catgry" group-by="c:catValu">
@@ -206,7 +237,8 @@
                         <!-- current existent attributes copied:   --> 
                             <xsl:copy-of select="@*"/>
                             <xsl:copy-of select="current-group()/c:catValu"/>
-                            <labl xml:lang="sl-SI">
+                            <labl>
+                                <xsl:attribute name="xml:lang"><xsl:value-of select="$lang_dataDscr"/></xsl:attribute>
                                 <xsl:if test="current-group()/c:labl">
                                     <xsl:value-of select="current-group()/c:labl" />
                                 </xsl:if> 
@@ -238,4 +270,64 @@
         <xsl:copy-of select="*"/>
     </otherMat>
 </xsl:template>
+ 
+
 </xsl:stylesheet>
+<!--  literature / examples solutions:
+Test examples: 
+https://www.adp.fdv.uni-lj.si/media/raziskave/opisi/pocp21-en.xml 
+
+Instructions:
+Run: cd c:\Users\stebej\Documents\ddi-xslt\dev\ 
+docker-compose up 
+
+see  readme
+ddi-xslt
+========
+
+This is a collection of xslt-stylesheets for DDI for transformation the metadata to other formats.
+
+# development
+
+Create a new file `docker-compose.override.yml`
+
+Set the enviroment parameters for the XSLT and XML to use in development
+
+```yml
+version: "3"
+services:
+  ddi-xslt-dev:
+    environment:
+      XSLT: /transformations/dcterms/from-ddi-3.2/ddi_3_2-dcterms.xslt
+      XML: /examples/ddi-3.2/ZA4586_ddi-I_StudyDescription_3_2.xml
+```
+
+Note: In case of compilation error, change End Of Line sequence from CRLF to LF in `run.sh` script.
+
+GNU Lesser General Public License
+=========================
+
+[![GNU LGPL v3.0](https://www.gnu.org/graphics/lgplv3-147x51.png)](https://www.gnu.org/licenses/lgpl-3.0.html)
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$default
+Docker-copmpose.override.yml
+version: "3"
+services:
+  ddi-xslt-dev:
+    environment:
+      XSLT: /transformations/cessda-eqb/from-ddi-2.5/ddi_2_5-cessda_eqb.xslt
+      XML: /examples/ddi-2.5/mpstr18_eqb_test_valid.xml
+    build: 
+      context: .
+      dockerfile: dev/Dockerfile-dev
+    volumes:
+      - ./transformations:/transformations:cached
+      - ./examples:/examples:cached
+
+local setting
+PS C:\Users\stebej\documents> cd ddi-xslt
+PS C:\Users\stebej\documents\ddi-xslt> cd dev
+PS C:\Users\stebej\documents\ddi-xslt\dev> docker-compose up
+Recreating ddi-xslt_ddi-xslt-dev_1 ... done  
+--> 
