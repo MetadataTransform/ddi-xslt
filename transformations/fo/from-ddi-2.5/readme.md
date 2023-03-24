@@ -6,3 +6,7 @@ https://xmlgraphics.apache.org/fop/download.html
 To run:
 
 `/path/to/fop -xml path/to/my-ddi-2.5.xml -xsl path/to/dditofo.xsl -pdf my-pdf.pdf`
+
+
+https://demo.borealisdata.ca/dataset.xhtml?persistentId=doi:10.80240/FK2/NWIOZP&version=1.1 
+Example of codebook with variables, groups and weights
