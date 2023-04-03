@@ -1,0 +1,6 @@
+[read_write_metadata]
+codebook_directory_path: /path/to/codebook_xml_files
+cdi_directory_path: /path/to/cdi_xml_files
+
+[transform_metadata]
+xslt_path: /path/to/ddi-xslt/transformations/cdi/from-ddi-2.5.xslt

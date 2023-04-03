@@ -1,0 +1,3333 @@
+<?xml version="1.0"?>
+<codeBook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="ddi:codebook:2_5" version="2.5" xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd" xml:lang="en">
+  <docDscr>
+    <citation>
+      <titlStmt>
+        <titl>DDI description: Child Barometer 2016</titl>
+        <parTitl xml:lang="fi">DDI-kuvailu: Lapsibarometri 2016</parTitl>
+        <IDNo agency="FSD">3134</IDNo>
+      </titlStmt>
+      <prodStmt>
+        <producer abbr="FSD">Finnish Social Science Data Archive</producer>
+        <copyright>Finnish Social Science Data Archive</copyright>
+        <prodPlac>Finnish Social Science Data Archive</prodPlac>
+      </prodStmt>
+      <biblCit>Child Barometer 2016 [codebook]. Finnish Social Science Data Archive [producer and distributor], 2021.</biblCit>
+      <holdings URI="http://urn.fi/urn:nbn:fi:fsd:T-FSD3134" location="Finnish Social Science Data Archive FSD"/>
+    </citation>
+    <notes xml:lang="fi">FSD:n aineistokuvailut (FSD metadata records), jonka tekijä on Suomen yhteiskuntatieteellinen tietoarkisto (Finnish Social Science Data Archive), on lisensoitu Creative Commons Nimeä 4.0 Kansainvälinen (CC BY 4.0) -lisenssillä.<ExtLink URI="https://creativecommons.org/licenses/by/4.0/deed.fi"/>
+    </notes>
+    <notes xml:lang="en">FSD:n aineistokuvailut (FSD metadata records) by Suomen yhteiskuntatieteellinen tietoarkisto (Finnish Social Science Data Archive) is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.<ExtLink URI="https://creativecommons.org/licenses/by/4.0/deed.en"/>
+    </notes>
+    <notes xml:lang="sv">FSD:n aineistokuvailut (FSD metadata records) av Suomen yhteiskuntatieteellinen tietoarkisto (Finlands samhällsvetenskapliga dataarkiv) är licensierad under en Creative Commons Erkännande 4.0 Internationell (CC BY 4.0) licens.<ExtLink URI="https://creativecommons.org/licenses/by/4.0/deed.sv"/>
+    </notes>
+  </docDscr>
+  <stdyDscr>
+    <citation>
+      <titlStmt>
+        <titl>Child Barometer 2016</titl>
+        <parTitl xml:lang="fi">Lapsibarometri 2016</parTitl>
+        <IDNo agency="FSD">3134</IDNo>
+        <IDNo agency="URN">urn:nbn:fi:fsd:T-FSD3134</IDNo>
+      </titlStmt>
+      <rspStmt>
+        <AuthEnty>The Office of Ombudsman for Children</AuthEnty>
+      </rspStmt>
+      <prodStmt>
+        <copyright>In accordance with the agreement between FSD and the depositor.</copyright>
+      </prodStmt>
+      <distStmt>
+        <distrbtr URI="https://www.fsd.tuni.fi/" abbr="FSD">Finnish Social Science Data Archive</distrbtr>
+      </distStmt>
+      <serStmt URI="https://services.fsd.tuni.fi/catalogue/series/8?lang=en">
+        <serName abbr="lapsibaro">Child Barometer</serName>
+        <serInfo>
+          <p>Child Barometers study the everyday lives of 6-year-old Finnish children. The surveys are conducted by the Office of Ombudsman for Children. The objective of the barometers is to investigate the children's own experiences on topics that are relevant to them. Depending on the target population of each survey, the respondents have been either the children themselves or both the children and their parents. The first barometer was conducted in 2016, after which data have been collected every other year.</p>
+        </serInfo>
+      </serStmt>
+      <verStmt>
+        <version date="2016-12-09">1.0</version>
+      </verStmt>
+      <biblCit>The Office of Ombudsman for Children: Child Barometer 2016 [dataset]. Version 1.0 (2016-12-09). Finnish Social Science Data Archive [distributor]. http://urn.fi/urn:nbn:fi:fsd:T-FSD3134</biblCit>
+      <holdings URI="http://urn.fi/urn:nbn:fi:fsd:T-FSD3134" location="Finnish Social Science Data Archive FSD"/>
+    </citation>
+    <stdyInfo>
+      <subject>
+        <keyword vocab="ELSST" vocabURI="https://elsst.cessda.eu/id">children</keyword>
+        <keyword vocab="ELSST" vocabURI="https://elsst.cessda.eu/id">parents</keyword>
+        <keyword vocab="ELSST" vocabURI="https://elsst.cessda.eu/id">friends</keyword>
+        <keyword vocab="ELSST" vocabURI="https://elsst.cessda.eu/id">trust</keyword>
+        <keyword vocab="ELSST" vocabURI="https://elsst.cessda.eu/id">early childhood</keyword>
+        <keyword vocab="ELSST" vocabURI="https://elsst.cessda.eu/id">childhood</keyword>
+        <keyword vocab="ELSST" vocabURI="https://elsst.cessda.eu/id">interpersonal relations</keyword>
+        <keyword vocab="ELSST" vocabURI="https://elsst.cessda.eu/id">bullying</keyword>
+        <topcClas vocab="OKM" vocabURI="http://www.yso.fi/onto/okm-tieteenala/conceptscheme">Social sciences</topcClas>
+        <topcClas vocab="CESSDA Topic Classification" vocabURI="https://vocabularies.cessda.eu/urn/urn:ddi:int.cessda.cv:TopicClassification:4.2">Children</topcClas>
+      </subject>
+      <abstract>
+        <p>The Child Barometer 2016 charted how 6-year-old Finnish children felt about trust. Views on trust were surveyed on terms of social relations, emotions, and bullying.</p>
+        <p>With regard to social relations, the children were asked about the number of friends they had, whether they received praise, and whether their parents and kindergarten teachers listened to them. The children were also asked if they would ask an unfamiliar adult for help if they lost their parents in a store, and which things they felt they were good at. Regarding bullying, the children were asked what they thought bullying was, and whether adults in the kindergarten would help if a child was bullied. Emotions were charted by asking the respondents in which situations they had a fun time or an unpleasant time with their family. Furthermore, the children were asked what made them happy and what made them sad. Finally, the children described what they would tell a foreigner about Finland.</p>
+        <p>The background variables included the child's age, regional variables, the number of parents/guardians in the household, number of children in the household, mother's level of education, father's level of education, household gross income, and whether and how long the child had been in kindergarten before pre-school.</p>
+      </abstract>
+      <sumDscr>
+        <timePrd date="2016" event="single"/>
+        <collDate date="2016-06" event="single"/>
+        <nation abbr="FI">Finland</nation>
+        <geogCover>Finland</geogCover>
+        <anlyUnit>Individual<concept vocab="DDI Analysis Unit" vocabURI="https://vocabularies.cessda.eu/urn/urn:ddi:int.ddi.cv:AnalysisUnit:2.1">Individual</concept>
+        </anlyUnit>
+        <universe clusion="I">Children aged 6 living in mainland Finland</universe>
+        <dataKind>Quantitative</dataKind>
+      </sumDscr>
+    </stdyInfo>
+    <method>
+      <dataColl>
+        <timeMeth>Cross-section<concept vocab="DDI Time Method" vocabURI="https://vocabularies.cessda.eu/urn/urn:ddi:int.ddi.cv:TimeMethod:1.2">CrossSection</concept>
+        </timeMeth>
+        <dataCollector>Taloustutkimus</dataCollector>
+        <sampProc>Probability: Simple random<concept vocab="DDI Sampling Procedure" vocabURI="https://vocabularies.cessda.eu/urn/urn:ddi:int.ddi.cv:SamplingProcedure:1.1">Probability.SimpleRandom</concept>
+        </sampProc>
+        <sampProc>
+          <p>The sample consisted of households living in mainland Finland who spoke Finnish, and where at least one child born between 15.6.2009 and 1.6.2010 was living. The sample was drawn randomly from the Population Information System of the Population Register Centre. An introductory letter was sent to 3,265 households, and 414 children were interviewed.</p>
+        </sampProc>
+        <collMode>Telephone interview<concept vocab="DDI Mode of Collection" vocabURI="https://vocabularies.cessda.eu/urn/urn:ddi:int.ddi.cv:ModeOfCollection:4.0">Interview.Telephone</concept>
+        </collMode>
+        <resInstru>Unstructured questionnaire<concept vocab="DDI Type of Instrument" vocabURI="https://vocabularies.cessda.eu/urn/urn:ddi:int.ddi.cv:TypeOfInstrument:1.1">Questionnaire.Unstructured</concept>
+        </resInstru>
+        <weight>The starting sample was weighted to be representative of six-year-old Finnish children in terms of gender and place of residence. The final sample was also weighted to be nationally representative in terms of gender and place of residence.</weight>
+      </dataColl>
+      <anlyInfo>
+        <respRate>13</respRate>
+      </anlyInfo>
+      <stdyClas type="A">Detailed and specific data description in Finnish and English. The data are checked and processed in detail. If necessary, the data are anonymised.</stdyClas>
+    </method>
+    <dataAccs>
+      <setAvail>
+        <accsPlac URI="https://www.fsd.tuni.fi/">Finnish Social Science Data Archive</accsPlac>
+        <complete>The variable for postal code has been removed during archiving, and the largest categories for the number of children in the family have been combined. The original researcher has categorized the responses to open-ended questions 2, 3, 7, 9, 10, 11, 12, and 13.</complete>
+      </setAvail>
+      <useStmt>
+        <restrctn>The dataset is (A) openly available for all users without registration (CC BY 4.0).</restrctn>
+        <citReq>The data and its creators shall be cited in all publications and presentations for which the data have been used. The bibliographic citation may be in the form suggested by the archive or in the form required by the publication.</citReq>
+        <deposReq>The user shall notify the archive of all publications where she or he has used the data.</deposReq>
+        <disclaimer>The original data creators and the archive bear no responsibility for any results or interpretations arising from the reuse of the data.</disclaimer>
+      </useStmt>
+    </dataAccs>
+    <othrStdyMat>
+      <relMat>Lapsibarometri 2016: Luottamus 6-vuotiaiden lasten kokemana (2016). Toim. Tuukkanen, Terhi. Lapsiasiavaltuutetun toimiston julkaisuja 2016:2. Jyväskylä: Lapsiasiavaltuutetun toimisto.</relMat>
+      <relPubl xml:lang="fi">Karhumaa, Emilia (2018). Päiväkodin yhteys esikoululaisen sosiaalisiin suhteisiin ja vuorovaikutukseen. Oulu: Oulun yliopisto, Matemaattisten tieteiden laitos, tilastotiede, Kandidaatintyö<citation>
+          <titlStmt>
+            <titl>Päiväkodin yhteys esikoululaisen sosiaalisiin suhteisiin ja vuorovaikutukseen</titl>
+          </titlStmt>
+          <distStmt>
+            <distDate date="2018"/>
+          </distStmt>
+        </citation>
+      </relPubl>
+      <relPubl xml:lang="fi">Lapsibarometri 2016: Luottamus 6-vuotiaiden lasten kokemana (2016). Toim. Tuukkanen, Terhi. Lapsiasiavaltuutetun toimiston julkaisuja 2016:2. Jyväskylä: Lapsiasiavaltuutetun toimisto.<citation>
+          <titlStmt>
+            <titl>Lapsibarometri 2016: Luottamus 6-vuotiaiden lasten kokemana</titl>
+          </titlStmt>
+          <distStmt>
+            <distDate date="2016"/>
+          </distStmt>
+        </citation>
+      </relPubl>
+    </othrStdyMat>
+  </stdyDscr>
+  <fileDscr>
+    <fileTxt>
+      <fileName ID="FSD3134_file_1">daF3134e.por</fileName>
+      <dimensns>
+        <caseQnty>414</caseQnty>
+        <varQnty>62</varQnty>
+      </dimensns>
+      <fileType>SPSS Portable</fileType>
+    </fileTxt>
+  </fileDscr>
+  <dataDscr>
+    <var files="FSD3134_file_1" name="FSD_NO" intrvl="contin" dcml="0" ID="FSD3134_FSD_NO_var">
+      <labl level="variable">[fsd_no] FSD study number</labl>
+      <qstn ID="FSD3134_FSD_NO_qstn">
+        <preQTxt/>
+        <qstnLit>FSD study number</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="3134" min="3134"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">3134</sumStat>
+      <sumStat type="max">3134</sumStat>
+      <sumStat type="mean">3134.00</sumStat>
+      <sumStat type="stdev">.000</sumStat>
+    </var>
+    <var files="FSD3134_file_1" name="FSD_VR" intrvl="contin" dcml="1" ID="FSD3134_FSD_VR_var">
+      <labl level="variable">[fsd_vr] FSD edition number</labl>
+      <qstn ID="FSD3134_FSD_VR_qstn">
+        <preQTxt/>
+        <qstnLit>FSD edition number</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="1.0" min="1.0"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1.0</sumStat>
+      <sumStat type="max">1.0</sumStat>
+      <sumStat type="mean">1.000</sumStat>
+      <sumStat type="stdev">.0000</sumStat>
+    </var>
+    <var files="FSD3134_file_1" name="FSD_ID" intrvl="contin" dcml="0" ID="FSD3134_FSD_ID_var">
+      <labl level="variable">[fsd_id] FSD case id</labl>
+      <qstn ID="FSD3134_FSD_ID_qstn">
+        <preQTxt/>
+        <qstnLit>FSD case id</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="414" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">414</sumStat>
+      <sumStat type="mean">207.50</sumStat>
+      <sumStat type="stdev">119.656</sumStat>
+    </var>
+    <var files="FSD3134_file_1" name="FSD_LI" intrvl="discrete" dcml="0" ID="FSD3134_FSD_LI_var">
+      <labl level="variable">[fsd_li] FSD license CC BY 4.0</labl>
+      <qstn ID="FSD3134_FSD_LI_qstn">
+        <preQTxt/>
+        <qstnLit>FSD license CC BY 4.0</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+    </var>
+    <var files="FSD3134_file_1" name="BV1" intrvl="discrete" dcml="2" ID="FSD3134_BV1_var">
+      <labl level="variable">[bv1] Gender of the child</labl>
+      <qstn ID="FSD3134_BV1_qstn">
+        <preQTxt/>
+        <qstnLit>Gender of the child</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="2" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">2</sumStat>
+      <sumStat type="mean">1.49</sumStat>
+      <sumStat type="stdev">.500</sumStat>
+      <catgry ID="FSD3134_BV1_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Boy</labl>
+        <catStat>213</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV1_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Girl</labl>
+        <catStat>201</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="BV2" intrvl="discrete" dcml="0" ID="FSD3134_BV2_var">
+      <labl level="variable">[bv2] Region of residence (NUTS3)</labl>
+      <qstn ID="FSD3134_BV2_qstn">
+        <preQTxt/>
+        <qstnLit>Region of residence (NUTS3)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="21" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">19</sumStat>
+      <sumStat type="mean">7.55</sumStat>
+      <sumStat type="stdev">6.265</sumStat>
+      <catgry ID="FSD3134_BV2_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Uusimaa</labl>
+        <catStat>126</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Finland proper (Varsinais-Suomi)</labl>
+        <catStat>32</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_3">
+        <catValu>4</catValu>
+        <labl level="category">Satakunta</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_4">
+        <catValu>5</catValu>
+        <labl level="category">Tavastia proper (Kanta-Häme)</labl>
+        <catStat>14</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_5">
+        <catValu>6</catValu>
+        <labl level="category">Pirkanmaa</labl>
+        <catStat>46</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_6">
+        <catValu>7</catValu>
+        <labl level="category">Päijänne Tavastia (Päijät-Häme)</labl>
+        <catStat>14</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_7">
+        <catValu>8</catValu>
+        <labl level="category">Kymenlaakso</labl>
+        <catStat>9</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_8">
+        <catValu>9</catValu>
+        <labl level="category">South Karelia (Etelä-Karjala)</labl>
+        <catStat>8</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_9">
+        <catValu>10</catValu>
+        <labl level="category">Southern Savonia (Etelä-Savo)</labl>
+        <catStat>9</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_10">
+        <catValu>11</catValu>
+        <labl level="category">Northern Savonia (Pohjois-Savo)</labl>
+        <catStat>16</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_11">
+        <catValu>12</catValu>
+        <labl level="category">Northern Karelia (Pohjois-Karjala)</labl>
+        <catStat>5</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_12">
+        <catValu>13</catValu>
+        <labl level="category">Central Finland (Keski-Suomi)</labl>
+        <catStat>22</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_13">
+        <catValu>14</catValu>
+        <labl level="category">Southern Ostrobothnia (Etelä-Pohjanmaa)</labl>
+        <catStat>20</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_14">
+        <catValu>15</catValu>
+        <labl level="category">Ostrobothnia (Pohjanmaa)</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_15">
+        <catValu>16</catValu>
+        <labl level="category">Central Ostrobothnia (Keski-Pohjanmaa)</labl>
+        <catStat>9</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_16">
+        <catValu>17</catValu>
+        <labl level="category">Northern Ostrobothnia (Pohjois-Pohjanmaa)</labl>
+        <catStat>44</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_17">
+        <catValu>18</catValu>
+        <labl level="category">Kainuu</labl>
+        <catStat>5</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_18">
+        <catValu>19</catValu>
+        <labl level="category">Lapland (Lappi)</labl>
+        <catStat>15</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV2_catgry_19">
+        <catValu>21</catValu>
+        <labl level="category">Åland Islands (Ahvenanmaa)</labl>
+        <catStat>0</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="BV3" intrvl="discrete" dcml="0" ID="FSD3134_BV3_var">
+      <labl level="variable">[bv3] Major region (NUTS2)</labl>
+      <qstn ID="FSD3134_BV3_qstn">
+        <preQTxt/>
+        <qstnLit>Major region (NUTS2)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="4" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">4</sumStat>
+      <sumStat type="mean">2.45</sumStat>
+      <sumStat type="stdev">1.165</sumStat>
+      <catgry ID="FSD3134_BV3_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Helsinki-Uusimaa</labl>
+        <catStat>126</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV3_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Southern Finland (Etelä-Suomi)</labl>
+        <catStat>77</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV3_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Western Finland (Länsi-Suomi)</labl>
+        <catStat>108</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV3_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Northern and Eastern Finland</labl>
+        <catStat>103</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="BV4" intrvl="discrete" dcml="2" ID="FSD3134_BV4_var">
+      <labl level="variable">[bv4] How many parents are there in your household?</labl>
+      <qstn ID="FSD3134_BV4_qstn">
+        <preQTxt/>
+        <qstnLit>How many parents are there in your household?</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="2" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">2</sumStat>
+      <sumStat type="mean">1.89</sumStat>
+      <sumStat type="stdev">.312</sumStat>
+      <catgry ID="FSD3134_BV4_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">One</labl>
+        <catStat>45</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV4_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Two</labl>
+        <catStat>369</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="BV5" intrvl="discrete" dcml="2" ID="FSD3134_BV5_var">
+      <labl level="variable">[bv5] How many children are there in your household?</labl>
+      <qstn ID="FSD3134_BV5_qstn">
+        <preQTxt/>
+        <qstnLit>How many children are there in your household?</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="6" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">6</sumStat>
+      <sumStat type="mean">2.57</sumStat>
+      <sumStat type="stdev">1.223</sumStat>
+      <catgry ID="FSD3134_BV5_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category"/>
+        <catStat>52</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV5_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category"/>
+        <catStat>205</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV5_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category"/>
+        <catStat>83</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV5_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category"/>
+        <catStat>35</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV5_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category"/>
+        <catStat>21</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV5_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">6 or more</labl>
+        <catStat>18</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="BV6" intrvl="discrete" dcml="2" ID="FSD3134_BV6_var">
+      <labl level="variable">[bv6] Level of education of the child's mother</labl>
+      <qstn ID="FSD3134_BV6_qstn">
+        <preQTxt/>
+        <qstnLit>Level of education of the child's mother</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="7" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">6</sumStat>
+      <sumStat type="mean">4.36</sumStat>
+      <sumStat type="stdev">1.586</sumStat>
+      <catgry ID="FSD3134_BV6_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Primary or lower secondary education</labl>
+        <catStat>8</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV6_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Upper secondary education (vocational)</labl>
+        <catStat>89</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV6_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Upper secondary education (general)</labl>
+        <catStat>26</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV6_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">College level vocational education</labl>
+        <catStat>45</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV6_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Polytechnic education (post-secondary but below full university degree)</labl>
+        <catStat>115</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV6_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">University or other higher education</labl>
+        <catStat>131</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV6_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Doesn't want to answer</labl>
+        <catStat>0</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="BV7" intrvl="discrete" dcml="2" ID="FSD3134_BV7_var">
+      <labl level="variable">[bv7] Level of education of the child's father</labl>
+      <qstn ID="FSD3134_BV7_qstn">
+        <preQTxt/>
+        <qstnLit>Level of education of the child's father</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="7" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">7</sumStat>
+      <sumStat type="mean">3.89</sumStat>
+      <sumStat type="stdev">1.787</sumStat>
+      <catgry ID="FSD3134_BV7_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Primary or lower secondary education</labl>
+        <catStat>16</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV7_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Upper secondary education (vocational)</labl>
+        <catStat>143</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV7_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Upper secondary education (general)</labl>
+        <catStat>30</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV7_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">College level vocational education</labl>
+        <catStat>29</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV7_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Polytechnic education (post-secondary but below full university degree)</labl>
+        <catStat>77</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV7_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">University or other higher education</labl>
+        <catStat>114</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV7_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Doesn't want to answer</labl>
+        <catStat>5</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="BV8" intrvl="discrete" dcml="2" ID="FSD3134_BV8_var">
+      <labl level="variable">[bv8] Total gross annual income of the household (before taxes)</labl>
+      <qstn ID="FSD3134_BV8_qstn">
+        <preQTxt/>
+        <qstnLit>Total gross annual income of the household (before taxes)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="17" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">17</sumStat>
+      <sumStat type="mean">11.39</sumStat>
+      <sumStat type="stdev">3.802</sumStat>
+      <catgry ID="FSD3134_BV8_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Under 10,001 euros/year</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">10,001-15,000 euros/year</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">15,001-20,000 euros/year</labl>
+        <catStat>13</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">20,001-25,000 euros/year</labl>
+        <catStat>8</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">25,001-30,000 euros/year</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">30,001-35,000 euros/year</labl>
+        <catStat>14</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">35,001-40,000 euros/year</labl>
+        <catStat>16</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">40,001-45,000 euros/year</labl>
+        <catStat>23</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">45,001-50,000 euros/year</labl>
+        <catStat>29</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">50,001-55,000 euros/year</labl>
+        <catStat>24</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">55,001-60,000 euros/year</labl>
+        <catStat>47</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">60,001-70,000 euros/year</labl>
+        <catStat>42</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">70,001-80,000 euros/year</labl>
+        <catStat>43</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_14">
+        <catValu>14</catValu>
+        <labl level="category">80,001-90,000 euros/year</labl>
+        <catStat>38</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_15">
+        <catValu>15</catValu>
+        <labl level="category">Over 90,000 euros/year</labl>
+        <catStat>58</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_16">
+        <catValu>16</catValu>
+        <labl level="category">Doesn't want to answer</labl>
+        <catStat>7</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV8_catgry_17">
+        <catValu>17</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>36</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="BV9" intrvl="discrete" dcml="2" ID="FSD3134_BV9_var">
+      <labl level="variable">[bv9] Has your 6-year old attended a day care centre before pre-school?</labl>
+      <qstn ID="FSD3134_BV9_qstn">
+        <preQTxt/>
+        <qstnLit>Has your 6-year old attended a day care centre before pre-school?</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="2" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">2</sumStat>
+      <sumStat type="mean">1.16</sumStat>
+      <sumStat type="stdev">.364</sumStat>
+      <catgry ID="FSD3134_BV9_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Yes</labl>
+        <catStat>349</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV9_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">No</labl>
+        <catStat>65</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="BV10" intrvl="discrete" dcml="2" ID="FSD3134_BV10_var">
+      <labl level="variable">[bv10] For how long has your child attended a day care centre before pre-school?</labl>
+      <qstn ID="FSD3134_BV10_qstn">
+        <preQTxt/>
+        <qstnLit>For how long has your child attended a day care centre before pre-school?</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="3" min="1"/>
+      </valrng>
+      <sumStat type="vald">349</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">3</sumStat>
+      <sumStat type="mean">2.64</sumStat>
+      <sumStat type="stdev">.594</sumStat>
+      <catgry ID="FSD3134_BV10_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Less than a year</labl>
+        <catStat>21</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV10_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">1-2 years</labl>
+        <catStat>85</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV10_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Over 2 years</labl>
+        <catStat>243</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV10_catgry_4" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>65</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="BV11" intrvl="discrete" dcml="2" ID="FSD3134_BV11_var">
+      <labl level="variable">[bv11] Thank you for this information! Could you now pass the phone to the 6-year old?</labl>
+      <qstn ID="FSD3134_BV11_qstn">
+        <preQTxt/>
+        <qstnLit>Thank you for this information! Could you now pass the phone to the 6-year old?</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="2" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">1</sumStat>
+      <sumStat type="mean">1.00</sumStat>
+      <sumStat type="stdev">.000</sumStat>
+      <catgry ID="FSD3134_BV11_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">The interview continues</labl>
+        <catStat>414</catStat>
+      </catgry>
+      <catgry ID="FSD3134_BV11_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">The interview does not continue</labl>
+        <catStat>0</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q1" intrvl="contin" dcml="0" ID="FSD3134_Q1_var">
+      <labl level="variable">[q1] Can you tell me the names of all your friends? Altogether _ friends</labl>
+      <qstn ID="FSD3134_Q1_qstn">
+        <preQTxt/>
+        <qstnLit>Can you tell me the names of all your friends? Altogether _ friends</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="22" min="0"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">0</sumStat>
+      <sumStat type="max">22</sumStat>
+      <sumStat type="mean">5.64</sumStat>
+      <sumStat type="stdev">3.205</sumStat>
+    </var>
+    <var files="FSD3134_file_1" name="Q1_1" intrvl="contin" dcml="2" ID="FSD3134_Q1_1_var">
+      <labl level="variable">[q1_1] Can you tell me the names of all your friends? Altogether _ boys</labl>
+      <qstn ID="FSD3134_Q1_1_qstn">
+        <preQTxt/>
+        <qstnLit>Can you tell me the names of all your friends? Altogether _ boys</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="14" min="0"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">0</sumStat>
+      <sumStat type="max">14</sumStat>
+      <sumStat type="mean">2.87</sumStat>
+      <sumStat type="stdev">2.507</sumStat>
+    </var>
+    <var files="FSD3134_file_1" name="Q1_2" intrvl="contin" dcml="0" ID="FSD3134_Q1_2_var">
+      <labl level="variable">[q1_2] Can you tell me the names of all your friends? Altogether _ girls</labl>
+      <qstn ID="FSD3134_Q1_2_qstn">
+        <preQTxt/>
+        <qstnLit>Can you tell me the names of all your friends? Altogether _ girls</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="0"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">0</sumStat>
+      <sumStat type="max">13</sumStat>
+      <sumStat type="mean">2.77</sumStat>
+      <sumStat type="stdev">2.598</sumStat>
+    </var>
+    <var files="FSD3134_file_1" name="Q2" intrvl="discrete" dcml="2" ID="FSD3134_Q2_var">
+      <labl level="variable">[q2] Would you ask an unfamiliar adult for help if you were separated from your parents in a store?</labl>
+      <qstn ID="FSD3134_Q2_qstn">
+        <preQTxt/>
+        <qstnLit>Would you ask an unfamiliar adult for help if you were separated from your parents in a store?</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="4" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">4</sumStat>
+      <sumStat type="mean">1.71</sumStat>
+      <sumStat type="stdev">1.071</sumStat>
+      <catgry ID="FSD3134_Q2_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Yes</labl>
+        <catStat>264</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q2_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">No</labl>
+        <catStat>60</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q2_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>38</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q2_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">IF THE CHILD HAS SOMETHING MORE TO SAY</labl>
+        <catStat>52</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q2_1" intrvl="discrete" dcml="0" ID="FSD3134_Q2_1_var">
+      <labl level="variable">[q2_1] Would you ask an unfamiliar adult for help if you were separated from your parents in a store? (open-ended)</labl>
+      <qstn ID="FSD3134_Q2_1_qstn">
+        <preQTxt/>
+        <qstnLit>Would you ask an unfamiliar adult for help if you were separated from your parents in a store? (open-ended)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+    </var>
+    <var files="FSD3134_file_1" name="Q2_2" intrvl="discrete" dcml="0" ID="FSD3134_Q2_2_var">
+      <labl level="variable">[q2_2] Would you ask an unfamiliar adult for help if you were separated from your parents in a store? (categorised)</labl>
+      <qstn ID="FSD3134_Q2_2_qstn">
+        <preQTxt/>
+        <qstnLit>Would you ask an unfamiliar adult for help if you were separated from your parents in a store? (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="8" min="1"/>
+      </valrng>
+      <sumStat type="vald">52</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">8</sumStat>
+      <sumStat type="mean">3.94</sumStat>
+      <sumStat type="stdev">2.330</sumStat>
+      <catgry ID="FSD3134_Q2_2_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">I would look for them by myself</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q2_2_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">I might sometimes ask</labl>
+        <catStat>9</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q2_2_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">I would ask a familiar adult or an adult who seems kind</labl>
+        <catStat>5</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q2_2_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">I would ask the staff at the store</labl>
+        <catStat>7</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q2_2_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">I would go to the counter and wait</labl>
+        <catStat>7</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q2_2_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">I would stay where I am and wait</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q2_2_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Other</labl>
+        <catStat>7</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q2_2_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q2_2_catgry_9" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>362</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q3" intrvl="discrete" dcml="0" ID="FSD3134_Q3_var">
+      <labl level="variable">[q3] Which things are you good at? (open-ended)</labl>
+      <qstn ID="FSD3134_Q3_qstn">
+        <preQTxt/>
+        <qstnLit>Which things are you good at? (open-ended)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+    </var>
+    <var files="FSD3134_file_1" name="Q3_1" intrvl="discrete" dcml="0" ID="FSD3134_Q3_1_var">
+      <labl level="variable">[q3_1] Which things are you good at? 1st mention (categorised)</labl>
+      <qstn ID="FSD3134_Q3_1_qstn">
+        <preQTxt/>
+        <qstnLit>Which things are you good at? 1st mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">13</sumStat>
+      <sumStat type="mean">6.21</sumStat>
+      <sumStat type="stdev">3.726</sumStat>
+      <catgry ID="FSD3134_Q3_1_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Handicrafts/drawing</labl>
+        <catStat>106</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_1_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Reading/writing</labl>
+        <catStat>19</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_1_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Doing homework/other exercises</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_1_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Math / Mother tongue / English</labl>
+        <catStat>8</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_1_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Playing with Lego</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_1_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Singing / Playing an instrument</labl>
+        <catStat>6</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_1_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Playing games / Playing</labl>
+        <catStat>30</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_1_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Sports/exercise</labl>
+        <catStat>157</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_1_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Doing chores / Helping with chores around the house</labl>
+        <catStat>12</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_1_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">At everything</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_1_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>13</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_1_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>37</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_1_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">Taking care of oneself</labl>
+        <catStat>3</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q3_2" intrvl="discrete" dcml="0" ID="FSD3134_Q3_2_var">
+      <labl level="variable">[q3_2] Which things are you good at? 2nd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q3_2_qstn">
+        <preQTxt/>
+        <qstnLit>Which things are you good at? 2nd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">202</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">13</sumStat>
+      <sumStat type="mean">6.22</sumStat>
+      <sumStat type="stdev">3.221</sumStat>
+      <catgry ID="FSD3134_Q3_2_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Handicrafts/drawing</labl>
+        <catStat>32</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Reading/writing</labl>
+        <catStat>14</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Doing homework/other exercises</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Math / Mother tongue / English</labl>
+        <catStat>6</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Playing with Lego</labl>
+        <catStat>15</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Singing / Playing an instrument</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Playing games / Playing</labl>
+        <catStat>25</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Sports/exercise</labl>
+        <catStat>63</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Doing chores / Helping with chores around the house</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">At everything</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>18</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">Taking care of oneself</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_2_catgry_14" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>212</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q3_3" intrvl="discrete" dcml="0" ID="FSD3134_Q3_3_var">
+      <labl level="variable">[q3_3] Which things are you good at? 3rd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q3_3_qstn">
+        <preQTxt/>
+        <qstnLit>Which things are you good at? 3rd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">68</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">13</sumStat>
+      <sumStat type="mean">6.56</sumStat>
+      <sumStat type="stdev">3.121</sumStat>
+      <catgry ID="FSD3134_Q3_3_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Handicrafts/drawing</labl>
+        <catStat>7</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Reading/writing</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Doing homework/other exercises</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Math / Mother tongue / English</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Playing with Lego</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Singing / Playing an instrument</labl>
+        <catStat>7</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Playing games / Playing</labl>
+        <catStat>9</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Sports/exercise</labl>
+        <catStat>9</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Doing chores / Helping with chores around the house</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">At everything</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>7</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">Taking care of oneself</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_3_catgry_14" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>346</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q3_4" intrvl="discrete" dcml="0" ID="FSD3134_Q3_4_var">
+      <labl level="variable">[q3_4] Which things are you good at? 4th mention (categorised)</labl>
+      <qstn ID="FSD3134_Q3_4_qstn">
+        <preQTxt/>
+        <qstnLit>Which things are you good at? 4th mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">15</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">11</sumStat>
+      <sumStat type="mean">6.20</sumStat>
+      <sumStat type="stdev">3.321</sumStat>
+      <catgry ID="FSD3134_Q3_4_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Handicrafts/drawing</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Reading/writing</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Doing homework/other exercises</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Math / Mother tongue / English</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Playing with Lego</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Singing / Playing an instrument</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Playing games / Playing</labl>
+        <catStat>5</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Sports/exercise</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Doing chores / Helping with chores around the house</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">At everything</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">Taking care of oneself</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_4_catgry_14" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>399</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q3_5" intrvl="discrete" dcml="0" ID="FSD3134_Q3_5_var">
+      <labl level="variable">[q3_5] Which things are you good at? 5th mention (categorised)</labl>
+      <qstn ID="FSD3134_Q3_5_qstn">
+        <preQTxt/>
+        <qstnLit>Which things are you good at? 5th mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="9" min="1"/>
+      </valrng>
+      <sumStat type="vald">6</sumStat>
+      <sumStat type="min">8</sumStat>
+      <sumStat type="max">9</sumStat>
+      <sumStat type="mean">8.50</sumStat>
+      <sumStat type="stdev">.548</sumStat>
+      <catgry ID="FSD3134_Q3_5_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Handicrafts/drawing</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Reading/writing</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Doing homework/other exercises</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Math / Mother tongue / English</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Playing with Lego</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Singing / Playing an instrument</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Playing games / Playing</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Sports/exercise</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Doing chores / Helping with chores around the house</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">At everything</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">Taking care of oneself</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q3_5_catgry_14" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>408</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q4" intrvl="discrete" dcml="2" ID="FSD3134_Q4_var">
+      <labl level="variable">[q4] Do you receive praise?</labl>
+      <qstn ID="FSD3134_Q4_qstn">
+        <preQTxt/>
+        <qstnLit>Do you receive praise?</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="3" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">3</sumStat>
+      <sumStat type="mean">1.26</sumStat>
+      <sumStat type="stdev">.569</sumStat>
+      <catgry ID="FSD3134_Q4_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Yes</labl>
+        <catStat>333</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q4_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">No</labl>
+        <catStat>54</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q4_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>27</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q5" intrvl="discrete" dcml="2" ID="FSD3134_Q5_var">
+      <labl level="variable">[q5] Do your parents listen to you if you have something to say?</labl>
+      <qstn ID="FSD3134_Q5_qstn">
+        <preQTxt/>
+        <qstnLit>Do your parents listen to you if you have something to say?</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="3" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">3</sumStat>
+      <sumStat type="mean">1.05</sumStat>
+      <sumStat type="stdev">.265</sumStat>
+      <catgry ID="FSD3134_Q5_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Yes</labl>
+        <catStat>399</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q5_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">No</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q5_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>5</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q6" intrvl="discrete" dcml="2" ID="FSD3134_Q6_var">
+      <labl level="variable">[q6] Do adults at the day care centre listen to you if you have something to say?</labl>
+      <qstn ID="FSD3134_Q6_qstn">
+        <preQTxt/>
+        <qstnLit>Do adults at the day care centre listen to you if you have something to say?</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="3" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">3</sumStat>
+      <sumStat type="mean">1.16</sumStat>
+      <sumStat type="stdev">.524</sumStat>
+      <catgry ID="FSD3134_Q6_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Yes</labl>
+        <catStat>377</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q6_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">No</labl>
+        <catStat>8</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q6_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>29</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q7" intrvl="discrete" dcml="0" ID="FSD3134_Q7_var">
+      <labl level="variable">[q7] What do you think bullying is? (open-ended)</labl>
+      <qstn ID="FSD3134_Q7_qstn">
+        <preQTxt/>
+        <qstnLit>What do you think bullying is? (open-ended)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+    </var>
+    <var files="FSD3134_file_1" name="Q7_1" intrvl="discrete" dcml="0" ID="FSD3134_Q7_1_var">
+      <labl level="variable">[q7_1] What do you think bullying is? 1st mention (categorised)</labl>
+      <qstn ID="FSD3134_Q7_1_qstn">
+        <preQTxt/>
+        <qstnLit>What do you think bullying is? 1st mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="9" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">9</sumStat>
+      <sumStat type="mean">5.64</sumStat>
+      <sumStat type="stdev">2.387</sumStat>
+      <catgry ID="FSD3134_Q7_1_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Calling names</labl>
+        <catStat>35</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_1_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Annoying/disturbing others</labl>
+        <catStat>33</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_1_catgry_3">
+        <catValu>4</catValu>
+        <labl level="category">Excluding someone from play</labl>
+        <catStat>14</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_1_catgry_4">
+        <catValu>5</catValu>
+        <labl level="category">Physical bullying / Hurting someone</labl>
+        <catStat>147</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_1_catgry_5">
+        <catValu>6</catValu>
+        <labl level="category">Taking or breaking someone else's property</labl>
+        <catStat>12</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_1_catgry_6">
+        <catValu>7</catValu>
+        <labl level="category">A bad thing / Feels bad</labl>
+        <catStat>81</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_1_catgry_7">
+        <catValu>8</catValu>
+        <labl level="category">Other</labl>
+        <catStat>22</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_1_catgry_8">
+        <catValu>9</catValu>
+        <labl level="category">Don't know</labl>
+        <catStat>70</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q7_2" intrvl="discrete" dcml="0" ID="FSD3134_Q7_2_var">
+      <labl level="variable">[q7_2] What do you think bullying is? 2nd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q7_2_qstn">
+        <preQTxt/>
+        <qstnLit>What do you think bullying is? 2nd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="9" min="1"/>
+      </valrng>
+      <sumStat type="vald">107</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">9</sumStat>
+      <sumStat type="mean">3.84</sumStat>
+      <sumStat type="stdev">2.454</sumStat>
+      <catgry ID="FSD3134_Q7_2_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Calling names</labl>
+        <catStat>37</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_2_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Annoying/disturbing others</labl>
+        <catStat>7</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_2_catgry_3">
+        <catValu>4</catValu>
+        <labl level="category">Excluding someone from play</labl>
+        <catStat>6</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_2_catgry_4">
+        <catValu>5</catValu>
+        <labl level="category">Physical bullying / Hurting someone</labl>
+        <catStat>32</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_2_catgry_5">
+        <catValu>6</catValu>
+        <labl level="category">Taking or breaking someone else's property</labl>
+        <catStat>7</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_2_catgry_6">
+        <catValu>7</catValu>
+        <labl level="category">A bad thing / Feels bad</labl>
+        <catStat>11</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_2_catgry_7">
+        <catValu>8</catValu>
+        <labl level="category">Other</labl>
+        <catStat>6</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_2_catgry_8">
+        <catValu>9</catValu>
+        <labl level="category">Don't know</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_2_catgry_9" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>307</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q7_3" intrvl="discrete" dcml="0" ID="FSD3134_Q7_3_var">
+      <labl level="variable">[q7_3] What do you think bullying is? 3rd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q7_3_qstn">
+        <preQTxt/>
+        <qstnLit>What do you think bullying is? 3rd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="9" min="1"/>
+      </valrng>
+      <sumStat type="vald">20</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">8</sumStat>
+      <sumStat type="mean">3.95</sumStat>
+      <sumStat type="stdev">2.328</sumStat>
+      <catgry ID="FSD3134_Q7_3_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Calling names</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_3_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Annoying/disturbing others</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_3_catgry_3">
+        <catValu>4</catValu>
+        <labl level="category">Excluding someone from play</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_3_catgry_4">
+        <catValu>5</catValu>
+        <labl level="category">Physical bullying / Hurting someone</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_3_catgry_5">
+        <catValu>6</catValu>
+        <labl level="category">Taking or breaking someone else's property</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_3_catgry_6">
+        <catValu>7</catValu>
+        <labl level="category">A bad thing / Feels bad</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_3_catgry_7">
+        <catValu>8</catValu>
+        <labl level="category">Other</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_3_catgry_8">
+        <catValu>9</catValu>
+        <labl level="category">Don't know</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_3_catgry_9" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>394</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q7_4" intrvl="discrete" dcml="0" ID="FSD3134_Q7_4_var">
+      <labl level="variable">[q7_4] What do you think bullying is? 4th mention (categorised)</labl>
+      <qstn ID="FSD3134_Q7_4_qstn">
+        <preQTxt/>
+        <qstnLit>What do you think bullying is? 4th mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="9" min="1"/>
+      </valrng>
+      <sumStat type="vald">2</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">2</sumStat>
+      <sumStat type="mean">1.50</sumStat>
+      <sumStat type="stdev">.707</sumStat>
+      <catgry ID="FSD3134_Q7_4_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Calling names</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_4_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Annoying/disturbing others</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_4_catgry_3">
+        <catValu>4</catValu>
+        <labl level="category">Excluding someone from play</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_4_catgry_4">
+        <catValu>5</catValu>
+        <labl level="category">Physical bullying / Hurting someone</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_4_catgry_5">
+        <catValu>6</catValu>
+        <labl level="category">Taking or breaking someone else's property</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_4_catgry_6">
+        <catValu>7</catValu>
+        <labl level="category">A bad thing / Feels bad</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_4_catgry_7">
+        <catValu>8</catValu>
+        <labl level="category">Other</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_4_catgry_8">
+        <catValu>9</catValu>
+        <labl level="category">Don't know</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q7_4_catgry_9" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>412</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q8" intrvl="discrete" dcml="2" ID="FSD3134_Q8_var">
+      <labl level="variable">[q8] Will the adults at the day care centre help if a child is being bullied?</labl>
+      <qstn ID="FSD3134_Q8_qstn">
+        <preQTxt/>
+        <qstnLit>Will the adults at the day care centre help if a child is being bullied?</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="3" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">3</sumStat>
+      <sumStat type="mean">1.14</sumStat>
+      <sumStat type="stdev">.490</sumStat>
+      <catgry ID="FSD3134_Q8_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Yes</labl>
+        <catStat>382</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q8_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">No</labl>
+        <catStat>7</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q8_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>25</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q9" intrvl="discrete" dcml="0" ID="FSD3134_Q9_var">
+      <labl level="variable">[q9] In what situations do you have a nice time / fun with your family? (open-ended)</labl>
+      <qstn ID="FSD3134_Q9_qstn">
+        <preQTxt/>
+        <qstnLit>In what situations do you have a nice time / fun with your family? (open-ended)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+    </var>
+    <var files="FSD3134_file_1" name="Q9_1" intrvl="discrete" dcml="0" ID="FSD3134_Q9_1_var">
+      <labl level="variable">[q9_1] In what situations do you have a nice time / fun with your family? 1st mention (categorised)</labl>
+      <qstn ID="FSD3134_Q9_1_qstn">
+        <preQTxt/>
+        <qstnLit>In what situations do you have a nice time / fun with your family? 1st mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="10" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">10</sumStat>
+      <sumStat type="mean">4.47</sumStat>
+      <sumStat type="stdev">3.181</sumStat>
+      <catgry ID="FSD3134_Q9_1_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Doing things together / Playing together</labl>
+        <catStat>98</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_1_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Going to a place</labl>
+        <catStat>81</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_1_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Watching TV/movies</labl>
+        <catStat>15</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_1_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Going outside</labl>
+        <catStat>51</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_1_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Being at home/summer cottage</labl>
+        <catStat>12</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_1_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Parties / Eating sweets</labl>
+        <catStat>24</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_1_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">On vacation/weekends</labl>
+        <catStat>31</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_1_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Always/often</labl>
+        <catStat>40</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_1_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Other</labl>
+        <catStat>19</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_1_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>43</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q9_2" intrvl="discrete" dcml="0" ID="FSD3134_Q9_2_var">
+      <labl level="variable">[q9_2] In what situations do you have a nice time / fun with your family? 2nd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q9_2_qstn">
+        <preQTxt/>
+        <qstnLit>In what situations do you have a nice time / fun with your family? 2nd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="9" min="1"/>
+      </valrng>
+      <sumStat type="vald">139</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">9</sumStat>
+      <sumStat type="mean">3.37</sumStat>
+      <sumStat type="stdev">2.008</sumStat>
+      <catgry ID="FSD3134_Q9_2_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Doing things together / Playing together</labl>
+        <catStat>37</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_2_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Going to a place</labl>
+        <catStat>20</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_2_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Watching TV/movies</labl>
+        <catStat>11</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_2_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Going outside</labl>
+        <catStat>35</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_2_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Being at home/summer cottage</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_2_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Parties / Eating sweets</labl>
+        <catStat>19</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_2_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">On vacation/weekends</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_2_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Always/often</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_2_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Other</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_2_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_2_catgry_11" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>275</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q9_3" intrvl="discrete" dcml="0" ID="FSD3134_Q9_3_var">
+      <labl level="variable">[q9_3] In what situations do you have a nice time / fun with your family? 3rd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q9_3_qstn">
+        <preQTxt/>
+        <qstnLit>In what situations do you have a nice time / fun with your family? 3rd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="9" min="1"/>
+      </valrng>
+      <sumStat type="vald">36</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">9</sumStat>
+      <sumStat type="mean">3.39</sumStat>
+      <sumStat type="stdev">2.155</sumStat>
+      <catgry ID="FSD3134_Q9_3_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Doing things together / Playing together</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_3_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Going to a place</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_3_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Watching TV/movies</labl>
+        <catStat>5</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_3_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Going outside</labl>
+        <catStat>8</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_3_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Being at home/summer cottage</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_3_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Parties / Eating sweets</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_3_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">On vacation/weekends</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_3_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Always/often</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_3_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Other</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_3_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_3_catgry_11" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>378</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q9_4" intrvl="discrete" dcml="0" ID="FSD3134_Q9_4_var">
+      <labl level="variable">[q9_4] In what situations do you have a nice time / fun with your family? 4th mention (categorised)</labl>
+      <qstn ID="FSD3134_Q9_4_qstn">
+        <preQTxt/>
+        <qstnLit>In what situations do you have a nice time / fun with your family? 4th mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="6" min="1"/>
+      </valrng>
+      <sumStat type="vald">9</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">6</sumStat>
+      <sumStat type="mean">3.56</sumStat>
+      <sumStat type="stdev">1.944</sumStat>
+      <catgry ID="FSD3134_Q9_4_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Doing things together / Playing together</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_4_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Going to a place</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_4_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Watching TV/movies</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_4_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Going outside</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_4_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Being at home/summer cottage</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_4_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Parties / Eating sweets</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_4_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">On vacation/weekends</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_4_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Always/often</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_4_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Other</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_4_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q9_4_catgry_11" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>405</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q10" intrvl="discrete" dcml="0" ID="FSD3134_Q10_var">
+      <labl level="variable">[q10] In what situations do you have an unpleasant time with your family? (open-ended)</labl>
+      <qstn ID="FSD3134_Q10_qstn">
+        <preQTxt/>
+        <qstnLit>In what situations do you have an unpleasant time with your family? (open-ended)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+    </var>
+    <var files="FSD3134_file_1" name="Q10_1" intrvl="discrete" dcml="0" ID="FSD3134_Q10_1_var">
+      <labl level="variable">[q10_1] In what situations do you have an unpleasant time with your family? 1st mention (categorised)</labl>
+      <qstn ID="FSD3134_Q10_1_qstn">
+        <preQTxt/>
+        <qstnLit>In what situations do you have an unpleasant time with your family? 1st mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">13</sumStat>
+      <sumStat type="mean">7.59</sumStat>
+      <sumStat type="stdev">4.022</sumStat>
+      <catgry ID="FSD3134_Q10_1_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">When there's nothing to do</labl>
+        <catStat>22</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_1_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Not getting what you want / Not getting to go where you want</labl>
+        <catStat>40</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_1_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">When there is a fight</labl>
+        <catStat>43</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_1_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Bullying</labl>
+        <catStat>8</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_1_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">When somebody is hurt/sick / When somebody dies</labl>
+        <catStat>21</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_1_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">When you are not with your family and you miss them</labl>
+        <catStat>72</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_1_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">When everyone is busy / When there is no time to play</labl>
+        <catStat>5</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_1_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">When doing chores</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_1_catgry_9">
+        <catValu>10</catValu>
+        <labl level="category">Never</labl>
+        <catStat>34</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_1_catgry_10">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>24</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_1_catgry_11">
+        <catValu>12</catValu>
+        <labl level="category">Don't know</labl>
+        <catStat>131</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_1_catgry_12">
+        <catValu>13</catValu>
+        <labl level="category">When there are no friends / When there's no one to play with</labl>
+        <catStat>4</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q10_2" intrvl="discrete" dcml="0" ID="FSD3134_Q10_2_var">
+      <labl level="variable">[q10_2] In what situations do you have an unpleasant time with your family? 2nd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q10_2_qstn">
+        <preQTxt/>
+        <qstnLit>In what situations do you have an unpleasant time with your family? 2nd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">29</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">13</sumStat>
+      <sumStat type="mean">7.38</sumStat>
+      <sumStat type="stdev">4.731</sumStat>
+      <catgry ID="FSD3134_Q10_2_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">When there's nothing to do</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_2_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Not getting what you want / Not getting to go where you want</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_2_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">When there is a fight</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_2_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Bullying</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_2_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">When somebody is hurt/sick / When somebody dies</labl>
+        <catStat>6</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_2_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">When you are not with your family and you miss them</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_2_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">When everyone is busy / When there is no time to play</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_2_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">When doing chores</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_2_catgry_9">
+        <catValu>10</catValu>
+        <labl level="category">Never</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_2_catgry_10">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_2_catgry_11">
+        <catValu>12</catValu>
+        <labl level="category">Don't know</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_2_catgry_12">
+        <catValu>13</catValu>
+        <labl level="category">When there are no friends / When there's no one to play with</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_2_catgry_13" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>385</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q10_3" intrvl="discrete" dcml="0" ID="FSD3134_Q10_3_var">
+      <labl level="variable">[q10_3] In what situations do you have an unpleasant time with your family? 3rd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q10_3_qstn">
+        <preQTxt/>
+        <qstnLit>In what situations do you have an unpleasant time with your family? 3rd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">4</sumStat>
+      <sumStat type="min">2</sumStat>
+      <sumStat type="max">13</sumStat>
+      <sumStat type="mean">8.25</sumStat>
+      <sumStat type="stdev">5.620</sumStat>
+      <catgry ID="FSD3134_Q10_3_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">When there's nothing to do</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_3_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Not getting what you want / Not getting to go where you want</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_3_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">When there is a fight</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_3_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Bullying</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_3_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">When somebody is hurt/sick / When somebody dies</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_3_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">When you are not with your family and you miss them</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_3_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">When everyone is busy / When there is no time to play</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_3_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">When doing chores</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_3_catgry_9">
+        <catValu>10</catValu>
+        <labl level="category">Never</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_3_catgry_10">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_3_catgry_11">
+        <catValu>12</catValu>
+        <labl level="category">Don't know</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_3_catgry_12">
+        <catValu>13</catValu>
+        <labl level="category">When there are no friends / When there's no one to play with</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q10_3_catgry_13" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>410</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q11" intrvl="discrete" dcml="0" ID="FSD3134_Q11_var">
+      <labl level="variable">[q11] What makes you happy? (open-ended)</labl>
+      <qstn ID="FSD3134_Q11_qstn">
+        <preQTxt/>
+        <qstnLit>What makes you happy? (open-ended)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+    </var>
+    <var files="FSD3134_file_1" name="Q11_1" intrvl="discrete" dcml="0" ID="FSD3134_Q11_1_var">
+      <labl level="variable">[q11_1] What makes you happy? 1st mention (categorised)</labl>
+      <qstn ID="FSD3134_Q11_1_qstn">
+        <preQTxt/>
+        <qstnLit>What makes you happy? 1st mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">13</sumStat>
+      <sumStat type="mean">6.71</sumStat>
+      <sumStat type="stdev">3.521</sumStat>
+      <catgry ID="FSD3134_Q11_1_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Food/sweets</labl>
+        <catStat>34</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_1_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Someone says/does something nice</labl>
+        <catStat>19</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_1_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Laughing/tickling</labl>
+        <catStat>28</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_1_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Friends</labl>
+        <catStat>69</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_1_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Playing games / Playing</labl>
+        <catStat>43</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_1_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Being with family</labl>
+        <catStat>16</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_1_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">A pet</labl>
+        <catStat>5</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_1_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Going somewhere</labl>
+        <catStat>24</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_1_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Parties/surprises / Getting something</labl>
+        <catStat>76</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_1_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Physical activity</labl>
+        <catStat>25</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_1_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>29</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_1_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>43</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_1_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">Is not bothered / Can play in peace</labl>
+        <catStat>3</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q11_2" intrvl="discrete" dcml="0" ID="FSD3134_Q11_2_var">
+      <labl level="variable">[q11_2] What makes you happy? 2nd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q11_2_qstn">
+        <preQTxt/>
+        <qstnLit>What makes you happy? 2nd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">131</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">13</sumStat>
+      <sumStat type="mean">6.34</sumStat>
+      <sumStat type="stdev">2.624</sumStat>
+      <catgry ID="FSD3134_Q11_2_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Food/sweets</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Someone says/does something nice</labl>
+        <catStat>9</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Laughing/tickling</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Friends</labl>
+        <catStat>11</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Playing games / Playing</labl>
+        <catStat>35</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Being with family</labl>
+        <catStat>11</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">A pet</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Going somewhere</labl>
+        <catStat>28</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Parties/surprises / Getting something</labl>
+        <catStat>14</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Physical activity</labl>
+        <catStat>6</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>7</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">Is not bothered / Can play in peace</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_2_catgry_14" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>283</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q11_3" intrvl="discrete" dcml="0" ID="FSD3134_Q11_3_var">
+      <labl level="variable">[q11_3] What makes you happy? 3rd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q11_3_qstn">
+        <preQTxt/>
+        <qstnLit>What makes you happy? 3rd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">42</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">13</sumStat>
+      <sumStat type="mean">6.48</sumStat>
+      <sumStat type="stdev">3.014</sumStat>
+      <catgry ID="FSD3134_Q11_3_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Food/sweets</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Someone says/does something nice</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Laughing/tickling</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Friends</labl>
+        <catStat>5</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Playing games / Playing</labl>
+        <catStat>5</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Being with family</labl>
+        <catStat>7</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">A pet</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Going somewhere</labl>
+        <catStat>8</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Parties/surprises / Getting something</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Physical activity</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">Is not bothered / Can play in peace</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_3_catgry_14" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>372</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q11_4" intrvl="discrete" dcml="0" ID="FSD3134_Q11_4_var">
+      <labl level="variable">[q11_4] What makes you happy? 4th mention (categorised)</labl>
+      <qstn ID="FSD3134_Q11_4_qstn">
+        <preQTxt/>
+        <qstnLit>What makes you happy? 4th mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">13</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">10</sumStat>
+      <sumStat type="mean">5.54</sumStat>
+      <sumStat type="stdev">2.634</sumStat>
+      <catgry ID="FSD3134_Q11_4_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Food/sweets</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Someone says/does something nice</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Laughing/tickling</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Friends</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Playing games / Playing</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Being with family</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">A pet</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Going somewhere</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Parties/surprises / Getting something</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Physical activity</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">Is not bothered / Can play in peace</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_4_catgry_14" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>401</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q11_5" intrvl="discrete" dcml="0" ID="FSD3134_Q11_5_var">
+      <labl level="variable">[q11_5] What makes you happy? 5th mention (categorised)</labl>
+      <qstn ID="FSD3134_Q11_5_qstn">
+        <preQTxt/>
+        <qstnLit>What makes you happy? 5th mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">3</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">13</sumStat>
+      <sumStat type="mean">8.33</sumStat>
+      <sumStat type="stdev">6.429</sumStat>
+      <catgry ID="FSD3134_Q11_5_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Food/sweets</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Someone says/does something nice</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Laughing/tickling</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Friends</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Playing games / Playing</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Being with family</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">A pet</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Going somewhere</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Parties/surprises / Getting something</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Physical activity</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">Is not bothered / Can play in peace</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_5_catgry_14" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>411</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q11_6" intrvl="discrete" dcml="0" ID="FSD3134_Q11_6_var">
+      <labl level="variable">[q11_6] What makes you happy? 6th mention (categorised)</labl>
+      <qstn ID="FSD3134_Q11_6_qstn">
+        <preQTxt/>
+        <qstnLit>What makes you happy? 6th mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="13" min="1"/>
+      </valrng>
+      <sumStat type="vald">3</sumStat>
+      <sumStat type="min">5</sumStat>
+      <sumStat type="max">10</sumStat>
+      <sumStat type="mean">7.67</sumStat>
+      <sumStat type="stdev">2.517</sumStat>
+      <catgry ID="FSD3134_Q11_6_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Food/sweets</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Someone says/does something nice</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Laughing/tickling</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Friends</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Playing games / Playing</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Being with family</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">A pet</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Going somewhere</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Parties/surprises / Getting something</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Physical activity</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">Is not bothered / Can play in peace</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_6_catgry_14" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>411</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q11_7" intrvl="discrete" dcml="0" ID="FSD3134_Q11_7_var">
+      <labl level="variable">[q11_7] What makes you happy? 7th mention (categorised)</labl>
+      <qstn ID="FSD3134_Q11_7_qstn">
+        <preQTxt/>
+        <qstnLit>What makes you happy? 7th mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="6" min="1"/>
+      </valrng>
+      <sumStat type="vald">2</sumStat>
+      <sumStat type="min">3</sumStat>
+      <sumStat type="max">6</sumStat>
+      <sumStat type="mean">4.50</sumStat>
+      <sumStat type="stdev">2.121</sumStat>
+      <catgry ID="FSD3134_Q11_7_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Food/sweets</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Someone says/does something nice</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Laughing/tickling</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Friends</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Playing games / Playing</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Being with family</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">A pet</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Going somewhere</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Parties/surprises / Getting something</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Physical activity</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Other</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_12">
+        <catValu>12</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_13">
+        <catValu>13</catValu>
+        <labl level="category">Is not bothered / Can play in peace</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q11_7_catgry_14" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>412</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q12" intrvl="discrete" dcml="0" ID="FSD3134_Q12_var">
+      <labl level="variable">[q12] What makes you sad? (open-ended)</labl>
+      <qstn ID="FSD3134_Q12_qstn">
+        <preQTxt/>
+        <qstnLit>What makes you sad? (open-ended)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+    </var>
+    <var files="FSD3134_file_1" name="Q12_1" intrvl="discrete" dcml="0" ID="FSD3134_Q12_1_var">
+      <labl level="variable">[q12_1] What makes you sad? 1st mention (categorised)</labl>
+      <qstn ID="FSD3134_Q12_1_qstn">
+        <preQTxt/>
+        <qstnLit>What makes you sad? 1st mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="11" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">11</sumStat>
+      <sumStat type="mean">6.31</sumStat>
+      <sumStat type="stdev">3.315</sumStat>
+      <catgry ID="FSD3134_Q12_1_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">There is no one to play with / Being excluded from play</labl>
+        <catStat>38</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_1_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Not getting what you want / Not getting to go where you want</labl>
+        <catStat>34</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_1_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">An item breaks or goes missing</labl>
+        <catStat>6</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_1_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">There is a fight in the family</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_1_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Someone bullies/hurts</labl>
+        <catStat>138</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_1_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Being sick / Someone gets hurt</labl>
+        <catStat>36</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_1_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Being apart from family / Missing family</labl>
+        <catStat>10</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_1_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Parents don't listen/play</labl>
+        <catStat>6</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_1_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Nothing</labl>
+        <catStat>25</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_1_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Other</labl>
+        <catStat>20</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_1_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>91</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q12_2" intrvl="discrete" dcml="0" ID="FSD3134_Q12_2_var">
+      <labl level="variable">[q12_2] What makes you sad? 2nd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q12_2_qstn">
+        <preQTxt/>
+        <qstnLit>What makes you sad? 2nd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="11" min="1"/>
+      </valrng>
+      <sumStat type="vald">38</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">10</sumStat>
+      <sumStat type="mean">4.89</sumStat>
+      <sumStat type="stdev">2.425</sumStat>
+      <catgry ID="FSD3134_Q12_2_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">There is no one to play with / Being excluded from play</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_2_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Not getting what you want / Not getting to go where you want</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_2_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">An item breaks or goes missing</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_2_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">There is a fight in the family</labl>
+        <catStat>6</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_2_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Someone bullies/hurts</labl>
+        <catStat>8</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_2_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Being sick / Someone gets hurt</labl>
+        <catStat>8</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_2_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Being apart from family / Missing family</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_2_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Parents don't listen/play</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_2_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Nothing</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_2_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Other</labl>
+        <catStat>4</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_2_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_2_catgry_12" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>376</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q12_3" intrvl="discrete" dcml="0" ID="FSD3134_Q12_3_var">
+      <labl level="variable">[q12_3] What makes you sad? 3rd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q12_3_qstn">
+        <preQTxt/>
+        <qstnLit>What makes you sad? 3rd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="11" min="1"/>
+      </valrng>
+      <sumStat type="vald">6</sumStat>
+      <sumStat type="min">3</sumStat>
+      <sumStat type="max">10</sumStat>
+      <sumStat type="mean">7.33</sumStat>
+      <sumStat type="stdev">3.204</sumStat>
+      <catgry ID="FSD3134_Q12_3_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">There is no one to play with / Being excluded from play</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_3_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Not getting what you want / Not getting to go where you want</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_3_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">An item breaks or goes missing</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_3_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">There is a fight in the family</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_3_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Someone bullies/hurts</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_3_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Being sick / Someone gets hurt</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_3_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Being apart from family / Missing family</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_3_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Parents don't listen/play</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_3_catgry_9">
+        <catValu>9</catValu>
+        <labl level="category">Nothing</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_3_catgry_10">
+        <catValu>10</catValu>
+        <labl level="category">Other</labl>
+        <catStat>3</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_3_catgry_11">
+        <catValu>11</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q12_3_catgry_12" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>408</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q13" intrvl="discrete" dcml="0" ID="FSD3134_Q13_var">
+      <labl level="variable">[q13] If you had to tell a foreigner something about Finland, what would you tell? (open-ended)</labl>
+      <qstn ID="FSD3134_Q13_qstn">
+        <preQTxt/>
+        <qstnLit>If you had to tell a foreigner something about Finland, what would you tell? (open-ended)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+    </var>
+    <var files="FSD3134_file_1" name="Q13_1" intrvl="discrete" dcml="0" ID="FSD3134_Q13_1_var">
+      <labl level="variable">[q13_1] If you had to tell a foreigner something about Finland, what would you tell? 1st mention (categorised)</labl>
+      <qstn ID="FSD3134_Q13_1_qstn">
+        <preQTxt/>
+        <qstnLit>If you had to tell a foreigner something about Finland, what would you tell? 1st mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="8" min="1"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">8</sumStat>
+      <sumStat type="mean">4.83</sumStat>
+      <sumStat type="stdev">1.994</sumStat>
+      <catgry ID="FSD3134_Q13_1_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Describing what Finland is like / things in Finland</labl>
+        <catStat>56</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_1_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Would tell about him/herself</labl>
+        <catStat>26</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_1_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Would teach Finnish words</labl>
+        <catStat>8</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_1_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Finland is a good/nice country</labl>
+        <catStat>53</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_1_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Other</labl>
+        <catStat>23</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_1_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>211</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_1_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Would say hi / Would ask something</labl>
+        <catStat>21</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_1_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Would need to know a foreign language / Can't speak the language</labl>
+        <catStat>16</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q13_2" intrvl="discrete" dcml="0" ID="FSD3134_Q13_2_var">
+      <labl level="variable">[q13_2] If you had to tell a foreigner something about Finland, what would you tell? 2nd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q13_2_qstn">
+        <preQTxt/>
+        <qstnLit>If you had to tell a foreigner something about Finland, what would you tell? 2nd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="8" min="1"/>
+      </valrng>
+      <sumStat type="vald">39</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">8</sumStat>
+      <sumStat type="mean">3.31</sumStat>
+      <sumStat type="stdev">2.754</sumStat>
+      <catgry ID="FSD3134_Q13_2_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Describing what Finland is like / things in Finland</labl>
+        <catStat>19</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_2_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Would tell about him/herself</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_2_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Would teach Finnish words</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_2_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Finland is a good/nice country</labl>
+        <catStat>5</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_2_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Other</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_2_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_2_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Would say hi / Would ask something</labl>
+        <catStat>5</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_2_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Would need to know a foreign language / Can't speak the language</labl>
+        <catStat>5</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_2_catgry_9" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>375</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="Q13_3" intrvl="discrete" dcml="0" ID="FSD3134_Q13_3_var">
+      <labl level="variable">[q13_3] If you had to tell a foreigner something about Finland, what would you tell? 3rd mention (categorised)</labl>
+      <qstn ID="FSD3134_Q13_3_qstn">
+        <preQTxt/>
+        <qstnLit>If you had to tell a foreigner something about Finland, what would you tell? 3rd mention (categorised)</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="8" min="1"/>
+      </valrng>
+      <sumStat type="vald">4</sumStat>
+      <sumStat type="min">1</sumStat>
+      <sumStat type="max">8</sumStat>
+      <sumStat type="mean">6.00</sumStat>
+      <sumStat type="stdev">3.367</sumStat>
+      <catgry ID="FSD3134_Q13_3_catgry_1">
+        <catValu>1</catValu>
+        <labl level="category">Describing what Finland is like / things in Finland</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_3_catgry_2">
+        <catValu>2</catValu>
+        <labl level="category">Would tell about him/herself</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_3_catgry_3">
+        <catValu>3</catValu>
+        <labl level="category">Would teach Finnish words</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_3_catgry_4">
+        <catValu>4</catValu>
+        <labl level="category">Finland is a good/nice country</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_3_catgry_5">
+        <catValu>5</catValu>
+        <labl level="category">Other</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_3_catgry_6">
+        <catValu>6</catValu>
+        <labl level="category">Can't say</labl>
+        <catStat>0</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_3_catgry_7">
+        <catValu>7</catValu>
+        <labl level="category">Would say hi / Would ask something</labl>
+        <catStat>1</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_3_catgry_8">
+        <catValu>8</catValu>
+        <labl level="category">Would need to know a foreign language / Can't speak the language</labl>
+        <catStat>2</catStat>
+      </catgry>
+      <catgry ID="FSD3134_Q13_3_catgry_9" missing="Y">
+        <catValu>SYSMISS</catValu>
+        <labl level="category"/>
+        <catStat>410</catStat>
+      </catgry>
+    </var>
+    <var files="FSD3134_file_1" name="PAINO" intrvl="contin" dcml="2" ID="FSD3134_PAINO_var">
+      <labl level="variable">[paino] Weighting coefficient</labl>
+      <qstn ID="FSD3134_PAINO_qstn">
+        <preQTxt/>
+        <qstnLit>Weighting coefficient</qstnLit>
+        <postQTxt/>
+        <ivuInstr/>
+      </qstn>
+      <valrng>
+        <range max="157" min="142"/>
+      </valrng>
+      <sumStat type="vald">414</sumStat>
+      <sumStat type="min">142</sumStat>
+      <sumStat type="max">157</sumStat>
+      <sumStat type="mean">147.21</sumStat>
+      <sumStat type="stdev">4.470</sumStat>
+    </var>
+  </dataDscr>
+  
+</codeBook>
