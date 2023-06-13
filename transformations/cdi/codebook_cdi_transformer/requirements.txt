@@ -1,0 +1,9 @@
+# Direct dependencies
+ConfigArgParse==1.5.3
+lxml==4.9.1
+prettierfier==1.0.3
+py12flogging==0.5.0
+PyYAML==6.0
+
+# Indirect dependencies
+
