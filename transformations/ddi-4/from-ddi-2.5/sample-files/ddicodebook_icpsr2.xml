@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codeBook version="2.5" xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <docDscr>
+            <citation>
+                <titlStmt>
+                    <titl>Employment Projections (EP)</titl>
+                    <IDNo>39137</IDNo>
+                <syear>2024</syear><slang>English</slang></titlStmt>
+                <prodStmt>
+                    <producer abbr="ICPSR">
+                        <ExtLink URI="http://www.icpsr.umich.edu/images/icpsr-logo.gif" role="image" title="ICPSR Logo"/>
+                        Inter-university Consortium for Political and Social Research
+                        <ExtLink URI="http://www.icpsr.umich.edu/" title="URL of ICPSR Web Site"/>
+                    </producer>
+                </prodStmt>
+                <verStmt>
+                    <version date="2024-06-03"/>
+                </verStmt>
+                <holdings URI="http://www.icpsr.umich.edu/xmldocs/STUDY/39137.xml"/>
+            </citation>
+        </docDscr>
+        <stdyDscr>
+            <citation>
+                <titlStmt>
+                    <titl>Employment Projections (EP)</titl>
+                    <IDNo agency="ICPSR">39137</IDNo>
+                </titlStmt>
+                <rspStmt>
+                    <AuthEnty affiliation="U.S. Bureau of Labor Statistics">U.S. Bureau of Labor Statistics</AuthEnty>
+                </rspStmt>
+                <prodStmt>
+                    <prodDate>Please see full citation.</prodDate>
+                </prodStmt>
+                <distStmt>
+                    <distrbtr URI="http://www.icpsr.umich.edu" abbr="ICPSR" affiliation="Institute for Social Research, University of Michigan">
+                        <ExtLink URI="http://www.icpsr.umich.edu/images/icpsr-logo.gif" title="Logo"/>
+                        Inter-university Consortium for Political and Social Research
+                        <ExtLink URI="http://www.icpsr.umich.edu/" title="URL"/>
+                    </distrbtr>
+                    <distDate date="2024-05-29">2024-05-29</distDate>
+                </distStmt>
+                <verStmt>
+                    <version date="2024-05-29">2024-05-29</version>
+                </verStmt>
+            </citation>
+            <stdyInfo>
+                    <subject>
+                        <keyword vocab="thesaurus">artist employment</keyword>
+                        <keyword vocab="thesaurus">artists</keyword>
+                        <keyword vocab="thesaurus">employment</keyword>
+                        <keyword vocab="thesaurus">income</keyword>
+                        <keyword vocab="thesaurus">job expectations</keyword>
+                        <keyword vocab="thesaurus">labor (work)</keyword>
+                        <keyword vocab="thesaurus">population characteristics</keyword>
+                        <keyword vocab="thesaurus">unemployment</keyword>
+                        <topcClas source="archive" vocab="ICPSR subject classifications">ICPSR XIX. External Data Resources</topcClas>
+                        <topcClas source="archive" vocab="NADAC subject classifications">NADAC I. National Archive of Data on Arts and Culture</topcClas>
+                    </subject>
+                    <abstract><p dir="ltr">The Employment Projections (EP) program offers insights into the labor market of the United States, projecting trends for the next decade across approximately 300 detailed industries and 800 occupations. The Bureau of Labor Statistics develops the National Employment Matrix as part of its ongoing Employment Projections program.</p>
+<p>
+Occupational classifications of the National Employment Matrix are based on the structure used by the Occupational Employment Statistics (OEWS) program, which is using the 2018 Standard Occupational Classification (SOC) system. Self-employed worker data are sourced from the <ExtLink URI="https://www.bls.gov/cps/">Current Population Survey</ExtLink> (CPS) and are distributed to relevant occupations through a <ExtLink URI="https://www.bls.gov/emp/documentation/crosswalks.htm">crosswalk</ExtLink> mechanism. The industrial structure relies on the <ExtLink URI="https://www.census.gov/naics/">2017 North American Industry Classification System</ExtLink> (NAICS), treating self-employment as a separate industry for analytical purposes. Arts-related occupations encompass various sectors, including motion picture and sound recording industries, broadcasting, performing arts, museums, amusement, publishing, education, design, media, and related fields. This comprehensive overview aids in understanding employment dynamics and trends within the arts and cultural sectors.</p></abstract>
+                    <sumDscr>
+                        <nation>Please see geographic coverage.</nation>
+                    </sumDscr>
+            </stdyInfo>
+            <method>
+                <dataColl>
+                </dataColl>
+            </method>
+            <dataAccs>
+                <setAvail media="online">
+                    <accsPlac URI="https://www.bls.gov/emp/">Employment Projections (EP)</accsPlac>
+                    <notes>Electronic documentation.</notes>
+                </setAvail>
+                <useStmt>
+                    <specPerm>Additional special permissions, where applicable, are described in the restrictions field.</specPerm>
+
+		<conditions>
+		    
+		    
+		    
+		    <p>AVAILABLE.  This study is freely available to the general public.</p>
+		</conditions>
+
+		<disclaimer>The original collector of the data, ICPSR,
+		and the relevant funding agency bear no responsibility
+		for use of the data or for interpretations or inferences
+		based upon such uses.  </disclaimer>
+                    </useStmt>
+            </dataAccs>
+        </stdyDscr>
+    </codeBook>

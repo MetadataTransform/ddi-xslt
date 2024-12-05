@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codeBook version="2.5" xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <docDscr>
+            <citation>
+                <titlStmt>
+                    <titl>Evaluation of the Second Round of Health Profession Opportunity Grants (HPOG 2.0), United States, 2015-2025</titl>
+                    <IDNo>38427</IDNo>
+                <syear>2025</syear><slang>English</slang></titlStmt>
+                <prodStmt>
+                    <producer abbr="ICPSR">
+                        <ExtLink URI="http://www.icpsr.umich.edu/images/icpsr-logo.gif" role="image" title="ICPSR Logo"/>
+                        Inter-university Consortium for Political and Social Research
+                        <ExtLink URI="http://www.icpsr.umich.edu/" title="URL of ICPSR Web Site"/>
+                    </producer>
+                </prodStmt>
+                <verStmt>
+                    <version date="2024-11-04"/>
+                </verStmt>
+                <holdings URI="http://www.icpsr.umich.edu/xmldocs/STUDY/38427.xml"/>
+            </citation>
+        </docDscr>
+        <stdyDscr>
+            <citation>
+                <titlStmt>
+                    <titl>Evaluation of the Second Round of Health Profession Opportunity Grants (HPOG 2.0), United States, 2015-2025</titl>
+                    <altTitl>HPOG 2.0</altTitl>
+                    <IDNo agency="ICPSR">38427</IDNo>
+                </titlStmt>
+                <rspStmt>
+                    <AuthEnty affiliation="Abt Associates">Judkins, David</AuthEnty>
+                    <AuthEnty affiliation="Abt Associates">Klerman, Jacob Alex</AuthEnty>
+                </rspStmt>
+                <prodStmt>
+                    <copyright>
+                        Some instruments administered as part of this
+                        study may contain contents from copyrighted
+                        instruments. Reproductions of the instruments
+                        are provided solely as documentation for
+                        the analysis of the data associated with this
+                        collection. Please contact the data producers for
+                        information on permissions to use the instruments
+                        for other purposes.
+                    </copyright>
+                    <prodDate>Please see full citation.</prodDate>
+                    <fundAg>United States Department of Health and Human Services. Administration for Children and Families. Office of Planning, Research and Evaluation</fundAg>
+                </prodStmt>
+                <distStmt>
+                    <distrbtr URI="http://www.icpsr.umich.edu" abbr="ICPSR" affiliation="Institute for Social Research, University of Michigan">
+                        <ExtLink URI="http://www.icpsr.umich.edu/images/icpsr-logo.gif" title="Logo"/>
+                        Inter-university Consortium for Political and Social Research
+                        <ExtLink URI="http://www.icpsr.umich.edu/" title="URL"/>
+                    </distrbtr>
+                    <distDate date="2022-08-02">2022-08-02</distDate>
+                </distStmt>
+                <serStmt>
+                    <serName ID="Series2120">Career Pathways Research Portfolio Series</serName>
+                </serStmt>
+                <verStmt>
+                    <version date="2024-11-04">2024-11-04</version>
+                </verStmt>
+                <verStmt>
+                    <version date="2024-11-04">2024-11-04</version>
+                    <notes>Added four datasets about three-year followup survey data and analysis file for the HPOG 2.0 evaluation, DS14 to DS17.</notes>
+                </verStmt>
+                <verStmt>
+                    <version date="2024-01-22">2024-01-22</version>
+                    <notes>Added two datasets, DS12 and DS13.</notes>
+                </verStmt>
+                <verStmt>
+                    <version date="2022-12-08">2022-12-08</version>
+                    <notes>Added six datasets, DS6 to DS11.</notes>
+                </verStmt>
+                <biblCit>Judkins, David, and Jacob Alex Klerman. Evaluation of the Second Round of Health Profession Opportunity Grants (HPOG 2.0), United States, 2015-2025. ICPSR38427-v4. Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributor], 2024-11-04. http://doi.org/10.3886/ICPSR38427.v4</biblCit>
+            </citation>
+            <stdyInfo>
+                    <subject>
+                        <keyword vocab="thesaurus">adult education</keyword>
+                        <keyword vocab="thesaurus">career planning</keyword>
+                        <keyword vocab="thesaurus">certification</keyword>
+                        <keyword vocab="thesaurus">credentials</keyword>
+                        <keyword vocab="thesaurus">educational opportunities</keyword>
+                        <keyword vocab="thesaurus">health care delivery</keyword>
+                        <keyword vocab="thesaurus">health professions</keyword>
+                        <keyword vocab="thesaurus">job training</keyword>
+                        <keyword vocab="thesaurus">vocational education</keyword>
+                        <topcClas source="archive" vocab="CFDA subject classifications">CFDA I. Child and Family Data Archive</topcClas>
+                        <topcClas source="archive" vocab="CFDA subject classifications">CFDA II.P. Economic Assistance and Subsidies</topcClas>
+                        <topcClas source="archive" vocab="ICPSR subject classifications">ICPSR IX. Health Care and Health Facilities</topcClas>
+                        <topcClas source="archive" vocab="ICPSR subject classifications">ICPSR V.A. Education, United States</topcClas>
+                    </subject>
+                    <abstract><p>The Health Profession Opportunity Grants (HPOG), administered by the Administration for Children and Families, U.S. Department of Health and Human Services, was created to provide education and training to Temporary Assistance for Needy Families (TANF) recipients and other low-income individuals for occupations in the healthcare field that pay well and were expected to either experience labor shortages or be in high demand. Following on a first round of HPOG awards in 2010 ("HPOG 1.0"), a second round of 32 five-year grants across 21 states were funded in 2015 ("HPOG 2.0"). After an additional one-year extension, the HPOG 2.0 grants concluded in 2021.</p>
+<p>Local HPOG programs were expected to target skills and competencies demanded by the healthcare industry; support career pathways; result in an employer- or industry-recognized certificate or degree; combine supportive services with education and training services to help participants overcome barriers to employment; and provide services at times and locations that are easily accessible to targeted populations.</p>
+<p>HPOG was authorized as a demonstration program with a mandated federal evaluation. The Office of Planning, Research, and Evaluation (OPRE) is utilizing a multi-pronged evaluation strategy to document the operations and assess the success of the HPOG program. The evaluation strategy for HPOG 2.0 includes several key components:</p>
+<list type="bulleted">
+<itm>The <hi>impact evaluation</hi> randomly assigns eligible participants to either a treatment group that has access to HPOG services or a control group that does not have access to HPOG but can receive other services available in the community ("business as usual") to assess the impacts of the HPOG programs. Data from the short-term impact evaluation are DS1-DS5.</itm>
+<itm>The participant and program data includes baseline intake and services data, including data captured in the HPOG 2.0 Participant Accomplishment and Grant Evaluation System (PAGES), a participant tracking and program management system that included data on participant characteristics, engagement in activities and services, and training and employment outcomes. PAGES also included the activities and supports that grantees offered. HPOG 2.0 grantee staff entered data in PAGES. Data from baseline and PAGES are DS6-DS11.</itm>
+<itm>The <hi>descriptive evaluation</hi> includes implementation, outcomes, and local service delivery systems studies of the grants and will help interpret findings from the impact study. The descriptive study also includes in-depth qualitative interviews with a small sample of HPOG study participants. Data from the in-depth interviews are available in <ExtLink URI="https://doi.org/10.3886/ICPSR38561">ICPSR 38561</ExtLink>.</itm>
+<itm>The <hi>cost benefit analyses</hi> will assess the costs and benefits of a standard HPOG program. Data from this component are forthcoming.</itm>
+</list>
+<p>For more information, users are encouraged to see the <ExtLink URI="https://www.acf.hhs.gov/opre/project/national-evaluation-2nd-generation-health-profession-opportunity-grants-hpog-20">National Evaluation of the 2nd Generation of Health Profession Opportunity Grants (HPOG 2.0 National Evaluation)</ExtLink> on the OPRE website.</p></abstract>
+                    <abstract><p>The purpose of this study was to provide education and training to
+Temporary Assistance for Needy Families (TANF) recipients and other low-income individuals for occupations in the
+healthcare field that pay well and were expected to either experience labor shortages or be in high demand.</p>
+<p>The Health Profession Opportunity Grants (HPOG) study's key evaluation questions included:</p>
+<list type="ordered">
+<itm>What impacts do HPOG programs as a group have on outcomes of participants and their families?</itm>
+<itm>To what extent do these impacts vary across selected subpopulations?</itm>
+<itm>Which locally adopted program components influence average impacts?</itm>
+<itm>To what extent does participation in a particular HPOG component(s) change the impact?</itm>
+<itm>To what extent do specific program enhancements have impacts, relative to the "standard" HPOG program?</itm>
+</list></abstract>
+                    <sumDscr>
+                        <timePrd cycle="P1" date="2015" event="start"> </timePrd>
+                        <timePrd cycle="P1" date="2025" event="end"> </timePrd>
+                        <nation>Please see geographic coverage.</nation>
+                        <geogCover>United States</geogCover>
+                        <anlyUnit>Individual</anlyUnit>
+                        <universe>Low-income adults in the United States.</universe>
+                        <dataKind>administrative records data</dataKind>
+                        <dataKind>aggregate data</dataKind>
+                        <dataKind>survey data</dataKind>
+                    </sumDscr>
+            </stdyInfo>
+            <method>
+                <dataColl>
+                    <collMode>computer-assisted personal interview (CAPI)</collMode>
+                    <collMode>computer-assisted self interview (CASI)</collMode>
+                    <collMode>face-to-face interview</collMode>
+                    <collMode>mixed mode</collMode>
+                    <collMode>telephone interview</collMode>
+                    <cleanOps>Created variable labels and/or value labels.</cleanOps>
+                </dataColl>
+                <notes>For additional information on HPOG 2.0, please visit the HPOG Study <ExtLink URI="https://www.acf.hhs.gov/opre/project/health-profession-opportunity-grants-hpog-impact-study-2011-2018">website</ExtLink>.</notes>
+            </method>
+            <dataAccs>
+                <setAvail media="online">
+                    <accsPlac URI="http://www.icpsr.umich.edu">Ann Arbor, Mi.:  Inter-university Consortium for Political and Social Research</accsPlac>
+                    <notes>Stata system file(s), rda Data file(s), sav Data file(s), stc Data file(s), tsv Data file(s), Data file(s), and electronic documentation.</notes>
+                </setAvail>
+                <useStmt>
+                    <specPerm>Additional special permissions, where applicable, are described in the restrictions field.</specPerm>
+                    <restrctn>Access to these data is restricted. Users interested in obtaining these data must complete a Restricted Data Use Agreement, specify the reason for the request, and obtain IRB approval or notice of exemption for their research.</restrctn>
+
+		<conditions>
+		    
+		    &lt;p&gt;Please read the terms of use below. If you agree to them, click on the "I Agree" button to proceed. If you do not agree, you can click on the "I Do Not Agree" button to return to the home page.&lt;/p&gt; &lt;p&gt;ICPSR adheres to the principles of the &lt;a href="https://www.coretrustseal.org/"&gt;CoreTrustSeal&lt;/a&gt; Core Trustworthy Data Repositories Requirements, which, in part, require the data consumer to comply with access regulations and applicable licenses imposed both by law and by the data repository, and to conform to codes of conduct that are generally accepted in higher education and scientific research for the exchange and proper use of knowledge and information. &lt;/p&gt; &lt;p&gt;These data are distributed under the following terms of use, which are governed by ICPSR. By continuing past this point to the data retrieval process, you signify your agreement to comply with the requirements stated below:&lt;/p&gt; &lt;h2&gt;Privacy of RESEARCH SUBJECTS&lt;/h2&gt; &lt;p&gt;Any intentional identification of a RESEARCH SUBJECT (whether an individual or an organization) or unauthorized disclosure of his or her confidential information violates the PROMISE OF CONFIDENTIALITY given to the providers of the information. Therefore, users of data agree:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;p&gt;To use these datasets solely for research or statistical purposes and not for investigation of specific RESEARCH SUBJECTS, except when identification is authorized in writing by ICPSR (&lt;a href="mailto:icpsr-help@umich.edu"&gt;icpsr-help@umich.edu&lt;/a&gt; )&lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;To make no use of the identity of any RESEARCH SUBJECT discovered inadvertently, and to advise ICPSR of any such discovery (&lt;a href="mailto:icpsr-help@umich.edu"&gt;icpsr-help@umich.edu&lt;/a&gt; )&lt;/p&gt;&lt;/li&gt; &lt;/ul&gt; &lt;h2&gt;Redistribution of Data&lt;/h2&gt; &lt;p&gt;You agree not to redistribute data or other materials without the written agreement of ICPSR, unless: &lt;/p&gt; &lt;ol&gt; &lt;li&gt;&lt;p&gt;You serve as the OFFICIAL or DESIGNATED REPRESENTATIVE at an ICPSR MEMBER INSTITUTION and are assisting AUTHORIZED USERS with obtaining data, or&lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;You are collaborating with other AUTHORIZED USERS to analyze the data for research or instructional purposes.&lt;/p&gt;&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;When sharing data or other materials in these approved ways, you must include all accompanying files with the data, including terms of use. More information on &lt;a href="http://www.icpsr.umich.edu/icpsrweb/content/datamanagement/policies/redistribute.html"&gt; permission to redistribute data&lt;/a&gt; can be found on the ICPSR Web site.&lt;/p&gt;
+
+
+&lt;h2&gt;Citing Data&lt;/h2&gt; &lt;p&gt;You agree to reference the recommended bibliographic citation in any publication that employs resources provided by ICPSR. Authors of publications based on ICPSR data are required to send citations of their published works to ICPSR for inclusion in a database of related publications (&lt;a href="mailto:bibliography@icpsr.umich.edu"&gt;bibliography@icpsr.umich.edu&lt;/a&gt;) .&lt;/p&gt; &lt;h2&gt;Disclaimer&lt;/h2&gt; &lt;p&gt;You acknowledge that the original collector of the data, ICPSR, and the relevant funding agency bear no responsibility for use of the data or for interpretations or inferences based upon such uses.&lt;/p&gt; &lt;h2&gt;Violations&lt;/h2&gt; &lt;p&gt;If ICPSR determines that the terms of this agreement have been violated, ICPSR will act according to our &lt;a href="http://www.icpsr.umich.edu/icpsrweb/content/about/tou-violations.html"&gt;policy on terms of use violations&lt;/a&gt;. Sanctions can include:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;p&gt;ICPSR may revoke the existing agreement, demand the return of the data in question, and deny all future access to ICPSR data.&lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;The violation may be reported to the Research Integrity Officer, Institutional Review Board, or Human Subjects Review Committee of the user's institution. A range of sanctions are available to institutions including revocation of tenure and termination.&lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;If the confidentiality of human subjects has been violated, the case may be reported to the Federal Office for Human Research Protections. This may result in an investigation of the user's institution, which can result in institution-wide sanctions including the suspension of all research grants. &lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;p&gt;A court may award the payment of damages to any individual(s)/organization(s) harmed by the breach of the agreement.&lt;/p&gt;&lt;/li&gt; &lt;/ul&gt; &lt;h2&gt;Definitions&lt;/h2&gt; &lt;dl&gt; &lt;dt&gt;authorized user&lt;/dt&gt; &lt;dd&gt;A faculty member, staff member, or student at a member institution&lt;/dd&gt; &lt;dt&gt;ICPSR&lt;/dt&gt; &lt;dd&gt;Inter-university Consortium for Political and Social Research&lt;/dd&gt; &lt;dt&gt;member institution&lt;/dt&gt; &lt;dd&gt;An institutional member of ICPSR&lt;/dd&gt; &lt;dt&gt;Official/Designated Representative&lt;/dt&gt; &lt;dd&gt;An individual appointed to represent a university's interests in ICPSR. This individual is also charged with providing user support to campus users. &lt;/dd&gt; &lt;dt&gt;promise of confidentiality&lt;/dt&gt; &lt;dd&gt;A promise to a respondent or research participant that the information the respondent provides will not be disseminated without the permission of the respondent; that the fact that the respondent participated in the study will not be disclosed; and that disseminated information will include no linkages to the identity of the respondent. Such a promise encompasses traditional notions of both confidentiality and anonymity. Names and other identifying information regarding respondents, proxies, or other persons on whom the respondent or proxy provides information, are presumed to be confidential.&lt;/dd&gt; &lt;dt&gt;research subject&lt;/dt&gt; &lt;dd&gt;A person or organization observed for purposes of research. Also called a respondent. A respondent is generally a survey respondent or informant, experimental or observational subject, focus group participant, or any other person providing information to a study or on whose behalf a proxy provides information. &lt;/dd&gt; &lt;/dl&gt;
+		    
+		    <p>AVAILABLE.  This study is freely available to ICPSR member institutions.</p>
+		</conditions>
+
+		<disclaimer>The original collector of the data, ICPSR,
+		and the relevant funding agency bear no responsibility
+		for use of the data or for interpretations or inferences
+		based upon such uses.  </disclaimer>
+                    </useStmt>
+            </dataAccs>
+        </stdyDscr>
+        <fileDscr ID="F1">
+            <fileTxt ID="Part1">
+                <fileName>Main Formatted Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>33313</notes>
+        </fileDscr>
+        <fileDscr ID="F2">
+            <fileTxt ID="Part2">
+                <fileName>Analysis File Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>103751</notes>
+        </fileDscr>
+        <fileDscr ID="F3">
+            <fileTxt ID="Part3">
+                <fileName>Job Spells Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>8176</notes>
+        </fileDscr>
+        <fileDscr ID="F4">
+            <fileTxt ID="Part4">
+                <fileName>School Spells Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>17335</notes>
+        </fileDscr>
+        <fileDscr ID="F5">
+            <fileTxt ID="Part5">
+                <fileName>Scaffold Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>27742</notes>
+        </fileDscr>
+        <fileDscr ID="F6">
+            <fileTxt ID="Part6">
+                <fileName>Grantee Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>10571</notes>
+        </fileDscr>
+        <fileDscr ID="F7">
+            <fileTxt ID="Part7">
+                <fileName>Eligibility Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>18782</notes>
+        </fileDscr>
+        <fileDscr ID="F8">
+            <fileTxt ID="Part8">
+                <fileName>Employment Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>21742</notes>
+        </fileDscr>
+        <fileDscr ID="F9">
+            <fileTxt ID="Part9">
+                <fileName>Supports Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>137302</notes>
+        </fileDscr>
+        <fileDscr ID="F10">
+            <fileTxt ID="Part10">
+                <fileName>Activities Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>141971</notes>
+        </fileDscr>
+        <fileDscr ID="F11">
+            <fileTxt ID="Part11">
+                <fileName>Participant Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>425327</notes>
+        </fileDscr>
+        <fileDscr ID="F12">
+            <fileTxt ID="Part12">
+                <fileName>Grantee Telephone Interview Data Round 1</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>22312</notes>
+        </fileDscr>
+        <fileDscr ID="F13">
+            <fileTxt ID="Part13">
+                <fileName>Grantee Telephone Interview Data Round 2</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>21034</notes>
+        </fileDscr>
+        <fileDscr ID="F14">
+            <fileTxt ID="Part14">
+                <fileName>Three-year Followup Survey Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>14980</notes>
+        </fileDscr>
+        <fileDscr ID="F15">
+            <fileTxt ID="Part15">
+                <fileName>Three-year Followup Analysis Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>27309</notes>
+        </fileDscr>
+        <fileDscr ID="F16">
+            <fileTxt ID="Part16">
+                <fileName>Three-year Followup Job Spells Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>2265</notes>
+        </fileDscr>
+        <fileDscr ID="F17">
+            <fileTxt ID="Part17">
+                <fileName>Three-year Followup School Spells Data</fileName>
+                <fileType>DOC</fileType>
+            </fileTxt>
+            <notes>4398</notes>
+        </fileDscr>
+    </codeBook>
