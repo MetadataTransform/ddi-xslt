@@ -42,8 +42,8 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
   xmlns:c="ddi:codebook:2_5"
   xmlns:ddi="ddi:instance:4_0"
   xmlns:meta="transformation:metadata"
-  xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd"
-<meta:metadata>
+  xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd">
+  <meta:metadata>
       <identifier>ddi-2.5-to-ddi-4</identifier>
       <title>DDI 2.5 to DDI Lifecycle 4</title>
       <description>Convert DDI Codebook (2.5) to DDI Lifecycle 4</description>
@@ -54,4 +54,3 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
     </meta:metadata>
  
     <xsl:output method="xml" indent="yes" />
-<xsl:stylesheet   
